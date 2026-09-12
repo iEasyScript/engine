@@ -1,0 +1,2167 @@
+# /// script
+# requires-python = ">=3.10"
+# dependencies = [
+#     "requests>=2,<3",
+#     "mcp>=1.2.0,<2",
+# ]
+# ///
+
+import sys
+import requests
+import argparse
+import logging
+import threading
+from dataclasses import dataclass, field
+from urllib.parse import urljoin
+
+from mcp.server.fastmcp import FastMCP
+
+DEFAULT_GHIDRA_SERVER = "http://127.0.0.1:8080/"
+HTTP_TIMEOUT = 60
+
+logger = logging.getLogger(__name__)
+
+mcp = FastMCP("ghidra-mcp")
+
+# Initialize ghidra_server_url with default value
+ghidra_server_url = DEFAULT_GHIDRA_SERVER
+
+@dataclass
+class GhidraInstance:
+    port: int
+    base_url: str
+    program_name: str = ""
+    program_path: str = ""
+    language: str = ""
+    compiler: str = ""
+    domain_file_name: str = ""
+    writable: bool = True
+    domain_file_path: str = ""
+
+
+class GhidraConnectionManager:
+    """Manages connections to multiple Ghidra instances."""
+
+    def __init__(self, base_port: int = 8080, port_range: int = 10):
+        self.base_port = base_port
+        self.port_range = port_range
+        self.instances: dict[int, GhidraInstance] = {}
+        self.active_binary: str | None = None
+        self.active_domain_name: str | None = None
+        self._lock = threading.Lock()
+
+    def discover(self) -> list[GhidraInstance]:
+        """Scan port range for live Ghidra instances."""
+        found = {}
+        for port in range(self.base_port, self.base_port + self.port_range):
+            try:
+                url = f"http://127.0.0.1:{port}/"
+                resp = requests.get(urljoin(url, "info"), timeout=2)
+                if resp.ok:
+                    info = {}
+                    for line in resp.text.strip().splitlines():
+                        if "=" in line:
+                            k, v = line.split("=", 1)
+                            info[k.strip()] = v.strip()
+                    instance = GhidraInstance(
+                        port=port,
+                        base_url=url,
+                        program_name=info.get("program_name", ""),
+                        program_path=info.get("program_path", ""),
+                        language=info.get("language", ""),
+                        compiler=info.get("compiler", ""),
+                        domain_file_name=info.get("domain_file_name", ""),
+                        writable=info.get("writable", "true").strip().lower() != "false",
+                        domain_file_path=info.get("domain_file_path", ""),
+                    )
+                    found[port] = instance
+            except (requests.ConnectionError, requests.Timeout):
+                continue
+            except Exception as e:
+                logger.debug(f"Error scanning port {port}: {e}")
+                continue
+
+        with self._lock:
+            self.instances = found
+            # Auto-select if only one instance
+            if len(found) == 1:
+                only = next(iter(found.values()))
+                if only.program_name:
+                    self.active_binary = only.program_name
+
+        return list(found.values())
+
+    def _match_name(self, instance: GhidraInstance, name: str) -> bool:
+        """Check if a name matches an instance's domain_file_name or program_name."""
+        return instance.domain_file_name == name or instance.program_name == name
+
+    def get_instance(self, binary_name: str = None) -> GhidraInstance:
+        """Get the target Ghidra instance for a request.
+
+        Args:
+            binary_name: Name to match — checked against domain_file_name first,
+                then program_name. Use the Ghidra import name for disambiguation.
+        """
+        with self._lock:
+            if not self.instances:
+                raise RuntimeError(
+                    "No Ghidra instances found. Make sure Ghidra is running with GhidraMCP plugin, "
+                    "then call discover_ghidra_instances."
+                )
+
+            if binary_name:
+                # Try exact match on domain_file_name first (most specific)
+                matches = [i for i in self.instances.values() if i.domain_file_name == binary_name]
+                # Fall back to program_name match
+                if not matches:
+                    matches = [i for i in self.instances.values() if i.program_name == binary_name]
+
+                if len(matches) == 1:
+                    return matches[0]
+                elif len(matches) == 0:
+                    available = [
+                        f"{i.domain_file_name} ({i.program_name})" if i.domain_file_name != i.program_name
+                        else i.program_name
+                        for i in self.instances.values() if i.program_name
+                    ]
+                    raise RuntimeError(
+                        f"No instance found matching '{binary_name}'. "
+                        f"Available: {', '.join(available) or 'none'}"
+                    )
+                else:
+                    details = [
+                        f"port {m.port}: {m.domain_file_name} (path: {m.domain_file_path})"
+                        for m in matches
+                    ]
+                    raise RuntimeError(
+                        f"Multiple instances found matching '{binary_name}':\n"
+                        + "\n".join(f"  - {d}" for d in details)
+                        + "\nUse the unique Ghidra import name (domain_file_name) shown by list_binaries."
+                    )
+
+            # If active binary set, use it
+            if self.active_binary:
+                active_matches = [i for i in self.instances.values()
+                                  if self._match_name(i, self.active_binary)]
+                if self.active_domain_name and len(active_matches) > 1:
+                    narrowed = [i for i in active_matches if i.domain_file_name == self.active_domain_name]
+                    if narrowed:
+                        active_matches = narrowed
+                if active_matches:
+                    return active_matches[0]
+                self.active_binary = None
+                self.active_domain_name = None
+
+            # If only one instance, use it
+            if len(self.instances) == 1:
+                return next(iter(self.instances.values()))
+
+            # Multiple instances, no selection
+            available = [
+                f"  - {i.domain_file_name} (port {i.port}, binary: {i.program_name})"
+                for i in self.instances.values()
+            ]
+            raise RuntimeError(
+                "Multiple Ghidra instances detected. Specify binary_name "
+                "or call select_binary first.\n"
+                "Available:\n" + "\n".join(available)
+            )
+
+    def set_active(self, binary_name: str) -> str:
+        """Set the active binary for subsequent tool calls.
+
+        Args:
+            binary_name: Name to select — matches domain_file_name first, then program_name.
+        """
+        with self._lock:
+            # Try domain_file_name first, then program_name
+            matches = [i for i in self.instances.values() if i.domain_file_name == binary_name]
+            if not matches:
+                matches = [i for i in self.instances.values() if i.program_name == binary_name]
+            if not matches:
+                available = [
+                    f"{i.domain_file_name} ({i.program_name})" if i.domain_file_name != i.program_name
+                    else i.program_name
+                    for i in self.instances.values() if i.program_name
+                ]
+                raise RuntimeError(
+                    f"No instance found matching '{binary_name}'. "
+                    f"Available: {', '.join(available) or 'none'}. "
+                    f"Try calling discover_ghidra_instances first."
+                )
+            if len(matches) > 1:
+                details = [
+                    f"port {m.port}: {m.domain_file_name} (path: {m.domain_file_path})"
+                    for m in matches
+                ]
+                raise RuntimeError(
+                    f"Multiple instances found matching '{binary_name}':\n"
+                    + "\n".join(f"  - {d}" for d in details)
+                    + "\nUse the unique Ghidra import name shown by list_binaries."
+                )
+            selected = matches[0]
+            self.active_binary = binary_name
+            self.active_domain_name = selected.domain_file_name
+            label = selected.domain_file_name or selected.program_name
+            return f"Active binary set to '{label}' (port {selected.port})"
+
+    def refresh_instance(self, instance: GhidraInstance):
+        """Check if an instance is still alive, remove if not."""
+        try:
+            resp = requests.get(urljoin(instance.base_url, "ping"), timeout=2)
+            if not resp.ok:
+                with self._lock:
+                    self.instances.pop(instance.port, None)
+        except Exception:
+            with self._lock:
+                self.instances.pop(instance.port, None)
+
+
+# Global connection manager, initialized in main()
+connection_manager: GhidraConnectionManager | None = None
+
+def safe_get(endpoint: str, params: dict = None, binary_name: str = None) -> list:
+    """
+    Perform a GET request with optional query parameters.
+    Routes to the correct Ghidra instance based on binary_name.
+    """
+    if params is None:
+        params = {}
+
+    if connection_manager is not None:
+        try:
+            instance = connection_manager.get_instance(binary_name)
+            base_url = instance.base_url
+        except RuntimeError as e:
+            return [str(e)]
+    else:
+        base_url = ghidra_server_url
+
+    url = urljoin(base_url, endpoint)
+
+    try:
+        response = requests.get(url, params=params, timeout=HTTP_TIMEOUT)
+        response.encoding = 'utf-8'
+        if response.ok:
+            return response.text.splitlines()
+        else:
+            return [f"Error {response.status_code}: {response.text.strip()}"]
+    except requests.ConnectionError:
+        if connection_manager is not None:
+            try:
+                inst = connection_manager.get_instance(binary_name)
+                connection_manager.refresh_instance(inst)
+            except RuntimeError:
+                pass
+        return [f"Connection failed to {url}. Instance may have disconnected."]
+    except Exception as e:
+        return [f"Request failed: {str(e)}"]
+
+def _verify_write_target(instance) -> str | None:
+    """Confirm the port still serves this instance's program AND can persist edits.
+
+    Returns an error string when the write must not proceed, or None when it is safe.
+    """
+    try:
+        resp = requests.get(urljoin(instance.base_url, "info"), timeout=HTTP_TIMEOUT)
+        resp.raise_for_status()
+        info = dict(
+            line.split("=", 1) for line in resp.text.splitlines() if "=" in line
+        )
+    except Exception as e:
+        return f"Refusing to write: could not verify {instance.base_url} ({e})."
+
+    live_domain = info.get("domain_file_name", "").strip()
+    live_program = info.get("program_name", "").strip()
+    expected = instance.domain_file_name or instance.program_name
+    if expected and live_domain != expected and live_program != expected:
+        return (
+            f"Refusing to write: port {instance.port} now serves '{live_domain or live_program}', "
+            f"not '{expected}'. The instance list is stale — call discover_ghidra_instances and retry."
+        )
+
+    if info.get("writable", "true").strip().lower() == "false":
+        return (
+            f"Refusing to write: '{live_domain or live_program}' on port {instance.port} is open "
+            f"READ-ONLY. Edits would be accepted in memory and silently discarded. Restart the "
+            f"headless host with --write {live_domain or live_program}."
+        )
+    return None
+
+
+def safe_post(endpoint: str, data: dict | str, binary_name: str = None) -> str:
+    """
+    Perform a POST request. Routes to the correct Ghidra instance based on
+    binary_name, and refuses to proceed unless the target is verifiably the
+    right program and actually writable.
+    """
+    if connection_manager is not None:
+        try:
+            instance = connection_manager.get_instance(binary_name)
+        except RuntimeError as e:
+            return str(e)
+        problem = _verify_write_target(instance)
+        if problem:
+            # One automatic recovery attempt: rescan, then re-resolve and re-verify.
+            connection_manager.discover()
+            try:
+                instance = connection_manager.get_instance(binary_name)
+            except RuntimeError as e:
+                return str(e)
+            problem = _verify_write_target(instance)
+            if problem:
+                return problem
+        base_url = instance.base_url
+    else:
+        base_url = ghidra_server_url
+
+    try:
+        url = urljoin(base_url, endpoint)
+        if isinstance(data, dict):
+            response = requests.post(url, data=data, timeout=HTTP_TIMEOUT)
+        else:
+            response = requests.post(url, data=data.encode("utf-8"), timeout=HTTP_TIMEOUT)
+        response.encoding = 'utf-8'
+        if response.ok:
+            return response.text.strip()
+        else:
+            return f"Error {response.status_code}: {response.text.strip()}"
+    except requests.ConnectionError:
+        if connection_manager is not None:
+            try:
+                inst = connection_manager.get_instance(binary_name)
+                connection_manager.refresh_instance(inst)
+            except RuntimeError:
+                pass
+        return f"Connection failed to {url}. Instance may have disconnected."
+    except Exception as e:
+        return f"Request failed: {str(e)}"
+
+@mcp.tool()
+def list_binaries() -> str:
+    """
+    List all connected Ghidra instances and their loaded binaries.
+
+    Scans the configured port range for running GhidraMCP instances and
+    returns details about each one, including program name, path, language,
+    and which instance is currently active.
+
+    Call criteria:
+    - When starting a multi-binary analysis session
+    - When you need to see which binaries are available for analysis
+    - When you want to check which binary is currently selected
+
+    Returns:
+        Formatted list of all connected Ghidra instances with their details.
+    """
+    if connection_manager is None:
+        return "Connection manager not initialized. Use --base-port or --ghidra-server."
+
+    instances = connection_manager.discover()
+    if not instances:
+        return "No Ghidra instances found. Make sure Ghidra is running with the GhidraMCP plugin."
+
+    lines = [f"Found {len(instances)} Ghidra instance(s):\n"]
+    for inst in instances:
+        is_active = (connection_manager.active_binary and
+                     connection_manager._match_name(inst, connection_manager.active_binary))
+        active = " [ACTIVE]" if is_active else ""
+        display_name = inst.domain_file_name or inst.program_name or "(no program loaded)"
+        lines.append(f"  Port {inst.port}:{active}")
+        lines.append(f"    Name:     {display_name}")
+        if inst.domain_file_name and inst.domain_file_name != inst.program_name:
+            lines.append(f"    Binary:   {inst.program_name}")
+        lines.append(f"    Path:     {inst.program_path or 'N/A'}")
+        lines.append(f"    Language: {inst.language or 'N/A'}")
+        lines.append(f"    Compiler: {inst.compiler or 'N/A'}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+@mcp.tool()
+def select_binary(binary_name: str) -> str:
+    """
+    Set the active binary for subsequent tool calls.
+
+    When multiple Ghidra instances are running with different binaries,
+    use this to set which binary should be the default target. After
+    selecting a binary, all tool calls without an explicit binary_name
+    will route to this instance.
+
+    Use the Ghidra import name (shown as "Name" in list_binaries) to
+    disambiguate when multiple instances have the same underlying binary.
+
+    Call criteria:
+    - When you want to focus analysis on a specific binary
+    - When tool calls fail because multiple instances are detected
+    - When switching between binaries during multi-binary analysis
+
+    Args:
+        binary_name: The name of the binary to select (as shown by list_binaries).
+            Matches Ghidra import name first, then executable name.
+
+    Returns:
+        Confirmation message with the selected binary and its port.
+    """
+    if connection_manager is None:
+        return "Connection manager not initialized."
+
+    try:
+        return connection_manager.set_active(binary_name)
+    except RuntimeError as e:
+        return str(e)
+
+
+@mcp.tool()
+def discover_ghidra_instances() -> str:
+    """
+    Force a rescan of the port range for Ghidra instances.
+
+    Use this after starting or stopping Ghidra instances to update
+    the connection list. This is more thorough than list_binaries
+    as it clears the existing instance list before scanning.
+
+    Call criteria:
+    - After starting a new Ghidra instance
+    - After closing a Ghidra instance
+    - When instances seem stale or unresponsive
+
+    Returns:
+        Summary of discovered Ghidra instances.
+    """
+    if connection_manager is None:
+        return "Connection manager not initialized."
+
+    instances = connection_manager.discover()
+    if not instances:
+        return "No Ghidra instances found on ports {}-{}.".format(
+            connection_manager.base_port,
+            connection_manager.base_port + connection_manager.port_range - 1
+        )
+
+    lines = [f"Discovered {len(instances)} instance(s):"]
+    for inst in instances:
+        display_name = inst.domain_file_name or inst.program_name or "(no program)"
+        extra = f" (binary: {inst.program_name})" if inst.domain_file_name != inst.program_name else ""
+        lines.append(f"  - {display_name} on port {inst.port}{extra}")
+
+    return "\n".join(lines)
+
+
+@mcp.tool()
+def save_program(binary_name: str = None) -> str:
+    """
+    Persist the target program's in-memory edits to the on-disk Ghidra project DB.
+
+    In the headless host, MCP writes accumulate in memory and are flushed periodically; call this to
+    force an immediate checkpoint so a later GUI open (or a crash) reflects the latest edits. No-op
+    on a read-only or unchanged program.
+
+    Args:
+        binary_name: Which instance to save (defaults to the active/only instance).
+    Returns:
+        Save status from the server.
+    """
+    return safe_post("save", "", binary_name=binary_name)
+
+
+@mcp.tool()
+def checkpoint(binary_name: str = None) -> str:
+    """Alias of save_program: flush the target program's edits to the project DB now."""
+    return safe_post("save", "", binary_name=binary_name)
+
+
+@mcp.tool()
+def shutdown_headless(binary_name: str = None) -> str:
+    """
+    Session teardown for the headless host: final-save the writable program, stop its HTTP server,
+    and signal the host to release the project lock so a human can open the program in the GUI.
+
+    Intended for update-migrator session teardown — not for per-symbol RE work.
+
+    Args:
+        binary_name: The writable instance hosting the session (defaults to active/only).
+    Returns:
+        Shutdown status from the server.
+    """
+    return safe_post("shutdown", "", binary_name=binary_name)
+
+
+@mcp.tool()
+def list_methods(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List all function names in the program with pagination.
+
+    Returns only function names (no addresses). For names with addresses,
+    use list_functions instead. For searching by substring, use
+    search_functions_by_name.
+
+    Call criteria:
+    - When you need a quick overview of all function names in the binary
+    - When you want to browse functions page by page in large binaries
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of names to return (default: 100)
+    Returns:
+        List of fully-qualified function names (e.g. "jag::engine::init"),
+        one per line, sorted by address order.
+    """
+    return safe_get("methods", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_classes(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List all namespace/class names in the program with pagination.
+
+    Returns unique parent namespace names derived from all symbols. In C++
+    binaries these correspond to classes; in C binaries there are typically
+    none. Names use :: delimiters (e.g. "jag::engine").
+
+    Call criteria:
+    - When exploring a C++ binary to understand its class hierarchy
+    - When you need to find the namespace a symbol belongs to
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of class names to return (default: 100)
+
+    Returns:
+        List of unique namespace/class names sorted alphabetically,
+        one per line.
+    """
+    return safe_get("classes", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def decompile_function(name: str, binary_name: str = None) -> str:
+    """
+    Decompile a specific function by name and return the decompiled C code.
+    """
+    return safe_post("decompile", name, binary_name=binary_name)
+
+@mcp.tool()
+def rename_function(old_name: str, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename a function by its current name to a new user-defined name.
+    Both old_name and new_name support C++ qualified names with :: delimiters
+    (e.g. "jag::engine::FooBar") which will create proper namespace hierarchies.
+    """
+    return safe_post("renameFunction", {"oldName": old_name, "newName": new_name}, binary_name=binary_name)
+
+@mcp.tool()
+def rename_data(address: str, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename a data label at the specified address.
+    Supports C++ qualified names with :: delimiters (e.g. "jag::engine::myData")
+    which will create proper namespace hierarchies.
+    """
+    return safe_post("renameData", {"address": address, "newName": new_name}, binary_name=binary_name)
+
+@mcp.tool()
+def list_segments(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List all memory segments (sections) in the program with pagination.
+
+    Returns the binary's memory layout: .text, .data, .bss, .rodata, etc.
+    Each segment shows its name and address range.
+
+    Call criteria:
+    - When you need to understand the binary's memory layout
+    - When determining which section an address belongs to
+    - When looking for writable vs executable regions
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of segments to return (default: 100)
+
+    Returns:
+        List of segments formatted as "SegmentName: StartAddr - EndAddr",
+        one per line.
+    """
+    return safe_get("segments", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_imports(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List imported symbols (external library functions/data) with pagination.
+
+    Returns symbols the binary imports from shared libraries (e.g. DLLs, .so).
+    These are the external dependencies the program calls at runtime.
+
+    Call criteria:
+    - When identifying which library functions the binary uses
+    - When looking for security-relevant imports (e.g. malloc, strcpy, socket)
+    - When mapping the binary's external API surface
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of imports to return (default: 100)
+
+    Returns:
+        List of imports formatted as "SymbolName -> Address", one per line.
+    """
+    return safe_get("imports", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_exports(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List exported functions/symbols (the binary's public API) with pagination.
+
+    Returns symbols marked as external entry points — these are the functions
+    and data the binary exposes for other modules to call or reference.
+
+    Call criteria:
+    - When identifying the binary's public interface (DLL exports, shared lib API)
+    - When looking for the main entry point or exported initialization functions
+    - When analyzing a library to understand its available functionality
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of exports to return (default: 100)
+
+    Returns:
+        List of exports formatted as "SymbolName -> Address", one per line.
+    """
+    return safe_get("exports", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_namespaces(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List all non-global namespaces in the program with pagination.
+    Returns fully-qualified namespace paths using :: delimiters (e.g. "jag::engine").
+    """
+    return safe_get("namespaces", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_data_items(offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List defined data labels (global variables, constants) and their values.
+
+    Returns all data items Ghidra has defined in memory — global variables,
+    initialized constants, vtable pointers, string references, etc.
+
+    Call criteria:
+    - When looking for global variables or constants in the binary
+    - When exploring the data sections (.data, .rodata, .bss)
+    - When searching for specific values or labels
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of data items to return (default: 100)
+
+    Returns:
+        List of items formatted as "Address: Label = Value", one per line.
+    """
+    return safe_get("data", {"offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def search_functions_by_name(query: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    Search for functions whose name contains the given substring (case-insensitive).
+
+    Searches both simple names and fully-qualified names (with namespaces).
+    More targeted than list_methods — use this when you know part of a
+    function name. Returns matching functions with their addresses.
+
+    Call criteria:
+    - When looking for a specific function by partial name (e.g. "init", "parse")
+    - When you know a keyword from the function name but not the exact name
+    - Prefer this over list_methods when you have a search term
+
+    Args:
+        query: Substring to match against function names (case-insensitive).
+               Matches both simple name and fully-qualified "ns::name" form.
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of results to return (default: 100)
+
+    Returns:
+        List of matches formatted as "QualifiedName @ Address", sorted
+        alphabetically. Returns error message if query is empty.
+    """
+    if not query:
+        return ["Error: query string is required"]
+    return safe_get("searchFunctions", {"query": query, "offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def rename_variable(function_name: str, old_name: str, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename a local variable within a function.
+    The function_name supports C++ qualified names with :: delimiters
+    (e.g. "jag::engine::FooBar") to find functions in namespaces.
+    """
+    return safe_post("renameVariable", {
+        "functionName": function_name,
+        "oldName": old_name,
+        "newName": new_name
+    }, binary_name=binary_name)
+
+@mcp.tool()
+def get_function_by_address(address: str, binary_name: str = None) -> str:
+    """
+    Get summary information about the function at a specific address.
+
+    Returns the function's name, signature, entry point, and body address
+    range. The address must point to the exact entry point of a function.
+
+    Call criteria:
+    - When you have an address and need to identify which function is there
+    - When you need a function's signature or body address range
+    - When resolving a call target or reference to a function address
+
+    Args:
+        address: Function entry point in hex format (e.g. "0x1400010a0",
+                 "00401000"). Must be the exact start address.
+
+    Returns:
+        Multi-line text with function name, address, signature, entry point,
+        and body start/end addresses. Error message if no function found.
+    """
+    return "\n".join(safe_get("get_function_by_address", {"address": address}, binary_name=binary_name))
+
+@mcp.tool()
+def get_current_address(binary_name: str = None) -> str:
+    """
+    Get the address currently selected by the user in the Ghidra GUI.
+
+    Returns the address where the user's cursor is positioned in the
+    Listing or Decompiler view. Useful for interactive workflows where
+    the user navigates to a location and asks the agent to act on it.
+
+    Call criteria:
+    - When the user says "this address", "here", or "the current location"
+    - When you need to know where the user is looking in the binary
+    - Before performing operations on "the selected" address
+
+    Returns:
+        The current cursor address as a hex string (e.g. "00401000"),
+        or an error message if no location is selected.
+    """
+    return "\n".join(safe_get("get_current_address", binary_name=binary_name))
+
+@mcp.tool()
+def get_current_function(binary_name: str = None) -> str:
+    """
+    Get the function containing the user's current cursor position in the Ghidra GUI.
+
+    Returns the name, entry point address, and signature of whatever function
+    the user is currently looking at in the Listing or Decompiler view.
+
+    Call criteria:
+    - When the user says "this function", "the current function", or refers
+      to what they're looking at without specifying a name or address
+    - When you need context about what the user is examining
+
+    Returns:
+        Multi-line text with function name, entry address, and full signature.
+        Error message if the cursor is not inside a function.
+    """
+    return "\n".join(safe_get("get_current_function", binary_name=binary_name))
+
+@mcp.tool()
+def list_functions(binary_name: str = None) -> list:
+    """
+    List all functions with their entry point addresses (no pagination).
+
+    Returns every function in the program as "Name at Address". WARNING: this
+    returns ALL functions at once with no pagination, which can be very large
+    for big binaries. For paginated browsing use list_methods; for targeted
+    lookup use search_functions_by_name.
+
+    Call criteria:
+    - When you need both function names AND addresses for all functions
+    - Only for small/medium binaries — for large binaries prefer list_methods
+      or search_functions_by_name with pagination
+
+    Returns:
+        List of all functions formatted as "QualifiedName at Address",
+        one per line.
+    """
+    return safe_get("list_functions", binary_name=binary_name)
+
+@mcp.tool()
+def decompile_function_by_address(address: str, binary_name: str = None) -> str:
+    """
+    Decompile a function at (or containing) the given address and return C pseudocode.
+
+    The address does not need to be the exact entry point — if the address falls
+    within a function body, that function will be decompiled. The decompiler may
+    take 30-60 seconds for very large functions.
+
+    Call criteria:
+    - When you have a function address and want to read its decompiled C code
+    - When examining code at a specific address found via xrefs or other tools
+    - Prefer this over decompile_function (by name) when you already have an address
+
+    Args:
+        address: Address in hex format (e.g. "0x1400010a0", "00401000").
+                 Can be the entry point or any address within the function body.
+
+    Returns:
+        The full decompiled C pseudocode of the function as a string,
+        or an error message if decompilation fails.
+    """
+    return "\n".join(safe_get("decompile_function", {"address": address}, binary_name=binary_name))
+
+@mcp.tool()
+def disassemble_function(address: str, binary_name: str = None) -> list:
+    """
+    Get assembly code (address: instruction; comment) for a function.
+    """
+    return safe_get("disassemble_function", {"address": address}, binary_name=binary_name)
+
+@mcp.tool()
+def set_decompiler_comment(address: str, comment: str, binary_name: str = None) -> str:
+    """
+    Set a pre-comment at an address, visible in the Decompiler pseudocode view.
+
+    This places a comment above the corresponding line in decompiled C output.
+    Use this for annotations that explain high-level logic. For comments in
+    the assembly Listing view, use set_disassembly_comment instead.
+
+    Call criteria:
+    - When annotating decompiled pseudocode with analysis notes
+    - When explaining what a block of decompiled code does
+    - When leaving notes for future analysis in the decompiler view
+
+    Args:
+        address: Address to comment in hex format (e.g. "0x1400010a0").
+        comment: The comment text to set. Replaces any existing pre-comment.
+
+    Returns:
+        Success or failure message.
+    """
+    return safe_post("set_decompiler_comment", {"address": address, "comment": comment}, binary_name=binary_name)
+
+@mcp.tool()
+def set_disassembly_comment(address: str, comment: str, binary_name: str = None) -> str:
+    """
+    Set an end-of-line (EOL) comment at an address, visible in the Listing (disassembly) view.
+
+    This places a comment at the end of the assembly instruction line. Use this
+    for annotations about specific instructions. For comments in the Decompiler
+    pseudocode view, use set_decompiler_comment instead.
+
+    Call criteria:
+    - When annotating specific assembly instructions with analysis notes
+    - When explaining what an instruction does at the assembly level
+    - When leaving notes visible in the disassembly Listing view
+
+    Args:
+        address: Address to comment in hex format (e.g. "0x1400010a0").
+        comment: The comment text to set. Replaces any existing EOL comment.
+
+    Returns:
+        Success or failure message.
+    """
+    return safe_post("set_disassembly_comment", {"address": address, "comment": comment}, binary_name=binary_name)
+
+@mcp.tool()
+def rename_function_by_address(function_address: str, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename a function by its address.
+    Supports C++ qualified names with :: delimiters (e.g. "jag::engine::FooBar")
+    which will create proper namespace hierarchies.
+    """
+    return safe_post("rename_function_by_address", {"function_address": function_address, "new_name": new_name}, binary_name=binary_name)
+
+@mcp.tool()
+def set_function_prototype(function_address: str, prototype: str, binary_name: str = None) -> str:
+    """
+    Set a function's full prototype (signature) using a C-style declaration string.
+
+    This is the "big hammer" for changing a function's signature — it replaces the
+    return type, name, and all parameters at once. For more surgical changes, prefer
+    the targeted tools: set_return_type, add_parameter, remove_parameter,
+    change_parameter_type, or rename_parameter.
+
+    Call criteria:
+    - When you know the complete correct signature and want to set it all at once
+    - When importing a known function signature from documentation or headers
+    - When the function's entire signature is wrong and needs full replacement
+
+    Args:
+        function_address: Address of the function in hex format (e.g. "0x1400010a0").
+        prototype: Complete C-style function declaration, e.g.
+                   "int processPacket(void* ctx, char* buffer, int length)"
+                   The name in the prototype must match the function's current name
+                   or it may be renamed.
+
+    Returns:
+        Success message, or detailed error/warning information if parsing or
+        application failed.
+    """
+    return safe_post("set_function_prototype", {"function_address": function_address, "prototype": prototype}, binary_name=binary_name)
+
+@mcp.tool()
+def set_local_variable_type(function_address: str, variable_name: str, new_type: str, binary_name: str = None) -> str:
+    """
+    Set the data type of a local variable in a function's decompiled output.
+
+    Changes the type of a variable identified by its name in the decompiled code.
+    The function is decompiled to find the variable, so the name must match exactly
+    what appears in the Decompiler output (e.g. "local_18", "iVar1", or a
+    user-renamed name).
+
+    Call criteria:
+    - When a local variable has the wrong type (e.g. "undefined8" should be "int*")
+    - When applying struct types to local variables after defining structs
+    - When fixing auto-analysis variable types based on how variables are used
+
+    Args:
+        function_address: Address of the containing function in hex format
+                         (e.g. "0x1400010a0"). Can be entry point or any
+                         address within the function body.
+        variable_name: Exact name of the variable as shown in the Decompiler
+                      output (e.g. "local_18", "iVar1", "buffer").
+        new_type: The new data type name. Supports primitives ("int", "char"),
+                  sized types ("dword", "longlong"), pointers ("int*", "void*",
+                  "MyStruct*"), and custom types (any struct/union/enum name).
+
+    Returns:
+        Diagnostic message with type resolution details and success/failure status.
+    """
+    return safe_post("set_local_variable_type", {"function_address": function_address, "variable_name": variable_name, "new_type": new_type}, binary_name=binary_name)
+
+@mcp.tool()
+def get_xrefs_to(address: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    Get all references to the specified address (xref to).
+
+    Args:
+        address: Target address in hex format (e.g. "0x1400010a0")
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of references to return (default: 100)
+
+    Returns:
+        List of references to the specified address
+    """
+    return safe_get("xrefs_to", {"address": address, "offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def get_xrefs_from(address: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    Get all references from the specified address (xref from).
+
+    Args:
+        address: Source address in hex format (e.g. "0x1400010a0")
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of references to return (default: 100)
+
+    Returns:
+        List of references from the specified address
+    """
+    return safe_get("xrefs_from", {"address": address, "offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def get_function_xrefs(name: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    Get all references to the specified function by name.
+
+    Args:
+        name: Function name to search for
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of references to return (default: 100)
+
+    Returns:
+        List of references to the specified function
+    """
+    return safe_get("function_xrefs", {"name": name, "offset": offset, "limit": limit}, binary_name=binary_name)
+
+@mcp.tool()
+def list_strings(offset: int = 0, limit: int = 2000, filter: str = None, binary_name: str = None) -> list:
+    """
+    List all defined strings in the program with their addresses.
+
+    Args:
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of strings to return (default: 2000)
+        filter: Optional filter to match within string content
+
+    Returns:
+        List of strings with their addresses
+    """
+    params = {"offset": offset, "limit": limit}
+    if filter:
+        params["filter"] = filter
+    return safe_get("strings", params, binary_name=binary_name)
+
+
+# ── Pattern / Signature Search ────────────────────────────────────────────
+
+@mcp.tool()
+def search_memory_pattern(
+    pattern: str,
+    mask: str = None,
+    start_address: str = None,
+    end_address: str = None,
+    executable_only: bool = False,
+    offset: int = 0,
+    limit: int = 50,
+    binary_name: str = None,
+) -> list:
+    """
+    Search the loaded program's memory for a byte pattern with wildcard support
+    (the classic IDA-style "signature scan"). This is one of the most powerful
+    primitives in reverse engineering — use it whenever you need to LOCATE
+    something in a binary by its compiled bytes rather than by symbol, name,
+    string, or xref. Returns every address where the pattern matches, with
+    the containing function (if any) and memory block.
+
+    When to use this tool (concrete scenarios — read these carefully, this is
+    a capability most agents forget exists):
+
+    1. CROSS-VERSION FUNCTION PORTING. You analyzed and named a function in
+       version A of a binary, and now you have version B where the symbols,
+       addresses, and surrounding layout shifted. Take ~16 bytes of the
+       function's body in A (especially a distinctive middle section, not
+       just the prologue), wildcard out the call/jmp/RIP-relative immediates,
+       and search build B. The match address is the equivalent function in B.
+       This is the canonical "sig-scan" workflow.
+
+    2. FINDING ALL CALLSITES OF A SPECIFIC INSTRUCTION SEQUENCE. e.g. "every
+       place in this binary that does `mov rcx, rax; call ???; test eax,eax;
+       je ???`" — express it as bytes with the call/je targets wildcarded.
+       xrefs_to only finds explicit references to a symbol; this finds raw
+       instruction sequences regardless of who/what they reference.
+
+    3. LOCATING CRYPTO CONSTANTS AND MAGIC VALUES. AES S-box first bytes
+       (`63 7C 77 7B F2 6B 6F C5 30 01 67 2B FE D7 AB 76`), SHA-256 round
+       constants (`98 2F 8A 42 91 44 37 71 CF FB C0 B5 A5 DB B5 E9 ...`),
+       MD5 init constants, specific GUIDs, embedded RSA public keys, ZIP
+       local-header magic `50 4B 03 04`, PE `4D 5A`, ELF `7F 45 4C 46`,
+       Mach-O `FE ED FA CE`, etc. No symbols required — the values
+       themselves are the signature.
+
+    4. IDENTIFYING COMPILER-GENERATED STUBS AND THUNKS. Find all PLT entries
+       by the canonical 6-byte indirect-jump stub, all `__security_cookie`
+       checks by their prologue, all SEH scope-table dispatch, all
+       MSVC `/guard:cf` indirect-call check stubs, all delay-load IAT
+       thunks. These have stable byte patterns across binaries from the
+       same compiler.
+
+    5. ANTI-ANALYSIS / ANTI-TAMPER / ANTI-CHEAT PATTERN MATCHING. Published
+       signatures for VMProtect entry stubs, Themida/Enigma handlers,
+       Denuvo VM dispatch, BattlEye/EAC hook stubs, integrity-check
+       sequences. Drop the byte pattern in, get every instance.
+
+    6. SHELLCODE / PAYLOAD SIGNATURE HUNTING. When triaging a sample, search
+       for known shellcode patterns (Metasploit stagers, Cobalt Strike
+       beacon decoders, donut loader markers), YARA-style byte sequences,
+       or specific gadget patterns inside embedded payloads.
+
+    7. GAME MODDING / PATCH AUTHORING. The classic use case: you want to
+       patch one specific instruction across every game update without
+       hardcoding offsets. Build a signature of the surrounding code
+       (wildcarding immediates), search for it, then patch at known
+       relative offset from the match. This pattern is *the* reason
+       sig-scanning exists in the modding community.
+
+    8. LOCATING DATA STRUCTURES BY THEIR INITIALIZED HEADER BYTES. vtables
+       whose first slot is a known function pointer, RTTI `type_info`
+       descriptors with a known vptr, format-string tables that always
+       start with the same printf format header, jump tables with a
+       characteristic prologue, COM interface IIDs, kernel object signature
+       fields like `\\xnt!` / `Pool`.
+
+    9. RECOVERING INLINED FUNCTIONS. The compiler inlined a small helper
+       across the binary, so it has no symbol and no callers visible to
+       xref tools. Take 8-20 bytes of the inlined body and search — you'll
+       find every site where the compiler dropped a copy.
+
+    10. CROSS-BINARY DEDUPLICATION. Confirming whether a known library
+        function (say, a specific build of zlib's `inflate`, or OpenSSL's
+        AES_encrypt) appears verbatim in another binary that statically
+        linked the same library. Take a unique chunk of the known function
+        and search the target.
+
+    11. FINDING CODE THAT SURVIVED OBFUSCATION. When only some sections of
+        a binary are obfuscated/encrypted/VMd, pattern-searching for
+        known-unmodified runtime library code (CRT initialization,
+        compiler-generated exception handling, standard allocator
+        fast-paths) can re-establish landmarks for orientation.
+
+    12. LOCATING SYSCALL STUBS AND INSTRUCTION-LEVEL ODDITIES. Find every
+        `syscall` (`0F 05`), `sysenter` (`0F 34`), `int 0x2E` (`CD 2E`),
+        `vmcall` (`0F 01 C1`), `cpuid` (`0F A2`), `rdtsc` (`0F 31`),
+        `wbinvd`, `int 3` breakpoint anchors, `ud2`, `xgetbv`. Useful for
+        finding direct-syscall malware, VM-detection / timing-check code,
+        or compiler intrinsics scattered through the binary.
+
+    PATTERN SYNTAX — IDA STYLE (default; pass `mask=None`):
+        Space-separated hex bytes. Use `??` (preferred) or `?` to wildcard
+        a full byte. Single-nibble wildcards are also supported (e.g. `4?`
+        matches bytes 0x40..0x4F).
+        Case insensitive. The `0x` prefix on individual tokens is allowed
+        but unnecessary. Contiguous (no-space) hex strings of even length
+        are also accepted.
+        Examples:
+          - "48 8B 05 ?? ?? ?? ?? 48 89 45 F8"
+              -> 11 bytes; the 4 bytes of the RIP-relative displacement
+                 after `mov rax,[rip+...]` are wildcarded.
+          - "E8 ?? ?? ?? ?? 85 C0 74"
+              -> a `call rel32; test eax,eax; je` sequence with the call
+                 target wildcarded.
+          - "4? 89 ?? 48 83 EC"
+              -> 6 bytes; first byte's high nibble is wildcarded (matches
+                 any REX.W prefix variant like 0x48..0x4F).
+
+    PATTERN SYNTAX — CODE/MASK STYLE (pass `mask` to enable):
+        `pattern` is a contiguous hex string. `mask` is a parallel string
+        of 'x' (this byte must match) and '?' (wildcard).
+        Example:
+          pattern="488B0500000000488945F8"
+          mask   ="xxx????xxxxx"
+              -> Same 11-byte sequence as the first IDA example above.
+
+    OUTPUT FORMAT:
+        One match per line: `<address>  <containing_function_or_->  <block_name>`
+        Example:
+            0x00401234  FUN_00401200  .text
+            0x00405678  -  .rdata
+        Returns "No matches found" if nothing matched.
+        If results are truncated, a final line indicates how many more
+        matches exist beyond `offset + limit`.
+
+    WHEN NOT TO USE THIS TOOL:
+        - Searching for TEXT STRINGS in the binary -> use `list_strings`
+          (it understands string types, encoding, length) — not this tool
+          with ASCII hex bytes.
+        - Finding a function BY NAME or partial name -> use
+          `search_functions_by_name`. This tool is for finding code/data
+          by its raw bytes, not by symbol.
+        - Finding callers or references to a known address/function ->
+          use `get_xrefs_to`, `get_xrefs_from`, or `get_function_xrefs`.
+          They are far faster and follow Ghidra's reference graph rather
+          than scanning bytes.
+        - "Find anything that mentions password" — that's a string search,
+          not a byte-pattern search.
+
+    PICKING A GOOD PATTERN — CRITICAL FOR ACCURACY AND SPEED:
+        - Aim for ~10-20 bytes of distinctive code. Patterns shorter than
+          ~6-8 bytes will produce many false-positive matches.
+        - Wildcard immediates that vary across builds: relative call/jmp
+          targets (the 4 bytes after `E8`/`E9`), RIP-relative
+          displacements, absolute addresses embedded in `mov reg,imm64`,
+          stack-frame sizes that may change with debug-vs-release.
+        - DO keep opcode bytes, ModR/M bytes for fixed register operands,
+          and any literal constants that are part of the algorithm itself
+          (crypto S-boxes, magic numbers).
+        - Don't put wildcards at the start or end of the pattern — every
+          leading wildcard widens the search space; trailing wildcards
+          add no specificity. Trim them.
+        - Excessive wildcards slow the search and increase false positives;
+          a pattern that is 80%+ wildcards is almost never useful.
+
+    TYPICAL WORKFLOW (cross-version function porting):
+        Step 1: In build A you have `MyImportantFunction @ 0x140001230`.
+                Disassemble it with `disassemble_function("0x140001230")`.
+        Step 2: Pick a ~16 byte sequence from a distinctive part of the
+                body — typically the prologue plus a few characteristic
+                instructions, or a unique computational core. Identify any
+                relative-call / relative-jmp / RIP-relative-load immediates
+                and wildcard them with `??`.
+        Step 3: In build B (use `select_binary` or `binary_name=` to route),
+                call `search_memory_pattern(pattern="48 89 5C 24 08 48 89
+                74 24 10 57 48 83 EC 20 E8 ?? ?? ?? ?? 8B D8")`.
+        Step 4: For each match, call `get_function_by_address(match_addr)`
+                to confirm it lies in a function body, then rename / port
+                analysis to the new binary.
+
+    Args:
+        pattern: The byte pattern. IDA-style (e.g. "48 8B ?? ?? 48 89 45 F8")
+                 by default. If `mask` is provided, this is treated as a
+                 contiguous hex string paired with `mask`.
+        mask:    Optional. Parallel mask string of 'x' (match) / '?' (skip),
+                 the same length in characters as `pattern` has bytes (so
+                 a 12-char hex pattern needs a 6-char mask). When omitted,
+                 IDA-style wildcards in `pattern` itself are used.
+        start_address: Optional. Restrict the search to addresses >= this
+                       (e.g. "0x140001000"). Hex addresses with or without
+                       0x prefix accepted.
+        end_address:   Optional. Restrict the search to addresses <= this.
+        executable_only: When True, only search memory blocks marked
+                         executable (i.e. code segments). Useful for
+                         instruction-sequence searches to skip data/.rdata
+                         noise. Default False (searches all initialized
+                         memory, including .rdata/.data).
+        offset: Pagination offset (default 0).
+        limit:  Maximum number of matches to return (default 50). A trailing
+                "... (N more matches not shown ...)" line appears if more
+                matches exist beyond offset+limit.
+        binary_name: Optional binary selector for multi-binary sessions.
+                     Routes the request to the matching Ghidra instance.
+
+    Returns:
+        A list of lines, one per match in the format
+        `<address>  <function_or_->  <block_name>`. Returns `["No matches found"]`
+        if nothing matched, or `["Error: ..."]` on a parse/validation failure.
+    """
+    params = {
+        "pattern": pattern,
+        "offset": offset,
+        "limit": limit,
+        "executable_only": "true" if executable_only else "false",
+    }
+    if mask:
+        params["mask"] = mask
+    if start_address:
+        params["start_address"] = start_address
+    if end_address:
+        params["end_address"] = end_address
+    return safe_get("searchMemoryPattern", params, binary_name=binary_name)
+
+
+@mcp.tool()
+def create_namespace(namespace_path: str, binary_name: str = None) -> str:
+    """
+    Create a namespace hierarchy from a :: delimited path (e.g. "jag::engine").
+    Creates all intermediate namespaces as needed.
+    """
+    return safe_post("createNamespace", {"namespace_path": namespace_path}, binary_name=binary_name)
+
+@mcp.tool()
+def move_symbol_to_namespace(address: str, namespace_path: str, binary_name: str = None) -> str:
+    """
+    Move the primary symbol at a given address into a namespace.
+    The namespace hierarchy is created if it doesn't exist.
+
+    Args:
+        address: Address of the symbol to move (e.g. "0x1400010a0")
+        namespace_path: Target namespace path with :: delimiters (e.g. "jag::engine")
+    """
+    return safe_post("moveSymbolToNamespace", {"address": address, "namespace_path": namespace_path}, binary_name=binary_name)
+
+@mcp.tool()
+def list_namespace_contents(namespace_path: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List the symbols contained within a namespace.
+
+    Args:
+        namespace_path: Namespace path with :: delimiters (e.g. "jag::engine")
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of symbols to return (default: 100)
+
+    Returns:
+        List of symbols with their type and address
+    """
+    return safe_get("listNamespaceContents", {
+        "namespace_path": namespace_path,
+        "offset": offset,
+        "limit": limit
+    }, binary_name=binary_name)
+
+# ── Code Definition Tools ─────────────────────────────────────────────────
+
+@mcp.tool()
+def create_function(address: str, name: str = None, binary_name: str = None) -> str:
+    """
+    Define a function at an address the auto-analyzer left undefined.
+
+    Ghidra's decompiler refuses to run on very large functions, and MSVC builds routinely
+    merge every COMDAT dynamic initializer into one multi-hundred-KB body with no internal
+    boundaries. Carving the individual bodies out with this tool is what makes them
+    decompilable.
+
+    Call criteria:
+    - When code at an address is undefined and you need to decompile or rename it
+    - When splitting a merged initializer blob at known island boundaries (often a fixed
+      stride, discoverable by the repeating reference pattern to a shared singleton)
+    - After locating an entry point via a pointer table (.CRT$XCU, a vtable, a jump table)
+
+    Args:
+        address: Entry point in hex (e.g. "0x3c470", "0003c470").
+        name: Optional name for the new function. Omit to accept Ghidra's default FUN_*.
+
+    Returns:
+        Confirmation with the created function's name, or an error. If the address lies
+        inside an existing function, the message names that function — remove or split it
+        first.
+    """
+    return safe_post("createFunction", {"address": address, "name": name or ""}, binary_name=binary_name)
+
+
+@mcp.tool()
+def read_bytes(address: str, length: int = 16, binary_name: str = None) -> list:
+    """
+    Read raw bytes at an arbitrary address as hex.
+
+    Works anywhere in mapped memory, including inside undefined regions and inside
+    functions too large to disassemble — the cases where disassemble_function and
+    decompile_function are unavailable. Also the way to read a value that
+    search_memory_pattern located, since that tool returns addresses only.
+
+    Call criteria:
+    - When you need the bytes at an address inside an undefined or oversized region
+    - When reading a pointer out of a table (vtable slot, .CRT$XCU entry, jump table)
+    - When confirming an instruction encoding that a pattern search matched
+    - When reading a struct field whose type is not yet applied
+
+    Args:
+        address: Address in hex (e.g. "0x7f0d10", "007f0d10").
+        length: Number of bytes to read, 1-4096 (default 16).
+
+    Returns:
+        Hex dump lines, 16 bytes per line, each prefixed with its address.
+    """
+    return safe_get("readBytes", {"address": address, "length": length}, binary_name=binary_name)
+
+
+# ── Data Structure Tools ──────────────────────────────────────────────────
+
+@mcp.tool()
+def create_struct(name: str, size: int, category_path: str = "/", binary_name: str = None) -> str:
+    """
+    Create a new structure (struct) data type in the program's Data Type Manager.
+
+    Structures are the fundamental building block for reverse engineering complex
+    data layouts. Use this to define C-style structs that represent objects, packets,
+    file headers, or any contiguous memory layout with typed fields at fixed offsets.
+
+    Call criteria:
+    - When you identify a memory region accessed with consistent field offsets in
+      decompiled code (e.g., repeated ptr+0x0, ptr+0x8, ptr+0x10 patterns)
+    - When reconstructing object layouts, vtable structures, or protocol headers
+    - Before using add_struct_field to populate the struct with typed fields
+    - When importing known struct definitions from documentation or header files
+
+    Args:
+        name: Name for the new structure (e.g., "PacketHeader", "VTableEntry").
+              Must be unique within the given category path.
+        size: Total size of the structure in bytes. Fields placed with
+              add_struct_field must fit within this size. Use the largest offset
+              plus field size you've observed in decompiled code.
+        category_path: Category path in the Data Type Manager tree (default: "/").
+                       Use forward-slash-separated paths like "/MyProject/Networking"
+                       to organize types into folders.
+
+    Returns:
+        Success message confirming creation with name and size, or an error message.
+    """
+    return safe_post("createStruct", {"name": name, "size": str(size), "category_path": category_path}, binary_name=binary_name)
+
+
+@mcp.tool()
+def add_struct_field(struct_name: str, offset: int, field_type: str, field_name: str,
+                     field_length: int = 0, comment: str = "", binary_name: str = None) -> str:
+    """
+    Add or replace a field at a specific byte offset within an existing structure.
+
+    This is the key tool for structure reconstruction in reverse engineering. It places
+    a typed field at an exact byte offset, which is essential when you know from
+    disassembly that "at offset 0x10 there's a pointer" or "at offset 0x0 there's
+    a vtable pointer."
+
+    Call criteria:
+    - After creating a struct with create_struct, use this to define its fields
+    - When you observe memory accesses at specific offsets in decompiled code
+      (e.g., *(int*)(ptr + 0x8) suggests an int field at offset 8)
+    - When mapping out known structure layouts from documentation or headers
+    - To correct Ghidra's auto-analysis by specifying exact field types
+
+    Args:
+        struct_name: Name of the target structure (e.g., "PacketHeader"). Must
+                     already exist in the Data Type Manager.
+        offset: Byte offset where the field starts (e.g., 0 for first field,
+                8 for a field at byte 8, 0x10 for offset 16). Must not cause the
+                field to extend beyond the struct's total size.
+        field_type: The data type name for the field. Supports:
+                    - Primitives: "int", "uint", "short", "char", "long", "bool", "void"
+                    - Sized types: "byte", "word", "dword", "longlong", "ulonglong"
+                    - Pointers: "int*", "char*", "MyStruct*" or Windows-style "PINT"
+                    - Custom types: Any struct/union/enum name already in the program
+        field_name: Name for the field (e.g., "vtable", "refCount", "pNext").
+        field_length: Optional explicit length in bytes. If 0 or omitted, uses the
+                      natural size of field_type.
+        comment: Optional comment describing the field's purpose.
+
+    Returns:
+        Success message confirming the field was placed, or an error message.
+    """
+    return safe_post("addStructField", {
+        "struct_name": struct_name,
+        "offset": str(offset),
+        "field_type": field_type,
+        "field_name": field_name,
+        "field_length": str(field_length),
+        "comment": comment
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def delete_struct_field(struct_name: str, offset: int, binary_name: str = None) -> str:
+    """
+    Clear (delete) the field at a specific byte offset within a structure.
+
+    Removes the typed field definition at the given offset, reverting those bytes
+    back to undefined. The structure's total size is not changed; only the field
+    definition at that offset is removed.
+
+    Call criteria:
+    - When a previously defined field turns out to be incorrect after further analysis
+    - When restructuring a struct layout and needing to clear fields before
+      redefining them with different types or sizes
+    - When cleaning up auto-analysis artifacts in a structure
+
+    Args:
+        struct_name: Name of the target structure (e.g., "PacketHeader"). Must
+                     already exist in the Data Type Manager.
+        offset: Byte offset of the field to clear. Must correspond to the start
+                offset of an existing defined field.
+
+    Returns:
+        Success message confirming the field was cleared, or an error message.
+    """
+    return safe_post("deleteStructField", {
+        "struct_name": struct_name,
+        "offset": str(offset)
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def get_struct_fields(struct_name: str, offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List all defined fields of a structure with their offsets, types, and sizes.
+
+    Returns detailed information about each field in the structure, which is
+    essential for understanding memory layouts, verifying struct definitions,
+    and planning further field additions.
+
+    Call criteria:
+    - After creating and populating a struct, to verify the layout is correct
+    - When examining an existing struct to understand its memory layout
+    - Before adding new fields, to see which offsets are already defined
+    - When comparing a struct definition against observed memory access patterns
+
+    Args:
+        struct_name: Name of the structure to inspect (e.g., "PacketHeader").
+                     Must already exist in the Data Type Manager.
+        offset: Pagination offset for the field list (default: 0).
+        limit: Maximum number of fields to return (default: 100).
+
+    Returns:
+        List of field descriptions, each formatted as:
+        "Offset: N, Type: TypeName, Name: FieldName, Length: N, Comment: text"
+    """
+    return safe_get("getStructFields", {
+        "struct_name": struct_name,
+        "offset": offset,
+        "limit": limit
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def create_union(name: str, category_path: str = "/", binary_name: str = None) -> str:
+    """
+    Create a new union data type in the program's Data Type Manager.
+
+    Unions define overlapping fields that share the same memory region. The union's
+    total size equals the size of its largest member. Use this for C-style unions
+    where different interpretations of the same bytes are needed.
+
+    Call criteria:
+    - When decompiled code shows the same memory location being accessed with
+      different types (e.g., cast as int in one path, float in another)
+    - When reversing tagged unions or variant types (combine with an enum for the tag)
+    - When a field in a struct can hold different types depending on context
+    - When modeling hardware registers with multiple access widths
+
+    Args:
+        name: Name for the new union (e.g., "ValueUnion", "RegisterOverlay").
+              Must be unique within the given category path.
+        category_path: Category path in the Data Type Manager tree (default: "/").
+                       Use forward-slash-separated paths like "/MyProject/Types".
+
+    Returns:
+        Success message confirming creation, or an error message.
+    """
+    return safe_post("createUnion", {"name": name, "category_path": category_path}, binary_name=binary_name)
+
+
+@mcp.tool()
+def add_union_field(union_name: str, field_type: str, field_name: str,
+                    field_length: int = 0, comment: str = "", binary_name: str = None) -> str:
+    """
+    Add a new field (member) to an existing union data type.
+
+    Each field added to a union overlaps with all other fields starting at offset 0.
+    The union automatically grows to accommodate the largest member.
+
+    Call criteria:
+    - After creating a union with create_union, use this to add its members
+    - When defining alternative interpretations of the same memory region
+    - When modeling variant types with different possible representations
+
+    Args:
+        union_name: Name of the target union (e.g., "ValueUnion"). Must already
+                    exist in the Data Type Manager.
+        field_type: The data type name for the field. Supports the same types as
+                    add_struct_field: primitives, sized types, pointers, and
+                    custom types.
+        field_name: Name for the field (e.g., "asInt", "asFloat", "asPointer").
+        field_length: Optional explicit length in bytes. If 0 or omitted, uses the
+                      natural size of field_type.
+        comment: Optional comment describing when this interpretation applies.
+
+    Returns:
+        Success message confirming the field was added, or an error message.
+    """
+    return safe_post("addUnionField", {
+        "union_name": union_name,
+        "field_type": field_type,
+        "field_name": field_name,
+        "field_length": str(field_length),
+        "comment": comment
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def create_enum(name: str, size: int = 4, category_path: str = "/", binary_name: str = None) -> str:
+    """
+    Create a new enumeration (enum) data type in the program's Data Type Manager.
+
+    Enums map symbolic names to integer values, making decompiled code far more
+    readable. Use this to replace magic numbers with meaningful constants.
+
+    Call criteria:
+    - When decompiled code uses magic number constants that represent states,
+      flags, opcodes, error codes, or command types
+    - When reversing protocol parsers that switch on integer command/message IDs
+    - When you identify a set of related constants used in comparisons or switch
+      statements
+    - Before using add_enum_value to populate the enum with named constants
+
+    Args:
+        name: Name for the new enum (e.g., "MessageType", "ErrorCode", "Flags").
+              Must be unique within the given category path.
+        size: Storage size in bytes. Must be 1, 2, 4, or 8. Determines the range
+              of values the enum can hold: 1 byte = 0-255, 2 bytes = 0-65535,
+              4 bytes (default) = 0-4294967295, 8 bytes = full 64-bit range.
+        category_path: Category path in the Data Type Manager tree (default: "/").
+                       Use forward-slash-separated paths like "/MyProject/Enums".
+
+    Returns:
+        Success message confirming creation with name and size, or an error message.
+    """
+    return safe_post("createEnum", {"name": name, "size": str(size), "category_path": category_path}, binary_name=binary_name)
+
+
+@mcp.tool()
+def add_enum_value(enum_name: str, entry_name: str, value: int, binary_name: str = None) -> str:
+    """
+    Add a named constant value to an existing enumeration data type.
+
+    This associates a symbolic name with a numeric value in the enum, so that when
+    the value appears in decompiled code, Ghidra can display the meaningful name
+    instead of a raw number.
+
+    Call criteria:
+    - After creating an enum with create_enum, use this to populate it with values
+    - When you identify what specific magic numbers mean from context, documentation,
+      or reverse engineering (e.g., 0x01 = MSG_CONNECT, 0x02 = MSG_DISCONNECT)
+    - When building up a flags enum where each bit has a name
+    - When mapping error codes, opcodes, or status values to symbolic names
+
+    Args:
+        enum_name: Name of the target enum (e.g., "MessageType"). Must already
+                   exist in the Data Type Manager.
+        entry_name: Symbolic name for the value (e.g., "MSG_CONNECT", "ERR_TIMEOUT").
+                    Must be unique within the enum.
+        value: Integer value to associate with the name. Supports negative values
+               and values up to the enum's size limit. For hex values, pass the
+               integer equivalent (e.g., 255 for 0xFF).
+
+    Returns:
+        Success message confirming the value was added, or an error message.
+    """
+    return safe_post("addEnumValue", {
+        "enum_name": enum_name,
+        "entry_name": entry_name,
+        "value": str(value)
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def get_data_type(name: str, binary_name: str = None) -> str:
+    """
+    Get detailed information about any data type by name, including its fields or values.
+
+    This is the primary inspection tool for data types. It returns comprehensive
+    information adapted to the type's kind: structure fields with offsets, union
+    members with ordinals, enum name-value pairs, or basic type metadata.
+
+    Call criteria:
+    - To examine the layout of a structure, union, or enum before modifying it
+    - To verify that a data type was created correctly after using create_struct,
+      create_union, or create_enum
+    - To understand existing data types in the program (including auto-analyzed ones)
+    - When you need to know a type's size, category, or field details before
+      applying it to an address or using it in another type
+
+    Args:
+        name: The data type name to look up (e.g., "GUID", "HANDLE", "MyStruct").
+              Searches all categories in the Data Type Manager, so you don't need
+              to specify the full path. Case-insensitive fallback is used if an
+              exact match is not found.
+
+    Returns:
+        Multi-line text with type details. Format depends on the type kind:
+        - Structure: name, category, length, alignment, then each field with
+          offset, type, name, length, and comment
+        - Union: name, category, length, then each field with ordinal, type,
+          name, length, and comment
+        - Enum: name, category, length, then each value with name and numeric value
+        - Other: name, category, length, class name, and description
+    """
+    return "\n".join(safe_get("getDataType", {"name": name}, binary_name=binary_name))
+
+
+@mcp.tool()
+def apply_struct_to_address(address: str, struct_name: str, binary_name: str = None) -> str:
+    """
+    Apply a structure data type at a specific memory address in the program listing.
+
+    This overlays the structure definition onto raw bytes at the given address,
+    replacing any existing code units. After applying, the Listing view will show
+    the structured data with named fields instead of raw bytes or undefined data.
+
+    Call criteria:
+    - After defining a struct and its fields, apply it where instances of that
+      struct exist in the binary's data sections
+    - When you've identified a global variable, heap allocation, or stack region
+      that matches a struct layout
+    - To label known data structures at fixed addresses (e.g., PE headers, ELF
+      sections, configuration blocks)
+    - When Ghidra shows undefined bytes that you've determined match a known struct
+
+    Args:
+        address: The memory address where the struct instance starts, in hex format
+                 (e.g., "0x00401000", "0x140005000"). The address must be valid and
+                 there must be enough bytes from this address to cover the struct's
+                 full size.
+        struct_name: Name of the structure to apply (e.g., "PacketHeader"). Must
+                     already exist in the Data Type Manager.
+
+    Returns:
+        Success message confirming the struct was applied at the address, or an
+        error message if the struct was not found, the address is invalid, or
+        there was a conflict.
+    """
+    return safe_post("applyStructToAddress", {
+        "address": address,
+        "struct_name": struct_name
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def delete_data_type(name: str, binary_name: str = None) -> str:
+    """
+    Delete any data type (struct, union, enum, typedef, etc.) from the Data Type Manager.
+
+    Permanently removes the named data type. Use this to resolve naming conflicts
+    before recreating a type, or to clean up incorrect type definitions.
+
+    Call criteria:
+    - When a data type needs to be replaced and you want to avoid name conflicts
+    - When cleaning up incorrectly defined structs, unions, or enums
+    - Before recreating a type with a different layout (delete first, then create)
+    - When removing auto-analysis artifacts that are incorrect
+
+    Args:
+        name: Name of the data type to delete (e.g. "MyStruct", "ErrorCode").
+              Searches all categories. Case-insensitive fallback if exact match
+              is not found.
+
+    Returns:
+        Success message confirming removal, or error if the type was not found.
+    """
+    return safe_post("deleteDataType", {"name": name}, binary_name=binary_name)
+
+
+@mcp.tool()
+def rename_data_type(old_name: str, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename an existing data type (struct, union, enum, typedef, etc.) in place.
+
+    Changes the name without deleting and recreating the type, preserving all
+    fields, values, and references to the type throughout the program.
+
+    Call criteria:
+    - When a data type has an auto-generated or incorrect name
+    - When standardizing type names to match documentation or conventions
+    - When you want to rename without losing field definitions
+
+    Args:
+        old_name: Current name of the data type. Searches all categories.
+        new_name: New name for the data type. Must be unique within its category.
+
+    Returns:
+        Success message confirming the rename, or error if the type was not found
+        or the new name conflicts.
+    """
+    return safe_post("renameDataType", {"old_name": old_name, "new_name": new_name}, binary_name=binary_name)
+
+
+@mcp.tool()
+def list_data_types(category_filter: str = "", offset: int = 0, limit: int = 100, binary_name: str = None) -> list:
+    """
+    List data types in the program's Data Type Manager with optional category filtering.
+
+    Returns data types with their kind (Structure, Union, Enum, Typedef, Pointer, etc.),
+    size, and category path. Use the category_filter to narrow results to specific
+    folders in the Data Type Manager tree.
+
+    Call criteria:
+    - When browsing available data types before using them in struct fields or
+      function signatures
+    - When checking if a data type already exists before creating a new one
+    - When exploring auto-analyzed types to understand what Ghidra has found
+    - When looking for types in a specific category (e.g. "/windows" or "/MyProject")
+
+    Args:
+        category_filter: Optional substring to match against category paths.
+                         Only types whose category contains this string are returned.
+                         Empty string (default) returns all types.
+        offset: Pagination offset (default: 0)
+        limit: Maximum number of types to return (default: 100)
+
+    Returns:
+        List of types formatted as "Name [Kind] (N bytes) - /Category/Path",
+        one per line, with pagination.
+    """
+    params = {"offset": offset, "limit": limit}
+    if category_filter:
+        params["category_filter"] = category_filter
+    return safe_get("listDataTypes", params, binary_name=binary_name)
+
+
+@mcp.tool()
+def delete_union_field(union_name: str, ordinal: int, binary_name: str = None) -> str:
+    """
+    Remove a field from a union by its ordinal (index) position.
+
+    Deletes the field at the specified ordinal from the union. Remaining fields
+    shift their ordinals down. Use get_data_type to inspect current ordinals
+    before deleting.
+
+    Call criteria:
+    - When a union field is incorrect or no longer needed
+    - When restructuring a union definition
+    - When cleaning up auto-analysis artifacts in a union
+
+    Args:
+        union_name: Name of the target union. Must exist in the Data Type Manager.
+        ordinal: 0-based index of the field to remove. Use get_data_type to see
+                 current ordinals.
+
+    Returns:
+        Success message confirming removal, or error if the union was not found
+        or the ordinal is out of range.
+    """
+    return safe_post("deleteUnionField", {
+        "union_name": union_name,
+        "ordinal": str(ordinal)
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def delete_enum_value(enum_name: str, entry_name: str, binary_name: str = None) -> str:
+    """
+    Remove a named constant from an enum by its entry name.
+
+    Deletes the specified name-value pair from the enum. Use get_data_type to
+    inspect current enum values before deleting.
+
+    Call criteria:
+    - When an enum entry is incorrect or duplicated
+    - When cleaning up enum definitions after re-analysis
+    - When an enum value was assigned the wrong name
+
+    Args:
+        enum_name: Name of the target enum. Must exist in the Data Type Manager.
+        entry_name: Name of the enum constant to remove (e.g. "MSG_INVALID").
+
+    Returns:
+        Success message confirming removal, or error if the enum or entry was
+        not found.
+    """
+    return safe_post("deleteEnumValue", {
+        "enum_name": enum_name,
+        "entry_name": entry_name
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def create_typedef(name: str, base_type: str, category_path: str = "/", binary_name: str = None) -> str:
+    """
+    Create a type alias (typedef) for an existing data type.
+
+    Creates a new named type that is an alias for the base type, similar to
+    C's "typedef base_type name;". Useful for defining Windows-style type
+    names (e.g. HANDLE = void*, DWORD = uint) or application-specific aliases.
+
+    Call criteria:
+    - When creating named aliases for common types (e.g. HANDLE, LPVOID)
+    - When you want to make decompiled code more readable with domain-specific
+      type names
+    - When importing type definitions from documentation that use typedefs
+
+    Args:
+        name: Name for the new typedef (e.g. "HANDLE", "CALLBACK_PTR").
+              Must be unique within the given category path.
+        base_type: The underlying data type name. Supports primitives ("int",
+                   "void"), pointers ("void*", "char*"), and any existing
+                   type name in the program.
+        category_path: Category path in the Data Type Manager tree (default: "/").
+
+    Returns:
+        Success message confirming creation, or error if the base type could
+        not be resolved.
+    """
+    return safe_post("createTypedef", {
+        "name": name,
+        "base_type": base_type,
+        "category_path": category_path
+    }, binary_name=binary_name)
+
+
+# ── Signature Refactoring Tools ────────────────────────────────────────────
+
+@mcp.tool()
+def get_function_signature(address: str, binary_name: str = None) -> str:
+    """
+    Retrieve the full signature details of a function at the specified address.
+
+    Returns a multi-line breakdown of the function's prototype, return type,
+    calling convention, parameter count, and each parameter's type, name,
+    ordinal, and storage location. This is the primary tool for inspecting
+    a function's current signature before making targeted modifications.
+
+    Call criteria:
+    - Before renaming, retyping, or adding/removing parameters -- use this
+      to see the current state of the signature and parameter indices
+    - When decompiled output looks wrong and you want to inspect what Ghidra
+      currently believes the function signature to be
+    - To verify the result after using set_return_type, add_parameter,
+      remove_parameter, change_parameter_type, or rename_parameter
+    - When you need parameter ordinal or storage info to understand calling
+      convention behavior (e.g., which params are in registers vs. stack)
+
+    Args:
+        address: Address of the function entry point in hex format
+                 (e.g., "0x1400010a0", "00401000"). Must point to the
+                 start of a defined function.
+
+    Returns:
+        Multi-line text containing:
+        - Prototype: the full C-style function signature
+        - Return Type: the function's return type name
+        - Calling Convention: e.g., __stdcall, __cdecl, __fastcall, default
+        - Parameter Count: number of parameters
+        - One line per parameter with type, name, ordinal, and storage
+    """
+    return "\n".join(safe_get("getFunctionSignature", {"address": address}, binary_name=binary_name))
+
+
+@mcp.tool()
+def set_return_type(function_address: str, return_type: str, binary_name: str = None) -> str:
+    """
+    Change the return type of a function at the specified address.
+
+    This tool allows precise control over a function's return type without
+    modifying the rest of its signature. Use this instead of set_function_prototype
+    when you only need to change what the function returns.
+
+    Call criteria:
+    - When decompiled output shows incorrect return type (e.g., Ghidra inferred
+      "undefined" but you know it returns a pointer to a struct)
+    - After creating a new struct/type that a function should return
+    - When fixing calling convention mismatches that cause wrong return types
+    - When the function clearly returns a specific type based on how callers
+      use the return value
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        return_type: The new return type name. Supports:
+                     - Primitives: "int", "void", "char", "bool", "long"
+                     - Sized types: "byte", "word", "dword", "longlong"
+                     - Pointers: "int*", "void*", "MyStruct*"
+                     - Custom types: Any struct/union/enum name in the program
+
+    Returns:
+        Success message confirming the return type change, or an error message
+        if the function was not found or the type could not be resolved.
+    """
+    return safe_post("setReturnType", {"function_address": function_address, "return_type": return_type}, binary_name=binary_name)
+
+
+@mcp.tool()
+def add_parameter(function_address: str, param_name: str, param_type: str, index: int = -1, binary_name: str = None) -> str:
+    """
+    Add a new parameter to a function at the specified address.
+
+    Inserts a parameter at a specific index or appends it to the end of the
+    parameter list. The parameter is created with USER_DEFINED source type,
+    which means Ghidra will preserve it across re-analysis.
+
+    Call criteria:
+    - When you discover a function takes more arguments than Ghidra detected
+      (common with optimized code or non-standard calling conventions)
+    - When adding a 'this' pointer parameter to a method that Ghidra didn't
+      recognize as a member function
+    - When reconstructing the signature of a variadic function and adding
+      known fixed parameters
+    - After identifying a missing parameter from call sites or register usage
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        param_name: Name for the new parameter (e.g., "ctx", "buffer", "size").
+                    Must be a valid C identifier.
+        param_type: Data type for the parameter. Supports:
+                    - Primitives: "int", "void*", "char", "bool", "long"
+                    - Sized types: "byte", "word", "dword", "longlong"
+                    - Pointers: "int*", "char*", "MyStruct*"
+                    - Custom types: Any struct/union/enum name in the program
+        index: Position to insert the parameter (0-based). Use -1 (default) to
+               append at the end. Use 0 to insert before the first parameter.
+               Existing parameters at and after this index shift right.
+
+    Returns:
+        Success message confirming the parameter was added, or an error message
+        if the function was not found or the type could not be resolved.
+    """
+    return safe_post("addParameter", {
+        "function_address": function_address,
+        "param_name": param_name,
+        "param_type": param_type,
+        "index": str(index)
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def remove_parameter(function_address: str, index: int, binary_name: str = None) -> str:
+    """
+    Remove a parameter from a function by its index position.
+
+    Deletes the parameter at the specified 0-based index. Parameters after the
+    removed one shift left to fill the gap. Use get_function_signature first
+    to see current parameter indices.
+
+    Call criteria:
+    - When Ghidra added a spurious parameter that doesn't actually exist
+      (common with incorrect calling convention detection)
+    - When simplifying a function signature after determining a parameter is
+      unused or was misidentified
+    - When fixing up thunk functions that inherited incorrect parameters
+    - After changing calling convention, to remove parameters that are now
+      handled implicitly (e.g., removing explicit 'this' after setting __thiscall)
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        index: 0-based index of the parameter to remove. Must be in range
+               [0, parameter_count - 1]. Use get_function_signature to check
+               current parameter indices before removing.
+
+    Returns:
+        Success message confirming the parameter was removed, or an error message
+        if the index is out of range or the function was not found.
+    """
+    return safe_post("removeParameter", {
+        "function_address": function_address,
+        "index": str(index)
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def change_parameter_type(function_address: str, index: int, new_type: str, binary_name: str = None) -> str:
+    """
+    Change the data type of a specific parameter in a function's signature.
+
+    Modifies only the type of the parameter at the given index, preserving its
+    name and position. This is more surgical than set_function_prototype when
+    you only need to fix one parameter's type.
+
+    Call criteria:
+    - When a parameter is typed as "undefined" or "int" but you know it's
+      actually a pointer to a struct, string, or other specific type
+    - When decompiled code shows type casts on a parameter that indicate
+      the wrong type was inferred
+    - When applying struct types you've created to function parameters
+    - When correcting Ghidra's auto-analysis of parameter types based on
+      how the parameter is used in the function body
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        index: 0-based index of the parameter to modify. Must be in range
+               [0, parameter_count - 1]. Use get_function_signature to find
+               the correct index.
+        new_type: The new data type name for the parameter. Supports:
+                  - Primitives: "int", "void", "char", "bool", "long"
+                  - Sized types: "byte", "word", "dword", "longlong"
+                  - Pointers: "int*", "char*", "void*", "MyStruct*"
+                  - Custom types: Any struct/union/enum name in the program
+
+    Returns:
+        Success message confirming the type change, or an error message if the
+        index is out of range, the function was not found, or the type could
+        not be resolved.
+    """
+    return safe_post("changeParameterType", {
+        "function_address": function_address,
+        "index": str(index),
+        "new_type": new_type
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def rename_parameter(function_address: str, index: int, new_name: str, binary_name: str = None) -> str:
+    """
+    Rename a specific parameter in a function's signature by its index.
+
+    Changes only the name of the parameter at the given index, preserving its
+    type, position, and storage. Parameter names appear in decompiled output
+    and greatly improve code readability.
+
+    Call criteria:
+    - When decompiled output shows auto-generated parameter names like
+      "param_1", "param_2" that you can give meaningful names based on
+      how they are used in the function body
+    - When reversing a function whose parameter names are known from
+      documentation, debug symbols, or calling conventions
+    - After adding a parameter with add_parameter, to fix its name if needed
+    - When cleaning up function signatures for documentation or reporting
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        index: 0-based index of the parameter to rename. Must be in range
+               [0, parameter_count - 1]. Use get_function_signature to find
+               the correct index.
+        new_name: New name for the parameter (e.g., "buffer", "length", "flags").
+                  Must be a valid C identifier. Should be descriptive of the
+                  parameter's purpose.
+
+    Returns:
+        Success message confirming the rename, or an error message if the
+        index is out of range or the function was not found.
+    """
+    return safe_post("renameParameter", {
+        "function_address": function_address,
+        "index": str(index),
+        "new_name": new_name
+    }, binary_name=binary_name)
+
+
+@mcp.tool()
+def set_calling_convention(function_address: str, calling_convention: str, binary_name: str = None) -> str:
+    """
+    Set the calling convention of a function at the specified address.
+
+    The calling convention determines how parameters are passed (registers vs.
+    stack), who cleans up the stack, and how the return value is delivered.
+    Changing it affects parameter storage assignments and the decompiled output.
+
+    Call criteria:
+    - When Ghidra misidentified the calling convention (e.g., a __thiscall
+      method was detected as __cdecl, causing the first parameter to be wrong)
+    - When reversing Windows COM/OLE code that uses __stdcall
+    - When a function uses __fastcall but Ghidra defaulted to __cdecl
+    - When fixing x86 C++ methods that need __thiscall to correctly identify
+      the 'this' pointer in ECX
+    - After importing type information that specifies a particular convention
+
+    Args:
+        function_address: Address of the function in hex format (e.g., "0x1400010a0").
+                         Must point to the entry point of an existing function.
+        calling_convention: The calling convention name. Common values:
+                           - "default" - use the program's default convention
+                           - "__cdecl" - C declaration (caller cleans stack)
+                           - "__stdcall" - Standard call (callee cleans stack)
+                           - "__fastcall" - First 2 params in ECX/EDX (x86)
+                           - "__thiscall" - C++ method (this in ECX on x86)
+                           - "__vectorcall" - SIMD-optimized parameter passing
+                           The available conventions depend on the program's
+                           architecture and compiler specification.
+
+    Returns:
+        Success message confirming the convention change, or an error message
+        if the function was not found or the convention name is invalid.
+    """
+    return safe_post("setCallingConvention", {
+        "function_address": function_address,
+        "calling_convention": calling_convention
+    }, binary_name=binary_name)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="MCP server for Ghidra")
+    parser.add_argument("--ghidra-server", type=str, default=None,
+                        help="Ghidra server URL for legacy single-instance mode")
+    parser.add_argument("--base-port", type=int, default=8080,
+                        help="Base port to scan for Ghidra instances (default: 8080)")
+    parser.add_argument("--port-range", type=int, default=10,
+                        help="Number of ports to scan starting from base-port (default: 10)")
+    parser.add_argument("--mcp-host", type=str, default="127.0.0.1",
+                        help="Host to run MCP server on (only used for sse), default: 127.0.0.1")
+    parser.add_argument("--mcp-port", type=int,
+                        help="Port to run MCP server on (only used for sse), default: 8081")
+    parser.add_argument("--transport", type=str, default="stdio", choices=["stdio", "sse"],
+                        help="Transport protocol for MCP, default: stdio")
+    args = parser.parse_args()
+
+    global ghidra_server_url, connection_manager
+
+    if args.ghidra_server:
+        # Legacy single-instance mode
+        ghidra_server_url = args.ghidra_server
+        connection_manager = None
+        logger.info(f"Legacy mode: connecting to Ghidra server at {ghidra_server_url}")
+    else:
+        # Multi-instance mode
+        port_range = args.port_range
+        connection_manager = GhidraConnectionManager(
+            base_port=args.base_port,
+            port_range=port_range,
+        )
+        instances = connection_manager.discover()
+        if instances:
+            logger.info(f"Discovered {len(instances)} Ghidra instance(s)")
+            for inst in instances:
+                logger.info(f"  - {inst.program_name or '(no program)'} on port {inst.port}")
+        else:
+            logger.info(f"No Ghidra instances found on ports {args.base_port}-{args.base_port + port_range - 1}. "
+                       f"Will scan on demand when tools are called.")
+
+    if args.transport == "sse":
+        try:
+            log_level = logging.INFO
+            logging.basicConfig(level=log_level)
+            logging.getLogger().setLevel(log_level)
+
+            mcp.settings.log_level = "INFO"
+            if args.mcp_host:
+                mcp.settings.host = args.mcp_host
+            else:
+                mcp.settings.host = "127.0.0.1"
+
+            if args.mcp_port:
+                mcp.settings.port = args.mcp_port
+            else:
+                mcp.settings.port = 8081
+
+            logger.info(f"Starting MCP server on http://{mcp.settings.host}:{mcp.settings.port}/sse")
+            logger.info(f"Using transport: {args.transport}")
+
+            mcp.run(transport="sse")
+        except KeyboardInterrupt:
+            logger.info("Server stopped by user")
+    else:
+        mcp.run()
+        
+if __name__ == "__main__":
+    main()
+

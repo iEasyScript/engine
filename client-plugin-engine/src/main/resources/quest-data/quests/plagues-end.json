@@ -1,0 +1,7600 @@
+{
+  "slug": "plagues-end",
+  "name": "Plague's End",
+  "members": true,
+  "length": "longverylong",
+  "timeline": "mythic",
+  "releaseDate": 1407715200,
+  "neededItems": [
+    {
+      "name": "Super defence (3)",
+      "itemId": 90,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Mourner gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rune bar",
+      "itemId": 2363,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Plant cure",
+      "itemId": 66,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Magic logs",
+      "itemId": 1513,
+      "quantity": 10,
+      "duringQuest": false
+    },
+    {
+      "name": "Spirit shard",
+      "itemId": 108,
+      "quantity": 200,
+      "duringQuest": false
+    },
+    {
+      "name": "Gold charm",
+      "itemId": 291,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Green charm",
+      "itemId": 294,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Crimson charm",
+      "itemId": 285,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Blue charm",
+      "itemId": 261,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Pouch",
+      "itemId": 99,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 3200,
+      "duringQuest": false
+    },
+    {
+      "name": "Tirannwn quiver",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ring of kinship",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dramen staff",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Crystal teleport seed",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Antipoison",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Sir Hugo",
+      "level": "107",
+      "quantity": 1
+    },
+    {
+      "name": "Trahaearn automatons",
+      "level": "70",
+      "quantity": 3
+    },
+    {
+      "name": "shadows",
+      "level": "107",
+      "quantity": 1
+    },
+    {
+      "name": "Dark Lord",
+      "level": "107",
+      "quantity": 1
+    },
+    {
+      "name": "Mourner",
+      "level": "83",
+      "quantity": 1
+    },
+    {
+      "name": "Head Mourner",
+      "level": "100",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Within the Light",
+    "Catapult Construction",
+    "Making History"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Dungeoneering",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Prayer",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Summoning",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 75,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Arianwyn in Lletya.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's go!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have the Mourner disguise with me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready to teleport."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Infiltration",
+      "text": "Equip your mourner's outfit.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "mourner gear"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "mourner gear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 550.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 550.0,
+          "y": 10.5,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We thought we saw a mouse."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It might get into the food stores."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We knew you were busy, so we dealt with it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "waiting for him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a mourner in the north-western room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 600.0,
+          "y": 17.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 600.0,
+            "y": 17.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 600.0,
+            "y": 17.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "death"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Iestin Edern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19559,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19568,
+            19900
+          ],
+          "displayName": "Iestin Edern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The captain wants you to hurry."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "room lead to Prifddinas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the nearby stairs (north wall).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -15.0,
+          "heightFine": 550.0,
+          "y": 24.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Iorwerth master plan",
+      "text": "Talk to the Mayor of Prifddinas to the north-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 1972.0,
+          "y": 35.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got a report from Iestin Edern."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "mayor takes the report"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the mourner to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -25.0,
+          "heightFine": 500.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "instance": true,
+          "atLocation": {
+            "x": -25.0,
+            "heightFine": -88.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "instance": true,
+          "atLocation": {
+            "x": -25.0,
+            "heightFine": -88.0,
+            "y": -9.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The mayor wants you to distribute the food to the crowd."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "something to eat"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Mayor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 1972.0,
+          "y": 35.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The guards are distributing it to the crowd!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "this outrage"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Mayor of prif"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Iorwerth master plan from the desk.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -24.0,
+          "heightFine": 2472.0,
+          "y": 35.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31789,
+          "displayName": "Iorwerth master plan",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs to the south-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.5,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Iestin Edern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19559,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19568,
+            19900
+          ],
+          "displayName": "Iestin Edern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "plans here"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can we stop him?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "start a revolution"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gathering forces",
+      "text": "Talk to Councillor Halgrive at the East Ardougne church.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2616.0,
+          "heightFine": 1189.0,
+          "y": 3300.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to show you this document."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Halgrives proclamation",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs in the Civic Office of West Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2528.5,
+          "heightFine": 1689.0,
+          "y": 3316.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2530.0,
+          "heightFine": 2149.0,
+          "y": 3316.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bravek.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 711,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3212
+          ],
+          "displayName": "Bravek"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to show you this document."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you suspected, why didn't you do anything?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "us all better."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Braveks list",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 711,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3212
+          ],
+          "displayName": "Bravek"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We need to overthrow the Mourners."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Braveks list",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip 1 mourner piece. The people won't speak to you with a full set of mourner outfit equipped.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "mourner gear",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2528.5,
+          "heightFine": 2149.0,
+          "y": 3316.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2527.0,
+          "heightFine": 1189.0,
+          "y": 3316.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ted Rehnison.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2531.0,
+          "heightFine": 1285.0,
+          "y": 3331.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19606,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19614,
+            19642
+          ],
+          "displayName": "Ted Rehnison"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19606,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19614,
+            19642
+          ],
+          "displayName": "Ted Rehnison"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help to overthrow the Mourners."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the church"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19606,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19614,
+            19642
+          ],
+          "displayName": "Ted Rehnison"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jethick.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2540.0,
+          "heightFine": 1197.0,
+          "y": 3305.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19616,
+            19644
+          ],
+          "displayName": "Jethick"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19616,
+            19644
+          ],
+          "displayName": "Jethick"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We would if we tore down the city's walls. Join my revolution!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "long time"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19616,
+            19644
+          ],
+          "displayName": "Jethick"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nurse Sarah.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2517.0,
+          "heightFine": 1029.0,
+          "y": 3274.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19610,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19617,
+            19636
+          ],
+          "displayName": "Nurse Sarah"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19610,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19617,
+            19636
+          ],
+          "displayName": "Nurse Sarah"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd feel better if you joined my revolution."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "eradicate them"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19610,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19617,
+            19636
+          ],
+          "displayName": "Nurse Sarah"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Carla.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2495.0,
+          "heightFine": 1349.0,
+          "y": 3311.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19605,
+          "modelIds": [
+            3615
+          ],
+          "displayName": "Carla"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19605,
+          "modelIds": [
+            3615
+          ],
+          "displayName": "Carla"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Join my revolution and avenge your son."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the church"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19605,
+          "modelIds": [
+            3615
+          ],
+          "displayName": "Carla"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Koftik.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2440.0,
+          "heightFine": 653.0,
+          "y": 3315.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            974,
+            975,
+            976,
+            1209,
+            19611,
+            19618,
+            19646
+          ],
+          "displayName": "Koftik"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            974,
+            975,
+            976,
+            1209,
+            19611,
+            19618,
+            19646
+          ],
+          "displayName": "Koftik"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "overthrow the Mourners"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "count me in"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            974,
+            975,
+            976,
+            1209,
+            19611,
+            19618,
+            19646
+          ],
+          "displayName": "Koftik"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elena.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - and it's time to stop them."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "years ago"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Revolution",
+      "text": "Talk to Elena at the West Ardougne church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2528.0,
+          "heightFine": 1157.0,
+          "y": 3291.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - I'll explain everything, and then we'll strike!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Enough talk - it's time to strike!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Mourner HQ"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kick down door at the Mourner HQ.",
+      "warning": "If door is not closed, teleport away and come back.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the mourners.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -9.0,
+          "heightFine": 0.0,
+          "y": 4.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the mourners.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attack the head mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the head mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have some questions."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How were you going to summon the Dark Lord?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "following orders"
+        },
+        {
+          "t": "conversationText",
+          "text": "see me again"
+        },
+        {
+          "t": "conversationText",
+          "text": "Nooo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Enough questions."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "coming for him"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Now die"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see me again"
+        },
+        {
+          "t": "conversationText",
+          "text": "Nooo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elena.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Revolutionary flag",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.5,
+          "heightFine": 450.0,
+          "y": -1.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2.0,
+          "heightFine": 960.0,
+          "y": -2.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Replace the mourners standard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1437
+          ],
+          "candidateObjectTypeIds": [
+            1267,
+            4349,
+            4611
+          ],
+          "displayName": "Mourners standard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "defend the king"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.5,
+          "heightFine": 960.0,
+          "y": -1.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": -2.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the HQ.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 400.0,
+          "y": -6.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Edmond at the Ardougne Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2589.0,
+          "heightFine": 1925.0,
+          "y": 3296.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19543,
+          "modelIds": [
+            5223
+          ],
+          "displayName": "Sir Edmond"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19543,
+          "modelIds": [
+            5223
+          ],
+          "displayName": "Sir Edmond"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19543,
+          "modelIds": [
+            5223
+          ],
+          "displayName": "Sir Edmond"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -16.5,
+          "heightFine": 400.0,
+          "y": 11.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -16.0,
+          "heightFine": 992.0,
+          "y": 10.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Lathas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head from your"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Sir Hugo.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19544,
+          "modelIds": [
+            5958
+          ],
+          "displayName": "Sir Hugo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Lathas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You need to pay with your death."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "killed him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Edmond.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19543,
+          "modelIds": [
+            5223
+          ],
+          "displayName": "Sir Edmond"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "last saw them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding the leaders",
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready to teleport."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your mourner's outfit.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "mourner gear"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "mourner gear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Iestin Edern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19559,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19568,
+            19900
+          ],
+          "displayName": "Iestin Edern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay - what do I do now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Go on..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - teleport me to Lletya now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gwir.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2353.0,
+          "heightFine": 1669.0,
+          "y": 3178.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8894,
+          "modelIds": [
+            4089
+          ],
+          "displayName": "Gwir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8894,
+          "modelIds": [
+            4089
+          ],
+          "displayName": "Gwir"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to find the Elders of Prifddinas."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you'll need"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8894,
+          "modelIds": [
+            4089
+          ],
+          "displayName": "Gwir"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search a bookcase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2354.0,
+          "heightFine": 2069.0,
+          "y": 3180.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Lost Elders"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31793,
+          "displayName": "The Lost Elders",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the book.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31793,
+          "modelIds": [
+            432
+          ],
+          "displayName": "The Lost Elders"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gwir.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8894,
+          "modelIds": [
+            4089
+          ],
+          "displayName": "Gwir"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to find the Elders of Prifddinas."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lord Amlodd."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31794,
+          "displayName": "Amlodd charm",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8894,
+          "modelIds": [
+            4089
+          ],
+          "displayName": "Gwir"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "More..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lady Meilyr."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31796,
+          "displayName": "Meilyr potion recipe",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lady Ithell",
+      "text": "Inspect the symbol in the bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2357.0,
+          "heightFine": 1669.0,
+          "y": 3164.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol bank"
+        },
+        {
+          "t": "chatText",
+          "text": "1/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Magic logs",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol bank"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/5"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol bank"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the symbol in the southern building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2339.0,
+          "heightFine": 1669.0,
+          "y": 3155.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol southern building"
+        },
+        {
+          "t": "chatText",
+          "text": "2/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol southern building"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/5"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol southern building"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the symbol in the ranging shop.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2323.9,
+          "heightFine": 1669.0,
+          "y": 3165.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol range shop"
+        },
+        {
+          "t": "chatText",
+          "text": "3/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol range shop"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/5"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol range shop"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs in the clothing store.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2328.5,
+          "heightFine": 1969.0,
+          "y": 3176.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2327.0,
+          "heightFine": 2821.0,
+          "y": 3176.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the symbol.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol clothing store"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2328.5,
+          "heightFine": 2821.0,
+          "y": 3176.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2328.0,
+          "heightFine": 1669.0,
+          "y": 3175.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs in the center of town.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2339.0,
+          "heightFine": 1685.0,
+          "y": 3167.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2339.0,
+          "heightFine": 1685.0,
+          "y": 3175.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2343.0,
+          "heightFine": 2789.0,
+          "y": 3168.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2343.0,
+          "heightFine": 2789.0,
+          "y": 3175.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the symbol.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2357.0,
+          "heightFine": 2789.0,
+          "y": 3177.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "5/5"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Blue symbol altar"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the statue hotspot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2339.5,
+          "heightFine": 1485.0,
+          "y": 3171.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 91959,
+          "modelIds": [
+            10566
+          ],
+          "displayName": "Statue hotspot"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 91960,
+          "modelIds": [
+            9978
+          ],
+          "displayName": "Ithell Statue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 91959,
+          "modelIds": [
+            10566
+          ],
+          "displayName": "Statue hotspot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 91960,
+          "modelIds": [
+            9978
+          ],
+          "displayName": "Ithell Statue"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 91959,
+          "modelIds": [
+            10566
+          ],
+          "displayName": "Statue hotspot"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2339.0,
+          "heightFine": 1685.0,
+          "y": 3167.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2339.0,
+          "heightFine": 1685.0,
+          "y": 3175.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2343.0,
+          "heightFine": 2789.0,
+          "y": 3168.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2343.0,
+          "heightFine": 2789.0,
+          "y": 3175.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kelyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19626,
+          "modelIds": [
+            6240
+          ],
+          "displayName": "Kelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "meet you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lady Trahaearn",
+      "text": "Follow the path to the Underground Pass cave entrance.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2254.0,
+              "heightFine": 1301.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2248.0,
+              "heightFine": 973.0,
+              "y": 3151.0
+            },
+            {
+              "x": 2242.0,
+              "heightFine": 1109.0,
+              "y": 3160.0
+            },
+            {
+              "x": 2237.0,
+              "heightFine": 909.0,
+              "y": 3169.0
+            },
+            {
+              "x": 2233.0,
+              "heightFine": 1093.0,
+              "y": 3173.0
+            },
+            {
+              "x": 2233.0,
+              "heightFine": 1013.0,
+              "y": 3181.0
+            },
+            {
+              "x": 2238.0,
+              "heightFine": 981.0,
+              "y": 3181.0
+            },
+            {
+              "x": 2243.0,
+              "heightFine": 1357.0,
+              "y": 3182.0
+            },
+            {
+              "x": 2251.0,
+              "heightFine": 989.0,
+              "y": 3182.0
+            },
+            {
+              "x": 2259.0,
+              "heightFine": 1141.0,
+              "y": 3183.0
+            },
+            {
+              "x": 2263.0,
+              "heightFine": 981.0,
+              "y": 3192.0
+            },
+            {
+              "x": 2267.0,
+              "heightFine": 1276.0,
+              "y": 3201.0
+            },
+            {
+              "x": 2267.0,
+              "heightFine": 1269.0,
+              "y": 3205.0
+            },
+            {
+              "x": 2269.0,
+              "heightFine": 1269.0,
+              "y": 3206.0
+            },
+            {
+              "x": 2270.0,
+              "heightFine": 1229.0,
+              "y": 3209.0
+            },
+            {
+              "x": 2279.0,
+              "heightFine": 1013.0,
+              "y": 3212.0
+            },
+            {
+              "x": 2285.0,
+              "heightFine": 893.0,
+              "y": 3213.0
+            },
+            {
+              "x": 2290.0,
+              "heightFine": 1157.0,
+              "y": 3208.0
+            },
+            {
+              "x": 2295.0,
+              "heightFine": 1061.0,
+              "y": 3207.0
+            },
+            {
+              "x": 2300.0,
+              "heightFine": 1021.0,
+              "y": 3210.0
+            },
+            {
+              "x": 2305.0,
+              "heightFine": 1165.0,
+              "y": 3213.0
+            },
+            {
+              "x": 2310.0,
+              "heightFine": 1300.0,
+              "y": 3217.0
+            },
+            {
+              "x": 2314.0,
+              "heightFine": 1341.0,
+              "y": 3217.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2314.0,
+          "heightFine": 901.0,
+          "y": 9624.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rune bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pouch",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Spirit shard",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Gold charm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Green charm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Crimson charm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue charm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Amlodd charm",
+          "itemId": 309,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the cracked wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11461,
+          "modelIds": [
+            3054
+          ],
+          "displayName": "Cracked wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3720
+          ],
+          "candidateNpcTypeIds": [
+            24882,
+            24883
+          ],
+          "displayName": "Cracked wall tunnel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter tunnel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3720
+          ],
+          "candidateNpcTypeIds": [
+            24882,
+            24883
+          ],
+          "displayName": "Cracked wall tunnel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the automatons.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19527,
+          "modelIds": [
+            5763,
+            4443,
+            6081
+          ],
+          "displayName": "Trahaearn automaton",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wake Lady Trahaearn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19525,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19526,
+            19538,
+            19558,
+            19898,
+            19927,
+            21541,
+            23895
+          ],
+          "displayName": "Lady Trahaearn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Repair the exoskeleton."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "meet you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lord Amlodd",
+      "text": "Exit the tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 350.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Amlodd Charm on the obelisk.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2854,
+          "modelIds": [
+            4752
+          ],
+          "displayName": "Obelisk"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31794,
+          "modelIds": [
+            309
+          ],
+          "displayName": "Amlodd charm"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Create the Amlodd pouch."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31795,
+          "displayName": "Amlodd pouch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Summon Amlodd pouch.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31795,
+          "modelIds": [
+            429
+          ],
+          "displayName": "Amlodd pouch"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you my summoned creature now? Can I command you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "clever there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31795,
+          "modelIds": [
+            429
+          ],
+          "displayName": "Amlodd pouch"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Undercity"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lord Crwys",
+      "text": "Pick a blue mushroom.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1163,
+          "modelIds": [
+            1392
+          ],
+          "displayName": "Mushroom",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blue mushroom",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            22317
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Plant cure",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Meilyr potion recipe",
+          "itemId": 6,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick a red mushroom.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1163,
+          "modelIds": [
+            1392
+          ],
+          "displayName": "Mushroom",
+          "atLocation": {
+            "x": 2236.0,
+            "heightFine": 661.0,
+            "y": 3142.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blue mushroom",
+          "quantity": 2,
+          "candidateItemTypeIds": [
+            22317
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path to the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2217.0,
+          "heightFine": 869.0,
+          "y": 3166.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2240.0,
+              "heightFine": 973.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2237.0,
+              "heightFine": 853.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2234.0,
+              "heightFine": 869.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2231.0,
+              "heightFine": 861.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2229.0,
+              "heightFine": 869.0,
+              "y": 3147.0
+            },
+            {
+              "x": 2225.0,
+              "heightFine": 869.0,
+              "y": 3146.0
+            },
+            {
+              "x": 2220.0,
+              "heightFine": 1045.0,
+              "y": 3148.0
+            },
+            {
+              "x": 2220.0,
+              "heightFine": 965.0,
+              "y": 3152.0
+            },
+            {
+              "x": 2220.0,
+              "heightFine": 901.0,
+              "y": 3155.0
+            },
+            {
+              "x": 2217.0,
+              "heightFine": 869.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2217.0,
+              "heightFine": 869.0,
+              "y": 3163.0
+            },
+            {
+              "x": 2217.0,
+              "heightFine": 869.0,
+              "y": 3166.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2217.0,
+          "heightFine": 869.0,
+          "y": 3166.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop down tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2218.5,
+          "heightFine": 1269.0,
+          "y": 3166.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            615
+          ],
+          "candidateObjectTypeIds": [
+            62257
+          ],
+          "displayName": "Tree orb"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1224
+          ],
+          "candidateObjectTypeIds": [
+            620,
+            2906,
+            2910,
+            4797,
+            11336
+          ],
+          "displayName": "Inspect tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "diseased"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use plant cure on the tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1224
+          ],
+          "candidateObjectTypeIds": [
+            620,
+            2906,
+            2910,
+            4797,
+            11336
+          ],
+          "displayName": "Inspect tree"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6036,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Plant cure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19532,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19537,
+            19564,
+            19882,
+            19910,
+            21536
+          ],
+          "displayName": "Lord Crwys"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lord Crwys.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19532,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19537,
+            19564,
+            19882,
+            19910,
+            21536
+          ],
+          "displayName": "Lord Crwys"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Undercity"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lady Hefin",
+      "text": "Follow the path across the rocks.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2210.0,
+              "heightFine": 341.0,
+              "y": 3101.0
+            },
+            {
+              "x": 2208.0,
+              "heightFine": 325.0,
+              "y": 3103.0
+            },
+            {
+              "x": 2208.0,
+              "heightFine": 349.0,
+              "y": 3105.0
+            },
+            {
+              "x": 2207.0,
+              "heightFine": 430.0,
+              "y": 3106.0
+            },
+            {
+              "x": 2205.0,
+              "heightFine": 357.0,
+              "y": 3107.0
+            },
+            {
+              "x": 2203.0,
+              "heightFine": 360.0,
+              "y": 3107.0
+            },
+            {
+              "x": 2203.0,
+              "heightFine": 360.0,
+              "y": 3109.0
+            },
+            {
+              "x": 2203.0,
+              "heightFine": 325.0,
+              "y": 3111.0
+            },
+            {
+              "x": 2200.0,
+              "heightFine": 357.0,
+              "y": 3111.0
+            },
+            {
+              "x": 2198.0,
+              "heightFine": 360.0,
+              "y": 3111.0
+            },
+            {
+              "x": 2198.0,
+              "heightFine": 360.0,
+              "y": 3109.0
+            },
+            {
+              "x": 2198.0,
+              "heightFine": 360.0,
+              "y": 3107.0
+            },
+            {
+              "x": 2198.0,
+              "heightFine": 357.0,
+              "y": 3105.0
+            },
+            {
+              "x": 2195.0,
+              "heightFine": 589.0,
+              "y": 3102.0
+            },
+            {
+              "x": 2193.0,
+              "heightFine": 325.0,
+              "y": 3100.0
+            },
+            {
+              "x": 2193.0,
+              "heightFine": 360.0,
+              "y": 3098.0
+            },
+            {
+              "x": 2193.0,
+              "heightFine": 360.0,
+              "y": 3096.0
+            },
+            {
+              "x": 2193.0,
+              "heightFine": 349.0,
+              "y": 3094.0
+            },
+            {
+              "x": 2190.0,
+              "heightFine": 357.0,
+              "y": 3093.0
+            },
+            {
+              "x": 2188.0,
+              "heightFine": 360.0,
+              "y": 3093.0
+            },
+            {
+              "x": 2188.0,
+              "heightFine": 325.0,
+              "y": 3095.0
+            },
+            {
+              "x": 2185.0,
+              "heightFine": 413.0,
+              "y": 3096.0
+            },
+            {
+              "x": 2183.0,
+              "heightFine": 360.0,
+              "y": 3096.0
+            },
+            {
+              "x": 2181.0,
+              "heightFine": 360.0,
+              "y": 3096.0
+            },
+            {
+              "x": 2179.0,
+              "heightFine": 333.0,
+              "y": 3096.0
+            },
+            {
+              "x": 2176.0,
+              "heightFine": 325.0,
+              "y": 3097.0
+            },
+            {
+              "x": 2174.0,
+              "heightFine": 360.0,
+              "y": 3097.0
+            },
+            {
+              "x": 2174.0,
+              "heightFine": 360.0,
+              "y": 3095.0
+            },
+            {
+              "x": 2174.0,
+              "heightFine": 360.0,
+              "y": 3093.0
+            },
+            {
+              "x": 2174.0,
+              "heightFine": 360.0,
+              "y": 3091.0
+            },
+            {
+              "x": 2172.0,
+              "heightFine": 349.0,
+              "y": 3091.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2172.0,
+          "heightFine": 349.0,
+          "y": 3091.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Dramen staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Elf Hermit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19519,
+          "modelIds": [
+            4647
+          ],
+          "displayName": "Elf hermit"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek the wisdom of Seren."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Seren's faithfulness to the elves."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The symmetry of crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "humility"
+        },
+        {
+          "t": "conversationText",
+          "text": "Undercity"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19519,
+          "modelIds": [
+            4647
+          ],
+          "displayName": "Elf hermit"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I don't know."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Undercity"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Lady Meilyr",
+      "text": "Grind the blue Isafdar mushroom.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            234
+          ],
+          "candidateItemTypeIds": [
+            22317
+          ],
+          "displayName": "Blue mushroom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blue mushroom powder",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Blue Isafdar mushroom",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Red Isafdar mushroom",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Super defence (3)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the red Isafdar mushroom.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            234
+          ],
+          "candidateItemTypeIds": [
+            22317
+          ],
+          "displayName": "Blue mushroom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Red mushroom powder",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ground blue Isafdar mushroom on a super defence (3) potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Blue mushroom powder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Super defence3"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Meilyr potion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink Meilyr potion in the Dungeoneering lobby at Daemonheim.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Teleport to Daemonheim",
+        "url": "Ring_of_kinship.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3449.0,
+          "heightFine": 13189.0,
+          "y": 3726.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Meilyr potion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            540
+          ],
+          "candidateNpcTypeIds": [
+            191,
+            398,
+            399,
+            478,
+            928,
+            1162,
+            1167,
+            1169,
+            1170,
+            1296,
+            1297,
+            1298,
+            1299,
+            2246,
+            2496,
+            2497,
+            4964,
+            5463,
+            5464,
+            5490,
+            13462,
+            15784,
+            26836
+          ],
+          "displayName": "Meilyr portal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the portal that appears on the west side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            540
+          ],
+          "candidateNpcTypeIds": [
+            191,
+            398,
+            399,
+            478,
+            928,
+            1162,
+            1167,
+            1169,
+            1170,
+            1296,
+            1297,
+            1298,
+            1299,
+            2246,
+            2496,
+            2497,
+            4964,
+            5463,
+            5464,
+            5490,
+            13462,
+            15784,
+            26836
+          ],
+          "displayName": "Meilyr portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lady Meilyr.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19530,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19536,
+            19563,
+            19908,
+            20286,
+            21540
+          ],
+          "displayName": "Lady Meilyr"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's time. I'm gathering the clan leaders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Undercity"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Distraction",
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready to teleport."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 3200,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Iestin Edern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19559,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19568,
+            19900
+          ],
+          "displayName": "Iestin Edern"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Lord Iorwerth for good"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to General Hining in the Tyras Camp.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Charter to Port Tyras",
+        "url": "Transportation_map_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2186.0,
+          "heightFine": 2565.0,
+          "y": 3148.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7121,
+          "modelIds": [],
+          "displayName": "General Hining"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7121,
+          "modelIds": [],
+          "displayName": "General Hining"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The time has come to face the darkness."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "our support"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7121,
+          "modelIds": [],
+          "displayName": "General Hining"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready to teleport."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Iestin Edern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19559,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19568,
+            19900
+          ],
+          "displayName": "Iestin Edern"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "finish this"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Grand Library.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Grand library door symbols"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lord Crwys.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19532,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19537,
+            19564,
+            19882,
+            19910,
+            21536
+          ],
+          "displayName": "Lord Crwys"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, what do I do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Stage 1/8:"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cadarn",
+      "text": "Put a mirror on the plinth. Orientate the mirror so the beam will go north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -23.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Cadarn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -12.0,
+          "heightFine": 492.0,
+          "y": -3.0,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "what do I do"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Seal of Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the shadows.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276,
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Shadows",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276,
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Shadows"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Trahaearn",
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -16.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -24.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Trahaearn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 492.0,
+          "y": -11.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Seal of Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the shadows.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276,
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Shadows",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276,
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Shadows"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Iorwerth",
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -30.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -30.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 10.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 5.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -24.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Iorwerth.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 492.0,
+          "y": -11.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "is that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Dark Lord.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "want to talk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Dark Lord and minion.<ul><li>Avoid his AoEs.</li></ul>",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ithell",
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Ithell.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -34.0,
+          "heightFine": 492.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "fight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Dark Lord and minions.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Amlodd",
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": -192.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -23.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -23.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Amlodd.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -34.0,
+          "heightFine": 492.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "fight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Dark Lord and minions.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Hefin",
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -23.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Hefin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 492.0,
+          "y": 11.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "fight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Dark Lord and minions.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Meilyr",
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Meilyr.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 492.0,
+          "y": 11.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "fight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Dark Lord and minions.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Crwys",
+      "text": "East",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -17.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": 0.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -14.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -20.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": -9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": -3.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -32.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -29.0,
+          "heightFine": 392.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -29.0,
+            "heightFine": 392.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -26.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -26.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -23.0,
+          "heightFine": 392.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2966,
+          "modelIds": [
+            1035
+          ],
+          "displayName": "Mirror",
+          "instance": true,
+          "atLocation": {
+            "x": -23.0,
+            "heightFine": 392.0,
+            "y": 9.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the Seal of Crwys.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 492.0,
+          "y": 11.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Arianwyn.<ul><li>Recommended: Talk to Arianwyn to teleport to the entrance of Prifddinas, or walk there yourself. After a skippable cutscene, the city of Prifddinas will be unlocked.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 23198,
+  "stageVarbitCompleteValue": 400,
+  "cacheQuestId": 222
+}

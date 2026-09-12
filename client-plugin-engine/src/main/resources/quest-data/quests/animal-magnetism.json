@@ -1,0 +1,1289 @@
+{
+  "slug": "animal-magnetism",
+  "name": "Animal Magnetism",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1165881600,
+  "neededItems": [
+    {
+      "name": "Mithril hatchet",
+      "itemId": 429,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Iron bars",
+      "itemId": 2351,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Holy symbol",
+      "itemId": 180,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Polished buttons",
+      "itemId": 600,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Hard leather",
+      "itemId": 120,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ecto-tokens",
+      "itemId": -1,
+      "quantity": 20,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ectophial",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Restless Ghost",
+    "Ernest the Chicken"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 19,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 18,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 15,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 35,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 10,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Ava inside the western room of Draynor Manor.<ul><li>To get to her room, a candle sconce (North of the entrance) must be pulled.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3093.0,
+          "heightFine": 965.0,
+          "y": 3357.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would be happy to make your home a better place."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Ava.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with bated breath"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Undead poultry",
+      "text": "Talk to Alice at the farm west of the Ectofuntus.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ectophial",
+        "url": "Ectophial.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3628.0,
+          "heightFine": 893.0,
+          "y": 3525.5,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2307,
+          "modelIds": [
+            4305
+          ],
+          "displayName": "Alice",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to the dead"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ecto-token",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ectophial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Alice's husband.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4014
+          ],
+          "displayName": "Alices husband"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "think about it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2307,
+          "modelIds": [
+            4305
+          ],
+          "displayName": "Alice"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "uses I suppose"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice's husband.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4014
+          ],
+          "displayName": "Alices husband"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hair turns white"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2307,
+          "modelIds": [
+            4305
+          ],
+          "displayName": "Alice"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "cash in Varrock bank"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice's husband.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4014
+          ],
+          "displayName": "Alices husband"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dealin' scammer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2307,
+          "modelIds": [
+            4305
+          ],
+          "displayName": "Alice"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "looks pretty normal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Netty in her house east of the Slayer Tower.<ul><li>If Vessel of the Harbinger is completed, Netty will be in the City of Um at The Last Call.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30398
+          ],
+          "displayName": "Netty",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about the farmers east of here."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Animal Magnetism.'"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "human other than"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30398
+          ],
+          "displayName": "Netty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about the farmers east of here."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "'Animal Magnetism'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10500,
+          "displayName": "Altered ghostspeak amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice's husband.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3619.0,
+          "heightFine": 149.0,
+          "y": 3527.0,
+          "instance": false,
+          "distance": 24
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4014
+          ],
+          "displayName": "Alices husband",
+          "distance": 26
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, you need it more than I do, I suppose."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 10500,
+          "displayName": "Altered ghostspeak amulet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4371
+          ],
+          "candidateObjectTypeIds": [
+            4193,
+            4195,
+            4196,
+            4197,
+            4198,
+            4254,
+            4698,
+            10109,
+            10127,
+            11562,
+            25251,
+            33948,
+            34252,
+            36073,
+            36081
+          ],
+          "displayName": "Alices husband amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alice's husband.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4371
+          ],
+          "candidateObjectTypeIds": [
+            4193,
+            4195,
+            4196,
+            4197,
+            4198,
+            4254,
+            4698,
+            10109,
+            10127,
+            11562,
+            25251,
+            33948,
+            34252,
+            36073,
+            36081
+          ],
+          "displayName": "Alices husband amulet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could I buy those chickens now, then?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could I buy 2 chickens?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10487,
+          "displayName": "Undead chicken",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making a magnet",
+      "text": "Talk to Ava.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3093.0,
+          "heightFine": 965.0,
+          "y": 3357.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Iron bars",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Witch next door"
+        },
+        {
+          "t": "conversationText",
+          "text": "finished praising yourself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Helda.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5200,
+          "modelIds": [
+            3441
+          ],
+          "displayName": "Helda"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "be back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5200,
+          "modelIds": [
+            3441
+          ],
+          "displayName": "Helda"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10488,
+          "displayName": "Selected iron",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Face north on the marked tile and click the selected iron.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Port Sarim lodestone",
+        "url": "Port_Sarim_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2971.0,
+          "heightFine": 165.0,
+          "y": 3233.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10488,
+          "modelIds": [
+            270
+          ],
+          "displayName": "Selected iron"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10489,
+          "displayName": "Bar magnet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ava.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3093.0,
+          "heightFine": 965.0,
+          "y": 3357.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "trees are pretty close"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Blessed hatchet",
+      "text": "Cut an undead tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8173,
+          "modelIds": [
+            756
+          ],
+          "displayName": "Dead tree",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "report this to Ava"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mithril hatchet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Holy symbol",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ava.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3093.0,
+          "heightFine": 965.0,
+          "y": 3357.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into a laughing stock"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Turael in Burthorpe.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8273,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8302,
+            8303,
+            8461,
+            30318
+          ],
+          "displayName": "Turael"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hatchet and a symbol"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8273,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8302,
+            8303,
+            8461,
+            30318
+          ],
+          "displayName": "Turael"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hello, I'm here about those trees again."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd love one, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10491,
+          "displayName": "Blessed hatchet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut an undead tree.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.5,
+          "heightFine": 965.0,
+          "y": 3343.5,
+          "instance": false,
+          "distance": 21
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8173,
+          "modelIds": [
+            756
+          ],
+          "displayName": "Dead tree",
+          "priority": "all",
+          "distance": 22
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10490,
+          "displayName": "Undead twigs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ava.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3093.0,
+          "heightFine": 965.0,
+          "y": 3357.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "ask me for a copy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Ava.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10492,
+          "displayName": "Research notes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Hard leather",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Polished buttons",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Translate Ava's research notes. Solution:<br/>&#128992;&#128994;&#128992;&#128992;&#128994;&#128992;&#128992;&#128992;&#128994;",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10492,
+          "modelIds": [
+            426
+          ],
+          "displayName": "Research notes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "all makes sense"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ava.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10494,
+          "displayName": "A pattern",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pattern with a piece of hard leather.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1743,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Hard leather"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10494,
+          "modelIds": [
+            237
+          ],
+          "displayName": "A pattern"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10495,
+          "displayName": "A container",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ava.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5198,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22511,
+            22516,
+            27764,
+            27776
+          ],
+          "displayName": "Ava"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11411,
+  "stageVarbitCompleteValue": 240,
+  "cacheQuestId": 43
+}

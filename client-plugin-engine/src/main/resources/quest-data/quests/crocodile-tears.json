@@ -1,0 +1,938 @@
+{
+  "slug": "crocodile-tears",
+  "name": "Crocodile Tears",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "legendary",
+  "releaseDate": 1496620800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Jack of Spades",
+    "Spirits of the Elid",
+    "Missing My Mummy",
+    "Dealing with Scabaras",
+    "Leela",
+    "Senliten",
+    "Missing My Mummy"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Bring Leela to Senliten by talking to her along the fence north of the prison in Draynor Village. Agree to travel with her and you will end up in front of Senliten.<ul><li>If you sent her to Senliten without following her, travel to the Uzer Mastaba (the pyramid south of Uzer) via some other means.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Head directly to the Pharaoh Queen."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where are you going with this?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Learning about Crondis",
+      "text": "Talk to the Sphinx in Sophanem with your cat (do not wear a catspeak amulet or cramulet).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about the gods of the Menaphites?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about the minor gods."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about Crondis."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thanks, I think I now have a better understanding of this place."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Kitten",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hellcat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jex, who is north-east of the Sphinx.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about the minor gods?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis's connection with crocodiles?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis's followers?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about the Crondis's influence over the desert?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click Leela to return to the surface.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dousing for Crondis",
+      "text": "Enter the temple again but use the explore option.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Explore the temple."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north and click the ship to get the dowsing rod (Pick up relic Massive stone boat).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the dowsing rod and follow the arrow to the following locations in the desert, until your character starts talking, before moving to the next location. (Note: Some players report that closing the arrow interface, using a magic carpet, or teleporting might cause bugs. If this happens, you may need to destroy the rod and do it all over again. It is possible that this is now fixed.)<ul><li>The oasis just north-west of the temple.</li><li>The oasis by the Camel Warriors, east of Sophanem.</li><li>The oasis near the Bedabin Camp.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the waterfall north of the Dominion Tower and climb it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north through both sets of double doors",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the spirits (Tirrie, Nirrie, or Hallak) in the north part of the cave.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help to charge the dowsing rod."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Alas, Crondis is not silent, we"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Sphinx in Sophanem with your cat (do not wear a catspeak amulet or cramulet).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about the gods of the Menaphites?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about the minor gods."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about Crondis."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thanks, I think I now have a better understanding of this place."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jex, who is north-east of the Sphinx.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about the minor gods?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis's connection with crocodiles?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about Crondis's followers?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you tell me more about the Crondis's influence over the desert?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click Leela to return to the surface.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the temple again but use the explore option.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Explore the temple."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north and click the ship to get the dowsing rod (Pick up relic Massive stone boat).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the dowsing rod and follow the arrow to the following locations in the desert, until your character starts talking, before moving to the next location. (Note: Some players report that closing the arrow interface, using a magic carpet, or teleporting might cause bugs. If this happens, you may need to destroy the rod and do it all over again. It is possible that this is now fixed.)<ul><li>The oasis just north-west of the temple.</li><li>The oasis by the Camel Warriors, east of Sophanem.</li><li>The oasis near the Bedabin Camp.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the waterfall north of the Dominion Tower and climb it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north through both sets of double doors",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the spirits (Tirrie, Nirrie, or Hallak) in the north part of the cave.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help to charge the dowsing rod."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Alas, Crondis is not silent, we"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dousing for Crondis",
+      "text": "Enter the temple again but use the explore option.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Explore the temple."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north and click the ship to get the dowsing rod (Pick up relic Massive stone boat).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the dowsing rod and follow the arrow to the following locations in the desert, until your character starts talking, before moving to the next location. (Note: Some players report that closing the arrow interface, using a magic carpet, or teleporting might cause bugs. If this happens, you may need to destroy the rod and do it all over again. It is possible that this is now fixed.)<ul><li>The oasis just north-west of the temple.</li><li>The oasis by the Camel Warriors, east of Sophanem.</li><li>The oasis near the Bedabin Camp.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the waterfall north of the Dominion Tower and climb it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north through both sets of double doors",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the spirits (Tirrie, Nirrie, or Hallak) in the north part of the cave.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help to charge the dowsing rod."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Alas, Crondis is not silent, we"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dealing with Crondis",
+      "text": "Talk to Portmaster Kags in the Menaphos Port district on the southwest pier by the house portal.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Transport to Crondis's pyramid."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The player appears next to Crondis's pyramid."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dowsing rod",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Crondis's pyramid.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest of Crondis.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "You must wait until after Crondis asks for each item before gathering it or the requirement will not be satisfied.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch a raw beltfish either on the northwest or southeast pier of the Menaphos Port district or in the VIP skilling area.<ul><li>If using Bait and Switch first catch a beltfish, then obtain it via trading or bank raw.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut two acadia logs at the acadia trees in the Menaphos Imperial district.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect four pyramid tops from the Agility Pyramid.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch eight plover birds in southern Sophanem. Any sort of double drop will not count for this. It must be 8 catches, not just 8 plover birds.<ul><li>Sophanem Slayer Dungeon teleport and run south is the fastest way to get there.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Without teleporting after buying, purchase at least 20 (preferably 24) croc ices from Rokuh in Nardah near the fountain to ensure you still have 16 left to turn in (because one croc ice is eaten automatically every 15 seconds, and teleporting with them turns them into chocolatey goo).<ul><li>Run west and Nardah magic carpet to Menaphos.</li><li>Use the Merchant District Shifting Tombs to get to the Port District and return to Crondis' pyramid.</li><li>They do not need to all be collected in one trip.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Crondis Fetch Quests",
+      "text": "You must wait until after Crondis asks for each item before gathering it or the requirement will not be satisfied.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Fishing bait",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch a raw beltfish either on the northwest or southeast pier of the Menaphos Port district or in the VIP skilling area.<ul><li>If using Bait and Switch first catch a beltfish, then obtain it via trading or bank raw.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut two acadia logs at the acadia trees in the Menaphos Imperial district.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect four pyramid tops from the Agility Pyramid.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch eight plover birds in southern Sophanem. Any sort of double drop will not count for this. It must be 8 catches, not just 8 plover birds.<ul><li>Sophanem Slayer Dungeon teleport and run south is the fastest way to get there.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Crondis.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Without teleporting after buying, purchase at least 20 (preferably 24) croc ices from Rokuh in Nardah near the fountain to ensure you still have 16 left to turn in (because one croc ice is eaten automatically every 15 seconds, and teleporting with them turns them into chocolatey goo).<ul><li>Run west and Nardah magic carpet to Menaphos.</li><li>Use the Merchant District Shifting Tombs to get to the Port District and return to Crondis' pyramid.</li><li>They do not need to all be collected in one trip.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boss Fight",
+      "text": "Talk to Crondis. Use any chat option except 1 for all dialogue boxes.<ul><li>If not already equipped for combat, leave the conversation just before the player yells 'THAT'S ENOUGH!' to prepare for the fight.</li><li>Talk to Crondis again to continue forward to the fight when you return.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "THAT'S ENOUGH!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " !"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ukunduka",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Ukunduka (stay out of melee distance or use Saradomin brews). There is a safe spot on the stairs leading up to Crondis.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest of Crondis.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Senliten.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, speak with Senliten.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Crocodile Tears."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 36116,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 391
+}

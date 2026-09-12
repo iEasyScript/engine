@@ -1,0 +1,856 @@
+{
+  "slug": "in-search-of-the-myreque",
+  "name": "In Search of the Myreque",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1105315200,
+  "neededItems": [
+    {
+      "name": "Druid pouch (5+ charges)",
+      "itemId": 2957,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Normal planks",
+      "itemId": 960,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel dagger",
+      "itemId": 594,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel mace",
+      "itemId": 930,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel swords",
+      "itemId": 372,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel longsword",
+      "itemId": 438,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel warhammer",
+      "itemId": 672,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel nails",
+      "itemId": 1539,
+      "quantity": 75,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Skeleton Hellhound",
+      "level": "44",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Nature Spirit"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 25,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Vanstrom Klause in the Hair of the Dog tavern in Canifis.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3503.0,
+          "heightFine": 693.0,
+          "y": 3477.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4257
+          ],
+          "candidateObjectTypeIds": [
+            4393
+          ],
+          "displayName": "Hooded vanstrom",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why do they need help? Are they in trouble?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "a mace and a warhammer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3503.0,
+          "heightFine": 693.0,
+          "y": 3477.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4257
+          ],
+          "candidateObjectTypeIds": [
+            4393
+          ],
+          "displayName": "Hooded vanstrom",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perhaps I could help you out here."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll do it!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Vanstrom Klause.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3503.0,
+          "heightFine": 693.0,
+          "y": 3477.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4257
+          ],
+          "candidateObjectTypeIds": [
+            4393
+          ],
+          "displayName": "Hooded vanstrom",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "they can come to rely upon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The hideout",
+      "text": "Talk to Cyreg Paddlehorn before the bridge east of Mort'ton. To get there, you can:<ul><li>Run through the swamp.</li><li>Fairy ring BKR and take the boat to the south-east.</li><li>Use a portal at War's Retreat tuned to the Barrows Brothers.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3521.0,
+          "heightFine": 197.0,
+          "y": 3285.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4779
+          ],
+          "candidateObjectTypeIds": [
+            4804
+          ],
+          "displayName": "Cyreg",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, I guess they'll just die without weapons."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Resourceful enough to get their own steel weapons?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you don't tell me, their deaths are on your head!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What kind of a man are you to say that you don't care?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Give wooden planks to Cyreg."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The boatman takes 3 wooden planks from you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the boat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "mort'ton boat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3498.0,
+          "heightFine": 69.0,
+          "y": 3380.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the tree to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3502.0,
+          "heightFine": 817.0,
+          "y": 3426.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3502.0,
+          "heightFine": 949.0,
+          "y": 3427.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>repair</i> the bridge until you reach the other side, then climb down the tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            2100
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3502.0,
+          "heightFine": 949.0,
+          "y": 3430.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Curpile Fyod. Quiz answers:<br><table><tbody><tr><th>Question</th><th>Answer</th></tr><tr><td>Name the only female member of the Myreque.</td><td>Sani Piliu</td></tr><tr><td>Who is the leader of the Myreque?</td><td>Veliaf Hurtz</td></tr><tr><td>What family is rumoured to rule Morytania?</td><td>Drakan</td></tr><tr><td>Who is the youngest member of the Myreque?</td><td>Ivan Strom</td></tr><tr><td>Which member of the Myreque was originally a scholar?</td><td>Polmafi Ferdygris</td></tr><tr><td>What does Myreque mean?</td><td>Hidden in Myre</td></tr><tr><td>What is the boatman's name?</td><td>Cyreg Paddlehorn</td></tr><tr><td>Who was previously a scholar?</td><td>Polmafi Ferdygris</td></tr></tbody></table>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4143
+          ],
+          "candidateNpcTypeIds": [
+            1240,
+            1243,
+            1245,
+            1247,
+            1249
+          ],
+          "candidateObjectTypeIds": [
+            57261,
+            105740
+          ],
+          "displayName": "Curpile"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've come to help the Myreque. I've brought weapons."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll unlock it for you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the doors on the rock behind the tree and follow the tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3509.5,
+          "heightFine": 669.0,
+          "y": 3446.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3500.0,
+          "heightFine": 605.0,
+          "y": 9811.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze-past the stalagmite at the east wall, next to the stone brazier.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 941.0,
+          "y": 9824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3505.0,
+          "heightFine": 3949.0,
+          "y": 9832.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Meet the crew",
+      "text": "Talk to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Harold.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1571,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22619
+          ],
+          "displayName": "Harold Evans"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's your job here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I seem to cheat death"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sani.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1570,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22625
+          ],
+          "displayName": "Sani Piliu"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me a bit about yourself."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Who knows?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Radigad.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 21690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21691,
+            21693,
+            21770,
+            22623
+          ],
+          "displayName": "Radigad Ponfit"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's your job here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I like to think that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Polmafi.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 21696,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21697,
+            21771,
+            22622
+          ],
+          "displayName": "Polmafi Ferdygris"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "evil to survive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ivan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1574,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3535,
+            3536,
+            7665,
+            21680,
+            21681,
+            21682,
+            21684,
+            21685,
+            21686,
+            21687,
+            22580,
+            22581,
+            22582
+          ],
+          "displayName": "Ivan Strom"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "serve him as faithfully"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "through the door?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1575,
+          "modelIds": [
+            2559
+          ],
+          "displayName": "Skeleton Hellhound"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Kill the Skeleton Hellhound.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1575,
+          "modelIds": [
+            2559
+          ],
+          "displayName": "Skeleton Hellhound"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 532,
+          "modelIds": [],
+          "displayName": "Big bones"
+        },
+        {
+          "t": "distanceTo",
+          "x": 3503.0,
+          "heightFine": 1581.0,
+          "y": 9838.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I get out of here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "still hanging around"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave through the entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3505.0,
+          "heightFine": 2013.0,
+          "y": 9831.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3491.0,
+          "heightFine": 541.0,
+          "y": 9824.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the wall to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3480.0,
+          "heightFine": 925.0,
+          "y": 9836.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3480.0,
+          "heightFine": 325.0,
+          "y": 9839.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3477.0,
+          "heightFine": 925.0,
+          "y": 9846.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3494.0,
+          "heightFine": 293.0,
+          "y": 3465.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the stranger next to the stairs where Vanstrom was located.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3503.0,
+          "heightFine": 693.0,
+          "y": 3477.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "the stranger",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2696,
+  "stageVarbitCompleteValue": 105,
+  "cacheQuestId": 283
+}

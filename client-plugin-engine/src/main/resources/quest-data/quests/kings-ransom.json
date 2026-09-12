@@ -1,0 +1,502 @@
+{
+  "slug": "kings-ransom",
+  "name": "King's Ransom",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "heroic",
+  "releaseDate": 1185235200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Holy Grail",
+    "Murder Mystery",
+    "One Small Favour"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Shady disappearances",
+      "text": "Talk to the Gossip south of the Sinclair Mansion (Fairy ring CJR).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Guard inside the gates.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Déjà vu",
+      "text": "From the outside, break the eastern smashed window of the mansion (right click to choose break).<ul><li>You might have to try again because of the dog</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once inside, go to the large room and take the scrap paper next to the fireplace.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up to the 1st floor[UK]2nd floor[US].",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the address form from the table in the central northern room and read it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the nearby bookcase for a black knight helmet.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down the staircase and 'break' the smashed window again to climb out.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Guard three times.  (you can click away after giving the items to skip the first 2 interactions)",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have proof that the Sinclairs have left."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have proof that links the Sinclairs to Camelot."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have proof of foul play."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Sinclairs",
+      "text": "Talk to Gossip.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about Anna Sinclair."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Anna? The guards are keeping her in the jail in the courthouse in Seers' Village. I heard she's been acting like a royal pain."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Seers' Village Courthouse, directly south from the mansion gates.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anna.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I guess I don't have much of a choice."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Try speaking to the servants at the Mansion. They'll probably be able to give you useful testimony."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Courtroom drama",
+      "text": "Dismiss any followers you might have and go down the stairs to begin the trial.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Call the dog handler as a witness , talk to Pierre.<ul><li>You may need to resize your interface and zoom out before descending the stairs since he appears near the bottom of the screen.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Dog handler"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the thread"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " This salesman came around selling this poison that could fix anything. I think most everyone bought some to use for chores around the mansion."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "For the following options, talk to the judge to call a witness, then choose who you would like to call:<ul><li>Call the butler , talk to Hobbes.</li><li>Call the maid , talk to Mary.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Butler"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the dagger"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Next page"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Maid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the night of the murder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Not all that much. I worked in the garden 'til late, and I was going inside for dinner when all the commotion started."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the balloons drop, exit via the gate.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anna in her cell.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jailbreaker",
+      "text": "Go to the northeast of Camelot Castle, outside of the castle hedges",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Air rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Law rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Telekinetic Grab",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Merlin.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do we do now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Reclaim Camelot."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Retrieve the Holy Grail."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Save King Arthur."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reach the vent on the northern wall, it should trigger a cutscene in which the imprisoned knights lift Merlin out. Do not reach for the vent again afterwards.<ul><li>If you don't see a cutscene, then talk to Merlin again and exhaust all options.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast Telekinetic Grab on the guard fixing his hair outside your cell door. Ask the knights around if you didn't bring any Telekinetic Grab runes.<ul><li>Drop trick will work here if you would like an extra hairclip.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the hairclip on the metal door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the puzzle.<ul><li>To complete this puzzle, you must set each of four tumblers to the correct height. The most foolproof way to do this (although not necessarily the quickest) is to set all tumblers to the lowest height and try the lock.</li><li>If a tumbler shows a green circle, do not change that tumbler anymore.</li><li>Ignore blue and red circles. For all the other tumblers, increase the height by one and try again.</li><li>Continue until the lock unlocks. This method will take at most six attempts.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The holy grail",
+      "text": "Once you have bypassed the gate, climb up two sets of staircases to reach the top floor.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the table and click the purple cylinder second from the right.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "For Camelot!",
+      "text": "Go to East Ardougne, northeast corner, and talk to Wizard Cromperty.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about King's Ransom"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Granite",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze med helm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron chainbody",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Holy grail (item)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Animate rock scroll",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your bronze med helm and iron chainbody, then enter the Black Knights' Fortress from Edgeville.<ul><li>If you have the Skull of Remembrance, you can teleport to the 3rd floor[UK]4th floor[US] of the fortress and head down to the ground floor[UK]1st floor[US].</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-down the ladder in the south-west corner.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove your bronze helm and iron chainbody, then free King Arthur.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Arthur. Give him the bronze helm and iron chainbody.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Camelot and talk to King Arthur.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11298,
+  "stageVarbitCompleteValue": 90,
+  "cacheQuestId": 61
+}

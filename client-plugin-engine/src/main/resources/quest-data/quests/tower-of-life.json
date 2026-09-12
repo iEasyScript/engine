@@ -1,0 +1,1751 @@
+{
+  "slug": "tower-of-life",
+  "name": "Tower of Life",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "adventurer",
+  "releaseDate": 1171843200,
+  "neededItems": [
+    {
+      "name": "Beer",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Cowhide",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Unicorn horn",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw swordfish",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw chicken",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw cave eel",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Giant frog legs",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 10,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Effigy at the Tower of Life near fairy ring code DJP.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2640.0,
+          "heightFine": 1309.0,
+          "y": 3218.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5578,
+          "modelIds": [
+            3816
+          ],
+          "displayName": "Effigy",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure, why not."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Effigy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5578,
+          "modelIds": [
+            3816
+          ],
+          "displayName": "Effigy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hold on and I'll see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bonafido, the builder lying down north of the door to the tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2650.5,
+          "heightFine": 1389.0,
+          "y": 3227.5,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5580,
+          "modelIds": [
+            7770
+          ],
+          "displayName": "Bonafido",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Count me in!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Builder's outfit",
+      "text": "Talk to 'Black-eye'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3633
+          ],
+          "candidateObjectTypeIds": [
+            3611
+          ],
+          "displayName": "Black eye"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Three"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Torn curtains"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "10 clay pieces"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10862,
+          "displayName": "Hard hat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Beer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to 'The Guns' and give him the beer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "The guns"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Builders shirt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to 'No fingers'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4440
+          ],
+          "displayName": "No fingers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Only real builders can wear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket the boots from him. It may take multiple attempts.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4440
+          ],
+          "displayName": "No fingers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Builders boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the plants south-east of the tower for the trousers.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2655.0,
+          "heightFine": 1389.0,
+          "y": 3224.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 1053.0,
+          "y": 3226.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2654.0,
+          "heightFine": 1349.0,
+          "y": 3226.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2655.0,
+          "heightFine": 1405.0,
+          "y": 3212.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2654.0,
+          "heightFine": 1405.0,
+          "y": 3210.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1325.0,
+          "y": 3209.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 1269.0,
+          "y": 3211.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2643.0,
+          "heightFine": 1205.0,
+          "y": 3209.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2643.0,
+          "heightFine": 805.0,
+          "y": 3206.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2641.0,
+          "heightFine": 1373.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Builders trousers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the costume and talk to Bonafido.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10862,
+          "modelIds": [
+            225
+          ],
+          "displayName": "Hard hat"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            348
+          ],
+          "displayName": "Builders trousers"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            456
+          ],
+          "displayName": "Builders shirt"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            456
+          ],
+          "displayName": "Builders boots"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tea"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Whistle for attention"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Your legs are getting a bit cold"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Carry on, it'll fix itself"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Tower repair",
+      "text": "Go into the tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2649.0,
+          "heightFine": 1913.0,
+          "y": 3224.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2649.0,
+          "heightFine": 1413.0,
+          "y": 3223.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 4 valve wheels.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2655.0,
+          "heightFine": 1813.0,
+          "y": 3217.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10875,
+          "displayName": "Valve wheel",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 4 coloured balls.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 1813.0,
+          "y": 3216.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10874,
+          "displayName": "Coloured ball",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 3 metal sheets.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2643.0,
+          "heightFine": 1813.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10873,
+          "displayName": "Metal sheet",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the 1st floor (2nd floor[US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1913.0,
+          "y": 3219.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2644.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the pressure machine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.5,
+          "heightFine": 3265.0,
+          "y": 3221.8,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.5,
+          "heightFine": 3265.0,
+          "y": 3221.8,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 1 left until blocked.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 1: The leak is blocked!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 1 right until fixed.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 1: That pipe is now fixed."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull left lever, then turn wheel 2 left until blocked.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 2: The leak is blocked!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 2 right until fixed.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 2: That pipe is now fixed."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 3 right until it reaches the hole, then turn it left to block the hole.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 3: The leak is blocked!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 3 right until fixed.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 3: That pipe is now fixed."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull right lever, then turn wheel 4 right until it reaches the hole, then turn left to block the hole.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Pipe 4: The leak is blocked!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn wheel 4 right until fixed.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The machine is working!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Pipe machine",
+      "text": "Go back to the ground floor (1st floor [US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 2465.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 1413.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rivets",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Pipe",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Pipe ring",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 6 rivets.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2654.0,
+          "heightFine": 1813.0,
+          "y": 3220.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Rivet",
+          "quantity": 6,
+          "candidateItemTypeIds": [
+            22319
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 5 pipe rings.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.0,
+          "heightFine": 1813.0,
+          "y": 3222.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10872,
+          "displayName": "Pipe ring",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 4 pipes.<ul><li></li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.0,
+          "heightFine": 1813.0,
+          "y": 3222.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9723,
+          "displayName": "Pipe",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the 2nd floor (3rd floor[US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1913.0,
+          "y": 3219.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2644.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.5,
+          "heightFine": 2865.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2651.0,
+          "heightFine": 3717.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the pipe machine and move the pieces as shown in the image on the wiki (sorry can't track the pieces).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2649.5,
+          "heightFine": 4017.0,
+          "y": 3214.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The machine is working!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The cage",
+      "text": "Go back to the ground floor (1st floor [US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.0,
+          "heightFine": 3517.0,
+          "y": 3220.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2653.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Metal bar",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Binding fluid",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 2465.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 1413.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 4 bottles of binding fluid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2651.0,
+          "heightFine": 1813.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10870,
+          "displayName": "Binding fluid",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate for 5 metal bars.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2647.0,
+          "heightFine": 1813.0,
+          "y": 3223.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10876,
+          "displayName": "Metal bar",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the 3rd floor (4th floor[US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1913.0,
+          "y": 3219.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2644.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.5,
+          "heightFine": 2865.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2651.0,
+          "heightFine": 3717.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2648.0,
+          "heightFine": 4869.0,
+          "y": 3221.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the cage using the instructions below (can't track this, sorry).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 777,
+          "modelIds": [
+            1314
+          ],
+          "displayName": "Cage"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "need to get the sizes correct"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Front side<ul><li>Vertical 2</li><li>Horizontal 3</li><li>Horizontal 2</li><li>Turn right</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right side<ul><li>Vertical 4</li><li>Vertical 2</li><li>Horizontal 2</li><li>Turn right</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rear side<ul><li>Horizontal 4</li><li>Vertical 2</li><li>Vertical 3</li><li>Turn right</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Left side<ul><li>Horizontal 2</li><li>Horizontal 2</li><li>Vertical 2</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "It's complete!"
+        },
+        {
+          "t": "chatText",
+          "text": "The cage is complete!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Homunculus",
+      "text": "Return to the ground floor (1st floor [US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2647.4,
+          "heightFine": 4969.0,
+          "y": 3221.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 3717.0,
+          "y": 3221.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.0,
+          "heightFine": 3517.0,
+          "y": 3220.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2653.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 2465.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 1413.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Effigy outside of the tower.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5578,
+          "modelIds": [
+            3816
+          ],
+          "displayName": "Effigy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Why does nobody"
+        },
+        {
+          "t": "conversationText",
+          "text": "Best I follow them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the top of the tower to start a cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1913.0,
+          "y": 3219.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2644.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.5,
+          "heightFine": 2865.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2651.0,
+          "heightFine": 3717.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I must go confront those alchemists"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the ground floor (1st floor [US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.0,
+          "heightFine": 3517.0,
+          "y": 3220.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2653.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 2465.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 1413.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Effigy outside of the tower.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5578,
+          "modelIds": [
+            3816
+          ],
+          "displayName": "Effigy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "My mum did"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the top of the tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2645.0,
+          "heightFine": 1913.0,
+          "y": 3219.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2644.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.5,
+          "heightFine": 2865.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2651.0,
+          "heightFine": 3717.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Homunculus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4236
+          ],
+          "candidateNpcTypeIds": [
+            1289,
+            1290,
+            1291,
+            1292,
+            1293,
+            1309,
+            1317,
+            1367,
+            1805,
+            1806,
+            2437,
+            2438,
+            2879,
+            5465,
+            5492,
+            5500,
+            5514,
+            5515,
+            5517,
+            9105,
+            9119,
+            9122,
+            9125,
+            9149,
+            9325,
+            9327,
+            14439,
+            14440,
+            14441,
+            14442,
+            14443,
+            14562,
+            16889,
+            20417,
+            21219,
+            21237
+          ],
+          "displayName": "Homunculus in cage"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Get some logs and a tinderbox."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "By ignition of gas in their belly as they exhale."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fletching, Crafting, Smithing."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bury them."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Run, run as fast as you can."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "People mix together ingredients in vials. The nutrients will help you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take a rune stone to an altar and use a talisman."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I surprise right moment"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the ground floor (1st floor [US]).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2647.4,
+          "heightFine": 4969.0,
+          "y": 3221.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 3717.0,
+          "y": 3221.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2652.0,
+          "heightFine": 3517.0,
+          "y": 3220.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2653.0,
+          "heightFine": 2565.0,
+          "y": 3218.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 2465.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2646.0,
+          "heightFine": 1413.0,
+          "y": 3220.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Effigy for a final cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5578,
+          "modelIds": [
+            3816
+          ],
+          "displayName": "Effigy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Me look dungeon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the trapdoor inside the tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2647.0,
+          "heightFine": 1413.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3038.0,
+          "heightFine": 965.0,
+          "y": 4376.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Homunculus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5581,
+          "modelIds": [
+            2922
+          ],
+          "displayName": "Homunculus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9803,
+  "stageVarbitCompleteValue": 18,
+  "cacheQuestId": 1
+}

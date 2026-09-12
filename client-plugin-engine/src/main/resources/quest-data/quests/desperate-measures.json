@@ -1,0 +1,4448 @@
+{
+  "slug": "desperate-measures",
+  "name": "Desperate Measures",
+  "members": true,
+  "length": "verylong",
+  "timeline": "worldguardian",
+  "releaseDate": 1595808000,
+  "neededItems": [
+    {
+      "name": "Orthenglass (material storage container)",
+      "itemId": 192,
+      "quantity": 100,
+      "duringQuest": true
+    },
+    {
+      "name": "The Measure",
+      "itemId": 31045,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "The Heart teleport",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Grace of the elves",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Archaeology journal",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Phoenix Lair Teleport",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Black stone dragon",
+      "level": "91",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Desperate Times"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 50,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Archaeology",
+      "level": 50,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Seren on the 1st floor (2nd floor[US]) of Burthorpe Castle.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Seren.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "test"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Thok's story",
+      "text": "Talk to Mr. Mordaut at the Anachronia base camp.",
+      "warning": "Dismiss any pets or followers.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5469.0,
+          "heightFine": 11781.0,
+          "y": 2338.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Anachronia."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Desperate Measures."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "if you hurry"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thok to the north-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5417.0,
+          "heightFine": 2181.0,
+          "y": 2396.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4897,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4982,
+            15311,
+            15312,
+            15313,
+            15650,
+            17049,
+            22817,
+            25985,
+            26129,
+            26343,
+            26344,
+            27175,
+            27176,
+            27177,
+            27180,
+            27200,
+            27206,
+            27266,
+            27427,
+            27680,
+            29759
+          ],
+          "displayName": "Thok"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4897,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4982,
+            15311,
+            15312,
+            15313,
+            15650,
+            17049,
+            22817,
+            25985,
+            26129,
+            26343,
+            26344,
+            27175,
+            27176,
+            27177,
+            27180,
+            27200,
+            27206,
+            27266,
+            27427,
+            27680,
+            29759
+          ],
+          "displayName": "Thok"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4897,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4982,
+            15311,
+            15312,
+            15313,
+            15650,
+            17049,
+            22817,
+            25985,
+            26129,
+            26343,
+            26344,
+            27175,
+            27176,
+            27177,
+            27180,
+            27200,
+            27206,
+            27266,
+            27427,
+            27680,
+            29759
+          ],
+          "displayName": "Thok"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand near Charos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "KNUCKLE SANDWICHES"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smash the less enormous but still a lizard dinos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27169,
+          "modelIds": [
+            44604
+          ],
+          "displayName": "Less enormous but still a lizard",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lizards were no match"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk down the path for more dialogue.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 27.0,
+          "heightFine": 200.0,
+          "y": 5.0,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "to stay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "poured MORE LIZARDS"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smash more dinos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            26388,
+            41868,
+            62028
+          ],
+          "candidateObjectTypeIds": [
+            29268,
+            29274
+          ],
+          "displayName": "Second wave dinos",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue down the path then listen to Thok.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "to stay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "way to the camp"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Laniakea.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26550,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26558,
+            26580,
+            27209
+          ],
+          "displayName": "Laniakea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we went to the camp"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Laniakea.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26550,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26558,
+            26580,
+            27209
+          ],
+          "displayName": "Laniakea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding the dragonkin artefacts",
+      "text": "Talk to Charos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "much"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Leave]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "test"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Orthenglass (material storage container)",
+          "itemId": -1,
+          "quantity": 100,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Uncover the soil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2376,
+          "modelIds": [
+            1458
+          ],
+          "displayName": "Soil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 117917,
+          "modelIds": [
+            759
+          ],
+          "displayName": "Dragonkin remains"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Excavate the dragonkin remains.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117917,
+          "modelIds": [
+            759
+          ],
+          "displayName": "Dragonkin remains"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Dragonkin device d",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Restore the dragonkin device at the archaeologist's workbench.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5459.0,
+          "heightFine": 11057.0,
+          "y": 2334.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50435,
+          "displayName": "Dragonkin device",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5418.0,
+          "heightFine": 2181.0,
+          "y": 2399.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Leave]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Leave]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Uncover the soil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2376,
+          "modelIds": [
+            1458
+          ],
+          "displayName": "Soil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 117919,
+          "modelIds": [
+            1176
+          ],
+          "displayName": "Orthen rubble"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Excavate the dragonkin remains.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117917,
+          "modelIds": [
+            759
+          ],
+          "displayName": "Dragonkin remains"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Dragonkin tablet d",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Restore the dragonkin tablet at an archaeologist's workbench.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5459.0,
+          "heightFine": 11057.0,
+          "y": 2334.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50437,
+          "displayName": "Dragonkin tablet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5418.0,
+          "heightFine": 2181.0,
+          "y": 2399.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Leave]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Nodon hibernatorium shared memory",
+      "text": "Talk to Hannibus at the Anachronia Dinosaur Farm.<ul><li>Teleport with the mystical tree on the 1st floor (2nd floor[US]) of the Ardougne Manor Farm.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5201.0,
+          "heightFine": 101.0,
+          "y": 2373.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dragonkin device",
+          "itemId": 348,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dragonkin tablet",
+          "itemId": 780,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hello there"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Leave]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Nodon Hibernatorium on the north-eastern coast of Anachronia.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5688.0,
+          "heightFine": 7349.0,
+          "y": 2451.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5534.0,
+          "heightFine": 5861.0,
+          "y": 2825.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the Nodon caretaker to enter the pylon passcode. <b>Remember/screenshot the passcode for the a following step.</b>",
+      "warning": "Remember/screenshot the passcode for the a following step.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You see the symbols"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "wish"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Input the passcode on the pylon matching what you saw in the dream.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5543.35,
+          "heightFine": 5173.0,
+          "y": 2835.55,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "chamber below"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the nodon caretaker outside.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 2388.0,
+          "y": -17.25,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the nodon caretaker for the passphrase. <b>Remember/screenshot the passphrase for the a following step.</b>",
+      "warning": "<b>Remember/screenshot the passphrase for the a following step.</b>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "use the passphrase"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Hannibus.<ul><li>Alternatively, you can lobby and log back in.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "wish"
+        },
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5534.0,
+          "heightFine": 6261.0,
+          "y": 2824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5688.0,
+          "heightFine": 6949.0,
+          "y": 2450.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the ruins.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5691.0,
+          "heightFine": 5301.0,
+          "y": 2475.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5534.0,
+          "heightFine": 5.0,
+          "y": 2868.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Kindra council memory",
+      "text": "Talk to Hannibus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hannibus again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 18.0,
+          "heightFine": 2416.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hurt"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch/skip the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah good"
+        },
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "witness"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attack Kerapac or let your party attack him until he leaves.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seren in Burthorpe.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2965.0,
+          "y": 3570.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2901.0,
+          "heightFine": 3877.0,
+          "y": 3564.0,
+          "range": 8
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.0,
+          "heightFine": 3883.0,
+          "y": 3567.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "answers for us"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Primrose in the house by the Needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2196.0,
+          "heightFine": 805.0,
+          "y": 3694.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Desperate Measures."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask how she's doing."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "miss Gail"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Needle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can the Needle be destroyed?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "whatever harms it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can the Needle be counteracted?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "too careful"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Does the Needle have any weaknesses?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no defence"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Gail."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "where I can"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Was she vulnerable to anything?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with a guidebook"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What was it like being her?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have some ideas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25980,
+            25981,
+            25982,
+            25995,
+            25997,
+            26327
+          ],
+          "displayName": "Primrose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Leave"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Seren in Burthorpe.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2965.0,
+          "y": 3570.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2901.0,
+          "heightFine": 3877.0,
+          "y": 3564.0,
+          "range": 8
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.0,
+          "heightFine": 3883.0,
+          "y": 3567.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "best behaviour"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Meeting Jas",
+      "text": "Talk to Seren outside of the Heart in the Kharidian Desert.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3374.0,
+          "heightFine": 149.0,
+          "y": 2887.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren",
+          "atLocation": {
+            "x": 3374.0,
+            "heightFine": 149.0,
+            "y": 2887.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jas.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Ask about Kerapac.]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you intervene?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why not?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Point out her power."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Anathema"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Ask about something else.]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Ask about the Needle.]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can it be stopped?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dragonkin prevents"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Ask about something else.]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you help?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "will it do"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Or we will"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Leave"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seren.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all too late"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dinosaur invasion",
+      "text": "Talk to Charos in the Anachronia base camp.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Eye of Jas",
+          "itemId": 816,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thok. You can't be wielding anything in your hands.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4897,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4982,
+            15311,
+            15312,
+            15313,
+            15650,
+            17049,
+            22817,
+            25985,
+            26129,
+            26343,
+            26344,
+            27175,
+            27176,
+            27177,
+            27180,
+            27200,
+            27206,
+            27266,
+            27427,
+            27680,
+            29759
+          ],
+          "displayName": "Thok"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos.<ul><li>If you exit the dialogue too early you need to leave and talk to Thok again.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Change Charos' attack type to closest (1).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "closer to the action"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move Hannibus to the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move Hannibus back to his original tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8964,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9060,
+            19096,
+            19097,
+            19161,
+            25989,
+            26049,
+            27178,
+            27179,
+            27182,
+            27188,
+            27204,
+            27208,
+            27260,
+            28814,
+            28850,
+            28854,
+            28864,
+            29752
+          ],
+          "displayName": "Hannibus",
+          "instance": true,
+          "atLocation": {
+            "x": 2.0,
+            "heightFine": 0.0,
+            "y": -6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -5.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -5.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the start button.<ul><li>Your character will automatically attack the dinosaurs.</li><li>If you struggle, move around to get early hits on the bigger dinosaurs.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Kerapac's laboratory",
+      "text": "Talk to Charos.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fight to Kerapac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "The Measure",
+          "itemId": 31045,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos again to the north.<ul><li>If Charos doesn't give you The Measure, check your bank.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5418.0,
+          "heightFine": 2181.0,
+          "y": 2399.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you at the sites"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place The Measure on the marked tile.<ul><li>Lobby if Charos isn't near the marked tile for the next few steps.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5427.0,
+          "heightFine": 2181.0,
+          "y": 2410.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31045,
+          "modelIds": [],
+          "displayName": "The Measure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anything really useful"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place The Measure on the marked tile again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5489.0,
+          "heightFine": 6877.0,
+          "y": 2488.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31045,
+          "modelIds": [],
+          "displayName": "The Measure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all in good time"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place The Measure on the marked tile yet again.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5303.0,
+          "heightFine": 7525.0,
+          "y": 2397.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31045,
+          "modelIds": [],
+          "displayName": "The Measure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "specifically shaped"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place The Measure on the marked tile once again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5355.0,
+          "heightFine": 9125.0,
+          "y": 2396.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31045,
+          "modelIds": [],
+          "displayName": "The Measure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "company of friends"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charos north of the base camp once you're ready for combat.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5418.0,
+          "heightFine": 2181.0,
+          "y": 2399.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "door is right there"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26321,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26322,
+            26323,
+            27160,
+            27161,
+            27181,
+            27202,
+            27207,
+            27268,
+            27345,
+            27736,
+            29760
+          ],
+          "displayName": "Charos"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Kerapac's lab.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "anachronia kerapac's lab door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the code <b>2-1-4</b> into the pylon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -37.0,
+          "heightFine": -1124.0,
+          "y": 19.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "symbols snap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North-western: <b>7-1-5</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -30.0,
+          "heightFine": -1124.0,
+          "y": 53.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "symbols snap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North-eastern: <b>4-1-6</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 23.0,
+          "heightFine": -164.0,
+          "y": 51.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "symbols snap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South-eastern: <b>3-1-4</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 45.0,
+          "heightFine": -2692.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "symbols snap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Black stone dragon",
+      "text": "Kill the black stone dragon to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -4576.0,
+          "y": 100.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 25662,
+          "modelIds": [
+            17730
+          ],
+          "displayName": "Black stone dragon",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9000,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9001,
+            19105,
+            21212,
+            23858,
+            25886,
+            26315,
+            26316,
+            27155,
+            27156,
+            27158,
+            27992,
+            28077
+          ],
+          "displayName": "Kerapac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kerapac.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what is to come"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Escape the lab.<ul><li>When you hit a dead end, turn around or interact with a nearby character.</li><li>If you fail to escape, re-enter Kerapac's lab to try again.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "anachronia kerapac's lab door"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Seren in Burthorpe.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2965.0,
+          "y": 3570.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2901.0,
+          "heightFine": 3877.0,
+          "y": 3564.0,
+          "range": 8
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.0,
+          "heightFine": 3883.0,
+          "y": 3567.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 47606,
+  "stageVarbitCompleteValue": 500,
+  "cacheQuestId": 465
+}

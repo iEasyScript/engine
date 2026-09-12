@@ -1,0 +1,1505 @@
+{
+  "slug": "song-from-the-depths",
+  "name": "Song from the Depths",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "pathfinder",
+  "releaseDate": 1337644800,
+  "neededItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Dreaming souls",
+      "text": "Talk to Lucille who is in a house west of the Rimmington well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2946.0,
+          "heightFine": 805.0,
+          "y": 3207.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2946.0,
+          "heightFine": 805.0,
+          "y": 3207.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 56157,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Lucille"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is everything okay?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Lucille.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 56157,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Lucille"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Lucille hands you a Restless Sleep potion."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Restless potion",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stay within Lucille's house and drink the restless sleep potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            216,
+            240
+          ],
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ],
+          "displayName": "Restless potion"
+        },
+        {
+          "t": "direction",
+          "x": 2946.0,
+          "heightFine": 805.0,
+          "y": 3207.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "As you drink the potion, you fall asleep, but you still have some control over your body."
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Restless potion",
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the souls north-east to a cave entrance located south of the Rimmington mine and north-west of the Port Sarim lodestone and enter it.<ul><li>If you go past the cave, exit to the lobby, or logout in the cave, you will have to go back to Lucille and obtain the potion once again.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2955.0,
+          "heightFine": 805.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2955.0,
+          "heightFine": 805.0,
+          "y": 3213.0,
+          "range": 6
+        },
+        {
+          "t": "distanceTo",
+          "x": 1047.0,
+          "heightFine": 1775.0,
+          "y": 6162.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 717.0,
+          "y": 3217.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2958.0,
+          "heightFine": 717.0,
+          "y": 3217.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 1047.0,
+          "heightFine": 1775.0,
+          "y": 6162.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2955.0,
+          "heightFine": 805.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Cave Entrance"
+        },
+        {
+          "t": "distanceTo",
+          "x": 1047.0,
+          "heightFine": 1775.0,
+          "y": 6162.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Cave Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1047.0,
+          "heightFine": 1775.0,
+          "y": 6162.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here to save Waylan."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Keep your distance and you keep your life."
+        },
+        {
+          "t": "distanceTo",
+          "x": 1067.0,
+          "heightFine": 549.0,
+          "y": 6175.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to follow the Raptor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1067.0,
+          "heightFine": 549.0,
+          "y": 6175.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1187.0,
+          "heightFine": 525.0,
+          "y": 6174.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The maze",
+      "text": "Enter the north door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1181.0,
+          "heightFine": 501.0,
+          "y": 6183.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1256.0,
+          "heightFine": 1957.0,
+          "y": 6178.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the west door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1236.0,
+          "heightFine": 2061.0,
+          "y": 6174.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1107.0,
+          "heightFine": 1975.0,
+          "y": 6243.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the south door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1128.0,
+          "heightFine": 237.0,
+          "y": 6232.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1049.0,
+          "heightFine": 3269.0,
+          "y": 6238.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the east door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1069.0,
+          "heightFine": 3557.0,
+          "y": 6242.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1436.0,
+          "heightFine": 269.0,
+          "y": 6488.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the souls and enter the final door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1441.0,
+          "heightFine": 229.0,
+          "y": 6510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1123.0,
+          "heightFine": 803.0,
+          "y": 6105.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Symbol searching",
+      "text": "After the cutscene, go to the north-east corner of the room to discover the first symbol. It is two steps south of the wall feature against the north wall and two steps east of the fissure.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1127.0,
+          "heightFine": 557.0,
+          "y": 6118.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1127.0,
+          "heightFine": 557.0,
+          "y": 6118.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the north-west corner where the second symbol will be located a bit south-west of the wavy section of the ground.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1114.0,
+          "heightFine": 1035.0,
+          "y": 6118.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1114.0,
+          "heightFine": 1035.0,
+          "y": 6118.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the sparkling doorway.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1577,
+          "modelIds": [
+            4284
+          ],
+          "displayName": "Doorway"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1183.0,
+          "heightFine": 773.0,
+          "y": 6103.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go just west of the central fissure to find the first symbol.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1176.0,
+          "heightFine": 717.0,
+          "y": 6113.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1176.0,
+          "heightFine": 717.0,
+          "y": 6113.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west of the northern fissure to find the second symbol.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1178.0,
+          "heightFine": 611.0,
+          "y": 6121.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1178.0,
+          "heightFine": 611.0,
+          "y": 6121.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The last symbol is just north-west of the eastern fissure.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1189.0,
+          "heightFine": 805.0,
+          "y": 6115.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1189.0,
+          "heightFine": 805.0,
+          "y": 6115.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the sparkling doorway.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1577,
+          "modelIds": [
+            4284
+          ],
+          "displayName": "Doorway"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1437.0,
+          "heightFine": 229.0,
+          "y": 6549.0,
+          "range": 4
+        },
+        {
+          "t": "conversationText",
+          "text": "I found myself walking the world, sharing the love of dreaming souls."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the souls and enter the door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1437.0,
+          "heightFine": 1069.0,
+          "y": 6574.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1438.0,
+          "heightFine": 965.0,
+          "y": 6104.0,
+          "range": 4
+        },
+        {
+          "t": "conversationText",
+          "text": "I approached the furious soul. It screamed as if on fire. I tried to soothe it with song, but still it seethed."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Tree growing",
+      "text": "Take the burning sapling from the centre of the room and plant it in the pot overflowing with water to the southwest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 24309,
+          "modelIds": [
+            216
+          ],
+          "displayName": "Burning sapling"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Burning sapling inventory",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            756,
+            216,
+            3
+          ],
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ],
+          "displayName": "Burning sapling inventory"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            360
+          ],
+          "candidateNpcTypeIds": [
+            796,
+            1776,
+            12233,
+            16864,
+            29181
+          ],
+          "displayName": "Water pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2946
+          ],
+          "candidateNpcTypeIds": [
+            1626
+          ],
+          "displayName": "Planted water pot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the doorway with a waterfall to the northeast.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3471
+          ],
+          "displayName": "Water portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Although it didn't rage anymore"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the dead sapling from the previous pot and plant it in the pot with living fungi to the northwest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            363
+          ],
+          "candidateNpcTypeIds": [
+            2578,
+            5604,
+            15524,
+            31023,
+            31024
+          ],
+          "displayName": "Shiny water pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Three leaf sapling",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            756,
+            72,
+            3
+          ],
+          "displayName": "Three leaf sapling"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3408
+          ],
+          "candidateObjectTypeIds": [
+            63037,
+            63038
+          ],
+          "displayName": "Fungus pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4188
+          ],
+          "displayName": "Planted fungus pot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the doorway surrounded by fungus to the southwest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            204
+          ],
+          "candidateNpcTypeIds": [
+            3709
+          ],
+          "displayName": "Fungus portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The soul was weak."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the budding sapling from the fungus pot and plant it in the pot with ivy growing around it to the southeast.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4188
+          ],
+          "displayName": "Shiny fungus pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24311,
+          "displayName": "Budding sapling",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 24311,
+          "modelIds": [
+            756,
+            216
+          ],
+          "displayName": "Budding sapling"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2526
+          ],
+          "displayName": "Ivy pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Planted ivy pot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the doorway surrounded by ivy to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            456
+          ],
+          "candidateNpcTypeIds": [
+            4,
+            6,
+            202,
+            210,
+            304,
+            402,
+            536,
+            816,
+            835,
+            967,
+            968,
+            969,
+            1055,
+            1256,
+            1258,
+            1300,
+            1310,
+            1312,
+            1313,
+            1386,
+            1388,
+            1715,
+            1896,
+            1897,
+            1898,
+            2168,
+            2331,
+            2332,
+            2336,
+            2549,
+            2579,
+            2684,
+            2776,
+            2950,
+            3209,
+            3920,
+            3928,
+            4360,
+            4734,
+            4742,
+            4988,
+            5493,
+            5496,
+            5512,
+            9126,
+            9127,
+            12229,
+            13461,
+            15778,
+            15779,
+            15938,
+            17175,
+            17900,
+            18732,
+            18735,
+            18960,
+            18973,
+            19609,
+            19610,
+            19612,
+            19617,
+            19636,
+            20161,
+            20162,
+            21216,
+            21221,
+            21254,
+            21276,
+            22703,
+            27018,
+            27019,
+            28737,
+            29785,
+            30571,
+            31169,
+            31170,
+            31171,
+            31174,
+            31176
+          ],
+          "displayName": "Ivy portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The soul felt new growth and purpose. But it needed time to become strong."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the healthy sapling from the previous pot and plant it in the pot covered in cobwebs to the northeast.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Grown ivy pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24312,
+          "displayName": "Healthy sapling",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 24312,
+          "modelIds": [
+            873,
+            18,
+            72,
+            216
+          ],
+          "displayName": "Healthy sapling"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            174
+          ],
+          "candidateObjectTypeIds": [
+            32444,
+            32450,
+            32451,
+            112745
+          ],
+          "displayName": "Web pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            216
+          ],
+          "displayName": "Planted web pot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the doorway covered in cobwebs to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            423
+          ],
+          "candidateNpcTypeIds": [
+            1511
+          ],
+          "displayName": "Web portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It grew stronger than any soul I have ever encountered. It was so powerful, so overwhelming."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The stomach of the dragon",
+      "text": "Proceed north and enter the doorway.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1438.0,
+          "heightFine": 981.0,
+          "y": 6256.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "And then there was darkness. My story ended and another began."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Heh."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, jump into the chasm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1305.0,
+          "heightFine": 1045.0,
+          "y": 6240.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 977.0,
+          "heightFine": 1285.0,
+          "y": 6631.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed through the three passageways and enter the openings whilst evading the acid, players with high life points or some food can simply run through the acid taking the shortest route to save time. Running straight through the acid deals some (10-150) damage. Use Surge and Dive when available.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1003.5,
+          "heightFine": 1285.0,
+          "y": 6618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1126.0,
+          "heightFine": 1285.0,
+          "y": 6647.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1110.5,
+          "heightFine": 1285.0,
+          "y": 6602.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1229.0,
+          "heightFine": 1285.0,
+          "y": 6645.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1273.0,
+          "heightFine": 1301.0,
+          "y": 6611.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 12634.001953125,
+          "heightFine": 1164.0,
+          "y": 2976.0,
+          "range": 8
+        },
+        {
+          "t": "conversationText",
+          "text": "Stop! You can't be here! This is our island. You need to get back on your ship."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After an interactive cutscene, finish the dialogue with the siren, Remora.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "We're not on an island."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What you're talking about isn't real."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Don't you know how you got here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You have been stealing the souls of villagers."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Wait, don't kill her!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We need her to escape."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2994.0,
+          "heightFine": 525.0,
+          "y": 3231.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor. You will receive 3 items. Make sure you'll have enough inventory space ahead of time.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We should talk to Lucille."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The Raptor hands you Remora's necklace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south-west to Rimmington and talk to Lucille.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2946.0,
+          "heightFine": 805.0,
+          "y": 3207.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2946.0,
+          "heightFine": 805.0,
+          "y": 3207.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 56157,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Lucille"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12689,
+  "stageVarbitCompleteValue": 75,
+  "cacheQuestId": 352
+}

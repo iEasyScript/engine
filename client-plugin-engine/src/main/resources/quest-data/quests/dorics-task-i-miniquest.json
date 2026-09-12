@@ -1,0 +1,263 @@
+{
+  "slug": "dorics-task-i-miniquest",
+  "name": "Doric's Task I (miniquest)",
+  "members": false,
+  "length": "veryshort",
+  "timeline": "adventurer",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Iron bars (in metal bank)",
+      "itemId": -1,
+      "quantity": 4,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "What's Mine is Yours"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 10,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 10,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Delivery for Aksel",
+      "text": "Talk to Doric in his hut north of Falador.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Iron bars (in metal bank)",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Doric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13464,
+          "displayName": "Task list",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith an iron full helm +1.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2961.0,
+          "heightFine": 1269.0,
+          "y": 3438.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Iron full helm + 1"
+        },
+        {
+          "t": "chatText",
+          "text": "Iron full helm + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aksel at the Artisans' Workshop in south-east Falador.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3038.0,
+          "heightFine": 1125.0,
+          "y": 3342.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 5469,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6663,
+            6664
+          ],
+          "displayName": "Aksel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5469,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6663,
+            6664
+          ],
+          "displayName": "Aksel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Doric sent me here with another delivery."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5469,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6663,
+            6664
+          ],
+          "displayName": "Aksel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10010,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 421
+}

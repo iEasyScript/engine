@@ -1,0 +1,1436 @@
+{
+  "slug": "the-world-wakes",
+  "name": "The World Wakes",
+  "members": true,
+  "length": "longverylong",
+  "timeline": "worldguardian",
+  "releaseDate": 1362355200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Helping Orlando",
+      "text": "Talk to Orlando Smith, West of the Legends\u0027 Guild (fairy code BLR, or use the Ardougne lodestone).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help at all?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So you just need me to open the doors?"
+        },
+        {
+          "t": "direction",
+          "x": 2702.0,
+          "heightFine": 448.0,
+          "y": 3372.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16881,
+          "modelIds": [],
+          "displayName": "Orlando Smith"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you up to"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82743,
+          "modelIds": [],
+          "displayName": "Ancient Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the following 6 artefacts:\u003cul\u003e\u003cli\u003eInactive obelisk (north-west)\u003c/li\u003e\u003cli\u003eStone carvings (north)\u003c/li\u003e\u003cli\u003eThe other stone carvings (north-east)\u003c/li\u003e\u003cli\u003eClouded vials (north-east)\u003c/li\u003e\u003cli\u003eDusty parchment (south-east)\u003c/li\u003e\u003cli\u003eShattered blade (south)\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83031,
+          "modelIds": [],
+          "displayName": "Stone carvings"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83030,
+          "modelIds": [],
+          "displayName": "Stone carvings"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83043,
+          "modelIds": [],
+          "displayName": "Clouded vials"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83035,
+          "modelIds": [],
+          "displayName": "Shattered blade"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83034,
+          "modelIds": [],
+          "displayName": "Dusty parchment"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We seem to have triggered"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the Guthixian statue to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83036,
+          "modelIds": [],
+          "displayName": "Guthixian statue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "ancient Guthixians had some"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the next room to the east and kill the 3 automatons.\u003cul\u003e\u003cli\u003eYou must finish the entire dialogue with the Automatons before clicking to attack them (there\u0027s a small break in the dialogue) or you will have to redo the cutscene again.\u003c/li\u003e\u003cli\u003eWarning: Automatons can deal high damage to players standing within their special attack range. Lower-level players should use ranged, magic, or necromancy to attack them.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 18.0,
+          "heightFine": 2080.0,
+          "y": 1.0,
+          "instance": true,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16905,
+          "modelIds": [],
+          "displayName": "Automaton Generator"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16906,
+          "modelIds": [],
+          "displayName": "Automaton Tracer"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16907,
+          "modelIds": [],
+          "displayName": "Automaton Guardian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16911,
+          "modelIds": [],
+          "displayName": "Shadowy Figure"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sliske.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "stand before you! Do your worst!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What does this mean?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you mean, trouble?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay then."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "a reminder of his edicts"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Sliske after the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do you gain from telling me this?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So how do I come into this?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I already know my decision."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "better get going"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "too late"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If Kree\u0027arra and Commander Zilyana don\u0027t spawn, talk to Sliske again.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16921,
+          "modelIds": [],
+          "displayName": "Commander Zilyana"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating Kree\u0027arra",
+      "text": "After the cutscenes, talk to Kree\u0027arra.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why are you following Zilyana, then?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you want to get rid of me, you\u0027ll have to do it the hard way."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16923,
+          "modelIds": [],
+          "displayName": "Kree\u0027arra"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "actions are forced upon me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Kree\u0027arra. Avoid standing on the tornadoes.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You face no threat from me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the door (east).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82866,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16922,
+          "modelIds": [],
+          "displayName": "K\u0027ril Tsutsaroth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lock mechanism",
+      "text": "Run to the other side of the room and activate the control panel.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Guthix is in trouble. I\u0027m here to protect him."
+        },
+        {
+          "t": "direction",
+          "x": 29.0,
+          "heightFine": 2080.0,
+          "y": 1.0,
+          "instance": true,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83071,
+          "modelIds": [],
+          "displayName": "Control panel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "investigate the control panel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "While using the control panel you can release a boulder by clicking on the dispenser in the corner of the screen. The goal is to get the boulder from the dispenser to the receptacle tile (circular cavity with a green dot).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": 7.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": 5.0
+            },
+            {
+              "x": 13.0,
+              "heightFine": 1440.0,
+              "y": 5.0
+            },
+            {
+              "x": 13.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": 4.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": 4.0
+            },
+            {
+              "x": 21.0,
+              "heightFine": 1440.0,
+              "y": 3.0
+            },
+            {
+              "x": 21.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83070,
+          "modelIds": [],
+          "displayName": "Complete destination"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To solve the puzzle:\u003cul\u003e\u003cli\u003eRotate the tracks to create a path from the dispenser to the green hole, matching the solutions below (NOTE: puzzle can crash based on camera settings try classic)\u003c/li\u003e\u003cli\u003eClick the appropriate dispenser to release the boulder\u003c/li\u003e\u003cli\u003eWhen the boulder halts at a gate, wait for the next tile to auto-rotate such that the path continues, and click the gates to release the boulder at the right time\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 23.0,
+              "heightFine": 1440.0,
+              "y": 7.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 1440.0,
+              "y": 5.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 1440.0,
+              "y": 5.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 12.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 12.0,
+              "heightFine": 1440.0,
+              "y": -4.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83070,
+          "modelIds": [],
+          "displayName": "Complete destination",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To solve the puzzle:\u003cul\u003e\u003cli\u003eRotate the tracks to create a path from the dispenser to the green hole, matching the solutions below (NOTE: puzzle can crash based on camera settings try classic)\u003c/li\u003e\u003cli\u003eClick the appropriate dispenser to release the boulder\u003c/li\u003e\u003cli\u003eWhen the boulder halts at a gate, wait for the next tile to auto-rotate such that the path continues, and click the gates to release the boulder at the right time\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": -6.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 12.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 12.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 1440.0,
+              "y": 3.0
+            },
+            {
+              "x": 14.0,
+              "heightFine": 1440.0,
+              "y": 3.0
+            },
+            {
+              "x": 14.0,
+              "heightFine": 1440.0,
+              "y": 0.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 1440.0,
+              "y": 0.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 1440.0,
+              "y": -3.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": -3.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 17.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83070,
+          "modelIds": [],
+          "displayName": "Complete destination",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To solve the puzzle:\u003cul\u003e\u003cli\u003eRotate the tracks to create a path from the dispenser to the green hole, matching the solutions below (NOTE: puzzle can crash based on camera settings try classic)\u003c/li\u003e\u003cli\u003eClick the appropriate dispenser to release the boulder\u003c/li\u003e\u003cli\u003eWhen the boulder halts at a gate, wait for the next tile to auto-rotate such that the path continues, and click the gates to release the boulder at the right time\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 23.0,
+              "heightFine": 1440.0,
+              "y": -6.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 1440.0,
+              "y": -4.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": -4.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": -1.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": -5.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 17.0,
+              "heightFine": 1440.0,
+              "y": 1.0
+            },
+            {
+              "x": 17.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 1440.0,
+              "y": 4.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": 4.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 1440.0,
+              "y": 7.0
+            },
+            {
+              "x": 17.0,
+              "heightFine": 1440.0,
+              "y": 7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83070,
+          "modelIds": [],
+          "displayName": "Complete destination",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Leading the guardians",
+      "text": "After the cutscenes (skippable), view the strange map to the east.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16951,
+          "modelIds": [],
+          "displayName": "Cres"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Answer four randomised questions to balance the pillars (Chaos, Order, Good, and Evil must all be exactly 50%). Refer to the below table and pick the appropriate answers:",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83072,
+          "modelIds": [],
+          "displayName": "Strange map"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What...what was that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the group a motivational speech",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Enthuse the group."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Reinforce the importance of protecting the edicts."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Highlight the strengths of the group."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "choose your formation"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drag the guardian icons to the correct threat based on the hover text in the top row:",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "All the wings are now defended"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Juna.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve finished setting up."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m happy with the formation for now."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16930,
+          "modelIds": [],
+          "displayName": "Juna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83101,
+          "modelIds": [],
+          "displayName": "Powerful elixir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the dialogue after the cutscene (including a pause in dialogue) or you will be forced to watch it again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating Graardor",
+      "text": "Enter the north-west storage wing guarded by Chaeldar and Thaerisk Cemphier.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m sure. Let\u0027s go."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83075,
+          "modelIds": [],
+          "displayName": "Storage wing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16989,
+          "modelIds": [],
+          "displayName": "General Graardor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat General Graardor. Protect from Melee is preferred.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16989,
+          "modelIds": [],
+          "displayName": "General Graardor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I can deal with the remains here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the exit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82863,
+          "modelIds": [],
+          "displayName": "Exit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83100,
+          "modelIds": [],
+          "displayName": "Healing elixir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating Zemouregal",
+      "text": "Enter the north storage wing guarded by Cres.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m sure. Let\u0027s go."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83075,
+          "modelIds": [],
+          "displayName": "Storage wing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 17008,
+          "modelIds": [],
+          "displayName": "Zemouregal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Zemouregal. Bringing Antipoison is recommended.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17014,
+          "modelIds": [],
+          "displayName": "Dark portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I can deal with the remains"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the exit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82863,
+          "modelIds": [],
+          "displayName": "Exit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83100,
+          "modelIds": [],
+          "displayName": "Healing elixir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating K\u0027ril Tsutsaroth",
+      "text": "Enter the south-west storage wing guarded by Death.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m sure. Let\u0027s go."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83075,
+          "modelIds": [],
+          "displayName": "Storage wing"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16927,
+          "modelIds": [],
+          "displayName": "Death"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 17016,
+          "modelIds": [],
+          "displayName": "K\u0027ril Tsutsaroth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat K\u0027ril Tsutsaroth. Be aware of his special attacks.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The last wing must"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the exit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82863,
+          "modelIds": [],
+          "displayName": "Exit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83101,
+          "modelIds": [],
+          "displayName": "Powerful elixir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating Enakhra",
+      "text": "Enter the south storage wing guarded by Fiara and Valluta.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83075,
+          "modelIds": [],
+          "displayName": "Storage wing"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16931,
+          "modelIds": [],
+          "displayName": "Fiara"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 17026,
+          "modelIds": [],
+          "displayName": "Enakhra"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Enakhra.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the main chamber"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the exit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 82863,
+          "modelIds": [],
+          "displayName": "Exit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 83105,
+          "modelIds": [],
+          "displayName": "Knight of Saradomin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Protecting Juna",
+      "text": "Talk to Cres in the center.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16951,
+          "modelIds": [],
+          "displayName": "Cres"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to Juna, she will"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Juna in the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16930,
+          "modelIds": [],
+          "displayName": "Juna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16962,
+          "modelIds": [],
+          "displayName": "Spiritual mage"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defend Juna from the spiritual enemies for 2 minutes.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16960,
+          "modelIds": [],
+          "displayName": "Spiritual warrior",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16962,
+          "modelIds": [],
+          "displayName": "Spiritual mage",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16961,
+          "modelIds": [],
+          "displayName": "Spiritual ranger",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16967,
+          "modelIds": [],
+          "displayName": "Nex"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Azzanadra after the skippable cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Who are you"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to protect Guthix"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16965,
+          "modelIds": [],
+          "displayName": "Azzanadra"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There\u0027s someone in there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the shattered wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83074,
+          "modelIds": [],
+          "displayName": "Shattered wall"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run down the path, avoiding the boulders and flames. If you get trapped between ice spikes, click them to break free.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the skippable cutscene, walk east down to the pedestal in front of Guthix. He will teleport you.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 24.0,
+          "heightFine": 400.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16971,
+          "modelIds": [],
+          "displayName": "Guthix"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk between the islands, talking to Guthix along the way.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16921,
+          "modelIds": [],
+          "displayName": "Commander Zilyana"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On your return, talk to one of the guardians.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16972,
+          "modelIds": [],
+          "displayName": "Saradomin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After a skippable cutscene, Saradomin will appear in front of you. Talk to him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Juna (9 free inventory slots are required).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 18021,
+  "stageVarbitCompleteValue": 250,
+  "cacheQuestId": 361
+}

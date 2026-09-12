@@ -1,0 +1,1341 @@
+{
+  "slug": "merlins-crystal",
+  "name": "Merlin's Crystal",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1014768000,
+  "neededItems": [
+    {
+      "name": "Bucket",
+      "itemId": 1925,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "bread",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bread or 24 coins to buy some",
+      "itemId": 2309,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Insect repellent",
+      "itemId": 402,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bat bones",
+      "itemId": 526,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Sir Mordred",
+      "level": "23",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to King Arthur at Camelot.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Seers' Village lodestone",
+        "url": "Seers'_Village_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8285,
+          "modelIds": [
+            4566
+          ],
+          "displayName": "King arthur"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to King Arthur.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8285,
+          "modelIds": [
+            4566
+          ],
+          "displayName": "King arthur"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to become a knight of the round table!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Unfortunately, our current quest is to rescue Merlin."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Gawain nearby. Ask him how Merlin got stuck in the crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Sir gwain"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know how Merlin got trapped?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thank you for the information."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It is the least I can do."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs, and talk to Sir Lancelot. Ask if he has any ideas on getting into Keep Le Faye.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            600
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Camelot ground floor stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2751.0,
+          "heightFine": 1925.0,
+          "y": 3513.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 25666,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Sir Lancelot"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Any ideas on how to get into Morgan Le Faye's stronghold?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "They take all their deliveries by boat."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Hide in the crate just west of the candle-maker in Catherby.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 2792.0,
+          "heightFine": 997.0,
+          "y": 3427.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You wait."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You climb out of the crate."
+        },
+        {
+          "t": "distanceTo",
+          "x": 2778.0,
+          "heightFine": 1941.0,
+          "y": 3401.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Inside Keep Le Faye",
+      "text": "Climb to the top floor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2775.5,
+          "heightFine": 1925.0,
+          "y": 3401.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1152
+          ],
+          "displayName": "Lafey ground floor double doors open"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            135
+          ],
+          "candidateNpcTypeIds": [
+            3462
+          ],
+          "displayName": "Lafey ground floor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2770.0,
+          "heightFine": 2885.0,
+          "y": 3407.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            12
+          ],
+          "displayName": "Lafey first floor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2770.0,
+          "heightFine": 3845.0,
+          "y": 3401.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attack Sir Mordred until his health drops to 0.<ul><li><b>Don't use DOTs.</b> If you use bleeds/poisons/conjures, future dialogue will be interrupted until the bleed/poison effect ends.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 247,
+          "modelIds": [
+            4134
+          ],
+          "displayName": "Sir Mordred"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4623
+          ],
+          "candidateNpcTypeIds": [
+            22000
+          ],
+          "displayName": "Morgan la fey"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Morgan Le Faye.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4623
+          ],
+          "candidateNpcTypeIds": [
+            22000
+          ],
+          "displayName": "Morgan la fey"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me how to untrap Merlin and I might."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "OK I will do all that."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, I will go do all that."
+        },
+        {
+          "t": "conversationText",
+          "text": "Morgan Le Faye vanishes."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you do not have bat bones, exit the keep to the west and kill a Giant bat.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2770.0,
+          "heightFine": 3845.0,
+          "y": 3400.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2770.0,
+          "heightFine": 2885.0,
+          "y": 3397.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 526,
+          "displayName": "Bones",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2770.0,
+          "heightFine": 2885.0,
+          "y": 3406.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2770.0,
+          "heightFine": 1925.0,
+          "y": 3403.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 526,
+          "displayName": "Bones",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 78,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Giant bat"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 526,
+          "modelIds": [],
+          "displayName": "Bones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 526,
+          "displayName": "Bones",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting a black candle",
+      "text": "Talk to the candle-maker in Catherby.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2795.0,
+          "heightFine": 997.0,
+          "y": 3428.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2795.0,
+          "heightFine": 997.0,
+          "y": 3428.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Insect repellent",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4761
+          ],
+          "candidateObjectTypeIds": [
+            4877
+          ],
+          "displayName": "Candlemaker"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Have you got any black candles?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "IF you can bring me a bucket FULL of wax."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather a bucket of wax from the beehives to the north-west. A bucket can be found at the beehives.<ul><li>If you do not have insect repellent then speak to the beekeeper nearby for some. You can also add it to your tool belt.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 597.0,
+          "y": 3443.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2762.0,
+          "heightFine": 597.0,
+          "y": 3443.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Left click the hive to use insect repellent on it and then use an empty bucket on a beehive to fill the bucket.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 597.0,
+          "y": 3443.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You pour your insect repellent on the beehive."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You get some wax from the hive."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the candle-maker again to get the black candle from him.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2795.0,
+          "heightFine": 997.0,
+          "y": 3428.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2795.0,
+          "heightFine": 997.0,
+          "y": 3428.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4761
+          ],
+          "candidateObjectTypeIds": [
+            4877
+          ],
+          "displayName": "Candlemaker"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 38,
+          "displayName": "Black candle",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting Excalibur",
+      "text": "Talk to the Lady of the Lake in southern Taverley. Ask about the sword Excalibur.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 405.0,
+          "y": 3406.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2925.0,
+          "heightFine": 405.0,
+          "y": 3406.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bread",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3873
+          ],
+          "candidateNpcTypeIds": [
+            1171
+          ],
+          "displayName": "Lady of the lake"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek the sword Excalibur."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, that seems easy enough."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lodestone to Port Sarim.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3011.0,
+          "heightFine": 965.0,
+          "y": 3214.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you don't have bread, buy a loaf from Wydin's Food Store, just south of the Port Sarim lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3015.0,
+          "heightFine": 965.0,
+          "y": 3206.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3015.0,
+          "heightFine": 965.0,
+          "y": 3206.0,
+          "range": 6
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 2309,
+          "displayName": "Bread",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 557,
+          "modelIds": [
+            3456
+          ],
+          "displayName": "Wydin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2309,
+          "displayName": "Bread",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Grum's Gold Exchange to the north of Port Sarim lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3015.5,
+          "heightFine": 965.0,
+          "y": 3246.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please kind sir"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 252,
+          "modelIds": [
+            3585
+          ],
+          "displayName": "Beggar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the beggar your bread and you'll receive Excalibur.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 252,
+          "modelIds": [
+            3585
+          ],
+          "displayName": "Beggar"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes certainly."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 35,
+          "displayName": "Excalibur",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ritual",
+      "text": "Go to the Temple of Zamorak south of the Varrock east bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3260.0,
+          "heightFine": 1125.0,
+          "y": 3382.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3260.0,
+          "heightFine": 1125.0,
+          "y": 3382.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bat bones",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black candle",
+          "itemId": 60,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Check</i> the chaos altar's inscription.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 61,
+          "modelIds": [
+            4086
+          ],
+          "displayName": "Chaos altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a small inscription at the bottom of the altar."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Camelot and enter the gates.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2757.0,
+          "heightFine": 645.0,
+          "y": 3486.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2757.0,
+          "heightFine": 645.0,
+          "y": 3486.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north-east outside of the castle to the ritual site (the gazebo outside the castle).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 772.0,
+          "heightFine": 645.0,
+          "y": 3491.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 772.0,
+          "heightFine": 645.0,
+          "y": 3491.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2780.0,
+          "heightFine": 1061.0,
+          "y": 3515.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2780.0,
+          "heightFine": 1061.0,
+          "y": 3515.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the star and light the black candle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2780.0,
+          "heightFine": 1061.0,
+          "y": 3515.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 38,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Black candle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You light the candle."
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 38,
+          "displayName": "Black candle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop the bat bones on the star.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2780.0,
+          "heightFine": 1061.0,
+          "y": 3515.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 526,
+          "modelIds": [],
+          "displayName": "Bones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Suddenly a mighty spirit appears!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The magic words are 'Snarthon Candtrick Termanto'.<ul><li>If you get this wrong, you will have to get the black candle remade; or click away before proceeding with the dialogue and re-drop the bat bones to try again.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Snarthon Candtrick Termanto"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Begone! And leave me once more in peace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Enter the castle and climb the top of the south-east tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2757.0,
+          "heightFine": 645.0,
+          "y": 3506.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2757.0,
+          "heightFine": 645.0,
+          "y": 3506.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Excalibur",
+          "itemId": 726,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2769.0,
+          "heightFine": 645.0,
+          "y": 3493.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2768.0,
+          "heightFine": 1925.0,
+          "y": 3493.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2767.0,
+          "heightFine": 1925.0,
+          "y": 3491.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2767.0,
+          "heightFine": 3205.0,
+          "y": 3492.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smash the giant crystal to free Merlin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            99
+          ],
+          "displayName": "Crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go speak to King Arthur, I'm sure he'll reward you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Arthur.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2767.0,
+          "heightFine": 3205.0,
+          "y": 3491.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2767.0,
+          "heightFine": 1925.0,
+          "y": 3492.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2769.0,
+          "heightFine": 1925.0,
+          "y": 3493.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2768.0,
+          "heightFine": 645.0,
+          "y": 3493.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8285,
+          "modelIds": [
+            4566
+          ],
+          "displayName": "King arthur"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2178,
+  "stageVarbitCompleteValue": 7,
+  "cacheQuestId": 108
+}

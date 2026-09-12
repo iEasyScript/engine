@@ -1,0 +1,1715 @@
+{
+  "slug": "the-grand-tree",
+  "name": "The Grand Tree",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1039651200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Black demon",
+      "level": "98",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 25,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to King Narnode Shareen on the ground floor (1st floor[US]) of the Grand Tree.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.5,
+          "heightFine": 3205.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You seem worried, what's up?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with King Narnode Shareen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2464.0,
+          "heightFine": 3205.0,
+          "y": 3497.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The crisis",
+      "text": "Take the bark sample and book to Hazelmere; he lives east of Yanille.<ul><li>If you have A Fairy Tale II - Cure a Queen completed, you can use code CLS, otherwise teleport to the Yanille lodestone.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2633.0,
+          "heightFine": 869.0,
+          "y": 3087.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2633.0,
+          "heightFine": 869.0,
+          "y": 3087.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2677.0,
+          "heightFine": 3725.0,
+          "y": 3086.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2677.0,
+          "heightFine": 2501.0,
+          "y": 3088.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "hazelmere ladder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "hazelmere ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2677.0,
+          "heightFine": 3725.0,
+          "y": 3086.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hazelmere.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 669,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4647,
+            6305,
+            8485,
+            8489,
+            8490,
+            20786,
+            22212,
+            22232,
+            22233,
+            22234,
+            22281,
+            22288,
+            22300,
+            25888,
+            30324
+          ],
+          "displayName": "Hazelmere"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hazelmere has given you the scroll."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hazelmeres scroll",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Hazelmere's scroll back to the King.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.5,
+          "heightFine": 3205.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the King.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think so!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "None of the above."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "None of the above."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A man came to me with the King's seal."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I gave the man Daconia rocks."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And Daconia rocks will kill the tree!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If he's not there he will be at his girlfriend Anita's place. Meet me back here once you've told him."
+        },
+        {
+          "t": "conversationText",
+          "text": "OK! I'll be back soon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Glough",
+      "text": "Climb up the ladder of the tree house south-east of the Grand Tree, north of the Agility course.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            228
+          ],
+          "candidateNpcTypeIds": [
+            2674,
+            3955,
+            5844,
+            5845,
+            5846,
+            5847,
+            5848
+          ],
+          "displayName": "Glough ground ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2477.0,
+          "heightFine": 2317.0,
+          "y": 3463.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Glough.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 671,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6391
+          ],
+          "displayName": "Glough"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Your type can't be trusted! I'll take care of this! Go back to the King."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the King.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.5,
+          "heightFine": 3205.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Certainly. He's on the top level of the tree. Be careful, it's a long way down!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb to the top floor of the Grand Tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "grand tree ground floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 4165.0,
+          "y": 3494.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6125.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "grand tree first floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2465.0,
+          "heightFine": 5125.0,
+          "y": 3495.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6125.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2466.0,
+          "heightFine": 5125.0,
+          "y": 3495.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6125.0,
+          "y": 3494.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6125.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charlie the prisoner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 673,
+          "modelIds": [
+            3309
+          ],
+          "displayName": "Charlie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Glough's tree house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the cupboard north of the ladder to get Glough's journal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2476.5,
+          "heightFine": 2317.0,
+          "y": 3465.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gloughs journal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Glough.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 671,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6391
+          ],
+          "displayName": "Glough"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 673,
+          "modelIds": [
+            3309
+          ],
+          "displayName": "Charlie"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Charlie and leave your prison cell.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 673,
+          "modelIds": [
+            3309
+          ],
+          "displayName": "Charlie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm sorry again Traveller!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Captain Errdo just north of the cells to get to Karamja.<ul><li>Beware if you are low level, there are multiple level 57 Jogres here so be ready.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5249,
+          "modelIds": [
+            3975
+          ],
+          "displayName": "Captain Errdo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take me to Karamja, please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, you're the boss! Hold on tight, it'll be a rough ride."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east and attempt to open the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2944.5,
+          "heightFine": 581.0,
+          "y": 3041.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hey you! What are you up to?"
+        },
+        {
+          "t": "conversationText",
+          "text": "I'm trying to open the gate!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tell him you work for Glough, Ka-Lu-Min is the password.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 38,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Shipyard worker"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Glough sent me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ka."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lu."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Min."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2947.0,
+          "heightFine": 597.0,
+          "y": 3041.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once inside, run east to the south dock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 965.0,
+          "y": 3041.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 674,
+          "modelIds": [
+            3759
+          ],
+          "displayName": "Foreman"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Either kill the foreman, or talk to him and answer his questions.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 674,
+          "modelIds": [
+            3759
+          ],
+          "displayName": "Foreman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sadly his wife is no longer with us!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He loves worm holes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Anita."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "OK. I'll head off and give this order to Glough."
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 787,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Lumber order"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Breaking and entering",
+      "text": "Talk to Femi at the Gnome Stronghold gates to enter inside.<ul><li>You may offer help to get inside for free, or 1,000 coins if you do not.</li><li>Alternatively teleport to the spirit tree if Tree Gnome Village quest is complete.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 787,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Lumber order"
+        },
+        {
+          "t": "direction",
+          "x": 2461.0,
+          "heightFine": 981.0,
+          "y": 3381.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 676,
+          "modelIds": [
+            4134
+          ],
+          "displayName": "Femi"
+        },
+        {
+          "t": "distanceTo",
+          "x": 2461.0,
+          "heightFine": 1317.0,
+          "y": 3444.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 676,
+          "modelIds": [
+            4134
+          ],
+          "displayName": "Femi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2459.0,
+          "heightFine": 997.0,
+          "y": 3409.0,
+          "range": 6
+        },
+        {
+          "t": "distanceTo",
+          "x": 2461.0,
+          "heightFine": 1317.0,
+          "y": 3444.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the King.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.5,
+          "heightFine": 3205.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That's enough Traveller, you sound as paranoid as him! Traveller please leave! It's bad enough having one human locked up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Charlie the prisoner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "grand tree ground floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 4165.0,
+          "y": 3494.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6165.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "grand tree first floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2465.0,
+          "heightFine": 5125.0,
+          "y": 3495.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6165.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2466.0,
+          "heightFine": 5125.0,
+          "y": 3495.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6125.0,
+          "y": 3494.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 6165.0,
+          "y": 3494.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 673,
+          "modelIds": [
+            3309
+          ],
+          "displayName": "Charlie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "OK, I'll see what I can find."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Anita. She can be found in the northwesternmost tree house in the stronghold.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2388.0,
+          "heightFine": 1189.0,
+          "y": 3512.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2388.0,
+          "heightFine": 2189.0,
+          "y": 3513.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 672,
+          "modelIds": [
+            4077
+          ],
+          "displayName": "Anita"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No...thank you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the key on the chest in Glough's house and search it to receive the invasion plans.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            228
+          ],
+          "candidateNpcTypeIds": [
+            2674,
+            3955,
+            5844,
+            5845,
+            5846,
+            5847,
+            5848
+          ],
+          "displayName": "Glough ground ladder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Gloughs key"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1491
+          ],
+          "candidateNpcTypeIds": [
+            14380,
+            22815
+          ],
+          "displayName": "Gloughs chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You have found a scroll!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the King.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.5,
+          "heightFine": 3205.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The Grand Tree's still slowly dying, if it is human sabotage we must respond!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The fight",
+      "text": "Bank to prepare to fight a level 98 black demon.<ul><li>The demon has a weakness to water spells.</li><li>You can also use a halberd from the safespot.</li><li>When you're ready, go to the top level of Glough's house.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2476.0,
+          "heightFine": 1317.0,
+          "y": 3463.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Glough first floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2485.0,
+          "heightFine": 3381.0,
+          "y": 3463.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the twigs on the pillars to spell TUZO.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            174
+          ],
+          "candidateItemTypeIds": [
+            47829,
+            47830
+          ],
+          "displayName": "Twig t"
+        },
+        {
+          "t": "direction",
+          "x": 2485.0,
+          "heightFine": 3381.0,
+          "y": 3467.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            174
+          ],
+          "candidateObjectTypeIds": [
+            32444,
+            32450,
+            32451,
+            112745
+          ],
+          "displayName": "Twig t placed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            318
+          ],
+          "displayName": "Twig u"
+        },
+        {
+          "t": "direction",
+          "x": 2486.0,
+          "heightFine": 3381.0,
+          "y": 3467.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            318
+          ],
+          "candidateNpcTypeIds": [
+            211,
+            212
+          ],
+          "displayName": "Twig u placed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            318
+          ],
+          "displayName": "Twig z"
+        },
+        {
+          "t": "direction",
+          "x": 2487.0,
+          "heightFine": 3381.0,
+          "y": 3467.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            318
+          ],
+          "candidateNpcTypeIds": [
+            211,
+            212
+          ],
+          "displayName": "Twig z placed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Twig o"
+        },
+        {
+          "t": "direction",
+          "x": 2488.0,
+          "heightFine": 3381.0,
+          "y": 3467.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            576
+          ],
+          "candidateObjectTypeIds": [
+            1585,
+            1631,
+            1769,
+            1770,
+            1902,
+            2637,
+            3586,
+            6965,
+            32723,
+            35253
+          ],
+          "displayName": "Twig o placed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2486.0,
+          "heightFine": 3381.0,
+          "y": 3464.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 37980,
+          "modelIds": [
+            5583
+          ],
+          "displayName": "Black demon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the demon. (Can be safespotted by standing within the rocks to the south)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12447.0,
+          "heightFine": 837.0,
+          "y": 1803.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 37980,
+          "modelIds": [
+            5583
+          ],
+          "displayName": "Black demon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Glough's run off!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Run to the middle of the cave and talk to the king. Don't click away yet, wait for the scripted dialogue to finish.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2462.0,
+          "heightFine": 773.0,
+          "y": 9896.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "A reward will have to wait though, the tree is still dying! The guards are clearing Glough's rock supply now but there must be more Daconia hidden somewhere in the roots! Help us search, we have little time!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the nearby roots for a rock.<ul><li>If you don't find the rock try the other roots in the cave.</li><li>Be sure to space-through or click through the text boxes, or else the Daconia rock may not appear in your inventory.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 793,
+          "displayName": "Daconia rock",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the rock to the king.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2462.0,
+          "heightFine": 773.0,
+          "y": 9896.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2740,
+  "stageVarbitCompleteValue": 160,
+  "cacheQuestId": 269
+}

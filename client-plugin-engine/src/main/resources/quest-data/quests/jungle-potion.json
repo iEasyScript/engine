@@ -1,0 +1,620 @@
+{
+  "slug": "jungle-potion",
+  "name": "Jungle Potion",
+  "members": true,
+  "length": "short",
+  "timeline": "adventurer",
+  "releaseDate": 1035331200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 3,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Trufitus in his house located northeast of Tai Bwo Wannai.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's a nice village, but where is everyone?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Me? How can I help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Trufitus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "water kisses your feet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Snake weed",
+      "text": "Search marshy jungle vines for a grimy snake weed.<ul><li>Take three if you intend to do Legends' Quest and Zogre Flesh Eaters.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2759.0,
+          "heightFine": 143.0,
+          "y": 3043.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2757.0,
+          "heightFine": 0.0,
+          "y": 3041.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2759.0,
+          "heightFine": 81.0,
+          "y": 3039.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1525,
+          "displayName": "Grimy snake weed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean the herb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1525,
+          "modelIds": [],
+          "displayName": "Grimy snake weed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "snake weed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus to give him a clean snake weed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "should search for it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ardrigal",
+      "text": "Search some palm trees for a grimy ardrigal.<ul><li>Take two if you intend to do Legends' Quest.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2864.5,
+          "heightFine": 661.0,
+          "y": 3118.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1527,
+          "displayName": "Grimy ardrigal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean the herb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1527,
+          "modelIds": [],
+          "displayName": "Grimy ardrigal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "ardrigal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus to give him a clean ardrigal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "blackened by the living flame"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sito foil",
+      "text": "Search the scorched earth for a grimy sito foil.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2791.0,
+          "heightFine": 563.0,
+          "y": 3047.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1529,
+          "displayName": "Grimy sito foil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean the herb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1529,
+          "modelIds": [
+            438
+          ],
+          "displayName": "Grimy sito foil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Sito foil",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20810
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus to give him a clean sito foil.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "high metal content"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Volencia moss",
+      "text": "Search the green-coloured rocks for a grimy volencia moss.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2850.0,
+          "heightFine": 517.0,
+          "y": 3034.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1080
+          ],
+          "candidateObjectTypeIds": [
+            3799,
+            4520,
+            5360,
+            6299,
+            6778,
+            7208,
+            12245,
+            12248,
+            14525,
+            14575,
+            14604,
+            14646,
+            14675,
+            14705,
+            16057,
+            16076,
+            16105,
+            16145,
+            18957,
+            20299,
+            24708,
+            28798,
+            28851,
+            29342,
+            30566,
+            32074,
+            33218,
+            42367
+          ],
+          "displayName": "Moss rock",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1531,
+          "displayName": "Grimy volencia moss",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean the herb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1531,
+          "modelIds": [
+            438
+          ],
+          "displayName": "Grimy volencia moss"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Volencia moss",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20810
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus to give him a clean volencia moss.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it may be dangerous"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rogue's purse",
+      "text": "Enter the cave to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2824.5,
+          "heightFine": 473.0,
+          "y": 3118.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "karamja coast cave entrance",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll enter the cave."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2830.0,
+          "heightFine": 853.0,
+          "y": 9523.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search a fungus covered Cavern wall for a grimy rogue's purse.<ul><li>Take two if you intend to do Zogre Flesh Eaters.</li><li>(Optional) Kill one jogre to complete one of the easy Karamja achievements, 'It's a Jungle Ogre'.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2831.0,
+          "heightFine": 1897.0,
+          "y": 9490.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1533,
+          "displayName": "Grimy rogue's purse",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean the herb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1533,
+          "modelIds": [],
+          "displayName": "Grimy rogue's purse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "rogue's purse",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus to give him a clean rogue's purse.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2809.5,
+          "heightFine": 1221.0,
+          "y": 3086.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 740,
+          "modelIds": [],
+          "displayName": "Trufitus",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2484,
+  "stageVarbitCompleteValue": 12,
+  "cacheQuestId": 59
+}

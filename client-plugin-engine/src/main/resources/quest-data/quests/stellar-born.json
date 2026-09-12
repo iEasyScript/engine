@@ -1,0 +1,1424 @@
+{
+  "slug": "stellar-born",
+  "name": "Stellar Born",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1759708800,
+  "neededItems": [
+    {
+      "name": "Cosmic Rune",
+      "itemId": 564,
+      "quantity": 152,
+      "duringQuest": false
+    },
+    {
+      "name": "Astral Rune",
+      "itemId": 9075,
+      "quantity": 52,
+      "duringQuest": false
+    },
+    {
+      "name": "Wizard Blizzard",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Observatory Quest",
+    "Complete the Wing Out mystery"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Mysterious star found",
+      "text": "Talk to the crashed star west of Piscatoris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2288.0,
+          "heightFine": 69.0,
+          "y": 3690.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2288.0,
+          "heightFine": 69.0,
+          "y": 3690.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112899,
+          "modelIds": [
+            1578
+          ],
+          "displayName": "Crashed star"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the crashed star and finish the dialogue.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112899,
+          "modelIds": [
+            1578
+          ],
+          "displayName": "Crashed star"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, hello!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I shall be right behind you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sending Zoob back",
+      "text": "Go to the south side of the 2nd floor[UK] (3rd floor[US]) of the Wizard's Tower and talk to Wizard Rosalina. Players can quickly teleport to her with stardust.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3103.0,
+          "heightFine": 1925.0,
+          "y": 3155.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3103.0,
+          "heightFine": 16773.0,
+          "y": 3155.0,
+          "range": 50
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cosmic Rune",
+          "itemId": 564,
+          "quantity": 152,
+          "duringQuest": false
+        },
+        {
+          "name": "Astral Rune",
+          "itemId": 9075,
+          "quantity": 52,
+          "duringQuest": false
+        },
+        {
+          "name": "Wizard Blizzard",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Stellar Born'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They seem just the right amount of glowy."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We could jump really high"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "See you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the crashed star west of Piscatoris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Rosalina to hand her your cosmic and astral runes and the Wizard Blizzard drink. Finish the cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Alrighty then!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the desert goebie camp, north-west of Menaphos.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3101.0,
+          "heightFine": 1221.0,
+          "y": 2861.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3101.0,
+          "heightFine": 1221.0,
+          "y": 2861.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Chambers.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Stellar Born'."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9285
+          ],
+          "candidateObjectTypeIds": [
+            63988,
+            63989,
+            63999,
+            64001,
+            64002,
+            64004
+          ],
+          "displayName": "Chambers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll meet you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Piscatoris crash site and talk to Wizard Chambers or Wizard Rosalina.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8955
+          ],
+          "candidateNpcTypeIds": [
+            14240
+          ],
+          "displayName": "Chambers2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I bet Zoob is looking forward to getting home"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to them again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8955
+          ],
+          "candidateNpcTypeIds": [
+            14240
+          ],
+          "displayName": "Chambers2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's begin!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Shoo away fireflies to keep them away from the crashed star until the portal progress at the top of your screen reaches 50.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Come on..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to them again.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Here goes nothing, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Exploring the homeland of star sprites",
+      "text": "Teleport to Zolarea with the portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 131452,
+          "modelIds": [
+            1896
+          ],
+          "displayName": "Portal base"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Rosalina? Zoob? Anyone?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip any items in your main/off-hand slots and jump the rocky edge to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4836.0,
+          "heightFine": 8797.0,
+          "y": 5539.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            10338
+          ],
+          "displayName": "Wings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fly to the large island to the east and jump to the rocky edge to land. Players can Surge and Dive during flight.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4862.0,
+          "heightFine": 8493.0,
+          "y": 5492.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            10338
+          ],
+          "displayName": "Wings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the giant crystal towards the centre and talk to Wizard Rosalina.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Well, I think you're cute"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll crack on with it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump the rocky edge on the northernmost side of the main island.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4929.0,
+          "heightFine": 8077.0,
+          "y": 5508.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            10338
+          ],
+          "displayName": "Wings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the north-easternmost island and inspect the mysterious decay.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4958.0,
+          "heightFine": 12365.0,
+          "y": 5551.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4958.0,
+          "heightFine": 12365.0,
+          "y": 5551.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            759
+          ],
+          "candidateObjectTypeIds": [
+            61831,
+            61832,
+            66729,
+            66730
+          ],
+          "displayName": "Decay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There must be more around"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the main island and then inspect the mysterious decay south of the rocky edge and west of the flower patch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4951.0,
+          "heightFine": 10925.0,
+          "y": 5538.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            10338
+          ],
+          "displayName": "Wings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4929.0,
+          "heightFine": 8077.0,
+          "y": 5508.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            10338
+          ],
+          "displayName": "Wings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4903.0,
+          "heightFine": 6645.0,
+          "y": 5515.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4903.0,
+          "heightFine": 6645.0,
+          "y": 5515.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            759
+          ],
+          "candidateObjectTypeIds": [
+            61831,
+            61832,
+            66729,
+            66730
+          ],
+          "displayName": "Decay2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There might be another"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to enter the cave entrance to the west of the giant crystal. (1/12)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4876.5,
+          "heightFine": 4093.0,
+          "y": 5499.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Maybe Blip could tell me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the south side of the main island and inspect the mysterious decay, then talk to Rox. (2/12)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4905.0,
+          "heightFine": 5669.0,
+          "y": 5469.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4905.0,
+          "heightFine": 5669.0,
+          "y": 5469.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            759
+          ],
+          "candidateObjectTypeIds": [
+            61831,
+            61832,
+            66729,
+            66730
+          ],
+          "displayName": "Decay3"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "These parts of the planet look like"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head west to the southernmost house and lift the woven rug, then talk to Nuub. (3/12)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4891.0,
+          "heightFine": 4965.0,
+          "y": 5467.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4891.0,
+          "heightFine": 4965.0,
+          "y": 5467.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8317,
+          "modelIds": [
+            325
+          ],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hmm, okay"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Blip near Wizard Rosalina. (4/12)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4896.0,
+          "heightFine": 5973.0,
+          "y": 5492.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Isee. I'd best not sneak in there, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Rosalina.  If the necessary chat options display '???', you missed a clue. If done correctly, you receive a wrinkly scroll.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I found some information..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Parts of the planet are dying."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "There is a cave in the center of the planet."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The cave is where elder star sprites go to die."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The cave is where their power source can be found."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Gronigen... Coordinates... Got it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Playing around dark star",
+      "text": "Head to the observatory west of Tree Gnome Village and north of Castle Wars. The fastest teleport is 'Chipped' Watchtower teleport made by Dave's spellbook.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2448.0,
+          "heightFine": 93.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2448.0,
+          "heightFine": 93.0,
+          "y": 3172.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the rope outside the north side of the observatory, then go up the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            222
+          ],
+          "displayName": "Observatory rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2443.0,
+          "heightFine": 3813.0,
+          "y": 3164.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2444.0,
+          "heightFine": 3813.0,
+          "y": 3161.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2442.0,
+          "heightFine": 4813.0,
+          "y": 3159.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Observatory professor on the 1st floor[UK]2nd floor[US].",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4863
+          ],
+          "candidateNpcTypeIds": [
+            24916,
+            24917
+          ],
+          "displayName": "Observatory prof"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Stellar Born'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'd best let Rosalina know what you found. Thank you for the help!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, return to Zolarea via the portal at the crash site west of Piscatoris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2282.0,
+          "heightFine": 637.0,
+          "y": 3692.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 131452,
+          "modelIds": [
+            1896
+          ],
+          "displayName": "Portal base"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4897.0,
+          "heightFine": 6613.0,
+          "y": 5525.0,
+          "range": 50
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Rosalina in the centre of the island.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4896.0,
+          "heightFine": 5973.0,
+          "y": 5492.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4896.0,
+          "heightFine": 5973.0,
+          "y": 5492.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Meet us there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave entrance on the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4876.5,
+          "heightFine": 4093.0,
+          "y": 5499.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2280
+          ],
+          "candidateObjectTypeIds": [
+            869,
+            4692,
+            4693
+          ],
+          "displayName": "Dark sphere"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Rosalina.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll come back here once I'm done."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4877.0,
+          "heightFine": 4093.0,
+          "y": 5500.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather the dark star wisps that have appeared. Wisps are visible on the minimap as a yellow dot:<ul><li>A bit north of the cave, west of the mysterious decay. (1/5)</li><li>Jump the rocky edge to the north and gather the wisp on the small, north-north-western island. (2/5)</li><li>Return to the east side of the main island and gather the wisp near the meteorites. (The mining symbol on your minimap) (3/5)</li><li>Go to the south side of the island and gather the wisp near the rocky edge. (4/5)</li><li>Jump the rocky edge to the south and gather the wisp on the south-easternmost island. (5/5)</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            921
+          ],
+          "candidateObjectTypeIds": [
+            1857,
+            19168
+          ],
+          "displayName": "Whisp"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That's all the baby dark stars gathered up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the cave and talk to Wizard Rosalina.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4876.5,
+          "heightFine": 4093.0,
+          "y": 5499.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2280
+          ],
+          "candidateObjectTypeIds": [
+            869,
+            4692,
+            4693
+          ],
+          "displayName": "Dark sphere"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could we sacrifice a star sprite?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could we sacrifice Blip?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could I sacrifice myself?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could we sacrifice you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will gather up the rest of the younglings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Select the star sprites in the following order:<ul><li>Wave 1: Glorp, Bop, Rox</li><li>Wave 2: Zag, Fuz, Nuub, Zorb</li><li>Wave 3: Zig, Eetee, Bop, Eetee, Glorp</li></ul> (QuestHelper cannot help here)",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Meet us back outside"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave and talk to Wizard Rosalina in the centre.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2290.0,
+          "heightFine": 61.0,
+          "y": 3688.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Rosalina back at the crash site.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9438
+          ],
+          "candidateObjectTypeIds": [
+            9462,
+            9463
+          ],
+          "displayName": "Rosalina"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 59915,
+  "stageVarbitCompleteValue": 140,
+  "cacheQuestId": 522
+}

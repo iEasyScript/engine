@@ -1,0 +1,625 @@
+{
+  "slug": "bar-crawl-miniquest",
+  "name": "Bar Crawl (miniquest)",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "champion",
+  "releaseDate": 1017014400,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 208,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Games necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Explorer's ring",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to barbarian guard located east of Barbarian assault.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, and game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2545.5,
+          "heightFine": 965.0,
+          "y": 3570.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 384,
+          "modelIds": [
+            6192
+          ],
+          "displayName": "Barbarian guard",
+          "priority": "closest",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to come through this gate."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Looks can be deceiving, I am in fact a barbarian."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with the guard.",
+      "warning": "If you lose your barcrawl card, you have to start over from the beginning.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 384,
+          "modelIds": [
+            6192
+          ],
+          "displayName": "Barbarian guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "When you've done all that, we'll be happy to let you in."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Visiting the bars",
+      "text": "Go to the 1st floor (2nd floor[US]) of the Grand Tree.<ul><li>Spirit tree to the Tree Gnome Stronghold (completed Tree Gnome Village and The Grand Tree).</li><li>Lodestone to Eagles' Peak, run east (61 Agility).</li><li>Lodestone to Al Kharid, Gnome Glider to the Tree Gnome Stronghold (completed The Grand Tree).</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2466.0,
+          "heightFine": 3905.0,
+          "y": 3495.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2466.0,
+          "heightFine": 4165.0,
+          "y": 3494.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 208,
+          "duringQuest": false
+        },
+        {
+          "name": "Barcrawl card",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Blurberry to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2482.0,
+          "heightFine": 4205.0,
+          "y": 3488.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 848,
+          "modelIds": [
+            3267
+          ],
+          "displayName": "Blurberry",
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Blurberry signs your card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Forester's Arms, north of the <b>Seers' Village lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2693.0,
+          "heightFine": 1157.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4203
+          ],
+          "displayName": "Foresters bartender",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The bartender scrawls his signature on your card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Flying Horse Inn, south-east of the <b>Ardougne lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2574.0,
+          "heightFine": 1445.0,
+          "y": 3322.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3579
+          ],
+          "candidateObjectTypeIds": [
+            62963,
+            68025
+          ],
+          "displayName": "Flying bartender",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Through your tears you see the bartender..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Dragon Inn, east of the <b>Yanille lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2553.0,
+          "heightFine": 997.0,
+          "y": 3080.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3453
+          ],
+          "displayName": "Dragon bartender",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You can just about make out the bartender signing your barcrawl card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Dead Man's Chest, north-east of the <b>Karamja lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2795.0,
+          "heightFine": 965.0,
+          "y": 3155.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3993
+          ],
+          "candidateObjectTypeIds": [
+            63091,
+            66227,
+            91548
+          ],
+          "displayName": "Dead bartender",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You think you see 2 bartenders signing 2 barcrawl cards."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Rusty Anchor, north-east of the <b>Port Sarim lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3045.0,
+          "heightFine": 965.0,
+          "y": 3257.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3957
+          ],
+          "candidateObjectTypeIds": [
+            4000
+          ],
+          "displayName": "Rusty bartender",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The bartender signs your card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the ship to Karamja.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3027.0,
+          "heightFine": 741.0,
+          "y": 3219.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3831,
+            3651
+          ],
+          "candidateObjectTypeIds": [
+            3569
+          ],
+          "displayName": "Seaman",
+          "priority": "all",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2956.0,
+          "heightFine": 645.0,
+          "y": 3146.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zembo at the Karamja Spirits Bar, west of the docks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2926.0,
+          "heightFine": 677.0,
+          "y": 3144.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22710,
+          "modelIds": [
+            4995
+          ],
+          "displayName": "Zembo",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Zembo signs your card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Blue Moon Inn, north of the <b>Varrock lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3226.0,
+          "heightFine": 1125.0,
+          "y": 3399.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3954
+          ],
+          "candidateObjectTypeIds": [
+            3997
+          ],
+          "displayName": "Blue bartender",
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Your insides feel terrible."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender at the Jolly Boar Inn, south-west of the <b>Fort Forinthry lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 3488.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3465
+          ],
+          "candidateObjectTypeIds": [
+            18515
+          ],
+          "displayName": "Jolly bartender",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhands Barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Your head is spinning."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Emily in the Rising Sun Inn, south-west of the <b>Falador lodestone.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2954.0,
+          "heightFine": 1189.0,
+          "y": 3371.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 736,
+          "modelIds": [
+            4875
+          ],
+          "displayName": "Emily",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm doing Alfred Grimhand's barcrawl."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The barmaid signs your card."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the Barbarian guard at the Barbarian Outpost.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2545.5,
+          "heightFine": 965.0,
+          "y": 3570.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 384,
+          "modelIds": [
+            6192
+          ],
+          "displayName": "Barbarian guard",
+          "priority": "closest",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 43792,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 403
+}

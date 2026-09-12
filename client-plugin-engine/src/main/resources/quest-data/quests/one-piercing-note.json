@@ -1,0 +1,2511 @@
+{
+  "slug": "one-piercing-note",
+  "name": "One Piercing Note",
+  "members": false,
+  "length": "mediumlong",
+  "timeline": "pathfinder",
+  "releaseDate": 1320624000,
+  "neededItems": [
+    {
+      "name": "Cabbage",
+      "itemId": 1965,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Sister Catherina east of Al Kharid and the Desert strykewyrms.\u003cul\u003e\u003cli\u003eFor the tracking to work properly, you need to have the chat visible, and game messages set to \u0027On\u0027 or \u0027Filtered\u0027, and chat timestamps on.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3405.0,
+          "heightFine": 5733.0,
+          "y": 3165.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes! I\u0027ve come to answer your prayers!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027ll help you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Sister Catherina.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "abbess\u0027s office is just inside"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Abbess Benita in the abbey, in the centre room north of the fountain.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3178.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can I do to help?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "examined the crime scene"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Murder Mystery",
+      "text": "Enter Anna\u0027s cell in the southeast corner, the westernmost one.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 8061.0,
+          "y": 3153.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 7461.0,
+          "y": 3152.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the bed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3439.0,
+          "heightFine": 7861.0,
+          "y": 3149.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 22434,
+          "displayName": "Cloth fragment",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the window.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 8261.0,
+          "y": 3148.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Anna\u0027s window was broken from the inside."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back northwest to the room west of Abbess Benita\u0027s office.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3417.0,
+          "heightFine": 6021.0,
+          "y": 3175.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 6021.0,
+          "y": 3175.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the beds for another cloth fragment.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3415.5,
+          "heightFine": 6321.0,
+          "y": 3174.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3415.5,
+          "heightFine": 6321.0,
+          "y": 3177.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3420.0,
+          "heightFine": 6321.0,
+          "y": 3173.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 22435,
+          "displayName": "Cloth fragment 2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the body in the infirmary.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3417.0,
+          "heightFine": 6321.0,
+          "y": 3149.5,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            2490
+          ],
+          "displayName": "Infirmary body",
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Victim\u0027s feet mutilated."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Interogations",
+      "text": "Talk to Valerio the musician outside of the abbey.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3400.0,
+          "heightFine": 5445.0,
+          "y": 3149.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15939,
+          "modelIds": [
+            7575
+          ],
+          "displayName": "Valerio",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What were you singing about?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Valerio\u0027s love song."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15939,
+          "modelIds": [
+            7575
+          ],
+          "displayName": "Valerio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You were singing about Sister Anna, weren\u0027t you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Valerio had a history with Sister Anna."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15939,
+          "modelIds": [
+            7575
+          ],
+          "displayName": "Valerio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Valerio claims he was in Al Kharid at the time of the murder."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15939,
+          "modelIds": [
+            7575
+          ],
+          "displayName": "Valerio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can\u0027t tell you, sorry."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Zamorak with you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Elena, north of the cabbages, in the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3429.0,
+          "heightFine": 6021.0,
+          "y": 3176.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14666,
+          "modelIds": [
+            5484
+          ],
+          "displayName": "Sister Elena",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Elena claims she was in the kitchen at the time of the murder."
+        },
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Elena claims that food had been stolen from the cellar."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14666,
+          "modelIds": [
+            5484
+          ],
+          "displayName": "Sister Elena"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you think of Sister Anna?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Elena disliked Sister Anna. She claimed that Sister Anna argued with Abbess Benita."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Cecilia in the chapel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3444.0,
+          "heightFine": 7481.0,
+          "y": 3167.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14658,
+          "modelIds": [
+            5466
+          ],
+          "displayName": "Sister Cecilia",
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you rehearsing?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Cecilia\u0027s hymn to Saint Elspeth."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14658,
+          "modelIds": [
+            5466
+          ],
+          "displayName": "Sister Cecilia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No - could you tell me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Go on."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Cecilia told me about the Ripper demon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14658,
+          "modelIds": [
+            5466
+          ],
+          "displayName": "Sister Cecilia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Back to my other questions..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Cecilia claims she was in the oratory at the time of the murder."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Catherina in the chapel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d like that."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d like that"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Catherina claims she was in the scriptorium at the time of the murder."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you think of Sister Anna?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What other applicant?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: An applicant visited the abbey recently but disappeared."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3446.0,
+          "heightFine": 7861.0,
+          "y": 3176.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3449.0,
+          "heightFine": 8901.0,
+          "y": 3174.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3451.0,
+          "heightFine": 9301.0,
+          "y": 3177.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3447.0,
+          "heightFine": 16599.0,
+          "y": 3179.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Feet (Sister Debora).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14671,
+          "modelIds": [
+            14671
+          ],
+          "displayName": "Sister Debora"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Could you set it to the right time?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eOperate\u003c/i\u003e the clock mechanism to show 12 o\u0027clock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3446.0,
+          "heightFine": 16621.0,
+          "y": 3174.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah, yes, that\u0027s it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, I\u0027m terribly sorry."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Debora.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14670,
+          "modelIds": [
+            5163
+          ],
+          "displayName": "Sister Debora"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you think of Sister Anna?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Abbess Benita was planning to retire, and Sister Anna would have succeeded her as abbess."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14670,
+          "modelIds": [
+            5163
+          ],
+          "displayName": "Sister Debora"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where were you between Vespers and Compline yesterday?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "claims she was in the clock tower"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Abbess Benita, select any suspect.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3448.0,
+          "heightFine": 16339.0,
+          "y": 3179.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3451.0,
+          "heightFine": 8901.0,
+          "y": 3176.0,
+          "range": 3
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3448.0,
+          "heightFine": 8741.0,
+          "y": 3174.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3446.0,
+          "heightFine": 7461.0,
+          "y": 3177.0,
+          "range": 4
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3178.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        },
+        {
+          "t": "chatText",
+          "text": "scream from the east"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "A development",
+      "text": "Climb down the stairs to the cellar in the room northeast of the chapel.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 28.5,
+          "heightFine": 1430.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 28.0,
+          "heightFine": 1430.0,
+          "y": -2.0,
+          "range": 200,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "got to protect us"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Cecilia.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            5610
+          ],
+          "displayName": "Sister cecilia2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "investigate Sister Elena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the body (5 clues).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4989
+          ],
+          "candidateObjectTypeIds": [
+            63392
+          ],
+          "displayName": "Dead sister elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Wound on the back of the second victim\u0027s head."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the bloodstains (1 clue).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.5,
+          "heightFine": 1.0,
+          "y": -4.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "body moved from the reliquary"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the robe cabinet south of Sister Elena\u0027s body. (1 clue)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.15,
+          "heightFine": 400.0,
+          "y": -7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Killer may have hidden in the robe cabinet."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Abbess Benita for a cell key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 601.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3452.0,
+          "heightFine": 7461.0,
+          "y": 3174.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3178.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need the key to Sister Elena\u0027s cell."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Abbess Benita gives you a key."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the sack in the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3428.0,
+          "heightFine": 6221.0,
+          "y": 3178.125,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Secret passage from the kitchen to outside the abbey."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the second cell in the southeast corner of the abbey.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3446.0,
+          "heightFine": 8061.0,
+          "y": 3153.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3446.0,
+          "heightFine": 7461.0,
+          "y": 3152.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the bed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3447.0,
+          "heightFine": 7581.0,
+          "y": 3149.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a bundle of letters under the bed."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 22438,
+          "displayName": "Bundle of letters",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the letters (1 clue).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 29508,
+          "modelIds": [
+            609
+          ],
+          "displayName": "Bundle of letters"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "between Sister Elena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Valerio the musician about Sister Elena\u0027s death (1 clue).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3400.0,
+          "heightFine": 5445.0,
+          "y": 3149.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15939,
+          "modelIds": [
+            7575
+          ],
+          "displayName": "Valerio",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Were you having an affair with Sister Elena?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sister Elena is dead."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Valerio confirmed he was seeing Sister Elena."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Cecilia in the chapel (1 clue).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3444.0,
+          "heightFine": 7881.0,
+          "y": 3158.4,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14658,
+          "modelIds": [
+            5466
+          ],
+          "displayName": "Sister Cecilia",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me exactly what happened?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Clue added: Sister Cecilia claims she saw the Ripper demon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Abbess Benita and blame anyone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3178.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Could you go and fetch her please?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Catherina, who is now dancing outside near Valerio.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3399.0,
+          "heightFine": 6045.0,
+          "y": 3152.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14639,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Abbess Benita asked me to bring you back to the abbey."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you dance with me first"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3399.0,
+          "heightFine": 6045.0,
+          "y": 3152.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No. You should go back into the abbey."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no need to be like that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Catherina again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14635,
+          "modelIds": [
+            5736
+          ],
+          "displayName": "Sister Catherina"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Abbess Benita asked me to bring you back to the abbey."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            1716
+          ],
+          "candidateObjectTypeIds": [
+            1365,
+            2020,
+            3036,
+            5036,
+            23381,
+            37482
+          ],
+          "displayName": "Gate ladder"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            14898
+          ],
+          "candidateObjectTypeIds": [
+            14972,
+            14973
+          ],
+          "displayName": "Raised gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the nearby ladder.\u003cul\u003e\u003cli\u003eYou do not need to do this step if you skip the cutscene.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63591,
+          "modelIds": [
+            1716
+          ],
+          "candidateObjectTypeIds": [
+            1365,
+            2020,
+            3036,
+            5036,
+            23381,
+            37482
+          ],
+          "displayName": "Gate ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -2.0,
+          "heightFine": 1450.0,
+          "y": -4.0,
+          "range": 4,
+          "instance": true
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            14898
+          ],
+          "candidateObjectTypeIds": [
+            14972,
+            14973
+          ],
+          "displayName": "Raised gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Operate the winch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": 1650.0,
+          "y": -5.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You raise the portcullis."
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            14898
+          ],
+          "candidateObjectTypeIds": [
+            14972,
+            14973
+          ],
+          "displayName": "Raised gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Valerio near the dead body.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            6573
+          ],
+          "candidateObjectTypeIds": [
+            6861,
+            10473,
+            61491
+          ],
+          "displayName": "Valerio2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "This must end. Adventurer, troubadour, please meet me in my office. We need a plan."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Abbess Benita.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3178.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(More...)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I don\u0027t know who did it."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We should lay a trap."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A new victim."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They were all associated with Valerio."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Saradomin go with all of us."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Catching the Killer",
+      "text": "Pick a cabbage.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3430.0,
+          "heightFine": 6037.0,
+          "y": 3165.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1965,
+          "displayName": "Cabbage",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cabbage",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs to the cellar in the room northeast of the chapel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3452.5,
+          "heightFine": 7461.0,
+          "y": 3173.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click move on the candelabrum near the eastern wall in the centre of the room north of the Reliquary.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63979,
+          "modelIds": [
+            1038
+          ],
+          "displayName": "Candelabrum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 63979,
+          "modelIds": [],
+          "displayName": "Candelabrum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e a cabbage on it. \u003cb\u003eDon\u0027t eat it.\u003c/b\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63980,
+          "modelIds": [
+            930
+          ],
+          "candidateObjectTypeIds": [
+            3381,
+            3396
+          ],
+          "displayName": "Candelabrum"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1965,
+          "modelIds": [],
+          "displayName": "Cabbage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 63981,
+          "modelIds": [
+            1848
+          ],
+          "candidateObjectTypeIds": [
+            5247,
+            19381
+          ],
+          "displayName": "Cabbage-on-candelabrum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the robe cabinet.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.15,
+          "heightFine": 400.0,
+          "y": -7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You take the Citharede robes."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 22413,
+          "displayName": "Citharede robe top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the robes on the cabbage-on-candelabrum.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 22413,
+          "modelIds": [
+            1404
+          ],
+          "displayName": "Citharede robe top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63981,
+          "modelIds": [
+            1848
+          ],
+          "candidateObjectTypeIds": [
+            5247,
+            19381
+          ],
+          "displayName": "Cabbage-on-candelabrum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 63982,
+          "modelIds": [
+            3567
+          ],
+          "displayName": "Sister Cabbage"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Hide-in the cabinet.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.15,
+          "heightFine": 400.0,
+          "y": -7.0,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hide in the robe cabinet and wait."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "modelIds": [
+            3567
+          ],
+          "displayName": "Fake sister"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 36003,
+          "modelIds": [
+            4122
+          ],
+          "displayName": "Ripper demon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eKnock out\u003c/i\u003e the killer, then chase after them around the abbey.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 36003,
+          "modelIds": [
+            4122
+          ],
+          "displayName": "Ripper demon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 36003,
+          "modelIds": [
+            4122
+          ],
+          "displayName": "Ripper demon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Endgame",
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 400.0,
+          "y": 8.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3452.0,
+          "heightFine": 7461.0,
+          "y": 3174.0,
+          "range": 4
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceFromWithHeight",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 400,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chase the killer around the abbey.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 36003,
+          "modelIds": [
+            4122
+          ],
+          "displayName": "Ripper demon"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -9.5,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -17.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": -22.0,
+              "heightFine": -1440.0,
+              "y": 4.0
+            },
+            {
+              "x": -23.0,
+              "heightFine": -1440.0,
+              "y": -1.5
+            },
+            {
+              "x": -26.0,
+              "heightFine": -1420.0,
+              "y": -3.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": -1440.0,
+              "y": -5.0
+            },
+            {
+              "x": -24.0,
+              "heightFine": -1440.0,
+              "y": -5.0
+            },
+            {
+              "x": -17.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 20.0,
+              "y": -5.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 20.0,
+              "y": -10.0
+            },
+            {
+              "x": -13.0,
+              "heightFine": 20.0,
+              "y": -10.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 20.0,
+              "y": -10.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 20.0,
+              "y": -3.5
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -6.0,
+          "heightFine": 200.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -3.0,
+          "heightFine": 1440.0,
+          "y": 0.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 1640.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -5.0,
+          "heightFine": 9126.0,
+          "y": 5.0,
+          "range": 4,
+          "instance": true
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": -5.0,
+          "heightFine": 9140.0,
+          "y": 5.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs yet again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 9140.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Stay back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the killer.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            6324
+          ],
+          "candidateObjectTypeIds": [
+            6460
+          ],
+          "displayName": "Ripper demon2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who are you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So the body I found..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Enough talk!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Enough talk!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs. You will get sent all the way down.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "range": 100,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            1173
+          ],
+          "candidateObjectTypeIds": [
+            1570,
+            4173,
+            5268,
+            7435,
+            21922,
+            46946
+          ],
+          "displayName": "Wall candle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": -6.0,
+          "heightFine": 200.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -3.0,
+          "heightFine": 1440.0,
+          "y": 0.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 1640.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            564
+          ],
+          "candidateNpcTypeIds": [
+            6364,
+            7386,
+            7387
+          ],
+          "displayName": "Clocktower glass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Operate the clock mechanism so that the minute hand points to 12",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hear the clock mechanism catch"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 300.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            6324
+          ],
+          "candidateObjectTypeIds": [
+            6460
+          ],
+          "displayName": "Ripper demon2"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14670,
+          "modelIds": [
+            5163
+          ],
+          "displayName": "Sister Debora"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the killer.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            6324
+          ],
+          "candidateObjectTypeIds": [
+            6460
+          ],
+          "displayName": "Ripper demon2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Listen - is that the bell ringing?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3.0,
+          "heightFine": 14.0,
+          "y": -4.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Debora.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14670,
+          "modelIds": [
+            5163
+          ],
+          "displayName": "Sister Debora"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What should we do with Sister Anna?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "good Saradominist"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sister Anna.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            6324
+          ],
+          "candidateObjectTypeIds": [
+            6460
+          ],
+          "displayName": "Ripper demon2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No. You die now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3424.0,
+          "heightFine": 6031.0,
+          "y": 3176.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Abbess Benita.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14630,
+          "modelIds": [
+            6909
+          ],
+          "displayName": "Abbess Benita"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12258,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 196
+}

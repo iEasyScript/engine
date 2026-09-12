@@ -1,0 +1,13 @@
+# Generated / local-only tooling state — never commit.
+.venv/
+__pycache__/
+*.pyc
+*.keystore
+
+# Binaries and generated build config live under data/client/android/ (already gitignored there);
+# these guards stop them being committed if ever produced inside mobile/ by mistake.
+*.apk
+*.idsig
+gadget/libgadget.so
+gadget/*.version
+moduli.json

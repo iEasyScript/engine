@@ -1,0 +1,840 @@
+{
+  "slug": "the-needle-skips",
+  "name": "The Needle Skips",
+  "members": true,
+  "length": "short",
+  "timeline": "worldguardian",
+  "releaseDate": 1542585600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Search the needle on the hill west of Piscatoris.\u003cul\u003e\u003cli\u003ePhoenix Lair Teleport scroll.\u003c/li\u003e\u003cli\u003eTeleport from the memory strand in the currency pouch.\u003c/li\u003e\u003cli\u003eFairy ring code AKQ.\u003c/li\u003e\u003cli\u003eEagles\u0027 Peak lodestone.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2223.0,
+          "heightFine": 4893.0,
+          "y": 3657.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45310,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            120997,
+            120998
+          ],
+          "displayName": "Needle",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get the most out of it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the body on the ground.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25974,
+          "modelIds": [
+            8457
+          ],
+          "displayName": "Mysterious body"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Megan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Chapter 1",
+      "text": "Search the needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2223.0,
+          "heightFine": 4893.0,
+          "y": 3657.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117821,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            120997,
+            120998
+          ],
+          "displayName": "The Needle",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44474,
+          "displayName": "Shard of the needle",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Commune with the shard. Word: \u003cb\u003efire\u003c/b\u003e.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44474,
+          "modelIds": [
+            78
+          ],
+          "displayName": "Shard of the needle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "fireplace has been"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go into the house to the north-west and interact/explore the fireplace.\u003cul\u003e\u003cli\u003eOptional: For full completion, find all of the other words listed on The Needle Skips#Chapter 1.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": -27.0,
+          "heightFine": -3088.0,
+          "y": 39.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2724,
+          "modelIds": [
+            3162
+          ],
+          "displayName": "Fireplace",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "start the next chapter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the temporal portal next to the needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": -312.0,
+          "y": 4.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2273,
+          "modelIds": [
+            4074
+          ],
+          "displayName": "Portal",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue to chapter 2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "jiggle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Chapter 2",
+      "text": "Commune with the shard. Word: \u003cb\u003ebirthday\u003c/b\u003e.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44474,
+          "modelIds": [
+            78
+          ],
+          "displayName": "Shard of the needle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "What have you done"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs to the east and go back to the Needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 7.5,
+          "heightFine": -50.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 7.0,
+          "heightFine": -1664.0,
+          "y": -4.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the temporal portal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 31.0,
+          "heightFine": 1112.0,
+          "y": -33.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2273,
+          "modelIds": [
+            4074
+          ],
+          "displayName": "Portal",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue to chapter 3"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "someone"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Chapter 3",
+      "text": "Commune with the shard. Word: \u003cb\u003ewenla\u003c/b\u003e.\u003cul\u003e\u003cli\u003eFor full completion, find all of the other words listed on The Needle Skips#Chapter 3.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44474,
+          "modelIds": [
+            78
+          ],
+          "displayName": "Shard of the needle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "discovered the word wenla"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the Needle and search it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 26.0,
+          "heightFine": 3788.0,
+          "y": -19.8,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117821,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            120997,
+            120998
+          ],
+          "displayName": "The Needle",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "area snaps back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The finale",
+      "text": "Run back towards the house and harvest the buckthorn bush near the river.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112529,
+          "modelIds": [
+            1032
+          ],
+          "displayName": "Buckthorn bush",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44478,
+          "displayName": "Buckthorn leaf",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 44479,
+          "displayName": "Buckthorn berry",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the leaf.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44478,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Buckthorn leaf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44480,
+          "displayName": "Buckthorn smelling salts",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crush the berries.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44479,
+          "modelIds": [
+            480
+          ],
+          "displayName": "Buckthorn berry"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44481,
+          "displayName": "Bottle of crushed berries",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs in the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -19.5,
+          "heightFine": -2688.0,
+          "y": 34.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -20.0,
+          "heightFine": -1424.0,
+          "y": 38.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give Primrose the smelling salts.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25979,
+          "modelIds": [
+            5346
+          ],
+          "displayName": "Primrose",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44480,
+          "modelIds": [
+            525
+          ],
+          "displayName": "Buckthorn smelling salts"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "not safe by herself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back downstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -19.5,
+          "heightFine": -2024.0,
+          "y": 37.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -20.0,
+          "heightFine": -3088.0,
+          "y": 33.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the north-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112657,
+          "modelIds": [
+            2730
+          ],
+          "displayName": "Bookcase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 960
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Megan and name the demon \u0027Metum\u0027.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25999,
+          "modelIds": [
+            5709
+          ],
+          "displayName": "Megan",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Name the demon]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Metum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "And Gail"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bottle of crushed berries on the stove on the west side of the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -34.0,
+          "heightFine": -2688.0,
+          "y": 35.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44481,
+          "modelIds": [
+            582,
+            108
+          ],
+          "displayName": "Bottle of crushed berries"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112569,
+          "modelIds": [],
+          "displayName": "Stove"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44482,
+          "displayName": "Buckthorn salve",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the buckthorn salve on Gail.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 16.0,
+          "y": 0.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25973,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25975,
+            25976,
+            25991,
+            25992,
+            25996,
+            26000,
+            26324,
+            26325,
+            26362,
+            29117
+          ],
+          "displayName": "Gail",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44482,
+          "modelIds": [
+            582,
+            108
+          ],
+          "displayName": "Buckthorn salve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -27.0,
+          "heightFine": -3088.0,
+          "y": 35.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the dialogue.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you both wait in the house"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Megan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25999,
+          "modelIds": [
+            5709
+          ],
+          "displayName": "Megan",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "needle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the note from gail near the Needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 1.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 44483,
+          "modelIds": [
+            219
+          ],
+          "displayName": "Note from gail",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44483,
+          "displayName": "Note from gail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Megan inside the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -28.0,
+          "heightFine": -3088.0,
+          "y": 36.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25999,
+          "modelIds": [
+            5709
+          ],
+          "displayName": "Megan",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 42537,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 399
+}

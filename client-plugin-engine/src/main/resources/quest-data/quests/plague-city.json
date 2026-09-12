@@ -1,0 +1,1222 @@
+{
+  "slug": "plague-city",
+  "name": "Plague City",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "pathfinder",
+  "releaseDate": 1030406400,
+  "neededItems": [
+    {
+      "name": "Buckets of water",
+      "itemId": 1929,
+      "quantity": 4,
+      "duringQuest": true
+    },
+    {
+      "name": "Dwellberries",
+      "itemId": 2126,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Chocolate dust",
+      "itemId": 72,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Snape grass",
+      "itemId": 231,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of milk",
+      "itemId": 1927,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Edmond who is located at a house north of the Ardougne Castle and Flying Horse Inn in East Ardougne.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 714,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Edmond",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2567.0,
+          "heightFine": 1165.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What\u0027s happened to her?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to Edmond.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 714,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Edmond",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2567.0,
+          "heightFine": 1165.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "my wife Alrena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Breaking in",
+      "text": "Talk to his wife Alrena directly east in the house and give her the dwellberries.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 710,
+          "modelIds": [
+            4701
+          ],
+          "displayName": "Alrena",
+          "distance": 6
+        },
+        {
+          "t": "direction",
+          "x": 2576.0,
+          "heightFine": 1445.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ll make a spare mask."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1506,
+          "displayName": "Gas mask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dwellberries",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Buckets of water",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Chocolate dust",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Snape grass",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the picture of Elena from the table in the eastern room of their house.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 1510,
+          "modelIds": [
+            294
+          ],
+          "candidateNpcTypeIds": [
+            193,
+            788,
+            792,
+            799,
+            2962,
+            2963,
+            2964,
+            2965,
+            2966,
+            2967,
+            2968,
+            2969,
+            2970,
+            2971,
+            2972,
+            2973,
+            3779,
+            3781,
+            4993,
+            4995,
+            4996,
+            4997,
+            4999,
+            5001,
+            5002
+          ],
+          "displayName": "Picture",
+          "distance": 6
+        },
+        {
+          "t": "direction",
+          "x": 2576.0,
+          "heightFine": 1445.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1510,
+          "displayName": "Picture",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Edmond.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 714,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Edmond",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2567.0,
+          "heightFine": 1165.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ll keep an eye out for the mourners."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the gas mask.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1506,
+          "displayName": "Gas mask"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use all 4 buckets of water on the mud patch in the south part of his garden.\u003cul\u003e\u003cli\u003eThere\u0027s a bucket spawn in Edmond\u0027s garden, and a sink in his house.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1929,
+          "modelIds": [],
+          "displayName": "Bucket of water"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2531,
+          "modelIds": [
+            213
+          ],
+          "displayName": "Mud patch",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1125.0,
+          "y": 3332.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The soil is now soft enough to dig into."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig on the mud patch.\u003cul\u003e\u003cli\u003eBring all of the required items with you \u003cb\u003ebefore\u003c/b\u003e you enter the mud patch.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2531,
+          "modelIds": [
+            213
+          ],
+          "displayName": "Mud patch",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1125.0,
+          "y": 3332.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2518.0,
+          "heightFine": 1125.0,
+          "y": 9760.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south and try to open the grill on the pipe.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2542,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Pipe",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2514.0,
+          "heightFine": 1125.0,
+          "y": 9739.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The grill is too secure."
+        },
+        {
+          "t": "conversationText",
+          "text": "You can\u0027t pull it off alone."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope on the grill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11423,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Grill",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2514.0,
+          "heightFine": 1125.0,
+          "y": 9739.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You tie the end of the rope to the sewer pipe\u0027s grill."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Edmond.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 714,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Edmond"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let\u0027s get to it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks, I will."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make sure the gas mask obtained earlier is \u003cb\u003eequipped\u003c/b\u003e. Climb up the pipe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.0,
+          "heightFine": 1125.0,
+          "y": 9738.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2542,
+          "modelIds": [],
+          "displayName": "Pipe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2529.0,
+          "heightFine": 1189.0,
+          "y": 3304.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The search for Elena",
+      "text": "Use the picture on Jethick, in the town square.\u003cul\u003e\u003cli\u003eOptional: Talk to the nearby Recruiter for one of easy Ardougne achievements, Red Revolution.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19644,
+          "modelIds": [
+            3330
+          ],
+          "displayName": "Jethick"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hi, I\u0027m looking for a woman from East Ardougne."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027ll return it for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1509,
+          "displayName": "Book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the Rehnison family household\u0027s door, north of the town hall building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2531.0,
+          "heightFine": 1285.0,
+          "y": 3328.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks, I\u0027ve been missing that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Martha Rehnison or Ted Rehnison.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19643,
+          "modelIds": [
+            3882
+          ],
+          "candidateObjectTypeIds": [
+            3864,
+            6386
+          ],
+          "displayName": "Martha Rehnison"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22963,
+          "modelIds": [
+            4017
+          ],
+          "displayName": "Ted"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Milli is upstairs if you wish to speak to her."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the ladder and talk to Milli Rehnison.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2527.0,
+          "heightFine": 1285.0,
+          "y": 3333.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2528.0,
+          "heightFine": 2245.0,
+          "y": 3333.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 724,
+          "modelIds": [
+            3090
+          ],
+          "displayName": "Milli Rehnison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It was the boarded up building with no windows in the south east corner of West Ardougne."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the central southern house with spooky stairs and attempt to open one of the doors with a big X.\u003cul\u003e\u003cli\u003eOptional: Pray at the altar in the church for one of easy Ardougne achievements, Preaching to the Infected.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2533.0,
+          "heightFine": 1029.0,
+          "y": 3272.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The door won\u0027t open."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "But I think a kidnap victim is in here."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to check anyway."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bravek the city warder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting to Elena",
+      "text": "Go north to the large building you first arrived at, in the town square.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2525.5,
+          "heightFine": 1189.0,
+          "y": 3310.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2526.0,
+          "heightFine": 1189.0,
+          "y": 3313.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Clerk on the ground floor (1st floor[US]), and tell him it\u0027s urgent.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 713,
+          "modelIds": [
+            3651
+          ],
+          "displayName": "Clerk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who is through that door?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "This is urgent though!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I suppose they can come in then. If they keep it short."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs and enter the eastmost room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2528.0,
+          "heightFine": 1189.0,
+          "y": 3316.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2530.0,
+          "heightFine": 2149.0,
+          "y": 3317.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bravek.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 711,
+          "modelIds": [
+            5289
+          ],
+          "displayName": "Bravek"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "This is really important though!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what\u0027s in the cure?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 57760,
+          "displayName": "Scruffy note",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add the chocolate dust to the bucket of milk.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1975,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Chocolate dust"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1927,
+          "modelIds": [],
+          "displayName": "Bucket of milk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1977,
+          "displayName": "Chocolatey milk",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add snape grass to the chocolatey milk.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1977,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Chocolatey milk"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 231,
+          "modelIds": [],
+          "displayName": "Snape grass"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1504,
+          "displayName": "Hangover cure",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bravek and give him the cure. He will give you a warrant to enter.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 711,
+          "modelIds": [
+            5289
+          ],
+          "displayName": "Bravek"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They won\u0027t listen to me!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1503,
+          "displayName": "Warrant",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20811
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and enter the house with the black Xs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2533.0,
+          "heightFine": 1029.0,
+          "y": 3272.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2534.0,
+          "heightFine": 1029.0,
+          "y": 3270.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the barrel on the western side of the building\u0027s ground floor (1st floor[US]) to obtain a small key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2534.0,
+          "heightFine": 1029.0,
+          "y": 3268.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 37595,
+          "displayName": "Small key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the spooky stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2522,
+          "modelIds": [
+            1902
+          ],
+          "displayName": "Spooky stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2537.0,
+          "heightFine": 645.0,
+          "y": 9670.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and talk to Elena. Make sure to finish the dialogue",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2539.5,
+          "heightFine": 645.0,
+          "y": 9672.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2541.0,
+          "heightFine": 645.0,
+          "y": 9672.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now I\u0027d better leave while I still can."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the town square you arrived at, and re-enter the manhole.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2536.5,
+          "heightFine": 645.0,
+          "y": 9672.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2536.0,
+          "heightFine": 1029.0,
+          "y": 3271.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2529.0,
+          "heightFine": 1189.0,
+          "y": 3303.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            1236
+          ],
+          "candidateObjectTypeIds": [
+            3191
+          ],
+          "displayName": "Open manhole",
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            210
+          ],
+          "candidateNpcTypeIds": [
+            740,
+            958,
+            981,
+            1050,
+            1051,
+            1363,
+            1369,
+            1779,
+            1815,
+            2323,
+            2505,
+            2506,
+            2517,
+            2518,
+            2523,
+            2524,
+            2733,
+            2796,
+            2797,
+            2798,
+            2799,
+            3571,
+            3915,
+            4719,
+            4727,
+            11618,
+            11619,
+            13981,
+            14144,
+            14145,
+            21512,
+            21522,
+            21526,
+            22630,
+            22695,
+            22699
+          ],
+          "displayName": "Closed manhole",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2514.0,
+          "heightFine": 1125.0,
+          "y": 9739.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Edmond.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2516.0,
+          "heightFine": 1125.0,
+          "y": 9755.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 714,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Edmond",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2386,
+  "stageVarbitCompleteValue": 29,
+  "cacheQuestId": 58
+}

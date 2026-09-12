@@ -1,0 +1,711 @@
+{
+  "slug": "fight-arena",
+  "name": "Fight Arena",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1027382400,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear (mage/necro recommended)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Khazard scorpion",
+      "level": "50",
+      "quantity": 1
+    },
+    {
+      "name": "Khazard ogre",
+      "level": "64",
+      "quantity": 1
+    },
+    {
+      "name": "Bouncer",
+      "level": "77",
+      "quantity": 1
+    },
+    {
+      "name": "General Khazard",
+      "level": "50",
+      "quantity": 2
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Lady Servil on the road north-west of the Fight Arena, south of Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 600.0,
+          "y": 3195.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2565.0,
+          "heightFine": 600.0,
+          "y": 3195.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7529,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7530
+          ],
+          "displayName": "Lady Servil"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Lady Servil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7529,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7530
+          ],
+          "displayName": "Lady Servil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please do. My family can reward you for your troubles. I'll be waiting here for you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining Khazard armour",
+      "text": "Go to the building north-east of the Fight Arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2609.0,
+          "heightFine": 869.0,
+          "y": 3194.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2609.0,
+          "heightFine": 869.0,
+          "y": 3194.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Borrow from the Khazard armour stand to obtain a Khazard helmet and platebody.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "khazard armour stand"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "<i>Borrow</i>"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 74,
+          "displayName": "Khazard helmet",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "khazard platebody",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip both the Khazard helmet and Khazard platebody.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 74,
+          "modelIds": [],
+          "displayName": "Khazard helmet"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "khazard platebody"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 74,
+          "displayName": "Khazard helmet"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "khazard platebody"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Freeing Sammy",
+      "text": "With the armour equipped, go south and enter the prison.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2617.0,
+          "heightFine": 869.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2617.0,
+          "heightFine": 869.0,
+          "y": 3172.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Lazy Khazard Guard (Gerald) in the south-east corner of the jail.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2616.0,
+          "heightFine": 869.0,
+          "y": 3146.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7524,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7525,
+            7526,
+            7527,
+            8498
+          ],
+          "displayName": "Lazy Khazard Guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yessir!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west to the bar and buy a Khali brew from Angor for 5 coins.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2567.0,
+          "heightFine": 600.0,
+          "y": 3141.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2567.0,
+          "heightFine": 600.0,
+          "y": 3141.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 259,
+          "modelIds": [],
+          "displayName": "Angor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like a Khali brew, please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Khali brew"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Lazy Khazard Guard and give him the Khali brew.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2616.0,
+          "heightFine": 869.0,
+          "y": 3146.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7524,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7525,
+            7526,
+            7527,
+            8498
+          ],
+          "displayName": "Lazy Khazard Guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No problem, I'll keep them in line"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the keys from the table near the sleeping guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "sleeping khazard guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 76,
+          "displayName": "Khazard cell keys",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the keys on Sammy Servil's cell door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2617.0,
+          "heightFine": 869.0,
+          "y": 3167.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 76,
+          "modelIds": [],
+          "displayName": "Khazard cell keys"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2617.0,
+          "heightFine": 869.0,
+          "y": 3167.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hooman go SPLAT."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Arena battles",
+      "text": "Defeat the Khazard ogre.<ul><li>You can safespot it behind the skeletons in the arena.</li><li>Each fight you win is saved. If you teleport out, opening the prison door will return you to your last checkpoint.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2599.0,
+          "heightFine": 925.0,
+          "y": 3160.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 270,
+          "modelIds": [],
+          "displayName": "Khazard ogre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You saved both my life and that of my son."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2605.0,
+          "heightFine": 861.0,
+          "y": 3157.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hengrad in the cell.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2600.0,
+          "heightFine": 869.0,
+          "y": 3142.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2600.0,
+          "heightFine": 869.0,
+          "y": 3142.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 263,
+          "modelIds": [],
+          "displayName": "Hengrad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2605.0,
+          "heightFine": 861.0,
+          "y": 3157.0,
+          "range": 6
+        },
+        {
+          "t": "conversationText",
+          "text": "He'd normally kill imposters like you without a second thought."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat the Khazard scorpion.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 271,
+          "modelIds": [],
+          "displayName": "Khazard scorpion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Guards! Bring on Bouncer!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Bouncer (General Khazard's hellhound).<ul><li>You can safespot Bouncer from behind the skeleton remains.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2598.0,
+          "heightFine": 893.0,
+          "y": 3161.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Prepare to meet your maker."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat General Khazard or simply leave the arena.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5566,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7551,
+            7552,
+            7553,
+            14246,
+            14287,
+            14564,
+            14565,
+            14566,
+            14567,
+            17272,
+            17273,
+            17303,
+            17304,
+            18489,
+            20643,
+            20647,
+            20648,
+            20732,
+            23632,
+            28753,
+            28757,
+            29402,
+            29683,
+            29750,
+            30628
+          ],
+          "displayName": "General Khazard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2565.0,
+          "heightFine": 600.0,
+          "y": 3195.0,
+          "range": 15
+        },
+        {
+          "t": "conversationText",
+          "text": "Khazard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Lady Servil to complete the quest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 600.0,
+          "y": 3195.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2565.0,
+          "heightFine": 600.0,
+          "y": 3195.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7529,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7530
+          ],
+          "displayName": "Lady Servil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2595,
+  "stageVarbitCompleteValue": 14,
+  "cacheQuestId": 268
+}

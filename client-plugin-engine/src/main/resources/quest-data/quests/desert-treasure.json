@@ -1,0 +1,1156 @@
+{
+  "slug": "desert-treasure",
+  "name": "Desert Treasure",
+  "members": true,
+  "length": "verylong",
+  "timeline": "legendary",
+  "releaseDate": 1113782400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Dig Site",
+    "Troll Stronghold",
+    "Morytania"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Asgarnia Smith",
+      "text": "Talk to Asgarnia Smith for some etchings. He is in the Bedabin Camp south-west of the Shantay Pass.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any quests?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Terry Balando in the Exam Centre.<ul><li>If he offers you a Codex Ultimatus, refuse it or talk to him again.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Desert Treasure quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player receives translation."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again for the Translation.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Desert Treasure quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player receives translation."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bandit Camp",
+      "text": "Return to Asgarnia Smith with the book.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Don't read book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player has translation removed from them."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Charcoal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ashes",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bones",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blood rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Magic logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Molten glass",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Translation",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Asgarnia again and offer to help him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Help him"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south to the Bandit Camp.<ul><li>If you're wearing any Zamorak or Saradomin equipment, bandits become aggressive.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the bartender at the pub for a Bandit's brew.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Buy a drink"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Buy a beer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player receives bandit's brew."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the bartender again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I heard about four diamonds..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " The four diamonds of Azzanadra?How did you hear about them?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eblis, by or in the eastern-most building of the Bandit Camp.  (if the first chat option is not 'Ask about Archaeology' )<ul><li>He will not speak to you if you're wearing any Zamorak or Saradomin equipment.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Desert Treasure"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me of The four diamonds of Azzanadra"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I will go get those for you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me of The four diamonds of Azzanadra"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I will go get those for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use all the items on Eblis, then talk to him again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Desert Treasure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Yes I have."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south-east, and talk to Eblis by the Bandit Camp lodestone.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Desert Treasure"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Yes I have."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Retrieving the four diamonds can be done in any order. Jump to §Blood diamond Jump to §Ice diamond Jump to §Smoke diamond Jump to §Shadow diamond",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Blood diamond",
+      "text": "Enter the pub in Canifis. After a short cutscene, talk to Malak.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I am looking for a special Diamond..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I kill Dessous?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Actually, I don't need to know anything."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " As you wish. Come and see me when you have managed to kill Dessous."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Garlic",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Silver bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Spice",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Air spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Magic",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a silver bar and talk to Ruantun in the Draynor Sewers for a Silver pot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the pot to the High Priest on Entrana for a Blessed pot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Malak in Canifis for a blood-filled Blessed pot (this deals 50 damage).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crush the garlic, use the garlic powder on the blessed pot, then add spice to get a completed Blessed pot.<ul><li>If you add the spice first, the pot will become useless and you must start again from taking the silver bar. Uncrushed garlic cannot be added into the pot.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare for a level 84 boss fight.  If you die, you will have to re-do the previous step. Swapping between Protect from Magic and Protect from Melee every game tick results in the boss never damaging you.<ul><li>Note: It is recommended to bank your cake or chocolate bar, as a ghast may turn it into rotten food on the journey.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south-east to the Graveyard (map pictured right).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pot on the tomb, then kill Dessous.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Canifis.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Malak to receive the Blood diamond.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the blood diamond immediately. While holding the blood diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ice diamond",
+      "text": "Prepare for combat by getting plenty of food, a few super restore and super energy potions (even at max combat). Also grab a cake or a chocolate bar if not already in your inventory.<ul><li>Get runes and a magic weapon for fire spells if using Magic. Only fire spells will work if using Magic on Kamil.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cake",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Chocolate cake",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Chocolate bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cooking apple",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pineapple pizza",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Spiked boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Climbing boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim Teleport",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim tablet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you don't have spiked boots, get them first from Dunstan in Burthorpe (requires an iron bar).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you used your climbing boots to get the spiked boots, then get a new pair of climbing boots from Freda.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Consider using the greater surefooted aura in place of energy potions to keep your run energy up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to Trollheim using Trollheim Teleport.<ul><li>Otherwise, take the path from the Fremennik Slayer Dungeon or the Death Plateau to Troll Stronghold with climbing boots.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the path that leads to the snow area north-west of Troll Stronghold.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the troll child a few squares west of the ice gate.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a cake or a chocolate bar on him. Talk again to help him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) ...You successfully picked the first lock! You attempt to pick the second lock...(If successful:) ...You successfully picked the second lock! You attempt to pick the final lock...(If successful:) You manage to pick final lock.Player receives gilded cross.  Inside the chest, hidden under some rags, you find a Gilded Cross.(If unsuccessful:)(Same as below.)(If unsuccessful:)(Same as below.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enable Protect from Melee, and head east through the ice gate.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 5 trolls, then travel through the cave entrance to your east and keep running.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Kamil when he appears.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After you kill Kamil once, continue the path to the north and walk to the ice ledge. You can use Surge.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your spiked boots and climb the path to the top.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the ice gate and across the bridge.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Break the two ice blocks at the top (by casting a fire spell or choosing the 'smash-ice' option).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the trolls, the child will give you the Ice diamond.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the ice diamond immediately. While holding the ice diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Smoke diamond",
+      "text": "Prepare for combat by bringing plenty of food, few super energy potions, melee gear, or water spells if using magic, or ice arrows if using ranged.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Face mask",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Masked earmuffs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Slayer helmet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ice gloves",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to Pollnivneach.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With your face mask and ice gloves equipped enter the Smoke Dungeon.<ul><li>If Smoking Kills is complete the dungeon can be entered from the Pollnivneach well and through the dark stairs to the west.</li><li>Otherwise the player can enter the smokey well which is located west of Pollnivneach.</li><li>Killing a dust devil completes the achievement Drafty in Here.</li><li>Killing a dust devil completes the achievement Drafty in Here.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the four standing torches, 1 in each corner of the dungeon. This part is timed and torches will go out if you are not fast enough.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Consider using the Greater surefooted aura in place of energy potions to keep your run energy up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the burnt chest in the middle of the dungeon to receive a Warm key.<ul><li>Each torch will remain lit for exactly 5 minutes, and you will receive a game message when each one dies out. You will be unable to open the chest if any of the torches have gone out, even if you have lit all 4 torches before attempting.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the warm key, open the gate on the eastern side of the dungeon.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Fareed for the Smoke diamond.<ul><li>You must use melee, ice arrows, necromancy, or water spells.</li><li>You must wear ice gloves to wield a main-hand weapon while fighting him, including staves and bows. Off-hand weapons are not restricted.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the smoke diamond immediately. While holding the smoke diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Shadow diamond",
+      "text": "Travel to Rasolo (north-west from Ardougne lodestone; see the map to the right).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Diamonds of Azzanadra"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) ...You successfully picked the first lock! You attempt to pick the second lock...(If successful:) ...You successfully picked the second lock! You attempt to pick the final lock...(If successful:) You manage to pick final lock.Player receives gilded cross.  Inside the chest, hidden under some rags, you find a Gilded Cross.(If unsuccessful:)(Same as below.)(If unsuccessful:)(Same as below.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Lockpick",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Earth spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the desert Bandit Camp.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the secure chest in the southern-most tent. You might consume between 10 to 100 lockpicks.<ul><li>Hair clips are very useful here, as you can reclaim them from Merlin for free.</li><li>You can steal from the level 54 Bandits around the camp to get lock picks and antipoison.</li><li>Master thief's lockpick also works and will never break.</li><li>Five-finger discount aura and its variants help.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare for combat before returning the cross to Rasolo who will give you a ring of visibility.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ring, run into the nearby triangular fenced area and climb down the ladder. You may equip any other ring now as this was only required to see the invisible ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east to Damis and kill him in both phases for the Shadow diamond. See the map below for the path to take.<ul><li>If Damis despawns, run a small distance back from where you came, then run back.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the shadow diamond immediately. While holding the shadow diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to Rasolo (north-west from Ardougne lodestone; see the map to the right).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Diamonds of Azzanadra"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) ...You successfully picked the first lock! You attempt to pick the second lock...(If successful:) ...You successfully picked the second lock! You attempt to pick the final lock...(If successful:) You manage to pick final lock.Player receives gilded cross.  Inside the chest, hidden under some rags, you find a Gilded Cross.(If unsuccessful:)(Same as below.)(If unsuccessful:)(Same as below.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the desert Bandit Camp.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the secure chest in the southern-most tent. You might consume between 10 to 100 lockpicks.<ul><li>Hair clips are very useful here, as you can reclaim them from Merlin for free.</li><li>You can steal from the level 54 Bandits around the camp to get lock picks and antipoison.</li><li>Master thief's lockpick also works and will never break.</li><li>Five-finger discount aura and its variants help.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare for combat before returning the cross to Rasolo who will give you a ring of visibility.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ring, run into the nearby triangular fenced area and climb down the ladder. You may equip any other ring now as this was only required to see the invisible ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east to Damis and kill him in both phases for the Shadow diamond. See the map below for the path to take.<ul><li>If Damis despawns, run a small distance back from where you came, then run back.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the shadow diamond immediately. While holding the shadow diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Stealing the cross",
+      "text": "Return to the desert Bandit Camp.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Lockpick",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the secure chest in the southern-most tent. You might consume between 10 to 100 lockpicks.<ul><li>Hair clips are very useful here, as you can reclaim them from Merlin for free.</li><li>You can steal from the level 54 Bandits around the camp to get lock picks and antipoison.</li><li>Master thief's lockpick also works and will never break.</li><li>Five-finger discount aura and its variants help.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare for combat before returning the cross to Rasolo who will give you a ring of visibility.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ring, run into the nearby triangular fenced area and climb down the ladder. You may equip any other ring now as this was only required to see the invisible ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east to Damis and kill him in both phases for the Shadow diamond. See the map below for the path to take.<ul><li>If Damis despawns, run a small distance back from where you came, then run back.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the shadow diamond immediately. While holding the shadow diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting the diamond",
+      "text": "Prepare for combat before returning the cross to Rasolo who will give you a ring of visibility.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Gilded cross",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat equipment",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Earth spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ring, run into the nearby triangular fenced area and climb down the ladder. You may equip any other ring now as this was only required to see the invisible ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east to Damis and kill him in both phases for the Shadow diamond. See the map below for the path to take.<ul><li>If Damis despawns, run a small distance back from where you came, then run back.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank the shadow diamond immediately. While holding the shadow diamond, a stranger capable of dealing over 5,000 damage per attack can spawn at any time.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jaldraocht Pyramid",
+      "text": "Make sure your weight is less than 5 kg or you'll keep failing traps.<ul><li>Boots of lightness and any other weight reducing equipment helps.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Bandit Camp, and head directly south of Eblis to the pyramid.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the diamonds on the obelisks surrounding the pyramid.<ul><li>Blood diamond in the north-west obelisk.</li><li>Shadow diamond in the south-west obelisk.</li><li>Ice diamond in the south-east obelisk.</li><li>Smoke diamond in the north-east obelisk.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the top of the pyramid.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run through the pyramid using the map. Don't stand still, or you may be transported back to the start.<ul><li>There's a possibility that scarabs spawn in Azzanadra's room so bring a weapon, antipoison, and some more food just in case.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Azzanadra.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9482,
+  "stageVarbitCompleteValue": 15,
+  "cacheQuestId": 135
+}

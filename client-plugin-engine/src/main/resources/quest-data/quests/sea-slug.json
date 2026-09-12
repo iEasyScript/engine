@@ -1,0 +1,761 @@
+{
+  "slug": "sea-slug",
+  "name": "Sea Slug",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "champion",
+  "releaseDate": 1031529600,
+  "neededItems": [
+    {
+      "name": "Swamp paste",
+      "itemId": 1941,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Fishing bait",
+      "itemId": 313,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Firemaking",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Caroline in Witchaven east of Ardougne.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2716.0,
+          "heightFine": 677.0,
+          "y": 3304.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 696,
+          "modelIds": [],
+          "displayName": "Caroline",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Swamp paste",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Caroline.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 696,
+          "modelIds": [],
+          "displayName": "Caroline"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Kennith and my husband"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Holgart.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 698,
+          "modelIds": [
+            4158
+          ],
+          "displayName": "Holgart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Holgart the swamp paste"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 698,
+          "modelIds": [
+            4158
+          ],
+          "displayName": "Holgart"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Will you take me there?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2782.0,
+          "heightFine": 645.0,
+          "y": 3273.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Fishing Platform",
+      "text": "Climb up the ladder to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2784.0,
+          "heightFine": 1045.0,
+          "y": 3286.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2783.0,
+          "heightFine": 1605.0,
+          "y": 3287.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kennith from the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2765.0,
+          "heightFine": 1605.0,
+          "y": 3286.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4863,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4864,
+            6373,
+            7171,
+            7172,
+            7173,
+            7174,
+            7175,
+            13735,
+            13751,
+            13753,
+            13766
+          ],
+          "displayName": "Kennith"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "find your father"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2784.0,
+          "heightFine": 1605.0,
+          "y": 3285.8,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2784.0,
+          "heightFine": 645.0,
+          "y": 3287.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Holgart to leave the platform.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 698,
+          "modelIds": [
+            4158
+          ],
+          "displayName": "Holgart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2800.0,
+          "heightFine": 157.0,
+          "y": 3320.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kent. Wait for the pause.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 701,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7189,
+            25052
+          ],
+          "displayName": "Kent"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks Kent"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Holgart to return to the platform.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 698,
+          "modelIds": [
+            4158
+          ],
+          "displayName": "Holgart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2782.0,
+          "heightFine": 645.0,
+          "y": 3273.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Helping Kennith",
+      "text": "Ttalk to Bailey.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2761.5,
+          "heightFine": 645.0,
+          "y": 3275.5,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13763
+          ],
+          "displayName": "Bailey",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "light a thing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the broken glass.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1469,
+          "modelIds": [
+            156
+          ],
+          "displayName": "Broken glass",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1469,
+          "displayName": "Broken glass",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the damp sticks at the northern end of the platform.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1467,
+          "modelIds": [
+            279
+          ],
+          "displayName": "Damp sticks",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1467,
+          "displayName": "Damp sticks",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the broken glass on the damp sticks, then rub together the dry sticks.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1469,
+          "modelIds": [
+            156
+          ],
+          "displayName": "Broken glass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1467,
+          "modelIds": [
+            279
+          ],
+          "displayName": "Damp sticks"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 596,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Unlit torch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 594,
+          "displayName": "Lit torch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2784.0,
+          "heightFine": 1045.0,
+          "y": 3286.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2783.0,
+          "heightFine": 1605.0,
+          "y": 3287.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kennith from the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2765.0,
+          "heightFine": 1605.0,
+          "y": 3286.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4863,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4864,
+            6373,
+            7171,
+            7172,
+            7173,
+            7174,
+            7175,
+            13735,
+            13751,
+            13753,
+            13766
+          ],
+          "displayName": "Kennith"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get you out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kick the 'badly repaired wall'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18381,
+          "modelIds": [
+            543
+          ],
+          "displayName": "Badly repaired wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            429
+          ],
+          "candidateNpcTypeIds": [
+            304,
+            560,
+            810,
+            1260,
+            1262,
+            1366,
+            1801,
+            1896,
+            1897,
+            1898,
+            2549,
+            3154,
+            3868,
+            3869,
+            3870,
+            3871,
+            3888,
+            3889,
+            3890,
+            3891,
+            3908,
+            3909,
+            3910,
+            3911,
+            3919,
+            3920,
+            3927,
+            3929,
+            9137,
+            9144,
+            9148,
+            9333,
+            14404,
+            19610,
+            19617,
+            19636,
+            22221
+          ],
+          "displayName": "Kicked wall"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back inside and talk to Kennith.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2765.0,
+          "heightFine": 1605.0,
+          "y": 3286.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4863,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4864,
+            6373,
+            7171,
+            7172,
+            7173,
+            7174,
+            7175,
+            13735,
+            13751,
+            13753,
+            13766
+          ],
+          "displayName": "Kennith"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "when you have"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the crane.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.0,
+          "heightFine": 2105.0,
+          "y": 3290.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        },
+        {
+          "t": "conversationText",
+          "text": "away to safety"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Go down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2784.0,
+          "heightFine": 1605.0,
+          "y": 3285.8,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2784.0,
+          "heightFine": 645.0,
+          "y": 3287.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Holgart.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 698,
+          "modelIds": [
+            4158
+          ],
+          "displayName": "Holgart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2722.0,
+          "heightFine": 69.0,
+          "y": 3305.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Caroline.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 696,
+          "modelIds": [],
+          "displayName": "Caroline"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2700,
+  "stageVarbitCompleteValue": 12,
+  "cacheQuestId": 121
+}

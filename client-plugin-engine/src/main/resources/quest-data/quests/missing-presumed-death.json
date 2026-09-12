@@ -1,0 +1,1489 @@
+{
+  "slug": "missing-presumed-death",
+  "name": "Missing, Presumed Death",
+  "members": false,
+  "length": "mediumlong",
+  "timeline": "worldguardian",
+  "releaseDate": 1381795200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Murders in Silvarea - First crime scene",
+      "text": "Speak to Brother Samwell (west of Paterdomus and east of Varrock).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I can help"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something\u0027s happening"
+        },
+        {
+          "t": "direction",
+          "x": 3381.0,
+          "heightFine": 933.0,
+          "y": 3485.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18458,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate northernmost slaughtered monk.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Investigate torso."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87700,
+          "modelIds": [],
+          "displayName": "Slaughtered monk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "core clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the plant to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87718,
+          "modelIds": [],
+          "displayName": "Plant"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "core clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the tree with the arrow stuck in it (south of him)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87712,
+          "modelIds": [],
+          "displayName": "Tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "core clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brother Samwell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I think I\u0027ve found all the clues."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "you must remember"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18459,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sounds like a good idea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Second crime scene",
+      "text": "Up the limestone quarry, speak to Odd Old Man.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the slaughtered monks."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Persuade him."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Persuade him."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threaten him."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "displayName": "Odd Old Man"
+        },
+        {
+          "t": "direction",
+          "x": 3360.0,
+          "heightFine": 2501.0,
+          "y": 3507.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "added information to your notebook"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brother Samwell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "He saw an elf heading east along the path."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He saw a very tall, dark, hooded figure escaping."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "somebody else"
+        },
+        {
+          "t": "direction",
+          "x": 3380.0,
+          "heightFine": 925.0,
+          "y": 3485.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18459,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can find"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the elf ranger",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Investigate arms."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Listen to the trapped soul."
+        },
+        {
+          "t": "direction",
+          "x": 3418.0,
+          "heightFine": 2821.0,
+          "y": 3474.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87706,
+          "modelIds": [],
+          "displayName": "Elf Ranger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You added an additional clue to your notebook."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the plant",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3403.0,
+          "heightFine": 2805.0,
+          "y": 3473.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87721,
+          "modelIds": [],
+          "displayName": "Plant"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "core clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the clothing",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3415.0,
+          "heightFine": 2821.0,
+          "y": 3466.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87724,
+          "modelIds": [],
+          "displayName": "Fence"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "core clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Blaze Sharpeye by the beacon.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the murdered elf."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threaten him."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threaten him."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Persuade him."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "displayName": "Blaze Sharpeye"
+        },
+        {
+          "t": "direction",
+          "x": 3395.0,
+          "heightFine": 4821.0,
+          "y": 3469.0,
+          "instance": false,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well... Okay, I\u0027ve never witnessed anything like it in my life."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Brother Samwell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I think I\u0027ve found all the clues."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We\u0027ll get to the bottom of this"
+        },
+        {
+          "t": "direction",
+          "x": 3381.0,
+          "heightFine": 933.0,
+          "y": 3485.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18459,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "south of Draynor village"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Valina\u0027s information",
+      "text": "Go to the Wizards\u0027 Tower and speak to Wizard Valina inside the entry way on the lectern.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I was told by Brother Samwell that you might be able to help us."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the elves."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Saradominist wizards."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I trust your judgement"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about teleportation."
+        },
+        {
+          "t": "direction",
+          "x": 3101.0,
+          "heightFine": 1925.0,
+          "y": 3170.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16186,
+          "modelIds": [],
+          "displayName": "Wizard Valina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " A possible explanation is that the killer opened a rift to escape to a darker realm or dimension."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fighting with Icthlarin",
+      "text": "Return to Brother Samwell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "The clues are too"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think somebody else did this."
+        },
+        {
+          "t": "direction",
+          "x": 3380.0,
+          "heightFine": 925.0,
+          "y": 3485.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18459,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I may be able to explain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Learn from Icthlarin about Death\u0027s disappearance.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Who said that?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Someone killed these people."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why does this concern you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is everyone who dies trapped now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready to help."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat attacking wights.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18467,
+          "modelIds": [],
+          "displayName": "Wight",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 29742,
+          "displayName": "Invitation box",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Icthlarin.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "We make a good"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We should take the fight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "While standing next to Icthlarin, open the invitation box.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "We must, Death needs our help."
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 29742,
+          "modelIds": [],
+          "displayName": "Invitation box"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You slowly tilt back the lid of the box."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Citadel",
+      "text": "Once in the citadel, talk to Icthlarin.  A cutscene will play.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I want to continue to the citadel."
+        },
+        {
+          "t": "direction",
+          "x": 3787.0,
+          "heightFine": 1579.0,
+          "y": 4506.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18493,
+          "modelIds": [],
+          "displayName": "Icthlarin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " If I use my invitation to enter the main chamber, you can infiltrate the rest of the citadel."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the west",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3768.0,
+          "heightFine": 2869.0,
+          "y": 4513.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87730,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 2989.0,
+          "y": 0.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north to the window to watch another cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87745,
+          "modelIds": [],
+          "displayName": "Window"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk out the south window; jump the gap; run across the planks; drop down the rocks; climb up the rock face; walk in the western window.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 2949.0,
+          "y": -17.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87628,
+          "modelIds": [],
+          "displayName": "Gap"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87629,
+          "modelIds": [],
+          "displayName": "Planks"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87630,
+          "modelIds": [],
+          "displayName": "Rock face"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87632,
+          "modelIds": [],
+          "displayName": "Rock face"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -17.0,
+          "heightFine": 2989.0,
+          "y": -11.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb through the obstacle to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87812,
+          "modelIds": [],
+          "displayName": "Obstacle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -15.0,
+          "heightFine": 2989.0,
+          "y": -5.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the north door, then continue north into the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87732,
+          "modelIds": [],
+          "displayName": "Door"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87734,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -8.0,
+          "heightFine": 4589.0,
+          "y": 14.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull all three levers in the room (on the west, south, and east walls) to create light.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87767,
+          "modelIds": [],
+          "displayName": "Lever"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87771,
+          "modelIds": [],
+          "displayName": "Lever"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87763,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 87772,
+          "modelIds": [],
+          "displayName": "Lever"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 87764,
+          "modelIds": [],
+          "displayName": "Lever"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 87768,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lead all the wights that spawn (a group of 3, then 4) into the light to be able to damage them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 4589.0,
+          "y": 23.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -8.0,
+          "heightFine": 4589.0,
+          "y": 19.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -13.0,
+          "heightFine": 4589.0,
+          "y": 23.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18496,
+          "modelIds": [],
+          "displayName": "Wight footsoldier",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "7/7"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "View the east window for another cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87746,
+          "modelIds": [],
+          "displayName": "Window"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You think it would"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the north, then continue east into the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87736,
+          "modelIds": [],
+          "displayName": "Door"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87738,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 15.0,
+          "heightFine": 5869.0,
+          "y": 16.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the viewing panel. , then rotate the bottom-left machine once, the top-left one twice, the top-right three times and the bottom-right machine once.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Stop wasting my time."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87646,
+          "modelIds": [],
+          "displayName": "Rotate once"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87644,
+          "modelIds": [],
+          "displayName": "Rotate twice"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87643,
+          "modelIds": [],
+          "displayName": "Rotate 3 times"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87645,
+          "modelIds": [],
+          "displayName": "Rotate once"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You\u0027ve done it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "View the south window for another cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87747,
+          "modelIds": [],
+          "displayName": "Window"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should continue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the east, then continue south into the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87740,
+          "modelIds": [],
+          "displayName": "Door"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87742,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 17.0,
+          "heightFine": 4429.0,
+          "y": -11.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the statue of Death.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Get to the point."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A stupid riddle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I answer?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87788,
+          "modelIds": [],
+          "displayName": "Statue of Death"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "return to its chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Take sand from the first chest",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87783,
+          "modelIds": [],
+          "displayName": "First chest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take Sand."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 29744,
+          "displayName": "Sand",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Put it on the plinth",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87774,
+          "modelIds": [],
+          "displayName": "Answer plinth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, final answer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "well done!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Take water from the second chest",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87784,
+          "modelIds": [],
+          "displayName": "Second Chest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 29747,
+          "displayName": "Water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Put it on the plinth",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87774,
+          "modelIds": [],
+          "displayName": "Answer plinth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, final answer."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Place water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I am cast"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Take shadow from the second chest",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87784,
+          "modelIds": [],
+          "displayName": "Second Chest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take shadow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 29743,
+          "displayName": "Shadow",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Put it on the plinth",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87774,
+          "modelIds": [],
+          "displayName": "Answer plinth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, final answer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 29751,
+          "displayName": "Sliske\u0027s ascension invitation",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "View the west window for another cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87748,
+          "modelIds": [],
+          "displayName": "Window"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should continue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the south door, then jump off the drop.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87744,
+          "modelIds": [],
+          "displayName": "Door"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87631,
+          "modelIds": [],
+          "displayName": "Drop"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3810.0,
+          "heightFine": 69.0,
+          "y": 4517.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to one of the Barrows brothers to enter the main room.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18477,
+          "modelIds": [],
+          "displayName": "Guthan the Infested"
+        },
+        {
+          "t": "direction",
+          "x": 3787.0,
+          "heightFine": 1579.0,
+          "y": 4516.0,
+          "instance": false,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You hand over"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After a cutscene, walk forward to continue talking with the Gods.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Let Sliske carry on with his show."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Make Sliske"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The contest is good"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Side with Bandos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 87797,
+          "modelIds": [],
+          "displayName": "Fire"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around rear of other gods and stamp out the smaller flames on the ground to reach Death\u0027s cage while avoiding the fireballs from Strisath. Free him from his cage.\u003cul\u003e\u003cli\u003eThe flames might be difficult to see with low graphics settings, especially with shadows turned off.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87799,
+          "modelIds": [],
+          "displayName": "Fire",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 87793,
+          "modelIds": [],
+          "displayName": "Cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 18458,
+          "modelIds": [],
+          "displayName": "Brother Samwell"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Icthlarin.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with Brother Samwell.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 20621,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 364
+}

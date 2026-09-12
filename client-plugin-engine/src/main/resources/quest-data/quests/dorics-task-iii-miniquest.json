@@ -1,0 +1,295 @@
+{
+  "slug": "dorics-task-iii-miniquest",
+  "name": "Doric's Task III (miniquest)",
+  "members": false,
+  "length": "veryshort",
+  "timeline": "champion",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Mithril bars (in metal bank)",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task II (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 30,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Warhammers and longswords",
+      "text": "Speak to Doric in his hut north of Falador.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mithril bars (in metal bank)",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make a mithril longsword +1.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Mithril longsword + 1"
+        },
+        {
+          "t": "conversationText",
+          "text": "Mithril longsword + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make a mithril warhammer +1.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Mithril warhammer + 1"
+        },
+        {
+          "t": "conversationText",
+          "text": "Mithril warhammer + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to either General Bentnoze or General Wartface in the Goblin Village to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2957.0,
+          "heightFine": 645.0,
+          "y": 3513.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bentnoze"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wartface"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bentnoze"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wartface"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Stop squabbling you two!"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bentnoze"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to either again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bentnoze"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wartface"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10011,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 423
+}

@@ -1,0 +1,1716 @@
+{
+  "slug": "the-lost-tribe",
+  "name": "The Lost Tribe",
+  "members": true,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1117519200,
+  "neededItems": [
+    {
+      "name": "Any light source",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Lockpick",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 13,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 17,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 13,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Sigmund on the 1st floor (2nd floor [US]) of Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3209.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "sigmund advisor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any quests for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Sigmund.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "sigmund advisor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "saw anything"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The goblin",
+      "text": "Talk to Duke Horacio next to Sigmund.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened in the cellar?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The wall collapsed because of an earthquake. I'm waiting for a team of builders to come and repair it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Cook downstairs in the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 2469.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "range": 50
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about what happened in the castle cellar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh no, it's terrible, isn't it? There was rock dust everywhere, it got on all my ingredients!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hans in the Lumbridge Castle courtyard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 0,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7935,
+            27428,
+            29763
+          ],
+          "displayName": "Hans"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what happened in the cellar?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what happened in the castle cellar?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The wall collapsed. I had to spend all day clearing it up! The Duke says it was an earthquake."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Father Aereck in the church across from Lumbridge Castle.<ul><li>If you haven't talked to him before, he'll first tell you about your gravestone.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3246.0,
+          "heightFine": 965.0,
+          "y": 3205.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 456,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7937,
+            14383,
+            29767
+          ],
+          "displayName": "Father Aereck",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what happened in the castle cellar?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's a shame, isn't it?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bob in the axe shop across from the church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3228.0,
+          "heightFine": 965.0,
+          "y": 3203.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bob smith",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what happened in the castle cellar?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you can convince the Duke I'm telling the truth then we can get to the bottom of this mystery."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Duke Horacio about your findings.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3209.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bob says he saw something in the cellar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hmm, very well. I give you permission to investigate this mystery."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dorgeshuun",
+      "text": "Descend the trapdoor in the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 2469.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1477.0,
+          "y": 3216.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3208.0,
+          "heightFine": 1349.0,
+          "y": 9616.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the wall rubble to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            576
+          ],
+          "candidateObjectTypeIds": [
+            1585,
+            1631,
+            1769,
+            1770,
+            1902,
+            2637,
+            3586,
+            6965,
+            32723,
+            35253
+          ],
+          "displayName": "Lum cellar rubble"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You dig a narrow tunnel through the rocks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the hole and take the brooch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3220.0,
+          "heightFine": 1349.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3223.0,
+          "heightFine": 1029.0,
+          "y": 9618.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 5008,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Brooch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5008,
+          "displayName": "Brooch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Show the brooch to Duke Horacio.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3221.0,
+          "heightFine": 1029.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3217.0,
+          "heightFine": 1349.0,
+          "y": 9617.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1449.0,
+          "y": 9616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I dug through the rubble..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The librarian in Varrock might be able to help identify the symbol."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Reldo in Varrock Palace Library about the brooch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3494.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the brooch."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's somewhere at the west end of the library, I think."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the northern most bookcase on the western wall for a goblin symbol book.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3207.0,
+          "heightFine": 1253.0,
+          "y": 3496.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10999,
+          "displayName": "Goblin book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the book to the end, Reldo will force-greet you and mention the Goblin Village.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10999,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Goblin book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There's a goblin village north of the Falador lodestone in Asgarnia, ruled by General Bentnoze and General Wartface."
+        },
+        {
+          "t": "conversationText",
+          "text": "The symbol of the 'Dorgeshuun' tribe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Generals Bentnoze and Wartface in the Goblin Village, north of the Falador lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 645.0,
+          "y": 3513.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "bentnoze",
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wartface",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Have you ever heard of the Dorgeshuun?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It doesn't really matter"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well either way they refused to fight"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well I found a brooch underground..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well why not show me both greetings?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thanks"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding the lost tribe",
+      "text": "Climb down the trapdoor in the Lumbridge Castle kitchen and squeeze through the hole in the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1478.0,
+          "y": 3215.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3208.0,
+          "heightFine": 1349.0,
+          "y": 9616.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3220.0,
+          "heightFine": 1349.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3223.0,
+          "heightFine": 1029.0,
+          "y": 9618.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run through the Goblin Mine",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3220.0,
+          "heightFine": 1349.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3220.0,
+          "heightFine": 1349.0,
+          "y": 9618.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3232.0,
+          "heightFine": 1069.0,
+          "y": 9610.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3232.0,
+          "heightFine": 1069.0,
+          "y": 9610.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3250.0,
+          "heightFine": 1037.0,
+          "y": 9616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 1037.0,
+          "y": 9616.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3250.0,
+          "heightFine": 1117.0,
+          "y": 9631.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 1117.0,
+          "y": 9631.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3231.0,
+          "heightFine": 1061.0,
+          "y": 9632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3231.0,
+          "heightFine": 1061.0,
+          "y": 9632.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3245.0,
+          "heightFine": 1221.0,
+          "y": 9648.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3245.0,
+          "heightFine": 1221.0,
+          "y": 9648.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3241.0,
+          "heightFine": 1021.0,
+          "y": 9639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3241.0,
+          "heightFine": 1021.0,
+          "y": 9639.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3251.0,
+          "heightFine": 1077.0,
+          "y": 9640.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3251.0,
+          "heightFine": 1077.0,
+          "y": 9640.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3253.0,
+          "heightFine": 1101.0,
+          "y": 9647.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3253.0,
+          "heightFine": 1101.0,
+          "y": 9647.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3269.0,
+          "heightFine": 981.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3269.0,
+          "heightFine": 981.0,
+          "y": 9644.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3271.0,
+          "heightFine": 1069.0,
+          "y": 9637.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3271.0,
+          "heightFine": 1069.0,
+          "y": 9637.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3287.0,
+          "heightFine": 1093.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3287.0,
+          "heightFine": 1093.0,
+          "y": 9644.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3304.0,
+          "heightFine": 1101.0,
+          "y": 9632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3304.0,
+          "heightFine": 1101.0,
+          "y": 9632.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 1133.0,
+          "y": 9615.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3292.0,
+          "heightFine": 1133.0,
+          "y": 9615.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 1029.0,
+          "y": 9609.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3306.0,
+          "heightFine": 1029.0,
+          "y": 9609.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Goblin Bow emote near Mistag.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2084,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2089
+          ],
+          "displayName": "Mistag"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We meant no harm!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>follow</i> on Mistag.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2084,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2089
+          ],
+          "displayName": "Mistag"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3232.0,
+          "heightFine": 1069.0,
+          "y": 9610.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sigmund's treachery",
+      "text": "Talk to the Duke.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3221.0,
+          "heightFine": 1029.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3217.0,
+          "heightFine": 1349.0,
+          "y": 9617.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1449.0,
+          "y": 9616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've made contact with the cave goblins..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Unless it is returned, I am afraid I will have no option but war."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Pickpocket</i> Sigmund for a key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "sigmund advisor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Sigmund key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest in the other room for a H.A.M. hood, shirt, and robe.<ul><li>Make sure to have 3 backpack spaces, otherwise the outfit might disappear with no means of receiving it again.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 2693.0,
+          "y": 3217.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "ham hood",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "Sigmund must be a member of the Humans Against Monster cult!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the entrance of the H.A.M. Hideout, north-west of Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3165.0,
+          "heightFine": 2533.0,
+          "y": 3251.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3165.0,
+          "heightFine": 2533.0,
+          "y": 3251.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>lockpick</i> the trapdoor, then climb down the trapdoor.<ul><li>It may take a few tries to successfully lockpick the trapdoor.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3165.0,
+          "heightFine": 2533.0,
+          "y": 3251.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3149.0,
+          "heightFine": 2973.0,
+          "y": 9652.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate near the ladder for the missing silverware.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3152.0,
+          "heightFine": 2661.0,
+          "y": 9645.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5011,
+          "displayName": "Silverware",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making peace",
+      "text": "Lodestone back to Lumbridge and talk to the Duke.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3209.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I found the missing silverware in the HAM cave!"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5012,
+          "displayName": "Peace treaty",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "I would like to meet with their leader to sign it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down the trapdoor in the castle kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 2469.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1477.0,
+          "y": 3216.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3208.0,
+          "heightFine": 1349.0,
+          "y": 9616.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the hole in the wall and follow Kazgar, who'll be waiting just on the other side.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3220.0,
+          "heightFine": 1349.0,
+          "y": 9618.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3224.0,
+          "heightFine": 1061.0,
+          "y": 9617.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2086,
+          "modelIds": [],
+          "displayName": "Kazgar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3313.0,
+          "heightFine": 645.0,
+          "y": 9613.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mistag.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2084,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2089
+          ],
+          "displayName": "Mistag"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will summon Ur-tag, our headman, at once."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13963,
+  "stageVarbitCompleteValue": 11,
+  "cacheQuestId": 37
+}

@@ -1,0 +1,672 @@
+{
+  "slug": "gertrudes-cat",
+  "name": "Gertrude's Cat",
+  "members": false,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1059350400,
+  "neededItems": [
+    {
+      "name": "Bucket of milk",
+      "itemId": 1927,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw sardine",
+      "itemId": 174,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Doogle leaves",
+      "itemId": 402,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Gertrude, house north-west of the Varrock lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3151.0,
+          "heightFine": 965.0,
+          "y": 3411.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 780,
+          "modelIds": [
+            4365
+          ],
+          "displayName": "Gertrude",
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Gertrude.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 780,
+          "modelIds": [
+            4365
+          ],
+          "displayName": "Gertrude"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go behind the house and pick up a doogle leaf.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3153.0,
+          "heightFine": 1045.0,
+          "y": 3399.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1573,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Doogle leaves",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1573,
+          "displayName": "Doogle leaves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The secret hideout",
+      "text": "Talk to Shilop or Wilough, northeastern corner of Varrock Square.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3222.0,
+          "heightFine": 1029.0,
+          "y": 3436.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 783,
+          "modelIds": [
+            3090
+          ],
+          "displayName": "Wilough",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What will make you tell me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay then, I'll pay."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "technically you are trespassing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder in abandoned house south of the Smithing workshop.",
+      "warning": "Don't skip any dialogue for this section. Only use the pick-up option with Fluffs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3187.0,
+          "heightFine": 1625.0,
+          "y": 3415.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24354
+          ],
+          "candidateObjectTypeIds": [
+            23501,
+            23502
+          ],
+          "displayName": "Abandoned house ladder",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3186.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Convincing Fluffs",
+      "text": "Try to pick up Fluffs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7742,
+          "modelIds": [
+            1611
+          ],
+          "displayName": "Fluffs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "maybe she is thirsty"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Raw sardine",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Doogle leaf",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> a bucket of milk on Fluffs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1927,
+          "modelIds": [],
+          "displayName": "Bucket of milk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "laps up the milk greedily"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to pick up Fluffs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7742,
+          "modelIds": [
+            1611
+          ],
+          "displayName": "Fluffs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "maybe she is hungry too?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gertrude.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3151.0,
+          "heightFine": 965.0,
+          "y": 3411.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 780,
+          "modelIds": [
+            4365
+          ],
+          "displayName": "Gertrude",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "raw sardines seasoned with doogle leaves"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> a raw sardine on a doogle leaf.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1573,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Doogle leaves"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 327,
+          "modelIds": [
+            174
+          ],
+          "displayName": "Raw sardine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1552,
+          "displayName": "Doogle sardine",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to Fluffs in the abandoned house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3187.0,
+          "heightFine": 1625.0,
+          "y": 3415.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24354
+          ],
+          "candidateObjectTypeIds": [
+            23501,
+            23502
+          ],
+          "displayName": "Abandoned house ladder",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3186.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the doogle sardine on Fluffs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1552,
+          "modelIds": [
+            255
+          ],
+          "displayName": "Doogle sardine"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7742,
+          "modelIds": [
+            1611
+          ],
+          "displayName": "Fluffs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "devours the doogle sardine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to pick up Fluffs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7742,
+          "modelIds": [
+            1611
+          ],
+          "displayName": "Fluffs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "afraid to leave"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24355
+          ],
+          "candidateObjectTypeIds": [
+            65379,
+            94031,
+            100226,
+            128246
+          ],
+          "displayName": "Abandoned house upper ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3186.0,
+          "heightFine": 1125.0,
+          "y": 3415.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the jiggling crate in the ruined building directly east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            110055
+          ],
+          "candidateObjectTypeIds": [
+            8045
+          ],
+          "displayName": "Shaking crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13236,
+          "displayName": "Three little kittens",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Fluffs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3187.0,
+          "heightFine": 1625.0,
+          "y": 3415.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24354
+          ],
+          "candidateObjectTypeIds": [
+            23501,
+            23502
+          ],
+          "displayName": "Abandoned house ladder",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3186.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the three little kittens on her.<ul><li>You might need to use them on her twice.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7742,
+          "modelIds": [
+            1611
+          ],
+          "displayName": "Fluffs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13236,
+          "modelIds": [
+            1548
+          ],
+          "displayName": "Three little kittens"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Purr..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "offspring"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Gertrude.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3151.0,
+          "heightFine": 965.0,
+          "y": 3411.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 780,
+          "modelIds": [
+            4365
+          ],
+          "displayName": "Gertrude",
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24355
+          ],
+          "candidateObjectTypeIds": [
+            65379,
+            94031,
+            100226,
+            128246
+          ],
+          "displayName": "Abandoned house upper ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2175,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 138
+}

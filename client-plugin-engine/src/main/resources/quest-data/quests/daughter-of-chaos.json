@@ -1,0 +1,1387 @@
+{
+  "slug": "daughter-of-chaos",
+  "name": "Daughter of Chaos",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1659312000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Teleport to Falador and run south towards the White Knights\u0027 Castle.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2965.0,
+          "heightFine": 2725.0,
+          "y": 3353.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2965.0,
+          "heightFine": 2725.0,
+          "y": 3353.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder to the east, then the staircase behind Sir Renitee.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2994.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "range": 11
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11727,
+          "modelIds": [],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2993.0,
+          "heightFine": 3909.0,
+          "y": 3341.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11734,
+          "modelIds": [
+            756
+          ],
+          "candidateObjectTypeIds": [
+            3250,
+            3261
+          ],
+          "displayName": "Staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29435,
+          "modelIds": [],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia in the White Knights\u0027 Castle\u0027s throne room (2nd floor[UK]3rd floor[US], east side).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29435,
+          "modelIds": [
+            49356
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Adrasteia, press escape to skip the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ll see it done."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have every faith"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Abandoned camp",
+      "text": "Talk to Anne Dimitri in the interrogation room (1st floor[UK] 2nd floor[US], centre).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3339.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Agree with Adrasteia."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Agree with Anne Dimitri."
+        },
+        {
+          "t": "direction",
+          "x": 2973.0,
+          "heightFine": 3909.0,
+          "y": 3337.0,
+          "instance": false,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s meet there."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri across the Wilderness wall north of the Grand Exchange underwall tunnel.\u003cul\u003e\u003cli\u003eMake sure PVP is turned off. Most of the quest takes place in instances.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3136.0,
+          "heightFine": 933.0,
+          "y": 3535.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the symbol of Bilrach\u0027s forces"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri again after arriving at the abandoned camp.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What do we have here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri yet again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "On it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the northern point of interest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -24.0,
+          "heightFine": -128.0,
+          "y": 11.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 1/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the western point of interest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -39.0,
+          "heightFine": 224.0,
+          "y": -5.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 2/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the southern point of interest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -12.0,
+          "heightFine": -216.0,
+          "y": -14.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 3/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027m ready."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Capture 6 memory fragments that spawn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29387,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Memory fragment",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Fragments collected: 6/6"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the Restored Memory twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29384,
+          "modelIds": [
+            657
+          ],
+          "displayName": "Restored Memory",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 29384,
+          "modelIds": [
+            657
+          ],
+          "displayName": "Restored Memory"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bilrach in the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -39.0,
+          "heightFine": 1269.0,
+          "y": -5.0,
+          "instance": true,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29396,
+          "modelIds": [
+            6936
+          ],
+          "displayName": "Bilrach",
+          "instance": true,
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Defend the camp"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defend the camp.\u003cul\u003e\u003c/li\u003e\u003cli\u003e1 (Vault): use only to dodge chaos rift area of effect.\u003c/li\u003e\u003cli\u003e2 (Drain): use on cooldown to heal (channelled).\u003c/li\u003e\u003cli\u003e3 (Blast): use on cooldown near enemies for extra damage.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29411,
+          "modelIds": [],
+          "displayName": "Chaos demon",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29412,
+          "modelIds": [],
+          "displayName": "Zamorakian cultist",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29414,
+          "modelIds": [],
+          "displayName": "Imp scavenger",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29413,
+          "modelIds": [],
+          "displayName": "Chaos witch",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "All enemies have been defeated!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bilrach.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29396,
+          "modelIds": [
+            6936
+          ],
+          "displayName": "Bilrach",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -39.0,
+          "heightFine": 1269.0,
+          "y": -5.0,
+          "instance": true,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "As you command"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You still with me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Red Dragon Isle",
+      "text": "Talk to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have you been working for"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We should move on."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see another memory fragment"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "that resonate with the memory"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the point of interest next to you.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 1/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the point of interest to the south-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": -32.0,
+          "y": -40.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 2/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the point of interest to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -21.0,
+          "heightFine": 0.0,
+          "y": -40.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29394,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Point of interest",
+          "instance": true,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Points of interest found: 3/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": 272.0,
+          "y": -4.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri",
+          "instance": true,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027m on it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Capture 6 memory fragments.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29387,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Memory fragment",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Fragments collected: 6/6"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the Restored Memory twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29384,
+          "modelIds": [
+            657
+          ],
+          "displayName": "Restored Memory",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "attacked us from both"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the 6 enemies same as the previous section.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29412,
+          "modelIds": [],
+          "displayName": "Zamorakian cultist",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29411,
+          "modelIds": [],
+          "displayName": "Chaos demon",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29413,
+          "modelIds": [],
+          "displayName": "Chaos witch",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "All enemies have been defeated!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the wounded cultist in the south-western corner of the isle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29408,
+          "modelIds": [
+            9648
+          ],
+          "displayName": "Wounded cultist",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -22.0,
+          "heightFine": 1709.0,
+          "y": -41.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29379,
+          "modelIds": [
+            5730
+          ],
+          "displayName": "Trindine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trindine.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29379,
+          "modelIds": [
+            5730
+          ],
+          "displayName": "Trindine",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have an update"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bilrach.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wilderness Crater",
+      "text": "Talk to Anne.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne Dimitri",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Here we are"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s investigate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne next to the Restored Memory.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get this portal open"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the Restored Memory.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29384,
+          "modelIds": [
+            657
+          ],
+          "displayName": "Restored Memory",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29418,
+          "modelIds": [
+            14397
+          ],
+          "candidateObjectTypeIds": [
+            23115
+          ],
+          "displayName": "Avaryss, the Unceasing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Avaryss",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29418,
+          "modelIds": [
+            14397
+          ],
+          "candidateObjectTypeIds": [
+            23115
+          ],
+          "displayName": "Avaryss, the Unceasing",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "time for you and your"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Avaryss, the Unceasing.\u003cul\u003e\u003cli\u003eShe periodically summons two greater demons that can be killed for health orbs.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            10803
+          ],
+          "candidateObjectTypeIds": [
+            10938
+          ],
+          "displayName": "Anne"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You are weak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Avaryss.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            14397
+          ],
+          "candidateObjectTypeIds": [
+            23115
+          ],
+          "displayName": "Avaryss",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "watching the memory"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Confronting Moia",
+      "text": "Talk to Moia.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29374,
+          "modelIds": [
+            57804
+          ],
+          "displayName": "Moia",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Adrasteia sent me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Respond diplomatically."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trindine.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ll report back to Adrasteia."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Tell her I said"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Adrasteia in the White Knights\u0027 Castle\u0027s throne room (2nd floor[UK] 3rd floor[US], east side).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false,
+          "distance": 11
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11727,
+          "modelIds": [],
+          "displayName": "Ladder",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4249,
+          "modelIds": [],
+          "displayName": "Sir Renitee"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            756
+          ],
+          "candidateObjectTypeIds": [
+            3250,
+            3261
+          ],
+          "displayName": "Falador staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [
+            49356
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 51682,
+  "stageVarbitCompleteValue": 210,
+  "cacheQuestId": 483
+}

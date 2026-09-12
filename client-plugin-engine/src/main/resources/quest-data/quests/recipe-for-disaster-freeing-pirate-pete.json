@@ -1,0 +1,623 @@
+{
+  "slug": "recipe-for-disaster-freeing-pirate-pete",
+  "name": "Recipe for Disaster: Freeing Pirate Pete",
+  "members": true,
+  "length": "short",
+  "timeline": "legendary",
+  "releaseDate": 1142380800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Pirate Pete",
+      "text": "Inspect Pirate Pete in the banquet hall in Lumbridge Castle.\n\nGet these items:\n\nRaw cod\nBread\nAn empty fishbowl\nNeedle (Only a normal needle will work. Tool belt will not work.)\n3 bronze wires",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Cook in the Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Protecting the Pirate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where do I get Ground Cod?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where do I get Ground Giant Crab Meat?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where do I get Breadcrumbs?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thanks!"
+        },
+        {
+          "t": "direction",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3215.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 278,
+          "modelIds": [],
+          "displayName": "Cook"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No problem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Murphy on the docks of Port Khazard.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Recipe for Disaster."
+        },
+        {
+          "t": "direction",
+          "x": 2669.0,
+          "heightFine": 965.0,
+          "y": 3161.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 463,
+          "modelIds": [],
+          "displayName": "Murphy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "some people will do anything"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With your fishbowl, talk to him again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Recipe for Disaster."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Not just yet."
+        },
+        {
+          "t": "direction",
+          "x": 2667.0,
+          "heightFine": 965.0,
+          "y": 3162.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 463,
+          "modelIds": [],
+          "displayName": "Murphy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ok, well I\u0027ll be here if you change your mind."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the fishbowl helmet and diving apparatus.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7534,
+          "modelIds": [],
+          "displayName": "Fishbowl helmet"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7535,
+          "modelIds": [],
+          "displayName": "Diving apparatus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 7534,
+          "displayName": "Fishbowl helmet"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 7535,
+          "displayName": "Diving apparatus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Whilst weighing under or exactly 27 kg, having your needle and bronze wire, talk to Murphy again.\u003cul\u003e\u003cli\u003eThere is a bank deposit box next to Murphy.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Recipe for Disaster."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, Let\u0027s go diving."
+        },
+        {
+          "t": "direction",
+          "x": 2667.0,
+          "heightFine": 965.0,
+          "y": 3162.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 463,
+          "modelIds": [],
+          "displayName": "Murphy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick some kelp (your inventory is hidden).\u003cul\u003e\u003cli\u003eIt is advisable to obtain multiple in the event you burn the fishcake.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12478,
+          "modelIds": [],
+          "displayName": "Kelp"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7516,
+          "displayName": "Kelp",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swim north and talk to Nung.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2973.0,
+          "heightFine": 1414.0,
+          "y": 9510.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3465,
+          "modelIds": [],
+          "displayName": "Nung"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "swaps da big crunchy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head west to the Mudskipper cave and pick up five rocks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2950.0,
+          "heightFine": 2029.0,
+          "y": 9512.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 7533,
+          "modelIds": [],
+          "displayName": "Rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have enough rocks to stand on the sea bed if you need to."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave and equip your weapon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12461,
+          "modelIds": [],
+          "displayName": "Underwater Cavern Entrance"
+        },
+        {
+          "t": "direction",
+          "x": 2949.0,
+          "heightFine": 2117.0,
+          "y": 9513.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2950.0,
+          "heightFine": 2013.0,
+          "y": 9520.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill mudskippers for 5 hides.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3423,
+          "modelIds": [],
+          "displayName": "Mudskipper"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3422,
+          "modelIds": [],
+          "displayName": "Mudskipper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7532,
+          "displayName": "Mudskipper hide",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Nung with the five hides, your needle, and three bronze wire.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2974.0,
+          "heightFine": 1269.0,
+          "y": 9512.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3465,
+          "modelIds": [],
+          "displayName": "Nung"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yeah, sounds it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill some crabs and take their meat.\u003cul\u003e\u003cli\u003eIt is advised to obtain multiple in the event you burn the fishcake.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3424,
+          "modelIds": [],
+          "displayName": "Crab"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7518,
+          "displayName": "Crab meat",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Freeing Pirate Pete",
+      "text": "Return to the kitchen in Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3215.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3215.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Kelp (Mogre Camp)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Crab meat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Raw cod",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bread",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare the ingredients:\u003cul\u003e\u003cli\u003eGrind the kelp.\u003c/li\u003e\u003cli\u003eChoose the Grind option on the crab meat.\u003c/li\u003e\u003cli\u003eChoose the Grind option on the raw cod.\u003c/li\u003e\u003cli\u003eChoose the Slice option on the bread.\u003c/li\u003e\u003cli\u003eIf at any point while preparing the ingredients, the message \u0027Nothing interesting happens\u0027 appears, talk to the Cook.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7528,
+          "displayName": "Ground cod",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7515,
+          "displayName": "Breadcrumbs",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7517,
+          "displayName": "Ground kelp",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7527,
+          "displayName": "Ground crab meat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Cook.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Protecting the Pirate"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 278,
+          "modelIds": [],
+          "displayName": "Cook"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "use the ingredients on each other"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ingredients on each other.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7529,
+          "displayName": "Raw fishcake",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook the Raw fishcake.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 114,
+          "modelIds": [],
+          "displayName": "Cooking range"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7529,
+          "modelIds": [],
+          "displayName": "Raw fishcake"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7530,
+          "displayName": "Cooked fishcake",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use fishcake on Pirate Pete.\u003cul\u003e\u003cli\u003eIf the fishcake is eaten, you need to re-obtain all of the ingredients.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12348,
+          "modelIds": [],
+          "displayName": "Door"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12337,
+          "modelIds": [],
+          "displayName": "Pirate Pete"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7530,
+          "modelIds": [],
+          "displayName": "Cooked fishcake"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Subquest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12753,
+  "stageVarbitCompleteValue": 110,
+  "cacheQuestId": 301
+}

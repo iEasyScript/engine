@@ -1,0 +1,843 @@
+{
+  "slug": "rune-mechanics",
+  "name": "Rune Mechanics",
+  "members": true,
+  "length": "short",
+  "timeline": "adventurer",
+  "releaseDate": 1264982400,
+  "neededItems": [
+    {
+      "name": "Water rune",
+      "itemId": 555,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Mind rune",
+      "itemId": 558,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Body rune",
+      "itemId": 559,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Emerald",
+      "itemId": 1605,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Water talisman",
+      "itemId": 1444,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Pure essence (unnoted)",
+      "itemId": 7936,
+      "quantity": 21,
+      "duringQuest": false
+    },
+    {
+      "name": "Progress hat",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Access to fire altar",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 27,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Runecrafting",
+      "level": 20,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Apprentice Clerval in the basement of the Mage Training Arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 3205.0,
+          "y": 3305.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3619.0,
+          "heightFine": 965.0,
+          "y": 4814.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1510,
+          "modelIds": [
+            5181
+          ],
+          "displayName": "Apprentice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wizard Dougal",
+      "text": "Talk to Wizard Dougal who is also in the basement.<ul><li>You need four free spaces in your inventory for Dougal to give you items. If he doesn't give you the items, he will not accept the steam runes.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4722
+          ],
+          "candidateObjectTypeIds": [
+            4803
+          ],
+          "displayName": "Dougal"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Complement him and massage his ego."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Binding neck",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mind rune",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Body rune",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Water rune",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Water talisman",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pure essence (unnoted)",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Access to fire altar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear the binding necklace that Dougal gave you.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            672
+          ],
+          "displayName": "Binding neck"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Binding neck"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft at least one steam rune. <ul><li>The remaining runes (4 steam runes, 5 mind runes, 5 body runes) can be obtained or bought ahead of time.<li>We use the fire altar, you can also use the water altar with fire runes and water talisman.</li></ul>",
+      "warning": "Don't left click the altar as you will make fire runes instead.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3314.0,
+          "heightFine": 1365.0,
+          "y": 3253.0,
+          "instance": false,
+          "distance": 15
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2456,
+          "modelIds": [
+            885
+          ],
+          "displayName": "Fire ruins",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2577.0,
+          "heightFine": 2141.0,
+          "y": 4845.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 555,
+          "modelIds": [],
+          "displayName": "Water rune"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2482,
+          "modelIds": [
+            3297
+          ],
+          "displayName": "Fire altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4694,
+          "displayName": "Steam rune",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Dougal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 3205.0,
+          "y": 3305.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3619.0,
+          "heightFine": 965.0,
+          "y": 4814.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4722
+          ],
+          "candidateObjectTypeIds": [
+            4803
+          ],
+          "displayName": "Dougal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "for a novice like yourself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the runes to Clerval.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1510,
+          "modelIds": [
+            5181
+          ],
+          "displayName": "Apprentice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I haven't managed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wizard Edvin",
+      "text": "Talk to Wizard Edvin who is also in the basement. <ul><li>You will need to dismiss any pets currently active</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4809
+          ],
+          "candidateNpcTypeIds": [
+            1431,
+            1432,
+            1461,
+            1462,
+            1484,
+            9034,
+            9035
+          ],
+          "displayName": "Edvin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I guess I'll give it a try."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Solve the portal maze.<ul><li>From the start, go through the west portal, then go to the northern portal 3 times.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.5,
+          "heightFine": 400.0,
+          "y": 0.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 400.0,
+          "y": 1.5,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -8.0,
+          "heightFine": 400.0,
+          "y": 9.5,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -8.0,
+          "heightFine": 400.0,
+          "y": 13.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 20.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the maze.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4324,
+          "modelIds": [
+            792
+          ],
+          "displayName": "Switch",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tool",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Edvin's tool to Clerval.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1510,
+          "modelIds": [
+            5181
+          ],
+          "displayName": "Apprentice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Tool"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wizard Shug",
+      "text": "Talk to Wizard Shug on the top floor of the arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3618.0,
+          "heightFine": 1265.0,
+          "y": 4814.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3358.0,
+          "heightFine": 3205.0,
+          "y": 3305.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 3365.0,
+          "heightFine": 4645.0,
+          "y": 3320.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Emerald",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Pure essence (unnoted)",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        },
+        {
+          "name": "Pizzaz points",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.5,
+          "heightFine": 3805.0,
+          "y": 3306.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3357.0,
+          "heightFine": 4645.0,
+          "y": 3307.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 3365.0,
+          "heightFine": 4645.0,
+          "y": 3320.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6570
+          ],
+          "candidateObjectTypeIds": [
+            6907,
+            6915
+          ],
+          "displayName": "Shrug"
+        },
+        {
+          "t": "direction",
+          "x": 3365.0,
+          "heightFine": 4645.0,
+          "y": 3320.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Get back on topic!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I understand. Goodbye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down and enchant the emeralds using the workbench by Clerval.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 4645.0,
+          "y": 3306.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3360.0,
+          "heightFine": 3205.0,
+          "y": 3306.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 3619.0,
+          "heightFine": 965.0,
+          "y": 4814.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 3205.0,
+          "y": 3305.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3619.0,
+          "heightFine": 965.0,
+          "y": 4814.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.5,
+          "heightFine": 1465.0,
+          "y": 4818.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Enchanted emeralds",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Clerval, holding 20 pure essence.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1510,
+          "modelIds": [
+            5181
+          ],
+          "displayName": "Apprentice"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Comfort and reassure him."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now, let's do this thing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pure essence (unnoted)",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the animation table nearby. If you're stuck, use the wiki button for the result. When finished, click the green button.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 545,
+          "modelIds": [
+            4677
+          ],
+          "displayName": "Animation table"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You are useless, but, yes, I'll do it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tool",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the carving tool on the lump of rune essence.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            591
+          ],
+          "displayName": "Lump"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            480
+          ],
+          "displayName": "Tool"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Lump"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Clerval.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1510,
+          "modelIds": [
+            5181
+          ],
+          "displayName": "Apprentice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10919,
+  "stageVarbitCompleteValue": 35,
+  "cacheQuestId": 171
+}

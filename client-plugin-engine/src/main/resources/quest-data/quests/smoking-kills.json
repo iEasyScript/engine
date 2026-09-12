@@ -1,0 +1,1602 @@
+{
+  "slug": "smoking-kills",
+  "name": "Smoking Kills",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1212624000,
+  "neededItems": [
+    {
+      "name": "Any cat",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Catspeak amulet",
+      "itemId": 4677,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Earmuffs",
+      "itemId": 4166,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Face mask",
+      "itemId": 4164,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ranged/Magic/Necromancy combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ring of slaying",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Desert heat protection",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to Sumona in Pollnivneach.",
+      "warning": "Pick up your cat if it\u0027s out before talking to Sumona.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.0,
+          "heightFine": 965.0,
+          "y": 2993.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Sumona.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Get to it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding the tomb",
+      "text": "Equip your catspeak amulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4677,
+          "modelIds": [],
+          "displayName": "Catspeak amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 4677,
+          "displayName": "Catspeak amulet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Catspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Desert heat protection",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Attempt to climb down the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.5,
+          "heightFine": 1265.0,
+          "y": 2971.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ali Cat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7785,
+          "modelIds": [
+            1737
+          ],
+          "candidateObjectTypeIds": [
+            62511
+          ],
+          "displayName": "Ali Cat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take your cat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up onto the plataeu to the south-east.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3357.0,
+              "heightFine": 965.0,
+              "y": 2973.0
+            },
+            {
+              "x": 3357.0,
+              "heightFine": 965.0,
+              "y": 2967.0
+            },
+            {
+              "x": 3356.0,
+              "heightFine": 965.0,
+              "y": 2963.0
+            },
+            {
+              "x": 3352.0,
+              "heightFine": 965.0,
+              "y": 2962.0
+            },
+            {
+              "x": 3350.0,
+              "heightFine": 965.0,
+              "y": 2958.0
+            },
+            {
+              "x": 3347.0,
+              "heightFine": 965.0,
+              "y": 2958.0
+            },
+            {
+              "x": 3347.0,
+              "heightFine": 965.0,
+              "y": 2949.0
+            },
+            {
+              "x": 3333.0,
+              "heightFine": 829.0,
+              "y": 2941.0
+            },
+            {
+              "x": 3316.0,
+              "heightFine": 533.0,
+              "y": 2934.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 533.0,
+              "y": 2926.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 485.0,
+              "y": 2920.0
+            },
+            {
+              "x": 3283.0,
+              "heightFine": 581.0,
+              "y": 2912.0
+            },
+            {
+              "x": 3283.0,
+              "heightFine": 341.0,
+              "y": 2883.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 1005.0,
+              "y": 2875.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 1224.0,
+              "y": 2861.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 869.0,
+              "y": 2851.0
+            },
+            {
+              "x": 3319.0,
+              "heightFine": 694.0,
+              "y": 2841.0
+            },
+            {
+              "x": 3331.0,
+              "heightFine": 941.0,
+              "y": 2830.0
+            },
+            {
+              "x": 3341.0,
+              "heightFine": 834.0,
+              "y": 2819.0
+            },
+            {
+              "x": 3354.0,
+              "heightFine": 1221.0,
+              "y": 2806.0
+            },
+            {
+              "x": 3359.0,
+              "heightFine": 933.0,
+              "y": 2796.0
+            },
+            {
+              "x": 3368.0,
+              "heightFine": 1573.0,
+              "y": 2785.0
+            },
+            {
+              "x": 3377.0,
+              "heightFine": 709.0,
+              "y": 2770.0
+            },
+            {
+              "x": 3381.0,
+              "heightFine": 821.0,
+              "y": 2763.0
+            },
+            {
+              "x": 3391.0,
+              "heightFine": 1181.0,
+              "y": 2760.0
+            },
+            {
+              "x": 3398.0,
+              "heightFine": 813.0,
+              "y": 2757.0
+            },
+            {
+              "x": 3404.0,
+              "heightFine": 477.0,
+              "y": 2760.0
+            },
+            {
+              "x": 3412.0,
+              "heightFine": 301.0,
+              "y": 2766.0
+            },
+            {
+              "x": 3418.0,
+              "heightFine": 101.0,
+              "y": 2774.0
+            },
+            {
+              "x": 3420.0,
+              "heightFine": 101.0,
+              "y": 2782.0
+            },
+            {
+              "x": 3428.0,
+              "heightFine": 133.0,
+              "y": 2791.0
+            },
+            {
+              "x": 3428.0,
+              "heightFine": 173.0,
+              "y": 2798.0
+            },
+            {
+              "x": 3421.0,
+              "heightFine": 157.0,
+              "y": 2795.0
+            },
+            {
+              "x": 3418.0,
+              "heightFine": 101.0,
+              "y": 2797.0
+            },
+            {
+              "x": 3418.0,
+              "heightFine": 461.0,
+              "y": 2800.0
+            },
+            {
+              "x": 3419.0,
+              "heightFine": 565.0,
+              "y": 2801.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3419.0,
+          "heightFine": 1221.0,
+          "y": 2804.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 3382.0,
+          "heightFine": 2157.0,
+          "y": 2822.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 28490,
+          "modelIds": [
+            1374
+          ],
+          "candidateNpcTypeIds": [
+            922,
+            8207
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "jumpOffset": 1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 28490,
+          "modelIds": [
+            1374
+          ],
+          "candidateNpcTypeIds": [
+            922,
+            8207
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3382.0,
+          "heightFine": 2157.0,
+          "y": 2822.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope on the rock to the north-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3382.0,
+          "heightFine": 2205.0,
+          "y": 2824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 28488,
+          "modelIds": [
+            627,
+            2079
+          ],
+          "candidateObjectTypeIds": [
+            62253,
+            4989,
+            4997
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            627,
+            2079
+          ],
+          "candidateObjectTypeIds": [
+            62253,
+            4989,
+            4997
+          ],
+          "displayName": "Shortcut rock"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 28488,
+          "modelIds": [
+            1374
+          ],
+          "candidateNpcTypeIds": [
+            922,
+            8207
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the western wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3404.5,
+          "heightFine": 2917.0,
+          "y": 2839.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Inside the tomb",
+      "text": "Drop your cat.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "any cat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3504,
+          "modelIds": [],
+          "displayName": "Hellcat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Any cat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Catspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Earmuffs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Face mask",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the western holey wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -6.5,
+          "heightFine": 50.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -6.0,
+          "heightFine": -1920.0,
+          "y": 4.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "always"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Destroy the broken door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -11.0,
+          "heightFine": 400.0,
+          "y": 5.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 31339,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Broken door",
+          "atLocation": {
+            "x": -11.0,
+            "heightFine": 0.0,
+            "y": 5.5
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the wall twice.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -12.5,
+          "heightFine": 650.0,
+          "y": 7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "just ahead of you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -12.5,
+          "heightFine": 650.0,
+          "y": 7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "just ahead of you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 400.0,
+          "y": 16.25,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -14.0,
+          "heightFine": 0.0,
+          "y": 18.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the zombies and skeletons.\u003cul\u003e\u003cli\u003eIt might take a second for the mummy warrior to spawn.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7807,
+          "modelIds": [
+            2661
+          ],
+          "displayName": "Mummy warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the mummy warrior.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7806,
+          "modelIds": [
+            2661
+          ],
+          "displayName": "Mummy warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the ranged path key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 13259,
+          "modelIds": [
+            369
+          ],
+          "displayName": "Ranged path key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13259,
+          "displayName": "Ranged path key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -10.5,
+          "heightFine": 400.0,
+          "y": 25.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -9.0,
+          "heightFine": 0.0,
+          "y": 25.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever on the northern wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 500.0,
+          "y": 25.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the starting room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 400.0,
+          "y": 4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 400.0,
+          "y": 4.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Destroy the broken door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 400.0,
+          "y": 5.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            84
+          ],
+          "displayName": "Destroyed door",
+          "instance": true,
+          "atLocation": {
+            "x": 12.0,
+            "heightFine": 0.0,
+            "y": 5.5
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the wall twice.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 13.5,
+          "heightFine": 650.0,
+          "y": 7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "just ahead of you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 13.5,
+          "heightFine": 650.0,
+          "y": 7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "just ahead of you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 16.0,
+          "heightFine": 400.0,
+          "y": 16.25,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 14.0,
+          "heightFine": 0.0,
+          "y": 18.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the zombies and skeletons.\u003cul\u003e\u003cli\u003eIt might take a second for the mummy warrior to spawn.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7806,
+          "modelIds": [
+            2661
+          ],
+          "displayName": "Mummy warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the mummy warrior.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7806,
+          "modelIds": [
+            2661
+          ],
+          "displayName": "Mummy warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the magic path key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 13260,
+          "modelIds": [
+            360
+          ],
+          "displayName": "Magic path key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13260,
+          "displayName": "Magic path key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 11.5,
+          "heightFine": 400.0,
+          "y": 24.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 10.0,
+          "heightFine": 0.0,
+          "y": 24.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever on the northern wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 500.0,
+          "y": 25.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the starting room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 400.0,
+          "y": 4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 400.0,
+          "y": 4.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip a ghostspeak amulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 552,
+          "displayName": "Ghostspeak amulet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Catolax.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7782,
+          "modelIds": [
+            3117
+          ],
+          "displayName": "Catolax"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Slayer face mask"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use earmuffs on a face mask.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4166,
+          "modelIds": [],
+          "displayName": "Earmuffs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4164,
+          "modelIds": [],
+          "displayName": "Face mask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13277,
+          "displayName": "Masked earmuffs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final fight",
+      "text": "Equip your masked earmuffs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13277,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Masked earmuffs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "itemClicked",
+          "itemId": 504
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 13277,
+          "displayName": "Masked earmuffs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Masked earmuffs",
+          "itemId": 504,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ranged/Magic/Necromancy combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ring of slaying",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Enter the well in the Pollnivneach town centre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.5,
+          "heightFine": 1265.0,
+          "y": 2971.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3358.0,
+          "heightFine": 1669.0,
+          "y": 9354.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a mighty banshee.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7786,
+          "modelIds": [
+            2004
+          ],
+          "displayName": "Mighty banshee"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 13276,
+          "modelIds": [],
+          "displayName": "Banshee voice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13276,
+          "displayName": "Banshee voice",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the banshee voice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 13276,
+          "modelIds": [
+            954
+          ],
+          "displayName": "Banshee voice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13276,
+          "displayName": "Banshee voice",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up your cat/dismiss your follower.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "modelIds": [],
+          "displayName": "any cat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "any cat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the mystic barrier to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 31369,
+          "modelIds": [
+            2205
+          ],
+          "displayName": "Mystic barrier"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "warning": "Do not click on anything while in the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "righteous wrath"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Banshee mistress.\u003cul\u003e\u003cli\u003eShe is weak to bolts.\u003c/li\u003e\u003cli\u003eProtect/deflect ranged when she gets to half health.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Once more"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "warning": "Do not click on anything while in the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Climb out of the well to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 77225,
+          "modelIds": [
+            2007
+          ],
+          "candidateObjectTypeIds": [
+            4681
+          ],
+          "displayName": "Rope and bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3358.5,
+          "heightFine": 1265.0,
+          "y": 2971.5,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sumona.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.0,
+          "heightFine": 965.0,
+          "y": 2993.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7780,
+          "modelIds": [
+            3516
+          ],
+          "displayName": "Sumona"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9054,
+  "stageVarbitCompleteValue": 250,
+  "cacheQuestId": 330
+}

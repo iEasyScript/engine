@@ -1,0 +1,3480 @@
+{
+  "slug": "underground-pass",
+  "name": "Underground Pass",
+  "members": true,
+  "length": "longverylong",
+  "timeline": "heroic",
+  "releaseDate": 1046649600,
+  "neededItems": [
+    {
+      "name": "Ropes",
+      "itemId": 954,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Any shortbow",
+      "itemId": 144,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Any metal arrows (bronze, iron, etc.)",
+      "itemId": 537,
+      "quantity": 10,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket",
+      "itemId": 1925,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Plank",
+      "itemId": 960,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Any agility boost",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Kalrag",
+      "level": "81",
+      "quantity": 1
+    },
+    {
+      "name": "Sir Harry",
+      "level": "81",
+      "quantity": 1
+    },
+    {
+      "name": "Sir Jerro",
+      "level": "81",
+      "quantity": 1
+    },
+    {
+      "name": "Sir Carl",
+      "level": "81",
+      "quantity": 1
+    },
+    {
+      "name": "Doomion",
+      "level": "78",
+      "quantity": 1
+    },
+    {
+      "name": "Othanian",
+      "level": "78",
+      "quantity": 1
+    },
+    {
+      "name": "Holthion",
+      "level": "78",
+      "quantity": 1
+    },
+    {
+      "name": "Disciple of Iban",
+      "level": "44",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Biohazard"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 25,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Go to 1st floor (2nd floor[US]) of Ardougne Castle in East Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 2525.0,
+          "y": 3307.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 2917.0,
+          "y": 3306.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2576.0,
+          "heightFine": 2917.0,
+          "y": 3297.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Lathas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to King Lathas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "won't last long"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting in and across the bridge",
+      "text": "Talk to Koftik in the western most part of West Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2441.0,
+          "heightFine": 693.0,
+          "y": 3315.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [
+            4449
+          ],
+          "displayName": "Koftik",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll take my chances."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "by the bridge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ropes",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Any shortbow",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Any metal arrows (bronze, iron, etc.)",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2437.0,
+          "heightFine": 1153.0,
+          "y": 3315.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2496.0,
+          "heightFine": 2693.0,
+          "y": 9715.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Koftik at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2496.0,
+              "heightFine": 2693.0,
+              "y": 9715.0
+            },
+            {
+              "x": 2490.0,
+              "heightFine": 2109.0,
+              "y": 9717.0
+            },
+            {
+              "x": 2484.0,
+              "heightFine": 1277.0,
+              "y": 9716.0
+            },
+            {
+              "x": 2480.0,
+              "heightFine": 997.0,
+              "y": 9716.0
+            },
+            {
+              "x": 2480.0,
+              "heightFine": 996.0,
+              "y": 9712.0
+            },
+            {
+              "x": 2479.0,
+              "heightFine": 893.0,
+              "y": 9709.0
+            },
+            {
+              "x": 2472.0,
+              "heightFine": 1002.0,
+              "y": 9706.0
+            },
+            {
+              "x": 2470.0,
+              "heightFine": 1213.0,
+              "y": 9706.0
+            },
+            {
+              "x": 2463.0,
+              "heightFine": 831.0,
+              "y": 9706.0
+            },
+            {
+              "x": 2457.0,
+              "heightFine": 957.0,
+              "y": 9711.0
+            },
+            {
+              "x": 2457.0,
+              "heightFine": 1205.0,
+              "y": 9713.0
+            },
+            {
+              "x": 2452.0,
+              "heightFine": 837.0,
+              "y": 9716.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [
+            4449
+          ],
+          "displayName": "Koftik",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1485,
+          "displayName": "Damp cloth",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the damp cloth on whichever arrow you brought.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1485,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Damp cloth"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "Metal arrows"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fire arrow",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light your fire arrows.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Fire arrow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "light the cloth wrapped"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your bow/lit fire arrows, then stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2448.0,
+          "heightFine": 1125.0,
+          "y": 9721.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            39,
+            174
+          ],
+          "candidateItemTypeIds": [
+            47829,
+            47830
+          ],
+          "displayName": "Lit fire arrow"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 841,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Shortbow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2448.0,
+          "heightFine": 1125.0,
+          "y": 9721.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire at the guide rope attached to the bridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2443.25,
+          "heightFine": 909.0,
+          "y": 9718.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "arrow sets the rope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for your character to run across the bridge.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2442.0,
+          "heightFine": 501.0,
+          "y": 9716.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the plank.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 960,
+          "displayName": "Plank",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope on the old spike at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2435.0,
+              "heightFine": 1085.0,
+              "y": 9714.0
+            },
+            {
+              "x": 2434.0,
+              "heightFine": 1052.0,
+              "y": 9708.0
+            },
+            {
+              "x": 2436.0,
+              "heightFine": 933.0,
+              "y": 9702.0
+            },
+            {
+              "x": 2441.0,
+              "heightFine": 869.0,
+              "y": 9699.0
+            },
+            {
+              "x": 2448.0,
+              "heightFine": 803.0,
+              "y": 9698.0
+            },
+            {
+              "x": 2455.0,
+              "heightFine": 613.0,
+              "y": 9698.0
+            },
+            {
+              "x": 2461.0,
+              "heightFine": 1189.0,
+              "y": 9699.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2459.0,
+          "heightFine": 957.0,
+          "y": 9699.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2462.55,
+          "heightFine": 1437.0,
+          "y": 9699.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2467.0,
+          "heightFine": 1285.0,
+          "y": 9699.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2466.0,
+              "heightFine": 1285.0,
+              "y": 9699.0
+            },
+            {
+              "x": 2468.0,
+              "heightFine": 1101.0,
+              "y": 9696.0
+            },
+            {
+              "x": 2474.0,
+              "heightFine": 973.0,
+              "y": 9697.0
+            },
+            {
+              "x": 2477.0,
+              "heightFine": 822.0,
+              "y": 9699.0
+            },
+            {
+              "x": 2482.0,
+              "heightFine": 1197.0,
+              "y": 9701.0
+            },
+            {
+              "x": 2486.0,
+              "heightFine": 1133.0,
+              "y": 9703.0
+            },
+            {
+              "x": 2490.0,
+              "heightFine": 981.0,
+              "y": 9700.0
+            },
+            {
+              "x": 2491.0,
+              "heightFine": 1211.0,
+              "y": 9696.0
+            },
+            {
+              "x": 2491.0,
+              "heightFine": 717.0,
+              "y": 9690.0
+            },
+            {
+              "x": 2490.0,
+              "heightFine": 845.0,
+              "y": 9687.0
+            },
+            {
+              "x": 2487.0,
+              "heightFine": 1061.0,
+              "y": 9679.0
+            },
+            {
+              "x": 2481.0,
+              "heightFine": 837.0,
+              "y": 9679.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2480.0,
+          "heightFine": 837.0,
+          "y": 9679.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Grid puzzle",
+      "text": "Find your path across the grid. Keep a record of the path over the grid for Regicide quest.<ul><li>You can use the table on the wiki to save your path.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2466.0,
+          "heightFine": 837.0,
+          "y": 9674.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2466.0,
+          "heightFine": 837.0,
+          "y": 9677.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2466.0,
+          "heightFine": 837.0,
+          "y": 9680.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2466.0,
+          "heightFine": 837.0,
+          "y": 9681.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever to the south at the end to continue.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2466.0,
+          "heightFine": 837.0,
+          "y": 9672.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "portcullis opens"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lights in the night",
+      "text": "Follow the path. Step on the breaks in the line to avoid traps.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2464.0,
+              "heightFine": 885.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2459.0,
+              "heightFine": 852.0,
+              "y": 9674.0
+            },
+            {
+              "x": 2454.0,
+              "heightFine": 821.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2451.0,
+              "heightFine": 541.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2446.0,
+              "heightFine": 1004.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2444.0,
+              "heightFine": 1069.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2442.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2441.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2439.0,
+              "heightFine": 885.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2436.0,
+              "heightFine": 714.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2434.0,
+              "heightFine": 941.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2433.0,
+              "heightFine": 981.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2431.0,
+              "heightFine": 1053.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2429.0,
+              "heightFine": 997.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2426.0,
+              "heightFine": 965.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2422.0,
+              "heightFine": 1253.0,
+              "y": 9674.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2423.0,
+          "heightFine": 1125.0,
+          "y": 9674.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path, use the plank on the flat rocks.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2418.0,
+              "heightFine": 957.0,
+              "y": 9679.0
+            },
+            {
+              "x": 2418.0,
+              "heightFine": 837.0,
+              "y": 9683.0
+            },
+            {
+              "x": 2418.0,
+              "heightFine": 765.0,
+              "y": 9686.0
+            },
+            {
+              "x": 2416.0,
+              "heightFine": 621.0,
+              "y": 9688.0
+            },
+            {
+              "x": 2416.0,
+              "heightFine": 589.0,
+              "y": 9690.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2416.0,
+          "heightFine": 589.0,
+          "y": 9690.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the orb of light.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1481,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Orb of light",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1481,
+          "displayName": "Orb of light",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return back to the altar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2418.0,
+              "heightFine": 957.0,
+              "y": 9679.0
+            },
+            {
+              "x": 2418.0,
+              "heightFine": 837.0,
+              "y": 9683.0
+            },
+            {
+              "x": 2418.0,
+              "heightFine": 765.0,
+              "y": 9686.0
+            },
+            {
+              "x": 2416.0,
+              "heightFine": 621.0,
+              "y": 9688.0
+            },
+            {
+              "x": 2416.0,
+              "heightFine": 589.0,
+              "y": 9690.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2418.0,
+          "heightFine": 957.0,
+          "y": 9679.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the orb next to the ogres.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2385.0,
+          "heightFine": 1437.0,
+          "y": 9685.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1481,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Orb of light",
+          "distance": 12,
+          "atLocation": {
+            "x": 2385.0,
+            "heightFine": 1437.0,
+            "y": 9685.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1481,
+          "displayName": "Orb of light",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path, use the plank on the flat rocks.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2410.0,
+              "heightFine": 1109.0,
+              "y": 9674.0
+            },
+            {
+              "x": 2407.0,
+              "heightFine": 1165.0,
+              "y": 9674.0
+            },
+            {
+              "x": 2405.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2403.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2402.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2400.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2397.0,
+              "heightFine": 1093.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2395.0,
+              "heightFine": 1093.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2394.0,
+              "heightFine": 1093.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2392.0,
+              "heightFine": 1093.0,
+              "y": 9676.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2391.0,
+          "heightFine": 1061.0,
+          "y": 9676.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the orb of light.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1481,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Orb of light",
+          "atLocation": {
+            "x": 2386.0,
+            "heightFine": 901.0,
+            "y": 9677.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1481,
+          "displayName": "Orb of light",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return back to the altar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2410.0,
+              "heightFine": 1109.0,
+              "y": 9674.0
+            },
+            {
+              "x": 2407.0,
+              "heightFine": 1165.0,
+              "y": 9674.0
+            },
+            {
+              "x": 2405.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2403.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2402.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2400.0,
+              "heightFine": 1093.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2397.0,
+              "heightFine": 1093.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2395.0,
+              "heightFine": 1093.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2394.0,
+              "heightFine": 1093.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2392.0,
+              "heightFine": 1093.0,
+              "y": 9676.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2410.0,
+          "heightFine": 1109.0,
+          "y": 9674.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the flat rock underneath the orb until successful.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2382.0,
+          "heightFine": 597.0,
+          "y": 9668.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Try to disarm it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1481,
+          "displayName": "Orb of light",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the zombie camp (don't forget about disarming the traps).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2451.0,
+              "heightFine": 541.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2446.0,
+              "heightFine": 1004.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2444.0,
+              "heightFine": 1069.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2442.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2441.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2439.0,
+              "heightFine": 885.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2436.0,
+              "heightFine": 714.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2434.0,
+              "heightFine": 941.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2433.0,
+              "heightFine": 981.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2431.0,
+              "heightFine": 1053.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2429.0,
+              "heightFine": 997.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2426.0,
+              "heightFine": 965.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2422.0,
+              "heightFine": 1253.0,
+              "y": 9674.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2451.0,
+          "heightFine": 541.0,
+          "y": 9678.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the 4 orbs on the furnace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2455.0,
+          "heightFine": 1421.0,
+          "y": 9682.75,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1481,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Orb of light"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1481,
+          "displayName": "Orb of light"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the altar.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2451.0,
+              "heightFine": 541.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2446.0,
+              "heightFine": 1004.0,
+              "y": 9678.0
+            },
+            {
+              "x": 2444.0,
+              "heightFine": 1069.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2442.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2441.0,
+              "heightFine": 989.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2439.0,
+              "heightFine": 885.0,
+              "y": 9677.0
+            },
+            {
+              "x": 2436.0,
+              "heightFine": 714.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2434.0,
+              "heightFine": 941.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2433.0,
+              "heightFine": 981.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2431.0,
+              "heightFine": 1053.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2429.0,
+              "heightFine": 997.0,
+              "y": 9676.0
+            },
+            {
+              "x": 2426.0,
+              "heightFine": 965.0,
+              "y": 9675.0
+            },
+            {
+              "x": 2422.0,
+              "heightFine": 1253.0,
+              "y": 9674.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2423.0,
+          "heightFine": 1125.0,
+          "y": 9674.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2416.5,
+          "heightFine": 1609.0,
+          "y": 9674.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2423.0,
+          "heightFine": 1205.0,
+          "y": 9660.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick the lock to the cell.<ul><li>Optional: Search the two stacked crates for food.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2393.0,
+          "heightFine": 1497.0,
+          "y": 9654.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2393.0,
+          "heightFine": 997.0,
+          "y": 9653.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig the mud.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2393.0,
+          "heightFine": 997.0,
+          "y": 9650.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2392.0,
+          "heightFine": 845.0,
+          "y": 9646.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the ledge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2374.0,
+          "heightFine": 861.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2374.0,
+          "heightFine": 901.0,
+          "y": 9638.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2372.0,
+          "heightFine": 237.0,
+          "y": 9642.0,
+          "range": 1
+        }
+      ],
+      "jumpOffset": -2,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reaching the eastern side of the wooden bridge maze.<ul><li>Optional: With 50 Thieving, you can take the shortcut through the cages.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2373.0,
+              "heightFine": 989.0,
+              "y": 9634.0
+            },
+            {
+              "x": 2379.0,
+              "heightFine": 869.0,
+              "y": 9634.0
+            },
+            {
+              "x": 2381.0,
+              "heightFine": 869.0,
+              "y": 9634.0
+            },
+            {
+              "x": 2384.0,
+              "heightFine": 869.0,
+              "y": 9634.0
+            },
+            {
+              "x": 2384.0,
+              "heightFine": 869.0,
+              "y": 9631.0
+            },
+            {
+              "x": 2386.0,
+              "heightFine": 869.0,
+              "y": 9631.0
+            },
+            {
+              "x": 2389.0,
+              "heightFine": 869.0,
+              "y": 9631.0
+            },
+            {
+              "x": 2389.0,
+              "heightFine": 869.0,
+              "y": 9627.0
+            },
+            {
+              "x": 2391.0,
+              "heightFine": 869.0,
+              "y": 9627.0
+            },
+            {
+              "x": 2395.0,
+              "heightFine": 869.0,
+              "y": 9627.0
+            },
+            {
+              "x": 2395.0,
+              "heightFine": 869.0,
+              "y": 9632.0
+            },
+            {
+              "x": 2398.0,
+              "heightFine": 869.0,
+              "y": 9632.0
+            },
+            {
+              "x": 2403.0,
+              "heightFine": 869.0,
+              "y": 9632.0
+            },
+            {
+              "x": 2403.0,
+              "heightFine": 869.0,
+              "y": 9637.0
+            },
+            {
+              "x": 2405.0,
+              "heightFine": 869.0,
+              "y": 9637.0
+            },
+            {
+              "x": 2407.0,
+              "heightFine": 869.0,
+              "y": 9637.0
+            },
+            {
+              "x": 2411.0,
+              "heightFine": 869.0,
+              "y": 9637.0
+            },
+            {
+              "x": 2415.0,
+              "heightFine": 229.0,
+              "y": 9637.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2373.0,
+              "heightFine": 989.0,
+              "y": 9634.0
+            },
+            {
+              "x": 2372.0,
+              "heightFine": 1581.0,
+              "y": 9627.0
+            },
+            {
+              "x": 2374.0,
+              "heightFine": 1509.0,
+              "y": 9624.0
+            },
+            {
+              "x": 2376.0,
+              "heightFine": 1189.0,
+              "y": 9620.0
+            },
+            {
+              "x": 2380.0,
+              "heightFine": 981.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2384.0,
+              "heightFine": 885.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2391.0,
+              "heightFine": 933.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2392.0,
+              "heightFine": 933.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2393.0,
+              "heightFine": 925.0,
+              "y": 9618.0
+            },
+            {
+              "x": 2395.0,
+              "heightFine": 957.0,
+              "y": 9618.0
+            },
+            {
+              "x": 2396.0,
+              "heightFine": 901.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2399.0,
+              "heightFine": 973.0,
+              "y": 9619.0
+            },
+            {
+              "x": 2400.0,
+              "heightFine": 933.0,
+              "y": 9620.0
+            },
+            {
+              "x": 2403.0,
+              "heightFine": 941.0,
+              "y": 9620.0
+            },
+            {
+              "x": 2404.0,
+              "heightFine": 933.0,
+              "y": 9620.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2417.0,
+          "heightFine": 181.0,
+          "y": 9637.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2405.0,
+          "heightFine": 1045.0,
+          "y": 9620.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the obstacle pipe to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2418.0,
+          "heightFine": 1489.0,
+          "y": 9605.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 1245.0,
+          "y": 9605.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Right of passage",
+      "text": "Search the unicorn cage to find a piece of railing.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2397.0,
+          "heightFine": 1465.0,
+          "y": 9604.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1486,
+          "displayName": "Piece of railing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the railing on the boulder south of the unicorn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            276
+          ],
+          "candidateNpcTypeIds": [
+            344,
+            345,
+            346,
+            379,
+            714,
+            845,
+            846,
+            957,
+            2335,
+            2683,
+            22702,
+            30846,
+            31190,
+            31220
+          ],
+          "displayName": "Thats the cutest thing ive ever seen"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1486,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Piece of railing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2372.0,
+          "heightFine": 2629.0,
+          "y": 9594.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the smashed cage to get a unicorn horn.<ul><li>The piece of railing can be dropped.</li></ul>",
+      "warning": "You're a monster...",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2372.0,
+          "heightFine": 1465.0,
+          "y": 9603.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 237,
+          "displayName": "Unicorn horn",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the tunnel north of the cage.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2375.5,
+          "heightFine": 1589.0,
+          "y": 9611.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2371.0,
+          "heightFine": 2349.0,
+          "y": 9666.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Sir Jerro and take his badge.<ul><li>Talk to Sir Jerro first for some free food and potions.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2424.0,
+          "heightFine": 1213.0,
+          "y": 9721.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 988,
+          "modelIds": [
+            5298
+          ],
+          "displayName": "Sir Jerro",
+          "distance": 17
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Paladins badge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Paladins badge",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Sir Carl and take his badge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 989,
+          "modelIds": [
+            5580
+          ],
+          "displayName": "Sir Carl"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Paladins badge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Paladins badge",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Sir Harry and take his badge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 990,
+          "modelIds": [
+            5580
+          ],
+          "displayName": "Sir Harry"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Paladins badge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Paladins badge",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue forward, using your plank on the flat rocks, until you see a well.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2382.0,
+          "heightFine": 1197.0,
+          "y": 9718.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the badges and unicorn horn on the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2373.5,
+          "heightFine": 1049.0,
+          "y": 9718.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Paladins badge"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 237,
+          "modelIds": [
+            162
+          ],
+          "displayName": "Unicorn horn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "came from the skull"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2368.0,
+          "heightFine": 1077.0,
+          "y": 9718.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2173.0,
+          "heightFine": 6413.0,
+          "y": 4725.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Meeting the dwarves",
+      "text": "Run along the eastern path and descend the cave stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2150.0,
+          "heightFine": 6741.0,
+          "y": 4545.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "is that you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Koftik will appear with some brief dialogue.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pray for you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Niloof the dwarf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 994,
+          "modelIds": [
+            5805
+          ],
+          "displayName": "Niloof"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You too"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the stairs to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1449.0,
+          "y": 9793.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2150.0,
+          "heightFine": 6741.0,
+          "y": 4545.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Black cat in the dark",
+      "text": "Follow the path and pick up the witch's cat.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2150.0,
+              "heightFine": 6341.0,
+              "y": 4546.0
+            },
+            {
+              "x": 2158.0,
+              "heightFine": 6429.0,
+              "y": 4546.0
+            },
+            {
+              "x": 2165.0,
+              "heightFine": 6469.0,
+              "y": 4548.0
+            },
+            {
+              "x": 2171.0,
+              "heightFine": 6379.0,
+              "y": 4553.0
+            },
+            {
+              "x": 2173.0,
+              "heightFine": 6533.0,
+              "y": 4561.0
+            },
+            {
+              "x": 2173.0,
+              "heightFine": 6429.0,
+              "y": 4570.0
+            },
+            {
+              "x": 2172.0,
+              "heightFine": 6613.0,
+              "y": 4577.0
+            },
+            {
+              "x": 2170.0,
+              "heightFine": 6725.0,
+              "y": 4582.0
+            },
+            {
+              "x": 2161.0,
+              "heightFine": 6345.0,
+              "y": 4582.0
+            },
+            {
+              "x": 2159.0,
+              "heightFine": 5765.0,
+              "y": 4582.0
+            },
+            {
+              "x": 2156.0,
+              "heightFine": 5701.0,
+              "y": 4582.0
+            },
+            {
+              "x": 2150.0,
+              "heightFine": 5605.0,
+              "y": 4583.0
+            },
+            {
+              "x": 2145.0,
+              "heightFine": 5653.0,
+              "y": 4583.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1575
+          ],
+          "candidateObjectTypeIds": [
+            1312
+          ],
+          "displayName": "Witchs cat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Witchs cat item",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the cat on the door to the witch's house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2157.5,
+          "heightFine": 6013.0,
+          "y": 4566.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "takes the cat inside"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2157.5,
+          "heightFine": 6013.0,
+          "y": 4566.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2156.0,
+          "heightFine": 5413.0,
+          "y": 4566.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest. Progress all dialogue.</li><li>The History of Iban can be dropped.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2157.0,
+          "heightFine": 5813.0,
+          "y": 4564.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1492,
+          "displayName": "Doll of Iban",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ashes to ashes",
+      "text": "Kill Doomion, Othainian, and Holthion west of the witch and take their amulets.<ul><li>You can safespot them from the bridge.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 999,
+          "modelIds": [
+            42378
+          ],
+          "displayName": "Doomion"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            42960
+          ],
+          "candidateObjectTypeIds": [
+            39634,
+            39684
+          ],
+          "displayName": "Othanian"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1000,
+          "modelIds": [
+            42678
+          ],
+          "displayName": "Holthion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Demon necklace",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest north of the middle demon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2136.0,
+          "heightFine": 6965.0,
+          "y": 4577.75,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ibans shadow",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pour Iban's shadow on the doll of Iban.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            114,
+            288
+          ],
+          "displayName": "Ibans shadow"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1492,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Doll of Iban"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "seeps into the cloth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Klank the dwarf downstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2150.0,
+          "heightFine": 6741.0,
+          "y": 4545.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2336.0,
+          "heightFine": 1449.0,
+          "y": 9793.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2325.0,
+          "heightFine": 853.0,
+          "y": 9804.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2323.0,
+          "heightFine": 773.0,
+          "y": 9804.0,
+          "instance": false,
+          "distance": 22
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 995,
+          "modelIds": [
+            7539
+          ],
+          "displayName": "Klank",
+          "distance": 26
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "slap for"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a bucket if you don't have one.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2309.0,
+          "heightFine": 1093.0,
+          "y": 9801.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1925,
+          "displayName": "Bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bucket on the barrel in the smaller house to receive a dwarf brew.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2327.0,
+          "heightFine": 1485.0,
+          "y": 9799.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "fill the bucket"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the dwarf brew on the tomb to the east.<ul><li>Drop the bucket after.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2357.5,
+          "heightFine": 2677.0,
+          "y": 9803.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 31323,
+          "modelIds": [
+            8454
+          ],
+          "displayName": "Tomb",
+          "distance": 16
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1501,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Dwarf brew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "strong alcohol"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the tomb to obtain Iban's ashes.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 31323,
+          "modelIds": [
+            8454
+          ],
+          "displayName": "Tomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ibans ashes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use Iban's ashes on the doll of Iban.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Ibans ashes"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1492,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Doll of Iban"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "ashes into the doll"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run to the furthest north-east corner and kill Kalrag the spider.<ul><li>*IMPORTANT* Upon killing Kalrag, the blessed spiders will begin attacking with range, so quickly enable Deflect/Protect from Ranged and run away from the spiders.</li></ul>",
+      "warning": "Immediately use protect from range after killing Kalrag, then run.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2358.0,
+          "heightFine": 301.0,
+          "y": 9911.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 997,
+          "modelIds": [
+            1824
+          ],
+          "displayName": "Kalrag",
+          "distance": 26
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "poisoned blood"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Caging his dove",
+      "text": "Go to the north-western corner and ascend the stairs to the half-soulless area.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2304.0,
+          "heightFine": 3925.0,
+          "y": 9915.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2113.0,
+          "heightFine": 4.0,
+          "y": 4729.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path to the cage.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2113.0,
+              "heightFine": 6373.0,
+              "y": 4729.0
+            },
+            {
+              "x": 2116.0,
+              "heightFine": 6805.0,
+              "y": 4722.0
+            },
+            {
+              "x": 2116.0,
+              "heightFine": 6780.0,
+              "y": 4712.0
+            },
+            {
+              "x": 2116.0,
+              "heightFine": 6283.0,
+              "y": 4700.0
+            },
+            {
+              "x": 2116.0,
+              "heightFine": 6855.0,
+              "y": 4688.0
+            },
+            {
+              "x": 2117.0,
+              "heightFine": 6821.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 7029.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2123.0,
+              "heightFine": 7141.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2128.0,
+              "heightFine": 7333.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2128.0,
+              "heightFine": 8261.0,
+              "y": 4691.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 8261.0,
+              "y": 4691.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 8773.0,
+              "y": 4697.0
+            },
+            {
+              "x": 2131.0,
+              "heightFine": 8773.0,
+              "y": 4698.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 8197.0,
+              "y": 4698.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 8197.0,
+              "y": 4699.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 8037.0,
+              "y": 4702.0
+            },
+            {
+              "x": 2136.0,
+              "heightFine": 7813.0,
+              "y": 4702.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2137.0,
+          "heightFine": 7813.0,
+          "y": 4702.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip Klank's gauntlets and search the cage to find Iban's dove.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2134.5,
+          "heightFine": 8213.0,
+          "y": 4702.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Klanks gauntlets"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ibans dove",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20809
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Iban's dove on the doll of Iban.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            369
+          ],
+          "candidateItemTypeIds": [
+            20809
+          ],
+          "displayName": "Ibans dove"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1492,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Doll of Iban"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "dove's skeleton into dust"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ultimate demise",
+      "text": "Kill a Disciple of Iban for their robes at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2136.0,
+              "heightFine": 7813.0,
+              "y": 4702.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 8037.0,
+              "y": 4702.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 8197.0,
+              "y": 4699.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 8197.0,
+              "y": 4698.0
+            },
+            {
+              "x": 2131.0,
+              "heightFine": 8773.0,
+              "y": 4698.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 8773.0,
+              "y": 4697.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 8261.0,
+              "y": 4691.0
+            },
+            {
+              "x": 2128.0,
+              "heightFine": 8261.0,
+              "y": 4691.0
+            },
+            {
+              "x": 2128.0,
+              "heightFine": 7333.0,
+              "y": 4687.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 7333.0,
+              "y": 4685.0
+            },
+            {
+              "x": 2131.0,
+              "heightFine": 7077.0,
+              "y": 4685.0
+            },
+            {
+              "x": 2131.0,
+              "heightFine": 7077.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2134.0,
+              "heightFine": 7045.0,
+              "y": 4686.0
+            },
+            {
+              "x": 2134.0,
+              "heightFine": 7077.0,
+              "y": 4689.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 7077.0,
+              "y": 4689.0
+            },
+            {
+              "x": 2140.0,
+              "heightFine": 7077.0,
+              "y": 4685.0
+            },
+            {
+              "x": 2152.0,
+              "heightFine": 7045.0,
+              "y": 4685.0
+            },
+            {
+              "x": 2152.0,
+              "heightFine": 7045.0,
+              "y": 4683.0
+            },
+            {
+              "x": 2153.0,
+              "heightFine": 7069.0,
+              "y": 4683.0
+            },
+            {
+              "x": 2153.0,
+              "heightFine": 6373.0,
+              "y": 4678.0
+            },
+            {
+              "x": 2154.0,
+              "heightFine": 6373.0,
+              "y": 4676.0
+            },
+            {
+              "x": 2160.0,
+              "heightFine": 5893.0,
+              "y": 4676.0
+            },
+            {
+              "x": 2160.0,
+              "heightFine": 5381.0,
+              "y": 4670.0
+            },
+            {
+              "x": 2165.0,
+              "heightFine": 5381.0,
+              "y": 4670.0
+            },
+            {
+              "x": 2165.0,
+              "heightFine": 5381.0,
+              "y": 4667.0
+            },
+            {
+              "x": 2162.0,
+              "heightFine": 5381.0,
+              "y": 4667.0
+            },
+            {
+              "x": 2162.0,
+              "heightFine": 5381.0,
+              "y": 4666.0
+            },
+            {
+              "x": 2162.0,
+              "heightFine": 5381.0,
+              "y": 4662.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1002,
+          "modelIds": [
+            3003
+          ],
+          "displayName": "Disciple of Iban",
+          "priority": "closest",
+          "distance": 26
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 10460,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Zamorak robe top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Zamorak robe bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10460,
+          "displayName": "Zamorak robe top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 10460,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Zamorak robe top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Zamorak robe bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Zamorak robe bottom",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Un-equip everything and equip the robes.<ul><li>You don't need planks or rope anymore.</li><li>If you don't have 3 free backpack spaces you will miss out on 15 death runes and 30 fire runes because you will instantly be teleported away after Iban is destroyed.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10460,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Zamorak robe top"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Zamorak robe bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 10460,
+          "displayName": "Zamorak robe top"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10460,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Zamorak robe top"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Zamorak robe bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Zamorak robe bottom"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door at the end of the path.<ul><li>Low level players should try to time the magical spikes to prevent being hit.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2161.0,
+              "heightFine": 5381.0,
+              "y": 4660.0
+            },
+            {
+              "x": 2161.0,
+              "heightFine": 5157.0,
+              "y": 4657.0
+            },
+            {
+              "x": 2161.0,
+              "heightFine": 5093.0,
+              "y": 4653.0
+            },
+            {
+              "x": 2159.0,
+              "heightFine": 5093.0,
+              "y": 4653.0
+            },
+            {
+              "x": 2159.0,
+              "heightFine": 5093.0,
+              "y": 4649.0
+            },
+            {
+              "x": 2153.0,
+              "heightFine": 5093.0,
+              "y": 4649.0
+            },
+            {
+              "x": 2150.0,
+              "heightFine": 5733.0,
+              "y": 4648.0
+            },
+            {
+              "x": 2146.0,
+              "heightFine": 6373.0,
+              "y": 4648.0
+            },
+            {
+              "x": 2145.0,
+              "heightFine": 6373.0,
+              "y": 4648.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "open the large doors"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the doll on the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2136.5,
+          "heightFine": 6873.0,
+          "y": 4647.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1492,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Doll of Iban"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "thrown from the temple"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Koftik at the west end of the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2443.0,
+          "heightFine": 4757.0,
+          "y": 9607.0,
+          "instance": false,
+          "distance": 24
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 973,
+          "modelIds": [
+            4449
+          ],
+          "displayName": "Koftik",
+          "distance": 25
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "and back to the cave entrance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Exit the Underground Pass.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2498.0,
+          "heightFine": 3093.0,
+          "y": 9715.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2439.0,
+          "heightFine": 637.0,
+          "y": 3315.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to King Lathas in Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 2525.0,
+          "y": 3307.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 2917.0,
+          "y": 3306.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2576.0,
+          "heightFine": 2917.0,
+          "y": 3297.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2426,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 270
+}

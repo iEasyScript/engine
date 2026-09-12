@@ -1,0 +1,1362 @@
+{
+  "slug": "a-fairy-tale-ii",
+  "name": "A Fairy Tale II - Cure a Queen",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1152576000,
+  "neededItems": [
+    {
+      "name": "Dramen/lunar staff",
+      "itemId": 772,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Vial of water",
+      "itemId": 227,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Gorak",
+      "level": "74",
+      "quantity": 2
+    }
+  ],
+  "prereqQuests": [
+    "A Fairy Tale I - Growing Pains"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Farming",
+      "level": 49,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 57,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 40,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Martin the Master Gardener in the Draynor Market.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1301.0,
+          "y": 3253.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about farming problems and fairies."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dramen/lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait 5 minutes, then talk to Martin again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about farming problems and fairies."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "problem is then"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Spirited away",
+      "text": "Equip your dramen/lunar staff and head to the Lumbridge Swamp to enter the Lost City shed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3201.5,
+          "heightFine": 1045.0,
+          "y": 3169.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2452.0,
+          "heightFine": 589.0,
+          "y": 4473.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Fairy Nuff's cottage, north of the Zanaris bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2387.0,
+          "heightFine": 1149.0,
+          "y": 4469.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "trashed this house"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up Nuff's healing certificate. Keep this in your inventory throughout the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12064,
+          "modelIds": [
+            360
+          ],
+          "displayName": "Healing certificate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9025,
+          "displayName": "Nuff's certificate",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click Study Nuff's certificate.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9025,
+          "modelIds": [],
+          "displayName": "Nuff's certificate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the rune temple sign on the ground, south of the cosmic altar.<ul><li>You may use a wicked hood to teleport to the cosmic altar.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2409.0,
+          "heightFine": 629.0,
+          "y": 4369.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 22332,
+          "modelIds": [],
+          "displayName": "Wicked hood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2409.0,
+          "heightFine": 629.0,
+          "y": 4370.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 2408.0,
+          "heightFine": 549.0,
+          "y": 4369.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 2409.0,
+          "heightFine": 629.0,
+          "y": 4369.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fairy Godfather (located in the Throne Room) about the Queen's disappearance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2447.0,
+          "heightFine": 645.0,
+          "y": 4426.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3304,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4433,
+            11323,
+            11324,
+            11325,
+            11326,
+            11327,
+            11328,
+            11346,
+            11347
+          ],
+          "displayName": "Fairy Godfather",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where is the Fairy Queen?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any idea who could have done this?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, okay."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "da fairyreengs work"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Co-ordinator just north of the throne room at the crossroads.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2451.0,
+          "heightFine": 933.0,
+          "y": 4450.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1416
+          ],
+          "candidateObjectTypeIds": [
+            62163
+          ],
+          "displayName": "Co ordinator",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The fairy rings."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "left to do it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Resistance hideout",
+      "text": "Talk to Fairy Fixit near the fairy ring, south-west of the wheat field.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 941.0,
+          "y": 4433.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4455,
+          "modelIds": [],
+          "displayName": "Fairy Fixit",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get hold of it seems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dramen/lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Nuff's certificate",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your dramen/lunar staff, click on the fairy ring, and teleport to the following codes (in this order):<br/><br/><b>AIR</b>.",
+      "warning": "Nuff's certificate must be in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<b>DLR</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2213.0,
+          "heightFine": 445.0,
+          "y": 3099.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<b>DJQ</b>. You'll appear in Zanaris. This is intended.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 0
+        },
+        {
+          "t": "conversationText",
+          "text": "useful"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<b>AJS</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Nuff to the north-east. Don't click away during the pause in the conversation.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2279.0,
+          "heightFine": 1101.0,
+          "y": 4456.0,
+          "instance": false,
+          "distance": 18
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3303,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4434
+          ],
+          "displayName": "Fairy Nuff",
+          "distance": 22
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "watching out for him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Zanaris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket the Fairy Godfather.<ul><li>The Fairy Godfather, Fat Rocco and Slim Louie need to be looking away from you when you pickpocket.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2447.0,
+          "heightFine": 645.0,
+          "y": 4426.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3304,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4433,
+            11323,
+            11324,
+            11325,
+            11326,
+            11327,
+            11328,
+            11346,
+            11347
+          ],
+          "displayName": "Fairy Godfather",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7410,
+          "displayName": "Queen's secateurs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Resistance Hideout by selecting the 'Fairy Resistance HQ' option in the Fairy Ring.",
+      "warning": "Nuff's certificate must be in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2213.0,
+          "heightFine": 445.0,
+          "y": 3099.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 0
+        },
+        {
+          "t": "conversationText",
+          "text": "useful"
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Nuff.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2279.0,
+          "heightFine": 1101.0,
+          "y": 4456.0,
+          "instance": false,
+          "distance": 18
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3303,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4434
+          ],
+          "displayName": "Fairy Nuff",
+          "distance": 22
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "been asleep too long"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3303,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4434
+          ],
+          "displayName": "Fairy Nuff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Magic essence",
+      "text": "Travel to the Cosmic Entity plane using <b>CKP</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2075.0,
+          "heightFine": 2365.0,
+          "y": 4848.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Vial of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Nuff's certificate",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick the star flower near the fairy ring (may take 1-2 minutes to spawn).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1506
+          ],
+          "candidateObjectTypeIds": [
+            62575
+          ],
+          "displayName": "Grown star flower",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9017,
+          "displayName": "Star flower",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the star flower on a vial of water.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 227,
+          "modelIds": [],
+          "displayName": "Vial of water"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9017,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Star flower"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Magic essence unf",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Zanaris to bank. Otherwise, skip to the next step.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2075.0,
+          "heightFine": 2397.0,
+          "y": 4848.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gear to fight, then travel to the Gorak plane using <b>DIR</b>.<ul><li>The Goraks wont attack you until you move off of the fairy ring.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4418,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Gorak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Goraks until you receive Gorak claws.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4418,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Gorak",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9016,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Gorak claws"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9016,
+          "displayName": "Gorak claws",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the Gorak claws.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9016,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Gorak claws"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9018,
+          "displayName": "Gorak claw powder",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Gorak claw powder on the Magic essence (unf)",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9018,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Gorak claw powder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Magic essence unf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Magic essence",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Zanaris.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        },
+        {
+          "t": "direction",
+          "x": 3038.0,
+          "heightFine": 1997.0,
+          "y": 5348.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Resistance Hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2700.0,
+          "heightFine": 341.0,
+          "y": 3247.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2213.0,
+          "heightFine": 445.0,
+          "y": 3099.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 0
+        },
+        {
+          "t": "conversationText",
+          "text": "useful"
+        },
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2254.0,
+          "heightFine": 965.0,
+          "y": 4426.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Nuff.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2279.0,
+          "heightFine": 1101.0,
+          "y": 4456.0,
+          "instance": false,
+          "distance": 18
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3303,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4434
+          ],
+          "displayName": "Fairy Nuff",
+          "distance": 22
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "give it to"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click Use the Magic essence on the Queen, laying on the stretcher near Fairy Nuff.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            999
+          ],
+          "candidateObjectTypeIds": [
+            814,
+            2329,
+            3125,
+            4262,
+            5033,
+            5236,
+            5237,
+            5611,
+            5612,
+            5828,
+            5882,
+            6248,
+            7381,
+            9539,
+            9589,
+            10714,
+            11598,
+            12430,
+            13856,
+            13857,
+            16004,
+            17102,
+            18199,
+            20366,
+            23053,
+            23849,
+            25261,
+            25796,
+            27213,
+            29101,
+            33806,
+            34146,
+            34148,
+            37145,
+            40130,
+            40775,
+            42465,
+            43090,
+            72587,
+            102556,
+            102557
+          ],
+          "displayName": "Sleeping fairy queen"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Magic essence"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what happened"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fairy Queen.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12056,
+  "stageVarbitCompleteValue": 90,
+  "cacheQuestId": 309
+}

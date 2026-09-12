@@ -1,0 +1,1057 @@
+{
+  "slug": "fur-n-seek",
+  "name": "Fur 'n Seek",
+  "members": true,
+  "length": "medium",
+  "timeline": "adventurer",
+  "releaseDate": 1249862400,
+  "neededItems": [
+    {
+      "name": "Logs (any)",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": false
+    },
+    {
+      "name": "Bag of salt",
+      "itemId": 4161,
+      "quantity": 9,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Mirror Shield",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Rag and Bone Man"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the Odd Old Man in Silvarea.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3364.0,
+          "heightFine": 2485.0,
+          "y": 3503.0,
+          "instance": false,
+          "distance": 15
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man",
+          "distance": 15
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish talking to the odd old man.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Off I go then"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining the furs",
+      "text": "Lodestone teleport to the Fremennik Province.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2710.0,
+          "heightFine": 573.0,
+          "y": 3664.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 133,
+          "modelIds": [
+            49074
+          ],
+          "displayName": "Black unicorn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a black unicorn (adult, not a foal) and pick up the hide it drops.",
+      "warning": "The plugin highlights also the foals, ensure you kill an adult (called Black Unicorn)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 133,
+          "modelIds": [
+            49074
+          ],
+          "displayName": "Black unicorn",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Black hide"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Black hide"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Black hide",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south, kill an adult bear and pick up the pelt it drops.",
+      "warning": "The plugin does not detect when the bear drops the pelt, pick up the pelt to continue the quest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2719.0,
+          "heightFine": 973.0,
+          "y": 3645.0,
+          "instance": false,
+          "distance": 30
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112411,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Bear",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15199,
+          "displayName": "Bear pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south east, kill a normal adult unicorn and pick up the hide it drops.",
+      "warning": "The plugin highlights also the foals, ensure you kill an adult (called Unicorn).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2738.0,
+          "heightFine": 837.0,
+          "y": 3619.0,
+          "instance": false,
+          "distance": 30
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 89,
+          "modelIds": [
+            49122
+          ],
+          "displayName": "Unicorn",
+          "priority": "closest",
+          "distance": 30
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            381
+          ],
+          "displayName": "Hide"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            381
+          ],
+          "displayName": "Hide"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hide",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Fremennik slayer dungeon",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2797.0,
+          "heightFine": 1605.0,
+          "y": 3615.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2808.0,
+          "heightFine": 853.0,
+          "y": 10002.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a cave crawler and pick up the skin it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4134,
+          "modelIds": [
+            4242
+          ],
+          "displayName": "Cave crawler",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            750
+          ],
+          "candidateObjectTypeIds": [
+            61835
+          ],
+          "displayName": "Cave skin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            750
+          ],
+          "candidateObjectTypeIds": [
+            61835
+          ],
+          "displayName": "Cave skin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cave skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue through the dungeon, kill a Cockatrice (mirror shield recommended), and pick up the skin it drops.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2793.0,
+          "heightFine": 733.0,
+          "y": 10033.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4137,
+          "modelIds": [
+            2664
+          ],
+          "displayName": "Cockatrice",
+          "priority": "closest",
+          "distance": 15
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 15208,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Cockatrice skin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 15208,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Cockatrice skin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15208,
+          "displayName": "Cockatrice skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport back to the lodestone, walk south of the city and kill a fox for its pelt.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 1005.0,
+          "y": 3618.0,
+          "instance": false,
+          "distance": 30
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 5608,
+          "modelIds": [
+            1539
+          ],
+          "displayName": "Fox",
+          "priority": "closest",
+          "distance": 30
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 15190,
+          "modelIds": [
+            990
+          ],
+          "displayName": "Fox pelt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 15190,
+          "modelIds": [
+            990
+          ],
+          "displayName": "Fox pelt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15190,
+          "displayName": "Fox pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a Fenris wolf for its pelt.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2640
+          ],
+          "displayName": "Fenris",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            987
+          ],
+          "candidateObjectTypeIds": [
+            4628
+          ],
+          "displayName": "Fenris pelt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            987
+          ],
+          "candidateObjectTypeIds": [
+            4628
+          ],
+          "displayName": "Fenris pelt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fenris pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north into the city of Relekka and kill a Hobgoblin for its skin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2684.0,
+          "heightFine": 1253.0,
+          "y": 3725.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 13368,
+          "modelIds": [
+            4668
+          ],
+          "displayName": "Hobgoblin",
+          "priority": "closest",
+          "distance": 15
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            810
+          ],
+          "candidateObjectTypeIds": [
+            3319
+          ],
+          "displayName": "Hob skin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            810
+          ],
+          "candidateObjectTypeIds": [
+            3319
+          ],
+          "displayName": "Hob skin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hob skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a Rock crab for its carcass",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1265,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Rock crab",
+          "priority": "closest",
+          "distance": 15
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            603
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Rock carcass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            603
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Rock carcass"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Rock carcass",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Use a bag of salt on each of the hides.",
+      "warning": "The scrubbing of the bear pelt, rock carcass and cave crawler skins cannot be tracked.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed black hide",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Black unicorn hide",
+          "itemId": 384,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Unicorn hide",
+          "itemId": 381,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bear pelt",
+          "itemId": 384,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cave crawler skin",
+          "itemId": 750,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cockatrice skin",
+          "itemId": 312,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fox pelt",
+          "itemId": 990,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fenris wolf pelt",
+          "itemId": 987,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hobgoblin skin",
+          "itemId": 810,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rock crab carcass",
+          "itemId": 603,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs (any)",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed rock carcass",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15200,
+          "displayName": "Scrubbed bear pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed hide",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed cave skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15209,
+          "displayName": "Scrubbed cockatrice skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15191,
+          "displayName": "Scrubbed fox pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed fenris pelt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4161,
+          "modelIds": [],
+          "displayName": "Bag of salt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scrubbed hob skin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Odd Old Man's house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3364.0,
+          "heightFine": 2485.0,
+          "y": 3503.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3364.0,
+          "heightFine": 2485.0,
+          "y": 3503.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the north-east and click on the fire pit.<ul><li> Do not walk away after clicking - it will process all furs automatically.</li></ul>",
+      "warning": "No automatic detection for the next step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8216,
+          "modelIds": [
+            1422
+          ],
+          "displayName": "Firepit"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Odd Old Man.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9902,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 33
+}

@@ -1,0 +1,2061 @@
+{
+  "slug": "murder-on-the-border",
+  "name": "Murder on the Border",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1679270400,
+  "neededItems": [
+    {
+      "name": "Willow frames",
+      "itemId": -1,
+      "quantity": 12,
+      "duringQuest": false
+    },
+    {
+      "name": "Stone wall segments",
+      "itemId": -1,
+      "quantity": 6,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Assassin",
+      "level": "Scaled",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "New Foundations"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 20,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to Aster in the Town Hall at Fort Forinthry.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3302.0,
+          "heightFine": 1221.0,
+          "y": 3571.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Murder on the Border'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Aster.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3302.0,
+          "heightFine": 1221.0,
+          "y": 3571.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll speak to Bill then. He should be at the workshop, as usual."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building the kitchen",
+      "text": "Talk to Bill about building the Kitchen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Murder on the Border'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks Bill."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Willow frame",
+          "itemId": -1,
+          "quantity": 12,
+          "duringQuest": false
+        },
+        {
+          "name": "Stone wall segment",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the Kitchen.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You've advanced your building!"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            27444
+          ],
+          "candidateObjectTypeIds": [
+            26091
+          ],
+          "displayName": "Kitchen wall"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The banquet",
+      "text": "Talk to Aster.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3302.0,
+          "heightFine": 1221.0,
+          "y": 3571.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Murder on the Border'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Meet me by the front gates when you are ready to greet our guests."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the light blue portal south of the well to start the cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.5,
+          "heightFine": 485.0,
+          "y": 3541.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We are all prepared to start the banquet, your grace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene and welcome the guests as they arrive.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "To put it plainly, don't mess it up!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Duke Hoarse.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        },
+        {
+          "t": "direction",
+          "x": 6.0,
+          "heightFine": 752.0,
+          "y": 24.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29930,
+          "modelIds": [
+            12843
+          ],
+          "displayName": "Duke Hoarse",
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Groups spoken to: 1/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rodney.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -6.0,
+          "heightFine": 752.0,
+          "y": 27.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [
+            20916
+          ],
+          "displayName": "Rodney",
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Groups spoken to: 2/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs and talk to Bianca.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8258,
+          "modelIds": [
+            5796
+          ],
+          "displayName": "Spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29929,
+          "modelIds": [
+            4719
+          ],
+          "displayName": "Bianca"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29929,
+          "modelIds": [
+            4719
+          ],
+          "displayName": "Bianca",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Groups spoken to: 3/3"
+        },
+        {
+          "t": "conversationText",
+          "text": "I should speak to Aster."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aster in the central room on ground floor (1st floor[US]).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8271
+          ],
+          "displayName": "First floor spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -8.0,
+          "heightFine": 752.0,
+          "y": 25.0,
+          "range": 3,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, let's start the feast."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you for inviting us to this fine fort of yours"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Converse with the guests during the feast cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It would appear my many years of experience analysing mystery novels may be put to practical use."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once the cutscene is completed, continue the conversation with Aster to obtain a mystery journal.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's get to work."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Investigating the murder - Part 1",
+      "text": "(1/8) Go back to the Kitchen and investigate the nut roast located on a table in the southeast corner of the room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125284,
+          "modelIds": [
+            1098
+          ],
+          "displayName": "Nut roast",
+          "instance": true,
+          "distance": 5
+        },
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 720.0,
+          "y": 25.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 1/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(2/8) Investigate the strange satchel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125286,
+          "modelIds": [
+            1350
+          ],
+          "displayName": "Strange satchel",
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": -13.0,
+          "heightFine": 480.0,
+          "y": 28.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 2/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(3/8) Talk to Simon outside of the Town Hall and Link 'How to Poison Dummies for Dummies'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1786,
+          "modelIds": [
+            15480
+          ],
+          "displayName": "Simon",
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 720.0,
+          "y": 18.0,
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Simon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 3/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(4/8) Investigate the half-buried box in the northeastern corner of the fort.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1845
+          ],
+          "displayName": "Half buried box",
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "direction",
+          "x": 25.0,
+          "heightFine": 168.0,
+          "y": 29.0,
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 4/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the strange satchel again and take a poison detection potion (base).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125286,
+          "modelIds": [
+            1350
+          ],
+          "displayName": "Strange satchel",
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": -13.0,
+          "heightFine": 480.0,
+          "y": 28.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take a vial."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Poison detection base",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the supply cupboard in the Kitchen and take a hollyhock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125209,
+          "modelIds": [
+            1260
+          ],
+          "displayName": "Supply cupboard",
+          "instance": true,
+          "distance": 4
+        },
+        {
+          "t": "direction",
+          "x": 11.0,
+          "heightFine": 720.0,
+          "y": 25.0,
+          "instance": true,
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take hollyhock. "
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take hollyhock."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54581,
+          "displayName": "Hollyhock",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the hollyhock on the vial to create an unheated poison detection potion (hollyhock).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54581,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Hollyhock"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Poison detection base"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54581,
+          "displayName": "Hollyhock"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Heat the vial on the range.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Unheated poison detection"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2728,
+          "modelIds": [
+            3204
+          ],
+          "displayName": "Range"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You heat the potion on the range while stirring the contents vigorously."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Poison detection potion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(5/8) <i>Use</i> the poison detection potion (hollyhock) on the duke's meal (meat pâté) on the dining table.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1038
+          ],
+          "candidateObjectTypeIds": [
+            951
+          ],
+          "displayName": "Dukes meal",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Poison detection potion"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Use it on the duke's meat pâté. "
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Use it on the duke's meat pâté."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 5/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(6/8) Talk to King Roald in the Chapel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            13440
+          ],
+          "candidateObjectTypeIds": [
+            49030,
+            49063,
+            60100
+          ],
+          "displayName": "Roald",
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 25.0,
+          "heightFine": 144.0,
+          "y": 20.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to King Roald."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Did you notice anything suspicious?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 6/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(7/8) Go to the Command Centre and speak to Duchess Alba, and Link the 'Nut Roast'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29939,
+          "modelIds": [
+            14217
+          ],
+          "displayName": "Duchess Alba",
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 13.0,
+          "heightFine": 80.0,
+          "y": -5.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Duchess Alba"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Linked clue: 7/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(8/8) Talk to Bianca outside the chapel, and Link the 'Stolen Jewellery'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29929,
+          "modelIds": [
+            4719
+          ],
+          "displayName": "Bianca",
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "direction",
+          "x": 16.0,
+          "heightFine": 128.0,
+          "y": 14.0,
+          "instance": true,
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Bianca."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's unacceptable."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 8/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Part 2",
+      "text": "Ascend to the top floor of the Town Hall and talk to Aster.<ul><li>For tracking to work properly, please clear your chat.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8258,
+          "modelIds": [
+            5796
+          ],
+          "displayName": "Spiral staircase",
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "direction",
+          "x": -8.0,
+          "heightFine": 752.0,
+          "y": 23.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -7.0,
+          "heightFine": 2416.0,
+          "y": 24.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8271
+          ],
+          "displayName": "First floor spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -7.0,
+          "heightFine": 3920.0,
+          "y": 24.0,
+          "range": 4,
+          "instance": true
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": -7.0,
+          "heightFine": 6480.0,
+          "y": 24.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8271
+          ],
+          "displayName": "Second floor spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -7.0,
+          "heightFine": 6480.0,
+          "y": 24.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Watch out!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat the assassin, then talk to Aster.<ul><li>If you die, Princess will kill the assassin for you.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We should inspect the assassin's body for evidence."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the assassin's body for an assassin's letter.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            12024
+          ],
+          "candidateObjectTypeIds": [
+            12171
+          ],
+          "displayName": "Dead assassin",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We should check on the guests."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click 'Bottom floor' on the trapdoor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2316
+          ],
+          "candidateObjectTypeIds": [
+            2496,
+            17014,
+            32592
+          ],
+          "displayName": "Roof trap door",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -7.0,
+          "heightFine": 752.0,
+          "y": 25.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(1/8) Speak with King Roald outside by the well.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            13440
+          ],
+          "candidateObjectTypeIds": [
+            49030,
+            49063,
+            60100
+          ],
+          "displayName": "Roald",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the assassin."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I, for one, will be in the command centre, enjoying what little peace I can."
+        },
+        {
+          "t": "chatText",
+          "text": "Found clue: 1/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(2/8) Investigate the wax seal outside the northwestern corner of the Chapel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125288,
+          "modelIds": [
+            531
+          ],
+          "displayName": "Wax seal",
+          "instance": true,
+          "distance": 4
+        },
+        {
+          "t": "direction",
+          "x": 18.0,
+          "heightFine": 360.0,
+          "y": 25.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We need to find out who has been receiving letters in private."
+        },
+        {
+          "t": "chatText",
+          "text": "Found clue: 2/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(3/8) Speak to Iris in the Workshop and Link the 'Strange Seal' to obtain the amulet of spanielspeak clue.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -25.0,
+          "heightFine": 144.0,
+          "y": 11.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 54029,
+          "modelIds": [
+            3960
+          ],
+          "displayName": "Iris",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Iris."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think she really is this dense."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Linked clue: 3/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(4/8) In the Town Hall, investigate the burnt parchment on the floor near the fireplace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 752.0,
+          "y": 29.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125290,
+          "modelIds": [
+            348
+          ],
+          "displayName": "Burnt parchment",
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 4/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess, the dog, just east of the stonecutter outside the Workshop and Link the 'Amulet of Spanielspeak'.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 48.0,
+          "y": 8.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Princess."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the way"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the northwestern corner of the fort next to the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -27.0,
+          "heightFine": 144.0,
+          "y": 25.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -27.0,
+          "heightFine": 144.0,
+          "y": 25.0,
+          "range": 3,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Princess.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            759
+          ],
+          "candidateObjectTypeIds": [
+            61831,
+            61832,
+            66729,
+            66730
+          ],
+          "displayName": "Misc items"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the miscellaneous items that appear.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            759
+          ],
+          "candidateObjectTypeIds": [
+            61831,
+            61832,
+            66729,
+            66730
+          ],
+          "displayName": "Misc items",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "More suspicious things over there. Come, come!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand near Queen Ellamaria outside by the well, then speak to Princess again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5.0,
+          "heightFine": -32.0,
+          "y": 8.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5.0,
+          "heightFine": -32.0,
+          "y": 8.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "One more thing hidden. Come with me, come!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand at the altar in the chapel, then speak to Princess once again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 27.0,
+          "heightFine": 144.0,
+          "y": 20.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "instance": true,
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 27.0,
+          "heightFine": 144.0,
+          "y": 20.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2610
+          ],
+          "displayName": "Hidden cache"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(5/8) Investigate the unearthed coffer (which may be underneath Aster, Princess, or your character).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2610
+          ],
+          "displayName": "Hidden cache",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 5/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(6/8) Talk to Duchess Alba in the Command Centre.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29939,
+          "modelIds": [
+            14217
+          ],
+          "displayName": "Duchess Alba",
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 13.0,
+          "heightFine": 80.0,
+          "y": -5.0,
+          "instance": true,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Duchess Alba."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's your beef with King Roald?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm so sorry to hear that."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 6/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rodney outside the Workshop and ask about Ellamaria.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [
+            20916
+          ],
+          "displayName": "Rodney",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": -18.0,
+          "heightFine": 18.0,
+          "y": 20.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Rodney."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Ellamaria."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's all for now"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We should ask her about it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(7/8) Speak to Queen Ellamaria outside by the well and ask about being friends with Bianca.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2581,
+          "modelIds": [
+            19344
+          ],
+          "displayName": "Ellamaria",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 5.0,
+          "heightFine": -32.0,
+          "y": 8.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Ellamaria."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I heard you were once friends with Bianca."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 7/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "(8/8) Speak to Rodney again and Link the 'Scorched Will', and finish speaking with Aster.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [
+            20916
+          ],
+          "displayName": "Rodney",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": -18.0,
+          "heightFine": 18.0,
+          "y": 20.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Link a clue to Rodney."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Found clue: 8/8."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aster in the courtyard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We are eager to hear the result"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Identify the murderer as Bianca (5).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Simon left it there himself."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They wanted his wealth."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It was an excuse to protect you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Zamorakians offered them power."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "She broke the law and needs to pay the price."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Get her out of my sight."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to King Roald.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            13440
+          ],
+          "candidateObjectTypeIds": [
+            49030,
+            49063,
+            60100
+          ],
+          "displayName": "Roald",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "End the banquet."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aster takes two weeks' leave following the events of the banquet, to reflect on all that transpired."
+        },
+        {
+          "t": "distanceTo",
+          "x": 3302.0,
+          "heightFine": 1221.0,
+          "y": 3570.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aster in the Town Hall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Murder on the Border'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask how Aster is feeling."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Rodney? I wasn't expecting that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rodney in the Kitchen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [
+            20916
+          ],
+          "displayName": "Rodney"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 52689,
+  "stageVarbitCompleteValue": 195,
+  "cacheQuestId": 490
+}

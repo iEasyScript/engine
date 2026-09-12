@@ -1,0 +1,1641 @@
+{
+  "slug": "big-chompy-bird-hunting",
+  "name": "Big Chompy Bird Hunting",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1084838400,
+  "neededItems": [
+    {
+      "name": "Feathers",
+      "itemId": 314,
+      "quantity": 25,
+      "duringQuest": true
+    },
+    {
+      "name": "Wolf bones",
+      "itemId": 504,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Achey tree logs",
+      "itemId": 594,
+      "quantity": 6,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ring of dueling",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dramen staff",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ranged combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Chomby bird",
+      "level": "2",
+      "quantity": 1
+    },
+    {
+      "name": "Wolves",
+      "level": "11",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Fletching",
+      "level": 5,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Rantz east of Feldip Hills.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I make the 'stabbers'?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Rantz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll make you some 'stabbers'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "from dog bones"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fletching some arrows",
+      "text": "Chop down achey trees for 6 achey logs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2023,
+          "modelIds": [
+            2808
+          ],
+          "displayName": "Achey Tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Achey logs",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft ogre arrow shafts from the logs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            594
+          ],
+          "displayName": "Achey logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2864,
+          "displayName": "Ogre arrow shaft",
+          "quantity": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Rantz's cave to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2647.0,
+          "heightFine": 1133.0,
+          "y": 9378.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 314,
+          "displayName": "Feather",
+          "quantity": 25
+        }
+      ],
+      "jumpOffset": 3,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy 25 feathers from Fycie.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1011,
+          "modelIds": [
+            2886
+          ],
+          "displayName": "Fycie"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll give you 50 bright pretties."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 314,
+          "displayName": "Feather",
+          "quantity": 25
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1849.0,
+          "y": 9376.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2629.0,
+          "heightFine": 1453.0,
+          "y": 2997.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use feathers on the ogre arrow shafts.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 314,
+          "modelIds": [],
+          "displayName": "Feather"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2864,
+          "modelIds": [
+            270
+          ],
+          "displayName": "Ogre arrow shaft"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2865,
+          "displayName": "Flighted ogre arrow",
+          "quantity": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 6 wolves south-west of Rantz for their bones.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Wolves",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2859,
+          "displayName": "Wolf bones",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft wolf bone arrowheads from the wolf bones. ",
+      "warning": "Be careful not to bury the bones.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2859,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Wolf bones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2861,
+          "displayName": "Wolf bone arrowheads",
+          "quantity": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the wolf bone arrowheads on the shafts.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2861,
+          "modelIds": [
+            270
+          ],
+          "displayName": "Wolf bone arrowheads"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2865,
+          "modelIds": [
+            510
+          ],
+          "displayName": "Flighted ogre arrow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2866,
+          "displayName": "Ogre arrow",
+          "quantity": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ogre arrows on Rantz.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2866,
+          "modelIds": [
+            537
+          ],
+          "displayName": "Ogre arrow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now us can stick der"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bloated toads",
+      "text": "Ask Rantz all possible questions.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do we make the chompys come?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "times making fatsy toadies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are 'fatsy toadies'?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "big and round"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where do we put the fatsy toadies?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no tree's place"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you mean 'sneaky..sneaky, stick da chompy?'"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "can eat da chompy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Rantz's cave to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2647.0,
+          "heightFine": 1133.0,
+          "y": 9378.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "'Unlock' the locked ogre chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3377,
+          "modelIds": [
+            1254
+          ],
+          "displayName": "Locked Ogre chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "rock off the chest"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 3378,
+          "modelIds": [
+            1332
+          ],
+          "displayName": "Unlocked Ogre chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3378,
+          "modelIds": [
+            1332
+          ],
+          "displayName": "Unlocked Ogre chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2871,
+          "displayName": "Ogre bellows",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1849.0,
+          "y": 9376.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2629.0,
+          "heightFine": 1453.0,
+          "y": 2997.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fill the bellows.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2601.0,
+          "heightFine": 45.0,
+          "y": 2967.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Filled ogre bellows",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bloat 3 nearby swamp toads.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2150,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Swamp toad",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2875,
+          "displayName": "Bloated toad",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Hunting",
+      "text": "Talk to Rantz.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "clearing to the south"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop a toad on the highlighted tile.<ul><li>Drop more if a chompy bird doesn't appear.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 853.0,
+          "y": 2966.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2875,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Bloated toad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2875,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Bloated toad",
+          "atLocation": {
+            "x": 2636.0,
+            "heightFine": 853.0,
+            "y": 2966.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for a chompy bird to appear.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1016,
+          "modelIds": [
+            1512
+          ],
+          "displayName": "Chompy bird"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rantz.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "arrows are rubbish"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rantz again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Come on, let me have a go..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm actually quite strong...please let me try."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2883,
+          "displayName": "Ogre bow",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ogre bow.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2883,
+          "modelIds": [
+            510
+          ],
+          "displayName": "Ogre bow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 2883,
+          "displayName": "Ogre bow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place another toad in the clearing.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 853.0,
+          "y": 2966.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2875,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Bloated toad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2875,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Bloated toad",
+          "atLocation": {
+            "x": 2636.0,
+            "heightFine": 853.0,
+            "y": 2966.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1016,
+          "modelIds": [
+            1512
+          ],
+          "displayName": "Chompy bird"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for a chompy bird to appear.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1016,
+          "modelIds": [
+            1512
+          ],
+          "displayName": "Chompy bird"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 2875,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Bloated toad"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill and pluck the chompy bird.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1016,
+          "modelIds": [
+            1512
+          ],
+          "displayName": "Chompy bird"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "raw chompy bird"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the raw chompy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "raw chompy bird"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "raw chompy bird",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rantz. Remember the ingredient he wants.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 989.0,
+          "y": 2982.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "HUH"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cooking the bird",
+      "text": "Enter Rantz's cave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2647.0,
+          "heightFine": 1133.0,
+          "y": 9378.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fycie. Remember the ingredient she wants.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1011,
+          "modelIds": [
+            2886
+          ],
+          "displayName": "Fycie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "wait to eats it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bugs. Remember the ingredient he wants.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 28999,
+          "modelIds": [
+            2583
+          ],
+          "displayName": "Bugs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "favourite yumm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Onion.",
+      "warning": "Use the raw chompy on the spit-roast to list the needed ingredients.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2583.0,
+          "heightFine": 805.0,
+          "y": 2965.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1957,
+          "displayName": "Onion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Doogle leaves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 965.0,
+          "y": 2972.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1573,
+          "displayName": "Doogle leaves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tomato.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2581.0,
+          "heightFine": 1313.0,
+          "y": 2965.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1982,
+          "displayName": "Tomato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cabbage.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2587.0,
+          "heightFine": 805.0,
+          "y": 2973.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1965,
+          "displayName": "Cabbage",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equa leaves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.0,
+          "heightFine": 293.0,
+          "y": 2963.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2128,
+          "displayName": "Equa leaves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Raw potato.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2640.0,
+          "heightFine": 685.0,
+          "y": 2958.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1942,
+          "displayName": "Raw potato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the raw chompy on the spit-roast north of Rantz.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.5,
+          "heightFine": 1537.0,
+          "y": 2991.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2157
+          ],
+          "candidateObjectTypeIds": [
+            478,
+            25665
+          ],
+          "displayName": "Ogre spit roast"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cooked chompy bird",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2157
+          ],
+          "candidateObjectTypeIds": [
+            478,
+            25665
+          ],
+          "displayName": "Ogre spit roast"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "raw chompy bird"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cooked chompy bird",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2157
+          ],
+          "candidateObjectTypeIds": [
+            478,
+            25665
+          ],
+          "displayName": "Ogre spit roast"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Rantz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1010,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3467
+          ],
+          "displayName": "Rantz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2772,
+  "stageVarbitCompleteValue": 65,
+  "cacheQuestId": 102
+}

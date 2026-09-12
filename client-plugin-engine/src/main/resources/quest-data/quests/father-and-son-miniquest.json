@@ -1,0 +1,80 @@
+{
+  "slug": "father-and-son-miniquest",
+  "name": "Father and Son (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "worldguardian",
+  "releaseDate": 1570406400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Anachronia base camp tutorial"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Irwinsson.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me more about yourself."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sigli the Huntsman located at the main gate of Rellekka.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to Anachronia and give Irwinsson his greatbow.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Sigli."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " He is deeply sorry that he treated you so harshly and insisted it was only ever out of love."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 44361,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 462
+}

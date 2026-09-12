@@ -1,0 +1,2012 @@
+{
+  "slug": "royal-trouble",
+  "name": "Royal Trouble",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "heroic",
+  "releaseDate": 1148256000,
+  "neededItems": [
+    {
+      "name": "Coal",
+      "itemId": 453,
+      "quantity": 5,
+      "duringQuest": true
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 2,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Giant Sea Snake",
+      "level": "63",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Throne of Miscellania"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 40,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 40,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Advisor Ghrim in Miscellania.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3321.0,
+          "y": 3860.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Has anything been happening in the kingdom recently?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Advisor Ghrim.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "like to see you once again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Recent events",
+      "text": "Speak to your spouse.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 757,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3918,
+            9136,
+            9143,
+            9147,
+            9328,
+            9332
+          ],
+          "displayName": "Prince Brand"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Right away, Your Majesty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "in such capable hands"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gardener Gunnhild at the flax patch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2527.0,
+          "heightFine": 2229.0,
+          "y": 3855.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1398,
+          "modelIds": [
+            4419
+          ],
+          "displayName": "Gardener Gunnhild",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Royal Trouble."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "had been stolen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3363.0,
+          "y": 3860.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talk to her right away"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Queen Sigrid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2615.0,
+          "heightFine": 1869.0,
+          "y": 3867.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2612.0,
+          "heightFine": 1893.0,
+          "y": 3874.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course, it's my duty."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have the time free"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Matilda in the Etceteria castle courtyard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2603.5,
+          "heightFine": 901.0,
+          "y": 3871.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1365,
+          "modelIds": [
+            3858
+          ],
+          "displayName": "Matilda",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Queen Sigrid again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2615.0,
+          "heightFine": 1869.0,
+          "y": 3867.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2612.0,
+          "heightFine": 1893.0,
+          "y": 3874.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I suppose so..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get used to it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3363.0,
+          "y": 3860.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll do that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Advisor Ghrim.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "King Vargas asked me to talk to you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "recent arrivals to the island"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Sailor on the docks in Miscellania.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2580.0,
+          "heightFine": 325.0,
+          "y": 3845.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1304,
+          "modelIds": [
+            4953
+          ],
+          "displayName": "Sailor",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for a sailor..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Gielinor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas again with at least 1 inventory space free.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3363.0,
+          "y": 3860.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6758,
+          "displayName": "Scroll",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Miscellania dungeons",
+      "text": "Gear up for the final fight now. Having 8 free inventory spaces is recommended.",
+      "warning": "Manually move to the next step when you're ready.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the dungeon ladder in the southern portion of the Miscellania courtyard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2509.0,
+          "heightFine": 2245.0,
+          "y": 3846.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2509.0,
+          "heightFine": 1189.0,
+          "y": 10245.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Donal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2529.0,
+          "heightFine": 1189.0,
+          "y": 10256.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3938,
+          "modelIds": [
+            6285
+          ],
+          "displayName": "Donal",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course. Dealing with monsters is what I do best!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fighting that monster"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the mining prop on the crevice to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 1765.0,
+          "y": 10281.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7958,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Mining prop"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "wedge the prop in the wall"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the crevice to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 1765.0,
+          "y": 10281.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2505.0,
+          "heightFine": 1165.0,
+          "y": 10283.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fixing the lift",
+      "text": "Pick up 3 beams.",
+      "warning": "There is a bug where sometimes you won't be able to pick up the engine. Leave the dungeon and come back, or try to use area loot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2504.0,
+          "heightFine": 1437.0,
+          "y": 10284.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7973,
+          "displayName": "Beam",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up 3 pully beams.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2504.0,
+          "heightFine": 1437.0,
+          "y": 10285.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Pully beam",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up an engine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2504.0,
+          "heightFine": 1437.0,
+          "y": 10287.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7967,
+          "displayName": "Engine",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up 2 ropes.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2506.0,
+          "heightFine": 1437.0,
+          "y": 10289.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 5 coal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112911,
+          "modelIds": [
+            2808,
+            3252
+          ],
+          "displayName": "Coal rock",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 453,
+          "displayName": "Coal",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a pulley beam on the broken scaffolding.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15230,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Broken Scaffold"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pully beam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 15230,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Broken Scaffold"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a beam on a pulley beam.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7973,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Beam"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pully beam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Long pully beam",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attach another beam to get a longer pulley beam.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Long pully beam"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7973,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Beam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Long long man",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the longer pully beam on the scaffolding.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "Partially repaired scaffold"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Long long man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            330
+          ],
+          "candidateNpcTypeIds": [
+            806,
+            4874,
+            4875,
+            4876,
+            4877,
+            11453,
+            13782,
+            13783,
+            13784,
+            13785
+          ],
+          "displayName": "Attached long pully beam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your last pulley beam on the scaffolding.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "Partially repaired scaffold"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pully beam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Two pully overhang"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your rope on the scaffolding.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "Partially repaired scaffold"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            552
+          ],
+          "candidateNpcTypeIds": [
+            14156,
+            14157
+          ],
+          "displayName": "Scaffolding with rope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the third beam on the platform (north side).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            333
+          ],
+          "displayName": "Broken platform"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7973,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Beam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            540
+          ],
+          "candidateNpcTypeIds": [
+            191,
+            398,
+            399,
+            478,
+            928,
+            1162,
+            1167,
+            1169,
+            1170,
+            1296,
+            1297,
+            1298,
+            1299,
+            2246,
+            2496,
+            2497,
+            4964,
+            5463,
+            5464,
+            5490,
+            13462,
+            15784,
+            26836
+          ],
+          "displayName": "Fixed platform"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add 5 coal to the engine, then use it on the engine platform.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7967,
+          "modelIds": [
+            1470
+          ],
+          "displayName": "Engine"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 453,
+          "modelIds": [],
+          "displayName": "Coal"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15227,
+          "modelIds": [
+            243
+          ],
+          "displayName": "Engine Platform"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1746
+          ],
+          "candidateObjectTypeIds": [
+            4924,
+            18646,
+            18647,
+            73284,
+            73285
+          ],
+          "displayName": "Attached engine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the lift.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4937,
+          "modelIds": [
+            594
+          ],
+          "displayName": "Lift"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2509.0,
+          "heightFine": 2005.0,
+          "y": 10288.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2510.0,
+          "heightFine": 2021.0,
+          "y": 10287.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Exploring the tunnel",
+      "text": "Pick up the plank off the ground, and enter the tunnel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 960,
+          "displayName": "Plank",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the tunnel",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2511.0,
+          "heightFine": 2321.0,
+          "y": 10287.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2514.0,
+          "heightFine": 997.0,
+          "y": 10291.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope in your inventory on the northern end of the rock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            189
+          ],
+          "candidateNpcTypeIds": [
+            1552
+          ],
+          "displayName": "Rope rock"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 3566,
+          "modelIds": [
+            519
+          ],
+          "displayName": "Rope swing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swing across the river.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3566,
+          "modelIds": [
+            519
+          ],
+          "displayName": "Rope swing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2543.0,
+          "heightFine": 429.0,
+          "y": 10299.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fire remains to obtain a burnt diary.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19881,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Campfire",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Diary1",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            22317
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the plank to cross the small rocks.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2554.0,
+              "heightFine": 1189.0,
+              "y": 10294.0
+            },
+            {
+              "x": 2548.0,
+              "heightFine": 397.0,
+              "y": 10288.0
+            },
+            {
+              "x": 2545.0,
+              "heightFine": 389.0,
+              "y": 10287.0
+            },
+            {
+              "x": 2542.0,
+              "heightFine": 389.0,
+              "y": 10287.0
+            },
+            {
+              "x": 2539.0,
+              "heightFine": 357.0,
+              "y": 10286.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2537.0,
+          "heightFine": 661.0,
+          "y": 10285.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fire remains.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19881,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Campfire",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "add them to the diary you have"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fire remains to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19881,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Campfire",
+          "atLocation": {
+            "x": 2554.0,
+            "heightFine": 1149.0,
+            "y": 10279.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2554.0,
+          "heightFine": 1149.0,
+          "y": 10279.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fire remains to the south.<ul><li>Surge across the vents to avoid any damage.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19881,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Campfire",
+          "atLocation": {
+            "x": 2549.0,
+            "heightFine": 837.0,
+            "y": 10261.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2549.0,
+          "heightFine": 837.0,
+          "y": 10261.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the last fire remains to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19881,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Campfire",
+          "atLocation": {
+            "x": 2573.0,
+            "heightFine": 869.0,
+            "y": 10246.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2573.0,
+          "heightFine": 869.0,
+          "y": 10247.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the burnt diary.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            234
+          ],
+          "candidateItemTypeIds": [
+            22317
+          ],
+          "displayName": "Diary5"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the crevice at the end of the path.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2585.0,
+          "heightFine": 1525.0,
+          "y": 10260.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the custcene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Final fight",
+      "text": "Finish the dialogue with the teenagers.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "tell my father how badly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the crevice at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2572.0,
+              "heightFine": 1189.0,
+              "y": 10276.0
+            },
+            {
+              "x": 2571.0,
+              "heightFine": 1213.0,
+              "y": 10283.0
+            },
+            {
+              "x": 2571.0,
+              "heightFine": 1016.0,
+              "y": 10291.0
+            },
+            {
+              "x": 2576.0,
+              "heightFine": 1317.0,
+              "y": 10296.0
+            },
+            {
+              "x": 2584.0,
+              "heightFine": 1021.0,
+              "y": 10295.0
+            },
+            {
+              "x": 2593.0,
+              "heightFine": 1133.0,
+              "y": 10286.0
+            },
+            {
+              "x": 2596.0,
+              "heightFine": 981.0,
+              "y": 10275.0
+            },
+            {
+              "x": 2598.0,
+              "heightFine": 1516.0,
+              "y": 10257.0
+            },
+            {
+              "x": 2605.0,
+              "heightFine": 1253.0,
+              "y": 10252.0
+            },
+            {
+              "x": 2614.0,
+              "heightFine": 1205.0,
+              "y": 10258.0
+            },
+            {
+              "x": 2617.0,
+              "heightFine": 1077.0,
+              "y": 10265.0
+            },
+            {
+              "x": 2617.0,
+              "heightFine": 1157.0,
+              "y": 10271.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Giant Sea Snake, and pick up the heavy box.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7959,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Heavy box",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7959,
+          "displayName": "Heavy box",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back through the crevice.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the rope.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 954,
+          "modelIds": [
+            1329
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2620.0,
+          "heightFine": 797.0,
+          "y": 3864.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Queen Sigrid with at least 1 free inventory space.<ul><li>If you forgot to pick up the heavy box, it can be obtained by speaking with the guard by the escape hole.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2615.0,
+          "heightFine": 1869.0,
+          "y": 3867.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2612.0,
+          "heightFine": 1893.0,
+          "y": 3874.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "please give my letter to Vargas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3363.0,
+          "y": 3860.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12425,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 127
+}

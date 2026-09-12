@@ -1,0 +1,976 @@
+{
+  "slug": "roving-elves",
+  "name": "Roving Elves",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "legendary",
+  "releaseDate": 1107734400,
+  "neededItems": [
+    {
+      "name": "No combat equipment",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Glarial's pebble",
+      "itemId": 294,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Glarial's amulet",
+      "itemId": 295,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Games necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Moss giant",
+      "level": "24",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Regicide",
+    "Waterfall Quest"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Islwyn at the end of the path.<ul><li>Hop worlds if she isn't there.</li></ul>",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2254.0,
+              "heightFine": 1301.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2262.0,
+              "heightFine": 1157.0,
+              "y": 3151.0
+            },
+            {
+              "x": 2268.0,
+              "heightFine": 1084.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3171.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3172.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3176.0
+            },
+            {
+              "x": 2275.0,
+              "heightFine": 965.0,
+              "y": 3179.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 997.0,
+              "y": 3182.0
+            },
+            {
+              "x": 2278.0,
+              "heightFine": 909.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2284.0,
+              "heightFine": 853.0,
+              "y": 3188.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2287.0,
+              "heightFine": 781.0,
+              "y": 3188.0
+            },
+            {
+              "x": 2289.0,
+              "heightFine": 789.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 821.0,
+              "y": 3184.0
+            },
+            {
+              "x": 2292.0,
+              "heightFine": 1125.0,
+              "y": 3175.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1301.0,
+              "y": 3167.0
+            },
+            {
+              "x": 2295.0,
+              "heightFine": 1349.0,
+              "y": 3163.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1381.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2290.0,
+              "heightFine": 997.0,
+              "y": 3146.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1680,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21531
+          ],
+          "displayName": "Islwyn",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Islwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1680,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21531
+          ],
+          "displayName": "Islwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell the truth?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Maybe I could help."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Glarial's tomb",
+      "text": "Talk to Eluned.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "as I have it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "No combat equipment",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Glarial's pebble",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use Glarial's pebble on Glarial's tombstone north-west of the Fishing Guild.<ul><li>You can reclaim Glarial's pebble from Golrie in Gnome Village Dungeon.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.5,
+          "heightFine": 2741.0,
+          "y": 3444.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 294,
+          "modelIds": [],
+          "displayName": "Glarial's pebble"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2557.0,
+          "heightFine": 853.0,
+          "y": 9844.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a moss giant.<ul><li>Remove an item from your tool belt to use as a weapon.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 112,
+          "modelIds": [
+            3378
+          ],
+          "displayName": "Moss giant",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4205,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Consecration seed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the consecration seed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4205,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Consecration seed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4205,
+          "displayName": "Consecration seed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2530.0,
+          "heightFine": 653.0,
+          "y": 9844.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 295,
+          "displayName": "Glarial's amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Eluned.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2254.0,
+              "heightFine": 1301.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2262.0,
+              "heightFine": 1157.0,
+              "y": 3151.0
+            },
+            {
+              "x": 2268.0,
+              "heightFine": 1084.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3171.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3172.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3176.0
+            },
+            {
+              "x": 2275.0,
+              "heightFine": 965.0,
+              "y": 3179.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 997.0,
+              "y": 3182.0
+            },
+            {
+              "x": 2278.0,
+              "heightFine": 909.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2284.0,
+              "heightFine": 853.0,
+              "y": 3188.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2287.0,
+              "heightFine": 781.0,
+              "y": 3188.0
+            },
+            {
+              "x": 2289.0,
+              "heightFine": 789.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 821.0,
+              "y": 3184.0
+            },
+            {
+              "x": 2292.0,
+              "heightFine": 1125.0,
+              "y": 3175.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1301.0,
+              "y": 3167.0
+            },
+            {
+              "x": 2295.0,
+              "heightFine": 1349.0,
+              "y": 3163.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1381.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2290.0,
+              "heightFine": 997.0,
+              "y": 3146.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Enchanted consecration seed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Waterfall dungeon",
+      "text": "Board the raft next to Almera's house.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Games necklace",
+        "url": "Games_necklace_(1).png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2509.0,
+          "heightFine": 6741.0,
+          "y": 3493.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2512.0,
+          "heightFine": 5947.0,
+          "y": 3481.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": 954,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Glarial's amulet",
+          "itemId": 295,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Consecration seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Games necklace",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Use a rope on the rock.",
+      "warning": "Do not click 'swim to rock'.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        },
+        {
+          "t": "direction",
+          "x": 2512.0,
+          "heightFine": 4837.0,
+          "y": 3468.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2513.0,
+          "heightFine": 4837.0,
+          "y": 3468.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope on the dead tree.",
+      "warning": "Do not click 'climb tree'.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        },
+        {
+          "t": "direction",
+          "x": 2512.0,
+          "heightFine": 5501.0,
+          "y": 3465.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2511.0,
+          "heightFine": 3269.0,
+          "y": 3463.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            279
+          ],
+          "candidateNpcTypeIds": [
+            191,
+            500,
+            692,
+            1595,
+            2412,
+            2496,
+            2497
+          ],
+          "displayName": "Waterfall cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2575.0,
+          "heightFine": 749.0,
+          "y": 9861.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crates.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2589.0,
+          "heightFine": 1245.0,
+          "y": 9888.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "and find a large key"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Waterfall key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door next to the fire giants.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1245.0,
+          "y": 9893.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2568.0,
+          "heightFine": 645.0,
+          "y": 9895.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1281.0,
+          "y": 9901.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2604.0,
+          "heightFine": 669.0,
+          "y": 9901.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Plant the enchanted consecration seed.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Enchanted consecration seed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "crystal seed in the hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Islwyn.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2254.0,
+              "heightFine": 1301.0,
+              "y": 3149.0
+            },
+            {
+              "x": 2262.0,
+              "heightFine": 1157.0,
+              "y": 3151.0
+            },
+            {
+              "x": 2268.0,
+              "heightFine": 1084.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2271.0,
+              "heightFine": 1029.0,
+              "y": 3164.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3171.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3172.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2274.0,
+              "heightFine": 965.0,
+              "y": 3176.0
+            },
+            {
+              "x": 2275.0,
+              "heightFine": 965.0,
+              "y": 3179.0
+            },
+            {
+              "x": 2274.0,
+              "heightFine": 997.0,
+              "y": 3182.0
+            },
+            {
+              "x": 2278.0,
+              "heightFine": 909.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2284.0,
+              "heightFine": 853.0,
+              "y": 3188.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2287.0,
+              "heightFine": 781.0,
+              "y": 3188.0
+            },
+            {
+              "x": 2289.0,
+              "heightFine": 789.0,
+              "y": 3187.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 821.0,
+              "y": 3184.0
+            },
+            {
+              "x": 2292.0,
+              "heightFine": 1125.0,
+              "y": 3175.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1301.0,
+              "y": 3167.0
+            },
+            {
+              "x": 2295.0,
+              "heightFine": 1349.0,
+              "y": 3163.0
+            },
+            {
+              "x": 2293.0,
+              "heightFine": 1381.0,
+              "y": 3158.0
+            },
+            {
+              "x": 2290.0,
+              "heightFine": 997.0,
+              "y": 3146.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1680,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21531
+          ],
+          "displayName": "Islwyn",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2286,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 110
+}

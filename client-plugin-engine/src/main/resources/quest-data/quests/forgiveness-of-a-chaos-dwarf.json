@@ -1,0 +1,522 @@
+{
+  "slug": "forgiveness-of-a-chaos-dwarf",
+  "name": "Forgiveness of a Chaos Dwarf",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "legendary",
+  "releaseDate": 1252454400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Forgettable Tale of a Drunken Dwarf",
+    "Between a Rock..."
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Initial Battle",
+      "text": "Talk to Commander Veldaban in the building west of the bank in west Keldagrim.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have a quest for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you think the Red Axe is behind it?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, continue dialogue with Commander Veldaban.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'll deal with the chaos dwarf."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head upstairs to the roof in the building next to you, kill the chaos dwarf and pick up the mysterious slip.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Commander Veldaban about the slip.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "The chaos dwarf dropped a slip of paper."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll take the slip to the Grand Exchange now."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to any Grand Exchange clerk at the Grand Exchange in Varrock.<ul><li>Grand Exchange clerks in Prifddinas, the Max Guild, and Menaphos do not work.</li><li>If you have never used the Grand Exchange (common for ironmen), the Grand Exchange clerk will refuse to talk to you. Speak to the Grand Exchange Tutor just south and state that 'I want the basics from you.' before talking to the Grand Exchange clerk.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have this dwarven order slip..."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Drunk Commander",
+      "text": "Talk to Veldaban in the Laughing Miner pub in eastern Keldagrim (if he doesn't appear, logout and log back in. In some cases, even after a client restart, he may not appear visually, if this is the case you may click on an invisible Veldaban by clicking on the the northern seat of the most northwestern table in the Laughing Miner pub to speak to him).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you think the Red Axe is involved?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ask the barmaid for his stout.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Commander Veldaban wants a Guardsman's Stout."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veldaban about the battle then take him to the headquarters.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I didn't know you had a lady-friend."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What was the Battle of Barendir?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The barmaid said she'd seen you with someone."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you drunk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you think the Red Axe is involved?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you think the missing persons are connected to the chaos dwarves?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who's on the case now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why did he take you off the case?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have the Grand Exchange Package"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's Talk about something else"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's go."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, head back to watchtower in the south area of west Keldagrim, where you fought the chaos dwarf.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Investigation",
+      "text": "Open the package and take all the items.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the boot on the footprints south of the watchtower building (where you defeated the chaos dwarf).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the footsteps south and then west to reach a small fire pit (the one across the bridge - it looks different from the other fire pits in the area).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bowl on the fire pit, remove it, then use the rod on the fire pit.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the rod.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the tunnel west, then enter the doorway at the west end.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Free your hands.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to ride the train cart (you don't go far).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Leave through the tunnel back to Keldagrim.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Return to Keldagrim."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dismiss any followers you may have.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Commander Veldaban back where the quest started  and take him back to the caves.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I found a secret door in the mines."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's go."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cart Labyrinth",
+      "text": "Try to control the Dwarven Machinery and have Veldaban do it while you ride the cart.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You take the stones and man the board. I'll ride the cart."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on the cart to begin.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow these choices:<ul><li>Yellow</li><li>Green</li><li>Yellow</li><li>Green</li><li>Green</li><li>Yellow</li><li>Yellow</li><li>Yellow</li><li>Yellow</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Green Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Green Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Green Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yellow Stone"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the bridge lever.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rescue and Escape",
+      "text": "Head south to the prison and open the door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fjoila.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You should get back to Keldagrim now."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You told the prisoner we'd look for Hilda."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south, turn either of the switches and go through the doorway. Commander Veldaban may be stuck up north.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to Veldaban in the room.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That wasn't Hilda. Hilda was gone by then."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "There are still some things in the package."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the metal rectangle then the turnscrew on the sorting machine.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the hole and ride the train cart for a cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10544,
+  "stageVarbitCompleteValue": 80,
+  "cacheQuestId": 35
+}

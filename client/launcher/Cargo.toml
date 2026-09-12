@@ -1,0 +1,69 @@
+[package]
+name = "project-x-launcher"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Windowing + WebView
+tao = "0.34"
+wry = "0.49"
+
+# Async runtime + HTTP
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "fs"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "json"] }
+bytes = "1"
+
+# Archive extraction (pure Rust)
+ar = "0.9"
+tar = "0.4"
+xz2 = "0.1"
+
+# Crypto
+sha2 = "0.10"
+base64 = "0.22"
+rand = "0.9"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Platform
+directories = "6"
+fs2 = "0.4"
+
+# Embed UI assets
+rust-embed = { version = "8", features = ["include-exclude"] }
+
+# URL handling
+url = "2"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+# Error handling
+anyhow = "1"
+
+# Engine injection + the supervisor control socket (AF_UNIX is a filesystem
+# socket on Win10+, but std only exposes UnixStream on unix).
+[target.'cfg(windows)'.dependencies]
+uds_windows = "1.2"
+
+[target.'cfg(windows)'.dependencies.windows-sys]
+version = "0.61"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Diagnostics_ToolHelp",
+    "Win32_System_ProcessStatus",
+    "Win32_System_Threading",
+]
+
+# Compiles assets/projectx.rc so the crest ships as icon resource 1: Explorer, shortcuts
+# and pinned taskbar entries read it straight off the executable.
+[target.'cfg(windows)'.build-dependencies]
+embed-resource = "3"
+
+[profile.release]
+strip = true
+lto = true
+opt-level = "z"

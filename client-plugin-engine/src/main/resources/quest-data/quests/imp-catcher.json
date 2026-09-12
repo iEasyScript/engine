@@ -1,0 +1,772 @@
+{
+  "slug": "imp-catcher",
+  "name": "Imp Catcher",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 982281600,
+  "neededItems": [
+    {
+      "name": "Bowl of hot water",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Choleric imp",
+      "level": "5",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Looking for imps",
+      "text": "Talk to Wizard Mizgog on the 1st floor (2nd floor [US]) of the Wizards' Tower, just southeast of the beam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3102.5,
+          "heightFine": 1925.0,
+          "y": 3155.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3102.5,
+          "heightFine": 1925.0,
+          "y": 3155.5,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wizard tower beam 0"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3102.0,
+          "heightFine": 8613.0,
+          "y": 3155.0,
+          "range": 1000
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5706
+          ],
+          "candidateObjectTypeIds": [
+            5896
+          ],
+          "displayName": "Mizgog"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Lumbridge Castle kitchen to make a bowl of hot water. If you have not done Cook's Assistant, use the range in the southeasternmost house in Lumbridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3213.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3213.0,
+          "range": 15
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1921,
+          "displayName": "Bowl of water",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hot water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1923,
+          "modelIds": [],
+          "displayName": "Bowl"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1923,
+          "displayName": "Bowl",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1921,
+          "displayName": "Bowl of water",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hot water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8232,
+          "modelIds": [
+            180
+          ],
+          "displayName": "Sink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1921,
+          "displayName": "Bowl of water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2728,
+          "modelIds": [
+            2427
+          ],
+          "displayName": "Range"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hot water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Water ruins (west side of Lumbridge Swamp)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3185.0,
+          "heightFine": 1229.0,
+          "y": 3165.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3185.0,
+          "heightFine": 1229.0,
+          "y": 3165.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Phlegmatic imp.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9952,
+          "modelIds": [
+            2364
+          ],
+          "displayName": "Imp"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Have you tried a bowl of hot water?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now, where can I find"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the imp again, with a bowl of hot water in your inventory.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9952,
+          "modelIds": [
+            2364
+          ],
+          "displayName": "Imp"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Phlegmatic"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 39840,
+          "displayName": "Phlegmatic bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the Phlegmatic bead it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Phlegmatic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 39840,
+          "displayName": "Phlegmatic bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Fire ruins (north of Al Kharid; outside Het's Oasis), talk to and fight the Choleric imp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3317.0,
+          "heightFine": 1205.0,
+          "y": 3252.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3317.0,
+          "heightFine": 1205.0,
+          "y": 3252.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9952,
+          "modelIds": [
+            2364
+          ],
+          "displayName": "Imp"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Choleric"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 39838,
+          "displayName": "Choleric bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the Choleric bead it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Choleric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 39838,
+          "displayName": "Choleric bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Earth ruins (north-east of Varrock; south of Fort Forinthry) talk to the Melancholic imp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 21.0,
+          "y": 3477.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3303.0,
+          "heightFine": 21.0,
+          "y": 3477.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9952,
+          "modelIds": [
+            2364
+          ],
+          "displayName": "Imp"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why would he be disappointed?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Some days you'll have setbacks. Tomorrow is a new day."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take your time. No one is rushing you to feel better."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Melancholic"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 39839,
+          "displayName": "Melancholic bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the Melancholic bead it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Melancholic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 39839,
+          "displayName": "Melancholic bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Air ruins (west of Varrock; southeast of Barbarian Village) and talk to the Sanguine imp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3127.0,
+          "heightFine": 1301.0,
+          "y": 3410.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3127.0,
+          "heightFine": 1301.0,
+          "y": 3410.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 9952,
+          "modelIds": [
+            2364
+          ],
+          "displayName": "Imp"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I-accept!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Race the imp around the altar 4 times by clicking and running inside the four different checkpoints when they appear.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You've done... worn me out."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation and take the Sanguine bead it drops.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Sanguine"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 39837,
+          "displayName": "Sanguine bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            906
+          ],
+          "candidateObjectTypeIds": [
+            62168
+          ],
+          "displayName": "Sanguine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 39837,
+          "displayName": "Sanguine bead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return and talk to Wizard Mizgog.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3102.5,
+          "heightFine": 1925.0,
+          "y": 3155.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3102.5,
+          "heightFine": 1925.0,
+          "y": 3155.5,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "wizard tower beam 0"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3102.0,
+          "heightFine": 8613.0,
+          "y": 3155.0,
+          "range": 1000
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5706
+          ],
+          "candidateObjectTypeIds": [
+            5896
+          ],
+          "displayName": "Mizgog"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got all four beads."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2669,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 72
+}

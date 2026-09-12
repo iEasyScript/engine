@@ -1,0 +1,924 @@
+{
+  "slug": "clock-tower",
+  "name": "Clock Tower",
+  "members": true,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1024272000,
+  "neededItems": [
+    {
+      "name": "Bucket of water",
+      "itemId": 1929,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Brother Kojo at the Clock Tower south-west of the Ardougne Zoo.<ul><li>There's a bucket spawn east of the Clock Tower next to a well.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Kandarin Monastery",
+        "url": "Kandarin_monastery_Teleport_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2570.0,
+          "heightFine": 1385.0,
+          "y": 3250.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 223,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Kojo",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Brother Kojo.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 223,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Kojo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "full of strange beasts"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder in the central room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1285.0,
+          "y": 3242.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2566.0,
+          "heightFine": 645.0,
+          "y": 9643.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Black cog",
+      "text": "Enter the northeast door closest to the dark grey tile and go as far east as possible.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2581.5,
+          "heightFine": 1445.0,
+          "y": 9651.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2583.0,
+          "heightFine": 645.0,
+          "y": 9651.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the black cog.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2613.0,
+          "heightFine": 645.0,
+          "y": 9639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 21,
+          "displayName": "Black cog",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the black cog on the black spindle next to the ladder you came down when you entered the dungeon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.75,
+          "heightFine": 1345.0,
+          "y": 9642.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Black cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fits perfectly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Red cog",
+      "text": "Enter the south-east door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2581.5,
+          "heightFine": 1445.0,
+          "y": 9648.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2583.0,
+          "heightFine": 645.0,
+          "y": 9648.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the red cog.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2583.0,
+          "heightFine": 645.0,
+          "y": 9613.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23,
+          "displayName": "Red cog",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1445.0,
+          "y": 9642.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2566.0,
+          "heightFine": 1285.0,
+          "y": 3243.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the red cog on the red spindle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1935.0,
+          "y": 3242.75,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Red cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fits perfectly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Blue cog",
+      "text": "Climb down the ladder outside of the Ardougne Zoo near the camel enclosure.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2621.0,
+          "heightFine": 949.0,
+          "y": 3261.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2621.0,
+          "heightFine": 645.0,
+          "y": 9660.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall at the end of the path.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2575.5,
+          "heightFine": 1245.0,
+          "y": 9631.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2574.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the blue cog.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 22,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Blue cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 22,
+          "displayName": "Blue cog",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.15,
+          "heightFine": 1245.0,
+          "y": 9631.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2572.0,
+          "heightFine": 1205.0,
+          "y": 3230.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase in the central room of the Clock Tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 1885.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 2245.0,
+          "y": 3241.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the blue cog on the blue spindle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.0,
+          "heightFine": 2945.0,
+          "y": 3240.25,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 22,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Blue cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fits perfectly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "White cog",
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 2845.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2572.0,
+          "heightFine": 1285.0,
+          "y": 3242.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the basement.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 1285.0,
+          "y": 3242.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2566.0,
+          "heightFine": 645.0,
+          "y": 9643.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the north-west door closest to the white tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2575.5,
+          "heightFine": 1445.0,
+          "y": 9651.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2574.0,
+          "heightFine": 645.0,
+          "y": 9651.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the rat poison.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 24,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Rat poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24,
+          "displayName": "Rat poison",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the western red lever.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2591.0,
+          "heightFine": 1445.0,
+          "y": 9660.7,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Pulled lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the rat poison on the food trough.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2586.5,
+          "heightFine": 945.0,
+          "y": 9654.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 24,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Rat poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            558
+          ],
+          "displayName": "Poisoned food trough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the rats to die.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "seem to be dying"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2578.5,
+          "heightFine": 1445.0,
+          "y": 9656.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2577.0,
+          "heightFine": 645.0,
+          "y": 9656.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the white cog.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 20,
+          "modelIds": [
+            354
+          ],
+          "displayName": "White cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20,
+          "displayName": "White cog",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2576.0,
+          "heightFine": 1545.0,
+          "y": 9655.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2577.0,
+          "heightFine": 261.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the staircase in the Clock Tower to the 2nd floor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 1885.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 2245.0,
+          "y": 3241.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 3205.0,
+          "y": 3241.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 2245.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 3205.0,
+          "y": 3241.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the white cog on the white spindle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2567.25,
+          "heightFine": 3855.0,
+          "y": 3241.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 20,
+          "modelIds": [
+            354
+          ],
+          "displayName": "White cog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fits perfectly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Brother Kojo.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 3205.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2572.5,
+          "heightFine": 2845.0,
+          "y": 3240.5,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2572.0,
+          "heightFine": 1285.0,
+          "y": 3242.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.5,
+          "heightFine": 2845.0,
+          "y": 3240.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2572.0,
+          "heightFine": 1285.0,
+          "y": 3242.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 223,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Kojo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2197,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 44
+}

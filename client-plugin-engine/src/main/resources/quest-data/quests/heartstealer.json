@@ -1,0 +1,1351 @@
+{
+  "slug": "heartstealer",
+  "name": "Heartstealer",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "worldguardian",
+  "releaseDate": 1612742400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Preparations of the heist",
+      "text": "Talk to Caelyn upstairs in the house directly north of Edgeville bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm listening..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you need?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Caelyn.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Let's get the disguises."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm on it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Here's some gold"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Thessalia's Fine Clothes in Varrock and talk to Thessalia  to receive masquerade masks.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "range": 5
+        },
+        {
+          "t": "distanceTo",
+          "x": 3204.0,
+          "heightFine": 1125.0,
+          "y": 3416.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3204.0,
+          "heightFine": 1125.0,
+          "y": 3416.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3204.0,
+          "heightFine": 1125.0,
+          "y": 3416.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3204.0,
+          "heightFine": 1125.0,
+          "y": 3416.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3204.0,
+          "heightFine": 1125.0,
+          "y": 3416.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 548,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20780,
+            29764
+          ],
+          "displayName": "Thessalia"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 548,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20780,
+            29764
+          ],
+          "displayName": "Thessalia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Heartstealer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will. Thank you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Caelyn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's create some Smoke bombs."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Just follow my"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the interactable objects in the room. After failing, lower the difficulty setting by speaking with her.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Are you ready to have another go"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Caelyn's instructions / the arrows to click on the areas of the room to make the smoke bombs.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "That was tougher than I expected."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I finished off those Smoke bombs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the dialogue with Caelyn to receive paper and crayons.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'll get started on that."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The heist",
+      "text": "Head to the Varrock Museum and pickpocket Curator Haig Halen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3256.0,
+          "heightFine": 1637.0,
+          "y": 3446.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3256.0,
+          "heightFine": 1637.0,
+          "y": 3446.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3256.0,
+          "heightFine": 1637.0,
+          "y": 3446.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3256.0,
+          "heightFine": 1637.0,
+          "y": 3446.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "curator haig"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "curator haig"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Whew."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Caelyn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3096.0,
+          "heightFine": 1733.0,
+          "y": 3510.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Meet me outside"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Varrock Museum and talk to Caelyn outside.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3251.0,
+          "heightFine": 1637.0,
+          "y": 3448.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3251.0,
+          "heightFine": 1637.0,
+          "y": 3448.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Give her a pep talk."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44587,
+          "displayName": "Scarf",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear the Scarlet Thief's mask and talk to Caelyn again.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44587,
+          "modelIds": [
+            540
+          ],
+          "displayName": "Scarf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 44587,
+          "displayName": "Scarf"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nice one mate, let's get going."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the short cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What was that about"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's check out the basement"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to walk-down the stairs",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4566
+          ],
+          "candidateObjectTypeIds": [
+            4412,
+            4413,
+            8956,
+            10177,
+            10193,
+            10194,
+            10196,
+            10198,
+            10200,
+            10202,
+            10203,
+            10206,
+            10207,
+            10210,
+            10211,
+            10214,
+            10216,
+            10217,
+            10219,
+            10222,
+            10224,
+            10226,
+            10228,
+            47260
+          ],
+          "displayName": "Staircase down"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's head upstairs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk up the staircase to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase up"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2253,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2566,
+            2567,
+            2633,
+            3821,
+            3838,
+            3839,
+            7090,
+            11568,
+            11569,
+            11575,
+            11583,
+            14576,
+            25890,
+            27423,
+            27547,
+            27774,
+            28626,
+            29756,
+            30068,
+            30069,
+            32519
+          ],
+          "displayName": "Wise Old Man"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Drunken Dwarf to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18864,
+          "modelIds": [
+            9240
+          ],
+          "displayName": "Drunken Dwarf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's grab our tokens"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bartender downstairs to get 1 drink token.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase up"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "curator haig"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 731,
+          "modelIds": [
+            4875
+          ],
+          "displayName": "Bartender"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We just need to get hold of "
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket an attendee south-west for 1 drink token.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27550,
+          "modelIds": [
+            13383
+          ],
+          "displayName": "Attendee"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We just need to get hold of "
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the masked woman to the west upstairs and accept the dance off.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase up"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2253,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2566,
+            2567,
+            2633,
+            3821,
+            3838,
+            3839,
+            7090,
+            11568,
+            11569,
+            11575,
+            11583,
+            14576,
+            25890,
+            27423,
+            27547,
+            27774,
+            28626,
+            29756,
+            30068,
+            30069,
+            32519
+          ],
+          "displayName": "Wise Old Man"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27537,
+          "modelIds": [
+            16899
+          ],
+          "displayName": "Masked woman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We accept."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's time to put"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to the masked woman again to get the 1 drink token.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We just need to get hold of "
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mr Mordaut, the dragon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's have a look around"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs and search the crate next to the Bartender to get a cheese tray.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase up"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "curator haig"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 0.0,
+          "y": 3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's get this cheese"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs and talk to Mr Mordaut again for the last drink token.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase up"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2253,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2566,
+            2567,
+            2633,
+            3821,
+            3838,
+            3839,
+            7090,
+            11568,
+            11569,
+            11575,
+            11583,
+            14576,
+            25890,
+            27423,
+            27547,
+            27774,
+            28626,
+            29756,
+            30068,
+            30069,
+            32519
+          ],
+          "displayName": "Wise Old Man"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That's the last of the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Drunken Dwarf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18864,
+          "modelIds": [
+            9240
+          ],
+          "displayName": "Drunken Dwarf"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Start the distraction."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well, here goes nothin'."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After another cutscene, go down to the basement.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's get down to the basement"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4566
+          ],
+          "candidateObjectTypeIds": [
+            4412,
+            4413,
+            8956,
+            10177,
+            10193,
+            10194,
+            10196,
+            10198,
+            10200,
+            10202,
+            10203,
+            10206,
+            10207,
+            10210,
+            10211,
+            10214,
+            10216,
+            10217,
+            10219,
+            10222,
+            10224,
+            10226,
+            10228,
+            47260
+          ],
+          "displayName": "Staircase down"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Do you see that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Avoid the guards, following the wires on the ground to find the levers.<ul><li>There is one lever in each of the north, east and western rooms. Avoid the guards by blocking their line of sight with objects where possible.</li><li>North: Avoid the guards and hide in the crate (halfway along the back wall) to avoid the guard.</li><li>East: Hide in the crate (Halfway along the eastern wall) to avoid the guard.</li><li>West: Notice the walking pattern of each guard. Then walk directly behind the guards along their route waiting for when they turn away to move.</li>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Looks like that's done it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the display case.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 24539,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Display case"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Right, that's done the trick"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After a cutscene, take from the display case.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4548
+          ],
+          "displayName": "Display case2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Finally, the ruby"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nooo!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Caelyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "caelyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is this all?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 48946,
+  "stageVarbitCompleteValue": 90,
+  "cacheQuestId": 468
+}

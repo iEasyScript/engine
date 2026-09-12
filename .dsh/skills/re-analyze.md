@@ -1,0 +1,1 @@
+../../.claude/commands/re-analyze.md

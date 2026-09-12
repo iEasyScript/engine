@@ -1,0 +1,126 @@
+# The Project X engine's shippable pieces: the JVM side (one shadow jar plus the
+# tiny supervisor that boots it) and the native bootstrap each platform injects.
+#
+# All three are published as release assets, not just the shadow jar. They are one
+# unit — a script jar needs the engine jar whose API it was built against, and that
+# engine jar needs the bootstrap and supervisor that load it — so the launcher has
+# to be able to update every one of them from a release it can see today, rather
+# than only when its own download is replaced.
+#
+# Both bootstraps cross-build on the stock Linux shared runner — the Windows one
+# through the `windows-mingw` CMake preset — so no job needs a Windows runner.
+# The preset's Debug build type is deliberate: it is what developers inject and
+# what the engine's logging expects, and a release should not quietly differ.
+
+engine:jar:
+  stage: build
+  image: eclipse-temurin:25-jdk
+  needs: [version]
+  interruptible: true
+  variables:
+    GRADLE_BUILD_CACHE_KEY: "gradle"
+    # The shadow jar packages re-resources/gamevals. The engine resolves every id by
+    # name at runtime, and an artifact installed outside a working tree has nowhere
+    # else to read the dictionaries from — without them it cannot start. Only this
+    # job needs the submodule, and skipping the LFS smudge leaves the ~193 MB of
+    # .gzf client archives as pointer files, so the checkout stays modest.
+    GIT_SUBMODULE_STRATEGY: normal
+    GIT_SUBMODULE_PATHS: re-resources
+    GIT_SUBMODULE_DEPTH: 1
+    GIT_LFS_SKIP_SMUDGE: "1"
+  cache:
+    key: "$GRADLE_BUILD_CACHE_KEY"
+    paths:
+      - .gradle-home/caches/modules-2
+      - .gradle-home/caches/build-cache-1
+      - .gradle-home/wrapper/dists
+  before_script:
+    - chmod +x ./gradlew
+  script:
+    # No cmake in this image, so the engine's native tasks skip themselves and
+    # shadowJar builds the JVM side alone — the bootstraps are separate jobs.
+    - ./gradlew --stacktrace -PprojectxVersion="$PROJECTX_VERSION"
+        :client-plugin-engine:shadowJar :client-plugin-engine:copySupervisorJar
+    - mkdir -p dist engine-stage
+    # The engine module pins its own `version` (the inject script and the
+    # unified launcher both reference the artifact by that fixed name), so the
+    # shadow jar is NOT stamped with $PROJECTX_VERSION — resolve it by shape.
+    # Published under a version-free release link (`projectx-engine.jar`), which
+    # is how the launcher looks it up on whatever release is current.
+    - ENGINE_JAR="$(ls client-plugin-engine/build/libs/*-all.jar)"
+    - cp "$ENGINE_JAR" "dist/projectx-engine-$PROJECTX_VERSION.jar"
+    - (cd dist && sha256sum "projectx-engine-$PROJECTX_VERSION.jar" > "projectx-engine-$PROJECTX_VERSION.jar.sha256")
+    # The supervisor rides in every bundle too: it is 8 KB, and an engine home
+    # without it cannot start the JVM at all. It is *also* a release asset,
+    # because the launcher has to be able to update it without a new launcher —
+    # a supervisor and an engine jar from different releases do not run.
+    - cp client-plugin-engine/build/libs/projectx-supervisor.jar engine-stage/projectx-supervisor.jar
+    - cp client-plugin-engine/build/libs/projectx-supervisor.jar "dist/projectx-supervisor-$PROJECTX_VERSION.jar"
+    - (cd dist && sha256sum "projectx-supervisor-$PROJECTX_VERSION.jar" > "projectx-supervisor-$PROJECTX_VERSION.jar.sha256")
+  artifacts:
+    name: "projectx-engine-$PROJECTX_VERSION"
+    paths:
+      - dist/
+      - engine-stage/
+    expire_in: 30 days
+
+# Each bootstrap goes to two places. `engine-stage/` seeds the platform's bundle,
+# so a fresh download is a working install with nothing to fetch. `dist/` makes it
+# a release asset in its own right, which is what lets the launcher pull a newer
+# bootstrap when the engine jar it also installs needs one — without that, a user
+# on last month's launcher runs new scripts against an old native ABI.
+.engine-bootstrap:
+  stage: build
+  image: eclipse-temurin:25-jdk
+  needs: [version]
+  interruptible: true
+  variables:
+    # funchook and imgui are compiled into the bootstrap; re-resources is not,
+    # and is a multi-hundred-MB knowledge hub, so name the two that are needed.
+    GIT_SUBMODULE_STRATEGY: recursive
+    GIT_SUBMODULE_PATHS: client-plugin-engine/native-bootstrap/funchook client-plugin-engine/native-bootstrap/imgui
+    GIT_SUBMODULE_DEPTH: 1
+    NATIVE_DIR: client-plugin-engine/native-bootstrap
+  artifacts:
+    name: "projectx-bootstrap-$PLATFORM_TAG-$PROJECTX_VERSION"
+    paths:
+      - engine-stage/
+      - dist/
+    expire_in: 30 days
+
+engine:bootstrap:linux:
+  extends: .engine-bootstrap
+  variables:
+    PLATFORM_TAG: linux-x86_64
+  before_script:
+    - apt-get update -qq
+    # libsdl2-dev brings the SDL2 headers; libOpenGL.so and libEGL.so are GLVND
+    # dev symlinks that only the -dev packages install, and imgui-static links
+    # both by bare name.
+    - apt-get install -y --no-install-recommends cmake clang lld make git libsdl2-dev libopengl-dev libegl-dev
+  script:
+    - (cd "$NATIVE_DIR" && cmake --preset linux-clang && cmake --build --preset linux-clang)
+    - mkdir -p engine-stage dist
+    - cp "$NATIVE_DIR/build/libprojectxbootstrap.so" engine-stage/libprojectxbootstrap.so
+    - cp "$NATIVE_DIR/build/libprojectxbootstrap.so" "dist/libprojectxbootstrap-$PROJECTX_VERSION.so"
+    - (cd dist && sha256sum "libprojectxbootstrap-$PROJECTX_VERSION.so" > "libprojectxbootstrap-$PROJECTX_VERSION.so.sha256")
+
+engine:bootstrap:windows:
+  extends: .engine-bootstrap
+  variables:
+    PLATFORM_TAG: windows-x86_64
+    # find_package(JNI) would resolve the *host* JDK and hand the cross-compiler
+    # Linux headers, so the preset takes the include tree explicitly.
+    WINDOWS_JDK_URL: "https://api.adoptium.net/v3/binary/latest/25/ga/windows/x64/jdk/hotspot/normal/eclipse"
+  before_script:
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends cmake mingw-w64 make git curl unzip
+    - curl -fsSL -o windows-jdk.zip "$WINDOWS_JDK_URL"
+    - unzip -q windows-jdk.zip -d windows-jdk
+  script:
+    - export JDK_INCLUDE="$(dirname "$(find "$PWD/windows-jdk" -name jni.h -print -quit)")"
+    - (cd "$NATIVE_DIR" && cmake --preset windows-mingw -DJNI_INCLUDE_DIRS="$JDK_INCLUDE;$JDK_INCLUDE/win32" && cmake --build --preset windows-mingw)
+    - mkdir -p engine-stage dist
+    - cp "$NATIVE_DIR/build-windows-mingw/projectxbootstrap.dll" engine-stage/projectxbootstrap.dll
+    - cp "$NATIVE_DIR/build-windows-mingw/projectxbootstrap.dll" "dist/projectxbootstrap-$PROJECTX_VERSION.dll"
+    - (cd dist && sha256sum "projectxbootstrap-$PROJECTX_VERSION.dll" > "projectxbootstrap-$PROJECTX_VERSION.dll.sha256")

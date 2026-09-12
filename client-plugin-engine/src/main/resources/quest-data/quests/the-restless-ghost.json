@@ -1,0 +1,398 @@
+{
+  "slug": "the-restless-ghost",
+  "name": "The Restless Ghost",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 978566400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Skeleton warlock",
+      "level": "7",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Father Aereck in Lumbridge church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3246.0,
+          "heightFine": 965.0,
+          "y": 3205.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3246.0,
+          "heightFine": 965.0,
+          "y": 3205.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 456,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7937,
+            14383,
+            29767
+          ],
+          "displayName": "Father Aereck"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for a quest!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Father Aereck.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 456,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7937,
+            14383,
+            29767
+          ],
+          "displayName": "Father Aereck"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ghostspeak amulet",
+      "text": "Go through the graveyard's southern exit and head west to a hut in the swamp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3207.0,
+          "heightFine": 869.0,
+          "y": 3149.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3207.0,
+          "heightFine": 869.0,
+          "y": 3149.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Father Urhney inside the hut to get the ghostspeak amulet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 458,
+          "modelIds": [],
+          "displayName": "Father Urhney"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Father Aereck sent me to talk to you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A ghost is haunting his graveyard."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 552,
+          "displayName": "Ghostspeak amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the graveyard and open a coffin located south of the catacombs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3249.0,
+          "heightFine": 965.0,
+          "y": 3193.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 965.0,
+          "y": 3193.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7587,
+          "modelIds": [
+            5841
+          ],
+          "displayName": "Coffin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 457,
+          "modelIds": [
+            573
+          ],
+          "displayName": "Restless ghost"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the Ghostspeak amulet and talk to the ghost.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 457,
+          "modelIds": [
+            573
+          ],
+          "displayName": "Restless ghost"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yep. Now, tell me what the problem is."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay. I'll try to get your skull back for you so you can rest in peace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The skull",
+      "text": "Search some rocks east of the lumbridge mining site for a muddy skull.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3235.0,
+          "heightFine": 597.0,
+          "y": 3148.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3235.0,
+          "heightFine": 597.0,
+          "y": 3148.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 968,
+          "modelIds": [
+            3234
+          ],
+          "displayName": "Rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 964,
+          "displayName": "Skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the skeleton or run away.<br><br>Go back to the graveyard, reopen the coffin and use the skull on the open coffin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3249.0,
+          "heightFine": 965.0,
+          "y": 3193.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 965.0,
+          "y": 3193.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7587,
+          "modelIds": [
+            5841
+          ],
+          "displayName": "Coffin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5841
+          ],
+          "displayName": "Open coffin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 964,
+          "modelIds": [
+            1239
+          ],
+          "displayName": "Skull"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5841
+          ],
+          "displayName": "Open coffin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2324,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 27
+}

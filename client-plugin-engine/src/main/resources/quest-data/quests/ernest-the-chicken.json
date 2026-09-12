@@ -1,0 +1,1060 @@
+{
+  "slug": "ernest-the-chicken",
+  "name": "Ernest the Chicken",
+  "members": false,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 980035200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Skeleton",
+      "level": "11",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Veronica located just inside the gate to Draynor Manor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3331.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3331.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 285,
+          "modelIds": [
+            3972
+          ],
+          "displayName": "Veronica"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the manor  and climb the stairs, then the ladder.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4881
+          ],
+          "candidateObjectTypeIds": [
+            63418
+          ],
+          "displayName": "Staircase bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3109.0,
+          "heightFine": 2213.0,
+          "y": 3366.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3105.0,
+          "heightFine": 2213.0,
+          "y": 3363.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3105.0,
+          "heightFine": 3429.0,
+          "y": 3362.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Professor Oddenstein.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26895,
+          "modelIds": [
+            5307
+          ],
+          "displayName": "Professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for a guy called Ernest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm glad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, and if I were you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining the items",
+      "text": "On the 1st floor [2nd US], grab the fish food in the room south of the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3105.0,
+          "heightFine": 3429.0,
+          "y": 3363.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3105.0,
+          "heightFine": 2213.0,
+          "y": 3364.0,
+          "range": 0
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fishfood",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            435,
+            435
+          ],
+          "candidateNpcTypeIds": [
+            6,
+            202,
+            2776,
+            4296,
+            14019,
+            14020,
+            14065,
+            14066,
+            21517,
+            22613,
+            22631,
+            30571
+          ],
+          "displayName": "Fishfood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fishfood",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the ground floor [1st US], take the poison from the room south of the kitchen, in the northwest of the manor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.5,
+          "heightFine": 2213.0,
+          "y": 3365.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3361.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 273,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 273,
+          "displayName": "Poison",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the poison on the fish food.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 273,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Poison"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            435,
+            435
+          ],
+          "displayName": "Fishfood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 273,
+          "displayName": "Poison"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the manor through the eastern-most room and walk to the fountain in the southwest corner of the yard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3123.0,
+          "heightFine": 965.0,
+          "y": 3363.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3123.0,
+          "heightFine": 965.0,
+          "y": 3363.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3091.0,
+          "heightFine": 965.0,
+          "y": 3335.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3091.0,
+          "heightFine": 965.0,
+          "y": 3335.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the poisoned fish food on the fountain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 153,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Fountain"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            435,
+            435
+          ],
+          "displayName": "Fishfood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Fishfood"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fountain for the pressure gauge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 153,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Fountain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gauge",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north to the compost mound and search it until a key is found.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3086.0,
+          "heightFine": 925.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3086.0,
+          "heightFine": 925.0,
+          "y": 3360.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 53521,
+          "modelIds": [
+            774
+          ],
+          "displayName": "Mound"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 423,
+          "displayName": "Key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go inside the manor, enter the small room behind the staircase and take the tuber",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3354.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3111.0,
+          "heightFine": 965.0,
+          "y": 3368.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3111.0,
+          "heightFine": 965.0,
+          "y": 3368.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            168
+          ],
+          "candidateNpcTypeIds": [
+            1363,
+            1396,
+            7189,
+            8467
+          ],
+          "displayName": "Tuber"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tuber",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Oil can puzzle",
+      "text": "Return to the entrance hall of the manor and go into the room to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3104.0,
+          "heightFine": 965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3104.0,
+          "heightFine": 965.0,
+          "y": 3360.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the candle sconce on the western wall to open the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.8,
+          "heightFine": 1900.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3095.0,
+          "heightFine": 965.0,
+          "y": 3359.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trap door ladder to the north in the new room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3092.0,
+          "heightFine": 965.0,
+          "y": 3362.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3117.0,
+          "heightFine": 965.0,
+          "y": 9753.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever B up (ensure your chat is visible with timestamps or highlighting will not work)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47367,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever B"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever B up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever A up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47365,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever A"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever A up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever D up",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47371,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever D"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever D up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever B down",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47367,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever B"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever B down."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull levers A down",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47365,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever A"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever A down."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever E up",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47373,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever E"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever E up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever F up",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47375,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever F"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever F up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever C up",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47369,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever C"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever C up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull lever E down",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47373,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Lever E"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pull lever E down."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door in order to obtain the oil can.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            360
+          ],
+          "candidateNpcTypeIds": [
+            796,
+            1776,
+            12233,
+            16864,
+            29181
+          ],
+          "displayName": "Oilcan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Oilcan",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Professor Oddenstein.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3117.0,
+          "heightFine": 965.0,
+          "y": 9754.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3092.0,
+          "heightFine": 965.0,
+          "y": 3361.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.3,
+          "heightFine": 1800.0,
+          "y": 3357.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 965.0,
+          "y": 3359.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4881
+          ],
+          "candidateObjectTypeIds": [
+            63418
+          ],
+          "displayName": "Staircase bottom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3109.0,
+          "heightFine": 2213.0,
+          "y": 3366.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3105.0,
+          "heightFine": 2213.0,
+          "y": 3363.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3105.0,
+          "heightFine": 3429.0,
+          "y": 3362.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26895,
+          "modelIds": [
+            5307
+          ],
+          "displayName": "Professor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2183,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 15
+}

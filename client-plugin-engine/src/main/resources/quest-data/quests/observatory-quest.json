@@ -1,0 +1,694 @@
+{
+  "slug": "observatory-quest",
+  "name": "Observatory Quest",
+  "members": true,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 704851200,
+  "neededItems": [
+    {
+      "name": "Normal plank",
+      "itemId": 960,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Bronze bar",
+      "itemId": 2349,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Molten glass",
+      "itemId": 1775,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ring of duelling",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Goblin guard",
+      "level": "28",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the Observatory professor in the reception building north of Castle Wars.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered', and chat timestamps on.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2442.0,
+          "heightFine": 69.0,
+          "y": 3186.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2442.0,
+          "heightFine": 69.0,
+          "y": 3186.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Plank",
+          "itemId": 960,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze bar",
+          "itemId": 2349,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Molten glass",
+          "itemId": 1775,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 488,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6121,
+            32322
+          ],
+          "displayName": "Observatory professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Observatory Quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "An Observatory?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the professor three times to hand over the 3 planks, bronze bar, and molten glass.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 488,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6121,
+            32322
+          ],
+          "displayName": "Observatory professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Observatory Quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I don't suppose you could find it?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining the lens mould",
+      "text": "Go east to the abandoned buildings and climb down the dungeon stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2458.0,
+          "heightFine": 2469.0,
+          "y": 3187.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2458.0,
+          "heightFine": 2469.0,
+          "y": 3187.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "observatory dungeon stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2357.0,
+          "heightFine": 1061.0,
+          "y": 9397.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chests in the dungeon to find the goblin kitchen key.<ul><li>Check the southeast chests first - if not there, it's guaranteed in the most southeast chest.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2312.0,
+          "heightFine": 1061.0,
+          "y": 9400.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2333.0,
+          "heightFine": 1061.0,
+          "y": 9405.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2310.0,
+          "heightFine": 1061.0,
+          "y": 9374.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2326.0,
+          "heightFine": 1061.0,
+          "y": 9360.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2335.0,
+          "heightFine": 1061.0,
+          "y": 9374.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2348.0,
+          "heightFine": 1061.0,
+          "y": 9383.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2356.0,
+          "heightFine": 1061.0,
+          "y": 9380.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2359.0,
+          "heightFine": 1061.0,
+          "y": 9376.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2360.0,
+          "heightFine": 1061.0,
+          "y": 9366.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2351.0,
+          "heightFine": 1061.0,
+          "y": 9361.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2364.0,
+          "heightFine": 1061.0,
+          "y": 9355.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "kitchen key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the staircase entrance, then go east, north, and west to find the goblin guard sleeping near the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2327.0,
+          "heightFine": 1061.0,
+          "y": 9394.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2327.0,
+          "heightFine": 1061.0,
+          "y": 9394.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill or lure the goblin guard away from the kitchen gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2327.0,
+          "heightFine": 1061.0,
+          "y": 9394.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2326.0,
+          "heightFine": 965.0,
+          "y": 9391.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the stove in the kitchen to receive the lens mould.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "observatory kitchen stove"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lens mould"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making the lens",
+      "text": "Return to the surface and talk to the professor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2357.0,
+          "heightFine": 1061.0,
+          "y": 9397.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2357.0,
+          "heightFine": 1061.0,
+          "y": 9397.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2458.0,
+          "heightFine": 2469.0,
+          "y": 3185.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2442.0,
+          "heightFine": 69.0,
+          "y": 3186.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2442.0,
+          "heightFine": 69.0,
+          "y": 3186.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 488,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6121,
+            32322
+          ],
+          "displayName": "Observatory professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Observatory Quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The professor gives you back the molten glass."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the lens mould on the molten glass to create an observatory lens.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 602,
+          "modelIds": [],
+          "displayName": "Lens mould"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1775,
+          "modelIds": [],
+          "displayName": "Molten glass"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 603,
+          "displayName": "Observatory lens",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the professor again to give him the lens.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 488,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6121,
+            32322
+          ],
+          "displayName": "Observatory professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Observatory Quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the professor has gone ahead"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the dungeon entrance at the abandoned buildings.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2458.0,
+          "heightFine": 2469.0,
+          "y": 3187.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2458.0,
+          "heightFine": 2469.0,
+          "y": 3187.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "observatory dungeon stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2357.0,
+          "heightFine": 1061.0,
+          "y": 9397.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Navigate south through the dungeon and climb the stairs to reach the Observatory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2337.0,
+          "heightFine": 1061.0,
+          "y": 9353.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hi, professor!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2438.0,
+          "heightFine": 3813.0,
+          "y": 3163.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2442.0,
+          "heightFine": 4813.0,
+          "y": 3159.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2442.0,
+          "heightFine": 4813.0,
+          "y": 3159.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Look through the telescope and remember which constellation you see.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered', and chat timestamps on.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You look through the telescope."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tell the professor which constellation you observed. This cannot be solved by us and requires manual input.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 488,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6121,
+            32322
+          ],
+          "displayName": "Observatory professor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Observatory Quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2796,
+  "stageVarbitCompleteValue": 7,
+  "cacheQuestId": 271
+}

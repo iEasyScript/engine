@@ -1,0 +1,2214 @@
+{
+  "slug": "desperate-times",
+  "name": "Desperate Times",
+  "members": true,
+  "length": "medium",
+  "timeline": "worldguardian",
+  "releaseDate": 1557705600,
+  "neededItems": [
+    {
+      "name": "Rune bars",
+      "itemId": 2363,
+      "quantity": 3,
+      "duringQuest": true
+    },
+    {
+      "name": "Runite stone spirits",
+      "itemId": 44808,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Mind runes",
+      "itemId": 558,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "Gleaming energy",
+      "itemId": 29194,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "Old necklace",
+      "itemId": 42682,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Skull of remembrance",
+      "itemId": 28927,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Attending the council",
+      "text": "Talk to Seren on the 1st floor (2nd floor[US]) of Burthorpe Castle.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2965.0,
+          "y": 3570.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 66969,
+          "modelIds": [],
+          "displayName": "Stone Staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2899.0,
+          "heightFine": 3877.0,
+          "y": 3567.0,
+          "range": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene or hit escape.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ridiculous"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Osman.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3388,
+            5284,
+            5286,
+            5287,
+            7824,
+            13241,
+            15908,
+            15909,
+            24647,
+            26278,
+            27676
+          ],
+          "displayName": "Osman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have anywhere we could plant the garden?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "for the garden"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Amik Varze.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3395,
+            6513,
+            9397,
+            9416,
+            13277,
+            15545,
+            17053,
+            18868,
+            22022,
+            25041,
+            26346,
+            27651,
+            27687,
+            29769
+          ],
+          "displayName": "Sir Amik Varze"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have a workforce to plant it?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "obtained a workforce"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Azzanadra. Propose the plan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1971,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9047,
+            9048,
+            14277,
+            16965,
+            18483,
+            19156,
+            19158,
+            23627,
+            23655,
+            23693,
+            23710,
+            23718,
+            23735,
+            23811,
+            26288,
+            26967,
+            27574,
+            27575,
+            27577,
+            27652,
+            27656,
+            27690,
+            27698,
+            27816,
+            27932,
+            27933,
+            27934,
+            28079,
+            28746,
+            28821,
+            28899,
+            28902,
+            29148,
+            29197,
+            29316
+          ],
+          "displayName": "Azzanadra"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Desperate Times"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any seeds we could use?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "secured some seeds"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vanescula Drakan. Propose the plan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have anywhere we could plant the garden?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Change to Morytania."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "location to Morytania"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zarador. Propose the plan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19370,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19371,
+            19372,
+            19422,
+            19426,
+            19432,
+            26294,
+            27693,
+            28447
+          ],
+          "displayName": "Zarador"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have anywhere we could plant the garden?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Change to Feldip."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9000,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9001,
+            19105,
+            21212,
+            23858,
+            25886,
+            26315,
+            26316,
+            27155,
+            27156,
+            27158,
+            27992,
+            28077
+          ],
+          "displayName": "Kerapac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kerapac will appear. Complete the dialogue.\u003cul\u003e\u003cli\u003eIf the dialogue containing Kerapac does not start, talk to Seren.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head to the Needle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Needle",
+      "text": "Talk to Kerapac next to the Needle.\u003cul\u003e\u003cli\u003eIt is located west of Piscatoris Fishing Colony (Phoenix Lair Teleport, fairy ring AKQ, Sixth-Age circuit teleports to Guthix memorial, or via memory strands within the currency pouch).\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2225.0,
+          "heightFine": 3909.0,
+          "y": 3657.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9000,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9001,
+            19105,
+            21212,
+            23858,
+            25886,
+            26315,
+            26316,
+            27155,
+            27156,
+            27158,
+            27992,
+            28077
+          ],
+          "displayName": "Kerapac",
+          "distance": 10
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s get on with it."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Say nothing."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all is lost"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Close the temporal instability near the needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2232.0,
+          "heightFine": 3369.0,
+          "y": 3670.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45069,
+          "modelIds": [
+            1974,
+            1974,
+            1974
+          ],
+          "displayName": "Temporal instability",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "closed 1/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Close the temporal instability near the stream.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2209.0,
+          "heightFine": 785.0,
+          "y": 3678.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45069,
+          "modelIds": [
+            1974,
+            1974,
+            1974
+          ],
+          "displayName": "Temporal instability",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "closed 2/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Close the temporal instability near the cart.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2189.0,
+          "heightFine": 1305.0,
+          "y": 3685.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45069,
+          "modelIds": [
+            1974,
+            1974,
+            1974
+          ],
+          "displayName": "Temporal instability",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "closed 3/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Close the temporal instability in the room upstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2204.5,
+          "heightFine": 1305.0,
+          "y": 3691.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2204.0,
+          "heightFine": 2469.0,
+          "y": 3695.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2197.0,
+          "heightFine": 3069.0,
+          "y": 3694.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45069,
+          "modelIds": [
+            1974,
+            1974,
+            1974
+          ],
+          "displayName": "Temporal instability",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "closed 4/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Close the temporal instability.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2191.0,
+          "heightFine": 3069.0,
+          "y": 3692.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45069,
+          "modelIds": [
+            1974,
+            1974,
+            1974
+          ],
+          "displayName": "Temporal instability",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "closed 5/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kerapac again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2204.5,
+          "heightFine": 2369.0,
+          "y": 3694.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2204.0,
+          "heightFine": 805.0,
+          "y": 3690.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2225.0,
+          "heightFine": 3909.0,
+          "y": 3657.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9000,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9001,
+            19105,
+            21212,
+            23858,
+            25886,
+            26315,
+            26316,
+            27155,
+            27156,
+            27158,
+            27992,
+            28077
+          ],
+          "displayName": "Kerapac",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "someone called McGrubor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend into the mysterious hole inside McGrubor\u0027s Wood.\u003cul\u003e\u003cli\u003eALS.\u003c/li\u003e\u003cli\u003eSeers\u0027 Village lodestone.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.5,
+          "heightFine": 1693.0,
+          "y": 3500.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2663.0,
+          "heightFine": 1101.0,
+          "y": 3500.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111270,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            111271
+          ],
+          "displayName": "Mysterious Hole"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the coffin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 32.0,
+          "heightFine": 3425.0,
+          "y": 15.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45075,
+          "modelIds": [],
+          "displayName": "Coffin",
+          "instance": true,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47835,
+          "displayName": "Letter from Charos",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the letter from Charos.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 47835,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Letter from Charos"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 960
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "First key",
+      "text": "Step on the strange portal near the entrance to the Empty Throne Room in the Varrock Dig Site.",
+      "warning": "This section does not have tracking as of now.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 445.0,
+          "y": 3405.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Old necklace",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Necklace of Charos",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Solve every chest in the room. The helper guides each one: the combination-lock arrows (with the click count per dial), plus the \u0027Old recipe\u0027 NPC or lodestone \u0027Plaque\u0027 to read in those rooms. Once all chests are open and you open the completed WORD GRID, this advances automatically.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.combination-lock"
+    },
+    {
+      "text": "Rearrange the slide puzzle (the WORD GRID) to match the symbol blocks around the room. The helper numbers the cell to click for each move (1 \u003d next) until it\u0027s solved. North (+Y) is the top of the grid.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "feels more powerful somehow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.slide-puzzle"
+    },
+    {
+      "text": "Step on the exit portal to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8168,
+          "modelIds": [
+            810
+          ],
+          "displayName": "Exit portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Find a way into Black Knight\u0027s fortress. Step onto the portal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3030.0,
+          "heightFine": 2725.0,
+          "y": 3545.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Solve every chest in the room. The helper guides each one: the combination-lock arrows (with the click count per dial), plus the \u0027Old recipe\u0027 NPC or lodestone \u0027Plaque\u0027 to read in those rooms. Once all chests are open and you open the completed WORD GRID, this advances automatically.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.combination-lock"
+    },
+    {
+      "text": "Rearrange the slide puzzle (the WORD GRID) to match the symbol blocks around the room. The helper numbers the cell to click for each move (1 \u003d next) until it\u0027s solved. North (+Y) is the top of the grid.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "feels more powerful somehow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.slide-puzzle"
+    },
+    {
+      "text": "Step on the exit portal to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8168,
+          "modelIds": [
+            810
+          ],
+          "displayName": "Exit portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Third key",
+      "text": "Climb the staircase in the Varrock Palace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.5,
+          "heightFine": 1653.0,
+          "y": 3473.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3212.0,
+          "heightFine": 2469.0,
+          "y": 3476.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Step on the portal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3224.0,
+          "heightFine": 2469.0,
+          "y": 3470.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Solve every chest in the room. The helper guides each one: the combination-lock arrows (with the click count per dial), plus the \u0027Old recipe\u0027 NPC or lodestone \u0027Plaque\u0027 to read in those rooms. Once all chests are open and you open the completed WORD GRID, this advances automatically.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.combination-lock"
+    },
+    {
+      "text": "Rearrange the slide puzzle (the WORD GRID) to match the symbol blocks around the room. The helper numbers the cell to click for each move (1 \u003d next) until it\u0027s solved. North (+Y) is the top of the grid.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "feels more powerful somehow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "desperate-times.slide-puzzle"
+    },
+    {
+      "text": "Step on the exit portal to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8168,
+          "modelIds": [
+            810
+          ],
+          "displayName": "Exit portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The big reveal",
+      "text": "Talk to Reldo in the Varrock Palace library.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.5,
+          "heightFine": 2469.0,
+          "y": 3475.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3212.0,
+          "heightFine": 1253.0,
+          "y": 3472.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rune bars",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Runite stone spirits",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Gleaming energy",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        },
+        {
+          "name": "Mind runes",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3494.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Use Charos\u0027s Necklace.]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nice to meet you"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head to the Needle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The device",
+      "text": "Gear for combat. Deaths here are non-safe. Move to the next step when you\u0027re ready.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kerapac at The Needle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2225.0,
+          "heightFine": 3909.0,
+          "y": 3657.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9000,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9001,
+            19105,
+            21212,
+            23858,
+            25886,
+            26315,
+            26316,
+            27155,
+            27156,
+            27158,
+            27992,
+            28077
+          ],
+          "displayName": "Kerapac",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What\u0027s this"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "should look around"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the 5 Sliske clones and pick up the fragments.\u003cul\u003e\u003cli\u003eMake sure lootshare is turned off.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 7.0,
+          "heightFine": -904.0,
+          "y": 5.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": -488.0,
+          "y": -5.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 19.0,
+          "heightFine": -1080.0,
+          "y": -3.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 29.0,
+          "heightFine": -2064.0,
+          "y": 3.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 29.0,
+          "heightFine": -1560.0,
+          "y": 10.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26350,
+          "modelIds": [
+            5544
+          ],
+          "candidateObjectTypeIds": [
+            63631
+          ],
+          "displayName": "Sliske"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47833,
+          "displayName": "Broken shard of Sliske\u0027s mask",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Combine the fragments into Sliske\u0027s mask.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            156
+          ],
+          "displayName": "Broken sliske mask shard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47834,
+          "displayName": "Sliske\u0027s mask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk to the bottom of the platform, wear the mask, and kill Guthix.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 61.0,
+          "heightFine": -6280.0,
+          "y": 1.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 47834,
+          "modelIds": [
+            1188
+          ],
+          "displayName": "Sliske\u0027s mask"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - Kill him"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Guthix..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Harvest the five memories on Naragun.",
+      "warning": "Complete each dialogue.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": -576.0,
+          "y": -2.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "they would live"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -6.0,
+          "heightFine": 768.0,
+          "y": 12.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "too high a price"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 2208.0,
+          "y": 33.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 44184,
+          "modelIds": [
+            8583
+          ],
+          "displayName": "Zamorak",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 44184,
+          "modelIds": [
+            8583
+          ],
+          "displayName": "Zamorak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 29.0,
+          "heightFine": 3152.0,
+          "y": 47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 88709,
+          "modelIds": [
+            15516
+          ],
+          "displayName": "Bandos",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 88709,
+          "modelIds": [
+            15516
+          ],
+          "displayName": "Bandos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 6688.0,
+          "y": 46.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Guthix near the empty fairy ring.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 25.0,
+          "heightFine": 2256.0,
+          "y": 23.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38661,
+          "modelIds": [
+            6663
+          ],
+          "displayName": "Guthix",
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with my death the Edicts fell"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click each mutable anima once so both the green particles will end up on Kerapac.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38664,
+          "modelIds": [
+            1962
+          ],
+          "displayName": "Mutable Anima",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 200,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 14987.0,
+              "heightFine": 579.0,
+              "y": 4105.0
+            },
+            {
+              "x": 14987.0,
+              "heightFine": 579.0,
+              "y": 4109.0
+            },
+            {
+              "x": 14987.0,
+              "heightFine": 1529.0,
+              "y": 4116.0
+            },
+            {
+              "x": 14977.0,
+              "heightFine": 1529.0,
+              "y": 4129.0
+            },
+            {
+              "x": 14966.0,
+              "heightFine": 2989.0,
+              "y": 4129.0
+            },
+            {
+              "x": 14966.0,
+              "heightFine": 2989.0,
+              "y": 4138.0
+            },
+            {
+              "x": 14963.0,
+              "heightFine": 2989.0,
+              "y": 4138.0
+            },
+            {
+              "x": 14962.0,
+              "heightFine": 2989.0,
+              "y": 4135.0
+            },
+            {
+              "x": 14961.0,
+              "heightFine": 2989.0,
+              "y": 4128.0
+            },
+            {
+              "x": 14959.0,
+              "heightFine": 2989.0,
+              "y": 4125.0
+            },
+            {
+              "x": 14962.0,
+              "heightFine": 2949.0,
+              "y": 4122.0
+            },
+            {
+              "x": 14962.0,
+              "heightFine": 2949.0,
+              "y": 4121.0
+            },
+            {
+              "x": 14957.0,
+              "heightFine": 2949.0,
+              "y": 4121.0
+            },
+            {
+              "x": 14956.0,
+              "heightFine": 2949.0,
+              "y": 4121.0
+            },
+            {
+              "x": 14950.0,
+              "heightFine": 2949.0,
+              "y": 4121.0
+            },
+            {
+              "x": 14944.0,
+              "heightFine": 1477.0,
+              "y": 4119.0
+            },
+            {
+              "x": 14944.0,
+              "heightFine": 1477.0,
+              "y": 4127.0
+            },
+            {
+              "x": 14947.0,
+              "heightFine": 2949.0,
+              "y": 4127.0
+            },
+            {
+              "x": 14948.0,
+              "heightFine": 2989.0,
+              "y": 4127.0
+            },
+            {
+              "x": 14950.0,
+              "heightFine": 2989.0,
+              "y": 4130.0
+            },
+            {
+              "x": 14950.0,
+              "heightFine": 2989.0,
+              "y": 4138.0
+            },
+            {
+              "x": 14950.0,
+              "heightFine": 2989.0,
+              "y": 4139.0
+            },
+            {
+              "x": 14956.0,
+              "heightFine": 2989.0,
+              "y": 4139.0
+            },
+            {
+              "x": 14956.0,
+              "heightFine": 4549.0,
+              "y": 4151.0
+            },
+            {
+              "x": 14956.0,
+              "heightFine": 4549.0,
+              "y": 4164.0
+            },
+            {
+              "x": 14958.0,
+              "heightFine": 4549.0,
+              "y": 4172.0
+            },
+            {
+              "x": 14978.0,
+              "heightFine": 5829.0,
+              "y": 4173.0
+            },
+            {
+              "x": 14998.0,
+              "heightFine": 5829.0,
+              "y": 4173.0
+            },
+            {
+              "x": 15007.0,
+              "heightFine": 5829.0,
+              "y": 4173.0
+            },
+            {
+              "x": 15007.0,
+              "heightFine": 4389.0,
+              "y": 4154.0
+            },
+            {
+              "x": 15010.0,
+              "heightFine": 4429.0,
+              "y": 4141.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you are doing is wrong"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Switch all the green mutable anima.\u003cul\u003e\u003cli\u003eUse temporal rifts to teleport to the top floor.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38665,
+          "modelIds": [
+            1962
+          ],
+          "displayName": "Mutable Anima",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Losing the song"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Redirect the green mutable anima to Kerapac.\u003cul\u003e\u003cli\u003eHarvest all three unrefined anima (red dots on the image) to unlock the three frozen anima. Make sure to finish the dialogue with each NPC.\u003c/li\u003e\u003cli\u003eSwitch the green mutable anima according to the direction on the image. All of these can be clicked while standing on the main floor.\u003c/li\u003e\u003cli\u003eDisable bloom in graphics settings if it is difficult to see the direction the green mutable anima is facing.\u003c/li\u003e\u003c/ul\u003e",
+      "warning": "Don\u0027t click on the mutable anima until directed to.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 11.0,
+          "heightFine": 1920.0,
+          "y": 25.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26370,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 1920.0,
+          "y": -60.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26370,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -10.0,
+          "heightFine": 2880.0,
+          "y": -42.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26370,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [
+            59307
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38666,
+          "modelIds": [
+            1962
+          ],
+          "displayName": "Mutable Anima",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I found your notes father"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.\u003cul\u003e\u003cli\u003eIf cutscene doesn\u0027t start, talk to Kerapac.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seren in Burthorpe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2965.0,
+          "y": 3570.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2899.0,
+          "heightFine": 3877.0,
+          "y": 3567.0,
+          "range": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19925,
+            21542,
+            21556,
+            21557,
+            21562,
+            21563,
+            21565,
+            21566,
+            23643,
+            23644,
+            23814,
+            23815,
+            25552,
+            26615,
+            26616,
+            27923,
+            27924,
+            27988,
+            27989,
+            28084,
+            28085,
+            28751,
+            28752,
+            28891,
+            28892,
+            28893,
+            28894,
+            28939,
+            29862,
+            29863,
+            29864
+          ],
+          "displayName": "Seren"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 44002,
+  "stageVarbitCompleteValue": 260,
+  "cacheQuestId": 460
+}

@@ -1,0 +1,964 @@
+{
+  "slug": "a-shadow-over-ashdale",
+  "name": "A Shadow over Ashdale",
+  "members": false,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1398124800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Return to Ashdale",
+      "text": "To start, talk to Gudrik, east of Gerrant's Fishy Business in Port Sarim.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3029.0,
+          "heightFine": 741.0,
+          "y": 3229.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3029.5,
+          "heightFine": 741.0,
+          "y": 3229.5,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18589,
+          "modelIds": [
+            8241
+          ],
+          "displayName": "Gudrik"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about A Shadow over Ashdale."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gudrik to travel to Ashdale (by night).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ashdale by night (A Shadow over Ashdale)."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me to the island of Ashdale?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 69,
+          "modelIds": [
+            660
+          ],
+          "displayName": "Gangplank"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north over the bridge and then immediately north-west to Lucy's house (look for the only yellow dot on the minimap) and talk with her.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 3232.0,
+          "y": 53.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 662,
+          "modelIds": [
+            4641
+          ],
+          "displayName": "Lucy",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here to help."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why haven't you tried to leave?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please be careful."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the storm drain just west of the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -5.0,
+          "heightFine": 1600.0,
+          "y": 55.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6
+          ],
+          "candidateObjectTypeIds": [
+            62222,
+            62234,
+            64930,
+            66287,
+            67604
+          ],
+          "displayName": "Grid in tunnel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sewer raider",
+      "text": "Go through in the sewer, running past crassians",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 28.0,
+          "heightFine": 522.0,
+          "y": 12.0,
+          "instance": true
+        },
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9071,
+          "modelIds": [
+            7500
+          ],
+          "displayName": "Crassian scout"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene continue to the ladder and climb up.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": -46.0,
+          "heightFine": 2496.0,
+          "y": 31.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2193
+          ],
+          "candidateObjectTypeIds": [
+            1617
+          ],
+          "displayName": "Tunnel ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 90882,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Storm drain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run west, then south up the stairs. Continue south through Ashdale, through the gate and into the house.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 72404,
+          "modelIds": [
+            1032
+          ],
+          "displayName": "Closed door",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 1544.0,
+          "y": -46.0,
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 7345,
+          "modelIds": [
+            1032
+          ],
+          "displayName": "Open Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the bust by the fireplace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -9.0,
+          "heightFine": 4128.0,
+          "y": -53.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2073
+          ],
+          "candidateObjectTypeIds": [
+            903,
+            4181
+          ],
+          "displayName": "Stairscase"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2073
+          ],
+          "candidateObjectTypeIds": [
+            903,
+            4181
+          ],
+          "displayName": "Stairscase"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 8987,
+          "modelIds": [
+            795
+          ],
+          "displayName": "Torch"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Smuggler's cavern",
+      "text": "Run past the crassians and collect the valve outer wheel, valve inner wheel, and pitch.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 40.0,
+          "heightFine": 816.0,
+          "y": -6.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 31254,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Valve inner wheel",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31254,
+          "displayName": "Valve inner wheel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 31255,
+          "modelIds": [
+            672
+          ],
+          "displayName": "Pitch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31255,
+          "displayName": "Pitch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 31253,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Valve outer wheel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 31253,
+          "displayName": "Valve outer wheel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the leaking pipe on the ground.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 42.0,
+          "heightFine": 816.0,
+          "y": -8.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            768
+          ],
+          "candidateObjectTypeIds": [
+            61816
+          ],
+          "displayName": "Broken pipe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Combine valve parts and use it on socket to repair the central barrel.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31254,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Valve inner wheel"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 31253,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Valve outer wheel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10875,
+          "displayName": "Valve wheel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10875,
+          "modelIds": [
+            540
+          ],
+          "displayName": "Valve wheel"
+        },
+        {
+          "t": "direction",
+          "x": 37.0,
+          "heightFine": 816.0,
+          "y": -6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 10875,
+          "displayName": "Valve wheel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valves on the filled barrel to move the water through the pipes to the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 39.0,
+          "heightFine": 816.0,
+          "y": -4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            243
+          ],
+          "candidateNpcTypeIds": [
+            195,
+            196,
+            203,
+            204,
+            23025,
+            23131,
+            23157,
+            23158
+          ],
+          "displayName": "Water puzzle location",
+          "instance": true,
+          "atLocation": {
+            "x": 35.0,
+            "heightFine": 816.0,
+            "y": -4.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3402
+          ],
+          "displayName": "Open door2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 34.0,
+          "heightFine": 816.0,
+          "y": -4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            243
+          ],
+          "candidateNpcTypeIds": [
+            195,
+            196,
+            203,
+            204,
+            23025,
+            23131,
+            23157,
+            23158
+          ],
+          "displayName": "Water puzzle location",
+          "instance": true,
+          "atLocation": {
+            "x": 37.0,
+            "heightFine": 816.0,
+            "y": -6.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3402
+          ],
+          "displayName": "Open door2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 37.0,
+          "heightFine": 816.0,
+          "y": -7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            243
+          ],
+          "candidateNpcTypeIds": [
+            195,
+            196,
+            203,
+            204,
+            23025,
+            23131,
+            23157,
+            23158
+          ],
+          "displayName": "Water puzzle location",
+          "instance": true,
+          "atLocation": {
+            "x": 34.0,
+            "heightFine": 816.0,
+            "y": -8.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3402
+          ],
+          "displayName": "Open door2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 34.0,
+          "heightFine": 816.0,
+          "y": -8.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            243
+          ],
+          "candidateNpcTypeIds": [
+            195,
+            196,
+            203,
+            204,
+            23025,
+            23131,
+            23157,
+            23158
+          ],
+          "displayName": "Water puzzle location",
+          "instance": true,
+          "atLocation": {
+            "x": 39.0,
+            "heightFine": 816.0,
+            "y": -8.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3402
+          ],
+          "displayName": "Open door2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 39.0,
+          "heightFine": 816.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3402
+          ],
+          "displayName": "Open door2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through and kill all scouts to open the barrier.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5567,
+          "modelIds": [
+            7500
+          ],
+          "displayName": "Scout",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5567,
+          "modelIds": [
+            7500
+          ],
+          "displayName": "Scout"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever to the south when the Crassian Warrior isn't looking. If seen, the route will reset. Repeat this for each Crassian Warrior and run past the scouts.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 83,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 36.0,
+          "heightFine": 2024.0,
+          "y": 54.0,
+          "range": 40
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3580,
+          "modelIds": [
+            1173,
+            1173
+          ],
+          "displayName": "Tentacle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Release the Kraken",
+      "text": "Climb on the ship.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3580,
+          "modelIds": [
+            1173,
+            1173
+          ],
+          "displayName": "Tentacle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the 4 tentacles, moving to avoid their attacks.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3580,
+          "modelIds": [
+            1173,
+            1173
+          ],
+          "displayName": "Tentacle",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3580,
+          "modelIds": [
+            1173,
+            1173
+          ],
+          "displayName": "Tentacle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Agoroth, ideally from a distance.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You did it -"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lucy.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hello there, laddie"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Gudrik and ask for a reward. This requires 7 free inventory spaces.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about A Shadow over Ashdale"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there a reward?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 22270,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 367
+}

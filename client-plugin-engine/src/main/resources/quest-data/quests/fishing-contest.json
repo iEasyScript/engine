@@ -1,0 +1,518 @@
+{
+  "slug": "fishing-contest",
+  "name": "Fishing Contest",
+  "members": true,
+  "length": "short",
+  "timeline": "adventurer",
+  "releaseDate": 1022544000,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Garlic",
+      "itemId": 1550,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Red vine worm",
+      "itemId": 25,
+      "quantity": 3,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "A few food if low level",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Fishing",
+      "level": 10,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Vestri north of the Catherby lodestone.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2804.0,
+          "heightFine": 1957.0,
+          "y": 3460.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2804.0,
+          "heightFine": 1957.0,
+          "y": 3460.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3679,
+          "modelIds": [
+            6501
+          ],
+          "displayName": "Vestri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I was wondering what was down that tunnel?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why not?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you were my friend I wouldn't mind it."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, let's be friends!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And how am I meant to do that?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Vestri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3679,
+          "modelIds": [
+            6501
+          ],
+          "displayName": "Vestri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go to Hemenster and do us proud!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting some help",
+      "text": "If you don't have the garlic, head to the house southwest of the Seers' Village bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2714.0,
+          "heightFine": 1285.0,
+          "y": 3478.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2713.0,
+          "heightFine": 1285.0,
+          "y": 3480.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1550,
+          "displayName": "Garlic",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Garlic",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Red vine worm",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1550,
+          "modelIds": [],
+          "displayName": "Garlic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1550,
+          "displayName": "Garlic",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you don't have the worms:<ul><li>Go to McGrubor's Wood just west of the Seers' Village lodestone and enter through the loose railing along the north fence, or use fairy ring ALS.</li><li>Run to the west side of the woods and 'check' the red-coloured vines to receive red vine worms; take at least 3.</li><li>Grab 4 dwellberries for other quests.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.0,
+          "heightFine": 1093.0,
+          "y": 3500.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2661.0,
+          "heightFine": 1093.0,
+          "y": 3500.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 25,
+          "displayName": "Red vine worm",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 757.0,
+          "y": 3495.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25,
+          "displayName": "Red vine worm",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Hemenster, south-west of Seers' Village and directly west of the Ranging Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2643.0,
+          "heightFine": 261.0,
+          "y": 3441.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 261.0,
+          "y": 3441.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The vampyre",
+      "text": "Enter the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2642.0,
+          "heightFine": 261.0,
+          "y": 3441.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2640.0,
+          "heightFine": 261.0,
+          "y": 3441.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Garlic",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Red vine worm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fishing pass",
+          "itemId": 117,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the garlic on the eastern wall pipes by the north side.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2638.0,
+          "heightFine": 29.0,
+          "y": 3446.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1550,
+          "modelIds": [],
+          "displayName": "Garlic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You stash the garlic in the pipe."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Either talk to Bonzo and pay him 5 coins or fish at a fishing spot to start the contest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 225,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Bonzo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll enter the competition please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Your fishing competition spot is now beside the pipes."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fish at the newly obtained fishing spot until a Raw giant carp is caught.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2637.0,
+          "heightFine": 53.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 338,
+          "displayName": "Raw giant carp",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Give the carp to Bonzo.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 338,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Raw giant carp"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 225,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Bonzo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have this big fish. Is it enough to win?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We have a new winner!"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26,
+          "displayName": "Fishing trophy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Report back to Austri or Vestri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2804.0,
+          "heightFine": 1957.0,
+          "y": 3460.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2804.0,
+          "heightFine": 1957.0,
+          "y": 3460.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3679,
+          "modelIds": [
+            6501
+          ],
+          "displayName": "Vestri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2331,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 76
+}

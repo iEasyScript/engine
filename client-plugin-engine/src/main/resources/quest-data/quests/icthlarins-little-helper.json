@@ -1,0 +1,2165 @@
+{
+  "slug": "icthlarins-little-helper",
+  "name": "Icthlarin\u0027s Little Helper",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1114473600,
+  "neededItems": [
+    {
+      "name": "Linen",
+      "itemId": 96,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Salt shaker (tool belt works)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of sap",
+      "itemId": 4687,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Willow log",
+      "itemId": 1519,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Kitten/cat/overgrown cat/hellcat",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to the Wanderer, north of Sophanem.\u003cul\u003e\u003cli\u003eYou can use the magic carpet network south of Shantay\u0027s Pass at Al Kharid to get to Nardah, and then run southwest.\u003c/li\u003e\u003c/ul\u003e",
+      "warning": "For the tracking to work properly, you need to have the chat visible, and game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 677.0,
+          "y": 2849.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2005,
+          "modelIds": [
+            4425
+          ],
+          "displayName": "Wanderer",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why? [Icthlarin\u0027s Little Helper]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Wanderer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 677.0,
+          "y": 2849.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2005,
+          "modelIds": [
+            4425
+          ],
+          "displayName": "Wanderer",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about Sophanem. [Icthlarin\u0027s Little Helper]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3295.0,
+          "heightFine": 365.0,
+          "y": 2782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Graverobbing",
+      "text": "Open the northern door on the southern pyramid (picture of a cat).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 6614,
+          "modelIds": [
+            1029
+          ],
+          "displayName": "Pyramid entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3277.0,
+          "heightFine": 965.0,
+          "y": 9170.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run through the maze.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3289.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3290.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3293.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3294.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9181.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3281.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9179.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 965.0,
+          "y": 9191.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump across the pit.",
+      "warning": "This requires at least 20% run energy.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3291.5,
+          "heightFine": 1465.0,
+          "y": 9196.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.5,
+          "heightFine": 965.0,
+          "y": 9196.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the doorway of the western room and solve the puzzle.\u003cul\u003e\u003cli\u003eYou may reroll your puzzle until it looks like solution below.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "my poor head"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Desert Demigods",
+      "text": "Talk to the Sphinx with your cat/kitten out.",
+      "warning": "If you choose the wrong option, you will lose your kitten/cat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1990,
+          "modelIds": [
+            11598
+          ],
+          "displayName": "Sphinx"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need help."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "that sounds fair"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "9."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Totally positive."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I do make exceptions for guardians"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up your cat.",
+      "warning": "Dev note: I don\u0027t have all kitten/cat data. Tracking for this step will break.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "modelIds": [],
+          "displayName": "Cat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pick pet up."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Pet kitten",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest, in the temple to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 4765.0,
+          "y": 2729.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [
+            6930
+          ],
+          "displayName": "High Priest",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I had better return this jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Examine the canopic jar in your inventory. (Take note of the lid shape)",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            573,
+            588,
+            564,
+            582
+          ],
+          "displayName": "Any canopic jar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "lid shaped like a"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the southern pyramid and open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3294.5,
+          "heightFine": 941.0,
+          "y": 2781.5,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 6614,
+          "modelIds": [
+            1029
+          ],
+          "displayName": "Pyramid entrance",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3277.0,
+          "heightFine": 965.0,
+          "y": 9170.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the pyramid again.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3289.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3290.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3293.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3294.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9181.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3281.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9179.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 965.0,
+          "y": 9191.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump across the pit.",
+      "warning": "This requires at least 20% run energy.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3291.5,
+          "heightFine": 1465.0,
+          "y": 9196.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 9201.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the doorway of the western room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9198.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Examine the jars on the ground and take the one that has the same examine as the one in your inventory previously.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "chatText",
+          "text": "a bug"
+        },
+        {
+          "t": "chatText",
+          "text": "an ape"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4679,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Canopic jar of Apmeken"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "chatText",
+          "text": "a bug"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            588
+          ],
+          "candidateObjectTypeIds": [
+            1905,
+            4635,
+            53818
+          ],
+          "displayName": "Canopic jar of scarabas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4681,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Canopic jar of Crondis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4678,
+          "modelIds": [
+            573
+          ],
+          "displayName": "Canopic jar of Het"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the NPC that spawns.\u003cul\u003e\u003cli\u003eYou can safe spot it by using the table in the room (unless you have the canopic jar of Apmeken).\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "modelIds": [
+            4827
+          ],
+          "candidateNpcTypeIds": [
+            1429,
+            1433,
+            1434,
+            1435,
+            1436,
+            1451,
+            1453
+          ],
+          "displayName": "Any apparition"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the jar again.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "chatText",
+          "text": "a bug"
+        },
+        {
+          "t": "chatText",
+          "text": "an ape"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4679,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Canopic jar of Apmeken"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "chatText",
+          "text": "a bug"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            588
+          ],
+          "candidateObjectTypeIds": [
+            1905,
+            4635,
+            53818
+          ],
+          "displayName": "Canopic jar of scarabas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "chatText",
+          "text": "a crocodile"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4681,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Canopic jar of Crondis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a man"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4678,
+          "modelIds": [
+            573
+          ],
+          "displayName": "Canopic jar of Het"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the room",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 965.0,
+          "y": 9197.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Re-enter the west room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 9197.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Left click the empty space with the highlighted outline of the jar to return it.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4679,
+          "displayName": "Canopic jar of Apmeken",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4678,
+          "displayName": "Canopic jar of Het",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4681,
+          "displayName": "Canopic jar of Crondis",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Canopic jar of scarabas",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Canopic jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 1165.0,
+          "y": 9193.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4678,
+          "displayName": "Canopic jar of Het",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4681,
+          "displayName": "Canopic jar of Crondis",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Canopic jar of scarabas",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Any canopic jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 1165.0,
+          "y": 9196.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4678,
+          "displayName": "Canopic jar of Het",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4681,
+          "displayName": "Canopic jar of Crondis",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Any canopic jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 1165.0,
+          "y": 9195.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4678,
+          "displayName": "Canopic jar of Het",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Any canopic jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 1165.0,
+          "y": 9194.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Any canopic jar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3277.0,
+          "heightFine": 965.0,
+          "y": 9171.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3277.0,
+          "heightFine": 1465.0,
+          "y": 9171.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3295.0,
+          "heightFine": 365.0,
+          "y": 2782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing for the Ceremony",
+      "text": "Talk to the High Priest.\u003cul\u003e\u003cli\u003eOptional: Equip a ghostspeak amulet and talk to the ghost near the pyramid for an achievement.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 4765.0,
+          "y": 2729.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [
+            6930
+          ],
+          "displayName": "High Priest",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "problems getting supplies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Embalmer at the spice shop, north-west of the temple.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3282.0,
+          "heightFine": 301.0,
+          "y": 2767.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1980,
+          "modelIds": [
+            7218
+          ],
+          "displayName": "Embalmer",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "north of Falador and"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Carpenter at the potter\u0027s wheel, just east of the southern pyramid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3312.0,
+          "heightFine": 325.0,
+          "y": 2772.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1981,
+          "modelIds": [
+            5913
+          ],
+          "displayName": "Carpenter",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright, I\u0027ll get the wood for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again with a willow log.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3312.0,
+          "heightFine": 325.0,
+          "y": 2772.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1981,
+          "modelIds": [
+            5913
+          ],
+          "displayName": "Carpenter",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ll be back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Raetul near the Sphinx to obtain linen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3304.0,
+          "heightFine": 69.0,
+          "y": 2788.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1982,
+          "modelIds": [
+            5379
+          ],
+          "displayName": "Raetul",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4684,
+          "displayName": "Linen",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Embalmer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3282.0,
+          "heightFine": 301.0,
+          "y": 2767.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1980,
+          "modelIds": [
+            7218
+          ],
+          "displayName": "Embalmer",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let the high priest know that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Carpenter for a holy symbol.\u003cul\u003e\u003cli\u003eThis may take a few seconds before he finishes the symbol.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3312.0,
+          "heightFine": 325.0,
+          "y": 2772.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1981,
+          "modelIds": [
+            5913
+          ],
+          "displayName": "Carpenter",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1718,
+          "displayName": "Holy symbol",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Icthlarin\u0027s Little Helper",
+      "text": "Enter the pyramid once again and jump over the pit.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3294.5,
+          "heightFine": 941.0,
+          "y": 2781.5,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 6614,
+          "modelIds": [
+            1029
+          ],
+          "displayName": "Pyramid entrance",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3277.0,
+          "heightFine": 965.0,
+          "y": 9170.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3289.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3290.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3293.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3294.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3302.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9171.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9170.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 965.0,
+              "y": 9181.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9185.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9184.0
+            },
+            {
+              "x": 3298.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9175.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9183.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3281.0,
+              "heightFine": 965.0,
+              "y": 9174.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9179.0
+            },
+            {
+              "x": 3277.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 965.0,
+              "y": 9188.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 965.0,
+          "y": 9191.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump across the pit.",
+      "warning": "This requires at least 20% run energy.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3291.5,
+          "heightFine": 1465.0,
+          "y": 9196.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 9201.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the east room and open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3306.0,
+          "heightFine": 965.0,
+          "y": 9197.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the first sarcophagus to your immediate west, on the northern wall, and hide the unholy symbol in it.\u003cul\u003e\u003cli\u003eLooting the other sarcophagi is optional.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3309.0,
+          "heightFine": 1465.0,
+          "y": 9198.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1724,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Unholy symbol"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hide the unholy symbol in this sarcophagus."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "foolish priests"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 965.0,
+          "y": 9197.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Re-enter the east room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3306.0,
+          "heightFine": 965.0,
+          "y": 9197.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 216,
+          "modelIds": [
+            6930
+          ],
+          "displayName": "High Priest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [
+            7188
+          ],
+          "displayName": "High Priest",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Possessed Priest.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            66,
+            240,
+            66,
+            240,
+            66,
+            240,
+            66,
+            240
+          ],
+          "candidateNpcTypeIds": [
+            14364
+          ],
+          "candidateObjectTypeIds": [
+            57183
+          ],
+          "displayName": "Possessed priest drops"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [
+            6930
+          ],
+          "displayName": "High Priest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "spirit of Klenter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the room to return to the temple.\u003cul\u003e\u003cli\u003eYou may be given the canopic jar again, but you can drop it when you are out of the pyramid.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 1465.0,
+          "y": 9199.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, return to the high priest in Sophanem."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3310.0,
+          "heightFine": 4165.0,
+          "y": 2729.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the High Priest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 4765.0,
+          "y": 2729.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [
+            6930
+          ],
+          "displayName": "High Priest",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10987,
+  "stageVarbitCompleteValue": 26,
+  "cacheQuestId": 287
+}

@@ -1,0 +1,672 @@
+{
+  "slug": "whats-mine-is-yours",
+  "name": "What\u0027s Mine is Yours",
+  "members": false,
+  "length": "medium",
+  "timeline": "adventurer",
+  "releaseDate": 1350432000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Doric in his hut, north of the Falador lodestone, until you get an ore bag and mining sites map. (You\u0027ll need 2 backpack space)",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Don\u0027t worry, I\u0027ll help you."
+        },
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to dwarven mines",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3018.0,
+          "heightFine": 2565.0,
+          "y": 3450.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 30942,
+          "modelIds": [],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3018.0,
+          "heightFine": 965.0,
+          "y": 9850.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine a copper or tin rock and kill the brawler",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3025.0,
+          "heightFine": 965.0,
+          "y": 9810.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113028,
+          "modelIds": [],
+          "displayName": "Copper rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find some high-quality ore"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Home teleport to varrock and mine an iron or copper in the west mine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3182.0,
+          "heightFine": 581.0,
+          "y": 3368.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113029,
+          "modelIds": [],
+          "displayName": "Tin rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "high-quality ore"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to varrock east mine, mine the ore, and kill the golem for ore.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3288.0,
+          "heightFine": 229.0,
+          "y": 3366.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113031,
+          "modelIds": [],
+          "displayName": "Tin rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "high-quality ore"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Rimmington mine and watch the cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2969.0,
+          "heightFine": 125.0,
+          "y": 3235.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine some copper that just got enchanted. Kill the golem, and pick up the ore.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113026,
+          "modelIds": [],
+          "displayName": "Copper rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "high-quality ore"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doric.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3438.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "displayName": "Doric"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ll get on with that now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The weapons",
+      "text": "Withdraw the ores from the Ore bag",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 25324,
+          "modelIds": [],
+          "displayName": "Ore bag"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25327,
+          "displayName": "High-quality tin ore",
+          "quantity": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 25328,
+          "displayName": "High-quality copper ore",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The weapons",
+      "text": "Make two high quality bronze bars on the furnace.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78111,
+          "modelIds": [],
+          "displayName": "Furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25329,
+          "displayName": "High-quality bronze bar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Using Doric\u0027s Anvil, smith a High-quality bronze sword and a High-quality bronze dagger.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78040,
+          "modelIds": [],
+          "displayName": "Anvil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25330,
+          "displayName": "High-quality bronze dagger",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 25331,
+          "displayName": "High-quality bronze sword",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doric.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ll leave right away."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take care of yourself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Artisans\u0027 Workshop in the south-east of Falador.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3042.0,
+          "heightFine": 1125.0,
+          "y": 3338.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3042.0,
+          "heightFine": 1125.0,
+          "y": 3338.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aksel.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Doric sent me here with these weapons."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6663,
+          "modelIds": [],
+          "displayName": "Aksel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve got to go"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah, take care"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Doric and Boric",
+      "text": "Head to the White Knights\u0027 Castle and talk to Squire Cerlyn in the west tower on the ground floor[UK] 1st floor[US].",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 2725.0,
+          "y": 3339.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6512,
+          "modelIds": [],
+          "displayName": "Squire Cerlyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "quality of these blades"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, help Doric and Boric reconcile",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "sent you away"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "of your education"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "wanted to stay here"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "thought of Keldagrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "your graduation"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "thought when Boric was born"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "sent him to Keldagrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "bringing Boric up alone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Boric\u0027s future to be"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "sending him away would teach him"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ve been a fool"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doric and agree to take the bars.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d love to."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25329,
+          "displayName": "High-quality bronze bar",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith the items that were asked for on Doric\u0027s anvil.\u003cul\u003e\u003cli\u003eOrnamental platebody\u003c/li\u003e\u003cli\u003eOrnamental chainbody\u003c/li\u003e\u003cli\u003eShop sign\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78040,
+          "modelIds": [],
+          "displayName": "Anvil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25334,
+          "displayName": "Ornamental platebody",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 25335,
+          "displayName": "Ornamental chainbody",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 25336,
+          "displayName": "Shop sign",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head down the stairs into Doric\u0027s cave (if the \u0027climb down\u0027 option on the northern doorway does not appear, try switching textures off temporarily, this is a known bug).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78070,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1636.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the rocks blocking the way.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78079,
+          "modelIds": [],
+          "displayName": "Rocks"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1571.0,
+          "heightFine": 1325.0,
+          "y": 5986.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back upstairs and talk to Doric to give him the items and trigger a cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I have them here."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78088,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9998,
+  "stageVarbitCompleteValue": 55,
+  "cacheQuestId": 357
+}

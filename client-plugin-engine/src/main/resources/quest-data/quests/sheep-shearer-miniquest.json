@@ -1,0 +1,164 @@
+{
+  "slug": "sheep-shearer-miniquest",
+  "name": "Sheep Shearer (miniquest)",
+  "members": false,
+  "length": "veryshort",
+  "timeline": "pathfinder",
+  "releaseDate": 978566400,
+  "neededItems": [
+    {
+      "name": "Balls of wool",
+      "itemId": 513,
+      "quantity": 20,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Fred the Farmer north of Lumbridge.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Lumbridge lodestone",
+        "url": "Lumbridge_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 965.0,
+          "y": 3291.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17616,
+          "modelIds": [
+            4026
+          ],
+          "displayName": "Fred",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Fred.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17616,
+          "modelIds": [
+            4026
+          ],
+          "displayName": "Fred"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm something of an expert, actually."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm not paying you by the hour!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get 20 balls of wool:<ul><li>Buy the balls of wool from the Grand Exchange.</li><li>Buy the balls of wool from the general store in East Ardougne.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1759,
+          "displayName": "Ball of wool",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fred.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 965.0,
+          "y": 3291.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17616,
+          "modelIds": [
+            4026
+          ],
+          "displayName": "Fred",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have some balls of wool for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2163,
+  "stageVarbitCompleteValue": 21,
+  "cacheQuestId": 173
+}

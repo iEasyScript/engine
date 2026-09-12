@@ -1,0 +1,2677 @@
+{
+  "slug": "as-a-first-resort",
+  "name": "As a First Resort",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1201564800,
+  "neededItems": [
+    {
+      "name": "Bird snare",
+      "itemId": 10006,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Box trap",
+      "itemId": 10008,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Teasing stick",
+      "itemId": 90,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Any non-poisoned spear (bone spear recommended)",
+      "itemId": -1,
+      "quantity": 4,
+      "duringQuest": false
+    },
+    {
+      "name": "Achey tree logs",
+      "itemId": 594,
+      "quantity": 8,
+      "duringQuest": true
+    },
+    {
+      "name": "Eucalyptus logs",
+      "itemId": 564,
+      "quantity": 20,
+      "duringQuest": true
+    },
+    {
+      "name": "Raw chompy bird",
+      "itemId": -1,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Stripy feathers",
+      "itemId": 69,
+      "quantity": 8,
+      "duringQuest": true
+    },
+    {
+      "name": "Wolf bones",
+      "itemId": 504,
+      "quantity": 4,
+      "duringQuest": true
+    },
+    {
+      "name": "Normal/tattered larupia furs",
+      "itemId": 600,
+      "quantity": 4,
+      "duringQuest": true
+    },
+    {
+      "name": "Fever grass",
+      "itemId": 846,
+      "quantity": 14,
+      "duringQuest": true
+    },
+    {
+      "name": "Lavender",
+      "itemId": 1479,
+      "quantity": 11,
+      "duringQuest": true
+    },
+    {
+      "name": "Primweed",
+      "itemId": 90,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Stinkbloom",
+      "itemId": 336,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Tansymum",
+      "itemId": 1866,
+      "quantity": 12,
+      "duringQuest": true
+    },
+    {
+      "name": "Logs",
+      "itemId": 1511,
+      "quantity": 4,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Wolves",
+      "level": "11",
+      "quantity": 4
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Hunter",
+      "level": 48,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Firemaking",
+      "level": 51,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 58,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Head to Oo'glog and talk to Chief Tess.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Oo'glog lodestone",
+        "url": "Oo'glog_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2548.0,
+          "heightFine": 1461.0,
+          "y": 2853.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What exactly is going on around here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Chief Tess.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, about this 'business venture'..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "yet for anybody"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Balnea in the Oo'glog bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Um, yes. So, what's going on around here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the problem?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll bite. Tell me more."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But of course!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, why not? I've nothing better to do."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure thing."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, nothing"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The food",
+      "text": "Talk to Chargurr north of the bank.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I could get that stuff for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "gets de woods"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Eucalyptus logs",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        },
+        {
+          "name": "Achey tree logs",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Any non-poisoned spear (bone spear recommended)",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Raw chompy bird",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Sure thing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr yet again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fine, I'll get some spears for you"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have de spears"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr once again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'd like to give 4 spears to Chargurr."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No problem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr (again).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But of course! I'll bring you some chompy birds."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "coming right up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use two raw chompies on Chargurr.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "raw chompy bird"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "afraid"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the fire pit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2868
+          ],
+          "candidateObjectTypeIds": [
+            62817
+          ],
+          "displayName": "Cooking fire pit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3852
+          ],
+          "candidateObjectTypeIds": [
+            62667,
+            62668
+          ],
+          "displayName": "Lit cooking fire pit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chargurr.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7053,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Chargurr"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "that in mind"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The beds",
+      "text": "Talk to Balnea.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Stripy feathers",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Bird snare",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Right-ho. I'll go and see Snurgh at the hotel and 'transition' away."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sure to do that"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Snurgh to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2596.0,
+          "heightFine": 545.0,
+          "y": 2845.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure, I'll bring you some feathers."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "line of questioning"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Snurgh with the stripy feathers.<ul><li>Catch tropical wagtails near the Oo'glog lodestone for stripy feathers.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2596.0,
+          "heightFine": 545.0,
+          "y": 2845.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "touch base with Balnea"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7057,
+          "modelIds": [
+            3363
+          ],
+          "displayName": "Snurgh"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The salon",
+      "text": "Talk to Balnea.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Normal/tattered larupia furs",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Wolf bones",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Teasing stick",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're going to ask me to go to the salon, right?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yeah, sure, I'll go to the salon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "exactly what you said"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kringk to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2581.0,
+          "heightFine": 1237.0,
+          "y": 2844.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why, sure, I'd be happy to help."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Alright, fine"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kringk with the furs and bones.<ul><li>Catch larupias north of the Oo'glog lodestone.</li><li>Kill wolves west of Oo'glog.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2581.0,
+          "heightFine": 1237.0,
+          "y": 2844.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You sure can!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll do that"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7058,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Kringk"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "First trial",
+      "text": "Talk to Balnea.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Eucalyptus logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Tansymum",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "generous of you"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seegud.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 837.0,
+          "y": 2856.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head all at once"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a eucalyptus log on the fire pit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2578.0,
+            "heightFine": 837.0,
+            "y": 2866.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12581,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Eucalyptus logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "eucalyptus logs in the fire pit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use tansymum on the fire pit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12576,
+          "modelIds": [
+            1866
+          ],
+          "displayName": "Tansymum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "tansymum in the fire pit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the fire pit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what's going on"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seegud.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 837.0,
+          "y": 2856.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I'm a little stuck."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you explain what I should be doing again?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Snarrk.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2582.0,
+          "heightFine": 837.0,
+          "y": 2865.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7070,
+          "modelIds": [
+            3051
+          ],
+          "displayName": "Snarrk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7070,
+          "modelIds": [
+            3051
+          ],
+          "displayName": "Snarrk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get right on it"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7070,
+          "modelIds": [
+            3051
+          ],
+          "displayName": "Snarrk"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Pest control",
+      "text": "Use logs and plants on the fire pits to disperse the bugs and find which plant corresponds to which rock.<ul><li>You have to remember which stone corresponds to which plant.</li><li>Plant numbers are estimates.</li><li>The wiki has a nice calculator for this section.</li></ul>",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Eucalyptus logs",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        },
+        {
+          "name": "Fever grass",
+          "itemId": -1,
+          "quantity": 14,
+          "duringQuest": false
+        },
+        {
+          "name": "Lavender",
+          "itemId": -1,
+          "quantity": 11,
+          "duringQuest": false
+        },
+        {
+          "name": "Primweed",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Stinkbloom",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Tansymum",
+          "itemId": -1,
+          "quantity": 12,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Thermal bath - yellow egg-shaped rock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2578.0,
+            "heightFine": 837.0,
+            "y": 2866.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs",
+          "atLocation": {
+            "x": 2578.0,
+            "heightFine": 837.0,
+            "y": 2866.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "makes the insects disperse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mud bath - red sphere rock. Add the yellow egg-shaped plant too.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2603.0,
+            "heightFine": 165.0,
+            "y": 2860.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs",
+          "atLocation": {
+            "x": 2603.0,
+            "heightFine": 165.0,
+            "y": 2860.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "makes the insects disperse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Salt-water spring - green gumdrop rock. Add the red sphere plant too.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2562.0,
+            "heightFine": 837.0,
+            "y": 2865.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs",
+          "atLocation": {
+            "x": 2562.0,
+            "heightFine": 837.0,
+            "y": 2865.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "makes the insects disperse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sulphur spring - purple tall rock. Add the green gumdrop plant too.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2534.0,
+            "heightFine": 877.0,
+            "y": 2850.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs",
+          "atLocation": {
+            "x": 2534.0,
+            "heightFine": 877.0,
+            "y": 2850.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "makes the insects disperse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bandos pool - orange squarish rock. Add the red sphere and purple tall plants too.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29096,
+          "modelIds": [
+            1326
+          ],
+          "displayName": "Fire pit",
+          "atLocation": {
+            "x": 2534.0,
+            "heightFine": 877.0,
+            "y": 2850.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1647
+          ],
+          "candidateNpcTypeIds": [
+            3293,
+            24855
+          ],
+          "displayName": "Fire pit with logs",
+          "atLocation": {
+            "x": 2534.0,
+            "heightFine": 877.0,
+            "y": 2850.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "makes the insects disperse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Seegud.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 837.0,
+          "y": 2856.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks for your help"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7052,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Seegud"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The animals",
+      "text": "Talk to Balnea.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure, anything to avoid talking to you for a while."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "speak to Chief Tess"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chief Tess.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2548.0,
+          "heightFine": 1461.0,
+          "y": 2853.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about As a First Resort quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know how to smoke a trap to remove my scent."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "creatures to my traps"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7051,
+          "modelIds": [
+            4347
+          ],
+          "displayName": "Chief Tess"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Kebbits",
+      "text": "Set the boulder traps east of the salt-water pool.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Boulder trap",
+          "atLocation": {
+            "x": 2567.0,
+            "heightFine": 933.0,
+            "y": 2865.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Boulder trap",
+          "atLocation": {
+            "x": 2568.0,
+            "heightFine": 901.0,
+            "y": 2863.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            462
+          ],
+          "candidateNpcTypeIds": [
+            25,
+            217,
+            276,
+            1383,
+            18967,
+            18980
+          ],
+          "displayName": "Set boulder trap",
+          "atLocation": {
+            "x": 2567.0,
+            "heightFine": 933.0,
+            "y": 2865.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            462
+          ],
+          "candidateNpcTypeIds": [
+            25,
+            217,
+            276,
+            1383,
+            18967,
+            18980
+          ],
+          "displayName": "Set boulder trap",
+          "atLocation": {
+            "x": 2568.0,
+            "heightFine": 901.0,
+            "y": 2863.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Fever grass",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light fever grass.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12574,
+          "modelIds": [
+            846
+          ],
+          "displayName": "Fever grass"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "light the fever grass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around the trap with the lit fever grass.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Caught kebit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do this until all 2 kebbits are caught.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12567,
+          "displayName": "Diseased kebbit fur",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat the steps on the west side of the salt-water pool.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Boulder trap",
+          "atLocation": {
+            "x": 2550.0,
+            "heightFine": 853.0,
+            "y": 2860.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Boulder trap",
+          "atLocation": {
+            "x": 2551.0,
+            "heightFine": 837.0,
+            "y": 2864.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Boulder trap",
+          "atLocation": {
+            "x": 2546.0,
+            "heightFine": 805.0,
+            "y": 2861.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            462
+          ],
+          "candidateNpcTypeIds": [
+            25,
+            217,
+            276,
+            1383,
+            18967,
+            18980
+          ],
+          "displayName": "Set boulder trap",
+          "atLocation": {
+            "x": 2550.0,
+            "heightFine": 853.0,
+            "y": 2860.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            462
+          ],
+          "candidateNpcTypeIds": [
+            25,
+            217,
+            276,
+            1383,
+            18967,
+            18980
+          ],
+          "displayName": "Set boulder trap",
+          "atLocation": {
+            "x": 2551.0,
+            "heightFine": 837.0,
+            "y": 2864.0
+          }
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            462
+          ],
+          "candidateNpcTypeIds": [
+            25,
+            217,
+            276,
+            1383,
+            18967,
+            18980
+          ],
+          "displayName": "Set boulder trap",
+          "atLocation": {
+            "x": 2546.0,
+            "heightFine": 805.0,
+            "y": 2861.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light fever grass.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12574,
+          "modelIds": [
+            846
+          ],
+          "displayName": "Fever grass"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "light the fever grass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around the trap with the lit fever grass.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Caught kebit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do this until all 2 kebbits are caught.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12567,
+          "displayName": "Diseased kebbit fur",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wimpy birds",
+      "text": "Set up a bird snare west of the bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2538.0,
+          "heightFine": 1173.0,
+          "y": 2844.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10006,
+          "modelIds": [],
+          "displayName": "Bird snare"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            570
+          ],
+          "candidateObjectTypeIds": [
+            2048,
+            2049
+          ],
+          "displayName": "Set bird snare"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bird snare",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Tansymum",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light a tansymum from the inventory and move around.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12576,
+          "modelIds": [
+            1866
+          ],
+          "displayName": "Tansymum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "light the tansymum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around the trap until a bird is caught.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2031
+          ],
+          "candidateObjectTypeIds": [
+            4678,
+            4679
+          ],
+          "displayName": "Caught wimpy bird"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do this until all birds are caught.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Platypodes",
+      "text": "Setup a box trap on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2528.0,
+          "heightFine": 973.0,
+          "y": 2852.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            780
+          ],
+          "candidateObjectTypeIds": [
+            438
+          ],
+          "displayName": "Set box trap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Box trap",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Lavender",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Burn lavender.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12572,
+          "modelIds": [
+            1479
+          ],
+          "displayName": "Lavender"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "light the lavender"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move around the area until a platypode is caught.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch all 4 platypodes.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12556,
+          "displayName": "Peter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12555,
+          "displayName": "Penelope",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12557,
+          "displayName": "Peanut",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 12554,
+          "displayName": "Patrick",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand next to the plants in the water to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2615.0,
+          "heightFine": 93.0,
+          "y": 2863.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2615.0,
+          "heightFine": 93.0,
+          "y": 2863.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Release the platypodes.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12556,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Peter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 12556,
+          "displayName": "Peter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12555,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Penelope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 12555,
+          "displayName": "Penelope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12557,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Peanut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 12557,
+          "displayName": "Peanut"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12554,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Patrick"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 12554,
+          "displayName": "Patrick"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Balnea.",
+      "warning": "Dismiss any followers before continuing.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2557.0,
+          "heightFine": 1061.0,
+          "y": 2838.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "feel free to use the pools"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Balnea.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7047,
+          "modelIds": [
+            4551
+          ],
+          "displayName": "Balnea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 14041,
+  "stageVarbitCompleteValue": 200,
+  "cacheQuestId": 325
+}

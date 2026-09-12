@@ -1,0 +1,165 @@
+#!/bin/bash
+
+is_library_injected() {
+    local pid="$1"
+    local lib_name="libprojectxbootstrap.so"
+    
+    if grep -q "$lib_name" "/proc/$pid/maps" 2>/dev/null; then
+        return 0
+    fi
+    return 1 
+}
+
+find_all_processes() {
+    local process_name="$1"
+    local pids=()
+
+    for pid_dir in /proc/[0-9]*; do
+        if grep -q "$process_name" "$pid_dir/cmdline" 2>/dev/null; then
+            local pid=$(basename "$pid_dir")
+            if [[ -r "/proc/$pid/maps" ]]; then
+                pids+=("$pid")
+            fi
+        fi
+    done
+
+    printf '%s\n' "${pids[@]}"
+}
+
+get_process_cmdline() {
+    local pid="$1"
+    tr '\0' ' ' < "/proc/$pid/cmdline" 2>/dev/null | sed 's/[[:space:]]*$//'
+}
+
+get_process_start_time() {
+    local pid="$1"
+    stat -c %Y "/proc/$pid" 2>/dev/null
+}
+
+select_process() {
+    local pids=("$@")
+    local available_pids=()
+    local display_info=()
+    
+    echo "Found ${#pids[@]} rs2client process(es):" >&2
+    echo >&2
+    
+    local index=1
+    for pid in "${pids[@]}"; do
+        local cmdline=$(get_process_cmdline "$pid")
+        local start_time=$(get_process_start_time "$pid")
+        local readable_time=$(date -d "@$start_time" "+%H:%M:%S" 2>/dev/null || echo "unknown")
+        
+        if is_library_injected "$pid"; then
+            echo "  [$index] PID: $pid (Started: $readable_time) [ALREADY INJECTED - SKIPPED]" >&2
+            echo "      Command: $cmdline" >&2
+        else
+            available_pids+=("$pid")
+            display_info+=("PID: $pid (Started: $readable_time)")
+            echo "  [$index] PID: $pid (Started: $readable_time)" >&2
+            echo "      Command: $cmdline" >&2
+        fi
+        echo >&2
+        ((index++))
+    done
+    
+    if [[ ${#available_pids[@]} -eq 0 ]]; then
+        echo "Error: All found processes already have the library injected." >&2
+        exit 1
+    fi
+    
+    if [[ ${#available_pids[@]} -eq 1 ]]; then
+        echo "Only one process available for injection: ${available_pids[0]}" >&2
+        echo "${available_pids[0]}"
+        return
+    fi
+    
+    echo "Available processes for injection:" >&2
+    for i in "${!available_pids[@]}"; do
+        echo "  $((i+1)). ${display_info[i]}" >&2
+    done
+    echo "  0. Cancel" >&2
+    echo >&2
+    
+    while true; do
+        read -p "Select a process to inject into (1-${#available_pids[@]}, or 0 to cancel): " choice >&2
+        
+        if [[ "$choice" == "0" ]]; then
+            echo "Injection cancelled." >&2
+            exit 0
+        elif [[ "$choice" =~ ^[0-9]+$ ]] && [[ "$choice" -ge 1 ]] && [[ "$choice" -le ${#available_pids[@]} ]]; then
+            local selected_pid="${available_pids[$((choice-1))]}"
+            echo "Selected process: $selected_pid" >&2
+            echo "$selected_pid"
+            return
+        else
+            echo "Invalid selection. Please enter a number between 1 and ${#available_pids[@]}, or 0 to cancel." >&2
+        fi
+    done
+}
+
+inject_projectx() {
+    local pid="$1"
+    local so_path=$(realpath "./build/libs/libprojectxbootstrap.so")
+    if [[ ! -f "$so_path" ]]; then
+        echo "Error: shared object file $so_path not found."
+        exit 1
+    fi
+
+    if [[ -z "$PROJECTX_HOME_DIR" ]]; then
+        export PROJECTX_HOME_DIR=$(realpath "./build/libs/")
+        echo "PROJECTX_HOME_DIR was not set. Setting it to $PROJECTX_HOME_DIR"
+    fi
+
+    echo "Injecting library: $so_path"
+    echo "Into process: $pid"
+
+    if [[ ! -d "/proc/$pid" ]]; then
+        echo "Error: Process $pid is no longer running."
+        exit 1
+    fi
+
+    # Raise the running process's RLIMIT_CORE so JVM's -XX:+CreateCoredumpOnCrash
+    # actually produces a core. bolt-launcher inherits whatever ulimit the
+    # desktop session sets (usually 0), so we lift it from outside via prlimit.
+    # The dump itself goes wherever /proc/sys/kernel/core_pattern points
+    # (systemd-coredump by default — `coredumpctl debug` retrieves it).
+    sudo prlimit --pid "$pid" --core=unlimited:unlimited 2>/dev/null \
+        || echo "warn: prlimit failed; no core dump will be written on crash"
+
+    sudo gdb -p "$pid" -batch \
+        -ex "call (int) setenv(\"JAVA_HOME\", \""$JAVA_HOME"\", 1)" \
+        -ex "call (int) setenv(\"PROJECTX_HOME_DIR\", \""$PROJECTX_HOME_DIR"\", 1)" \
+        -ex "call (void*) dlopen(\"$so_path\", 4362)" \
+        -ex "call (char*) dlerror()" \
+        -ex detach \
+        -ex quit
+    return $?
+}
+
+process_name="/.projectx/Jagex/launcher/rs2client"
+echo "Searching for processes matching: $process_name"
+
+mapfile -t all_pids < <(find_all_processes "$process_name")
+
+if [[ ${#all_pids[@]} -eq 0 ]]; then
+    echo "Error: could not find any processes matching $process_name"
+    exit 1
+fi
+
+selected_pid=$(select_process "${all_pids[@]}")
+
+if [[ -z "$selected_pid" ]]; then
+    echo "Error: No process selected."
+    exit 1
+fi
+
+echo "Proceeding with injection into PID: $selected_pid"
+
+if ! inject_projectx "$selected_pid"; then
+    echo "Error: could not inject libprojectxbootstrap.so into process $selected_pid"
+    exit 1
+fi
+
+echo "Successfully injected Project X into process $selected_pid"
+echo "Injection completed."

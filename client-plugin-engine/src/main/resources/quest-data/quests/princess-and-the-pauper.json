@@ -1,0 +1,1219 @@
+{
+  "slug": "princess-and-the-pauper",
+  "name": "Princess and the Pauper",
+  "members": true,
+  "length": "medium",
+  "timeline": "adventurer",
+  "releaseDate": 0,
+  "neededItems": [
+    {
+      "name": "Raw salmon",
+      "itemId": 331,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw meat",
+      "itemId": 2132,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A hammer (not on toolbelt)",
+      "itemId": 2347,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Wooden frame",
+      "itemId": 54452,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Planks",
+      "itemId": 960,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Steel nails",
+      "itemId": -1,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "Bolt of cloth",
+      "itemId": 8790,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Wool",
+      "itemId": 1737,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Bowl of water",
+      "itemId": 1921,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Gertrude's Cat",
+    "Murder on the Border"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 25,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Yet another mystery",
+      "text": "Talk to Rodney in the kitchen of Fort Forinthry.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered', and timestamps on.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Start 'Princess and the Pauper'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Rodney.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aster will know."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aster at Fort Forinthry.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29808,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699
+          ],
+          "displayName": "Aster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Princess and the Pauper'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's see what Siv has to say about it, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Overseer Siv in the Command Centre",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3319.0,
+          "heightFine": 485.0,
+          "y": 3540.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Princess and the Pauper'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's have a search, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the main entrance of the fort, then talk to Princess who will direct you to the first clue. Let the dialogue finish.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 589.0,
+          "y": 3534.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3306.0,
+          "heightFine": 589.0,
+          "y": 3534.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3306.0,
+          "heightFine": 589.0,
+          "y": 3534.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "This way!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the kitchen at Jolly Boar Inn and track the lost sausage.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 3498.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 965.0,
+          "y": 3504.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3283.0,
+          "heightFine": 965.0,
+          "y": 3489.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60201,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Lost sausage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "In here!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We'll head outside and take a look."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north to the Wilderness Wall just outside the inn and talk to Princess for a half-eaten meat pie.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3275.0,
+          "heightFine": 861.0,
+          "y": 3520.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3275.0,
+          "heightFine": 861.0,
+          "y": 3520.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3275.0,
+          "heightFine": 861.0,
+          "y": 3520.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "This way!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Got to the small cabbage patch just north-east of the Varrock lodestone and talk to Princess.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3227.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3227.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3227.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "In here!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to Princess again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "All together, makes a Princess special!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing a meal",
+      "text": "Talk to Rodney at Fort Forinthry",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The smoked fish."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I prefer to use salmon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bowl of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The tender meat."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Any meat will do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The red berries."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah, yes, redberries"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The secret ingredient."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ask Gertrude"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a hammer on some raw meat to make tenderised meat.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2347,
+          "modelIds": [],
+          "displayName": "Hammer"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2132,
+          "modelIds": [],
+          "displayName": "Raw beef"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You tenderise the meat."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the salmon on a range and make smoked salmon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry kitchen range"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 331,
+          "modelIds": [],
+          "displayName": "Raw salmon"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Smoked salmon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60207,
+          "displayName": "Gently smoked salmon",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick the redberry bush east of Varrock lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3272.0,
+          "heightFine": 1045.0,
+          "y": 3372.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The juciest redberries."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Juciest redberries",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gertrude in her house and ask about the secret ingredient.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3151.0,
+          "heightFine": 965.0,
+          "y": 3410.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 780,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20781,
+            29765
+          ],
+          "displayName": "Gertrude",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Rodney's secret ingredient."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60209,
+          "displayName": "Finest doogle leaves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bowl of water on an ingredient to make an uncooked dog's dinner.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1921,
+          "modelIds": [],
+          "displayName": "Bowl of water"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            378
+          ],
+          "displayName": "Juciest redberries"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Uncooked dogs dinner",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook the uncooked dog's dinner at a range, then use the doogle leaves on the cooked dinner.<ul><li>Be careful not to eat it.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3156.5,
+          "heightFine": 965.0,
+          "y": 3410.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Uncooked dogs dinner"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60209,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Finest doogle leaves"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You add some seasoning to the dinner."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess in the kitchen of Fort Forinthry.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3314.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3314.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the kitchen in Jolly Boar Inn and talk to Princess.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3284.0,
+          "heightFine": 965.0,
+          "y": 3489.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3284.0,
+          "heightFine": 965.0,
+          "y": 3489.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue 'Princess and the Pauper.'"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You again."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go on, boy - get out of here."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to princess.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "princess the dog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Outside!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the stray dog outside the inn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3279.0,
+          "heightFine": 613.0,
+          "y": 3520.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4766,
+          "modelIds": [
+            41868
+          ],
+          "displayName": "Stray dog",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now let's get you two home."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rodney at Fort Forinthry.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 1189.0,
+          "y": 3569.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29934,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29935,
+            29937,
+            29938,
+            30558,
+            30702
+          ],
+          "displayName": "Rodney",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll see if Bill can put something together for him."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building a doghouse",
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 565.0,
+          "y": 3557.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bring me two"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill again with the materials in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 565.0,
+          "y": 3557.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Right you are."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose a name for the dog.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 18806,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 525
+}

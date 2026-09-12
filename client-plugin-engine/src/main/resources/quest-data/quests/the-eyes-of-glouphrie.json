@@ -1,0 +1,1065 @@
+{
+  "slug": "the-eyes-of-glouphrie",
+  "name": "The Eyes of Glouphrie",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1155600000,
+  "neededItems": [
+    {
+      "name": "Ground mud rune",
+      "itemId": 132,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Maple log",
+      "itemId": 1517,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Oak log",
+      "itemId": 1521,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of sap",
+      "itemId": 4687,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Evil creatures",
+      "level": "1",
+      "quantity": 6
+    }
+  ],
+  "prereqQuests": [
+    "The Grand Tree"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 5,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 46,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Enter the cave west of the Gnome Stronghold bank.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2403.0,
+          "heightFine": 1265.0,
+          "y": 3419.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            939
+          ],
+          "displayName": "Cave Entrance",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2409.0,
+          "heightFine": 965.0,
+          "y": 9812.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brimstail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's that cute creature wandering around?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, that sounds fascinating..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, yes I love a bit of History."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Brimstail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what you find"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Elven Mystery",
+      "text": "Inspect the singing bowl in the western portion of the cave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "crystal singing bowl"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "elegant"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To the north, attempt to unlock Oaknock's machine and use Oaknock's exchanger.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1638
+          ],
+          "candidateObjectTypeIds": [
+            2989,
+            5080
+          ],
+          "displayName": "Oaknocks machine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no idea how it works"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brimstail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've had a look in the other room now."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course, I'd love to!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better be on my way"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Memories",
+      "text": "Talk to Hazelmere in his house east of Yanille.<ul><li>Yanille lodestone or fairy ring CLS.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2677.0,
+          "heightFine": 2501.0,
+          "y": 3088.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "hazelmere ladder",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2677.0,
+          "heightFine": 3725.0,
+          "y": 3086.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 669,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4647,
+            6305,
+            8485,
+            8489,
+            8490,
+            20786,
+            22212,
+            22232,
+            22233,
+            22234,
+            22281,
+            22288,
+            22300,
+            25888,
+            30324
+          ],
+          "displayName": "Hazelmere"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the series of cutscenes.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Arposandra place anyway"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Hazelmere.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 669,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4647,
+            6305,
+            8485,
+            8489,
+            8490,
+            20786,
+            22212,
+            22232,
+            22233,
+            22234,
+            22281,
+            22288,
+            22300,
+            25888,
+            30324
+          ],
+          "displayName": "Hazelmere"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Farewell"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return and talk to Brimstail.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2403.0,
+          "heightFine": 1265.0,
+          "y": 3419.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            939
+          ],
+          "displayName": "Cave Entrance",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2409.0,
+          "heightFine": 965.0,
+          "y": 9812.0,
+          "range": 4
+        },
+        {
+          "t": "conversationText",
+          "text": "machine emits"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've visited Hazelmere, he told me all sorts of interesting things."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "machine emits"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2390.0,
+          "heightFine": 845.0,
+          "y": 9822.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Incapacitated",
+      "text": "Grind a mud rune.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4698,
+          "modelIds": [],
+          "displayName": "Mud rune"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ground mud rune",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ground mud rune on the bucket of sap.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Ground mud rune"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4687,
+          "modelIds": [],
+          "displayName": "Bucket of sap"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9592,
+          "displayName": "Magic glue",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair Oaknock's machine.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9592,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Magic glue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1413
+          ],
+          "candidateObjectTypeIds": [
+            853
+          ],
+          "displayName": "Broken oaknocks machine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1413
+          ],
+          "candidateObjectTypeIds": [
+            853
+          ],
+          "displayName": "Broken oaknocks machine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brimstail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I've fixed the machine now!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all good training for"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop the discs you were given, and get more from Brimstail a few times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I've fixed the machine now!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9599,
+          "displayName": "Red square",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Machinery",
+      "text": "Unlock machine to view the desired number.",
+      "warning": "The following puzzle is different for each player. Good luck!",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1638
+          ],
+          "candidateObjectTypeIds": [
+            2989,
+            5080
+          ],
+          "displayName": "Oaknocks machine"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9599,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Red square"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2390.0,
+          "heightFine": 901.0,
+          "y": 9825.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<table><tbody><tr><th rowspan=\"2\">Colour</th><th colspan=\"6\">Value</th></tr><tr><th>Circle</th><th>Triangle</th><th>Square</th><th>Pentagon</th></tr><tr><td style=\"color:red;\"><b>Red</b></td><td>1</td><td>3</td><td>4</td><td>5</td></tr><tr><td style=\"color:orange;\"><b>Orange</b></td><td>2</td><td>6</td><td>8</td><td>10</td></tr><tr><td style=\"color:#CCCC00;\"><b>Yellow</b></td><td>3</td><td>9</td><td>12</td><td>15</td></tr><tr><td style=\"color:green;\"><b>Green</b></td><td>4</td><td>12</td><td>16</td><td>20</td></tr><tr><td style=\"color:blue;\"><b>Blue</b></td><td>5</td><td>15</td><td>20</td><td>25</td></tr><tr><td style=\"color:indigo;\"><b>Indigo</b></td><td>6</td><td>18</td><td>24</td><td>30</td></tr><tr><td style=\"color:#8F00FF;\"><b>Violet</b></td><td>7</td><td>21</td><td>28</td><td>35</td></tr></tbody></table>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2406.0,
+          "heightFine": 1005.0,
+          "y": 9818.0,
+          "range": 40
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To solve the puzzle:<ul><li>Use the exchanger to get a disc equal to your number.</li><li>If you need more discs, talk to Brimstail.</li><li>Click the small green square to submit the correct value disc.</li><li>You have to do this a total of 4 times.</li><li>The second number requires using 2 discs and the third requires 3 discs.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I Think Oaknock's machine is now unlocked, what do I do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "eyes-of-glouphrie.oaknocks-puzzle"
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2406.0,
+          "heightFine": 1005.0,
+          "y": 9818.0,
+          "range": 40
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brimstail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 171,
+          "modelIds": [
+            5331
+          ],
+          "displayName": "Brimstail"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Phew! I've got that machine working now. What do I need to do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better tell the King"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Assassination",
+      "text": "Kill the evil creature by Brimstail and talk to him.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1 spying creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Narnode Shareen on the ground floor of the Grand Tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 1265.0,
+          "y": 9811.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2402.0,
+          "heightFine": 965.0,
+          "y": 3419.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "right on it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the evil creature next to King Narnode Shareen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2 spying creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the evil creature at the top of the Grand Tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "grand tree ground floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3 spying creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the evil creature next to the Spirit tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2464.0,
+          "heightFine": 1285.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4 spying creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the evil creature in front of the gate of the Tree Gnome Stronghold.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2462.0,
+          "heightFine": 981.0,
+          "y": 3381.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "5 spying creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the evil creature north of the swamp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2418.0,
+          "heightFine": 677.0,
+          "y": 3526.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2418.0,
+          "heightFine": 677.0,
+          "y": 3526.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4615,
+          "modelIds": [
+            1929
+          ],
+          "displayName": "Evil creature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Narnode Shareen on the ground floor of the Grand Tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2465.0,
+          "heightFine": 3205.0,
+          "y": 3495.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26298,
+            27679
+          ],
+          "displayName": "King Narnode Shareen",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12813,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 310
+}

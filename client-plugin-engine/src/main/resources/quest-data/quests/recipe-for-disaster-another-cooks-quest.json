@@ -1,0 +1,259 @@
+{
+  "slug": "recipe-for-disaster-another-cooks-quest",
+  "name": "Recipe for Disaster: Another Cook's Quest",
+  "members": true,
+  "length": "short",
+  "timeline": "legendary",
+  "releaseDate": 1142380800,
+  "neededItems": [
+    {
+      "name": "Eye of newt",
+      "itemId": 180,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Greenman's ale",
+      "itemId": 306,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rotten tomato",
+      "itemId": 186,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ashes",
+      "itemId": 72,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Fruit blast",
+      "itemId": 465,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Cook's Assistant"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 10,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Before starting the quest",
+      "text": "It is recommended that players grow a pet kitten before they start the quest. If they don't already have an adult cat, it will take 2.5 hours for the pet kitten to grow into a cat. If done at the start of the quest, it should be fully grown and Recipe for Disaster: Freeing Evil Dave can be completed last.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Another small favour",
+      "text": "Talk to the Cook in the kitchen of Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3208.0,
+          "heightFine": 1477.0,
+          "y": 3214.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3214.0,
+          "heightFine": 1477.0,
+          "y": 3217.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 3207.0,
+          "heightFine": 1477.0,
+          "y": 3214.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Eye of newt",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Greenman's ale",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rotten tomato",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ashes",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fruit blast",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any other quests for me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I don't really care to be honest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What seems to be the problem?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the cook.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll go look for those for you then!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the ashes on the fruit blast. Be careful not to drink the fruit blast.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 592,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Ashes"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2084,
+          "modelIds": [
+            465,
+            132
+          ],
+          "displayName": "Fruit Blast"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That looks disgusting, but it's what the cook asked for..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the items to the cook.<ul><li>After the quest complete popup, go through the dining hall door and complete the dialogue to unlock the rest of subquests.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3207.0,
+          "heightFine": 1477.0,
+          "y": 3217.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12708,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 298
+}

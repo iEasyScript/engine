@@ -1,0 +1,611 @@
+{
+  "slug": "wolf-whistle",
+  "name": "Wolf Whistle",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "pathfinder",
+  "releaseDate": 1327968000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Pikkupstix in his house just north of Taverley's east entrance.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Taverley lodestone",
+        "url": "Taverley_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6970,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6971,
+            6988,
+            7952,
+            7953
+          ],
+          "displayName": "Pikkupstix"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have a quest for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Assistants",
+      "text": "Head to south of the Taverley lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2880.0,
+          "heightFine": 869.0,
+          "y": 3429.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3105
+          ],
+          "displayName": "Taverly well"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the well and watch the short cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3105
+          ],
+          "displayName": "Taverly well"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Look, I'll just go and take a look myself..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please hurry!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Pikkupstix back at the east side of Taverley.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6970,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6971,
+            6988,
+            7952,
+            7953
+          ],
+          "displayName": "Pikkupstix"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bowloftrix has been kidnapped by trolls!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I had better go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well, best of luck in your hunt."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Pouch materials",
+      "text": "Go upstairs in Pikkupstix's house and search the cluttered drawers in the north-west corner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2172
+          ],
+          "candidateObjectTypeIds": [
+            1323,
+            1366,
+            1380,
+            3958,
+            4853,
+            5885
+          ],
+          "displayName": "Pikkupstix stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2930.0,
+          "heightFine": 2085.0,
+          "y": 3445.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2928.0,
+          "heightFine": 2085.0,
+          "y": 3451.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You have found the embroidered pouch under some socks in this drawer."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the ground floor of the pet shop south of Pikkupstix and ask the owner about white hare meat.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2929.0,
+          "heightFine": 2085.0,
+          "y": 3445.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2927.0,
+          "heightFine": 869.0,
+          "y": 3446.0,
+          "range": 3
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2934.0,
+          "heightFine": 869.0,
+          "y": 3431.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2932.0,
+          "heightFine": 869.0,
+          "y": 3434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2932.0,
+          "heightFine": 869.0,
+          "y": 3434.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6892,
+          "modelIds": [
+            4944
+          ],
+          "displayName": "Pet shop owner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the white hare meat."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I hope things work out for you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the path up the mountain next to the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2858.0,
+          "heightFine": 5541.0,
+          "y": 3479.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2872.0,
+          "heightFine": 2109.0,
+          "y": 3427.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue down the path.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2866.0,
+          "heightFine": 4869.0,
+          "y": 3462.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2866.0,
+          "heightFine": 4869.0,
+          "y": 3462.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Stikklebrix's body.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4605
+          ],
+          "candidateObjectTypeIds": [
+            10309
+          ],
+          "displayName": "Stikklebrix corpse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You take the amulet from the sad remains of Stikklebrix."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Pikkupstix after the items are obtained.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2929.0,
+          "heightFine": 869.0,
+          "y": 3448.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6970,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6971,
+            6988,
+            7952,
+            7953
+          ],
+          "displayName": "Pikkupstix"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to ask you something about the quest..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You never know what could go wrong with such a monumental summoning effort like this one!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Infuse the pouch using the obelisk on the eastern side of his house.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7527
+          ],
+          "displayName": "Taverly obelisk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It thrums with barely contained power."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rare summoning items",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6970,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6971,
+            6988,
+            7952,
+            7953
+          ],
+          "displayName": "Pikkupstix"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to ask you something about the quest..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I made the giant wolpertinger pouch!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "But Scalectrix is strong too. Between you both you should be able to accomplish this."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west back to the well and talk to Scalectrix (make sure you dismiss your pet if you have one out).<br><br>Watch the cutscene",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2880.0,
+          "heightFine": 869.0,
+          "y": 3429.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3105
+          ],
+          "displayName": "Taverly well"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3105
+          ],
+          "displayName": "Taverly well"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you both! I was a gonner until you showed up!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12334,
+  "stageVarbitCompleteValue": 35,
+  "cacheQuestId": 324
+}

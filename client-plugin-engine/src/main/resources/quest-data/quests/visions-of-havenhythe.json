@@ -1,0 +1,945 @@
+{
+  "slug": "visions-of-havenhythe",
+  "name": "Visions of Havenhythe",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1774278419,
+  "neededItems": [
+    {
+      "name": "Limestone bricks",
+      "itemId": 3420,
+      "quantity": 10,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the bartender at the Rusty Anchor pub in Port Sarim.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3045.0,
+          "heightFine": 1465.0,
+          "y": 3257.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11707,
+          "modelIds": [],
+          "displayName": "Bartender"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Visions of Havenhythe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the bartender.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11707,
+          "modelIds": [
+            3957
+          ],
+          "displayName": "Bartender"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Visions of Havenhythe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60403,
+          "displayName": "Dragonfire mead",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Visions of a shadowed sun",
+      "text": "Drink the dragonfire mead.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60403,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Dragonfire mead"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "drink the dragonfire mead"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3049.0,
+          "heightFine": 3109.0,
+          "y": 3256.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136586,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3054.0,
+          "heightFine": 965.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the bartender.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11707,
+          "modelIds": [
+            3957
+          ],
+          "displayName": "Bartender"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Visions of Havenhythe\u0027"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "each other out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to \u0027Shady\u0027 Sullivan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32667,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32668
+          ],
+          "displayName": "\u0027Shady\u0027 Sullivan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "without a cap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Lorris to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3028.0,
+          "heightFine": 1441.0,
+          "y": 3221.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 26621,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32523,
+            32665,
+            32666
+          ],
+          "displayName": "Captain Lorris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26621,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32523,
+            32665,
+            32666
+          ],
+          "displayName": "Captain Lorris"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3388.0,
+          "heightFine": 773.0,
+          "y": 1530.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 26621,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32523,
+            32665,
+            32666
+          ],
+          "displayName": "Captain Lorris"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Brave new world",
+      "text": "Talk to Old Man Jocko.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32587,
+          "modelIds": [],
+          "displayName": "Old Man Jocko"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Visions of Havenhythe\u0027"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "big one at the end"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3483.0,
+          "heightFine": 9013.0,
+          "y": 1573.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do we do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what she says"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shrine Tender Joanna to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3547.0,
+          "heightFine": 5741.0,
+          "y": 1425.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32562,
+          "modelIds": [],
+          "displayName": "Shrine Tender Joanna"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32562,
+          "modelIds": [],
+          "displayName": "Shrine Tender Joanna"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Visions of Havenhythe\u0027"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "will give us a sign"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32562,
+          "modelIds": [],
+          "displayName": "Shrine Tender Joanna"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pray at the Altar of Inanna.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136467,
+          "modelIds": [],
+          "displayName": "Altar of Inanna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We must speak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shrine Tender Joanna again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32562,
+          "modelIds": [],
+          "displayName": "Shrine Tender Joanna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "always be welcome"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Adam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3483.0,
+          "heightFine": 9013.0,
+          "y": 1573.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what I can do"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building the lodestone",
+      "text": "Talk to Zeke to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 8965.0,
+          "y": 1565.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "miss the little buggers"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 10 juvenile boulder crabs on the beach. Pick up the limestone they drop.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3425.0,
+          "heightFine": 1181.0,
+          "y": 1564.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32648,
+          "modelIds": [
+            27696
+          ],
+          "displayName": "Juvenile boulder crab"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32646,
+          "modelIds": [
+            27696
+          ],
+          "displayName": "Juvenile boulder crab",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3211,
+          "modelIds": [],
+          "displayName": "Limestone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3211,
+          "displayName": "Limestone",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32646,
+          "modelIds": [
+            27696
+          ],
+          "displayName": "Juvenile boulder crab"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Zeke.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 8965.0,
+          "y": 1565.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head over there, then"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs in the lighthouse to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3450.0,
+          "heightFine": 7837.0,
+          "y": 1495.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3454.0,
+          "heightFine": 11509.0,
+          "y": 1495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Esther.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20511,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32672,
+            32686
+          ],
+          "displayName": "Esther"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft the limestones into limestone bricks.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3211,
+          "modelIds": [],
+          "displayName": "Limestone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3420,
+          "displayName": "Limestone brick",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Go downstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3452.5,
+          "heightFine": 11517.0,
+          "y": 1495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3452.0,
+          "heightFine": 7237.0,
+          "y": 1494.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the lodestone to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3461.0,
+          "heightFine": 7445.0,
+          "y": 1520.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 136458,
+          "modelIds": [
+            4572
+          ],
+          "displayName": "Wendlewick lodestone"
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136456,
+          "modelIds": [
+            4572
+          ],
+          "displayName": "Lodestone hotspot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 136458,
+          "modelIds": [
+            4572
+          ],
+          "displayName": "Wendlewick lodestone"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 60595,
+  "stageVarbitCompleteValue": 51,
+  "cacheQuestId": 526
+}

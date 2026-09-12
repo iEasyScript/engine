@@ -1,0 +1,3022 @@
+{
+  "slug": "dead-and-buried",
+  "name": "Dead and Buried",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1689552000,
+  "neededItems": [
+    {
+      "name": "Acadia frames",
+      "itemId": 435,
+      "quantity": 14,
+      "duringQuest": false
+    },
+    {
+      "name": "Stone wall segments",
+      "itemId": -1,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to the Raptor.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 685.0,
+          "y": 3544.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Dead and Buried\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue with the portal in front of the Town Hall to enter.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1821.0,
+          "y": 3562.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            2664
+          ],
+          "displayName": "Quest obj"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Herald of Varrock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30107,
+          "modelIds": [
+            6582
+          ],
+          "displayName": "Herald of Varrock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I know that"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Must we"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Leadership skills"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Conclude interview.)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes. I\u0027ve asked enough questions."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building the workroom",
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 965.0,
+          "y": 3557.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Acadia frames",
+          "itemId": -1,
+          "quantity": 14,
+          "duringQuest": false
+        },
+        {
+          "name": "Stone wall segments",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Dead and Buried\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fast you work"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Start the Ranger\u0027s Workroom (Tier 1) blueprint.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "forinthry blueprint table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54852,
+          "displayName": "Acadia frame"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "stone wall segments"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the ranger\u0027s workroom in the south-west near the guardhouse.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125061,
+          "modelIds": [],
+          "displayName": "Optimal Construction hotspot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125717,
+          "modelIds": [],
+          "displayName": "Fletching workbench"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Guard captain Sofía.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30105,
+          "modelIds": [],
+          "displayName": "Guard captain Sofía"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "investigate the crypt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Dead and Buried\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "north of here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retrieving the dragonkin device",
+      "text": "Open the gates to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.5,
+          "heightFine": 1097.0,
+          "y": 3576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3287.0,
+          "heightFine": 701.0,
+          "y": 3578.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on the quest portal to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3290.0,
+          "heightFine": 675.0,
+          "y": 3610.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19750,
+          "modelIds": [],
+          "displayName": "Quest Portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lava"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the spooky holes in the western room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -40.0,
+          "heightFine": -3296.0,
+          "y": 8.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -32.0,
+          "heightFine": -3584.0,
+          "y": 2.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -45.0,
+          "heightFine": -3384.0,
+          "y": 0.5,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -37.5,
+          "heightFine": -3744.0,
+          "y": -4.5,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -45.0,
+          "heightFine": -3408.0,
+          "y": -8.5,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -39.5,
+          "heightFine": -3392.0,
+          "y": -12.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3 materials"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the ghouls.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30120,
+          "modelIds": [
+            8172
+          ],
+          "displayName": "Material ghoul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "found enough materials"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Construct the bridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": -1196.0,
+          "y": -10.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "look at that door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4572
+          ],
+          "candidateObjectTypeIds": [
+            9364
+          ],
+          "displayName": "Construction spot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "look at that door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the ancient door across the bridge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125742,
+          "modelIds": [
+            7542
+          ],
+          "displayName": "Ancient door",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thoughtful solution"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push either pillar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125748,
+          "modelIds": [
+            1311
+          ],
+          "candidateNpcTypeIds": [
+            447,
+            448,
+            449,
+            917
+          ],
+          "displayName": "Pillar",
+          "priority": "closest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "both of us"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Switch to the raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30089,
+          "modelIds": [],
+          "displayName": "Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the other pillar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125748,
+          "modelIds": [
+            1311
+          ],
+          "candidateNpcTypeIds": [
+            447,
+            448,
+            449,
+            917
+          ],
+          "displayName": "Pillar",
+          "priority": "closest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "popped out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the ancient door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125743,
+          "modelIds": [
+            7542
+          ],
+          "displayName": "Ancient door",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50435,
+          "displayName": "Dragonkin device",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Reldo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Varrock Library and continue with the portal by the entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3489.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3489.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19750,
+          "modelIds": [],
+          "displayName": "Quest Portal"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Starting to dream",
+      "text": "Talk to Reldo.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55163,
+          "displayName": "Potion of dreamless sleep",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink the potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 55163,
+          "modelIds": [
+            216,
+            240
+          ],
+          "candidateItemTypeIds": [
+            20798,
+            52819
+          ],
+          "displayName": "Potion of dreamless sleep"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Pleasant dreams"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the dragonkin device.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 50435,
+          "modelIds": [
+            348
+          ],
+          "displayName": "Dragonkin device"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Enter dream."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [],
+          "displayName": "Boulder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boulder puzzle 1",
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "shouldn\u0027t be here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -98.0,
+          "y": 4.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -2.0,
+          "heightFine": -98.0,
+          "y": 4.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap to the Raptor.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": -192.0,
+          "y": 6.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the other pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -10.0,
+          "y": 8.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "door mechanism"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boulder puzzle 2",
+      "text": "Move the boulder to the marked tile.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [
+            1170
+          ],
+          "displayName": "Boulder",
+          "priority": "closest",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": -170.0,
+          "y": 19.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 1,
+          "tileY": 19,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": -114.0,
+          "y": 21.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": -114.0,
+          "y": 21.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap back to the player character.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30090,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": -138.0,
+          "y": 17.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": -138.0,
+          "y": 17.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boulder puzzle 3",
+      "text": "Swap back to the Raptor.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30089,
+          "modelIds": [],
+          "displayName": "Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move the boulder to the marked tile.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 444,
+          "modelIds": [
+            1170
+          ],
+          "displayName": "Boulder",
+          "priority": "closest",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": -168.0,
+          "y": 21.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 4,
+          "tileY": 21,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the boulder to the marked tile.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 444,
+          "modelIds": [
+            1170
+          ],
+          "displayName": "Boulder",
+          "instance": true,
+          "atLocation": {
+            "x": 3.0,
+            "heightFine": -168.0,
+            "y": 22.0
+          }
+        },
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 6.0,
+          "y": 27.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 3,
+          "tileY": 27,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move the other boulder to the marked tile.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [
+            1170
+          ],
+          "displayName": "Boulder",
+          "priority": "closest",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 5.0,
+          "heightFine": 22.0,
+          "y": 26.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5.0,
+          "heightFine": 22.0,
+          "y": 26.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 38.0,
+          "y": 27.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 38.0,
+          "y": 27.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap back to the player character.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": -138.0,
+          "y": 17.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 86.0,
+          "y": 26.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": 86.0,
+          "y": 26.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boulder puzzle 4",
+      "text": "Swap to the player character.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30090,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the either of the tiles farthest away from the barrier.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 14.0,
+          "heightFine": 437.0,
+          "y": 38.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125775,
+          "modelIds": [],
+          "displayName": "Pressure plate (Pressed)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap to the Raptor.",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30089,
+          "modelIds": [],
+          "displayName": "Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the boulder onto the pressure plate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [],
+          "displayName": "Boulder"
+        },
+        {
+          "t": "direction",
+          "x": 23.0,
+          "heightFine": 387.0,
+          "y": 38.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 23,
+          "tileY": 38,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap to the player character.",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30090,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the other pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 14.0,
+          "heightFine": 437.0,
+          "y": 42.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 18,
+          "tileY": 42,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap to the Raptor.",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30089,
+          "modelIds": [],
+          "displayName": "Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the boulder onto the pressure plate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [],
+          "displayName": "Boulder",
+          "instance": true,
+          "atLocation": {
+            "x": 18.0,
+            "heightFine": 277.0,
+            "y": 42.0
+          }
+        },
+        {
+          "t": "direction",
+          "x": 23.0,
+          "heightFine": 379.0,
+          "y": 42.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 23,
+          "tileY": 42,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on one of the two remaining pressure plates.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 22.0,
+          "heightFine": 403.0,
+          "y": 44.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 22.0,
+          "heightFine": 403.0,
+          "y": 44.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swap back to the player character.",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30090,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the remaining pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 22.0,
+          "heightFine": 387.0,
+          "y": 36.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Don\u0027t run in"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Switch to the Raptor",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30089,
+          "modelIds": [],
+          "displayName": "Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boulder puzzle 5",
+      "text": "The Raptor steps on the western most pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 35.0,
+          "heightFine": 387.0,
+          "y": 43.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 35.0,
+          "heightFine": 387.0,
+          "y": 43.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Switch back to player",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 743,
+          "componentId": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30090,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The player pulls the boulder and pushes it to the second pressure plate (going clockwise).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [],
+          "displayName": "Boulder"
+        },
+        {
+          "t": "direction",
+          "x": 39.0,
+          "heightFine": 387.0,
+          "y": 42.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 39,
+          "tileY": 42,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The player steps on the third pressure plate, and the second boulder appears.\u003cul\u003e\u003cli\u003eIf the second boulder does not spawn, exit to the lobby and continue again with the portal at the library.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 42.0,
+          "heightFine": 387.0,
+          "y": 39.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Just hold on"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The player pushes and pulls the boulder to the fourth pressure plate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30093,
+          "modelIds": [],
+          "displayName": "Boulder",
+          "instance": true,
+          "atLocation": {
+            "x": 34.0,
+            "heightFine": 357.0,
+            "y": 32.0
+          }
+        },
+        {
+          "t": "direction",
+          "x": 43.0,
+          "heightFine": 387.0,
+          "y": 35.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 30093,
+          "displayName": "Boulder",
+          "tileX": 43,
+          "tileY": 35,
+          "plane": 0,
+          "distance": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The player steps on the third pressure plate to open the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 42.0,
+          "heightFine": 387.0,
+          "y": 39.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run to the strange girl to start a cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 29.0,
+          "heightFine": 965.0,
+          "y": 11.0,
+          "instance": true,
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "majesty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "makes you weak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The nightmare",
+      "text": "Go through all the chat options, then delve deeper into the dream.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why did you marry the king?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "my own life"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Couldn\u0027t you have been a warrior queen?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "disastrous"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "So you started wearing a disguise?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "of the time"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Is being rude to people an act too?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go deeper"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the dim light.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 7.0,
+          "heightFine": 0.0,
+          "y": 13.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30097,
+          "modelIds": [
+            6771
+          ],
+          "displayName": "The Nightmare"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lower the health of the Nightmares as the player, then swap to the Raptor to deal the finishing blow.\u003cul\u003e\u003cli\u003eCurrently this part is glitched if you are in a group, which will prevent the player from progressing as expected. Simply leaving the group and re-entering the instance will allow progress.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125786,
+          "modelIds": [],
+          "displayName": "Pillar of light"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the pillar of light and talk with the character that appears.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 45.0,
+          "heightFine": 704.0,
+          "y": 27.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue on the path, and repeat the same process with the dim lights along the way.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 7.0,
+          "heightFine": 992.0,
+          "y": 42.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finally, speak to the Raptor that appears.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 72464,
+          "modelIds": [
+            2028
+          ],
+          "displayName": "Ancient writings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the ancient writings on the wall at the end of the path.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125778,
+          "modelIds": [
+            2028
+          ],
+          "displayName": "Ancient writings"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125796,
+          "modelIds": [],
+          "displayName": "Instance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish talking to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back to the crypt",
+      "text": "Continue with the portal in front of the crypt in the Wilderness.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3290.0,
+          "heightFine": 675.0,
+          "y": 3610.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19750,
+          "modelIds": [],
+          "displayName": "Quest Portal"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "push on and get"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the ancient door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125745,
+          "modelIds": [
+            7734
+          ],
+          "candidateObjectTypeIds": [
+            63456,
+            63457,
+            63458,
+            77131
+          ],
+          "displayName": "Ancient door",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -12.0,
+          "heightFine": 3685.0,
+          "y": -35.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125751,
+          "modelIds": [],
+          "displayName": "Baby dragon bones"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the map table in the central room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": -2676.0,
+          "y": 28.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125767,
+          "modelIds": [],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125768,
+          "modelIds": [
+            2418
+          ],
+          "displayName": "Map table"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill fetid zombies around the crypt and collect 10 map pieces.",
+      "warning": "Do not leave the crypt.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30017,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30018,
+            30035,
+            30036,
+            30123
+          ],
+          "displayName": "Fetid zombie",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "found enough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deposit onto the map table to start the puzzle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": -2676.0,
+          "y": 28.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125769,
+          "modelIds": [
+            2418
+          ],
+          "displayName": "Map table"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50937,
+          "modelIds": [
+            2418
+          ],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pieces around"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Refer to the wiki to complete the puzzle.\u003cul\u003e\u003cli\u003eSpeaking to the Raptor to turn on accessibility mode is advised; this will highlight tiles while they are in the correct position.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Toggle accessibility mode"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d like it on"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "complete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "dead-and-buried.map-puzzle"
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "our secret"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "back at the fort"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Overseer Siv in the Command Centre back at Fort Forinthry.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3319.0,
+          "heightFine": 985.0,
+          "y": 3540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "guardhouse by now"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 1185.0,
+          "y": 3544.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Dead and Buried\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 53035,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 492
+}

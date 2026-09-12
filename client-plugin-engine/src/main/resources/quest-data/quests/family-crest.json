@@ -1,0 +1,1268 @@
+{
+  "slug": "family-crest",
+  "name": "Family Crest",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1018310400,
+  "neededItems": [
+    {
+      "name": "Cooked shrimp",
+      "itemId": 579,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cooked salmon",
+      "itemId": 312,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cooked tuna",
+      "itemId": 444,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cooked bass",
+      "itemId": 444,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cooked swordfish",
+      "itemId": 276,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cut rubies",
+      "itemId": 1603,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Antipoison/super antipoison",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Tier 30/40 magic weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Runes for all blast spells",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Archaeology journal",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Dimintheis in the house next to the Fancy Clothes Store in south-eastern Varrock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1285.0,
+          "y": 3403.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8171,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8172
+          ],
+          "displayName": "Dimintheis",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hi, I am a bold adventurer."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So where is this crest?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Dimintheis.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8171,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8172
+          ],
+          "displayName": "Dimintheis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "west gates of Varrock"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Caleb\u0027s piece",
+      "text": "Talk to Caleb at Gertrude\u0027s house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3152.0,
+          "heightFine": 965.0,
+          "y": 3407.5,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 666,
+          "modelIds": [
+            4413
+          ],
+          "displayName": "Caleb",
+          "distance": 9
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you Caleb Fitzharmon?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So can I have your bit?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I will get those."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "help me a lot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cooked swordfish",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cooked bass",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cooked tuna",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cooked salmon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cooked shrimp",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 666,
+          "modelIds": [
+            4413
+          ],
+          "displayName": "Caleb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 780,
+          "displayName": "Crest part",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Then ask Caleb where the rest of the crest is.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 666,
+          "modelIds": [
+            4413
+          ],
+          "displayName": "Caleb"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "what happened to the rest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "easily as I have"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Avan\u0027s piece",
+      "text": "Talk to Avan just south of the Al Kharid mine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3298.0,
+          "heightFine": 517.0,
+          "y": 3284.0,
+          "instance": false,
+          "distance": 21
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 663,
+          "modelIds": [
+            4839
+          ],
+          "displayName": "Avan",
+          "distance": 25
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m looking for a man named Avan Fitzharmon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder into the Dwarven Mines.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3018.5,
+          "heightFine": 2565.0,
+          "y": 3450.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3018.0,
+          "heightFine": 965.0,
+          "y": 9850.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Boot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2984.0,
+          "heightFine": 957.0,
+          "y": 9810.0,
+          "instance": false,
+          "distance": 21
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 665,
+          "modelIds": [
+            9249
+          ],
+          "displayName": "Boot",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "very high quality"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get to though"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Creating the necklace",
+      "text": "Climb down the ruins just to the east of Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2696.0,
+          "heightFine": 1265.0,
+          "y": 3283.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2696.0,
+          "heightFine": 2661.0,
+          "y": 9684.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever up to the east.",
+      "warning": "Logging out will reset this puzzle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 3497.0,
+          "y": 9710.15,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2422,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Lever",
+          "atLocation": {
+            "x": 2722.0,
+            "heightFine": 3497.0,
+            "y": 9710.15
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever up to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2724.15,
+          "heightFine": 1501.0,
+          "y": 9669.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2424,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Lever",
+          "atLocation": {
+            "x": 2724.15,
+            "heightFine": 1501.0,
+            "y": 9669.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever down to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 3497.0,
+          "y": 9710.15,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2722.0,
+          "heightFine": 3497.0,
+          "y": 9710.15,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 3497.0,
+          "y": 9710.15,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Up lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever up inside the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 3545.0,
+          "y": 9718.15,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2426,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever up oustide the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 3497.0,
+          "y": 9710.15,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2422,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Lever",
+          "atLocation": {
+            "x": 2722.0,
+            "heightFine": 3497.0,
+            "y": 9710.15
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever down to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2724.15,
+          "heightFine": 1501.0,
+          "y": 9669.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2724.0,
+          "heightFine": 501.0,
+          "y": 9669.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2724.15,
+          "heightFine": 1501.0,
+          "y": 9669.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Up lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine two \u0027Perfect\u0027 gold ore in the hellhound room.\u003cul\u003e\u003cli\u003eTurn auto-retaliate off to avoid interruption.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            3252
+          ],
+          "displayName": "Perfect gold rock",
+          "atLocation": {
+            "x": 2735.0,
+            "heightFine": 997.0,
+            "y": 9694.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 446,
+          "displayName": "\u0027Perfect\u0027 gold ore",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smelt the ores into bars.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2365,
+          "displayName": "\u0027Perfect\u0027 gold bar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft a \u0027Perfect\u0027 ring and a \u0027Perfect\u0027 necklace with two rubies.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - make a \u0027perfect\u0027 ring"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 773,
+          "displayName": "\u0027Perfect\u0027 ring",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            41122
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes - make a \u0027perfect\u0027 necklace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 774,
+          "displayName": "\u0027Perfect\u0027 necklace",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Avan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3298.0,
+          "heightFine": 517.0,
+          "y": 3284.0,
+          "instance": false,
+          "distance": 21
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 663,
+          "modelIds": [
+            4839
+          ],
+          "displayName": "Avan",
+          "distance": 25
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks Avan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Johnathon\u0027s piece",
+      "text": "Climb the stairs in the Jolly Boar Inn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3285.5,
+          "heightFine": 1365.0,
+          "y": 3495.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 24357,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Staircase",
+          "distance": 17
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3285.0,
+          "heightFine": 2149.0,
+          "y": 3492.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Antipoison/super antipoison",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Johnathon",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 668,
+          "modelIds": [
+            4947
+          ],
+          "displayName": "Johnathon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pouring down"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an antipoison on him.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 668,
+          "modelIds": [
+            4947
+          ],
+          "displayName": "Johnathon"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where can I find Chronozon?"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 175,
+          "modelIds": [],
+          "displayName": "Antipoison (3)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lead you to him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Defeating Chronozon",
+      "text": "Enter the Edgeville Dungeon. Equip your tier 30/40 magic weapon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3097.0,
+          "heightFine": 965.0,
+          "y": 3468.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3096.0,
+          "heightFine": 4069.0,
+          "y": 9868.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Tier 30/40 magic weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Runes for all blast spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Deathtouched dart",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use air blast on Chronozon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 667,
+          "modelIds": [
+            43164
+          ],
+          "displayName": "Chronozon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Air Blast seems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use water blast on Chronozon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 667,
+          "modelIds": [
+            43164
+          ],
+          "displayName": "Chronozon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Water Blast seems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use earth blast on Chronozon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 667,
+          "modelIds": [
+            43164
+          ],
+          "displayName": "Chronozon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Earth Blast seems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use fire blast on Chronozon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 667,
+          "modelIds": [
+            43164
+          ],
+          "displayName": "Chronozon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "First Blast seems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Chronozon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 667,
+          "modelIds": [
+            43164
+          ],
+          "displayName": "Chronozon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "grounditem",
+          "typeId": 781,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Crest part"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the crest piece.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 781,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Crest part"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 781,
+          "displayName": "Crest part",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Dimintheis.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1285.0,
+          "y": 3403.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8171,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8172
+          ],
+          "displayName": "Dimintheis",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2663,
+  "stageVarbitCompleteValue": 11,
+  "cacheQuestId": 116
+}

@@ -1,0 +1,818 @@
+{
+  "slug": "spirit-of-summer",
+  "name": "Spirit of Summer",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1217289600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "The farm",
+      "text": "Talk to the spirit at the Wilderness wall north of Infernal Source Dig Site.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Keep trying to catch the spirit until you see a cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "OK"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the father figure with a ghostspeak amulet equipped.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the table below to respond to the man\u0027s emotes.\u003cul\u003e\u003cli\u003eDon\u0027t repeat yourself.\u003c/li\u003e\u003cli\u003eUse the Think emote to see the emote again. Talk to him and your character will say the emote he is doing.\u003c/li\u003e\u003cli\u003eThe rings around the girl will disappear on successful emotes.  When all the rings are gone, the girl is free.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "spirit-of-summer.emotes"
+    },
+    {
+      "text": "Once the girl is free, talk to her.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What\u0027s going on here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I will come with you to the village you\u0027re talking about."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7981,
+          "modelIds": [],
+          "displayName": "Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37821,
+          "modelIds": [],
+          "displayName": "Cursed magic tree"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fixing the village",
+      "text": "Once in the village, ask the girl to be taken back.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me back, please?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7981,
+          "modelIds": [],
+          "displayName": "Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 59,
+          "modelIds": [],
+          "displayName": "Giant spider"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search a crate for a limpwurt seed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37809,
+          "modelIds": [],
+          "displayName": "Crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5100,
+          "displayName": "Limpwurt seed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rake the farming patch and plant the seed.\u003cul\u003e\u003cli\u003eNote: You can use a Supreme growth potion (leafy) on it, but do not harvest the roots yet.\u003c/li\u003e\u003cli\u003eWait limpwurt plant to grow (roughly 20 minutes), but do not harvest it. You cannot continue the quest until the plant grows.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37849,
+          "modelIds": [],
+          "displayName": "Flower patch"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 5100,
+          "modelIds": [],
+          "displayName": "Limpwurt seed"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37846,
+          "modelIds": [],
+          "displayName": "Flower patch"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up 4 steel nails and a hammer in the anvil building (south east).\u003cul\u003e\u003cli\u003eNote: Sometimes you will find only 3 nails there. More nails can be found in the sacks or the building west of the farming patch, near the bucket. You can also smith nails on the anvil.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 853.0,
+          "y": -4.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 925.0,
+          "y": -6.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 853.0,
+          "y": -9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2347,
+          "displayName": "Hammer",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1539,
+          "displayName": "Steel nails",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up 2 planks in the centre-most building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -5.0,
+          "heightFine": 869.0,
+          "y": 11.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 861.0,
+          "y": 8.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": -18.0,
+          "heightFine": 933.0,
+          "y": -7.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 960,
+          "displayName": "Plank",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a plank on the wardrobe in the building south-east of the statue.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 960,
+          "modelIds": [],
+          "displayName": "Plank"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37836,
+          "modelIds": [],
+          "displayName": "Wardrobe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37835,
+          "modelIds": [],
+          "displayName": "Wardrobe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With three free inventory slots, Pick from the Hollow log near the statue for button mushrooms.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37830,
+          "modelIds": [],
+          "displayName": "Hollow log"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13563,
+          "displayName": "Button mushroom",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab a bucket from the building directly west of the farm patch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 925.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1925,
+          "displayName": "Bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bucket on the barrel of water south-east of the farming patch.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37826,
+          "modelIds": [],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1929,
+          "displayName": "Bucket of water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the limpwurt plant to grow.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 7855,
+          "modelIds": [],
+          "displayName": "Limpwurt plant"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again and agree to come along.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I\u0027ll come along."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7981,
+          "modelIds": [],
+          "displayName": "Spirit"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7984,
+          "modelIds": [],
+          "displayName": "Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " It\u0027s nice to meet you, Summer."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back in the farm",
+      "text": "Talk to her once more to be taken back.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me back?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7986,
+          "modelIds": [],
+          "displayName": "Summer Bonde"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Alright. Please don\u0027t be gone for long: we need your help."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a skull and 5 bones east of the farm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 1029.0,
+          "y": 2.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 868.0,
+          "y": -6.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 805.0,
+          "y": 3.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 17.0,
+          "heightFine": 1093.0,
+          "y": 5.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 16.0,
+          "heightFine": 925.0,
+          "y": -5.0,
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 16.0,
+          "heightFine": 957.0,
+          "y": 6.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 526,
+          "displayName": "Bones",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 964,
+          "displayName": "Skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand in the portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37925,
+          "modelIds": [],
+          "displayName": "Portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7986,
+          "modelIds": [],
+          "displayName": "Summer Bonde"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Summer.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What exactly is going on here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course, I will help you."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7986,
+          "modelIds": [],
+          "displayName": "Summer Bonde"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7986,
+          "modelIds": [],
+          "displayName": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow her and Climb-down the Trapdoor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37746,
+          "modelIds": [],
+          "displayName": "Trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37901,
+          "modelIds": [],
+          "displayName": "Altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the skull and right-click Use the bones on the altar.\u003cul\u003e\u003cli\u003eNote: Take care not to bury the bones.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 964,
+          "modelIds": [],
+          "displayName": "Skull"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 526,
+          "modelIds": [],
+          "displayName": "Bones"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37901,
+          "modelIds": [],
+          "displayName": "Altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37759,
+          "modelIds": [],
+          "displayName": "Disc"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-up the ladder and talk to Summer again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What should I do now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I better get to work, then."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37900,
+          "modelIds": [],
+          "displayName": "Ladder"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7986,
+          "modelIds": [],
+          "displayName": "Summer Bonde"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I better get to work, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read all the following steps before executing them:\u003cul\u003e\u003cli\u003eRun north to the wolf platform.\u003c/li\u003e\u003cli\u003eSummon a spirit wolf so that it stands on the platform (it doesn\u0027t have to be in the center).\u003c/li\u003e\u003cli\u003eThe Spirit Beast will only be lured to a platform with a familiar summoned.\u003c/li\u003e\u003cli\u003eDismiss the familiar as soon as the beast steps on the platform (here your familiar will be dismissed immediately without the \u0027are you sure\u0027 warning). A lightning effect will show if successful.\u003c/li\u003e\u003cli\u003eDon\u0027t let the beast consume your familiar, and don\u0027t move your familiar off the platform.  It is helpful to try to position yourself between the beast and your familiar.\u003c/li\u003e\u003cli\u003eA cutscene will play if you have succeeded.\u003c/li\u003e\u003cli\u003eIf you have to teleport out for more pouches, you must talk to Summer by the quest start location to return to the spirit realm.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7995,
+          "modelIds": [],
+          "displayName": "Spirit Beast"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37767,
+          "modelIds": [],
+          "displayName": "Disc"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37791,
+          "modelIds": [],
+          "displayName": "Disc"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat this process with the Desert Wyrm, using the platform that appears during the cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37787,
+          "modelIds": [],
+          "displayName": "Disc"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7995,
+          "modelIds": [],
+          "displayName": "Spirit Beast"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37802,
+          "modelIds": [],
+          "displayName": "Disc"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "And again for the Spirit Scorpion - the platform is far west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7995,
+          "modelIds": [],
+          "displayName": "Spirit Beast"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37802,
+          "modelIds": [],
+          "displayName": "Disc"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7991,
+          "modelIds": [],
+          "displayName": "Jallek Lenkin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to any of the spirits by the Spirit Beast.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7989,
+          "modelIds": [],
+          "displayName": "Erik Bonde"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12013,
+  "stageVarbitCompleteValue": 75,
+  "cacheQuestId": 331
+}

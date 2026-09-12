@@ -1,0 +1,594 @@
+{
+  "slug": "shilo-village",
+  "name": "Shilo Village",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "heroic",
+  "releaseDate": 1043625600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Jungle Potion"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Teleport to Karamja (shortest teleport is CKR) and run far south/southeast to the southeast corner of Shilo Village.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Mosol Rei near the Broken cart.  He will give you a wampum belt.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why do I need to run?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rashiliyia? Who is she?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can we do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll go see the Shaman."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to the Karamja lodestone and run southeast to Trufitus, northeast of Tai Bwo Wannai Village, west of the hardwood grove.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the belt on Trufitus. Tell him you're going to search for 'Ah Za Rhoon'.<ul><li>If you don't yet have a chisel, a rope and torch, you should get those now from Jiminua's Jungle Store. You may also craft bronze wire at the nearby anvil.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Mosol Rei said something about a legend?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why was it called Ah Za Rhoon?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am going to search for Ah Za Rhoon!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I will seriously look for Ah Za Rhoon and I'd appreciate your help."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ok then Bwana, good luck with your quest, and remember to stock up well with adventuring supplies before setting off. You never know how useful some fairly ordinary things might be when you're adventuring."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The mound",
+      "text": "Travel east of Trufitus' hut, cross a wooden log and then head south to the mound of earth surrounded by three dead trees, Ah Za Rhoon.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Torch",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the mound of earth and select excavate.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Try to excavate the mound."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a lit torch on the fissure.<ul><li>To obtain a lit torch, light the torch in the backpack.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a rope on the fissure.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fissure, climb down.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll give it a go!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " With some difficulty you manage to push yourself through the small crack in the rock."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ah Za Rhoon",
+      "text": "Search the cave in (see map) and wiggle through the rocks to proceed to the second area.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll wriggle through."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After wiggling through, follow along the west side of the wall and search the loose rocks against the northwestern wall for a tattered scroll.<ul><li>You might fail and take damage, retry until you succeed.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll carefully move the rocks to see what's behind them."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player receives tattered scroll."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the old sacks in the far southeast corner for a crumpled scroll.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the ancient gallows to the north for the Zadimus corpse.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I may find something else on the corpse."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You gently support the frame of the skeleton and lift the skull through the noose."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read both scrolls.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Burial",
+      "text": "Use the Karamja lodestone/Tai Bwo Wannai teleport to get back to Trufitus.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the two scrolls and the corpse on Trufitus and ask about the sacred ground.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Is there any sacred ground around here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " The ground in the centre of the village is very sacred to us. Maybe you could try there?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk west to the nearby Tribal Statue. Bury the corpse then talk to the Spirit of Zadimus for the bone shard.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bone shard on Trufitus.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "It appeared when I buried Zadimus' corpse."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He said something after he gave it to me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The spirit said something about keys and kin?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Hmmm, maybe it's a clue of some kind? Rashiliyia's only kin was a son, 'Bervirius'. His remains were entombed on a small island which lies to the South West. I will do some research into this to see if I can find any other details. But I think we must take Zadimus' clue literally and get some item that belonged to Bervirius as it may be the only way to approach Rashiliyia. Perhaps something like this exists in his tomb?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trufitus.  Ensure Trufitus mentions the need to find the Tomb of Bervirius.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need help with Bervirius."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cairn Island",
+      "text": "Head southwest to Cairn Isle by climbing the rocks and going across the bridge. Be careful, you can sometimes fall - use the Surge ability to bypass this.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chisel",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze wire",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the well stacked rocks to the north to enter the Tomb of Bervirius. If you fail search again until you are able to enter.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please, I can think of nothing nicer!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If unsuccessful:) You manage to get yourself stuck. You have to wrench yourself free to get out. You manage to pull yourself out, but are hurt in the process.The player is damaged. Maybe you'll have better luck next time?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inside, run south and search the tomb dolmen to receive three items: sword pommel, locating crystal, and Bervirius notes.<ul><li>If you do not have enough space the notes will drop on the ground.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read all 3 options on the Bervirius notes.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the chisel on the sword pommel to create bone beads (the chisel on the tool belt will not work).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bone beads on the bronze wire to create beads of the dead.<ul><li>You can make the bronze wire from a bronze bar at an anvil near Trufitus.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rashiliyia's Tomb",
+      "text": "Travel east of Trufitus' hut, over the agility log and run north, to the general area of The Shaikahan.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chisel",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bone shard",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Beads of the dead",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bones",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the foliage, then attempt to open the Ancient Door. (See the map for the location.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a chisel on the bone shard.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the beads of the dead.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bone key on the door to open it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the ancient metal gate.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the rock.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run to the south west corner and use 3 bones on the tomb doors. Be careful not to bury them instead.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the doors and search the tomb dolmen.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill all 3 forms of Nazastarool. The stalagmites to the east of the tomb dolmen can be used as a safe spot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Rashiliyia corpse.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Travel back to the Tomb of Bervirius on Cairn Isle.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Rashiliyia corpse on the tomb dolmen.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2793,
+  "stageVarbitCompleteValue": 15,
+  "cacheQuestId": 70
+}

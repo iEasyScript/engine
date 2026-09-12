@@ -1,0 +1,107 @@
+# Cross-platform `project-x-launcher` binaries, plus the patcher and injectors that
+# have to sit beside the launcher for a custom-server launch to work at all.
+#
+# Linux and Windows both build on ordinary Linux shared runners (Windows via
+# cargo-xwin against the MSVC target), so a stock GitLab account produces the two
+# platforms that matter without any runner setup. Those two hand their output to
+# the bundle jobs in `stage/`; macOS has no engine or patcher port yet, so it
+# still publishes a bare binary straight into `dist/`. macOS needs a real macOS
+# runner and is therefore opt-in: set PROJECTX_ENABLE_MACOS_BUILD=true in the
+# project's CI/CD variables once one is available.
+
+.launcher-build:
+  stage: build
+  needs: [version]
+  interruptible: true
+  variables:
+    LAUNCHER_DIR: client/launcher
+  cache:
+    key: "cargo-$PLATFORM_TAG"
+    paths:
+      - .cargo-home/registry/index
+      - .cargo-home/registry/cache
+      - .cargo-home/git/db
+      - client/launcher/target
+  artifacts:
+    name: "project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION"
+    paths:
+      - stage/
+    expire_in: 30 days
+
+launcher:linux:
+  extends: .launcher-build
+  image: rust:1-bookworm
+  variables:
+    TARGET_TRIPLE: x86_64-unknown-linux-gnu
+    PLATFORM_TAG: linux-x86_64
+  before_script:
+    # tao/wry render through GTK3 + WebKitGTK; the -dev packages supply the
+    # pkg-config files their build scripts probe for.
+    - apt-get update -qq
+    - apt-get install -y --no-install-recommends
+        pkg-config libgtk-3-dev libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev
+  script:
+    - cargo build --locked --release --manifest-path "$LAUNCHER_DIR/Cargo.toml" --target "$TARGET_TRIPLE"
+    # The RSA/URL patcher the launcher LD_PRELOADs into the client. Shares the
+    # job's cargo cache and target dir, so it costs a fraction of a second job.
+    - cargo build --locked --release --manifest-path "$LAUNCHER_DIR/patcher/Cargo.toml"
+        --target "$TARGET_TRIPLE" --target-dir "$LAUNCHER_DIR/target"
+    - mkdir -p stage
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/project-x-launcher" stage/project-x-launcher
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/libprojectx_patcher.so" stage/libprojectx_patcher.so
+    - chmod +x stage/project-x-launcher
+
+launcher:windows:
+  extends: .launcher-build
+  # Ships cargo-xwin plus the clang/lld/llvm-rc toolchain it drives, so the job
+  # does not spend several minutes on `cargo install` every run.
+  image: ghcr.io/rust-cross/cargo-xwin:main
+  variables:
+    TARGET_TRIPLE: x86_64-pc-windows-msvc
+    PLATFORM_TAG: windows-x86_64
+  script:
+    - rustup target add "$TARGET_TRIPLE"
+    - cargo xwin build --locked --release --manifest-path "$LAUNCHER_DIR/Cargo.toml" --target "$TARGET_TRIPLE"
+    # projectx_patcher.dll plus the two injectors: projectx_injector spawns the
+    # client suspended to patch it, projectx_engine_injector loads the engine into an
+    # already-running one. Without them a Windows custom-server launch has no
+    # way to patch and no way to inject.
+    - cargo xwin build --locked --release --manifest-path "$LAUNCHER_DIR/patcher-win/Cargo.toml"
+        --target "$TARGET_TRIPLE" --target-dir "$LAUNCHER_DIR/target"
+    - mkdir -p stage
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/project-x-launcher.exe" stage/project-x-launcher.exe
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/projectx_patcher.dll" stage/projectx_patcher.dll
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/projectx_injector.exe" stage/projectx_injector.exe
+    - cp "$LAUNCHER_DIR/target/$TARGET_TRIPLE/release/projectx_engine_injector.exe" stage/projectx_engine_injector.exe
+
+launcher:macos:
+  extends: .launcher-build
+  tags:
+    - saas-macos-medium-m1
+  image: macos-15-xcode-16
+  variables:
+    PLATFORM_TAG: macos-universal
+  # No bundle job to hand a staging dir to — this binary is the macOS release
+  # asset as it stands.
+  artifacts:
+    name: "project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION"
+    paths:
+      - dist/
+    expire_in: 30 days
+  rules:
+    - if: $PROJECTX_ENABLE_MACOS_BUILD == "true"
+  before_script:
+    - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --default-toolchain stable --profile minimal
+    - source "$CARGO_HOME/env"
+  script:
+    - rustup target add x86_64-apple-darwin aarch64-apple-darwin
+    - cargo build --locked --release --manifest-path "$LAUNCHER_DIR/Cargo.toml" --target x86_64-apple-darwin
+    - cargo build --locked --release --manifest-path "$LAUNCHER_DIR/Cargo.toml" --target aarch64-apple-darwin
+    - mkdir -p dist
+    # One binary that runs on both Apple architectures, so the Release carries a
+    # single macOS asset instead of two the user has to choose between.
+    - lipo -create -output "dist/project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION"
+        "$LAUNCHER_DIR/target/x86_64-apple-darwin/release/project-x-launcher"
+        "$LAUNCHER_DIR/target/aarch64-apple-darwin/release/project-x-launcher"
+    - chmod +x "dist/project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION"
+    - (cd dist && shasum -a 256 "project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION" > "project-x-launcher-$PLATFORM_TAG-$PROJECTX_VERSION.sha256")

@@ -1,0 +1,3902 @@
+{
+  "slug": "the-branches-of-darkmeyer",
+  "name": "The Branches of Darkmeyer",
+  "members": true,
+  "length": "long",
+  "timeline": "legendary",
+  "releaseDate": 1314748800,
+  "neededItems": [],
+  "recommendedItems": [
+    {
+      "name": "Gadderhammer",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat equipment and food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Harold",
+      "level": "98",
+      "quantity": 1
+    },
+    {
+      "name": "Vanstrom Klause",
+      "level": "140",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Legacy of Seergaze"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 63,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 64,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Farming",
+      "level": 63,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Fletching",
+      "level": 70,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 70,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 67,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Climb down the trapdoor inside the pub in Burgh de Rott.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's wrong?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything I can do to help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Wish me luck"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the basement.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 1245.0,
+          "y": 9632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3491.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mysertious medallion",
+      "text": "Enter the cave entrance south of the Burgh de Rott bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.5,
+          "heightFine": 941.0,
+          "y": 3203.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2273.0,
+          "heightFine": 965.0,
+          "y": 5152.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the letter.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4204,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Letter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4204,
+          "displayName": "Letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the coffin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2263.5,
+          "heightFine": 1373.0,
+          "y": 5152.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 21575,
+          "displayName": "Mysterious medallion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the rope",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2273.5,
+          "heightFine": 1465.0,
+          "y": 5152.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3496.0,
+          "heightFine": 741.0,
+          "y": 3202.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor inside the pub in Burgh de Rott.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I found a medallion."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please send me!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9621.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "An unexpected help",
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3628.0,
+          "heightFine": 965.0,
+          "y": 9643.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got a letter for you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you think?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you think we should do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Be careful"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.0,
+          "heightFine": 1665.0,
+          "y": 9617.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 4517.0,
+          "y": 3249.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4485.0,
+          "y": 3254.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 5285.0,
+          "y": 3256.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 5701.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.5,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3255.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 4485.0,
+              "y": 3261.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 4485.0,
+              "y": 3261.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 4485.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3625.0,
+              "heightFine": 4485.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3625.0,
+              "heightFine": 4485.0,
+              "y": 3251.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3627.0,
+          "heightFine": 5701.0,
+          "y": 3251.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the two vyrewatch.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bode well"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3627.0,
+              "heightFine": 5701.0,
+              "y": 3251.0
+            },
+            {
+              "x": 3627.0,
+              "heightFine": 5701.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3626.0,
+              "heightFine": 5701.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3626.0,
+              "heightFine": 5701.0,
+              "y": 3254.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 5701.0,
+              "y": 3254.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 5701.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3623.0,
+              "heightFine": 5701.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3620.0,
+              "heightFine": 5701.0,
+              "y": 3252.0
+            },
+            {
+              "x": 3620.0,
+              "heightFine": 5701.0,
+              "y": 3254.5
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3620.0,
+          "heightFine": 4485.0,
+          "y": 3256.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vertida Sefalatis at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3618.0,
+              "heightFine": 4485.0,
+              "y": 3254.0
+            },
+            {
+              "x": 3617.0,
+              "heightFine": 4485.0,
+              "y": 3254.0
+            },
+            {
+              "x": 3617.0,
+              "heightFine": 4485.0,
+              "y": 3255.0
+            },
+            {
+              "x": 3616.0,
+              "heightFine": 4485.0,
+              "y": 3257.0
+            },
+            {
+              "x": 3616.0,
+              "heightFine": 4485.0,
+              "y": 3261.0
+            },
+            {
+              "x": 3617.0,
+              "heightFine": 4485.0,
+              "y": 3264.0
+            },
+            {
+              "x": 3617.0,
+              "heightFine": 4485.0,
+              "y": 3270.0
+            },
+            {
+              "x": 3612.0,
+              "heightFine": 4485.0,
+              "y": 3270.0
+            },
+            {
+              "x": 3612.0,
+              "heightFine": 4485.0,
+              "y": 3266.0
+            },
+            {
+              "x": 3608.0,
+              "heightFine": 4485.0,
+              "y": 3266.0
+            },
+            {
+              "x": 3608.0,
+              "heightFine": 4485.0,
+              "y": 3263.0
+            },
+            {
+              "x": 3609.0,
+              "heightFine": 4485.0,
+              "y": 3263.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7345,
+          "modelIds": [
+            384
+          ],
+          "displayName": "Open Door",
+          "atLocation": {
+            "x": 3617.0,
+            "heightFine": 4485.0,
+            "y": 3254.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3610.0,
+          "heightFine": 4485.0,
+          "y": 3263.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "keep watch"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3610.0,
+          "heightFine": 4985.0,
+          "y": 3265.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3610.0,
+          "heightFine": 5701.0,
+          "y": 3263.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mekritus A'hara.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4466,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14195,
+            21585,
+            21653,
+            21654,
+            21657,
+            21658,
+            22621
+          ],
+          "displayName": "Mekritus A'hara"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the lookout point for a cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3603.0,
+          "heightFine": 5701.0,
+          "y": 3262.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop-down the floorboards to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3610.0,
+          "heightFine": 5701.0,
+          "y": 3263.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3610.0,
+          "heightFine": 4485.0,
+          "y": 3264.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nessie in the courtyard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3613,
+          "modelIds": [
+            3174
+          ],
+          "displayName": "Nessie"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do you know my name?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "so glad"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3613,
+          "modelIds": [
+            3174
+          ],
+          "displayName": "Nessie"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attack Vanescula Drakan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3604.0,
+          "heightFine": 4485.0,
+          "y": 3264.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vanescula Drakan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can you help?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm not telling you anything, vampyre scum!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do you plan on freeing Meiyerditch?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Haemalchemy labs"
+        },
+        {
+          "t": "conversationText",
+          "text": "it will last"
+        },
+        {
+          "t": "conversationText",
+          "text": "an envelope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You won't get any information out of me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why do you want to kill Drakan?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why should I trust you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll listen, for now."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me more about this tree."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it will last"
+        },
+        {
+          "t": "conversationText",
+          "text": "an envelope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I know you are telling the truth?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "an envelope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Entering Darkmeyer",
+      "text": "Teleport to Meiyerditch with the Drakan's medallion.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Drakan's medallion teleport",
+        "url": "Drakan's_medallion.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21575,
+          "modelIds": [
+            447
+          ],
+          "displayName": "Mysterious medallion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3628.0,
+          "heightFine": 965.0,
+          "y": 9624.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3628.0,
+          "heightFine": 965.0,
+          "y": 9643.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Meiyerditch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "me see"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vertida Sefalatis.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I need to go to Darkmeyer?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "retaking Morytania"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate to the south-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3618.0,
+          "heightFine": 1165.0,
+          "y": 9620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 21585,
+          "displayName": "Smoke bomb",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to the Meiyerditch laboratory with the Drakan's medallion.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Drakan's medallion teleport",
+        "url": "Drakan's_medallion.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21575,
+          "modelIds": [
+            447
+          ],
+          "displayName": "Mysterious medallion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3633.0,
+          "heightFine": 965.0,
+          "y": 9694.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3637.0,
+          "heightFine": 1465.0,
+          "y": 9697.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3643.0,
+          "heightFine": 4485.0,
+          "y": 3306.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze-through the grate at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3643.0,
+              "heightFine": 4485.0,
+              "y": 3306.0
+            },
+            {
+              "x": 3642.0,
+              "heightFine": 4485.0,
+              "y": 3307.0
+            },
+            {
+              "x": 3641.0,
+              "heightFine": 4485.0,
+              "y": 3307.0
+            },
+            {
+              "x": 3641.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3638.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3638.0,
+              "heightFine": 4485.0,
+              "y": 3304.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 4485.0,
+              "y": 3304.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 4485.0,
+              "y": 3302.0
+            },
+            {
+              "x": 3640.0,
+              "heightFine": 4485.0,
+              "y": 3302.0
+            },
+            {
+              "x": 3640.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3301.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3304.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 4485.0,
+              "y": 3325.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 4485.0,
+              "y": 3328.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3630.0,
+          "heightFine": 4485.0,
+          "y": 3332.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vanescula.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you tell Safalaan?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "secret"
+        },
+        {
+          "t": "conversationText",
+          "text": "get on with"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, where's this tree?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll get on with it, then."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get on with"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search chests in the first building.<ul><li>Use smoke bombs to avoid detection.</li><li>Stay away from the vyrewatch.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3645.0,
+          "heightFine": 4491.0,
+          "y": 3340.8,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3645.0,
+          "heightFine": 4491.0,
+          "y": 3333.2,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21585,
+          "modelIds": [
+            375
+          ],
+          "displayName": "Smoke bomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ripped darkmeyer outfit",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chests in the second building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3656.25,
+          "heightFine": 4485.0,
+          "y": 3344.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3661.75,
+          "heightFine": 4491.0,
+          "y": 3344.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any walking vyrewatch",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21585,
+          "modelIds": [
+            375
+          ],
+          "displayName": "Smoke bomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ripped darkmeyer outfit",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chests in the third building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3655.25,
+          "heightFine": 4491.0,
+          "y": 3362.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3660.75,
+          "heightFine": 4491.0,
+          "y": 3362.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any walking vyrewatch",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21585,
+          "modelIds": [
+            375
+          ],
+          "displayName": "Smoke bomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ripped darkmeyer outfit",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chests in the last building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3671.0,
+          "heightFine": 4491.0,
+          "y": 3368.75,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 3671.0,
+          "heightFine": 4491.0,
+          "y": 3361.25,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any walking vyrewatch",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21585,
+          "modelIds": [
+            375
+          ],
+          "displayName": "Smoke bomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "all the pieces"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix all four pieces of the darkmeyer disguise.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1053,
+            1584,
+            657,
+            312
+          ],
+          "displayName": "Ripped darkmeyer outfit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "darkmeyer disguise",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the darkmeyer disguise.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "darkmeyer disguise"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "darkmeyer disguise"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Vanescula.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3332.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So can I go and get those logs now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, of course not."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better of you"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Middle tier",
+      "text": "Talk to Sanguinus Varnis to the north-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3666.0,
+          "heightFine": 5465.0,
+          "y": 3380.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Darkmeyer disguise",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Gadderhammer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "any more"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Vandalise the propaganda posters.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 61302,
+          "modelIds": [
+            4266,
+            4470,
+            4284,
+            4470
+          ],
+          "displayName": "Propaganda poster",
+          "priority": "all"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "all of the posters"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Sanguinus Varnis.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3666.0,
+          "heightFine": 5465.0,
+          "y": 3380.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis",
+          "atLocation": {
+            "x": 3666.0,
+            "heightFine": 5465.0,
+            "y": 3380.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "among my vyres"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14078,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Sanguinus Varnis"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Terrorize Maria Gadderanks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3670.0,
+          "heightFine": 5451.0,
+          "y": 3399.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14104,
+          "modelIds": [
+            3888
+          ],
+          "displayName": "Maria Gadderanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14104,
+          "modelIds": [
+            3888
+          ],
+          "displayName": "Maria Gadderanks"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7668,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Gadderhammer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "rat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "wretch"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "dispose"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "back later"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "vermin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "dead"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Leave me alone."
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14104,
+          "modelIds": [
+            3888
+          ],
+          "displayName": "Maria Gadderanks"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the angry or laugh emote next to Maria Gadderanks repeatedly.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "paying attention to you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Valentina Kaust to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3629.0,
+          "heightFine": 5451.0,
+          "y": 3387.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14080,
+          "modelIds": [
+            6765
+          ],
+          "displayName": "Valentina Kaust"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14080,
+          "modelIds": [
+            6765
+          ],
+          "displayName": "Valentina Kaust",
+          "atLocation": {
+            "x": 3629.0,
+            "heightFine": 5451.0,
+            "y": 3387.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "test"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14080,
+          "modelIds": [
+            6765
+          ],
+          "displayName": "Valentina Kaust"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink the bottle of blood.",
+      "warning": "You'll lose half of your health.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21586,
+          "modelIds": [
+            582,
+            108
+          ],
+          "displayName": "Bottle of blood"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "cough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Valentina Kaust again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14080,
+          "modelIds": [
+            6765
+          ],
+          "displayName": "Valentina Kaust",
+          "atLocation": {
+            "x": 3629.0,
+            "heightFine": 5451.0,
+            "y": 3387.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "best blood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "upper tier vyres will now acknowledge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Upper tier",
+      "text": "Talk to the vyrewatch guard in the prison to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3601.0,
+          "heightFine": 6411.0,
+          "y": 3324.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14100,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Vyrewatch guard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14100,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Vyrewatch guard",
+          "atLocation": {
+            "x": 3601.0,
+            "heightFine": 6411.0,
+            "y": 3324.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14100,
+          "modelIds": [
+            6843
+          ],
+          "displayName": "Vyrewatch guard"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the jail door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3602.0,
+          "heightFine": 7011.0,
+          "y": 3321.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3602.0,
+          "heightFine": 6411.0,
+          "y": 3320.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rip and tear.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "enter the Arboretum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Arboretum",
+      "text": "Talk to Vanescula to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3599.0,
+          "heightFine": 6405.0,
+          "y": 3356.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I do that?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "pledge fealty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "devote my service"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to enter the Arboretum.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.5,
+          "heightFine": 6925.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ranis Drakan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4461,
+          "modelIds": [
+            6555
+          ],
+          "displayName": "Ranis Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course not!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I hereby pledge fealty to you, Ranis Drakan."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "watching you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Arboretum.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.5,
+          "heightFine": 6925.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3624.0,
+          "heightFine": 6405.0,
+          "y": 3364.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check the health of the tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.5,
+          "heightFine": 7125.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The tree needs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever.<ul><li>Rotate the orbs by clicking the left-bottom orb of a group of four orbs.</li><li>Pull the lever again when the puzzle is complete.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3647.89,
+          "heightFine": 7105.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Puzzle 1<br><table style=\"width:100px;height:80px;border-collapse:collapse;\"><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr></table>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check the health of the tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.5,
+          "heightFine": 7125.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The tree needs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3647.89,
+          "heightFine": 7105.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Puzzle 2<br><table style=\"width:100px;height:105px;border-collapse:collapse;\"><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr></table>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check the health of the tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.5,
+          "heightFine": 7125.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "No water energy may touch"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3647.89,
+          "heightFine": 7105.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Puzzle 3<br><table style=\"width:100px;height:105px;border-collapse:collapse;\"><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td></tr></table>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check the health of the tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.5,
+          "heightFine": 7125.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "No light energy may touch"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3647.89,
+          "heightFine": 7105.0,
+          "y": 3364.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Puzzle 4<br><table style=\"width:100px;height:160px;border-collapse:collapse;\"><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr><tr><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:red;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:green;margin:auto;\"></div></td><td style=\"text-align:center;vertical-align:middle;padding:0;\"><div style=\"width:15px;height:15px;border-radius:50%;background:blue;margin:auto;\"></div></td></tr></table>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the Blisterwood tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.5,
+          "heightFine": 7125.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vanescula.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3385,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3614,
+            3615,
+            3616,
+            3617,
+            3626,
+            3635,
+            4797,
+            4798,
+            4799,
+            4800,
+            21703,
+            21704,
+            21705,
+            21706,
+            21707,
+            21708,
+            21709,
+            21710,
+            26300,
+            26939,
+            27675
+          ],
+          "displayName": "Vanescula Drakan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But the vampyres will be furious! You've betrayed us!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3633.0,
+          "heightFine": 4485.0,
+          "y": 3327.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing for the fight",
+      "text": "Teleport to Meiyerditch with the Drakan's medallion.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Drakan's medallion teleport",
+        "url": "Drakan's_medallion.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21575,
+          "modelIds": [
+            447
+          ],
+          "displayName": "Mysterious medallion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9621.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Blisterwood logs",
+          "itemId": 606,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vertida Sefalatis.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3627.0,
+          "heightFine": 965.0,
+          "y": 9643.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I managed to get some logs from the blisterwood tree."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We may be able to trust her, yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd be happy to dispatch one of the Myreque's most fearsome opponents."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vertida again for a bottle of holy water.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks, Vertida"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kael Forshaw for two silver sickles.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4465,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7675,
+            7677,
+            7680,
+            21661,
+            21662,
+            21665,
+            21666,
+            22618
+          ],
+          "displayName": "Kael Forshaw"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any sickles I could use?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's all, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the medallion to teleport back to Darkmeyer.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Drakan's medallion teleport",
+        "url": "Drakan's_medallion.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 21575,
+          "modelIds": [
+            447
+          ],
+          "displayName": "Mysterious medallion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3627.0,
+          "heightFine": 6405.0,
+          "y": 3364.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft each of the logs into a staff, a polearm, and a set of stakes.<ul><li>Bank if you need to. Keep the bottle of holy water and blisterwood weapons.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "Blisterwood log"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 21580,
+          "displayName": "Blisterwood staff",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "Blisterwood log"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 21582,
+          "displayName": "Blisterwood polearm",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "Blisterwood log"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blisterwood stakes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter to Vanstrom Klause's home.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3606.25,
+          "heightFine": 6705.0,
+          "y": 3341.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Throw the bottle of holy water at Harold.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 732,
+          "modelIds": [
+            330,
+            108
+          ],
+          "displayName": "Holy water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "holy water over Vanstrom's bloodveld"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Harold",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1078,
+          "modelIds": [
+            5031
+          ],
+          "displayName": "Harold"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the metal door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 6.0,
+          "heightFine": 400.0,
+          "y": 0.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pleasant surprise"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The battle with Vanstrom",
+      "text": "Kill Vanstrom Klause.<ul><li>Pray melee if close, mage at a distance.</li><li><b>'Stare into the darkness!':</b> Run to the edge and rotate camera away.</li><li><b>'Let the blood consume you!':</b> Run from the blood splodge.</li><li><b>'Come, fiends, and aid your master!':</b> Kill the minions.</li><li><b>Blood bombs:</b> run.</li><li><b>Cloud form:</b> Use holy water near him.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "deal with Vanstrom's pets"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Darkmeyer disguise",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Vertida's bottle of holy water",
+          "itemId": 330,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blisterwood weaponry",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat equipment and food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the bloodveld guardians. Shriek as soon as it recharges.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dealt with"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vertida.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3630.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Icyene"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Vertida.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4464,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14194,
+            21584,
+            21644,
+            21645,
+            21646,
+            21649,
+            21650,
+            22624
+          ],
+          "displayName": "Vertida Sefalatis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the basement of the pub in Burgh de Rott.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Drakan's medallion teleport",
+        "url": "Drakan's_medallion.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Vanstrom is dead!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11020,
+  "stageVarbitCompleteValue": 170,
+  "cacheQuestId": 347
+}

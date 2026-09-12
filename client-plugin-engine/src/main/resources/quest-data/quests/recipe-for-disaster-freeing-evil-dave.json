@@ -1,0 +1,491 @@
+{
+  "slug": "recipe-for-disaster-freeing-evil-dave",
+  "name": "Recipe for Disaster: Freeing Evil Dave",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "legendary",
+  "releaseDate": 1142380800,
+  "neededItems": [
+    {
+      "name": "Any cat but overgrown",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Stew",
+      "itemId": 1917,
+      "quantity": 15,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Underworld Grimoire",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Recipe for Disaster: Another Cook's Quest",
+    "Gertrude's Cat",
+    "Shadow of the Storm"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 25,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Freeing Evil Dave",
+      "text": "Interact with Evil Dave to start the miniquest.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "kaaaaay"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Any cat but overgrown",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Stew",
+          "itemId": -1,
+          "quantity": 15,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Underworld Grimoire",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Doris west of the Edgeville bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3079.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is Dave in?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm evil!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "too much mess"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3077.0,
+          "heightFine": 3045.0,
+          "y": 9893.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Evil Dave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "General chat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you eat at the secret council meeting?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You've got to tell me because the magic requires it!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talk to your mum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the cellar stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3076.0,
+          "heightFine": 3645.0,
+          "y": 9893.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3078.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "kill some"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back in the basement.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3077.0,
+          "heightFine": 3045.0,
+          "y": 9893.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with your cat and select 'Chase-Vermin'.<ul><li>Switch off 'Hide Familiar Options' in Gameplay->Combat & Action Bar-> 'Choose Option' Menu.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any cat"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "any cat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Chase-Vermin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            588
+          ],
+          "candidateObjectTypeIds": [
+            1905,
+            4635,
+            53818
+          ],
+          "displayName": "Any spice"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the spices that drop.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            588
+          ],
+          "candidateObjectTypeIds": [
+            1905,
+            4635,
+            53818
+          ],
+          "displayName": "Any spice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any spice",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make Dave's Evil stew by combining doses of each spice on the stews.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            588
+          ],
+          "displayName": "Any spice"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2003,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Stew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7479,
+          "displayName": "Spicy stew",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the spicy stew on Evil Dave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7479,
+          "modelIds": [
+            303
+          ],
+          "displayName": "Spicy stew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "taste this stew"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Test one spice at a time.<ul><li>Use the table on the wiki to track the correct spice dosage.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Chase-Vermin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "So confused"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Lumbridge and give Evil Dave the stew.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.5,
+          "heightFine": 2077.0,
+          "y": 3221.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7479,
+          "modelIds": [
+            303
+          ],
+          "displayName": "Spicy stew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12736,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 303
+}

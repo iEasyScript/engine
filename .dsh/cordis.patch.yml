@@ -1,0 +1,41 @@
+# dsh loader overlay for this project — the dsh equivalent of `.mcp.json`.
+#
+# dsh has no auto-discovered project config: the composition root is
+# `$DSH_HOME/profiles/<profile>/cordis.yml`. This file is opt-in per launch and
+# `--patch` paths resolve against the CWD, so run dsh from the repo root:
+#
+#   dsh --profile cc --patch .dsh/cordis.patch.yml
+#   dsh --profile cc --patch .dsh/cordis.patch.yml --dump-config   # verify, no boot
+#
+# Keep the rows below in step with `.mcp.json` (Claude) and `opencode.json`
+# (opencode). All three harnesses expose the same tool names — `mcp__ghidra__*`,
+# `mcp__projectx__*` — so the `re-*` commands and skills need no per-harness text.
+
+- insert:
+    - id: mcp-ghidra
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: ghidra
+        transport: stdio
+        command: python
+        args:
+          - ghidra-mcp/bridge_mcp_ghidra.py
+          - --base-port
+          - '8080'
+          - --port-range
+          - '10'
+        cwd: !!js process.cwd()
+        toolCallTimeoutMs: 60000
+
+    # The engine's in-process server (kotlin-sdk 0.8.4, mounted at `/`) only
+    # exists while the client is injected. dsh speaks stdio and streamable-http
+    # but not SSE, so this row is unverified against a live engine: if the
+    # transport is wrong the tools simply never register and the log says so.
+    - id: mcp-projectx
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: projectx
+        transport: streamable-http
+        url: http://localhost:7882/
+        reconnect:
+          maxAttempts: 3

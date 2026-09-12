@@ -1,0 +1,699 @@
+{
+  "slug": "watchtower",
+  "name": "Watchtower",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1052265600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Make your way to the watchtower north-east of the Yanille lodestone.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the trellis outside on this building's northern wall, then take the ladder to the top floor of the Watchtower.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Watchtower Wizard on the top floor of the Watchtower.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What’s the matter?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So how come the spell doesn’t work?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The pawns",
+      "text": "Climb down the ladders to return to the bottom floor.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the northwesternmost bush just outside the watchtower to find fingernails.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Watchtower Wizard.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do you suggest I do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So what do I do?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The kings",
+      "text": "Talk to Og, an ogre north-west of the Yanille lodestone.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I seek entrance to the city of ogres."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Death rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dragon bones",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk south toward the lake's west side, use rope on the branch of a long-branched tree to swing over.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Grew.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Don't eat me; I can help you."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up some jangerberries dropped on Grew's island.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to and enter the cave entrance marked on the world map (Show map) southwest of Gu'Tanoth and southeast of Jiggig, and you will arrive at the island east of Gu'Tanoth.<ul><li>If you didn't bring a death rune, one spawns directly south of the tunnel entrance.</li><li>Leave the island and head to south-east to the passage between Gu'Tanoth and the island south of Yanille, then head to south-west to the cave entrance.</li><li>You can use fairy ring AKS and head north-west to reach there.</li><li>If A Fairy Tale III - Battle at Ork's Rift is completed, you can use fairy ring ALP, head north to exit the tunnel, and head south-east for quicker access.</li><li>If The Grand Tree quest is completed and partially completed the quest One Small Favour, you can use gnome glider to fly to the Feldip Hills  and head north-west for quicker access.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Lemantolly Undri"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Toban twice, he will take the dragon bones and give you relic part 3.<ul><li>If you didn't bring a second rope, take one now from the island.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I seek entrance to the city of ogres."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I could do something for you…"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Gorad and take the ogre tooth.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the Chest and take the gold.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Grew, giving him the tooth and consuming the second rope.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you didn't get the yellow crystal, talk to Grew again and ask for it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Og, north of Grew's island to receive the relic part 1.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gu'Tanoth",
+      "text": "Talk to the Watchtower Wizard until you receive an Ogre relic. (This may require multiple left clicks).<ul><li>If you didn't bring a light source, take the lit candle from the ground floor[UK]1st floor[US] of Watchtower.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        },
+        {
+          "name": "Ogre relic",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Death rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Gu'Tanoth from the north-eastern corner and go west along the northern path.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Ogre relic on one of the guards at the west gate. Do not talk to them or you will be hit for some damage and sent back near Copernicus.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south-east to the Ogre trader marked with  on the map but don't talk to him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Steal a rock cake from the counter.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the path and continue south.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the guards , then give (but do not eat) a rock cake to be able to climb over the battlement.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "But I am a friend to ogres..."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue up the path and jump over the gap, paying 20 coins to the guards .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll pay it."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the City guard. Make sure to use the 'Talk-to' option on the guard. , then talk to them again and give them a death rune.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I seek passage into the skavid caves."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The skavids",
+      "text": "Enter the green-pinned east cave, marked 4, on the map. (See map next to(above on mobile) this text, click on the east green marker to reveal the cave number).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Skavid map",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Gold bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Scared skavid.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, okay, I’m not going to hurt you."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the green-pinned north cave, marked 1.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the skavid (respond with 'Ig').",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "While in this cave, pick up two cave nightshades.<ul><li>Attempting to pick up a cave nightshade without gloves results in a dialogue 'You have been poisoned by the plant!', causing minor damage.</li><li>Attempting to pick up a cave nightshade with regular, non-armoured gloves results in the same dialogue as above and another suggesting to wear armoured gloves, 'Maybe you should wear armoured gloves instead'.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the grey-pinned north cave, marked 2.<ul><li>Talk to the skavid (respond with 'Ar').</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the red-pinned north cave, marked 3.<ul><li>Talk to the skavid (respond with 'Cur').</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the grey-pinned east cave, marked 5.<ul><li>Talk to the skavid (respond with 'Nod').</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the green-pinned east cave, marked 4.<ul><li>Talk to the Scared skavid.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to a gate south of the 4 cave entrance.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the ogre guards and he will take the gold bar and let you in.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the red-pinned south cave, marked 6.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Mad skavid to obtain the pink crystal.<ul><li>If he says 'Ar cur,' the correct response is 'Gor.'</li><li>If he says 'Bidith ig,' the correct response is 'Cur.'</li><li>If he says 'Gor nod,' the correct response is 'Tanath.'</li><li>If he says 'Cur tanath,' the correct response is 'Bidith.'</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Invincible",
+      "text": "Head back to Ogre trader marked with  on the map (Ogre marketplace).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cave nightshade",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Guam potion (unfinished)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Jangerberries",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bat bones",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a cave nightshade on one of the enclave guards.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the enclave while the guard is distracted.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, Home teleport to Yanille lodestone, head back to the Watchtower and talk to the Watchtower Wizard.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add jangerberries to guam potion (unfinished)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add the ground bat bones.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Watchtower Wizard.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Ogre marketplace.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the second cave nightshade on an enclave guard to distract them and enter the enclave again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the potion on the six ogre shamans in the enclave to kill them.<ul><li>If you attack a shaman, it will hit you with a very powerful Magic blow, dealing half your life points in damage.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the Rock of Dalgroth on the peninsula in the centre of the enclave.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back in action",
+      "text": "Talk to the Watchtower Wizard.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pink crystal on the north-eastern pillar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the green crystal on the south-eastern pillar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the yellow crystal on the south-western pillar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the blue crystal on the north-western pillar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever on the west side of the room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2397,
+  "stageVarbitCompleteValue": 13,
+  "cacheQuestId": 16
+}

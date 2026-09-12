@@ -1,0 +1,530 @@
+{
+  "slug": "the-giant-dwarf",
+  "name": "The Giant Dwarf",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "champion",
+  "releaseDate": 1117497600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Under arrest",
+      "text": "Enter the tunnel between the two black statues, north-east of Rellekka, close to fairy ring DKS. (teleport to the Fremennik Province and run north-east)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through cave entrance east to Keldagrim.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Dwarven Boatman inside the cave, not Dwarven Ferryman.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north-west to the little building with doors on both sides. Enter the building and go upstairs. After the cutscene, you should spawn in the same room with Commander Veldaban. The chat instance should end with you accepting the quest.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the house, go north-east across the bridge and talk to Blasidar the Sculptor just north-west of the brewery.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I will do this."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Excellent, excellent! Now what I need is the following..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "King's clothes",
+      "text": "In the large building just west, talk to Vermundi at the silk icon.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm looking for some special clothes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Oh, that sounds interesting, what's this about?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 200,
+          "duringQuest": false
+        },
+        {
+          "name": "Coal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the building west of the northern bridge, talk to the Librarian.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know anything about King Alvis's clothes?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " His clothes? How do you mean?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "While weighing less than 30kg, attempt to climb any bookcase.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the book, return to Vermundi.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, about those special clothes again..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Can I have those clothes now?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use coal and logs on her spinning machine.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to light it until the engine starts. (This may take several attempts)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vermundi.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, about those special clothes again..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll pay."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(Without at least one free backpack space:) That's great! But you'll need some free space to take them."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "King's boots",
+      "text": "In the far west of the city, talk to Saro at the anvil icon.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm looking for a pair of special boots."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " I thought I already told you where to get them?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Air rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Law rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "North of the bank, talk to Dromund.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the left boot, from the table near the door, while his back is turned.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run out back of his house near the window next to the right boot use Telekinetic Grab on the right boot.<ul><li>Make sure his back is turned as well.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "King's axe",
+      "text": "Go to the north-west corner and talk to Santiri.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm looking for a particular battleaxe."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Blasidar the sculptor needs it for his statue."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perhaps I can repair the axe?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " On your own? I doubt it. The sapphires, perhaps, if you are a skilled enough crafter. But the blade..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Sapphire",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Redberry pie",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use 3 sapphires on the battleaxe.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you have not completed The Knight's Sword:<ul><li>Take a redberry pie with you when you talk to Thurgo.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thurgo in his small hut (fairy ring AIQ), south of Port Sarim, and north of Mudskipper Point.<ul><li>If The Knight's Sword is complete</li><li>Have an iron bar to give to Thurgo (or access your metal bank via the anvil next to Thurgo to obtain one which is stored in it).</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Something else. (3 if skillcape is owned)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Would you like some redberry pie?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you help me with this ancient axe?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Return to Keldagrim immediately."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something else. (3 if skillcape is owned)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you help me with this ancient axe?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Return to Keldagrim immediately."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the 4 items, talk to Riki the sculptor's model near Blasidar the sculptor.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Blasidar for a cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Climbing the corporate ladder",
+      "text": "Run west to the marketplace building and up the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to any secretary (yellow is closest to metal bank) - your character's gender may disqualify your eligibility to work for that colour of company, consequently try another colour.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything I can help you with?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fetch them the required ore (must be un-noted). Repeat with the same secretary for a total of 4 tasks.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the director.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more tasks for me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fetch them the required bars. You might need to repeat for a second task.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the director.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to officially join your company."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Blasidar the sculptor has sent me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would support you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes! Long live the [company]!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Commander Veldaban in Black Guard headquarters, where you started the quest (west of the palace and west of the bank).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I do NOT want to attend, I don't have time to waste."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I just have a lot of smithing to do today, I can't attend."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13266,
+  "stageVarbitCompleteValue": 50,
+  "cacheQuestId": 288
+}

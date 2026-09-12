@@ -1,0 +1,708 @@
+{
+  "slug": "vessel-of-the-harbinger",
+  "name": "Vessel of the Harbinger",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1691366400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Speak to Death in the City of Um.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30288,
+          "modelIds": [],
+          "displayName": "Death"
+        },
+        {
+          "t": "direction",
+          "x": 1101.0,
+          "heightFine": 3845.0,
+          "y": 1776.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cramulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hard Morytania achievements",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ectophial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Teleport to the Ectofuntus using the Ectophial.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4251,
+          "modelIds": [],
+          "displayName": "Ectophial"
+        },
+        {
+          "t": "direction",
+          "x": 3657.0,
+          "heightFine": 581.0,
+          "y": 3523.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3657.0,
+          "heightFine": 581.0,
+          "y": 3523.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Necrovarus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "displayName": "Necrovarus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55224,
+          "displayName": "Soul urn",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cleansing the souls",
+      "text": "Kill 5 Tortured souls with Necromancy to the north to fill the soul urn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1698,
+          "modelIds": [],
+          "displayName": "Tortured soul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with some ectoplasm at the Ectofuntus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cramulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hard Morytania achievements",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of slime",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ectophial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Worship the Ectofuntus with the filled urn and a bucket of slime in backpack.\u003cul\u003e\u003cli\u003eGather a bucket of slime from the Pool of Slime, no bucket is required to gather the slime.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 5282,
+          "modelIds": [],
+          "displayName": "Ectofuntus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You pray at the Ectofuntus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Necrovarus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "displayName": "Necrovarus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bother me not with the details"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retrieving the book of Haricanto",
+      "text": "Head to Netty\u0027s house, on the eastern side of the Slayer Tower.\u003cul\u003e\u003cli\u003eTeleport to the Slayer Tower by using ring of slaying or Dungeoneering cape (0,0,2) or mask of the Abyss.\u003c/li\u003e\u003cli\u003eOtherwise, teleport to Canifis lodestone and run west past graveyard, where ghouls wander, and then directly north.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3461.0,
+          "heightFine": 845.0,
+          "y": 3555.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3461.0,
+          "heightFine": 845.0,
+          "y": 3555.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cramulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hard Morytania achievements",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ectoplasm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Conduit",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the pile of letters just inside Netty\u0027s front door. If you do not have the option to inspect, you have missed a previous step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127172,
+          "modelIds": [],
+          "displayName": "Pile of letters"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Maybe she knows where Netty is"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport back to the Ectofuntus and enter Port Phasmatys to speak to Velorina who is located at the northernmost house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3677.0,
+          "heightFine": 1061.0,
+          "y": 3509.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1683,
+          "modelIds": [],
+          "displayName": "Velorina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Goodbye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Last Call pub in the City of Um, east of the City of Um lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1123.0,
+          "heightFine": 3845.0,
+          "y": 1773.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1123.0,
+          "heightFine": 3845.0,
+          "y": 1773.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Netty in the northeast corner of the pub to receive Netty\u0027s death certificate and will.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Vessel of the Harbinger\u0027."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30398,
+          "modelIds": [],
+          "displayName": "Netty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55225,
+          "displayName": "Netty\u0027s death certificate and will",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the bank in Port Phasmatys and speak to a ghost banker to claim Netty\u0027s key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3689.0,
+          "heightFine": 901.0,
+          "y": 3466.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1702,
+          "modelIds": [],
+          "displayName": "Ghost banker"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55226,
+          "displayName": "Netty\u0027s key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to Netty\u0027s house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127175,
+          "modelIds": [],
+          "displayName": "Locked chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30201,
+          "modelIds": [],
+          "displayName": "Netty\u0027s skeleton"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your Conjure Skeleton Warrior with a conduit equipped and attack Netty\u0027s skeleton. She will flee.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "AAAH"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest again to receive the book of Haricanto.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127175,
+          "modelIds": [],
+          "displayName": "Locked chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55227,
+          "displayName": "Book of Haricanto",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Empower vessel ritual",
+      "text": "Head back to Ectofuntus and talk to Necrovarus.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3662.0,
+          "heightFine": 581.0,
+          "y": 3520.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "displayName": "Necrovarus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "See you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cramulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Hard Morytania achievements",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Basic ghostly ink",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Regular ghostly ink",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Basic ritual candle",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bucket on the Ectofuntus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 5282,
+          "modelIds": [],
+          "displayName": "Ectofuntus"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55228,
+          "displayName": "Bucket of powerful slime",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the ritual site in City of Um.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1037.0,
+          "heightFine": 7077.0,
+          "y": 1766.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1037.0,
+          "heightFine": 7077.0,
+          "y": 1766.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the ritual.\n\nPrepare an empower vessel ritual by using the pedestal.\u003cul\u003e\u003cli\u003eIt requires 2 Elemental I, 1 Change I, 1 Commune I, 4 ritual light sources and 1 bucket of powerful slime as the focus.\u003c/li\u003e\u003cli\u003eTotal 11 basic ghostly ink, 2 regular ghostly ink, 4 basic ritual candles or better to prepare the ritual from scratch.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.\u003cul\u003e\u003cli\u003eIf the cutscene does not play, talk to Necrovarus.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Death.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1101.0,
+          "heightFine": 3853.0,
+          "y": 1775.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30288,
+          "modelIds": [],
+          "displayName": "Death"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 53499,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 495
+}

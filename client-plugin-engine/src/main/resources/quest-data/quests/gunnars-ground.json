@@ -1,0 +1,921 @@
+{
+  "slug": "gunnars-ground",
+  "name": "Gunnar's Ground",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "adventurer",
+  "releaseDate": 1285027200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 5,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting the ring",
+      "text": "Speak to Dororan near the eastern entrance to Barbarian Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "'...ever learn to fly?'"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "'...eat redberry pie?'"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "'...get the evil eye?'"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Angina?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hypertension?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Coclearabsidosis?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Get to the point."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "There must be something you can do."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Dororan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Dororan gives you a poem."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 19774,
+          "displayName": "Love poem",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Edgeville and speak to Jeffery near the furnace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.0,
+          "heightFine": 1733.0,
+          "y": 3499.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 1733.0,
+          "y": 3499.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3323,
+          "modelIds": [
+            3759
+          ],
+          "displayName": "Jeffery"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm here about a gold ring."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I was hoping you would trade me a gold ring."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "This splendid love poem."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, he did."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Just a plain, gold ring."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now, leave me in peace!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the gold ring back to Dororan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you want me to engrave?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds simple enough."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Just use a chisel on the gold ring."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the <i>engrave</i> option on the ring.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1635,
+          "modelIds": [
+            264
+          ],
+          "displayName": "Gold ring"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You engrave 'Gudrun the Fair, Gudrun the Fiery' onto the ring."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Engraved gold ring",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Show the ring to Dororan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's come out perfectly."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Very well."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please don't tell her I'm a dwarf just yet."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Promoting the courtship",
+      "text": "Talk to Gudrun, west of Dororan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2865,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Gudrun"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The ring isn't from me!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A great poet."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, you want me to talk to your father?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I know some of the others feel the same, but they're loyal to papa."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gunthor, in the longhall north of Gudru.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3078.0,
+          "heightFine": 2341.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3078.0,
+          "heightFine": 2341.0,
+          "y": 3444.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4494
+          ],
+          "candidateObjectTypeIds": [
+            2615,
+            5223,
+            5340,
+            5534,
+            6798,
+            7267,
+            21372,
+            24225
+          ],
+          "displayName": "Gunthor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to speak with you, chieftain."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Your daughter seeks permission to court an outerlander."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're barbarians"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Please wait a moment."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm going!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now go, before I have Haakon dismember you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gudrun.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2865,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Gudrun"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What should we do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll ask him."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The poem",
+      "text": "Speak to Dororan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 861.0,
+          "y": 3422.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, she liked the ring."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are we going to do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "To win the heart of my beloved from her father's iron grasp? It is worth it just to try!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Help him with his poem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm sure that's not true."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "By the colossus of King Alvis! I can't find the words!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give any answer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Cucumber."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That doesn't really fit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stray.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "More words"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Stray."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That fits! It fits perfectly. Right meaning, right length, right rhyme. Well done!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give any answer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Stockade."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That doesn't really fit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Threat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "More words"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threat."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Perfect! Yes!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give any answer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threw the ball."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That doesn't really fit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Swept to war.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1175,
+          "modelIds": [
+            3732
+          ],
+          "displayName": "Dororan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "More words"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Swept to war."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Dororan gives you the poem."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gunnars ground",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            41122
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sending the poem",
+      "text": "Give the poem to Gudrun to read to her father.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3081.0,
+          "heightFine": 2309.0,
+          "y": 3415.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2865,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Gudrun"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "How long have they been in there?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscenes.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "They're just starting."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why's that?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I will."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why would he do that?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Now's your chance to find out."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes, we'll see you there!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gudrun again to complete the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2865,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Gudrun"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll see you soon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9188,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 341
+}

@@ -1,0 +1,3525 @@
+{
+  "slug": "a-clockwork-syringe",
+  "name": "A Clockwork Syringe",
+  "members": true,
+  "length": "long",
+  "timeline": "legendary",
+  "releaseDate": 1301270400,
+  "neededItems": [
+    {
+      "name": "Fishbowl Helmet",
+      "itemId": 7534,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Diving apparatus",
+      "itemId": 7535,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ectophial",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dungeoneering cape",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Salve amulet (e)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Barrelchest MK II",
+      "level": "98",
+      "quantity": 4
+    }
+  ],
+  "prereqQuests": [
+    "Rocking Out"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 62,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Defence",
+      "level": 76,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Dungeoneering",
+      "level": 50,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 61,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Summoning",
+      "level": 65,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 74,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 74,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Delivery note in the house",
+      "text": "Go to your player-owned house portal, and attempt to enter your house.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A Clockwork Syringe"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20674,
+          "displayName": "Delivery note",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the delivery note and accept the quest.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 20674,
+          "modelIds": [
+            480
+          ],
+          "displayName": "Delivery note"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to enter your house again and select the 'A Clockwork Syringe' option once more.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A Clockwork Syringe."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the large crate.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 29148,
+          "modelIds": [
+            31554
+          ],
+          "displayName": "Large crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            24417
+          ],
+          "displayName": "Barrel chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the level 98 Barrelchest Mk II.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 6722,
+          "modelIds": [
+            1521
+          ],
+          "displayName": "Zombie head"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dealing with the delivery",
+      "text": "Talk to the estate agent.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4247,
+          "modelIds": [
+            4515
+          ],
+          "displayName": "Estate agent"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good day!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interrogate the zombie head.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6722,
+          "modelIds": [
+            1521
+          ],
+          "displayName": "Zombie head"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We'll soon see about that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Torture the head using all five options, once maximum stress, talk to the head again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6722,
+          "modelIds": [
+            1521
+          ],
+          "displayName": "Zombie head"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now I need to go and warn Bill"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Warning Bill Teach",
+      "text": "With the zombie head, talk to Bill Teach on Mos Le'Harmless, either in The Other Inn or on The Adventurous ship.<ul><li>Head to the docks of Port Phasmatys, cross the gangplank on the easternmost ship, right-click travel via Bill Teach to travel to Mos Le'Harmless.</li><li>Alternatively, charter a ship directly to Mos Le'Harmless from Port Sarim.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Speak about A Clockwork Syringe."
+        },
+        {
+          "t": "direction",
+          "x": 3033.0,
+          "heightFine": 741.0,
+          "y": 3191.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan",
+          "distance": 10
+        },
+        {
+          "t": "direction",
+          "x": 3712.0,
+          "heightFine": 965.0,
+          "y": 3496.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Trust me, Player"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Zombie head",
+          "itemId": 765,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north to Harpoon Joe's House of 'Rum', sit in the chair in the north-east corner and ask for a 'Long Drop'.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3669.0,
+          "heightFine": 645.0,
+          "y": 2995.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A Long Drop."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Put it on that table"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place-evidence on table nearby to set the zombie head on top.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            582
+          ],
+          "candidateObjectTypeIds": [
+            62323
+          ],
+          "displayName": "Evidence table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1938
+          ],
+          "candidateObjectTypeIds": [
+            62492
+          ],
+          "displayName": "Table with head"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Side effects"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding the workers",
+      "text": "Select-spell with the pirate spell sheet in your backpack to travel to Braindeath Island.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Braindeath Island."
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            480
+          ],
+          "displayName": "Pirate sheet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2162.0,
+          "heightFine": 1061.0,
+          "y": 5114.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pirate spell sheet",
+          "itemId": 480,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fishbowl Helmet (can be reclaimed during quest if destroyed)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Diving apparatus (can be reclaimed during quest if destroyed)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go directly west and talk to Captain Braindeath.<ul><li>Also get a diving apparatus and a fishbowl helmet from him, if you don't already have them.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2144.0,
+          "heightFine": 2021.0,
+          "y": 5108.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2827,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6678,
+            25338,
+            25363
+          ],
+          "displayName": "Captain Braindeath"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about A Clockwork Syringe."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "While ye're searchin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Braindeath Island 'Rum'-geon entrance:<ul><li>Optional: If you have it, activate the Dungeoneering cape to travel directly there, skipping these steps.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2144.0,
+              "heightFine": 2021.0,
+              "y": 5108.0
+            },
+            {
+              "x": 2144.0,
+              "heightFine": 2021.0,
+              "y": 5106.0
+            },
+            {
+              "x": 2142.0,
+              "heightFine": 2021.0,
+              "y": 5106.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 2021.0,
+              "y": 5102.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 2021.0,
+              "y": 5096.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 2021.0,
+              "y": 5096.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 981.0,
+              "y": 5093.0
+            },
+            {
+              "x": 2127.0,
+              "heightFine": 1197.0,
+              "y": 5091.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 1245.0,
+              "y": 5091.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 349.0,
+              "y": 5098.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 565.0,
+              "y": 5103.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 349.0,
+              "y": 5109.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 501.0,
+              "y": 5114.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 285.0,
+              "y": 5120.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 717.0,
+              "y": 5126.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 757.0,
+              "y": 5127.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 1069.0,
+              "y": 5131.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 1245.0,
+              "y": 5137.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 953.0,
+              "y": 5142.0
+            },
+            {
+              "x": 2124.0,
+              "heightFine": 1233.0,
+              "y": 5145.0
+            },
+            {
+              "x": 2126.0,
+              "heightFine": 997.0,
+              "y": 5147.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2126.0,
+          "heightFine": 997.0,
+          "y": 5147.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your diving apparatus and fishbowl helmet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7534,
+          "modelIds": [],
+          "displayName": "Fishbowl helmet"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7535,
+          "modelIds": [],
+          "displayName": "Diving apparatus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 7534,
+          "displayName": "Fishbowl helmet"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 7535,
+          "displayName": "Diving apparatus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the mysterious entrance.<ul><li>Optional: kill a crab in order to complete the hard Daemonheim achievement Alcrabholic.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2835
+          ],
+          "displayName": "Myst entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the west path and search the dead brewers to discover his names.",
+      "warning": "Ensure you've seen the name of the brewer in the conversation window, the quest plugin might not fully detect this.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 16.0,
+              "y": 20.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 16.0,
+              "y": 21.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 16.0,
+              "y": 23.0
+            },
+            {
+              "x": -16.0,
+              "heightFine": 16.0,
+              "y": 25.0
+            },
+            {
+              "x": -16.0,
+              "heightFine": 16.0,
+              "y": 36.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 0.0,
+              "y": 38.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 0.0,
+              "y": 45.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3699,
+            3537,
+            3369
+          ],
+          "candidateObjectTypeIds": [
+            3458,
+            3459,
+            6558,
+            6559,
+            3211
+          ],
+          "displayName": "Dead brewers",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll see if I can find his name badge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the middle path and search the dead brewer to discover his names",
+      "warning": "Ensure you've seen the name of the brewer in the conversation window, the quest plugin might not fully detect this.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -14.0,
+              "heightFine": 0.0,
+              "y": 45.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 0.0,
+              "y": 38.0
+            },
+            {
+              "x": -16.0,
+              "heightFine": 16.0,
+              "y": 36.0
+            },
+            {
+              "x": -16.0,
+              "heightFine": 16.0,
+              "y": 25.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 16.0,
+              "y": 23.0
+            },
+            {
+              "x": -14.0,
+              "heightFine": 16.0,
+              "y": 21.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 16.0,
+              "y": 20.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 32.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 36.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 38.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3699,
+            3537,
+            3369
+          ],
+          "candidateObjectTypeIds": [
+            3458,
+            3459,
+            6558,
+            6559,
+            3211
+          ],
+          "displayName": "Dead brewers",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll see if I can find his name badge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the middle path and search the dead brewer to discover his names",
+      "warning": "Ensure you've seen the name of the brewer in the conversation window, the quest plugin might not fully detect this.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 38.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 36.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 32.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 13.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 0.0,
+              "y": 39.0
+            },
+            {
+              "x": 19.0,
+              "heightFine": 0.0,
+              "y": 42.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 0.0,
+              "y": 42.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 22.0,
+          "heightFine": 0.0,
+          "y": 42.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3699,
+            3537,
+            3369
+          ],
+          "candidateObjectTypeIds": [
+            3458,
+            3459,
+            6558,
+            6559,
+            3211
+          ],
+          "displayName": "Dead brewers",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll see if I can find his name badge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Captain Braindeath and receive the Twiblick night special.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 22.0,
+              "heightFine": 0.0,
+              "y": 42.0
+            },
+            {
+              "x": 19.0,
+              "heightFine": 0.0,
+              "y": 42.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 0.0,
+              "y": 39.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 20.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 13.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2126.0,
+              "heightFine": 997.0,
+              "y": 5147.0
+            },
+            {
+              "x": 2124.0,
+              "heightFine": 1233.0,
+              "y": 5145.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 953.0,
+              "y": 5142.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 1245.0,
+              "y": 5137.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 1069.0,
+              "y": 5131.0
+            },
+            {
+              "x": 2121.0,
+              "heightFine": 757.0,
+              "y": 5127.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 717.0,
+              "y": 5126.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 285.0,
+              "y": 5120.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 501.0,
+              "y": 5114.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 349.0,
+              "y": 5109.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 565.0,
+              "y": 5103.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 349.0,
+              "y": 5098.0
+            },
+            {
+              "x": 2120.0,
+              "heightFine": 1245.0,
+              "y": 5091.0
+            },
+            {
+              "x": 2127.0,
+              "heightFine": 1197.0,
+              "y": 5091.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 981.0,
+              "y": 5093.0
+            },
+            {
+              "x": 2129.0,
+              "heightFine": 2021.0,
+              "y": 5096.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 2021.0,
+              "y": 5096.0
+            },
+            {
+              "x": 2138.0,
+              "heightFine": 2021.0,
+              "y": 5102.0
+            },
+            {
+              "x": 2142.0,
+              "heightFine": 2021.0,
+              "y": 5106.0
+            },
+            {
+              "x": 2144.0,
+              "heightFine": 2021.0,
+              "y": 5106.0
+            },
+            {
+              "x": 2144.0,
+              "heightFine": 2021.0,
+              "y": 5108.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2827,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6678,
+            25338,
+            25363
+          ],
+          "displayName": "Captain Braindeath"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about A Clockwork Syringe."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I found the three missing brewers..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Twiblick",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport back to Mos Le'Harmless with the pirate spell sheet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            480
+          ],
+          "displayName": "Pirate sheet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Mos Le'Harmless."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3684.0,
+          "heightFine": 45.0,
+          "y": 2958.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the basement in Joe's pub.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3669.0,
+          "heightFine": 645.0,
+          "y": 2995.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A Long Drop."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill and receive the unlocked Twiblick night special.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Open the Twiblick Night Special"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the box.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1500
+          ],
+          "displayName": "Twiblick"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Just open it already!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "but I'm not sure I want to"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How are we going to use this to get information?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Time to choose how we make"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll talk, I'll talk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Meet me aboard the ship"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting into Bloodsplatter Isle",
+      "text": "Return south to Bill's ship, cross the gangplank, talk to him, and use the 'A Clockwork Syringe' option to begin your travel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3684.0,
+          "heightFine": 965.0,
+          "y": 2950.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Speak about A Clockwork Syringe."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, let's get underway."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Awesome! I'll get right on it!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That's what I like about ye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-down two ladders to the hold of the ship (lowest level).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.5
+            },
+            {
+              "x": 1.0,
+              "heightFine": -480.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": -480.0,
+              "y": 4.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": -480.0,
+              "y": 11.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -480.0,
+              "y": 11.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -1.0,
+          "heightFine": -1440.0,
+          "y": 11.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the gun locker",
+      "warning": "No highlighting for the open chest available",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9325,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Gun locker",
+          "instance": true,
+          "atLocation": {
+            "x": 0.0,
+            "heightFine": -1440.0,
+            "y": 7.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2,
+          "displayName": "Cannonball",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the repair locker",
+      "warning": "No highlighting for the open chest available",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9313,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Repair locker",
+          "instance": true,
+          "atLocation": {
+            "x": -2.0,
+            "heightFine": -1440.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20682,
+          "displayName": "Chain",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take 3 gunpowder from the powder barrel",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -1440.0,
+          "y": 2.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7108,
+          "displayName": "Gunpowder",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a barrel from the barrel stack",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -1440.0,
+          "y": 0.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the gunpowder on the chain",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7108,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Gunpowder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 20682,
+          "modelIds": [
+            1377
+          ],
+          "displayName": "Chain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20683,
+          "displayName": "Heated chain",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the anvil to smith the heated chain and cannonball together",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": -1440.0,
+          "y": -2.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cannonball chain",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your cannonball and chain on the barrel to receive a cannonball barrel-boat",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1539
+          ],
+          "displayName": "Cannonball chain"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            909
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cannonball barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the ladder to the main deck. On the eastern cannon, choose 'Take-The-Ride' option to go to Bloodsplatter Isle.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": -1.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": 2.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": -1440.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": -1440.0,
+              "y": 5.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": 6.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": 8.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": -1440.0,
+              "y": 8.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": -1440.0,
+              "y": 11.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": 11.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -1440.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -1.0,
+          "heightFine": -480.0,
+          "y": 11.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1464
+          ],
+          "candidateObjectTypeIds": [
+            2823,
+            2824
+          ],
+          "displayName": "East cannon"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 15.0,
+          "heightFine": 137.0,
+          "y": 0.0,
+          "range": 10,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Investigating Bloodsplatter Isle",
+      "text": "Investigate the Perch Rock.  You must steer him around while dropping cannonballs on the Barrelchests.",
+      "warning": "Ensure chat text is on or filtered to have automatic progression of the plugin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 19.0,
+          "heightFine": 985.0,
+          "y": 0.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready to begin."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "All enemies defeated!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Leave the Isle by diving at the pier and swim.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 12.0,
+          "heightFine": 61.0,
+          "y": 1.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Swim."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder and talk to Bill on his ship, request to go to Bloodsplatter Isle.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -4.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 480.0,
+              "y": -7.5
+            },
+            {
+              "x": 0.0,
+              "heightFine": 480.0,
+              "y": -8.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 480.0,
+              "y": -9.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me to Bloodsplatter Isle?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Signal me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk in to the middle of the factory building in order to get caught.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 4.0
+            },
+            {
+              "x": 28.0,
+              "heightFine": 960.0,
+              "y": 10.0
+            },
+            {
+              "x": 28.0,
+              "heightFine": 960.0,
+              "y": 20.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 33.0,
+          "heightFine": 960.0,
+          "y": 2.0,
+          "range": 3,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Escape your cell and Barrelchest parts (abscond with shelf)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 33.0,
+          "heightFine": 960.0,
+          "y": 5.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44614,
+          "displayName": "Barrel parts",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get a surgical mask.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 35.0,
+          "heightFine": 960.0,
+          "y": 6.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20688,
+          "displayName": "Surgical mask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get a roll of bandage.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 33.0,
+          "heightFine": 960.0,
+          "y": 8.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4049,
+          "displayName": "Bandages",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get a barrel from the stack",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 35.0,
+          "heightFine": 960.0,
+          "y": 8.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Bill by using the signalling point at the end of the dock where you arrived.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 34.0,
+              "heightFine": 960.0,
+              "y": 8.0
+            },
+            {
+              "x": 34.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 960.0,
+              "y": 2.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 1.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get the Barrelchest disguise from Bill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Cap'n...I've a problem."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've gathered the things you asked for."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ye should be able to wander"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill again and have him send you back to the island.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me to Bloodsplatter Isle?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the the factory and take 3 barrels from the stack and 3 gunpowder from the barrel - where you picked up the supplies for the Barrelchest disguise.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 4.0
+            },
+            {
+              "x": 24.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 34.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 34.0,
+              "heightFine": 960.0,
+              "y": 7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 34.0,
+          "heightFine": 960.0,
+          "y": 7.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 35.0,
+          "heightFine": 960.0,
+          "y": 7.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7108,
+          "displayName": "Gunpowder",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 35.0,
+          "heightFine": 960.0,
+          "y": 8.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Collecting evidence",
+      "text": "Change into the Barrelchest disguise. Must be 3x3 clear around your character.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            5004,
+            6
+          ],
+          "displayName": "Disguise"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7116
+          ],
+          "candidateObjectTypeIds": [
+            7003
+          ],
+          "displayName": "Disguise character"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Barrelchest disguise",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Letter One: Go to the south-west room, sabotage the southern gas canister. 'Tell-joke' to each of the Dis-orderly and then brutalise each of them. Investigate the noticeboard.",
+      "warning": "Ensure chat text is on or filtered for automatic progression in the plugin.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 28.0,
+              "heightFine": 960.0,
+              "y": 12.0
+            },
+            {
+              "x": 28.0,
+              "heightFine": 960.0,
+              "y": 23.0
+            },
+            {
+              "x": 21.0,
+              "heightFine": 960.0,
+              "y": 23.0
+            },
+            {
+              "x": 28.0,
+              "heightFine": 960.0,
+              "y": 12.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2502
+          ],
+          "displayName": "Gascanister",
+          "instance": true,
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The room is flooded"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3132,
+            3354
+          ],
+          "candidateObjectTypeIds": [
+            62912
+          ],
+          "displayName": "Disorderly",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should be free"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 26.0,
+          "heightFine": 960.0,
+          "y": 18.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Evidence letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Letter Two: Kill each of Grimterns in the western-most room. Investigate the noticeboard after killing them.",
+      "warning": "Automatic progression might be inconsistent",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Grimterm",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Phew. That's the last of them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a suspicious letter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Letter Three: Talk to one of the drunk zombies lying on the beds in the north-west room, then investigate the noticeboard.",
+      "warning": "No guidance on this step.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a suspicious letter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Letter Four: Loosen each of the three undead arms in the north-east room, then inspect one of the arms, finally investigate the noticeboard.",
+      "warning": "Highlighting is cluncky on this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4195,
+          "modelIds": [
+            1530
+          ],
+          "displayName": "Arms",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ouch, that looked painful"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a suspicious letter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Letter Five: This step requires at least 300 life points. Use the three gunpowder on the barrels in your backpack. Then in the south-eastern room, finish-building on each of the three incomplete barrelchest stations, then detonate one of them to destroy all three. Finally, investigate the noticeboard.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7108,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Gunpowder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            909
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gunpowder barrel",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3720
+          ],
+          "candidateNpcTypeIds": [
+            24882,
+            24883
+          ],
+          "displayName": "Incomplete chest",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3720
+          ],
+          "candidateNpcTypeIds": [
+            24882,
+            24883
+          ],
+          "displayName": "Incomplete chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6732
+          ],
+          "displayName": "Rigged chest",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You find a suspicious letter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Change out of the barrelchest disguise from your backpack. Changing in the middle of the factory gets you caught.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            5004,
+            6
+          ],
+          "displayName": "Disguise"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7116
+          ],
+          "candidateObjectTypeIds": [
+            7003
+          ],
+          "displayName": "Disguise character"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return back to Bill by signalling him from the dock to the south.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 29.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 960.0,
+              "y": 6.0
+            },
+            {
+              "x": 23.0,
+              "heightFine": 960.0,
+              "y": 2.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 1.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Destroying the factory construction line",
+      "text": "Talk to Bill onboard his ship and show him the evidence files. Then return to Bloodsplatter Isle (without disguise)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you take me to Bloodsplatter Isle?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Evidence file",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back into the factory, enter the easternmost room and pull the lever.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 1.0
+            },
+            {
+              "x": 22.0,
+              "heightFine": 960.0,
+              "y": 4.0
+            },
+            {
+              "x": 29.0,
+              "heightFine": 960.0,
+              "y": 11.0
+            },
+            {
+              "x": 29.0,
+              "heightFine": 960.0,
+              "y": 21.0
+            },
+            {
+              "x": 41.0,
+              "heightFine": 960.0,
+              "y": 21.0
+            },
+            {
+              "x": 41.0,
+              "heightFine": 960.0,
+              "y": 19.0
+            },
+            {
+              "x": 44.0,
+              "heightFine": 960.0,
+              "y": 16.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 45.0,
+          "heightFine": 960.0,
+          "y": 16.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 44.0,
+          "heightFine": 960.0,
+          "y": 16.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Left-click the conveyor belts to load Bundle o' kegs onto them.<ul><li>Continue loading the conveyor belts until each of the conveyor belts explode.</li><li>You can safely ignore the zombies that make it to you; killing them does nothing and they automatically die when all three belts explode.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4356
+          ],
+          "candidateObjectTypeIds": [
+            4222,
+            4223,
+            11581,
+            11582
+          ],
+          "displayName": "Destroyed conveyer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Battle at sea",
+      "text": "Jump over the destroyed wall between the conveyor lines, and head east through the door opening to the docks.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            600
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Small wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 44.0,
+          "heightFine": 960.0,
+          "y": 24.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 44.0,
+              "heightFine": 960.0,
+              "y": 24.0
+            },
+            {
+              "x": 44.0,
+              "heightFine": 960.0,
+              "y": 27.0
+            },
+            {
+              "x": 49.0,
+              "heightFine": 960.0,
+              "y": 27.0
+            },
+            {
+              "x": 51.0,
+              "heightFine": 960.0,
+              "y": 25.0
+            },
+            {
+              "x": 74.0,
+              "heightFine": 0.0,
+              "y": 25.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3705
+          ],
+          "displayName": "Dontknow name"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the unoccupied zomboat and sink all the boats.<ul><li>Fire cannonballs at the boats either by left-clicking on them, or using the minigame menu.</li><li>Don't forget to repair your boat when it gets to about 25% health - it is not instant and you can only repair while your boat is at a stand still.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 37601,
+          "modelIds": [
+            4098
+          ],
+          "displayName": "Boat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After you sink all of the other boats, climb up the east ladder and talk to Bill on his ship.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -4.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 480.0,
+              "y": -7.5
+            },
+            {
+              "x": 0.0,
+              "heightFine": 480.0,
+              "y": -8.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 480.0,
+              "y": -9.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to the basement in Joe's pub.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3669.0,
+          "heightFine": 645.0,
+          "y": 2995.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3669.0,
+          "heightFine": 645.0,
+          "y": 2995.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3669.0,
+          "heightFine": 645.0,
+          "y": 2995.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A Long Drop."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill to finish the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3155,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3156,
+            3158,
+            3159,
+            6682,
+            6716,
+            6717,
+            7855,
+            25303,
+            25307,
+            25308,
+            25339,
+            25340,
+            25382,
+            25404
+          ],
+          "displayName": "Bill Teach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9602,
+  "stageVarbitCompleteValue": 210,
+  "cacheQuestId": 188
+}

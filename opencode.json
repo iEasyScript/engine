@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "ghidra": {
+      "type": "local",
+      "command": [
+        "python",
+        "/home/trent/projectx/project-x/ghidra-mcp/bridge_mcp_ghidra.py",
+        "--base-port",
+        "8080",
+        "--port-range",
+        "10"
+      ],
+      "enabled": true,
+      "timeout": 60000
+    },
+    "projectx": {
+      "type": "remote",
+      "url": "http://localhost:7882/",
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}

@@ -1,0 +1,1500 @@
+{
+  "slug": "elemental-workshop-ii",
+  "name": "Elemental Workshop II",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1159747200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Go to the Exam Centre in the south of the Archaeology Campus and search the bookshelf on the eastern wall in the Exam Centre.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]\u003cul\u003e\u003cli\u003eUse Archaeology journal to teleport to the Archaeology Campus just north of the Exam Centre.\u003c/li\u003e\u003cli\u003eIf you end up with Varmen\u0027s notes, you searched the wrong bookshelf.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the scroll inside the beaten book and keep the book.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The second key",
+      "text": "Head to the building with an anvil west of the Seers\u0027 Village bank.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2709.0,
+          "heightFine": 1125.0,
+          "y": 3493.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on the odd-looking wall to enter it.\u003cul\u003e\u003cli\u003eIf it says \u0027You see a small hole in the wall but no way to open it\u0027, go to the building directly south and search the bookcase on the east wall for a battered key.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 26115,
+          "modelIds": [],
+          "displayName": "Wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2709.0,
+          "heightFine": 1125.0,
+          "y": 3496.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3415,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2716.0,
+          "heightFine": 965.0,
+          "y": 9888.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north to the water elemental room and search the machinery in the southwest of the room to get a key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18594,
+          "modelIds": [],
+          "displayName": "Machinery"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9722,
+          "displayName": "Key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Elemental bars",
+      "text": "Obtain 2 elemental ores from the west room by attempting to mine the elemental rocks, and defeating the earth elementals that spawn.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2893,
+          "displayName": "",
+          "quantity": 2
+        }
+      ],
+      "jumpOffset": 4,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the north room (where you got the key) and pull the lever to start the water wheel (if the wheel is already turning, this step can be skipped).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the east room and pull the lever to start the bellows (if the bellows are already working, this step can be skipped).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smelt two elemental bars in the south room. (\u0027Use\u0027 the ore on the furnace.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the hatch in the middle room, and climb down it.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18596,
+          "modelIds": [],
+          "displayName": "Open hatch"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18595,
+          "modelIds": [],
+          "displayName": "Hatch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": -1.0,
+          "y": -1.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Repairing a workshop",
+      "text": "Take From the Schematics crate south of the stairs and take both options.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18711,
+          "modelIds": [],
+          "displayName": "Schematics crate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Crane schematic"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lever schematic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9718,
+          "displayName": "Crane schematic",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 9719,
+          "displayName": "Lever schematic",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the spiral stairs and smith a Crane claw on the workbench using 1 elemental bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18598,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3402,
+          "modelIds": [],
+          "displayName": "Workbench"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Crane claw",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down and lower the Old crane using the lever directly next to the schematic crate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18596,
+          "modelIds": [],
+          "displayName": "Hatch"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18622,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18636,
+          "modelIds": [],
+          "displayName": "",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the claw on the crane to repair it.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9720,
+          "modelIds": [],
+          "displayName": "Crane claw"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18636,
+          "modelIds": [],
+          "displayName": "Broken crane"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18624,
+          "modelIds": [],
+          "displayName": "Crane fixed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place an elemental bar on the jig cart.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "Elemental bar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4913,
+          "modelIds": [],
+          "displayName": "Cart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4914,
+          "modelIds": [],
+          "displayName": "Filled cart",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the west lever by the schematics crate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18622,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18627,
+          "modelIds": [],
+          "displayName": "Old crane"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the east lever.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18621,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18629,
+          "modelIds": [],
+          "displayName": "Old crane"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the west lever twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18622,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18633,
+          "modelIds": [],
+          "displayName": "Old crane"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the east lever.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18621,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18631,
+          "modelIds": [],
+          "displayName": "Old crane"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the west lever twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18622,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4915,
+          "modelIds": [],
+          "displayName": "Jig cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever behind you, by the mine cart sign.\u003cul\u003e\u003cli\u003eIf the lever is pulled and it says the system is not pressurised, go upstairs and activate the water wheel and bellows.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18620,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 4915,
+          "displayName": "Jig cart",
+          "tileX": -9,
+          "tileY": 0,
+          "plane": 0,
+          "distance": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The press",
+      "text": "Climb the staircase in the south-west corner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18610,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -7.0,
+          "heightFine": 1925.0,
+          "y": -6.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move to the west side by the steam press.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -13.0,
+          "heightFine": 1925.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -13.0,
+          "heightFine": 1925.0,
+          "y": 0.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the junction box and connect the pipes by clicking on a pair of pipe holes. (solution on the right)\u003cul\u003e\u003cli\u003eTop left and bottom right.\u003c/li\u003e\u003cli\u003eTop middle and top right.\u003c/li\u003e\u003cli\u003eBottom left and bottom middle.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18641,
+          "modelIds": [],
+          "displayName": "Junction box"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "elemental-workshop-ii.junction-box"
+    },
+    {
+      "text": "Go downstairs and pull the lever next to the three small pipes.\u003cul\u003e\u003cli\u003eIf successful, you will get a message that the bar has been flattened.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18611,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18640,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4916,
+          "modelIds": [],
+          "displayName": "Jig cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever by the mine cart sign.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18620,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 4916,
+          "displayName": "Jig cart",
+          "tileX": -2,
+          "tileY": 7,
+          "plane": 0,
+          "distance": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The water tank",
+      "text": "Search all of the crates in both the area with the track and the upper level with the junction box to find 3 cogs and a pipe.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18613,
+          "modelIds": [],
+          "displayName": "Crate",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18507,
+          "modelIds": [],
+          "displayName": "Crate",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18619,
+          "modelIds": [],
+          "displayName": "Crate",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18506,
+          "modelIds": [],
+          "displayName": "Crate",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18614,
+          "modelIds": [],
+          "displayName": "Crates",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18508,
+          "modelIds": [],
+          "displayName": "Crates",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9726,
+          "displayName": "Small cog",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 9725,
+          "displayName": "Medium cog",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 9724,
+          "displayName": "Large cog",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 9723,
+          "displayName": "Pipe",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the northeast platform stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18610,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": 1925.0,
+          "y": 4.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north of the water tank and \u0027use\u0027 the pipe item on the piping with a hole in it.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9723,
+          "modelIds": [],
+          "displayName": "Pipe"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18650,
+          "modelIds": [],
+          "displayName": "Piping"
+        },
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": 1925.0,
+          "y": 12.0,
+          "instance": true,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18726,
+          "modelIds": [],
+          "displayName": "Piping"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back down to the water tank and pull the \u0027old lever\u0027 in front of the tank\u0027s door to open it.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18611,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18648,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18652,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the corkscrew lever (to the east) twice to load the elemental sheet into the water tank.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18649,
+          "modelIds": [],
+          "displayName": "Corkscrew lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18655,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the old lever to close the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18648,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18654,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the water valve west of the old lever to open the valve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18646,
+          "modelIds": [],
+          "displayName": "Water valve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18661,
+          "modelIds": [],
+          "displayName": "Water tank"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the water valve east of the old lever to raise the water level.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18647,
+          "modelIds": [],
+          "displayName": "Water valve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18660,
+          "modelIds": [],
+          "displayName": "Water tank"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the water to fill the tank, then turn the east valve again, to lower the water level back down.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18646,
+          "modelIds": [],
+          "displayName": "Water valve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 18660,
+          "modelIds": [],
+          "displayName": "Water tank"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the water valve west of the old lever to close off the water valve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18647,
+          "modelIds": [],
+          "displayName": "Water valve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You close the valve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the old lever to open the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18648,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18658,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the corkscrew twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18649,
+          "modelIds": [],
+          "displayName": "Corkscrew lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18652,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the old lever to close the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18648,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18651,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever by the mine cart sign.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18620,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 4917,
+          "displayName": "Jig cart",
+          "tileX": 6,
+          "tileY": 0,
+          "plane": 0,
+          "distance": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Small cog to top left pin",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9726,
+          "modelIds": [],
+          "displayName": "Small cog"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18665,
+          "modelIds": [],
+          "displayName": "Pin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18673,
+          "modelIds": [],
+          "displayName": "Cog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Medium cog to lower left pin",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9725,
+          "modelIds": [],
+          "displayName": "Medium cog"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18664,
+          "modelIds": [],
+          "displayName": "Pin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18668,
+          "modelIds": [],
+          "displayName": "Cog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Large cog to right pin",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9724,
+          "modelIds": [],
+          "displayName": "Large cog"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18666,
+          "modelIds": [],
+          "displayName": "Pin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18672,
+          "modelIds": [],
+          "displayName": "Cog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever just to the south to start the fan.\u003cul\u003e\u003cli\u003eIf the message says the fan is sucking, the cogs are not on the correct pins. Turn the fan off and position the cogs correctly.\u003c/li\u003e\u003cli\u003eIf the machine says \u0027It must be powered somewhere else\u0027, head upstairs and make sure the water wheel to the north is rotating. If not, pull the lever near the wheel.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18663,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4918,
+          "modelIds": [],
+          "displayName": "Jig cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18663,
+          "modelIds": [],
+          "displayName": "An old lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The machine grinds to a standstill"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever by the mine cart sign.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18620,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "npcNearTile",
+          "typeId": 4918,
+          "displayName": "Jig cart",
+          "tileX": -1,
+          "tileY": -8,
+          "plane": 0,
+          "distance": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go by the claw and pick up the primed bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4918,
+          "modelIds": [],
+          "displayName": "Cart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4913,
+          "modelIds": [],
+          "displayName": "Jig cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Go down another level in the workshop (north west stairs).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18597,
+          "modelIds": [],
+          "displayName": "Stairwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 965.0,
+          "y": 0.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the east door (mind door).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18698,
+          "modelIds": [],
+          "displayName": "Mind door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 6.0,
+          "heightFine": 965.0,
+          "y": -9.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the bar on the extractor gun. If you miss this step, you will take 10% damage by doing the next step.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9727,
+          "modelIds": [],
+          "displayName": "Primed bar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18693,
+          "modelIds": [],
+          "displayName": "Extractor gun"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18694,
+          "modelIds": [],
+          "displayName": "Extractor gun"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Operate the extractor hat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18690,
+          "modelIds": [],
+          "displayName": "Extractor hat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18695,
+          "modelIds": [],
+          "displayName": "Extractor gun"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the bar from the extractor gun.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18695,
+          "modelIds": [],
+          "displayName": "Extractor gun"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18693,
+          "modelIds": [],
+          "displayName": "Extractor gun"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up to the top floor of the workshop.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18599,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18598,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2720.0,
+          "heightFine": 965.0,
+          "y": 9892.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the workbench, smith a mind helmet, with the beaten book in the backpack.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3402,
+          "modelIds": [],
+          "displayName": "Workbench"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 1371,
+          "componentId": 22,
+          "slotId": 5,
+          "label": "Mind helmet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13674,
+  "stageVarbitCompleteValue": 11,
+  "cacheQuestId": 313
+}

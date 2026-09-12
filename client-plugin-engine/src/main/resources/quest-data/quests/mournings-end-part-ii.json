@@ -1,0 +1,6449 @@
+{
+  "slug": "mournings-end-part-ii",
+  "name": "Mourning's End Part II",
+  "members": true,
+  "length": "verylong",
+  "timeline": "legendary",
+  "releaseDate": 1129507200,
+  "neededItems": [
+    {
+      "name": "Mourner gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Lots of food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bunyip",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Beast of burden",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Crystal teleport seed",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Death/Omni talisman",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Agility boost",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Weight-reducing clothing",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Any shield",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Shadows",
+      "level": "95",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Mourning's End Part I"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Mourning's End"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with the Head Mourner"
+        },
+        {
+          "t": "conversationText",
+          "text": "You must stop them"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Mourners' headquarters in the north-eastern corner of West Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Head Mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Head Mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good Luck!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Blackened crystal",
+      "text": "Run west through the cave.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2041.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2035.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2032.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2026.0,
+              "heightFine": 7135.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2018.0,
+              "heightFine": 6319.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2012.0,
+              "heightFine": 5895.0,
+              "y": 4638.0
+            },
+            {
+              "x": 2003.0,
+              "heightFine": 6021.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1997.0,
+              "heightFine": 5764.0,
+              "y": 4632.0
+            },
+            {
+              "x": 1991.0,
+              "heightFine": 5125.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1985.0,
+              "heightFine": 4805.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1974.0,
+              "heightFine": 3589.0,
+              "y": 4627.0
+            },
+            {
+              "x": 1969.0,
+              "heightFine": 3613.0,
+              "y": 4631.0
+            },
+            {
+              "x": 1962.0,
+              "heightFine": 3229.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1953.0,
+              "heightFine": 3373.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1942.0,
+              "heightFine": 3193.0,
+              "y": 4636.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "doesn't find out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Crystal teleport seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Search the bodies.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1931.0,
+          "heightFine": 1709.0,
+          "y": 4639.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1924.0,
+          "heightFine": 589.0,
+          "y": 4639.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1925.0,
+          "heightFine": 717.0,
+          "y": 4642.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1920.5,
+          "heightFine": 349.0,
+          "y": 4638.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1926.0,
+          "heightFine": 709.0,
+          "y": 4634.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1925.0,
+          "heightFine": 581.0,
+          "y": 4633.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1922.0,
+          "heightFine": 357.0,
+          "y": 4630.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ederns journal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.5,
+          "heightFine": 405.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4610.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4612.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4635.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1297.0,
+          "y": 4641.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4644.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Crystal"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Try to chisel a shard off the crystal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6650,
+          "displayName": "Blackened crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Mourning's End"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I shall take a look"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the blackened crystal on Eluned.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6650,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Blackened crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "a few seconds"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eluned again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6651,
+          "displayName": "Newly made crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get to it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Temple of Light",
+      "text": "Go back to the Temple of Light.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Newly made crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "New key",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Lots of food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bunyip",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Beast of burden",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Death/Omni talisman",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Agility boost",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Weight-reducing clothing",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Any shield",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2044.0,
+              "heightFine": 7973.0,
+              "y": 4649.0
+            },
+            {
+              "x": 2044.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2044.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2035.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2032.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2026.0,
+              "heightFine": 7135.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2018.0,
+              "heightFine": 6319.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2012.0,
+              "heightFine": 5895.0,
+              "y": 4638.0
+            },
+            {
+              "x": 2003.0,
+              "heightFine": 6021.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1997.0,
+              "heightFine": 5764.0,
+              "y": 4632.0
+            },
+            {
+              "x": 1991.0,
+              "heightFine": 5125.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1985.0,
+              "heightFine": 4805.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1974.0,
+              "heightFine": 3589.0,
+              "y": 4627.0
+            },
+            {
+              "x": 1969.0,
+              "heightFine": 3613.0,
+              "y": 4631.0
+            },
+            {
+              "x": 1962.0,
+              "heightFine": 3229.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1953.0,
+              "heightFine": 3373.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1939.0,
+              "heightFine": 2485.0,
+              "y": 4640.0
+            },
+            {
+              "x": 1926.0,
+              "heightFine": 645.0,
+              "y": 4640.0
+            },
+            {
+              "x": 1918.0,
+              "heightFine": 5.0,
+              "y": 4639.0
+            },
+            {
+              "x": 1905.0,
+              "heightFine": 5.0,
+              "y": 4639.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tie a rope to the rock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1876.0,
+          "heightFine": 997.0,
+          "y": 4620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 954,
+          "modelIds": [
+            168
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the crystal collector lever to reset the puzzle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Crystal collector lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect with the crystal collector.<ul><li>Drop your new key if you need inventory space.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cyan crystal",
+      "text": "Mirror #1 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 1497.0,
+            "y": 4643.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Yellow crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mirror",
+          "itemId": 522,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #2 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1904.0,
+            "heightFine": 1497.0,
+            "y": 4650.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #3 points south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1497.0,
+            "y": 4644.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6641,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6641,
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #4 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the gap to the other side.<ul><li>Use any agility boosts you have.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1901.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            },
+            {
+              "x": 1911.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1914.0,
+          "heightFine": 997.0,
+          "y": 4613.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1917.0,
+          "heightFine": 997.0,
+          "y": 4613.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6643,
+          "displayName": "Cyan crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reset the puzzle at the crystal dispenser and collect all items.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Crystal collector lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6643,
+          "displayName": "Cyan crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fractured crystal",
+      "text": "Mirror #1 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 1497.0,
+            "y": 4643.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Yellow crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cyan crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mirror",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #2 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1904.0,
+            "heightFine": 1497.0,
+            "y": 4650.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the cyan crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6643,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Cyan crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6643,
+          "displayName": "Cyan crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #3 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Blue light beam",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 1497.0,
+            "y": 4657.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #4 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 997.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Blue light beam",
+          "atLocation": {
+            "x": 1892.0,
+            "heightFine": 1497.0,
+            "y": 4665.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1897.0,
+            "heightFine": 997.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6641,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6641,
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1914.0,
+          "heightFine": 997.0,
+          "y": 4665.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1917.0,
+          "heightFine": 997.0,
+          "y": 4665.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1897.0,
+            "heightFine": 997.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #5 points up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1897.0,
+            "heightFine": 997.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "(unknown)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4667.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4666.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #6 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Purple light beam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 2489.0,
+          "y": 4667.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 997.0,
+          "y": 4667.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4612.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #7 points down (big mirror side east).",
+      "warning": "No tracking for this step",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1860.0,
+          "heightFine": 2589.0,
+          "y": 4665.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 2489.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 997.0,
+          "y": 4611.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1905.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door to the north-west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1861.0,
+          "heightFine": 5.0,
+          "y": 4665.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn Mirror #8 to point south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 5.0,
+            "y": 4662.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1880.0,
+          "heightFine": 5.0,
+          "y": 4659.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6646,
+          "displayName": "Fractured crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1860.0,
+          "heightFine": 5.0,
+          "y": 4664.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the mirror east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1863.0,
+            "heightFine": 5.0,
+            "y": 4665.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1865.0,
+          "heightFine": 5.0,
+          "y": 4665.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Blue crystal",
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.5,
+          "heightFine": 405.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove the cyan crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6643,
+          "displayName": "Cyan crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6641,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6641,
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4612.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate Mirror #7 south. This light should be red.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1860.0,
+          "heightFine": 2589.0,
+          "y": 4665.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Red light beam",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4657.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #8 point downs (big mirror side north).",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 2489.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 997.0,
+          "y": 4611.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the rope shortcut.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1876.0,
+          "heightFine": 997.0,
+          "y": 4620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1878.0,
+          "heightFine": 5.0,
+          "y": 4620.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1860.0,
+          "heightFine": 5.0,
+          "y": 4614.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1858.0,
+          "heightFine": 5.0,
+          "y": 4613.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6644,
+          "displayName": "Blue crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1860.0,
+          "heightFine": 5.0,
+          "y": 4618.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up rope.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 954,
+          "modelIds": [
+            168
+          ],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1876.0,
+          "heightFine": 997.0,
+          "y": 4620.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reset the puzzle at the crystal dispenser and collect all items.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Crystal collector lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6643,
+          "displayName": "Cyan crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6646,
+          "displayName": "Fractured crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6644,
+          "displayName": "Blue crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Second fractured crystal",
+      "text": "Mirror #1 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 1497.0,
+            "y": 4643.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Yellow crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cyan crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fractured crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mirror",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #2 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1904.0,
+            "heightFine": 1497.0,
+            "y": 4650.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #3 points south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1497.0,
+            "y": 4644.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6641,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6641,
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #4 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the gap to the other side.<ul><li>Use any agility boosts you have.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1901.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            },
+            {
+              "x": 1911.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1914.0,
+          "heightFine": 997.0,
+          "y": 4613.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the blue crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1915.0,
+            "heightFine": 997.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6644,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Blue crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6644,
+          "displayName": "Blue crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back across the gap.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1901.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            },
+            {
+              "x": 1911.0,
+              "heightFine": 1747.0,
+              "y": 4611.5
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1900.0,
+          "heightFine": 997.0,
+          "y": 4613.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove Mirror #4.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove the yellow crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate Mirror #3 pointing up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Light beam up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4612.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #4 points south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 2389.0,
+            "y": 4642.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the fractured crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6646,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Fractured crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6646,
+          "displayName": "Fractured crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #5 points down (big mirror side east).",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 1989.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #6 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1906.0,
+            "heightFine": 1989.0,
+            "y": 4613.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #7 points down (big mirror side west).",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1914.0,
+            "heightFine": 1989.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 2489.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 997.0,
+          "y": 4611.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1905.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #8 points south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 5.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Green light beam",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 405.0,
+            "y": 4622.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #9 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 5.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 5.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Green light beam",
+          "atLocation": {
+            "x": 1895.0,
+            "heightFine": 405.0,
+            "y": 4613.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1914.0,
+          "heightFine": 5.0,
+          "y": 4613.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #10 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1915.0,
+            "heightFine": 5.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1915.0,
+            "heightFine": 5.0,
+            "y": 4613.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1915.0,
+            "heightFine": 5.0,
+            "y": 4616.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1915.0,
+            "heightFine": 5.0,
+            "y": 4616.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1914.0,
+          "heightFine": 5.0,
+          "y": 4618.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1910.0,
+          "heightFine": 5.0,
+          "y": 4622.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fractured crystal2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.5,
+          "heightFine": 405.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reset the puzzle at the crystal dispenser and collect all items.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            144
+          ],
+          "candidateObjectTypeIds": [
+            26854
+          ],
+          "displayName": "Crystal collector lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "pull the lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6643,
+          "displayName": "Cyan crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6641,
+          "displayName": "Yellow crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6646,
+          "displayName": "Fractured crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fractured crystal2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6644,
+          "displayName": "Blue crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9748,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Crystal collector"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take all the items."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the mirrors."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the crystals."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2966,
+          "displayName": "Mirror",
+          "quantity": 13
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Death altar",
+      "text": "Mirror #1 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 1497.0,
+            "y": 4643.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Yellow crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cyan crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fractured crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Second fractured crystal",
+          "itemId": 96,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mirror",
+          "itemId": -1,
+          "quantity": 13,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #2 points down (big mirror side south)",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 997.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1905.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #3 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 5.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1903.0,
+            "heightFine": 405.0,
+            "y": 4650.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the second fractured crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 5.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Fractured crystal2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Fractured crystal2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #4 points up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 5.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Light beam up",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 705.0,
+            "y": 4665.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the fractured crystal to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 5.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6646,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Fractured crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6646,
+          "displayName": "Fractured crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #5 points up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 5.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Light beam up2",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 705.0,
+            "y": 4628.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #6 points up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 5.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Light beam up",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 705.0,
+            "y": 4628.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.5,
+          "heightFine": 405.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the yellow crystal to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 997.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6641,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6641,
+          "displayName": "Yellow crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4667.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4666.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #7 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Yellow light beam",
+          "atLocation": {
+            "x": 1892.0,
+            "heightFine": 2389.0,
+            "y": 4665.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 2489.0,
+          "y": 4667.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 997.0,
+          "y": 4667.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1898.0,
+          "heightFine": 1497.0,
+          "y": 4610.6,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1898.0,
+          "heightFine": 1989.0,
+          "y": 4612.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #8 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 1989.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Green light beam",
+          "atLocation": {
+            "x": 1882.0,
+            "heightFine": 2589.0,
+            "y": 4628.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #9 points west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1909.0,
+            "heightFine": 1989.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1905.0,
+            "heightFine": 2589.0,
+            "y": 4628.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #10 points north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 1989.0,
+            "y": 4628.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 46511,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Light beam",
+          "atLocation": {
+            "x": 1898.0,
+            "heightFine": 2589.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4635.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1297.0,
+          "y": 4641.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4644.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #11 points west.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            606
+          ],
+          "candidateObjectTypeIds": [
+            62314
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1897.0,
+            "heightFine": 1989.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the blue crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1887.0,
+            "heightFine": 1989.0,
+            "y": 4650.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6644,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Blue crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6644,
+          "displayName": "Blue crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #12 points south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4665.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Red light beam",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 2589.0,
+            "y": 4660.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mirror #13 points east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            537
+          ],
+          "displayName": "(unknown)",
+          "atLocation": {
+            "x": 1860.0,
+            "heightFine": 1989.0,
+            "y": 4639.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2966,
+          "modelIds": [
+            522,
+            12
+          ],
+          "displayName": "Mirror"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Red light beam",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 2589.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4643.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 997.0,
+          "y": 4640.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the staircase again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1889.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1886.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1883.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate Mirror #14 west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            630
+          ],
+          "candidateObjectTypeIds": [
+            5750,
+            5751
+          ],
+          "displayName": "(unknown)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Red light beam",
+          "atLocation": {
+            "x": 1876.0,
+            "heightFine": 405.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through to the death altar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you get in"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Death talisman",
+      "text": "Talk to Thorgel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2789,
+          "modelIds": [],
+          "displayName": "Thorgel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better get started"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "conversationText",
+          "text": "tell you what I need"
+        }
+      ],
+      "jumpOffset": 2,
+      "neededItems": [
+        {
+          "name": "Newly made crystal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Death/Omni talisman",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Retrieve the items Thorgel wants.<ul><li>Rotate Mirror #14 east <b>UNLESS</b> you go through the Underground Pass to return to the Death Altar.</li><li>To enter from the Underground Pass side, enter the underground pass from Tirannwn, make your way to the Dwarven Camp, and enter the tunnel behind the camp.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2789,
+          "modelIds": [],
+          "displayName": "Thorgel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got some of them with me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yeah, sure."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with another list"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Death ruins.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2462,
+          "modelIds": [
+            885
+          ],
+          "displayName": "Death ruins"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2208.0,
+          "heightFine": 2373.0,
+          "y": 4829.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the newly made crystal on the altar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2488,
+          "modelIds": [
+            42
+          ],
+          "displayName": "Death altar"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6651,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Newly made crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "a strange"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit through the portal. <b>DO NOT TELEPORT OUT.</b>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1572
+          ],
+          "candidateObjectTypeIds": [
+            1263,
+            39311
+          ],
+          "displayName": "Death altar portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1863.0,
+          "heightFine": 125.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1867.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate Mirror #14 east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            630
+          ],
+          "candidateObjectTypeIds": [
+            5750,
+            5751
+          ],
+          "displayName": "(unknown)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1885.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1888.0,
+          "heightFine": 205.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1890.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1597.0,
+          "y": 4642.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4644.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the powered newly made crystal on the black crystal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Crystal"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6652,
+          "modelIds": [
+            192
+          ],
+          "displayName": "Powered newly made crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "powered crystal amongst"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10560,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 293
+}

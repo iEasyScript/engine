@@ -1,0 +1,1825 @@
+{
+  "slug": "murder-mystery",
+  "name": "Murder Mystery",
+  "members": true,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1055116800,
+  "neededItems": [
+    {
+      "name": "Empty pot",
+      "itemId": -1,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Empty inventory spaces",
+      "itemId": -1,
+      "quantity": 11,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to a guard on the Sinclair Mansion property which is located north of Camelot Castle.<ul><li>For the tracking to work properly, you need to have the chat visible, game messages set to 'On' or 'Filtered', and chat timestamps 'On'. It's also best to change to a chat channel where you aren't getting any messages from players.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6333
+          ],
+          "candidateObjectTypeIds": [
+            6477
+          ],
+          "displayName": "Sinclair guard",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 2741.0,
+          "heightFine": 645.0,
+          "y": 3560.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            198
+          ],
+          "displayName": "Test pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "House of crime",
+      "text": "Pickup the criminal's dagger and pungent pot off the floor in the mansion.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2746.0,
+          "heightFine": 645.0,
+          "y": 3578.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            99
+          ],
+          "displayName": "Criminals dagger",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals dagger",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1812,
+          "modelIds": [
+            474
+          ],
+          "displayName": "Pungent pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1812,
+          "displayName": "Pungent pot",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the window to find a criminal's thread.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 98726,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Broken window"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You take the thread."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread red",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread green",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread blue",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the barrels in the bedrooms owned by the following two suspects for two silver items.<ul><li>If the thread is red, search the barrels belonging to Bob to the west and Carol upstairs for a silver cup and silver bottle.</li><li>If the thread is green, search the barrels belonging to Anna downstairs and David upstairs for a silver necklace and silver book.</li><li>If the thread is blue, search the barrels belonging to Elizabeth and Frank upstairs for a silver needle and silver pot.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You take the thread."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread red",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread green",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Criminals thread blue",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2735.0,
+          "heightFine": 645.0,
+          "y": 3579.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1798,
+          "displayName": "Silver cup",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2733.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1800,
+          "displayName": "Silver bottle",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2733.0,
+          "heightFine": 645.0,
+          "y": 3575.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1796,
+          "displayName": "Silver necklace",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2733.0,
+          "heightFine": 1637.0,
+          "y": 3577.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1802,
+          "displayName": "Silver book",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2747.0,
+          "heightFine": 1637.0,
+          "y": 3577.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1806,
+          "displayName": "Silver pot",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2747.0,
+          "heightFine": 1637.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1804,
+          "displayName": "Silver needle",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The evidence",
+      "text": "Fill the empty pot from the barrel of flour from the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3580.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Empty pot",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2733.0,
+          "heightFine": 645.0,
+          "y": 3582.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1933,
+          "displayName": "Pot of flour",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the gardener's shed in the very north-west of the mansion and take three flypapers from the sack.<ul><li>You have to get the flypaper one at a time.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2731.0,
+          "heightFine": 645.0,
+          "y": 3582.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, it might be useful."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1811,
+          "displayName": "Flypaper",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pot of flour on the dagger.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            99
+          ],
+          "displayName": "Criminals dagger"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You sprinkle a small amount of flour on the murder weapon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the flypaper on the dagger to lift the fingerprint.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            99
+          ],
+          "displayName": "Criminals dagger"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of the murderer's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat with the two silver objects.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of the murderer's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1798,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Silver cup"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on Bob's cup."
+        },
+        {
+          "t": "chatText",
+          "text": "The cup is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1798,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Silver cup"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered necklace."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of Bob's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1800,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Silver bottle"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on Carol's bottle."
+        },
+        {
+          "t": "chatText",
+          "text": "The bottle is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1800,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Silver bottle"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered bottle."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of Carol's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1796,
+          "modelIds": [
+            672
+          ],
+          "displayName": "Silver necklace"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on Anna's necklace."
+        },
+        {
+          "t": "chatText",
+          "text": "The necklace is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1796,
+          "modelIds": [
+            672
+          ],
+          "displayName": "Silver necklace"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered necklace."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of Anna's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1802,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Silver book"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on David's book."
+        },
+        {
+          "t": "chatText",
+          "text": "The Book is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1802,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Silver book"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered book."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of David's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1804,
+          "modelIds": [
+            144,
+            27
+          ],
+          "displayName": "Silver needle"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on Elizabeth's needle."
+        },
+        {
+          "t": "chatText",
+          "text": "The Needle is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1804,
+          "modelIds": [
+            144,
+            27
+          ],
+          "displayName": "Silver needle"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered needle."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of Elizabeth's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1806,
+          "modelIds": [
+            474
+          ],
+          "displayName": "Silver pot"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "You sprinkle the flour on Frank's pot"
+        },
+        {
+          "t": "chatText",
+          "text": "The Pot is now coated with a thin layer of flour."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1806,
+          "modelIds": [
+            474
+          ],
+          "displayName": "Silver pot"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1811,
+          "modelIds": [
+            24
+          ],
+          "displayName": "Flypaper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "You use the flypaper on the flour covered pot."
+        },
+        {
+          "t": "chatText",
+          "text": "You have a clean impression of Frank's finger prints."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Compare each fingerprint by using each suspect's print with the unknown print. The unknown print will then turn to the killer's print.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the mansion's gate and talk to Gossip.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 813,
+          "modelIds": [
+            3633
+          ],
+          "displayName": "Gossip",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 2742.0,
+          "heightFine": 653.0,
+          "y": 3554.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who do you think was responsible?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Especially as I heard that the poison salesman in the Seers' village made a big sale to one of the family the other day."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Forester's Arms in Seers' Village and talk to the Poison Salesman (to get there quickly, teleport to the Seers' Village lodestone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2695.0,
+          "heightFine": 1157.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 820,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Poison Salesman",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Murder Mystery Quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who did you sell Poison to at the house?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Uh... no, it's ok."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "A criminal revealed",
+      "text": "Return to the mansion.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2741.0,
+          "heightFine": 645.0,
+          "y": 3574.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2741.0,
+          "heightFine": 645.0,
+          "y": 3574.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the suspect with the matching fingerprint then investigate their claim.<ul><li>Carol: Drain west of the front doors.</li><li>Bob: Beehive in the garden.</li><li>David: Spiders upstairs.</li><li>Anna: Compost heap in the garden.</li><li>Frank: Family crest east of the front doors.</li><li>Elizabeth: Fountain in the garden.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Bob's."
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 816,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Carol"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Bob's."
+        },
+        {
+          "t": "conversationText",
+          "text": "but the drain outside was"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Bob's."
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3580.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3573.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Bob's."
+        },
+        {
+          "t": "conversationText",
+          "text": "The drain is totally blocked."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2748.0,
+          "heightFine": 645.0,
+          "y": 3559.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 519,
+          "modelIds": [
+            3183
+          ],
+          "displayName": "Bob",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "conversationText",
+          "text": "we had a problem with the beehive in the garden"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2730.0,
+          "heightFine": 629.0,
+          "y": 3559.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread red"
+        },
+        {
+          "t": "conversationText",
+          "text": "The beehive buzzes with activity."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 817,
+          "modelIds": [
+            3093
+          ],
+          "displayName": "David",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2739.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Anna's."
+        },
+        {
+          "t": "conversationText",
+          "text": "There was a nest of spiders upstairs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Anna's."
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2740.0,
+          "heightFine": 1637.0,
+          "y": 3574.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Anna's."
+        },
+        {
+          "t": "conversationText",
+          "text": "There is a spiders' nest here."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 814,
+          "modelIds": [
+            4227
+          ],
+          "displayName": "Anna",
+          "distance": 7
+        },
+        {
+          "t": "direction",
+          "x": 2734.0,
+          "heightFine": 645.0,
+          "y": 3575.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "conversationText",
+          "text": "That useless Gardener Stanford has let his compost heap fester"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2730.5,
+          "heightFine": 645.0,
+          "y": 3572.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread green"
+        },
+        {
+          "t": "conversationText",
+          "text": "The compost is teeming with maggots."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 44282,
+          "modelIds": [
+            3291
+          ],
+          "displayName": "Frank",
+          "distance": 5
+        },
+        {
+          "t": "direction",
+          "x": 2742.0,
+          "heightFine": 645.0,
+          "y": 3577.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Elizabeth's."
+        },
+        {
+          "t": "conversationText",
+          "text": "I just used a bit to clean that family crest outside up a bit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2746.0,
+          "heightFine": 645.0,
+          "y": 3573.2,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "chatText",
+          "text": "The finger prints are an exact match to Elizabeth's."
+        },
+        {
+          "t": "conversationText",
+          "text": "It looks like the Sinclair family crest but it is very dirty."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3580.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 818,
+          "modelIds": [
+            4155
+          ],
+          "displayName": "Elizabeth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why'd you buy poison the other day?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "conversationText",
+          "text": "There was a nest of mosquitos under the fountain in the garden"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2736.0,
+          "heightFine": 1637.0,
+          "y": 3581.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2736.0,
+          "heightFine": 645.0,
+          "y": 3580.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 153,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Fountain",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2747.5,
+          "heightFine": 645.0,
+          "y": 3563.5,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Criminals thread blue"
+        },
+        {
+          "t": "conversationText",
+          "text": "The fountain is swarming with mosquitos."
+        },
+        {
+          "t": "conversationText",
+          "text": "I hate mosquitos"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to a guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6333
+          ],
+          "candidateObjectTypeIds": [
+            6477
+          ],
+          "displayName": "Sinclair guard",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know who did it!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2364,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 28
+}

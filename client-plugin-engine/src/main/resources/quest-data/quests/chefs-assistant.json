@@ -1,0 +1,860 @@
+{
+  "slug": "chefs-assistant",
+  "name": "Chef's Assistant",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "adventurer",
+  "releaseDate": 1549843200,
+  "neededItems": [
+    {
+      "name": "Logs (normal logs)",
+      "itemId": 1511,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Pot of flour",
+      "itemId": 1933,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Chef's hat",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel bar",
+      "itemId": 2353,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of milk",
+      "itemId": 1927,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Pat of butter",
+      "itemId": 6697,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Pot of cream",
+      "itemId": 2130,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cake tin",
+      "itemId": 1887,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Cook's Assistant"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 32,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 38,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Head to the Cooks' Guild, the building just south-west of the Grand Exchange main entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chef's hat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "To start, talk to the Head chef in the Cooks' Guild.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 847,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Head chef"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "chefs hat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any quests for me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course, discreet is my middle name!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Cool story, can we get on with this?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sounds tasty!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Consider myself braced."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pull yourself together!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Would you like me to get some more for you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes Chef!"
+        },
+        {
+          "t": "conversationText",
+          "text": "Right. Got it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining the ingredients",
+      "text": "Speak to Phil or Delphie in Falador, south of the party room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3038.0,
+          "heightFine": 1445.0,
+          "y": 3363.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7739,
+          "modelIds": [
+            3657
+          ],
+          "displayName": "Phil"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure, what do I need?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great! By the looks of it, some basic logs and a steel bar should suffice for the repair."
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            894
+          ],
+          "candidateObjectTypeIds": [
+            1415,
+            6342,
+            18905,
+            30684,
+            37349
+          ],
+          "displayName": "Fixed dairy churn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pot of flour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pat of butter",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pot of cream",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cake tin",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the broken dairy churn in the northern part of the room using logs and a steel bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            624
+          ],
+          "displayName": "Broken dairy chun"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            894
+          ],
+          "candidateObjectTypeIds": [
+            1415,
+            6342,
+            18905,
+            30684,
+            37349
+          ],
+          "displayName": "Fixed dairy churn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with Phil or Delphie again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7739,
+          "modelIds": [
+            3657
+          ],
+          "displayName": "Phil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Just give the milk a good mix in the churn, and you'll have delicious cream cheese in no time!"
+        },
+        {
+          "t": "conversationText",
+          "text": "Just give that bucket of milk you have a good mix in the dairy churn, then you'll have delicious cream cheese to take back to the Head Chef."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use bucket of milk on the dairy churn and churn it into some cream cheese.<ul><li>If not done already, make a pot of cream and a pat of butter once you're there.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            894
+          ],
+          "candidateObjectTypeIds": [
+            1415,
+            6342,
+            18905,
+            30684,
+            37349
+          ],
+          "displayName": "Fixed dairy churn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3038.0,
+          "heightFine": 1445.0,
+          "y": 3366.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make cream cheese at the churn.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47425,
+          "displayName": "Cream cheese",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Cook's Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chef's hat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with the Head Chef.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 847,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Head chef"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Chef's Assistant'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Er... no. Can you remind me what I'm supposed to be doing?"
+        },
+        {
+          "t": "conversationText",
+          "text": "Thanks, I'll be back soon."
+        },
+        {
+          "t": "conversationText",
+          "text": "OK, I'll be right back."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8271
+          ],
+          "displayName": "Cooking guild bottom stair case"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3144.0,
+          "heightFine": 2597.0,
+          "y": 3449.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab the cake tin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1887,
+          "modelIds": [],
+          "displayName": "Cake tin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1887,
+          "displayName": "Cake tin",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make biscuits by combining a pot of flour and pat of butter.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1933,
+          "modelIds": [],
+          "displayName": "Pot of flour"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6697,
+          "modelIds": [],
+          "displayName": "Pat of butter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47383,
+          "displayName": "Biscuit dough",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook the biscuit dough at the range. (Can burn!)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3144.0,
+          "heightFine": 2597.0,
+          "y": 3453.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 47383,
+          "modelIds": [],
+          "displayName": "Biscuit dough"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47385,
+          "displayName": "Biscuits",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the head chef.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 847,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Head chef"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Cooking guild first floor stair case"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Chef's Assistant'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sorry Chef."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes Chef."
+        },
+        {
+          "t": "conversationText",
+          "text": "OK!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the cake tin to create cheesecake.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1887,
+          "modelIds": [],
+          "displayName": "Cake tin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 47387,
+          "displayName": "Cheesecake",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the head chef again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 847,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Head chef"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Chef's Assistant'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm not sure where my list is."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "OK, I'll get right on it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes, here's a list of people I'd like you to take cheesecake to! Come back to me when you've been to them all."
+        },
+        {
+          "t": "conversationText",
+          "text": "Here, take this list! Come back to me when you've been to them all."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cheesy delivery!",
+      "text": "Deliver the cheesecake to Mess Sergeant Ramsey in Taverley.<ul><li>Make sure not to eat the cheesecake!</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2896.0,
+          "heightFine": 837.0,
+          "y": 3442.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14881,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Mess Sergeant Ramsey"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Head Chef asked me to bring you this to try."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "...and delicious! Wow! The topping is so rich and creamy! He has my vote!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deliver the cheesecake to the Cook in Lumbridge castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 1477.0,
+          "y": 3215.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge cook"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That buttery biscuit base is to die for! He has my vote!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deliver the cheesecake to the Cook of the Jolly Boar Inn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3285.0,
+          "heightFine": 965.0,
+          "y": 3489.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "jolly boar cook"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Head Chef asked me to bring you this to try."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "This is a taste sensation! The Head Chef has excelled himself this time. He has my vote!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the cooking guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3143.0,
+          "heightFine": 1413.0,
+          "y": 3446.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chef's hat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with the head chef.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 847,
+          "modelIds": [
+            4431
+          ],
+          "displayName": "Head chef"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Chef's Assistant'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 43337,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 401
+}

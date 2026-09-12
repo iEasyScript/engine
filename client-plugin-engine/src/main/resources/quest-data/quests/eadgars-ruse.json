@@ -1,0 +1,477 @@
+{
+  "slug": "eadgars-ruse",
+  "name": "Eadgar's Ruse",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1096934400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Druidic Ritual",
+    "Troll Stronghold",
+    "Eadgar"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Start the quest by speaking to Sanfew, who lives  on the east side of Taverley, south-west of the summoning shop.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask general questions."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Have you any more work for me, to help reclaim the circle?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Have you any more work for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]<ul><li>If Zogre Flesh Eaters is not complete, use the following option:</li><li>[Accept Quest]</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The troll cook",
+      "text": "Equip your climbing boots and make your way to the Troll Stronghold via either the main entrance or the secret entrance.<ul><li>From the main entrance, go south and then climb down the stairs into the Troll kitchen.</li><li>If using the secret entrance, go to the ambush commander and climb the nearby wall, then head west.</li><li>Once inside, go all the way north and climb up the stairs.</li><li>Go south into the Troll kitchen.</li><li>Once inside, go all the way north and climb up the stairs.</li><li>Go south into the Troll kitchen.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Burntmeat.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The troll cook",
+      "text": "Equip your climbing boots and make your way to the Troll Stronghold via either the main entrance or the secret entrance.<ul><li>From the main entrance, go south and then climb down the stairs into the Troll kitchen.</li><li>If using the secret entrance, go to the ambush commander and climb the nearby wall, then head west.</li><li>Once inside, go all the way north and climb up the stairs.</li><li>Go south into the Troll kitchen.</li><li>Once inside, go all the way north and climb up the stairs.</li><li>Go south into the Troll kitchen.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Climbing boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Burntmeat.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Tricking the trolls",
+      "text": "Walk out of the stronghold's main entrance and head east to the top of the mountain (Eadgar's cave). Located on top of the mountain with the thrower trolls, the world map marks this as Trollheim.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Vodka",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pineapple chunks",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Wheat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Raw chicken",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ranarr potion (unfinished)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eadgar.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do you have to offer?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like some mountain goat stew, please."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Parroty Pete at the Ardougne Zoo. He is located at the northern end by the wolves.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do you feed them?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well, fruit and wheat mostly. I try to give them a balanced diet, but their favourite treat is pineapple chunks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "When did you add it?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Just recently. It would have been sooner, but some wretch thought it would be amusing to replace their drinking water with vodka. The vet had to nurse them back to health for weeks!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pineapple chunks on the vodka to obtain alco-chunks.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the alco-chunks on the Aviary Hatch on the west side of the parrot cage for a drunk parrot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Eadgar.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks, Eadgar."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the stronghold and climb down the northern Stone Staircase.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the Prison Door to the east and climb down the staircase.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the drunk parrot on the rack north of the prison cells.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Tegid in Taverley for a dirty robe. He is located south of Sanfew, washing laundry in the lake.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Sanfew won't be happy..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " What? Oh well, if it's a matter of that much importance, I suppose you can borrow one..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eadgar with the wheat, raw chickens, logs and the dirty robe.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks, Eadgar."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Truth serum",
+      "text": "Exit the cave and find a grassy area and pick the thistle.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the troll thistle on a fire.<ul><li>If you didn't bring logs, there are two fires just west in the encampment.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the dried thistle.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ground thistle on ranarr potion (unfinished) to obtain a troll potion.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eadgar to give him the potion.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the prison in Troll Stronghold.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the rack to retrieve the drunk parrot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eadgar to obtain a fake man.<ul><li>Speak to him again if you don't receive the fake man the first time.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks, Eadgar."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining goutweed",
+      "text": "Talk to Burntmeat back in the kitchen of the stronghold.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'll be going now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Bye, bye."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and right-click search the Kitchen Drawers along the south wall for the storeroom key.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-down the stone staircase directly north of the kitchen drawers to enter the storeroom.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the Storeroom Door with the key.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Obtain goutweed:<ul><li>At the next door, wait until the guard patrolling the northernmost lane goes south.</li><li>Open the door and run west, then surge directly south to search the Goutweed Crate.</li><li>If done correctly, you will surge through the western most guards and be able to immediately obtain a goutweed.</li><li>Alternatively, use safe spots (U-shaped areas with boxes on three sides) to pass the guards.</li><li>Run to the first safe spot, the middle safe spot in the third row of boxes from the entrance, after the trolls patrolling the first row and the eastern second row just pass you.</li><li>Wait for the troll which travels north on the western side to make the turn to the east, then run to the safe spot on the southern side of the third row.</li><li>Wait until the troll guard approaching you from the south has turned the west, then run to the crate with the goutweed. Make sure that you are standing to the side of the crate or you will get caught.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Taverley and talk to Sanfew with the goutweed.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2549,
+  "stageVarbitCompleteValue": 110,
+  "cacheQuestId": 75
+}

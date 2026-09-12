@@ -1,0 +1,604 @@
+{
+  "slug": "vampyre-slayer",
+  "name": "Vampyre Slayer",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 980640000,
+  "neededItems": [
+    {
+      "name": "Beer",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Garlic",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Count Draynor",
+      "level": "28",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.<br><br>Talk to Morgan in Draynor Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "range": 3
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 755,
+          "modelIds": [
+            3693
+          ],
+          "displayName": "Morgan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What terrible threat?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 755,
+          "modelIds": [
+            3693
+          ],
+          "displayName": "Morgan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Morgan",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 755,
+          "modelIds": [
+            3693
+          ],
+          "displayName": "Morgan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "May Saradomin protect you, my friend!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retired Vampyre Slayer",
+      "text": "Go upstairs and search in the northern drawers to get a garlic.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3100.0,
+          "heightFine": 1285.0,
+          "y": 3266.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3102.0,
+          "heightFine": 2469.0,
+          "y": 3266.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3096.0,
+          "heightFine": 2469.0,
+          "y": 3270.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1550,
+          "displayName": "Garlic",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Blue Moon Inn located in Varrock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3220.0,
+          "heightFine": 1125.0,
+          "y": 3397.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3220.0,
+          "heightFine": 1125.0,
+          "y": 3397.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dr Harlow.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3891
+          ],
+          "displayName": "Harlow"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you Dr Harlow, the famous vampyre slayer?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Buy ush a drink anyway."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy a beer from the bartender.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 731,
+          "modelIds": [
+            3954
+          ],
+          "displayName": "Bartender"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A glass of your finest ale please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1917,
+          "displayName": "Beer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dr. Harlow again to get a stake and stake hammer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3891
+          ],
+          "displayName": "Harlow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Once he's dead, speak to Morgan so he can notify the village."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Slaying a Vampyre",
+      "text": "Go to Draynor Manor, which is just north of Draynor Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3353.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3353.5,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Garlic",
+          "itemId": 1550,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Stake",
+          "itemId": 123,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Stake hammer",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the manor and go to the east side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "draynor manor front door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3355.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3112.5,
+          "heightFine": 965.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 7345,
+          "modelIds": [
+            828
+          ],
+          "displayName": "Open Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk down the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            5928
+          ],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3080.0,
+          "heightFine": 1093.0,
+          "y": 9776.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the coffin in the back of the room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            12246
+          ],
+          "candidateObjectTypeIds": [
+            13048
+          ],
+          "displayName": "Closed coffin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9356,
+          "modelIds": [
+            5064
+          ],
+          "displayName": "Count Draynor"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7182
+          ],
+          "displayName": "Open coffin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight Count Draynor until your character will then automatically use the stake on him to kill him.<ul><li>If you have to teleport out, you'll have to get another stake from Dr. Harlow in Varrock.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've lost some equipment you gave me, could I have replacements?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3891
+          ],
+          "displayName": "Harlow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9356,
+          "modelIds": [
+            5064
+          ],
+          "displayName": "Count Draynor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have slain the vampyre."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Morgan. You can destroy the stake hammer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3098.0,
+          "heightFine": 1285.0,
+          "y": 3268.0,
+          "range": 3
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 755,
+          "modelIds": [
+            3693
+          ],
+          "displayName": "Morgan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 755,
+          "modelIds": [
+            3693
+          ],
+          "displayName": "Morgan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9655,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 258
+}

@@ -1,0 +1,32 @@
+[package]
+name = "projectx-patcher-mac"
+version = "0.1.0"
+edition = "2021"
+
+# This crate is macOS-only. Building on any other platform produces an empty
+# library (the whole module is `#![cfg(target_os = "macos")]`). The Linux
+# equivalent lives at `client/launcher/patcher/` (LD_PRELOAD + /proc/self/maps +
+# mprotect); the Windows equivalent at `client/launcher/patcher-win/`
+# (LoadLibrary injection + VirtualProtect).
+#
+# Artifact: `libprojectx_patcher.dylib` — a cdylib loaded into the rs2client
+# Mach-O process via `DYLD_INSERT_LIBRARIES` (+ `DYLD_FORCE_FLAT_NAMESPACE=1`).
+# Its `__attribute__((constructor))` (via the `ctor` crate) runs before the
+# host's `main()`, scans the main executable image for known patterns, and
+# overwrites them in place — mirroring the Linux ctor patcher exactly.
+
+[lib]
+name = "projectx_patcher"
+crate-type = ["cdylib"]
+path = "src/lib.rs"
+
+[dependencies]
+ctor = "0.4"
+libc = "0.2"
+memchr = "2"
+projectx-patcher-common = { path = "../patcher-common" }
+
+[profile.release]
+strip = true
+lto = true
+opt-level = "z"

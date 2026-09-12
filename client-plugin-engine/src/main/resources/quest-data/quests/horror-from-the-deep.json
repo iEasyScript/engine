@@ -1,0 +1,1230 @@
+{
+  "slug": "horror-from-the-deep",
+  "name": "Horror from the Deep",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1100649600,
+  "neededItems": [
+    {
+      "name": "Fire rune",
+      "itemId": 554,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Earth rune",
+      "itemId": 557,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Air rune",
+      "itemId": 556,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Water rune",
+      "itemId": 555,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bronze sword",
+      "itemId": 402,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bronze arrow",
+      "itemId": 105,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel nails",
+      "itemId": 1539,
+      "quantity": 60,
+      "duringQuest": false
+    },
+    {
+      "name": "Planks",
+      "itemId": 960,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Molten glass",
+      "itemId": 1775,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Swamp tar",
+      "itemId": 1939,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A melee-slash weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A ranged-thrown weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A magic weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Runes for all 4 elemental spells",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Games necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Player-owned house",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Lighthouse Teleport",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Dagannoth",
+      "level": "100",
+      "quantity": 1
+    },
+    {
+      "name": "Dagannoth mother",
+      "level": "84",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Bar Crawl (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 35,
+      "ironmanOnly": false
+    },
+    {
+      "type": "misc",
+      "level": 0,
+      "text": "Planks spawn next to the Barbarian Agility Course.",
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Head to the lighthouse north of the Barbarian Outpost and talk to Larrissa.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2508.0,
+          "heightFine": 3717.0,
+          "y": 3632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "With what?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But how can I help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Larrissa.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll see what I can do"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south to the Barbarian Outpost, pick up two planks north of the Agility course.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter through the gate, then go through the Obstacle pipe.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparations",
+      "text": "Talk to Gunnjorn in the Barbarian Agility Course.<ul><li>Planks spawn north of him.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Games necklace teleport",
+        "url": "Games_necklace_(1).png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2541.0,
+          "heightFine": 645.0,
+          "y": 3548.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 607,
+          "modelIds": [
+            5523
+          ],
+          "displayName": "Gunnjorn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Steel nails",
+          "itemId": -1,
+          "quantity": 60,
+          "duringQuest": false
+        },
+        {
+          "name": "Planks",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 607,
+          "modelIds": [
+            5523
+          ],
+          "displayName": "Gunnjorn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Horror from the Deep."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Here you go"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 607,
+          "modelIds": [
+            5523
+          ],
+          "displayName": "Gunnjorn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the broken bridge next to the strange altar.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Fremennik Province lodestone",
+        "url": "Fremennik_Province_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2596.5,
+          "heightFine": 413.0,
+          "y": 3608.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            6
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            6
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "half a makeshift walkway"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            6
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the broken bridge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            6
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2595.0,
+          "heightFine": 317.0,
+          "y": 3608.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the broken bridge again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2834,
+          "modelIds": [
+            6
+          ],
+          "displayName": "Broken Bridge"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "makeshift walkway"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Larrissa.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2508.0,
+          "heightFine": 3717.0,
+          "y": 3632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to my beloved"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the lighthouse.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "fremennik lighthouse door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The lighthouse",
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "fremennik lighthouse staircase 0"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -3.0,
+          "heightFine": 2336.0,
+          "y": 3.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Molten glass",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Swamp tar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50921,
+          "modelIds": [
+            4209
+          ],
+          "displayName": "Bookcase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2967,
+          "displayName": "Journal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the manual.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3847,
+          "modelIds": [
+            204
+          ],
+          "displayName": "Manual"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "itemClicked",
+          "itemId": 204
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the dairy.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2408,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Diary"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "itemClicked",
+          "itemId": 282
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "fremennik lighthouse staircase 0"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -4.0,
+          "heightFine": 5376.0,
+          "y": 5.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the lighting mechanism.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4587,
+          "modelIds": [
+            2031
+          ],
+          "displayName": "Lighting mechanism"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "torch with your tinderbox"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Climb-bottom</i> the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 5384.0,
+          "y": 5.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -2.0,
+          "heightFine": 0.0,
+          "y": 4.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Larrissa.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1336,
+          "modelIds": [
+            4833,
+            4899
+          ],
+          "displayName": "Larrissa"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "darling Jossik"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jossik",
+      "text": "Climb the iron ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -0.8,
+          "heightFine": 0.0,
+          "y": 8.0125,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Fire rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Air rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Water rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Earth rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze sword",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze arrow",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "A melee-slash weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "A ranged-thrown weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "A magic weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Runes for all 4 elemental spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a fire rune on the strange door.",
+      "warning": "You cannot retrieve every item you use on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 554,
+          "modelIds": [],
+          "displayName": "Fire rune"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "fire rune into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an air rune on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 556,
+          "modelIds": [],
+          "displayName": "Air rune"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "air rune into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a water rune on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 555,
+          "modelIds": [],
+          "displayName": "Water rune"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "water rune into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an earth rune on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 557,
+          "modelIds": [],
+          "displayName": "Earth rune"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "earth rune into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bronze sword on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1277,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Bronze sword"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "a sword into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bronze arrow on the strange door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2514.5,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 882,
+          "modelIds": [
+            105
+          ],
+          "displayName": "Bronze arrow"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "an arrow into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the eastern strange wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2516.0,
+          "heightFine": 2585.0,
+          "y": 4626.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2516.0,
+          "heightFine": 2021.0,
+          "y": 4628.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2515.0,
+          "heightFine": 2037.0,
+          "y": 4630.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The battle",
+      "text": "Talk to Jossik.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1334,
+          "modelIds": [
+            4488
+          ],
+          "displayName": "Jossik"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "coming again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "A melee-slash weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "A ranged-thrown weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "A magic weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Runes for all 4 elemental spells",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the dagannoth.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 8141,
+          "modelIds": [
+            4266
+          ],
+          "displayName": "Dagannoth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 8141,
+          "modelIds": [
+            4266
+          ],
+          "displayName": "Dagannoth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jossik.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1334,
+          "modelIds": [
+            4488
+          ],
+          "displayName": "Jossik"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "babies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Dagannoth mother.<tbody><tr><th style=\"padding:6px;\">Color</th><th style=\"padding:6px;\">Weakness</th></tr><tr><td style=\"padding:6px;\"><b>White</b></td><td style=\"padding:6px;\">Air spells</td></tr><tr><td style=\"color:mediumblue; padding:6px;\"><b>Blue</b></td><td style=\"padding:6px;\">Water spells</td></tr><tr><td style=\"color:saddlebrown; padding:6px;\"><b>Brown</b></td><td style=\"padding:6px;\">Earth spells</td></tr><tr><td style=\"color:red; padding:6px;\"><b>Red</b></td><td style=\"padding:6px;\">Fire spells</td></tr><tr><td style=\"color:darkorange; padding:6px;\"><b>Orange</b></td><td style=\"padding:6px;\">Melee attacks</td></tr><tr><td style=\"color:green; padding:6px;\"><b>Green</b></td><td style=\"padding:6px;\">Ranged attacks</td></tr></tbody>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11413,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 281
+}

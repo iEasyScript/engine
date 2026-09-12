@@ -1,0 +1,465 @@
+{
+  "slug": "buyers-and-cellars",
+  "name": "Buyers and Cellars",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "adventurer",
+  "releaseDate": 1272412800,
+  "neededItems": [
+    {
+      "name": "Logs",
+      "itemId": 1511,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 5,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Guildmaster Darren Lightfinger in the Thieves' Guild north of the house with a furnace in Lumbridge (enter the trapdoor).",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Lumbridge lodestone",
+        "url": "Lumbridge_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3223.0,
+          "heightFine": 1125.0,
+          "y": 3268.25,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11274,
+          "modelIds": [],
+          "displayName": "Darren Lightfinger"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing down here? (Skip speech.)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And what is it you need done? (Skip speech)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Guildmaster Darren Lightfinger.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No, I think I've got the hang of this."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "South Lumbridge castle wall",
+      "text": "Go to Lumbridge castle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "thieves guild cellar ladder"
+        },
+        {
+          "t": "direction",
+          "x": 3213.0,
+          "heightFine": 1477.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3213.0,
+          "heightFine": 1477.0,
+          "y": 3208.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The chalice",
+      "text": "Talk to Chief Thief Robin, south of Lumbridge Castle by the castle wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            11280
+          ],
+          "displayName": "Chief Thief Robin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Go ahead."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Be subtle...if an adventurer can be subtle. See if you can pick his pocket for the key. Good luck."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Swamp tree",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Father Urhney's house south of Lumbridge Swamp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3207.0,
+          "heightFine": 869.0,
+          "y": 3151.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3207.0,
+          "heightFine": 869.0,
+          "y": 3149.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Father Urhney in his house, south in the Lumbridge Swamp.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 458,
+          "modelIds": [],
+          "displayName": "Father Urhney"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nice chalice."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I have a look at it?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "And get grubby fingermarks over it? I think not."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop a log from the swap tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3214.0,
+          "heightFine": 845.0,
+          "y": 3150.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1511,
+          "displayName": "Logs",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "any logs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light a fire outside one of Urhney's windows.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 869.0,
+          "y": 3152.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1511,
+          "modelIds": [],
+          "displayName": "Logs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "any logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4653,
+          "modelIds": [
+            798
+          ],
+          "displayName": "Fire"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Urhney and mention the chalice then the fire.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 458,
+          "modelIds": [],
+          "displayName": "Father Urhney"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nice chalice."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fire! Fire!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, no! My house...that I built with my own two hands!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket Urhney quickly to get a complex key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 458,
+          "modelIds": [],
+          "displayName": "Father Urhney"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18647,
+          "displayName": "Complex key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the display case.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            150
+          ],
+          "candidateNpcTypeIds": [
+            510,
+            511,
+            807,
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            1066,
+            1067,
+            1068
+          ],
+          "displayName": "Chalice case"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18648,
+          "displayName": "Golden chalice",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Darren's cellar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3223.0,
+          "heightFine": 1125.0,
+          "y": 3268.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4664.0,
+          "heightFine": 5.0,
+          "y": 5891.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Golden chalice",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the chalice on Darren.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18648,
+          "modelIds": [
+            882
+          ],
+          "displayName": "Golden chalice"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11274,
+          "modelIds": [],
+          "displayName": "Darren Lightfinger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9022,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 336
+}

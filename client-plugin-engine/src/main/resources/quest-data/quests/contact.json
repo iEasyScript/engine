@@ -1,0 +1,1290 @@
+{
+  "slug": "contact",
+  "name": "Contact!",
+  "members": true,
+  "length": "medium",
+  "timeline": "legendary",
+  "releaseDate": 1168387200,
+  "neededItems": [
+    {
+      "name": "Any light source",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the High Priest in Sophanem.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 4765.0,
+          "y": 2729.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [],
+          "displayName": "High Priest",
+          "distance": 13
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the High Priest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "modelIds": [],
+          "displayName": "sophanem high priest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the High Priest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1986,
+          "modelIds": [],
+          "displayName": "High Priest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there any way between Menaphos and Sophanem from below?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you all about the place"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Tunnels under Sophanem",
+      "text": "Talk to Jex.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3302.0,
+          "heightFine": 325.0,
+          "y": 2800.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5279,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32099
+          ],
+          "displayName": "Jex",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "your light goes out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Any light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder in the church east of Jex.\u003cul\u003e\u003cli\u003eThe Sophanem Guards will sell a torch for 200 coins.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 325.0,
+          "y": 2797.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2766.0,
+          "heightFine": 965.0,
+          "y": 5131.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the second trapdoor.",
+      "warning": "Protect/deflect from magic and auto-retaliate off is recommended.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2766.0,
+          "heightFine": 965.0,
+          "y": 5130.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3318.0,
+          "heightFine": 6965.0,
+          "y": 9273.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path through the maze.",
+      "warning": "Stand on the line to avoid traps.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Try to avoid it, using your Agility skill."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Try to disarm it, using your Thieving skill."
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3318.0,
+              "heightFine": 6965.0,
+              "y": 9273.0
+            },
+            {
+              "x": 3318.0,
+              "heightFine": 7005.0,
+              "y": 9265.0
+            },
+            {
+              "x": 3314.0,
+              "heightFine": 7021.0,
+              "y": 9265.0
+            },
+            {
+              "x": 3313.0,
+              "heightFine": 6925.0,
+              "y": 9272.0
+            },
+            {
+              "x": 3309.0,
+              "heightFine": 6853.0,
+              "y": 9273.0
+            },
+            {
+              "x": 3306.0,
+              "heightFine": 6845.0,
+              "y": 9274.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6901.0,
+              "y": 9274.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6789.0,
+              "y": 9268.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 6789.0,
+              "y": 9267.0
+            }
+          ]
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3302.0,
+              "heightFine": 6789.0,
+              "y": 9267.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 6909.0,
+              "y": 9264.0
+            },
+            {
+              "x": 3307.0,
+              "heightFine": 6781.0,
+              "y": 9263.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 6877.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3310.0,
+              "heightFine": 6780.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3311.0,
+              "heightFine": 6861.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3312.0,
+              "heightFine": 6861.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3313.0,
+              "heightFine": 6845.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3314.0,
+              "heightFine": 6861.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3315.0,
+              "heightFine": 6821.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3316.0,
+              "heightFine": 6789.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3317.0,
+              "heightFine": 6741.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 6925.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 7021.0,
+              "y": 9254.0
+            }
+          ]
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3321.0,
+              "heightFine": 7021.0,
+              "y": 9251.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 7005.0,
+              "y": 9246.0
+            },
+            {
+              "x": 3312.0,
+              "heightFine": 6885.0,
+              "y": 9246.0
+            },
+            {
+              "x": 3310.0,
+              "heightFine": 6957.0,
+              "y": 9252.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 6997.0,
+              "y": 9252.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 7021.0,
+              "y": 9255.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6885.0,
+              "y": 9255.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6901.0,
+              "y": 9251.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 7005.0,
+              "y": 9250.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 6741.0,
+              "y": 9245.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 6989.0,
+              "y": 9241.0
+            },
+            {
+              "x": 3295.0,
+              "heightFine": 6933.0,
+              "y": 9241.0
+            },
+            {
+              "x": 3293.0,
+              "heightFine": 6941.0,
+              "y": 9242.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 6901.0,
+              "y": 9243.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 6893.0,
+              "y": 9243.0
+            },
+            {
+              "x": 3285.0,
+              "heightFine": 6853.0,
+              "y": 9242.0
+            },
+            {
+              "x": 3285.0,
+              "heightFine": 6949.0,
+              "y": 9237.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 6925.0,
+              "y": 9236.0
+            },
+            {
+              "x": 3294.0,
+              "heightFine": 6877.0,
+              "y": 9234.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6877.0,
+              "y": 9234.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6725.0,
+              "y": 9230.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6773.0,
+              "y": 9229.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6845.0,
+              "y": 9228.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6893.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6861.0,
+              "y": 9225.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 6941.0,
+              "y": 9225.0
+            },
+            {
+              "x": 3283.0,
+              "heightFine": 6821.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3280.0,
+              "heightFine": 6837.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3279.0,
+              "heightFine": 6829.0,
+              "y": 9226.0
+            },
+            {
+              "x": 3276.0,
+              "heightFine": 6853.0,
+              "y": 9226.0
+            },
+            {
+              "x": 3275.0,
+              "heightFine": 6853.0,
+              "y": 9228.0
+            },
+            {
+              "x": 3269.0,
+              "heightFine": 6853.0,
+              "y": 9229.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3257.0,
+          "heightFine": 4485.0,
+          "y": 9226.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Kaleef\u0027s body.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3239.0,
+          "heightFine": 1289.0,
+          "y": 9243.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10585,
+          "displayName": "Parchment",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the parchment.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 10585,
+          "modelIds": [
+            339
+          ],
+          "displayName": "Parchment"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 498
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Maisa to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3218.0,
+          "heightFine": 2257.0,
+          "y": 9246.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5281,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6782,
+            6783,
+            31576,
+            31600,
+            31708,
+            31716,
+            32154
+          ],
+          "displayName": "Maisa",
+          "distance": 21
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Draynor Village"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ozan and Leela."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "happened to the last one"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Osman inside the Al Kharid palace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3290.0,
+          "heightFine": 4485.0,
+          "y": 3157.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3388,
+            5284,
+            5286,
+            5287,
+            7824,
+            13241,
+            15908,
+            15909,
+            24647,
+            26278,
+            27676
+          ],
+          "displayName": "Osman",
+          "distance": 7
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to talk to you about Sophanem."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It would drive a wedge between the Menaphite cities."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "close to Sophanem shortly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final fight",
+      "text": "Talk to Osman outside the northern Sophanem gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3388,
+            5284,
+            5286,
+            5287,
+            7824,
+            13241,
+            15908,
+            15909,
+            24647,
+            26278,
+            27676
+          ],
+          "displayName": "Osman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know of a secret entrance to the north."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "a look for him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Any light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Enter Sophanem.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3297.0,
+          "heightFine": 1625.0,
+          "y": 2817.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3297.0,
+          "heightFine": 325.0,
+          "y": 2812.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder in the church east of Jex.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3315.0,
+          "heightFine": 325.0,
+          "y": 2797.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2766.0,
+          "heightFine": 965.0,
+          "y": 5131.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the second trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2766.0,
+          "heightFine": 965.0,
+          "y": 5130.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3318.0,
+          "heightFine": 6965.0,
+          "y": 9273.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path through the maze.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Try to avoid it, using your Agility skill."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Try to disarm it, using your Thieving skill."
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3318.0,
+              "heightFine": 6965.0,
+              "y": 9273.0
+            },
+            {
+              "x": 3318.0,
+              "heightFine": 7005.0,
+              "y": 9265.0
+            },
+            {
+              "x": 3314.0,
+              "heightFine": 7021.0,
+              "y": 9265.0
+            },
+            {
+              "x": 3313.0,
+              "heightFine": 6925.0,
+              "y": 9272.0
+            },
+            {
+              "x": 3309.0,
+              "heightFine": 6853.0,
+              "y": 9273.0
+            },
+            {
+              "x": 3306.0,
+              "heightFine": 6845.0,
+              "y": 9274.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6901.0,
+              "y": 9274.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6789.0,
+              "y": 9268.0
+            },
+            {
+              "x": 3299.0,
+              "heightFine": 6789.0,
+              "y": 9267.0
+            }
+          ]
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3302.0,
+              "heightFine": 6789.0,
+              "y": 9267.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 6909.0,
+              "y": 9264.0
+            },
+            {
+              "x": 3307.0,
+              "heightFine": 6781.0,
+              "y": 9263.0
+            },
+            {
+              "x": 3308.0,
+              "heightFine": 6877.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3310.0,
+              "heightFine": 6780.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3311.0,
+              "heightFine": 6861.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3312.0,
+              "heightFine": 6861.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3313.0,
+              "heightFine": 6845.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3314.0,
+              "heightFine": 6861.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3315.0,
+              "heightFine": 6821.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3316.0,
+              "heightFine": 6789.0,
+              "y": 9259.0
+            },
+            {
+              "x": 3317.0,
+              "heightFine": 6741.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 6925.0,
+              "y": 9260.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 7021.0,
+              "y": 9254.0
+            }
+          ]
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3321.0,
+              "heightFine": 7021.0,
+              "y": 9251.0
+            },
+            {
+              "x": 3321.0,
+              "heightFine": 7005.0,
+              "y": 9246.0
+            },
+            {
+              "x": 3312.0,
+              "heightFine": 6885.0,
+              "y": 9246.0
+            },
+            {
+              "x": 3310.0,
+              "heightFine": 6957.0,
+              "y": 9252.0
+            },
+            {
+              "x": 3305.0,
+              "heightFine": 6997.0,
+              "y": 9252.0
+            },
+            {
+              "x": 3304.0,
+              "heightFine": 7021.0,
+              "y": 9255.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6885.0,
+              "y": 9255.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6901.0,
+              "y": 9251.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 7005.0,
+              "y": 9250.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 6741.0,
+              "y": 9245.0
+            },
+            {
+              "x": 3301.0,
+              "heightFine": 6989.0,
+              "y": 9241.0
+            },
+            {
+              "x": 3295.0,
+              "heightFine": 6933.0,
+              "y": 9241.0
+            },
+            {
+              "x": 3293.0,
+              "heightFine": 6941.0,
+              "y": 9242.0
+            },
+            {
+              "x": 3292.0,
+              "heightFine": 6901.0,
+              "y": 9243.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 6893.0,
+              "y": 9243.0
+            },
+            {
+              "x": 3290.0,
+              "heightFine": 6877.0,
+              "y": 9242.0
+            },
+            {
+              "x": 3285.0,
+              "heightFine": 6853.0,
+              "y": 9242.0
+            },
+            {
+              "x": 3285.0,
+              "heightFine": 6949.0,
+              "y": 9237.0
+            },
+            {
+              "x": 3291.0,
+              "heightFine": 6925.0,
+              "y": 9236.0
+            },
+            {
+              "x": 3294.0,
+              "heightFine": 6877.0,
+              "y": 9234.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6877.0,
+              "y": 9234.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6725.0,
+              "y": 9230.0
+            },
+            {
+              "x": 3297.0,
+              "heightFine": 6773.0,
+              "y": 9229.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6845.0,
+              "y": 9228.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6893.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3296.0,
+              "heightFine": 6861.0,
+              "y": 9225.0
+            },
+            {
+              "x": 3287.0,
+              "heightFine": 6941.0,
+              "y": 9225.0
+            },
+            {
+              "x": 3283.0,
+              "heightFine": 6821.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3280.0,
+              "heightFine": 6837.0,
+              "y": 9227.0
+            },
+            {
+              "x": 3279.0,
+              "heightFine": 6829.0,
+              "y": 9226.0
+            },
+            {
+              "x": 3276.0,
+              "heightFine": 6853.0,
+              "y": 9226.0
+            },
+            {
+              "x": 3275.0,
+              "heightFine": 6853.0,
+              "y": 9228.0
+            },
+            {
+              "x": 3269.0,
+              "heightFine": 6853.0,
+              "y": 9229.0
+            }
+          ]
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Osman!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the giant scarab and take the Keris.\u003cul\u003e\u003cli\u003eOptional: Players with level 50 Attack may head back up the ladder and kill a scarab mage or locust rider with the Keris dagger. This completes the Ludikeris achievement.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5253,
+          "modelIds": [
+            1788
+          ],
+          "displayName": "Giant scarab",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 10581,
+          "modelIds": [
+            222
+          ],
+          "displayName": "Keris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the Keris dagger.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 10581,
+          "modelIds": [
+            222
+          ],
+          "displayName": "Keris",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10581,
+          "displayName": "Keris",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Osman.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 924,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3388,
+            5284,
+            5286,
+            5287,
+            7824,
+            13241,
+            15908,
+            15909,
+            24647,
+            26278,
+            27676
+          ],
+          "displayName": "Osman",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the High Priest. Teleporting out is quickest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 4765.0,
+          "y": 2729.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "modelIds": [],
+          "displayName": "sophanem high priest",
+          "distance": 13
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10292,
+  "stageVarbitCompleteValue": 130,
+  "cacheQuestId": 316
+}

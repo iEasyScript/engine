@@ -1,0 +1,2730 @@
+{
+  "slug": "the-fremennik-isles",
+  "name": "The Fremennik Isles",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1170720000,
+  "neededItems": [
+    {
+      "name": "Raw tuna",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Tin ore",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": false
+    },
+    {
+      "name": "Coal",
+      "itemId": -1,
+      "quantity": 7,
+      "duringQuest": true
+    },
+    {
+      "name": "Mithril ore",
+      "itemId": -1,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Bronze nails",
+      "itemId": 4819,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 8,
+      "duringQuest": true
+    },
+    {
+      "name": "Split logs",
+      "itemId": 228,
+      "quantity": 8,
+      "duringQuest": true
+    },
+    {
+      "name": "Thread",
+      "itemId": 1734,
+      "quantity": 2,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Ice trolls",
+      "level": "Various",
+      "quantity": 10
+    },
+    {
+      "name": "Ice Troll King",
+      "level": "91",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "The Fremennik Trials"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 40,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 20,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 46,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 56,
+      "ironmanOnly": false
+    },
+    {
+      "type": "misc",
+      "level": 0,
+      "text": "Ores required depend on your mining level. Tin: 1-10, Coal: 11-54, Mithril: 55+.",
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Right click and talk to Mord Gunnars on the northern Rellekka dock about Jatizso's history.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 325.0,
+          "y": 3709.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Raw tuna",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Tin ore",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Coal",
+          "itemId": -1,
+          "quantity": 7,
+          "duringQuest": false
+        },
+        {
+          "name": "Mithril ore",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Mord Gunnars.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you ferry me to Jatizso?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2420.0,
+          "heightFine": 389.0,
+          "y": 3782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Send in the clowns",
+      "text": "Talk to King Gjuki Sorvott IV in the building with tiled floors.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3804.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you can buy some from my fishmonger"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the king with a raw tuna.<ul><li>Can be obtained from the cage/harpoon fishing spots to the south.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 359,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Raw tuna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Excellent"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the King again, then give him your ores.<ul><li>There is a mine down the stairs to the north-west if you didn't bring them.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you'll find him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest (behind the throne) and take the silly jester outfit.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3800.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the jester's hat."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6858,
+          "displayName": "Jester hat",
+          "quantity": 1
+        },
+        {
+          "t": "chatText",
+          "text": "the complete jester's costume"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3800.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the jester's top."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester top",
+          "quantity": 1
+        },
+        {
+          "t": "chatText",
+          "text": "the complete jester's costume"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3800.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the jester's tights."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester tights",
+          "quantity": 1
+        },
+        {
+          "t": "chatText",
+          "text": "the complete jester's costume"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3800.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester boots",
+          "quantity": 1
+        },
+        {
+          "t": "chatText",
+          "text": "the complete jester's costume"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Rellekka. ",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2421.0,
+          "heightFine": 389.0,
+          "y": 3781.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel-Neitiznot with Maria Gunnars.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5507,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5508
+          ],
+          "displayName": "Maria Gunnars",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2310.0,
+          "heightFine": 325.0,
+          "y": 3782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Clowning around",
+      "text": "Equip the silly jester outfit, with nothing in your hands, and talk to Slug Hemligssen, north of the bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2337.0,
+          "heightFine": 1029.0,
+          "y": 3810.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5520,
+          "modelIds": [
+            4827
+          ],
+          "displayName": "Slug Hemligssen",
+          "distance": 16
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6858,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Jester hat"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            267
+          ],
+          "displayName": "Jester top"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            165
+          ],
+          "displayName": "Jester tights"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Jester boots"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Free stuff please."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "will make sure the King is informed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar, south of the bank.",
+      "warning": "Dismiss any Summoning familiars and pets.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "was much better than the last jester"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Slug Hemligssen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2337.0,
+          "heightFine": 1029.0,
+          "y": 3810.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5520,
+          "modelIds": [
+            4827
+          ],
+          "displayName": "Slug Hemligssen",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes I have."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They will be ready in two days."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Seventeen militia have been trained."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "There are two bridges to repair."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take your jester's costume off first"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bridge repairs",
+      "text": "Unequip the silly jester outfit (keep it for later).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6858,
+          "displayName": "Jester hat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Split log",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester tights",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 8 yaks for their hair, and pick up 3 yak hides too.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5529,
+          "modelIds": [
+            29400
+          ],
+          "displayName": "Yak",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            471
+          ],
+          "candidateNpcTypeIds": [
+            5,
+            380,
+            822,
+            823,
+            1378,
+            1766,
+            1791,
+            2005,
+            2006,
+            2324,
+            2676,
+            2748,
+            2778,
+            3640,
+            4737,
+            4745,
+            5509,
+            5912,
+            6674,
+            14188,
+            15748,
+            19605,
+            19613,
+            19637,
+            22427,
+            22429,
+            30570,
+            31156,
+            31222
+          ],
+          "displayName": "Yak hair"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yak hair",
+          "quantity": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 1029.0,
+          "y": 3794.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop an Arctic Pine for 8 logs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 70057,
+          "modelIds": [
+            1590
+          ],
+          "displayName": "Arctic Pine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10810,
+          "displayName": "Arctic pine logs",
+          "quantity": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Split logs",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft 8 split logs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2324.0,
+          "heightFine": 1109.0,
+          "y": 3831.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Split logs",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "shall speak with you again once you have"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you again once you have repaired the bridges"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click bridges, north of Neitiznot, to repair them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2355.0,
+          "heightFine": 1285.0,
+          "y": 3840.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2314.0,
+          "heightFine": 1357.0,
+          "y": 3840.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Split logs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Then make your way with haste"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Taxes",
+      "text": "Return to Rellekka, and take the boat to Jatizso.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2311.0,
+          "heightFine": 325.0,
+          "y": 3781.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5507,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5508
+          ],
+          "displayName": "Maria Gunnars",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 325.0,
+          "y": 3709.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2420.0,
+          "heightFine": 389.0,
+          "y": 3782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to King Gjuki Sorvott IV on Jatizso.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3804.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you for helping our fine city"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hring Hring (8,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2396.0,
+          "heightFine": 965.0,
+          "y": 3797.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5483,
+          "modelIds": [
+            4932
+          ],
+          "displayName": "Hring Hring",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Skuli Myrka (6,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2396.0,
+          "heightFine": 965.0,
+          "y": 3805.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5486,
+          "modelIds": [
+            4695
+          ],
+          "displayName": "Skuli Myrka",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vanligga Gastfrihet (5,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3813.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20161,
+          "modelIds": [
+            4509
+          ],
+          "displayName": "Vanligga Gastfrihet",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Keepa Kettilon (5,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2417.0,
+          "heightFine": 965.0,
+          "y": 3815.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5487,
+          "modelIds": [
+            5238
+          ],
+          "displayName": "Keepa Kettilon",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to King Gjuki Sorvott IV.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3804.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Of course you do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hring Hring (1,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2396.0,
+          "heightFine": 965.0,
+          "y": 3797.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5483,
+          "modelIds": [
+            4932
+          ],
+          "displayName": "Hring Hring",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Raum Urda-Stein (1,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2396.0,
+          "heightFine": 965.0,
+          "y": 3797.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4968
+          ],
+          "candidateObjectTypeIds": [
+            63493
+          ],
+          "displayName": "Raum urda stein",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Skuli Myrka (1,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2396.0,
+          "heightFine": 965.0,
+          "y": 3805.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5486,
+          "modelIds": [
+            4695
+          ],
+          "displayName": "Skuli Myrka",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Keepa Kettilon (1,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2417.0,
+          "heightFine": 965.0,
+          "y": 3815.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5487,
+          "modelIds": [
+            5238
+          ],
+          "displayName": "Keepa Kettilon",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Flosi Dalksson (1,000).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2417.0,
+          "heightFine": 965.0,
+          "y": 3815.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5484,
+          "modelIds": [
+            4365
+          ],
+          "displayName": "Flosi Dalksson",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But rules are rules. Pay up!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "But, rules are rules. Pay up!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the tax bag."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to King Gjuki Sorvott IV.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3804.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Neitiznot with all haste"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing for battle",
+      "text": "Return to Rellekka, and take the boat to Neitiznot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2421.0,
+          "heightFine": 389.0,
+          "y": 3781.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bronze nails",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Arctic pine logs",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Yak-hide",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Thread",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Silly jester outfit",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5507,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5508
+          ],
+          "displayName": "Maria Gunnars"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2311.0,
+          "heightFine": 325.0,
+          "y": 3781.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the silly jester outfit, <b>unequip your weapons</b>, and talk to Slug Hemligssen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2337.0,
+          "heightFine": 1029.0,
+          "y": 3810.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5520,
+          "modelIds": [
+            4827
+          ],
+          "displayName": "Slug Hemligssen",
+          "distance": 16
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6858,
+          "modelIds": [
+            396
+          ],
+          "displayName": "Jester hat"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            267
+          ],
+          "displayName": "Jester top"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            165
+          ],
+          "displayName": "Jester tights"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Jester boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the Burgher and get jestering"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Entertain Mawnis Burowgar again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "that was much better than the last jester"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Slug Hemligssen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2337.0,
+          "heightFine": 1029.0,
+          "y": 3810.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5520,
+          "modelIds": [
+            4827
+          ],
+          "displayName": "Slug Hemligssen",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I am."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They are in a secluded bay, near Etceteria."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "They will be given some potions."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have been helping Neitiznot."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better go and talk to the King"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Rellekka, and take the boat to Jatizso.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2311.0,
+          "heightFine": 325.0,
+          "y": 3781.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5507,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5508
+          ],
+          "displayName": "Maria Gunnars",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 325.0,
+          "y": 3709.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2420.0,
+          "heightFine": 389.0,
+          "y": 3782.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Gjuki Sorvott IV in Jatizso until he gives you a Royal Decree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2407.0,
+          "heightFine": 965.0,
+          "y": 3804.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5478,
+          "modelIds": [],
+          "displayName": "King Gjuki Sorvott IV",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10830,
+          "displayName": "Royal decree",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Rellekka, and take the boat to Neitiznot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2421.0,
+          "heightFine": 389.0,
+          "y": 3781.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5481,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5482
+          ],
+          "displayName": "Mord Gunnars",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 325.0,
+          "y": 3710.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5507,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5508
+          ],
+          "displayName": "Maria Gunnars"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2311.0,
+          "heightFine": 325.0,
+          "y": 3781.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip the silly jester outfit (bank or destroy it).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6858,
+          "displayName": "Jester hat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester tights",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jester boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "shall return with the yak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get 3 yak hides.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5529,
+          "modelIds": [
+            29400
+          ],
+          "displayName": "Yak",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yak hide",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Craft-goods</i> with Thakkrad Sigmundson.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2335.0,
+          "heightFine": 1029.0,
+          "y": 3798.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5466,
+          "modelIds": [
+            5958
+          ],
+          "displayName": "Thakkrad Sigmundson",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Cure my yak-hide, please."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Cure all my hides."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cured yakhide",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft yak-hide armour.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            471
+          ],
+          "displayName": "Cured yakhide"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yak hide body",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            471
+          ],
+          "displayName": "Cured yakhide"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yak hide legs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " shall return with a shield soon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft or buy a rope.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5529,
+          "modelIds": [
+            29400
+          ],
+          "displayName": "Yak",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            471
+          ],
+          "candidateNpcTypeIds": [
+            5,
+            380,
+            822,
+            823,
+            1378,
+            1766,
+            1791,
+            2005,
+            2006,
+            2324,
+            2676,
+            2748,
+            2778,
+            3640,
+            4737,
+            4745,
+            5509,
+            5912,
+            6674,
+            14188,
+            15748,
+            19605,
+            19613,
+            19637,
+            22427,
+            22429,
+            30570,
+            31156,
+            31222
+          ],
+          "displayName": "Yak hair"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yak hair",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 1029.0,
+          "y": 3794.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy one bronze nail from Jofridr in the bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3806.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4251
+          ],
+          "candidateObjectTypeIds": [
+            4394
+          ],
+          "displayName": "Jofridr",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4819,
+          "displayName": "Bronze nails",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop an Arctic Pine for 2 logs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 70057,
+          "modelIds": [
+            1590
+          ],
+          "displayName": "Arctic Pine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10810,
+          "displayName": "Arctic pine logs",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft a round shield.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2324.0,
+          "heightFine": 1109.0,
+          "y": 3831.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Round sheild",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head to the eastern end of the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Regicide",
+      "text": "Prepare for battle. Once you're ready, move to the next step manually.<ul><li>It's recommended to wear the Yak-hide armour and Fremennik round shield, and prioritise high range defence.</li><li>It is not advised to kill the boss with ranged weapons.</li></ul>",
+      "warning": "Familiars are not allowed.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Ice Troll Caves to the far east of the northern-most island.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2403.0,
+          "heightFine": 1429.0,
+          "y": 3888.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            945
+          ],
+          "displayName": "Cave Entrance",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 10 ice trolls.<ul><li>Optional: Talk to Bork for food, strength potions, and prayer potions.</li></ul>",
+      "warning": "Farcasting the ones on the east does not count.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any ice troll",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have defeated enough trolls to attack the King"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the bridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2385.0,
+          "heightFine": 2197.0,
+          "y": 10263.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill and then decapitate the Ice Troll King.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 21622,
+          "modelIds": [
+            5766
+          ],
+          "displayName": "Ice Troll King"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5766
+          ],
+          "candidateObjectTypeIds": [
+            5924,
+            5929,
+            5937
+          ],
+          "displayName": "Dead ice troll king"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ice troll king head",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the head to Mawnis Burowgar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2336.0,
+          "heightFine": 1029.0,
+          "y": 3799.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5503,
+            5504,
+            7396,
+            7397,
+            9337
+          ],
+          "displayName": "Mawnis Burowgar",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13178,
+  "stageVarbitCompleteValue": 340,
+  "cacheQuestId": 148
+}

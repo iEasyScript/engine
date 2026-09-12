@@ -1,0 +1,1261 @@
+{
+  "slug": "unwelcome-guests",
+  "name": "Unwelcome Guests",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1681171200,
+  "neededItems": [
+    {
+      "name": "Maple frames",
+      "itemId": 435,
+      "quantity": 14,
+      "duringQuest": false
+    },
+    {
+      "name": "Stone wall segments",
+      "itemId": -1,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Fetid zombies",
+      "level": "66",
+      "quantity": 20
+    }
+  ],
+  "prereqQuests": [
+    "Murder on the Border"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 50,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 10,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 40,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to Overseer Siv in the Command Centre at Fort Forinthry.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Fort_Forinthry_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3319.0,
+          "heightFine": 1085.0,
+          "y": 3540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Unwelcome Guests'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Overseer Siv.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it with me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fetid frenzy",
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 685.0,
+          "y": 3544.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Got it"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the northern gates.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry northern gate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 10 fetid zombies to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30017,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30018,
+            30035,
+            30036,
+            30123
+          ],
+          "displayName": "Fetid zombie",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 685.0,
+          "y": 3544.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "zombie gymnastics"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Strengthening the fortifications",
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Unwelcome Guests'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you need them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the northern gates.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry northern gate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I understand the restrictions."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3286.0,
+          "heightFine": 749.0,
+          "y": 3579.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 3287.0,
+          "heightFine": 749.0,
+          "y": 3579.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fully construct the building supplies along the walls.<ul><li>Turning off auto-retaliate.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125373,
+          "modelIds": [
+            4800,
+            7842
+          ],
+          "displayName": "Building supplies",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "to the last one"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125373,
+          "modelIds": [
+            4800,
+            7842
+          ],
+          "displayName": "Building supplies",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 125373,
+          "modelIds": [
+            4800,
+            7842
+          ],
+          "displayName": "Building supplies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building the Guardhouse",
+      "text": "Talk to Overseer Siv.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3319.0,
+          "heightFine": 1085.0,
+          "y": 3540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Maple frames",
+          "itemId": -1,
+          "quantity": 14,
+          "duringQuest": false
+        },
+        {
+          "name": "Stone wall segments",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Very good"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29826,
+            29946,
+            30038,
+            30108,
+            30556,
+            30701,
+            30711
+          ],
+          "displayName": "Overseer Siv"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3286.0,
+          "heightFine": 965.0,
+          "y": 3557.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Unwelcome Guests'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "need to begin construction"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 42,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5152,
+            19480,
+            19486,
+            21306,
+            29806,
+            29821,
+            29822,
+            29948,
+            30545,
+            30548,
+            30555,
+            30584,
+            30595,
+            30700,
+            30710,
+            31150,
+            31151,
+            32412
+          ],
+          "displayName": "Bill"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Start building the guardhouse at the blueprints table.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry blueprint table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54850,
+          "displayName": "Maple frame"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "stone wall segments"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry optimal hotspot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the guardhouse south of the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry optimal hotspot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "say about it"
+        },
+        {
+          "t": "chatText",
+          "text": "advanced your building"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Raptor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Investigating the crypt",
+      "text": "Open the northern gates.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "forinthry northern gate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 10 fetid zombies to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30017,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30018,
+            30035,
+            30036,
+            30123
+          ],
+          "displayName": "Fetid zombie",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "clear"
+        },
+        {
+          "t": "chatText",
+          "text": "all of them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the Raptor.<ul><li>Remember to unlock the grove after completing the quest.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 1085.0,
+          "y": 3544.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 13955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13957,
+            13958,
+            13959,
+            15474,
+            21993,
+            26622,
+            28445,
+            28610,
+            28822,
+            29795,
+            30028,
+            30037,
+            30043,
+            30081,
+            30082,
+            30083,
+            30086,
+            30090,
+            30091,
+            30092,
+            30151,
+            30544,
+            30547,
+            30553,
+            30582,
+            30593,
+            30674,
+            30694
+          ],
+          "displayName": "The Raptor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 52844,
+  "stageVarbitCompleteValue": 120,
+  "cacheQuestId": 491
+}

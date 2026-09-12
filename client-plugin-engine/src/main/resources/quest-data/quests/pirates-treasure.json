@@ -1,0 +1,891 @@
+{
+  "slug": "pirates-treasure",
+  "name": "Pirate's Treasure",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 992217600,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 60,
+      "duringQuest": false
+    },
+    {
+      "name": "Bananas",
+      "itemId": 1963,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "White apron",
+      "itemId": 240,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Gardener",
+      "level": "4",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Redbeard Frank just outside Port Sarim's pub.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3049.0,
+          "heightFine": 965.0,
+          "y": 3253.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3049.0,
+          "heightFine": 965.0,
+          "y": 3253.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 375,
+          "modelIds": [
+            7275
+          ],
+          "displayName": "Redbeard Frank"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm in search of treasure."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Redbeard Frank.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 375,
+          "modelIds": [
+            7275
+          ],
+          "displayName": "Redbeard Frank"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Arr, that's the spirit!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the ship to Karamja.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3027.0,
+          "heightFine": 741.0,
+          "y": 3219.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3027.0,
+          "heightFine": 741.0,
+          "y": 3219.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3831
+          ],
+          "displayName": "Seaman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2958.0,
+          "heightFine": 645.0,
+          "y": 3146.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The smuggling job",
+      "text": "Head inside the pub.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 677.0,
+          "y": 3146.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2924.0,
+          "heightFine": 677.0,
+          "y": 3145.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy one Karamjan rum from Zembo.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22710,
+          "modelIds": [
+            4995
+          ],
+          "displayName": "Zembo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 8940,
+          "displayName": "Rum",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick 10 bananas from the Banana Trees to the north-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.5,
+          "heightFine": 1213.0,
+          "y": 3155.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2915.5,
+          "heightFine": 1293.0,
+          "y": 3158.5,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2912.5,
+          "heightFine": 1189.0,
+          "y": 3158.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1963,
+          "displayName": "Banana",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go east to the house by the docks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2938.0,
+          "heightFine": 389.0,
+          "y": 3154.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2938.0,
+          "heightFine": 389.0,
+          "y": 3154.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Luthas about the customs officer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 379,
+          "modelIds": [
+            5121
+          ],
+          "displayName": "Luthas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That customs officer is annoying isn't she?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I believe it is run by a man called Wydin."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Luthas again and ask for a job.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 379,
+          "modelIds": [
+            5121
+          ],
+          "displayName": "Luthas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Could you offer me employment on your plantation?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you could fill it up with bananas, I'll pay you 30 gold."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the Karamjan rum on the wooden crate.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 8940,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Rum"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            600
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Karamja crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You stash the rum in the crate."
+        },
+        {
+          "t": "chatText",
+          "text": "There is some rum in here, although no bananas to cover it. It is a little obvious."
+        },
+        {
+          "t": "chatText",
+          "text": "The crate is filled with bananas. There is also some rum stashed in here too."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>Fill</i> the crate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            600
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Karamja crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You pack all your bananas into the crate."
+        },
+        {
+          "t": "chatText",
+          "text": "The crate is filled with bananas. There is also some rum stashed in here too."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Luthas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 379,
+          "modelIds": [
+            5121
+          ],
+          "displayName": "Luthas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well done, here's your payment"
+        },
+        {
+          "t": "conversationText",
+          "text": "Luthas hands you 30 coins"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Customs officer to return to Port Sarim.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2955.0,
+          "heightFine": 645.0,
+          "y": 3147.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2955.0,
+          "heightFine": 645.0,
+          "y": 3147.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 380,
+          "modelIds": [
+            3999
+          ],
+          "displayName": "Customs officer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I journey on this ship?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Search away, I have nothing to hide."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3028.0,
+          "heightFine": 741.0,
+          "y": 3219.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retrieving the rum",
+      "text": "Grab a white apron out of the fishing store.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3016.0,
+          "heightFine": 965.0,
+          "y": 3229.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            120
+          ],
+          "candidateObjectTypeIds": [
+            62344
+          ],
+          "displayName": "Hanging white apron"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1005,
+          "displayName": "White apron",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            120
+          ],
+          "candidateObjectTypeIds": [
+            62344
+          ],
+          "displayName": "Hanging white apron"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1005,
+          "displayName": "White apron",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your white apron and enter Wydin's Food Store south of the lodestone.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1005,
+          "modelIds": [
+            240
+          ],
+          "displayName": "White apron"
+        },
+        {
+          "t": "direction",
+          "x": 3012.5,
+          "heightFine": 965.0,
+          "y": 3204.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3014.0,
+          "heightFine": 965.0,
+          "y": 3206.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to open the door in the back and take the job.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1005,
+          "modelIds": [
+            240
+          ],
+          "displayName": "White apron"
+        },
+        {
+          "t": "direction",
+          "x": 3012.5,
+          "heightFine": 965.0,
+          "y": 3204.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hey, you can't go in there."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Well, can I get a job here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I get a job here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go through to the back and tidy up for me, please."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate with the banana on it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3009.0,
+          "heightFine": 965.0,
+          "y": 3207.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 8940,
+          "displayName": "Rum",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the rum, return to Redbeard Frank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3049.0,
+          "heightFine": 965.0,
+          "y": 3253.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3049.0,
+          "heightFine": 965.0,
+          "y": 3253.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 375,
+          "modelIds": [
+            7275
+          ],
+          "displayName": "Redbeard Frank"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok thanks, I'll go and get it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok thanks, I'll go and get it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Treasure hunting",
+      "text": "Go upstairs in the Blue Moon Inn in south Varrock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3226.0,
+          "heightFine": 1125.0,
+          "y": 3394.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3226.0,
+          "heightFine": 1125.0,
+          "y": 3394.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chest key",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4416
+          ],
+          "candidateObjectTypeIds": [
+            9445
+          ],
+          "displayName": "Blue moon inn stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3230.0,
+          "heightFine": 2309.0,
+          "y": 3394.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest in the south-west room for a pirate message. Read it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3219.0,
+          "heightFine": 2309.0,
+          "y": 3395.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 433,
+          "displayName": "Pirate message",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Falador Park and stand on the X east of the pond.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2999.0,
+          "heightFine": 997.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>Dig</i> using the pirate message. Kill the gardener. Dig on the X again again.<ul><li>If your character doesn't want to dig up the flowers, you need to read the pirate message still.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2999.0,
+          "heightFine": 997.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2227,
+  "stageVarbitCompleteValue": 4,
+  "cacheQuestId": 60
+}

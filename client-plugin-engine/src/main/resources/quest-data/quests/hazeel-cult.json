@@ -1,0 +1,1293 @@
+{
+  "slug": "hazeel-cult",
+  "name": "Hazeel Cult",
+  "members": true,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1029369600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Alomone",
+      "level": "9",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Ceril Carnillean in his house south of the Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.5,
+          "heightFine": 1605.0,
+          "y": 3269.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's wrong?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Ceril Carnillean.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get to work"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Laying the groundwork",
+      "text": "Turn the valve behind Ceril's house to the right.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2572.0,
+            "heightFine": 1277.0,
+            "y": 3263.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valve west of the Clock Tower to the right.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2562.0,
+            "heightFine": 1205.0,
+            "y": 3247.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2562.0,
+          "heightFine": 1205.0,
+          "y": 3247.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2562.0,
+            "heightFine": 1205.0,
+            "y": 3247.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valve north of the cave to the left.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2585.0,
+            "heightFine": 989.0,
+            "y": 3245.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2585.0,
+          "heightFine": 989.0,
+          "y": 3245.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2585.0,
+            "heightFine": 989.0,
+            "y": 3245.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valve south of the penguine cage to the right.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2597.0,
+            "heightFine": 1141.0,
+            "y": 3263.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2597.0,
+          "heightFine": 1141.0,
+          "y": 3263.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2597.0,
+            "heightFine": 1141.0,
+            "y": 3263.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valve north of the monastery to the right.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2611.0,
+            "heightFine": 781.0,
+            "y": 3242.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2611.0,
+          "heightFine": 781.0,
+          "y": 3242.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            924
+          ],
+          "displayName": "Valve",
+          "atLocation": {
+            "x": 2611.0,
+            "heightFine": 781.0,
+            "y": 3242.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave entrance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            1239
+          ],
+          "displayName": "Cave Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2570.0,
+          "heightFine": 645.0,
+          "y": 9682.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick a side and follow the guide for the according side.",
+      "warning": "There's no tracking for this. You have to choose yourself.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Carnillean's Side",
+      "text": "Talk to Clivet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 893,
+          "modelIds": [
+            3801
+          ],
+          "displayName": "Clivet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you mean?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I will never help you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "into the sewer system"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the raft.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2567.5,
+          "heightFine": 645.0,
+          "y": 9679.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 669.0,
+          "y": 9692.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alomone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15586,
+          "modelIds": [
+            4023
+          ],
+          "displayName": "Alomone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Prepare to die"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Alomone.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2405,
+          "modelIds": [
+            465
+          ],
+          "displayName": "Carnillean armour"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the Carnillean armour he drops.<ul><li>Drop the armour and kill Alomone again if you want another. Drop it before talking to Ceril.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2405,
+          "modelIds": [
+            465
+          ],
+          "displayName": "Carnillean armour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2405,
+          "displayName": "Carnillean armour",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Ceril Carnillean.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.5,
+          "heightFine": 1605.0,
+          "y": 3269.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "prove his treachery"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2569.0,
+          "heightFine": 2597.0,
+          "y": 3267.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the wardrobe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2573.0,
+          "heightFine": 3097.0,
+          "y": 3267.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [
+        {
+          "t": "always"
+        }
+      ],
+      "jumpOffset": 23,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Cult's Side",
+      "text": "Talk to Clivet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 893,
+          "modelIds": [
+            3801
+          ],
+          "displayName": "Clivet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you mean?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, what would I have to do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, count me in."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "speak to me once more"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2570.5,
+          "heightFine": 1245.0,
+          "y": 9684.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2587.0,
+          "heightFine": 1157.0,
+          "y": 3237.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor in the Carnillean mansion.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.0,
+          "heightFine": 1605.0,
+          "y": 3267.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2569.0,
+          "heightFine": 5.0,
+          "y": 9668.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bottle of poison on the range.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2728,
+          "modelIds": [
+            1674
+          ],
+          "displayName": "Range"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 273,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 273,
+          "displayName": "Poison"
+        },
+        {
+          "t": "conversationText",
+          "text": "paying attention"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.0,
+          "heightFine": 605.0,
+          "y": 9667.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2569.0,
+          "heightFine": 1605.0,
+          "y": 3268.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ceril Carnillean.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 885,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2953
+          ],
+          "displayName": "Ceril Carnillean"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "yeah, me too"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the cave entrance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            1239
+          ],
+          "displayName": "Cave Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2570.0,
+          "heightFine": 645.0,
+          "y": 9682.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the raft.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2567.5,
+          "heightFine": 645.0,
+          "y": 9679.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 669.0,
+          "y": 9692.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alomone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15586,
+          "modelIds": [
+            4023
+          ],
+          "displayName": "Alomone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "true power and glory"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Carnillean mansion basement.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.0,
+          "heightFine": 1605.0,
+          "y": 3267.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2569.0,
+          "heightFine": 5.0,
+          "y": 9668.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crates.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2572.0,
+          "heightFine": 405.0,
+          "y": 9668.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 432,
+          "displayName": "Chest key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2569.0,
+          "heightFine": 605.0,
+          "y": 9667.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2569.0,
+          "heightFine": 1605.0,
+          "y": 3268.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            888
+          ],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2569.0,
+          "heightFine": 2597.0,
+          "y": 3267.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the odd wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2566.0,
+          "heightFine": 3097.0,
+          "y": 3274.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2566.0,
+          "heightFine": 2597.0,
+          "y": 3276.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 3097.0,
+          "y": 3275.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2566.0,
+          "heightFine": 3557.0,
+          "y": 3275.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 3557.0,
+          "y": 3272.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2403,
+          "displayName": "Hazeel scroll",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 3557.0,
+          "y": 3275.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2566.0,
+          "heightFine": 2597.0,
+          "y": 3275.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 2597.0,
+          "y": 3267.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2568.0,
+          "heightFine": 1605.0,
+          "y": 3269.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the cave entrance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2,
+          "modelIds": [
+            1239
+          ],
+          "displayName": "Cave Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2570.0,
+          "heightFine": 645.0,
+          "y": 9682.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the raft.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2567.5,
+          "heightFine": 645.0,
+          "y": 9679.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 669.0,
+          "y": 9692.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alomone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15586,
+          "modelIds": [
+            4023
+          ],
+          "displayName": "Alomone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2592,
+  "stageVarbitCompleteValue": 9,
+  "cacheQuestId": 125
+}

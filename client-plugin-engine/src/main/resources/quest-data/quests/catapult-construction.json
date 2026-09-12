@@ -1,0 +1,699 @@
+{
+  "slug": "catapult-construction",
+  "name": "Catapult Construction",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "legendary",
+  "releaseDate": 1202860800,
+  "neededItems": [
+    {
+      "name": "Mahogany planks",
+      "itemId": 8782,
+      "quantity": 10,
+      "duringQuest": false
+    },
+    {
+      "name": "Mithril nails",
+      "itemId": 4822,
+      "quantity": 90,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Explorer's ring",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Regicide"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 44,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Defence",
+      "level": 42,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 30,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 60,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the Tyras guard next to the catapult.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Charter to Port Tyras",
+        "url": "Transportation_map_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2183.0,
+          "heightFine": 1133.0,
+          "y": 3182.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "shirtless tyras guard",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "shirtless tyras guard"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I guess you're going to get fired, then."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you suggest?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright, I'll go and speak to General Hining."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "towards the back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to General Hining in Tyras Camp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2187.0,
+          "heightFine": 2565.0,
+          "y": 3149.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7121,
+          "modelIds": [],
+          "displayName": "General Hining",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, the Tyras Camp catapult is broken?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perhaps I can help to repair it?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "General, I believe I can be of service to you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "our line of defence"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fetching the materials",
+      "text": "Talk to the Catapult engineer.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2252.0,
+              "heightFine": 1173.0,
+              "y": 3151.0
+            },
+            {
+              "x": 2241.0,
+              "heightFine": 1117.0,
+              "y": 3162.0
+            },
+            {
+              "x": 2238.0,
+              "heightFine": 885.0,
+              "y": 3168.0
+            },
+            {
+              "x": 2233.0,
+              "heightFine": 1093.0,
+              "y": 3173.0
+            },
+            {
+              "x": 2231.0,
+              "heightFine": 901.0,
+              "y": 3178.0
+            },
+            {
+              "x": 2223.0,
+              "heightFine": 621.0,
+              "y": 3181.0
+            },
+            {
+              "x": 2220.0,
+              "heightFine": 885.0,
+              "y": 3185.0
+            },
+            {
+              "x": 2218.0,
+              "heightFine": 1029.0,
+              "y": 3189.0
+            },
+            {
+              "x": 2211.0,
+              "heightFine": 725.0,
+              "y": 3197.0
+            },
+            {
+              "x": 2209.0,
+              "heightFine": 485.0,
+              "y": 3201.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2209.0,
+              "heightFine": 485.0,
+              "y": 3205.0
+            },
+            {
+              "x": 2209.0,
+              "heightFine": 570.0,
+              "y": 3209.0
+            },
+            {
+              "x": 2205.0,
+              "heightFine": 781.0,
+              "y": 3214.0
+            },
+            {
+              "x": 2200.0,
+              "heightFine": 757.0,
+              "y": 3221.0
+            },
+            {
+              "x": 2196.0,
+              "heightFine": 773.0,
+              "y": 3219.0
+            },
+            {
+              "x": 2188.0,
+              "heightFine": 677.0,
+              "y": 3219.0
+            },
+            {
+              "x": 2184.0,
+              "heightFine": 1013.0,
+              "y": 3214.0
+            },
+            {
+              "x": 2183.0,
+              "heightFine": 997.0,
+              "y": 3212.0
+            },
+            {
+              "x": 2181.0,
+              "heightFine": 909.0,
+              "y": 3212.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7118,
+          "modelIds": [
+            4179
+          ],
+          "displayName": "Catapult engineer",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "General Hining asked me to find you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm quite an experienced carpenter."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better luck than me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mahogany planks",
+          "itemId": 8782,
+          "quantity": 10,
+          "duringQuest": false
+        },
+        {
+          "name": "Mithril nails",
+          "itemId": 4822,
+          "quantity": 90,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Explorer's ring",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Read the schematics.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 12593,
+          "modelIds": [
+            99
+          ],
+          "displayName": "Catapult schematics"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Make the repair parts."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "One block part",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the engineer again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7118,
+          "modelIds": [
+            4179
+          ],
+          "displayName": "Catapult engineer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I read the letter?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rolad at the Dwarven Mine camp.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3021.0,
+          "heightFine": 2565.0,
+          "y": 3452.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "roald",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I have the metal parts for the Tyras Camp catapult please?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Port Sarim"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thaki inside Port Sarim's pub.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Port Sarim lodestone",
+        "url": "Port_Sarim_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3051.0,
+          "heightFine": 1465.0,
+          "y": 3259.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7866
+          ],
+          "candidateObjectTypeIds": [
+            7919,
+            7924
+          ],
+          "displayName": "Thaki",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're right, I'm not a sailor."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "through to this guy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the drunken sailor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7116,
+          "modelIds": [
+            5010
+          ],
+          "displayName": "Drunken sailor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Sailor hat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the sailor's hat.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            126
+          ],
+          "displayName": "Sailor hat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Sailor hat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thaki again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3051.0,
+          "heightFine": 1465.0,
+          "y": 3259.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7866
+          ],
+          "candidateObjectTypeIds": [
+            7919,
+            7924
+          ],
+          "displayName": "Thaki",
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no time at all"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Building the catapult",
+      "text": "Return to the Tyras guard.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Charter to Port Tyras",
+        "url": "Transportation_map_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2183.0,
+          "heightFine": 1133.0,
+          "y": 3182.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "shirtless tyras guard",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Refer to the pictures on the wiki. Can't highlight pictures yet, sadly.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "catapult is repaired"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Field testing",
+      "text": "Talk to the Tyras guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "shirtless tyras guard"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll have a go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Destroy the rocks.<ul><li>2 Right - 0/6 green bars on Counterweight.</li><li>3 Right - 6/6 green bars on Counterweight.</li><li>6 Left - 5/6 green bars on Counterweight.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the guard again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "shirtless tyras guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12210,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 23
+}

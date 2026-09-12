@@ -1,0 +1,269 @@
+{
+  "slug": "borics-task-iii-miniquest",
+  "name": "Boric's Task III (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "heroic",
+  "releaseDate": 1350432000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Boric's Task II (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 60,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Mining for the Guild",
+      "text": "Head down the stairs at Doric's workshop to speak to Boric.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 919.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1572.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any Mining tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Boric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Fine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the dwarfs at the mining guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3019.0,
+          "heightFine": 1125.0,
+          "y": 3339.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6732
+          ],
+          "displayName": "Mining guild dwarf",
+          "priority": "closest",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Boric sent me here to mine some ores."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you're willing to muck"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down into the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3019.6,
+          "heightFine": 1125.0,
+          "y": 3339.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3021.0,
+          "heightFine": 965.0,
+          "y": 9739.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 10 runite ore and 15 orichalcite ore.<ul><li>Boosts and perks such as Varrock armour, Shooting Star, and extra ore gained from leveling do count towards the 25 total ores.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 451,
+          "displayName": "Runite ore",
+          "quantity": 10
+        },
+        {
+          "t": "chatText",
+          "text": "You've gathered enough ore to satisfy the Mining Guild dwarves."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44822,
+          "displayName": "Orichalcite ore",
+          "quantity": 15
+        },
+        {
+          "t": "chatText",
+          "text": "You've gathered enough ore to satisfy the Mining Guild dwarves."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Boric with the ore in your inventory (cannot be noted or in an ore box).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 919.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1572.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10029,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 431
+}

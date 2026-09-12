@@ -1,0 +1,1551 @@
+{
+  "slug": "hermit-permits",
+  "name": "Hermit Permits",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1774278419,
+  "neededItems": [
+    {
+      "name": "Ball of wool",
+      "itemId": 1759,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Seaweed",
+      "itemId": 401,
+      "quantity": 6,
+      "duringQuest": true
+    },
+    {
+      "name": "Ropes",
+      "itemId": 954,
+      "quantity": 3,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Crab",
+      "level": "29",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Visions of Havenhythe"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 5,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 15,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Read the noticeboard north of the Wendlewick pub.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Wendlewick lodestone",
+        "url": "Wendlewick_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.5,
+          "heightFine": 8205.0,
+          "y": 1516.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1050
+          ],
+          "candidateObjectTypeIds": [
+            767,
+            770,
+            5601,
+            6168,
+            6315,
+            6384,
+            33912
+          ],
+          "displayName": "Village noticeboard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1050
+          ],
+          "candidateObjectTypeIds": [
+            767,
+            770,
+            5601,
+            6168,
+            6315,
+            6384,
+            33912
+          ],
+          "displayName": "Village noticeboard"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "HELP NEEDED"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1050
+          ],
+          "candidateObjectTypeIds": [
+            767,
+            770,
+            5601,
+            6168,
+            6315,
+            6384,
+            33912
+          ],
+          "displayName": "Village noticeboard"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue reading the noticeboard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1050
+          ],
+          "candidateObjectTypeIds": [
+            767,
+            770,
+            5601,
+            6168,
+            6315,
+            6384,
+            33912
+          ],
+          "displayName": "Village noticeboard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what the problem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Crabulet",
+      "text": "Talk to Grocer Hannah at the Wendlewick food shop.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 8357.0,
+          "y": 1545.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32535,
+          "modelIds": [
+            7635
+          ],
+          "displayName": "Grocer Hannah"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ball of wool",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32535,
+          "modelIds": [
+            7635
+          ],
+          "displayName": "Grocer Hannah"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That is quite a lot of crabs"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I could try herding them out?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to shreds"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32535,
+          "modelIds": [
+            7635
+          ],
+          "displayName": "Grocer Hannah"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32535,
+          "modelIds": [
+            7635
+          ],
+          "displayName": "Grocer Hannah"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What if I threatened them?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No reaction"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32535,
+          "modelIds": [
+            7635
+          ],
+          "displayName": "Grocer Hannah"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I could just kill them all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly, the crab in the store.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Progress"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly",
+          "atLocation": {
+            "x": 3477.0,
+            "heightFine": 8165.0,
+            "y": 1563.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "trip it is"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly",
+          "atLocation": {
+            "x": 3455.0,
+            "heightFine": 7589.0,
+            "y": 1591.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Onwards"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly",
+          "atLocation": {
+            "x": 3440.0,
+            "heightFine": 365.0,
+            "y": 1597.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to nod"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly",
+          "atLocation": {
+            "x": 3450.0,
+            "heightFine": 1005.0,
+            "y": 1622.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take too long"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3456.0,
+          "heightFine": 1881.0,
+          "y": 1620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3426.0,
+          "heightFine": 767.0,
+          "y": 8011.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hermit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32607,
+          "modelIds": [
+            3261
+          ],
+          "displayName": "Hermit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to me once you are done"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a crab.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2706,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Crab",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7536,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Fresh crab claw"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the fresh crab claw.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7536,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Fresh crab claw"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7536,
+          "displayName": "Fresh crab claw",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft the fresh claw into an crab amulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7536,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Fresh crab claw"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Crab amulet u",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a ball of wool on the crab amulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1759,
+          "modelIds": [],
+          "displayName": "Ball of wool"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1470
+          ],
+          "displayName": "Crab amulet u"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60397,
+          "displayName": "Crab amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hermit again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32607,
+          "modelIds": [
+            3261
+          ],
+          "displayName": "Hermit"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "power of crab"
+        },
+        {
+          "t": "conversationText",
+          "text": "power of Crab"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the crabulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60397,
+          "modelIds": [
+            1830
+          ],
+          "displayName": "Crab amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 60397,
+          "displayName": "Crab amulet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shelly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "meet you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Huts",
+      "text": "Talk to Shelly at the Wendlewick food shop.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Wendlewick lodestone",
+        "url": "Wendlewick_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 8357.0,
+          "y": 1545.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Crabulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Seaweed",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Ropes",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "piece of our mind"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32662,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Shelly"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to any of the crab leaders on the beach south of the Shrine of Inanna.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3568.0,
+          "heightFine": 349.0,
+          "y": 1338.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3922,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Finn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "planning permission for your"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adam north of the Wendlewick market.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Wendlewick lodestone",
+        "url": "Wendlewick_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 8613.0,
+          "y": 1571.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "your adventures"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zeke in the building to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 9465.0,
+          "y": 1565.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That was easy"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb to the top of the Wendlewick lighthouse.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Wendlewick lodestone",
+        "url": "Wendlewick_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3450.0,
+          "heightFine": 7837.0,
+          "y": 1495.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3454.0,
+          "heightFine": 11509.0,
+          "y": 1495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Esther.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20511,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32672,
+            32686
+          ],
+          "displayName": "Esther"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "from the locals"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3452.5,
+          "heightFine": 11517.0,
+          "y": 1495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3452.0,
+          "heightFine": 7237.0,
+          "y": 1494.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to 5 different villagers/stall owners around Wendlewick.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 88267,
+          "modelIds": [
+            7623,
+            6255,
+            5313,
+            9885,
+            6231
+          ],
+          "displayName": "Villager",
+          "priority": "all"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "5 / 5 signatures"
+        },
+        {
+          "t": "chatText",
+          "text": "5/5 signatures"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Adam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 8613.0,
+          "y": 1571.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "know the good news"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect 6 pieces from the beach west of Wendlewick.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3403.0,
+          "heightFine": 229.0,
+          "y": 1549.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 401,
+          "modelIds": [],
+          "displayName": "Seaweed"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 401,
+          "displayName": "Seaweed",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 401,
+          "modelIds": [],
+          "displayName": "Seaweed",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 401,
+          "displayName": "Seaweed",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the crab leaders.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3568.0,
+          "heightFine": 349.0,
+          "y": 1338.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3922,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Finn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Hermit Permits'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "seaweed per hut"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build the three piles of driftwood on the beach into their huts.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 14735,
+          "modelIds": [
+            660,
+            660,
+            660
+          ],
+          "displayName": "Driftwood",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "crab leaders know"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the crab leaders.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28702,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Kai"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3922,
+          "modelIds": [
+            2106
+          ],
+          "displayName": "Finn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 60814,
+  "stageVarbitCompleteValue": 80,
+  "cacheQuestId": 528
+}

@@ -1,0 +1,2816 @@
+{
+  "slug": "within-the-light",
+  "name": "Within the Light",
+  "members": true,
+  "length": "long",
+  "timeline": "legendary",
+  "releaseDate": 1255392000,
+  "neededItems": [
+    {
+      "name": "Mourner gear",
+      "itemId": 1506,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Death talisman",
+      "itemId": 585,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "New key",
+      "itemId": 444,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Tarnished key",
+      "itemId": 444,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Notes",
+      "itemId": 324,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Colour wheel",
+      "itemId": 54,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Crystal trinket",
+      "itemId": 192,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Toad crunchies",
+      "itemId": 243,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Prayer potions",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Crystal teleport seed",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dave's spellbook",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Tank gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Shield",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Wicked hood",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Shadows",
+      "level": "95",
+      "quantity": 1
+    },
+    {
+      "name": "Mourner",
+      "level": "79, 84, 86",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Mourning's End Part II"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 69,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Fletching",
+      "level": 70,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 75,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 75,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "secure in my absence"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Trouble in the temple",
+      "text": "Enter the Mourners' headquarters in the north-eastern corner of West Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Mourner outfit",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "New key",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Tarnished key",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the Head Mourner's desk for the tarnished and new key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2043.0,
+          "heightFine": 8373.0,
+          "y": 4629.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take a tarnished key."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6083,
+          "displayName": "Tarnished key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2043.0,
+          "heightFine": 8373.0,
+          "y": 4629.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take a new key."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6104,
+          "displayName": "New key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the tunnels.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2033.5,
+          "heightFine": 8473.0,
+          "y": 4636.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2031.0,
+          "heightFine": 7973.0,
+          "y": 4636.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove your gas mask.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chant-to the blank teleport crystal on the marked tile.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2032.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2026.0,
+              "heightFine": 7135.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2018.0,
+              "heightFine": 6319.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2012.0,
+              "heightFine": 5895.0,
+              "y": 4638.0
+            },
+            {
+              "x": 2003.0,
+              "heightFine": 6021.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1997.0,
+              "heightFine": 5764.0,
+              "y": 4632.0
+            },
+            {
+              "x": 1991.0,
+              "heightFine": 5125.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1985.0,
+              "heightFine": 4805.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1974.0,
+              "heightFine": 3589.0,
+              "y": 4627.0
+            },
+            {
+              "x": 1969.0,
+              "heightFine": 3613.0,
+              "y": 4631.0
+            },
+            {
+              "x": 1962.0,
+              "heightFine": 3229.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1953.0,
+              "heightFine": 3373.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1941.0,
+              "heightFine": 2925.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1937.0,
+              "heightFine": 2197.0,
+              "y": 4641.0
+            }
+          ],
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 1937.0,
+          "heightFine": 2197.0,
+          "y": 4641.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Teleport crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you hear that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "enchanting"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the gas mask.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1506,
+          "modelIds": [],
+          "displayName": "Gas mask"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Mourners' headquarters basement.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2032.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2026.0,
+              "heightFine": 7135.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2018.0,
+              "heightFine": 6319.0,
+              "y": 4636.0
+            },
+            {
+              "x": 2012.0,
+              "heightFine": 5895.0,
+              "y": 4638.0
+            },
+            {
+              "x": 2003.0,
+              "heightFine": 6021.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1997.0,
+              "heightFine": 5764.0,
+              "y": 4632.0
+            },
+            {
+              "x": 1991.0,
+              "heightFine": 5125.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1985.0,
+              "heightFine": 4805.0,
+              "y": 4626.0
+            },
+            {
+              "x": 1974.0,
+              "heightFine": 3589.0,
+              "y": 4627.0
+            },
+            {
+              "x": 1969.0,
+              "heightFine": 3613.0,
+              "y": 4631.0
+            },
+            {
+              "x": 1962.0,
+              "heightFine": 3229.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1953.0,
+              "heightFine": 3373.0,
+              "y": 4634.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1946.0,
+              "heightFine": 3197.0,
+              "y": 4636.0
+            },
+            {
+              "x": 1941.0,
+              "heightFine": 2925.0,
+              "y": 4638.0
+            },
+            {
+              "x": 1937.0,
+              "heightFine": 2197.0,
+              "y": 4641.0
+            },
+            {
+              "x": 2035.0,
+              "heightFine": 7973.0,
+              "y": 4636.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2035.0,
+          "heightFine": 7973.0,
+          "y": 4636.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the gnome.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3257,
+          "modelIds": [
+            3621
+          ],
+          "displayName": "Gnome"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Within the Light."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fine, have them."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Stay undercover."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "your word"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a mourner nearby for a second mourner outfit.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a piece of mourner's outfit on Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "conversationText",
+          "text": "the part"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1506,
+          "modelIds": [],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "take it now"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the part"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the enchanted crystal on Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5505
+          ],
+          "candidateObjectTypeIds": [
+            4490,
+            8985
+          ],
+          "displayName": "Arianwyn mourner"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Teleport crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nice job"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn again.<ul><li>Dismiss your pet/familiar.</li><li>Make sure to have your second set of mourner gear equipped or in your inventory.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5505
+          ],
+          "candidateObjectTypeIds": [
+            4490,
+            8985
+          ],
+          "displayName": "Arianwyn mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About those tasks I need to do..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready, let's go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The death altar",
+      "text": "Climb up the staircase.<ul><li>Equip your tank gear/shield.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1903.5,
+          "heightFine": 405.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1901.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Crystal trinket",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Death talisman/wicked hood",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1894.0,
+          "heightFine": 1497.0,
+          "y": 4620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1892.0,
+          "heightFine": 1989.0,
+          "y": 4620.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4636.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 997.0,
+          "y": 4638.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1888.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1886.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1883.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the mirror west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            630
+          ],
+          "candidateObjectTypeIds": [
+            5750,
+            5751
+          ],
+          "displayName": "Light pillar"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Red light beam",
+          "atLocation": {
+            "x": 1875.0,
+            "heightFine": 605.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door to the death altar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1863.0,
+          "heightFine": 125.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thorgel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2789,
+          "modelIds": [],
+          "displayName": "Thorgel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Within the Light."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with him first"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5133
+          ],
+          "candidateObjectTypeIds": [
+            63387
+          ],
+          "displayName": "Arianwyn mourner no mask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get right on it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1867.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the energised pillar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5316
+          ],
+          "candidateObjectTypeIds": [
+            249,
+            5398,
+            5836,
+            11258,
+            37065
+          ],
+          "displayName": "Energized pillar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Temple of Light"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1863.0,
+          "heightFine": 125.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5133
+          ],
+          "candidateObjectTypeIds": [
+            63387
+          ],
+          "displayName": "Arianwyn mourner no mask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "really capable of"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1867.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the crystal trinket on the energised pillar.",
+      "warning": "Epilepsy warning.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5316
+          ],
+          "candidateObjectTypeIds": [
+            249,
+            5398,
+            5836,
+            11258,
+            37065
+          ],
+          "displayName": "Energized pillar"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6653,
+          "modelIds": [
+            192
+          ],
+          "displayName": "Crystal trinket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what happened"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1863.0,
+          "heightFine": 125.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn.<ul><li>Speak to Arianwyn again if you need a death talisman.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5133
+          ],
+          "candidateObjectTypeIds": [
+            63387
+          ],
+          "displayName": "Arianwyn mourner no mask"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm not even going to argue."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you at the altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5133
+          ],
+          "candidateObjectTypeIds": [
+            63387
+          ],
+          "displayName": "Arianwyn mourner no mask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1456,
+          "displayName": "Death talisman",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the death ruins.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2462,
+          "modelIds": [
+            885
+          ],
+          "displayName": "Death ruins"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2208.0,
+          "heightFine": 2373.0,
+          "y": 4829.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Energized",
+      "text": "Talk to Thorgel. <b>Do the next steps quickly</b>.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2789,
+          "modelIds": [],
+          "displayName": "Thorgel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Within the Light."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, let's do this."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "before it wears off"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the altar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1572
+          ],
+          "candidateObjectTypeIds": [
+            1263,
+            39311
+          ],
+          "displayName": "Death altar portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1863.0,
+          "heightFine": 125.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1865.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1867.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the mirror east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            630
+          ],
+          "candidateObjectTypeIds": [
+            5750,
+            5751
+          ],
+          "displayName": "Light pillar"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Rotate the mirror."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door",
+          "atLocation": {
+            "x": 1885.0,
+            "heightFine": 5.0,
+            "y": 4639.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1887.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1888.0,
+          "heightFine": 605.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1890.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the northern stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1697.0,
+          "y": 4643.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4644.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the crystal to the south-east.<ul><li>If your character speaks, you have to start from the beginning.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1908.5,
+          "heightFine": 2489.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Crystal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Crystal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "the energy within you"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 2380,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Crystal"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1891.0,
+          "heightFine": 1989.0,
+          "y": 4642.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1891.0,
+          "heightFine": 997.0,
+          "y": 4640.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1888.0,
+          "heightFine": 997.0,
+          "y": 4639.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 1886.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the light door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1212
+          ],
+          "candidateNpcTypeIds": [
+            24849,
+            24850
+          ],
+          "displayName": "Open light door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1883.0,
+          "heightFine": 5.0,
+          "y": 4639.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Touch the energized pillar.<ul><li>If you don't get transported, you were not fast enough.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5316
+          ],
+          "candidateObjectTypeIds": [
+            249,
+            5398,
+            5836,
+            11258,
+            37065
+          ],
+          "displayName": "Energized pillar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene. Don't click anywhere in the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Elven Seed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Within the light itself",
+      "text": "Search the dead slave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 46491,
+          "modelIds": [
+            3111
+          ],
+          "displayName": "Dead slave",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6638,
+          "displayName": "Colour wheel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 46491,
+          "modelIds": [
+            3111
+          ],
+          "displayName": "Dead slave",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15343,
+          "displayName": "Notes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            531
+          ],
+          "displayName": "Choppable tree",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it like the others"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix the crystal tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 46510,
+          "modelIds": [
+            429
+          ],
+          "displayName": "Crystal tree",
+          "instance": true,
+          "atLocation": {
+            "x": 9.0,
+            "heightFine": 500.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            72
+          ],
+          "candidateObjectTypeIds": [
+            209,
+            210
+          ],
+          "displayName": "Blue light beam",
+          "instance": true,
+          "atLocation": {
+            "x": 7.0,
+            "heightFine": 600.0,
+            "y": 6.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The solution to this puzzle differs player to player. Refer to the wiki for an explanation on how to solve this. Sorry.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            684
+          ],
+          "displayName": "Ladder",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder to the south-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            684
+          ],
+          "displayName": "Ladder",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sharpshooter",
+      "text": "Follow the path while avoiding the spikes.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -11.0,
+          "heightFine": 0.0,
+          "y": 10.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Shoot the ballista to hit the target.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2181,
+          "modelIds": [
+            1128
+          ],
+          "displayName": "Ballista"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 51319,
+          "modelIds": [
+            2142
+          ],
+          "displayName": "Target"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "hit the target"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump to the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 17.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 400.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The passage to Prifddinas",
+      "text": "Go-through the large stone door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 46420,
+          "modelIds": [
+            2583
+          ],
+          "displayName": "Large stone door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the Elf messenger.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -12.0,
+          "heightFine": 100.0,
+          "y": -0.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 15344,
+          "displayName": "Report",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the report.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 15344,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Report"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Arianwyn in Lletya.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2352.0,
+          "heightFine": 2069.0,
+          "y": 3172.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10506,
+  "stageVarbitCompleteValue": 46,
+  "cacheQuestId": 167
+}

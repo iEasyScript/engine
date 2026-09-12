@@ -1,0 +1,396 @@
+{
+  "slug": "osseous-rex",
+  "name": "Osseous Rex",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1716854400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Learning about Osseous",
+      "text": "Talk to the \u0027Calm\u0027 Archaeologist at the rex skeleton in Anachronia base camp to begin the quest.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the teleportation device in the spirit grove.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the teleportation device.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east and talk to the \u0027Calm\u0027 Archaeologist.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding a teleportation crystal",
+      "text": "Go north-east towards the Matriarch lair entrance, and then through the archway to the north and follow the path anti-clockwise until you reach an Ancient Artefact (Inactive).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3880.0,
+          "heightFine": 9605.0,
+          "y": 9864.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129974,
+          "modelIds": [],
+          "displayName": "Ancient Artefact (Inactive)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 129975,
+          "modelIds": [],
+          "displayName": "Ancient Artefact (Active)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Backpack",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the area near the archaeologist and Pass Through the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3878.0,
+          "heightFine": 9581.0,
+          "y": 9847.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129971,
+          "modelIds": [],
+          "displayName": "Gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3878.0,
+          "heightFine": 9605.0,
+          "y": 9843.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south, then east, then north through the arch, and activate the second Ancient Artefact (Inactive).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3912.0,
+          "heightFine": 8645.0,
+          "y": 9841.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129974,
+          "modelIds": [],
+          "displayName": "Ancient Artefact (Inactive)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 129975,
+          "modelIds": [],
+          "displayName": "Ancient Artefact (Active)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south, looping around to the immediate west and Pass Through the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3895.0,
+          "heightFine": 6725.0,
+          "y": 9838.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129971,
+          "modelIds": [],
+          "displayName": "Gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3895.0,
+          "heightFine": 6725.0,
+          "y": 9841.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go east, following the path south and around anti-clockwise up a hill and pass through the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3937.0,
+          "heightFine": 6725.0,
+          "y": 9846.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129971,
+          "modelIds": [],
+          "displayName": "Gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3934.0,
+          "heightFine": 6725.0,
+          "y": 9846.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Uncover the soil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117924,
+          "modelIds": [],
+          "displayName": "Soil"
+        },
+        {
+          "t": "direction",
+          "x": 3934.0,
+          "heightFine": 6725.0,
+          "y": 9846.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 129977,
+          "modelIds": [],
+          "displayName": "Crystallised rubble"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Excavate the crystallised rubble for a teleportation crystal (damaged).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129977,
+          "modelIds": [],
+          "displayName": "Crystallised rubble"
+        },
+        {
+          "t": "direction",
+          "x": 3932.0,
+          "heightFine": 6725.0,
+          "y": 9846.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 56889,
+          "displayName": "Teleportation crystal (damaged)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Restore the teleportation crystal (damaged) at an archaeologist\u0027s workbench.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 56890,
+          "displayName": "Teleportation crystal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Teleportation crystal (damaged)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Orthenglass",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the \u0027Calm\u0027 Archaeologist in the Rex Matriarch lair with the restored teleportation crystal.\u003cul\u003e\u003cli\u003eHe will no longer be found in in the Anachronia base camp, you have to travel to the Rex Matriarch lair to speak with him.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3890.0,
+          "heightFine": 7735.0,
+          "y": 9855.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30960,
+          "modelIds": [],
+          "displayName": "\u0027Calm\u0027 Archaeologist"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 55491,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 512
+}

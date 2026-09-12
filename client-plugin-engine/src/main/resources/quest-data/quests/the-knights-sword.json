@@ -1,0 +1,704 @@
+{
+  "slug": "the-knights-sword",
+  "name": "The Knight's Sword",
+  "members": false,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 986515200,
+  "neededItems": [
+    {
+      "name": "Redberry pie",
+      "itemId": 2325,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Iron bar",
+      "itemId": 2351,
+      "quantity": 2,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 10,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 10,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 10,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Squire Asrol in Falador's White Knights' Castle courtyard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Redberry pie",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "falador squire"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Chat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And how is life as a squire?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can make a new sword if you like..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So would these dwarves make another one?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Squire Asrol.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "falador squire"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "be with Reldo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Last of Imcandoria",
+      "text": "Talk to Reldo in Varrock Palace's library about the Imcando dwarf tribe.<ul><li>If The Giant Dwarf quest is complete, skip this step.</li><li>If wielding ring of charos remove that, otherwise option does not appear.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3494.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3494.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you know about the Imcando dwarves?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "They REALLY like redberry pie."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thurgo south of Port Sarim (north of fairy ring AIQ) with a Redberry pie in the inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 604,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            27000
+          ],
+          "displayName": "Thurgo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Would you like some redberry pie?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Anyone who makes pie like THAT has got to be alright!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you make me a special sword?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll go and ask his squire and see if I can find one."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The portrait",
+      "text": "Talk to Squire Asrol.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "falador squire"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Chat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please don't let him catch you! He MUSTN'T know what happened!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder to the east, then the staircase behind Sir Renitee.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2994.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "range": 11
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "falador ground floor ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2993.0,
+          "heightFine": 3909.0,
+          "y": 3341.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            756
+          ],
+          "candidateObjectTypeIds": [
+            3250,
+            3261
+          ],
+          "displayName": "Falador staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the cupboard in Sir Vyvin's room for the portrait.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3336.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Sword portait",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The sword",
+      "text": "Give Thurgo the portrait.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 604,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            27000
+          ],
+          "displayName": "Thurgo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something else."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok. I'll go and find them then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor on the hill east of Thurgo's house to enter the Asgarnian Ice Dungeon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "asgarnian cave ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3009.0,
+          "heightFine": 973.0,
+          "y": 9550.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 4 blurite ore. One ore is needed for another quest, and one is needed for Falador medium diaries.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3048.0,
+          "heightFine": 1061.0,
+          "y": 9568.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3049.0,
+          "heightFine": 1181.0,
+          "y": 9566.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112896,
+          "modelIds": [
+            3252
+          ],
+          "displayName": "Blurite rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 668,
+          "displayName": "Blurite ore",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Thurgo with the materials.<ul><li>Bars can be withdrawn at the anvil in Thurgo's hut.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3001.0,
+          "heightFine": 549.0,
+          "y": 3145.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Blurite ore",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron bar",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 604,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            27000
+          ],
+          "displayName": "Thurgo"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2351,
+          "modelIds": [],
+          "displayName": "Iron bar"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 668,
+          "modelIds": [],
+          "displayName": "Blurite ore"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something else."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thurgo hands you a sword."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Report back to the Squire Asrol.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2973.0,
+          "heightFine": 2725.0,
+          "y": 3342.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Chat"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "falador squire"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2547,
+  "stageVarbitCompleteValue": 7,
+  "cacheQuestId": 261
+}

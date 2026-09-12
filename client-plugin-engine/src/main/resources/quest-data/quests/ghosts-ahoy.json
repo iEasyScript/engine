@@ -1,0 +1,1824 @@
+{
+  "slug": "ghosts-ahoy",
+  "name": "Ghosts Ahoy",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1108425600,
+  "neededItems": [
+    {
+      "name": "Nettle tea",
+      "itemId": 324,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Leather gloves",
+      "itemId": 1059,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ecto-tokens (check currency pouch)",
+      "itemId": -1,
+      "quantity": 20,
+      "duringQuest": false
+    },
+    {
+      "name": "Silk",
+      "itemId": 950,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Thread",
+      "itemId": 1734,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of milk",
+      "itemId": 1927,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bucket of slime",
+      "itemId": 570,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Spade",
+      "itemId": 952,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Oak shieldbow",
+      "itemId": 690,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Red dye",
+      "itemId": 1763,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Blue dye",
+      "itemId": 1767,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Yellow dye",
+      "itemId": 1765,
+      "quantity": 3,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Giant lobster",
+      "level": "42",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "The Restless Ghost"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 20,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Ghostly trouble",
+      "text": "Speak to Velorina, in the northernmost building just east of the entrance of Port Phasmatys.<ul><li>You must have the ghostspeak amulet equipped.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3677.0,
+          "heightFine": 1061.0,
+          "y": 3509.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1683,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Velorina",
+          "distance": 8
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would like to enter Port Phasmatys - here's 2 Ectotokens."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why, what is the matter?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I do. It is a very sad story."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ecto-token",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Velorina.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3677.0,
+          "heightFine": 1061.0,
+          "y": 3509.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1683,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Velorina",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "may yet be another way"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Necrovarus, at the Ectofuntus to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3659.0,
+          "heightFine": 581.0,
+          "y": 3517.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21929,
+            30200
+          ],
+          "displayName": "Necrovarus",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "regret your insolence"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get a bucket of slime.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3653.0,
+          "heightFine": 581.0,
+          "y": 3519.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3669.0,
+          "heightFine": 3065.0,
+          "y": 9888.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4286,
+          "displayName": "Bucket of slime",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3683.0,
+          "heightFine": 165.0,
+          "y": 9888.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4286,
+          "displayName": "Bucket of slime",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Velorina.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3677.0,
+          "heightFine": 1061.0,
+          "y": 3509.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1683,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Velorina",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would like to enter Port Phasmatys - here's 2 Ectotokens."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where this woman can be found?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "small wooden shack"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting help",
+      "text": "Teleport to Canifis lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3461.0,
+          "heightFine": 500.0,
+          "y": 3555.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3520.0,
+          "heightFine": 500.0,
+          "y": 3520.0,
+          "range": 32
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Leather gloves",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Nettle tea",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Silk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Thread",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick some nettles while wearing gloves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3524.0,
+          "heightFine": 485.0,
+          "y": 3511.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4241,
+          "displayName": "Nettles",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Nettle water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the nettles on the bowl of water to get nettle-water.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4241,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Nettles"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1921,
+          "modelIds": [],
+          "displayName": "Bowl of water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Nettle water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Boil the nettle-water on a fire or range.",
+      "warning": "Nettle-water and nettle tea models are the same. If you have nettle tea already, skip this step.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Nettle water"
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "water and make nettle tea."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Netty, in her house east of the Slayer Tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30398
+          ],
+          "displayName": "Netty",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You are doing so much for me - is there anything I can do for you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I left Port Phasmatys"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the nettle tea into the special cup.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 672,
+          "modelIds": [
+            552
+          ],
+          "displayName": "Special cup"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Nettle water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 712,
+          "displayName": "Cup of tea",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bucket of milk into the cup of tea.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1927,
+          "modelIds": [],
+          "displayName": "Bucket of milk"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 712,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Cup of tea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4243,
+          "displayName": "Cup of milky tea",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Netty.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30398
+          ],
+          "displayName": "Netty",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You are doing so much for me - is there anything I can do for you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will pass it on"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the model ship with the silk. Bring thread just in case.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4253,
+          "modelIds": [
+            474,
+            474
+          ],
+          "displayName": "Model ship"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 950,
+          "displayName": "Silk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The map",
+      "text": "Climb the ladder in the shipwreck east of the Canifis lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3613.45,
+          "heightFine": 505.0,
+          "y": 3543.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3614.0,
+          "heightFine": 965.0,
+          "y": 3543.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Red dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Yellow dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder to reach the top deck",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3615.45,
+          "heightFine": 1465.0,
+          "y": 3541.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3616.0,
+          "heightFine": 1925.0,
+          "y": 3541.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the mast. Read the chat box to determine which dye goes on which part of the flag.",
+      "warning": "This cannot be tracked. You have to read yourself.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            546
+          ],
+          "candidateNpcTypeIds": [
+            944,
+            4289,
+            7938,
+            7939
+          ],
+          "displayName": "Sail mast"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3615.45,
+          "heightFine": 1925.0,
+          "y": 3541.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3614.0,
+          "heightFine": 965.0,
+          "y": 3543.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the old man.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1696,
+          "modelIds": [
+            3939
+          ],
+          "displayName": "Old man"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is this your toy boat?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ship chest key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the key on the chest by the Captain and open it for a map scrap.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Ship chest key"
+        },
+        {
+          "t": "direction",
+          "x": 3619.0,
+          "heightFine": 1365.0,
+          "y": 3544.8,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map scrap1",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3613.45,
+          "heightFine": 965.0,
+          "y": 3543.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3612.0,
+          "heightFine": 5.0,
+          "y": 3543.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open a chest in the eastern end of the ship.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3618.0,
+          "heightFine": 5.0,
+          "y": 3542.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2292
+          ],
+          "candidateObjectTypeIds": [
+            110012,
+            110013,
+            110025,
+            110027,
+            110029,
+            110031,
+            110033,
+            110035,
+            110037,
+            110038,
+            110039
+          ],
+          "displayName": "Giant enemy lobster"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the giant lobster that spawns.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2292
+          ],
+          "candidateObjectTypeIds": [
+            110012,
+            110013,
+            110025,
+            110027,
+            110029,
+            110031,
+            110033,
+            110035,
+            110037,
+            110038,
+            110039
+          ],
+          "displayName": "Giant enemy lobster"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2292
+          ],
+          "candidateObjectTypeIds": [
+            110012,
+            110013,
+            110025,
+            110027,
+            110029,
+            110031,
+            110033,
+            110035,
+            110037,
+            110038,
+            110039
+          ],
+          "displayName": "Giant enemy lobster"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest again for a map scrap.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            858
+          ],
+          "displayName": "Lobster chest open"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Lobster chest closed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map scrap2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3613.45,
+          "heightFine": 505.0,
+          "y": 3543.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3614.0,
+          "heightFine": 965.0,
+          "y": 3543.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the gangplank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3605.0,
+          "heightFine": 1100.0,
+          "y": 3546.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3605.0,
+          "heightFine": 600.0,
+          "y": 3548.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump across the rocks until you find a chest. Open it for another map scrap.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3605.0,
+              "heightFine": 965.0,
+              "y": 3550.0
+            },
+            {
+              "x": 3601.0,
+              "heightFine": 965.0,
+              "y": 3550.0
+            },
+            {
+              "x": 3601.0,
+              "heightFine": 965.0,
+              "y": 3552.0
+            },
+            {
+              "x": 3595.0,
+              "heightFine": 965.0,
+              "y": 3552.0
+            },
+            {
+              "x": 3595.0,
+              "heightFine": 965.0,
+              "y": 3557.0
+            },
+            {
+              "x": 3597.0,
+              "heightFine": 965.0,
+              "y": 3557.0
+            },
+            {
+              "x": 3597.0,
+              "heightFine": 965.0,
+              "y": 3564.0
+            },
+            {
+              "x": 3605.0,
+              "heightFine": 965.0,
+              "y": 3564.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map scrap3",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Put the pieces together to get the map.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            294
+          ],
+          "displayName": "Map scrap1"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Map scrap2"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Map scrap3"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4277,
+          "displayName": "Treasure map",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dragontooth Island",
+      "text": "Travel with the ghost captain back in to Port Phasmatys.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3703.0,
+          "heightFine": 325.0,
+          "y": 3487.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1704,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            1705
+          ],
+          "displayName": "Ghost captain",
+          "distance": 16,
+          "atLocation": {
+            "x": 3703.0,
+            "heightFine": 325.0,
+            "y": 3487.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would like to enter Port Phasmatys - here's 2 Ectotokens."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Please take me to Dragontooth Island."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3794.0,
+          "heightFine": 477.0,
+          "y": 3559.0,
+          "range": 10
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4248,
+          "displayName": "Book of haricanto",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Spade",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Treasure map",
+          "itemId": 591,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig at the marked location.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3803.0,
+          "heightFine": 901.0,
+          "y": 3530.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 952,
+          "modelIds": [],
+          "displayName": "Spade"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4248,
+          "displayName": "Book of haricanto",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Port Phasmatys.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3792.0,
+          "heightFine": 261.0,
+          "y": 3560.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1704,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            1705
+          ],
+          "displayName": "Ghost captain",
+          "distance": 14
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3702.0,
+          "heightFine": 325.0,
+          "y": 3487.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Translation",
+      "text": "Talk to Ak-Haranu.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Ak haranu"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, wait here - I'll get you your bow."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get you your bow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Oak shieldbow",
+          "itemId": 690,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Win 4 games of Rune-Draw against Robin.<ul><li>Just click draw until a player draws a death rune.</li><li>Close the interface to continue dialogue.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 44538,
+          "modelIds": [
+            13356
+          ],
+          "displayName": "Robin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll give you a game."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "signs the oak shieldbow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Ak-Haranu to get the translation manual.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Ak haranu"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4249,
+          "displayName": "Translation manual",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Revolution",
+      "text": "Talk to the ghost innkeeper.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2964
+          ],
+          "candidateObjectTypeIds": [
+            62758,
+            62759
+          ],
+          "displayName": "Ghost inkeeper",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any jobs I can do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'd be delighted."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4284,
+          "displayName": "Bedsheet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bucket of slime on the bedsheet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4284,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Bedsheet"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4286,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Bucket of slime"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ghost sheet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear the bedsheet and speak to Gravingas west of the inn to get a petition form.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1685,
+          "modelIds": [
+            3618
+          ],
+          "displayName": "Gravingas"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Ghost sheet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "After hearing Velorina's story I will be happy to help out."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Petition",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ask the ghost villager for signatures until you have 10.<ul><li>You can get multiple signatures from the same ghost if you ask another ghost first.</li><li>Some will resist. Just ask others.</li><li>If a ghost ask for ecto-tokens, simply leave the conversation and ask the same ghost again.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1697,
+          "modelIds": [
+            2964
+          ],
+          "displayName": "Ghost villager",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "obtaining 10 signatures"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Necrovarus at the Ectofuntus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21929,
+            30200
+          ],
+          "displayName": "Necrovarus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 605,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Bone key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the bone key he drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 605,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Bone key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 605,
+          "displayName": "Bone key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3666.5,
+          "heightFine": 981.0,
+          "y": 3518.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3666.0,
+          "heightFine": 2021.0,
+          "y": 3522.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the key on the locked door and enter.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3655.5,
+          "heightFine": 2621.0,
+          "y": 3514.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 605,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Bone key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3657.0,
+          "heightFine": 2021.0,
+          "y": 3513.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the coffin for Necrovarus' mystical robes.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3659.25,
+          "heightFine": 2421.0,
+          "y": 3513.7,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Robes of necro",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Netty, in her shack east of the Slayer Tower.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3462.0,
+          "heightFine": 813.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1695,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30398
+          ],
+          "displayName": "Netty",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "emits a green glow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Book of Haricanto",
+          "itemId": 255,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Translation Manual",
+          "itemId": 204,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Robes of Necrovarus",
+          "itemId": 432,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Necrovarus with the enchanted ghostspeak amulet equipped.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3659.0,
+          "heightFine": 581.0,
+          "y": 3517.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1684,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21929,
+            30200
+          ],
+          "displayName": "Necrovarus",
+          "distance": 12
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Enchanted ghostspeak"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let any ghost who so wishes pass on into the next world."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pass into the next world"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Velorina.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3677.0,
+          "heightFine": 1061.0,
+          "y": 3509.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1683,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Velorina",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13497,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 82
+}

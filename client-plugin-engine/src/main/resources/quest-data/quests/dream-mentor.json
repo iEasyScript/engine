@@ -1,0 +1,658 @@
+{
+  "slug": "dream-mentor",
+  "name": "Dream Mentor",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "legendary",
+  "releaseDate": 1179187200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "A helping hand",
+      "text": "Enter the mine in the north-east area of Lunar Isle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2140.0,
+          "heightFine": 3141.0,
+          "y": 3944.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 36306,
+          "modelIds": [],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2329.0,
+          "heightFine": 3101.0,
+          "y": 10353.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crawl-through the cave entrance (quest minimap icon).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11399,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the fallen man (close the interface when it appears).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 435,
+          "modelIds": [],
+          "displayName": "Fallen Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Starting with one of your 7 item foods, feed him 4 food while cycling through your different foods.\u003cul\u003e\u003cli\u003eStarting with a food item of which you brought 7 items will ensure you do not run out of variety.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 435,
+          "modelIds": [],
+          "displayName": "Use Foods"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "opens his eyes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Just don\u0027t worry."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 436,
+          "modelIds": [],
+          "displayName": "Fallen Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I feel a bit better now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Feed him 4 more food as before.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 436,
+          "modelIds": [],
+          "displayName": "Feed 4 more food"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "manual"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Raising his spirit",
+      "text": "Talk to repeatedly to raise his spirits:\u003cul\u003e\u003cli\u003eOf the four chat options, choose the one that appears on the table below.\u003c/li\u003e\u003cli\u003eSelect the response according to the table.\u003c/li\u003e\u003cli\u003eRepeat until a short cutscene plays and he sits up.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You seem like a nice guy."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Just being honest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "When we get out of here I\u0027ll buy you a drink!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Whatever and wherever you want - my treat."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m very impressed you managed to get into this cave."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I would have given up personally."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You\u0027ll survive this easily."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Think of all the places you can visit when you get out!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you going to do when you get out of here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That\u0027s up to you. You could travel with me!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It\u0027s a good thing you have me to look after you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Not that I\u0027m bragging or anything."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Not long now and you\u0027ll be back on your feet!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "On whether you mind me helping you further."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You\u0027re sounding much better."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you need anything, just let me know."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It\u0027s quite cosy in here."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The perfect environment for getting back on your feet!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You\u0027re very safe in this little cave."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The suqah will never fit through that tunnel."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Just don\u0027t worry."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You\u0027re looking better now."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, you look and sound more lively."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you looking forward to getting out?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That\u0027s the spirit!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me a bit about yourself."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fishing!"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 436,
+          "modelIds": [],
+          "displayName": "Fallen Man"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5893,
+          "modelIds": [],
+          "displayName": "Cyrisus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I remember, I was on the island"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "conversationText",
+          "text": "what were you doing on this island?"
+        }
+      ],
+      "jumpOffset": 2,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Feed him 6 more food.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5893,
+          "modelIds": [],
+          "displayName": "Feed 6 more food"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "manual"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "chatText",
+          "text": "You don\u0027t need to improve"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave and climb up the ladder.\u003cul\u003e\u003cli\u003eOr just use the Lunar Isle lodestone\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11399,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2100.0,
+          "heightFine": 2885.0,
+          "y": 3914.0,
+          "range": 24
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to \u0027Bird\u0027s-Eye\u0027 Jack in the bank.  You will need 1 free inventory space for Cyrisus\u0027s chest.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Cyrisus in the mine"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5898,
+          "modelIds": [],
+          "displayName": "\u0027Bird\u0027s-Eye\u0027 Jack"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 11158,
+          "displayName": "Cyrisus\u0027s chest",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Select the equipment he needs. The equipment is usually, but not always, dependent on your highest combat stats (Magic, Ranged, Melee):\u003cul\u003e\u003cli\u003eMelee: Dragon helm, Abyssal whip, Ahrim\u0027s robe top, Ahrim\u0027s robe skirt, Ranger boots\u003c/li\u003e\u003cli\u003eRanged: Splitbark Helm, Karil\u0027s top, Torag\u0027s platelegs, Adamant boots, Magic shortbow\u003c/li\u003e\u003cli\u003eMagic: Robin Hood hat, Dragon Chainbody, Black dragonhide chaps, Infinity boots, Ancient staff\u003c/li\u003e\u003c/ul\u003e\n\nUse NPC Contact to see if you have the right equipment.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027m glad you know what you want"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return and talk to Cyrisus for a cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Armament"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 36306,
+          "modelIds": [],
+          "displayName": "Ladder"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11399,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click \u0027inspect\u0027 and fill the remaining stats until he tells you that he is ok (if not already).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dream potion",
+      "text": "Talk to the Oneiromancer at the astral altar (most south-eastern part of the Lunar Isle) for a dream vial (herb).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Cyrisus"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16640,
+          "modelIds": [],
+          "displayName": "Ladder"
+        },
+        {
+          "t": "direction",
+          "x": 2151.0,
+          "heightFine": 205.0,
+          "y": 3867.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4511,
+          "modelIds": [],
+          "displayName": "Oneiromancer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 11153,
+          "displayName": "Dream vial (herb)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Change your spellbook as necessary if you wish to use magic in the final fight.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an astral rune on an anvil (there\u0027s one on Lunar Isle in a small building to the south), then grind the shards. Add it to the potion.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113258,
+          "modelIds": [],
+          "displayName": "Anvil"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 11156,
+          "modelIds": [],
+          "displayName": "Astral rune shards"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 11154,
+          "displayName": "Dream potion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dreamland",
+      "text": "Light the Ceremonial Brazier in the long hall building, near the lodestone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38438,
+          "modelIds": [],
+          "displayName": "Unlit beacon"
+        },
+        {
+          "t": "direction",
+          "x": 2075.0,
+          "heightFine": 2885.0,
+          "y": 3912.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 38439,
+          "modelIds": [],
+          "displayName": "Beacon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Cyrisus (dismiss any followers before).\u003cul\u003e\u003cli\u003eDo not click away of the chat or you will be teleported out\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, let\u0027s go!"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5897,
+          "modelIds": [],
+          "displayName": "Cyrisus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "During the fight, you can leave at any time by using the pedestal.\u003cul\u003e\u003cli\u003eKill The Inadequacy\u003c/li\u003e\u003cli\u003eKill The Everlasting (can safespot by the pedestal)\u003c/li\u003e\u003cli\u003eKill The Untouchable (can safespot by the pedestal)\u003c/li\u003e\u003cli\u003eKill The Illusive\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Oneiromancer.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Cyrisus"
+        },
+        {
+          "t": "direction",
+          "x": 2151.0,
+          "heightFine": 157.0,
+          "y": 3868.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4511,
+          "modelIds": [],
+          "displayName": "Oneiromancer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9530,
+  "stageVarbitCompleteValue": 28,
+  "cacheQuestId": 79
+}

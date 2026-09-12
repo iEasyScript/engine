@@ -1,0 +1,324 @@
+{
+  "slug": "tears-of-guthix",
+  "name": "Tears of Guthix",
+  "members": true,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1115186400,
+  "neededItems": [
+    {
+      "name": "Bullseye lantern",
+      "itemId": 366,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Cut sapphire",
+      "itemId": 1607,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Get to Juna somehow.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 31302,
+          "modelIds": [
+            5943
+          ],
+          "candidateObjectTypeIds": [
+            6207
+          ],
+          "displayName": "Juna",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3251.0,
+          "heightFine": 1885.0,
+          "y": 9517.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bullseye lantern",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cut sapphire",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Juna, inside the cave under Lumbridge Swamp.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2023,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16709,
+            16930,
+            16963,
+            25553,
+            26306,
+            27694,
+            29135
+          ],
+          "displayName": "Juna"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a cut sapphire on an oil filled bullseye lantern.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1607,
+          "modelIds": [
+            114
+          ],
+          "displayName": "Sapphire"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4544,
+          "modelIds": [
+            366,
+            66
+          ],
+          "displayName": "Bullseye lantern"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4702,
+          "modelIds": [
+            384,
+            204
+          ],
+          "displayName": "Sapphire lantern"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4702,
+          "displayName": "Sapphire lantern",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Bowl of Stone",
+      "text": "Travel across cavern on a light creature.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4702,
+          "modelIds": [],
+          "displayName": "Sapphire lantern"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2021,
+          "modelIds": [],
+          "displayName": "Light creature"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3226.0,
+          "heightFine": 2685.0,
+          "y": 9502.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine one of the rocks.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 6671,
+          "modelIds": [
+            1272
+          ],
+          "displayName": "Rocks"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4703,
+          "displayName": "Magic stone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft the magic stone into a Stone bowl.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4703,
+          "modelIds": [
+            264
+          ],
+          "displayName": "Magic stone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4704,
+          "displayName": "Stone bowl",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump the cliff to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3238.0,
+          "heightFine": 2693.0,
+          "y": 9499.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 78477,
+          "modelIds": [],
+          "displayName": "Cliff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3243.0,
+          "heightFine": 1821.0,
+          "y": 9498.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Juna.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2023,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16709,
+            16930,
+            16963,
+            25553,
+            26306,
+            27694,
+            29135
+          ],
+          "displayName": "Juna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 4909,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 81
+}

@@ -1,0 +1,328 @@
+{
+  "slug": "dorics-task-viii-miniquest",
+  "name": "Doric's Task VIII (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "legendary",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Necronium bars (in metal bank)",
+      "itemId": -1,
+      "quantity": 20,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task VII (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 70,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 70,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "The mysterious client",
+      "text": "Talk to Doric in his hut north of Falador.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Necronium bars (in metal bank)",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Doric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm sure it will be fine."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25346,
+          "displayName": "Weapons crate",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith 5 necronium 2h greataxes at any anvil.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Necronium2 h",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Left-click add items to the weapons crate.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 25346,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Weapons crate"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Necronium2 h"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the tree stump south of the Falador gem store.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2944.0,
+          "heightFine": 925.0,
+          "y": 3328.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 1341,
+          "modelIds": [
+            753
+          ],
+          "displayName": "Tree stump"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1341,
+          "modelIds": [
+            753
+          ],
+          "displayName": "Tree stump"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 1341,
+          "modelIds": [
+            753
+          ],
+          "displayName": "Tree stump"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the tree stump again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1623
+          ],
+          "candidateObjectTypeIds": [
+            1193,
+            3902,
+            3904,
+            3906
+          ],
+          "displayName": "Tree stump with crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10019,
+  "stageVarbitCompleteValue": 4,
+  "cacheQuestId": 428
+}

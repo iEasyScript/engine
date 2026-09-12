@@ -1,0 +1,2969 @@
+{
+  "slug": "the-death-of-chivalry",
+  "name": "The Death of Chivalry",
+  "members": false,
+  "length": "long",
+  "timeline": "worldguardian",
+  "releaseDate": 1376352000,
+  "neededItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Black knights",
+      "level": "Scaled",
+      "quantity": 5
+    },
+    {
+      "name": "Fern",
+      "level": "Scaled",
+      "quantity": 1
+    },
+    {
+      "name": "Dawn",
+      "level": "Scaled",
+      "quantity": 1
+    },
+    {
+      "name": "Skeletons",
+      "level": "Scaled",
+      "quantity": 1
+    },
+    {
+      "name": "Sir Owen",
+      "level": "Scaled",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Meeting Saradomin",
+      "text": "Speak to Sir Owen in the garden north of the Edgeville Monastery.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3051.0,
+          "heightFine": 1605.0,
+          "y": 3502.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 28911,
+          "modelIds": [
+            3729
+          ],
+          "displayName": "Sir Owen",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The who with the what now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I guess I have one of those faces."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Saradomin must have had a good reason..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Mighty Saradomin!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Saradomin after the cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3051.0,
+          "heightFine": 1605.0,
+          "y": 3503.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Kneel before Saradomin.)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the suit of armour just south-west of you.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8085,
+          "modelIds": [
+            5160
+          ],
+          "displayName": "Suit of armour"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Captains curiass",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the armor.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Captains helm"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1341,
+            36
+          ],
+          "displayName": "Captains curiass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            900,
+            12
+          ],
+          "displayName": "Captains gown"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            708
+          ],
+          "displayName": "Captains gauntlets"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Captains boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Captains helm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Captains helm"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1341,
+            36
+          ],
+          "displayName": "Captains curiass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            900,
+            12
+          ],
+          "displayName": "Captains gown"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            708
+          ],
+          "displayName": "Captains gauntlets"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Captains boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Captains curiass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Captains helm"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1341,
+            36
+          ],
+          "displayName": "Captains curiass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            900,
+            12
+          ],
+          "displayName": "Captains gown"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            708
+          ],
+          "displayName": "Captains gauntlets"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Captains boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Captains gown"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Captains helm"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1341,
+            36
+          ],
+          "displayName": "Captains curiass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            900,
+            12
+          ],
+          "displayName": "Captains gown"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            708
+          ],
+          "displayName": "Captains gauntlets"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Captains boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Captains gauntlets"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Captains helm"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1341,
+            36
+          ],
+          "displayName": "Captains curiass"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            900,
+            12
+          ],
+          "displayName": "Captains gown"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            708
+          ],
+          "displayName": "Captains gauntlets"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Captains boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Captains boots"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Saradomin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3051.0,
+          "heightFine": 1605.0,
+          "y": 3503.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, teleport us to the Black Knights' Fortress."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "recover the weapon at any cost"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Infiltrating the fortress",
+      "text": "Open the Portcullis.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3023.0,
+          "heightFine": 2725.0,
+          "y": 3538.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Captain Dulcin!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fortress guard:<ul><li>Dismiss pets & familiars before proceeding.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Who?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He is my prisoner."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I have something... special planned for him."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now let's find a way up to the next level."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lieutenant York to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3023.0,
+          "heightFine": 2760.0,
+          "y": 3557.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9041,
+          "modelIds": [
+            5463
+          ],
+          "displayName": "Lieutenant York",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you suggesting I cannot handle a mere knight of Saradomin?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please continue, Captain Dulcin."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up staircase to the north-west. The fortress guard will stop you.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3003.0,
+          "heightFine": 3345.0,
+          "y": 3577.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18036,
+          "modelIds": [
+            6756
+          ],
+          "displayName": "Fortress guard"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you want, maggot?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "This prisoner is to be sacrificed."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3003.0,
+          "heightFine": 3345.0,
+          "y": 3577.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3004.0,
+          "heightFine": 4921.0,
+          "y": 3576.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the 1st floor (2nd floor[US]) to the south, talk to Hierophant Marius.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3023.0,
+          "heightFine": 4901.0,
+          "y": 3547.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18043,
+          "modelIds": [
+            4812
+          ],
+          "displayName": "Hierophant Marius",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I shall return after I deal with this Temple Knight."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "may proceed up the south-east stairs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up staircase. The fortress guard will stop you.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3031.0,
+          "heightFine": 5521.0,
+          "y": 3540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6408
+          ],
+          "candidateObjectTypeIds": [
+            6564
+          ],
+          "displayName": "Fortress guard2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am bringing him to the tallest tower."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We need him to recover the weapon of power, as you know."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Strength through chaos."
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 3030.0,
+          "heightFine": 7077.0,
+          "y": 3541.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3031.0,
+          "heightFine": 5521.0,
+          "y": 3540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3030.0,
+          "heightFine": 7077.0,
+          "y": 3541.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lieutenant Graves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3023.0,
+          "heightFine": 7712.0,
+          "y": 3553.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18047,
+          "modelIds": [
+            6330
+          ],
+          "displayName": "Lieutenant Graves",
+          "distance": 8,
+          "atLocation": {
+            "x": 3023.0,
+            "heightFine": 7112.0,
+            "y": 3552.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Stand aside. I will handle this."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The prisoner stays with me."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks for the distraction"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the Lieutenant's body.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 18047,
+          "modelIds": [
+            6330
+          ],
+          "displayName": "Lieutenant Graves",
+          "distance": 8,
+          "atLocation": {
+            "x": 3023.0,
+            "heightFine": 7112.0,
+            "y": 3552.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "As you wish"
+        },
+        {
+          "t": "conversationText",
+          "text": "feel a thing"
+        },
+        {
+          "t": "conversationText",
+          "text": "investigate the attic"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The ritual",
+      "text": "Climb the stairs to the north-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3031.5,
+          "heightFine": 7677.0,
+          "y": 3577.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3031.0,
+          "heightFine": 9273.0,
+          "y": 3576.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the dialogue. Search the wardrobe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3026.0,
+          "heightFine": 9853.0,
+          "y": 3574.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Letter from daquarius",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the box of candles.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3027.0,
+          "heightFine": 9273.0,
+          "y": 3571.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 28920,
+          "displayName": "Red candle",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the shelf.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3025.7,
+          "heightFine": 9753.0,
+          "y": 3576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 28921,
+          "displayName": "Chalk",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the Grimoire and read it.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1005
+          ],
+          "candidateObjectTypeIds": [
+            979,
+            4325,
+            58456
+          ],
+          "displayName": "Grimoire stand"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pick up the grimoire."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pick-up the grimoire."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 28919,
+          "displayName": "Grimoire",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the Grimoire.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 28919,
+          "modelIds": [
+            318,
+            6
+          ],
+          "displayName": "Grimoire"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fix each candle stand.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 28920,
+          "modelIds": [
+            192
+          ],
+          "displayName": "Red candle"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 22125,
+          "modelIds": [
+            1872
+          ],
+          "displayName": "Candle stand",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 28920,
+          "displayName": "Red candle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the candles.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1602
+          ],
+          "candidateObjectTypeIds": [
+            1228
+          ],
+          "displayName": "Candle stand with candle",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1602
+          ],
+          "candidateObjectTypeIds": [
+            1228
+          ],
+          "displayName": "Candle stand with candle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the Ritual circle.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 28921,
+          "modelIds": [
+            42
+          ],
+          "displayName": "Chalk"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1029
+          ],
+          "candidateObjectTypeIds": [
+            950
+          ],
+          "displayName": "Chalk circle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Use the chalk to repair the magic circle."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1161
+          ],
+          "candidateObjectTypeIds": [
+            1100,
+            4656,
+            27315,
+            41461,
+            41483
+          ],
+          "displayName": "Repaired circle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chant over the north-west candle.<ul><li>Arom</li><li>Nahrea</li><li>Imperium</li></ul>",
+      "warning": "Make sure you choose the correct order.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3032.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Arom."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nahrea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Imperium."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Arom"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3032.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Arom."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nahrea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Imperium."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nahrea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3032.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Arom."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nahrea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Imperium."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Imperium"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chant over the north-east candle.<ul><li>Feritas</li><li>Silenti</li><li>Sepulchrum</li></ul>",
+      "warning": "Make sure you choose the correct order.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Feritas."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Silenti."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sepulchrum."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Feritas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Feritas."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Silenti."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sepulchrum."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Silenti"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3581.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Feritas."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Silenti."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sepulchrum."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Sepulchrum"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chant over the south-east candle.<ul><li>Igasac</li><li>Perdimit</li><li>Ebulam</li></ul>",
+      "warning": "Make sure you choose the correct order.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3578.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Igasac."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perdimit."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ebulam."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Igasac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3578.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Igasac."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perdimit."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ebulam."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Perdimit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1590
+          ],
+          "candidateObjectTypeIds": [
+            1155,
+            10502
+          ],
+          "displayName": "Lit candle stand",
+          "atLocation": {
+            "x": 3035.0,
+            "heightFine": 10213.0,
+            "y": 3578.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Igasac."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Perdimit."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ebulam."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ebulam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the portal.<ul><li>You must remove the suit of armour that was equipped at the beginning of the quest.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3033.5,
+          "heightFine": 10813.0,
+          "y": 3579.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, enter the portal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Saradominist crypt",
+      "text": "Defeat the three Black Knights.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 178,
+          "modelIds": [
+            6459,
+            5463
+          ],
+          "displayName": "Black Knight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bodies.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 178,
+          "modelIds": [
+            6459,
+            5463
+          ],
+          "displayName": "Black Knight",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Small metal key",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "You recover a small metal key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the hanging cage.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dawn and learn all she knows.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where are we?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There's snow at the surface entrance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who's Saint Elspeth?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We devote our time to music"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How did the Kinshra capture you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you hadn't arrived when you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm right here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 30062,
+          "modelIds": [
+            6873
+          ],
+          "displayName": "Dawn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's take her with us."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "investigate the tomb"
+        },
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the doorway to the east.<ul><li>Optional: Search the supply crate south of the portal first.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1577,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Doorway",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 105480,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Pile of bones"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 86775,
+          "modelIds": [
+            5556
+          ],
+          "displayName": "Looted coffin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the looted coffin.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 86775,
+          "modelIds": [
+            5556
+          ],
+          "displayName": "Looted coffin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the portcullis to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            23361
+          ],
+          "candidateObjectTypeIds": [
+            22679
+          ],
+          "displayName": "Graveyard portcullis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8622
+          ],
+          "displayName": "Graveyard portcullis open"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8622
+          ],
+          "displayName": "Graveyard portcullis open"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 178,
+          "modelIds": [
+            6459,
+            5463
+          ],
+          "displayName": "Black Knight"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fern",
+      "text": "Talk to Fern.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -1682.0,
+          "y": -19.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 8182,
+          "modelIds": [
+            1659
+          ],
+          "displayName": "Fern",
+          "animated": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8182,
+          "modelIds": [
+            1659
+          ],
+          "displayName": "Fern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am ready to be judged."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I must ensure you have the strength"
+        },
+        {
+          "t": "conversationText",
+          "text": "You must kill me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8182,
+          "modelIds": [
+            1659
+          ],
+          "displayName": "Fern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I fight to protect the innocent."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You must kill me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8182,
+          "modelIds": [
+            1659
+          ],
+          "displayName": "Fern"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Fern.<ul><li>Dodge her charge attack.</li><li>Optional: Loot the dead black knights for some coins.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "grieves me to have"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Wand of Resurrection",
+      "text": "Click on the wand.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -3540.0,
+          "y": -46.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            591
+          ],
+          "candidateObjectTypeIds": [
+            1905,
+            4635,
+            53818
+          ],
+          "displayName": "Wand barrier",
+          "instance": true,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "disable the protective wards"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Matching two tiles at a time to solve the puzzle.<ul><li>There's an image on the wiki you can refer to. This will be tracked in a later version.</li></ul>",
+      "warning": "Tracking is based on position. It won't be accurate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            276
+          ],
+          "candidateNpcTypeIds": [
+            344,
+            345,
+            346,
+            379,
+            714,
+            845,
+            846,
+            957,
+            2335,
+            2683,
+            22702,
+            30846,
+            31190,
+            31220
+          ],
+          "displayName": "Bunny tile",
+          "instance": true,
+          "atLocation": {
+            "x": 1.0,
+            "heightFine": -3540.0,
+            "y": -42.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            276
+          ],
+          "candidateNpcTypeIds": [
+            344,
+            345,
+            346,
+            379,
+            714,
+            845,
+            846,
+            957,
+            2335,
+            2683,
+            22702,
+            30846,
+            31190,
+            31220
+          ],
+          "displayName": "Bunny tile2",
+          "instance": true,
+          "atLocation": {
+            "x": 2.0,
+            "heightFine": -3540.0,
+            "y": -47.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -46.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3.0,
+          "heightFine": -3540.0,
+          "y": -46.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": -3540.0,
+          "y": -48.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": -3540.0,
+          "y": -48.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -42.0,
+          "range": 0,
+          "instance": true
+        },
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -44.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": -3540.0,
+          "y": -44.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "range": 0,
+          "instance": true
+        },
+        {
+          "t": "distanceTo",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -48.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": -3540.0,
+          "y": -47.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": -3540.0,
+          "y": -48.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -42.0,
+          "range": 0,
+          "instance": true
+        },
+        {
+          "t": "distanceTo",
+          "x": 3.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -44.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3.0,
+          "heightFine": -3540.0,
+          "y": -44.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -45.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": -3540.0,
+          "y": -45.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -3540.0,
+          "y": -46.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": -3540.0,
+          "y": -46.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": -3540.0,
+          "y": -42.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": -3540.0,
+          "y": -43.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": -3540.0,
+          "y": -42.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": -3540.0,
+          "y": -45.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to take the wand.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            543
+          ],
+          "displayName": "Wand barrier2",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I shall sacrifice my own blood."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Dawn!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Fighting for the wand",
+      "text": "Talk to Dawn to the north.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 1658.0,
+          "y": 23.0,
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7509
+          ],
+          "displayName": "Dawn armour",
+          "instance": true,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Give me the wand or you won't live to regret it."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Continue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now you die."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat the Black Knights and Sir Owen.",
+      "warning": "There's no tracking for this step.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Zombiedefeated(3/3)."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north and open the portcullis.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8562
+          ],
+          "displayName": "Wand chamber portcullis",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8622
+          ],
+          "displayName": "Wand chamber portcullis open",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8622
+          ],
+          "displayName": "Wand chamber portcullis open",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7509
+          ],
+          "displayName": "Dawn armour",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Dawn.<ul><li>Refer to the wiki guide if you're having trouble.</li></ul>",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7509
+          ],
+          "displayName": "Dawn armour",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "how well you fare"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Dawn's body.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7509
+          ],
+          "displayName": "Dawn armour",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Wand of res",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Saradomin and the wand",
+      "text": "Enter the Portcullis to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8622
+          ],
+          "displayName": "Graveyard portcullis open",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 178,
+          "modelIds": [
+            6459,
+            5463
+          ],
+          "displayName": "Black Knight"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with Saradomin.<ul><li>Optional: When asked to be teleported back to Edgeville, it is recommended to stay in the tombs to claim the extra post-quest rewards which require level 40 Strength and two other coffins requiring level 60 and 80 Strength.</li></ul>",
+      "actions": [
+        {
+          "t": "resetInstance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 44183,
+          "modelIds": [
+            17868
+          ],
+          "displayName": "Saradomin",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've made my decision."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I will give you the wand."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Were we too late?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I stand by you, Saradomin."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why would you help us?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 19966,
+  "stageVarbitCompleteValue": 170,
+  "cacheQuestId": 363
+}

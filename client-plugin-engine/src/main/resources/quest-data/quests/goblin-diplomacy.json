@@ -1,0 +1,424 @@
+{
+  "slug": "goblin-diplomacy",
+  "name": "Goblin Diplomacy",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 989280000,
+  "neededItems": [
+    {
+      "name": "Red dye",
+      "itemId": 1763,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Yellow dye",
+      "itemId": 1765,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Blue dye",
+      "itemId": 1767,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Goblin mail",
+      "itemId": 132,
+      "quantity": 3,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Teleport to Falador and run north along the road to the Goblin Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2957.0,
+          "heightFine": 645.0,
+          "y": 3511.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2957.0,
+          "heightFine": 645.0,
+          "y": 3509.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to General Bentnoze or General Wartface, both of whom are located in the hut.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Bentnoze"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So how is life for the goblins?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Wouldn't you prefer peace?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you want me to pick an armour colour for you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What about a different colour?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab three goblin mail from the following crates:<ul><li>Behind the generals' hut.</li><li>Behind the western hut.</li><li>Up a ladder in the middle of the gate entrance of the camp.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 845.0,
+          "y": 3517.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2955.0,
+          "heightFine": 2285.0,
+          "y": 3497.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2949.0,
+          "heightFine": 845.0,
+          "y": 3507.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            1041
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Any mail",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Dye one goblin mail blue",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1767,
+          "modelIds": [],
+          "displayName": "Blue dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 288,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Goblin mail"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 287,
+          "displayName": "Blue goblin mail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Red dye",
+          "itemId": 1763,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Yellow dye",
+          "itemId": 1765,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue dye",
+          "itemId": 1767,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Goblin mail",
+          "itemId": 132,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dye one goblin mail orange (first combine red and yellow dye)",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1763,
+          "modelIds": [],
+          "displayName": "Red dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1765,
+          "modelIds": [],
+          "displayName": "Yellow dye"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1769,
+          "displayName": "Orange dye",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 286,
+          "displayName": "Orange goblin mail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1769,
+          "modelIds": [],
+          "displayName": "Orange dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 288,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Goblin mail"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 286,
+          "displayName": "Orange goblin mail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the orange goblin mail on one of the generals.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 286,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Orange goblin mail"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Bentnoze"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Grubfoot!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Human! Get us blue armour!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, use the blue goblin mail on one of them.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 287,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Blue goblin mail"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Bentnoze"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Grubfoot!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Human! Get us brown armour!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a normal goblin mail on one of them.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 288,
+          "modelIds": [
+            132
+          ],
+          "displayName": "Goblin mail"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Bentnoze"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Grubfoot!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9363,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 137
+}

@@ -1,0 +1,479 @@
+{
+  "slug": "elemental-workshop-iii",
+  "name": "Elemental Workshop III",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "champion",
+  "releaseDate": 1274745600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Search the north-east bookcase in the Seers\u0027 Village church.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Soft clay",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the ragged book.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18685,
+          "modelIds": [],
+          "displayName": "Ragged book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 960
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use soft clay on the book to get the key mould. If you do not have soft clay, you can mine some from the clay rocks in the western mine of the workshop then use it on the sink in the northern room.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1761,
+          "modelIds": [],
+          "displayName": "Soft clay"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18685,
+          "modelIds": [],
+          "displayName": "Ragged book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18686,
+          "displayName": "Key mould",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Elemental Workshop and go into the mine to the west. Mine 3 elemental rocks, killing the earth elementals that appear, then pick up the 3 elemental ores that they drop. Simply killing the earth elementals wandering around the mine will not yield the ore.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2710.0,
+          "heightFine": 1125.0,
+          "y": 3493.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 26115,
+          "modelIds": [],
+          "displayName": "Odd-looking wall"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4911,
+          "modelIds": [],
+          "displayName": "Elemental rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2892,
+          "displayName": "Elemental ore",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the fire elemental room (south), use the elemental ore on the furnace to create 3 elemental bars. 4 coal is required per bar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2892,
+          "modelIds": [],
+          "displayName": "Elemental ore"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18526,
+          "modelIds": [],
+          "displayName": "Furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2893,
+          "displayName": "Elemental bar",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use 1 elemental bar on the furnace again to make a ragged elemental key.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2893,
+          "modelIds": [],
+          "displayName": "Elemental bar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18526,
+          "modelIds": [],
+          "displayName": "Furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18689,
+          "displayName": "Ragged elemental key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the hatch in the centre of the middle room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18596,
+          "modelIds": [],
+          "displayName": "Hatch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 965.0,
+          "y": 0.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prime the remaining two elemental bars (see primed bar on how to do this) using the jig cart, but don\u0027t infuse them with the Mind machine.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9727,
+          "displayName": "Primed bar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the northwest stairwell.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18597,
+          "modelIds": [],
+          "displayName": "Stairwell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 965.0,
+          "y": 0.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the middle of the hallway, open the \u0027Body door\u0027 on the western wall with the ragged elemental key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16355,
+          "modelIds": [],
+          "displayName": "Body door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 3589.0,
+          "y": 0.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The puzzle",
+      "text": "Head down the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16371,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 1689
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Label the levers as follows and use the interface to move them. The levers on the north and south are the same, and the levers east and west are the same so feel free to use the closest lever to your current orientation. You can use the Minigame window to hit the levers, you don\u0027t need to run to each one.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The \u0027Reset\u0027 and \u0027Undo\u0027 levers can be found on the west wall (when the camera is not locked into the fixed overhead view; otherwise, they\u0027re to the north)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Solve the elemental lattice puzzle",
+      "text": "Use the lever interface (bottom-right) to solve the puzzle — the helper highlights the exact lever to pull each move, in order, through every section: connect the right counter (north then south), the left counter (north then south), then lower, spin and raise the central tower. It highlights the Reset lever between sections, and if you pull a wrong lever it points you at Undo or Reset to recover.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "elemental-workshop-iii.lattice"
+    },
+    {
+      "title": "Body body",
+      "text": "Go upstairs (click the metallic stairs on the bottom-left or bottom-right of the screen), and make a body bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16369,
+          "modelIds": [],
+          "displayName": "Stairs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9727,
+          "modelIds": [],
+          "displayName": "Primed bar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16349,
+          "modelIds": [],
+          "displayName": "Slot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 16349,
+          "modelIds": [],
+          "displayName": "Slot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Body body",
+      "text": "Click the lever to close the door, click the big red button THEN pull the lever",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16352,
+          "modelIds": [],
+          "displayName": "Big red button"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16350,
+          "modelIds": [],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 16348,
+          "modelIds": [],
+          "displayName": "Slot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If your puzzle was in the \u0027guide position\u0027 mentioned above, pull the levers in the following order:\u003cul\u003e\u003cli\u003e2 (The tower drops)\u003c/li\u003e\u003cli\u003e4, B (The tower spins)\u003c/li\u003e\u003cli\u003eC, 3 (The tower rises)\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "elemental-workshop-iii.tower-final"
+    },
+    {
+      "text": "Or if your puzzle was in the \u0027inverse position\u0027, pull the levers in the following order:\u003cul\u003e\u003cli\u003e4, 3 (The tower drops)\u003c/li\u003e\u003cli\u003e4, B (The tower spins)\u003c/li\u003e\u003cli\u003eC, 3 (The tower rises)\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs and make a second body bar.\u003cul\u003e\u003cli\u003ePut a primed bar in the slot next to the door.\u003c/li\u003e\u003cli\u003eEnter the room and flip the lever.\u003c/li\u003e\u003cli\u003ePush the button.\u003c/li\u003e\u003cli\u003eFlip the lever.\u003c/li\u003e\u003cli\u003eRetrieve the body bar from the slot.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a workbench on the first-level basement (the level with water, air, and fire elementals where you can obtain elemental ore) to create a body body. The ragged book must be in your inventory.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12504,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 338
+}

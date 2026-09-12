@@ -1,0 +1,2351 @@
+{
+  "slug": "beneath-cursed-tides",
+  "name": "Beneath Cursed Tides",
+  "members": false,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1450051200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Attack",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Firemaking",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Strength",
+      "level": 30,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Woodcutting",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to Wizard Myrtle at the fountain near the entrance to the Wizards' Tower. (Fairy ring DIS)<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3094.0,
+          "heightFine": 1869.0,
+          "y": 3185.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3094.0,
+          "heightFine": 1869.0,
+          "y": 3185.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Continue]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Wizard Myrtle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know Vannaka!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah, it would seem I found the right person for the job then!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Under the sea",
+      "text": "Talk to Vannaka south of the Edgeville bank.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Edgeville lodestone",
+        "url": "Edgeville_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3091.0,
+          "heightFine": 965.0,
+          "y": 3478.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1597,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22067,
+            22069,
+            22070,
+            22071
+          ],
+          "displayName": "Vannaka"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1597,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22067,
+            22069,
+            22070,
+            22071
+          ],
+          "displayName": "Vannaka"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Beneath Cursed Tides."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Continue...]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I do."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Then I will accompany you"
+        },
+        {
+          "t": "conversationText",
+          "text": "We should both go and meet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Wizards' Tower, and talk to Wizard Myrtle.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3094.0,
+          "heightFine": 1869.0,
+          "y": 3185.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3094.0,
+          "heightFine": 1869.0,
+          "y": 3185.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the plan then?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I get to Mudskipper Point?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Anything else?"
+        },
+        {
+          "t": "conversationText",
+          "text": "Nope, I'm ready to go!"
+        },
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the plan then?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nope, I'm ready to go!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nope, I'm ready to go!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make your way to Mudskipper Point, south of the Port Sarim lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3000.0,
+          "heightFine": 341.0,
+          "y": 3112.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3000.0,
+          "heightFine": 341.0,
+          "y": 3112.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip your weapons and dismiss followers, then talk to Wizard Myrtle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sounds perfect, let's do this!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to dive to the sunken island."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, you too Vannaka."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East of the room, read the message in the bottle for the key and open the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 34721,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Message in a bottle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Maybe some of the islanders are still alive!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5209.5,
+          "heightFine": 5157.0,
+          "y": 803.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5212.0,
+          "heightFine": 5157.0,
+          "y": 802.0,
+          "range": 2
+        },
+        {
+          "t": "conversationText",
+          "text": "You open the door with the key you found."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Anglerfish",
+      "text": "Talk to Brynna, the survival expert (directly to the south).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22077,
+          "modelIds": [
+            8892
+          ],
+          "displayName": "Brynna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hmm, well I guess if I'm to break the curse I'll figure it out."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch two raw shrimps.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 130146,
+          "modelIds": [
+            2484
+          ],
+          "displayName": "Shrimp"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 20893,
+          "displayName": "Raw shrimp",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather the seaweed nearby.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 401,
+          "modelIds": [
+            5832
+          ],
+          "displayName": "Seaweed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 36231,
+          "displayName": "Strong seaweed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut a tree to get a soggy branch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5211.6,
+          "heightFine": 4277.0,
+          "y": 791.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 36228,
+          "displayName": "Soggy branch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the boulder.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 444,
+          "modelIds": [
+            1296
+          ],
+          "displayName": "Boulder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The nearby steam vent roars into life as the pressure is increased."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook both shrimp on the steam vent.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 20893,
+          "modelIds": [
+            579
+          ],
+          "displayName": "Raw shrimp"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15214,
+          "modelIds": [
+            735
+          ],
+          "displayName": "Steam Vent"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 36224,
+          "displayName": "Boiled shrimp",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Boil only <b>1</b> shrimp again to burn it.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 36224,
+          "modelIds": [
+            579
+          ],
+          "displayName": "Boiled shrimp"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15214,
+          "modelIds": [
+            735
+          ],
+          "displayName": "Steam Vent"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Burned shrimp",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brynna twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22077,
+          "modelIds": [
+            8892
+          ],
+          "displayName": "Brynna"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I wish you the best of luck."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue through the west gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5201.5,
+          "heightFine": 4261.0,
+          "y": 788.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5199.0,
+          "heightFine": 4149.0,
+          "y": 786.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jellyfish",
+      "text": "Go to the building to the west and talk to Lev, the master chef.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5188.0,
+          "heightFine": 2629.0,
+          "y": 781.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5187.0,
+          "heightFine": 2629.0,
+          "y": 781.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 942,
+          "modelIds": [
+            9189
+          ],
+          "displayName": "Master chef"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "*sigh* Fine."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the large jellyfish south-east of the chef's house and play the music box.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5192.0,
+          "heightFine": 2685.0,
+          "y": 772.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 36235,
+          "modelIds": [
+            744
+          ],
+          "displayName": "Levs music box"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Turn second handle."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "PLAY ME MORE BEAUTIFUL SOUNDS!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5192.0,
+          "heightFine": 2685.0,
+          "y": 772.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Turn third handle."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "DON'T KEEP ME WAITING!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5192.0,
+          "heightFine": 2685.0,
+          "y": 772.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Turn first handle."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hmm? Oh sure, go ahead."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather tasty seaweed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 100639,
+          "modelIds": [
+            23328
+          ],
+          "displayName": "Tasty looking seaweed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 36233,
+          "displayName": "Tasty seaweed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the master chef again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5188.0,
+          "heightFine": 2629.0,
+          "y": 781.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5187.0,
+          "heightFine": 2629.0,
+          "y": 781.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 942,
+          "modelIds": [
+            9189
+          ],
+          "displayName": "Master chef"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Fantastic, go place the seaweed on the table over there and we can get started."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click <i>prepare</i> on the large table.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            612
+          ],
+          "candidateObjectTypeIds": [
+            62316
+          ],
+          "displayName": "Preparation table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You roll the seaweed out on the table."
+        },
+        {
+          "t": "conversationText",
+          "text": "Great, now we have the seaweed I am going to give you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "First - <b>1 up, 2 up, 3 up</b> (Sweet, Sour, Spicy).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "mellow yet sour with some bitter undertones"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Second - <b>2 down, 2 up, 3 down</b> (Mellow, Sour, Bitter).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "something spicy with a salty bitterness"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Third - <b>3 up, 1 down, 3 down</b> (Spicy, Salty, Bitter).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Fantastic, that's exactly what I was looking for!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue through the west door to the small house in the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5184.5,
+          "heightFine": 2629.0,
+          "y": 786.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5182.0,
+          "heightFine": 2637.0,
+          "y": 786.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rockfish",
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5198.0,
+          "heightFine": 2717.0,
+          "y": 821.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5198.0,
+          "heightFine": 2725.0,
+          "y": 819.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5200.0,
+          "heightFine": 2725.0,
+          "y": 815.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5464.0,
+          "heightFine": 2893.0,
+          "y": 743.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dezzick, the mining instructor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7278
+          ],
+          "displayName": "Dezzick"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Absolutely!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I need you to make a bronze dagger. You'll need to mine some tin and copper ore, then use the furnace to smelt it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine soggy copper ore and soggy tin ore.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113026,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            113027,
+            113028,
+            113086,
+            113087,
+            113088,
+            113146,
+            113147,
+            113148,
+            114183,
+            114184
+          ],
+          "displayName": "Copper rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 436,
+          "displayName": "Copper ore",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113029,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            113030,
+            113031,
+            113089,
+            113090,
+            113091,
+            113149,
+            113150,
+            113151,
+            114185,
+            114186,
+            114187
+          ],
+          "displayName": "Tin rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 438,
+          "displayName": "Tin ore",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add the ores to furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4470
+          ],
+          "candidateObjectTypeIds": [
+            5196,
+            5197,
+            6596,
+            12737,
+            12838,
+            12839,
+            12849,
+            12850,
+            14546,
+            14548,
+            14550,
+            14552,
+            14624,
+            14626,
+            14725,
+            14727,
+            33492
+          ],
+          "displayName": "Open furnace"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You add your ores to the furnace, but it doesn't heat them."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click and close the doors.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4470
+          ],
+          "candidateObjectTypeIds": [
+            5196,
+            5197,
+            6596,
+            12737,
+            12838,
+            12839,
+            12849,
+            12850,
+            14546,
+            14548,
+            14550,
+            14552,
+            14624,
+            14626,
+            14725,
+            14727,
+            33492
+          ],
+          "displayName": "Open furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You close the furnace doors."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Operate the pump and light the furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9090,
+          "modelIds": [
+            1506
+          ],
+          "displayName": "Pump"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pump the water out of the furnace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Retrieve the bronzish bar from the furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4470
+          ],
+          "candidateObjectTypeIds": [
+            5196,
+            5197,
+            6596,
+            12737,
+            12838,
+            12839,
+            12849,
+            12850,
+            14546,
+            14548,
+            14550,
+            14552,
+            14624,
+            14626,
+            14725,
+            14727,
+            33492
+          ],
+          "displayName": "Closed furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2349,
+          "displayName": "Bronze bar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith a bronze butter knife.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5459.0,
+          "heightFine": 1293.0,
+          "y": 722.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 36241,
+          "displayName": "Bronze butter knife",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the mining instructor again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7278
+          ],
+          "displayName": "Dezzick"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Absolutely!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should seek out your next tutor."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue through the east gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5470.5,
+          "heightFine": 1189.0,
+          "y": 725.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5473.0,
+          "heightFine": 1189.0,
+          "y": 726.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Swordfish",
+      "text": "Talk to Vannaka, the combat instructor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1597,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22067,
+            22069,
+            22070,
+            22071
+          ],
+          "displayName": "Vannaka"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sure, I'm up for a challenge."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let's get on with the task."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Don the blind fold I've wrapped around the hilt. Use only your senses to dispatch every giant sea rat that comes at you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and click on the sword in the middle of the room to begin combat training.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5486.5,
+          "heightFine": 837.0,
+          "y": 741.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5484.0,
+          "heightFine": 837.0,
+          "y": 741.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5479.0,
+          "heightFine": 5.0,
+          "y": 741.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You close your eyes and begin to listen to your deepest senses."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on the rats and other elements bouncing on the screen.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3147
+          ],
+          "displayName": "Dead sea rat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cage and climb the ladder to the north-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5486.5,
+          "heightFine": 837.0,
+          "y": 741.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5489.0,
+          "heightFine": 933.0,
+          "y": 743.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5487.0,
+          "heightFine": 1645.0,
+          "y": 749.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 5223.0,
+          "heightFine": 2565.0,
+          "y": 821.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Goldfish",
+      "text": "Talk to the financial advisor in the house directly to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5233.5,
+          "heightFine": 3173.0,
+          "y": 817.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5233.0,
+          "heightFine": 3173.0,
+          "y": 817.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 947,
+          "modelIds": [
+            8730
+          ],
+          "displayName": "Financial advisor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can we skip to the task?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm sure if you rifle through Jed's notes you'll find some clues."
+        },
+        {
+          "t": "conversationText",
+          "text": "I'm sure there are clues to the code littered around the bank booth."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the vault (the code is 139).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 21545,
+          "modelIds": [
+            5814
+          ],
+          "displayName": "Vault"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The vault door makes a clicking sound and swings open."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the financial advisor again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 947,
+          "modelIds": [
+            8730
+          ],
+          "displayName": "Financial advisor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go and seek the next tutor. Take the east door out of the bank."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Leave through the 2 doors to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5236.5,
+          "heightFine": 3173.0,
+          "y": 820.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5239.0,
+          "heightFine": 3173.0,
+          "y": 820.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5241.5,
+          "heightFine": 3173.0,
+          "y": 820.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5244.0,
+          "heightFine": 3173.0,
+          "y": 820.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Monkfish",
+      "text": "Head south to the church through double doors.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5240.5,
+          "heightFine": 2629.0,
+          "y": 802.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5238.0,
+          "heightFine": 2629.0,
+          "y": 803.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brother Brace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 954,
+          "modelIds": [
+            7596
+          ],
+          "displayName": "Brother Brace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Lovely, I held mass not too long ago so they shouldn't have strayed too far from the chapel."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Backtrack to talk the fish on the friends list.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            18
+          ],
+          "displayName": "Friends list"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Erm, I think I saw something"
+        },
+        {
+          "t": "conversationText",
+          "text": "anchor east of the bank"
+        },
+        {
+          "t": "conversationText",
+          "text": "the cannon to the west of the ladder to the caves"
+        },
+        {
+          "t": "conversationText",
+          "text": "the coral east of the church"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5248.0,
+          "heightFine": 2821.0,
+          "y": 804.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12480,
+          "modelIds": [
+            4908
+          ],
+          "displayName": "Coral"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anchor east of the bank"
+        },
+        {
+          "t": "conversationText",
+          "text": "the cannon to the west of the ladder to the caves"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 10886,
+          "displayName": "Prayer book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5244.5,
+          "heightFine": 2661.0,
+          "y": 826.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 271,
+          "modelIds": [
+            8142
+          ],
+          "displayName": "Anchor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the coral east of the church"
+        },
+        {
+          "t": "conversationText",
+          "text": "the cannon to the west of the ladder to the caves"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 10886,
+          "displayName": "Prayer book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5207.5,
+          "heightFine": 3237.0,
+          "y": 819.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 37787,
+          "modelIds": [
+            8142
+          ],
+          "displayName": "Cannon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the coral east of the church"
+        },
+        {
+          "t": "conversationText",
+          "text": "around the anchor east of the bank"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 10886,
+          "displayName": "Prayer book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the book to Brother Brace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5240.5,
+          "heightFine": 2629.0,
+          "y": 802.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5238.0,
+          "heightFine": 2629.0,
+          "y": 803.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 954,
+          "modelIds": [
+            7596
+          ],
+          "displayName": "Brother Brace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go with faith, my friend. You are walking a righteous path!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the south door to the south-east building and talk to Wizard Terrova.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5234.0,
+          "heightFine": 2629.0,
+          "y": 798.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5234.0,
+          "heightFine": 2629.0,
+          "y": 796.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Moonfish",
+      "text": "Attack a chicken, then talk to the wizard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5253.0,
+          "heightFine": 3141.0,
+          "y": 785.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5254.0,
+          "heightFine": 3141.0,
+          "y": 783.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2214
+          ],
+          "candidateNpcTypeIds": [
+            5948,
+            5949,
+            5950,
+            5951,
+            8639,
+            16731,
+            16732,
+            16733,
+            25978
+          ],
+          "candidateObjectTypeIds": [
+            83,
+            84,
+            85,
+            2639,
+            3550,
+            4451,
+            4657,
+            4909,
+            7261,
+            7526,
+            9289,
+            10606,
+            11449,
+            11450,
+            11575,
+            12421,
+            12423,
+            12424,
+            12774,
+            13141,
+            13697,
+            13725,
+            15283,
+            15284,
+            15285,
+            16511,
+            20269,
+            20980,
+            23274,
+            25287,
+            25636,
+            33252,
+            33253,
+            33254,
+            36033,
+            36473,
+            38427,
+            39471,
+            41661,
+            44337,
+            46444,
+            47610,
+            49251,
+            49252,
+            49253,
+            49254,
+            49255,
+            49256,
+            49259,
+            52263,
+            52848,
+            53120,
+            61944,
+            63335,
+            63336,
+            63337,
+            63338,
+            63339,
+            63340,
+            73631,
+            74382,
+            75641,
+            75643,
+            75773,
+            75778,
+            75882,
+            75911,
+            81584,
+            83903,
+            85964,
+            88456,
+            89277,
+            89278,
+            89279,
+            89280,
+            89281,
+            89282,
+            89283,
+            89284,
+            89285,
+            90299,
+            92445,
+            92446,
+            93233,
+            96805,
+            99915,
+            100842,
+            101303,
+            104329,
+            106762,
+            109359,
+            110965,
+            112669,
+            114142,
+            119043,
+            119050,
+            119065,
+            119067,
+            119327,
+            119348,
+            119349,
+            119350,
+            119351,
+            119352,
+            119353,
+            119354,
+            119355,
+            121365,
+            129967
+          ],
+          "displayName": "Helmet chicken"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9036
+          ],
+          "candidateObjectTypeIds": [
+            9090
+          ],
+          "displayName": "Terrova"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Welcome traveller. I can't help but notice that you let yourself into my house and bubbled my chickens uninvited."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9036
+          ],
+          "candidateObjectTypeIds": [
+            9090
+          ],
+          "displayName": "Terrova"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "How dare you try to break my curse. Come out here where I can see you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Commotion in the ocean",
+      "text": "Pick any option during the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm the world guardian."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm an adventurer."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm your worst nightmare!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You don't deserve an introduction."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Keep his minions off me and lend me your power when you're able!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Channel the spell while repelling Crassians.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22099,
+          "modelIds": [
+            7524
+          ],
+          "displayName": "Crassian"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4134
+          ],
+          "candidateObjectTypeIds": [
+            4069,
+            4070,
+            4071,
+            4072,
+            4073,
+            4074,
+            4075,
+            4076,
+            4077,
+            4078
+          ],
+          "displayName": "Beam struggle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You must put a stop to him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish Hector Vivian.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 51559,
+          "modelIds": [
+            4596
+          ],
+          "displayName": "Hector"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bloop."
+        },
+        {
+          "t": "conversationText",
+          "text": "Arrrrgh curse you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll round up the other tutors, we'll be right with you!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Myrtle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22063,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22064,
+            22103
+          ],
+          "displayName": "Wizard Myrtle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "We did it!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 30071,
+  "stageVarbitCompleteValue": 200,
+  "cacheQuestId": 381
+}

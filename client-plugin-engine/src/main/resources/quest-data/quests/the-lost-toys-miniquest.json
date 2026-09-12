@@ -1,0 +1,85 @@
+{
+  "slug": "the-lost-toys-miniquest",
+  "name": "The Lost Toys (miniquest)",
+  "members": true,
+  "length": "medium",
+  "timeline": "mythic",
+  "releaseDate": 1460332800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Branches of Darkmeyer"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Off to Lex",
+      "text": "Talk to Lex on the west side of the Hair of the Dog tavern, south of the Canifis lodestone.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Locations",
+      "text": "This is still a WIP. It is recommended to use the wiki for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze all 13 plushies.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport back to Canifis and talk to Lex.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If the player still has plushies left to find:)(Continues above.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 31089,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 438
+}

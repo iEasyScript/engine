@@ -1,0 +1,568 @@
+{
+  "slug": "the-blood-pact",
+  "name": "The Blood Pact",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1268611200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Kayle",
+      "level": "1",
+      "quantity": 1
+    },
+    {
+      "name": "Caitlin",
+      "level": "1",
+      "quantity": 1
+    },
+    {
+      "name": "Reese",
+      "level": "1",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Start the quest by talking to Xenia in the Lumbridge graveyard.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Lumbridge lodestone",
+        "url": "Lumbridge_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3244.0,
+          "heightFine": 885.0,
+          "y": 3199.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3244.0,
+          "heightFine": 885.0,
+          "y": 3199.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 96208,
+          "modelIds": [
+            7560
+          ],
+          "displayName": "Xenia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What help do you need?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll help you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Xenia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 96208,
+          "modelIds": [
+            7560
+          ],
+          "displayName": "Xenia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "down the stairs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The dungeon",
+      "text": "Enter the catacombs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3247.0,
+          "heightFine": 1165.0,
+          "y": 3198.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Come on, Kayle!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Looks like there's a guard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After a cutscene, proceed north.<ul><li>Talk to Xenia if there is no dialogue.</li><li>Equip a melee weapon if you have one in your inventory (or the bronze dagger Xenia gifts you)</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9628,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Kayle"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah..."
+        },
+        {
+          "t": "conversationText",
+          "text": "You'll need a weapon"
+        },
+        {
+          "t": "conversationText",
+          "text": "You'd best arm yourself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1205,
+          "modelIds": [
+            390
+          ],
+          "displayName": "Bronze dagger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1205,
+          "displayName": "Bronze dagger"
+        },
+        {
+          "t": "conversationText",
+          "text": "Ah..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 96208,
+          "modelIds": [
+            7560
+          ],
+          "displayName": "Xenia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        },
+        {
+          "t": "conversationText",
+          "text": "Ah..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ah..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Kayle then talk to him.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9628,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Kayle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes. Now die!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can handle this."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 19830,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Chargebow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take his chargebow.<ul><li>(Optional) Equip it if you don't have any Magic, Ranged, or Necromancy weapon.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 19830,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Chargebow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 19830,
+          "displayName": "Chargebow",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head west, open the tomb door, and then go through it.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16458,
+          "modelIds": [
+            4380
+          ],
+          "displayName": "Tomb Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 16458,
+          "modelIds": [
+            4380
+          ],
+          "displayName": "Tomb Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Caitlin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7539
+          ],
+          "displayName": "Caitlyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well done!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south and operate the winch.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            651
+          ],
+          "candidateObjectTypeIds": [
+            1623,
+            1920
+          ],
+          "displayName": "Whinch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 12351,
+          "modelIds": [
+            912
+          ],
+          "displayName": "Barrier"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Caitlin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7539
+          ],
+          "displayName": "Caitlyn"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Time for you to die!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 1379,
+          "modelIds": [
+            936
+          ],
+          "displayName": "Staff"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take her staff.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1379,
+          "modelIds": [
+            936
+          ],
+          "displayName": "Staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1379,
+          "displayName": "Staff",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down one of the stairs to the west.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Go downstairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The potion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Reese and talk to him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "My name's"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Time for you to die!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 79149,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Sword"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Untie Ilona.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9630,
+          "modelIds": [
+            5622
+          ],
+          "displayName": "Ilona"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, rescue Ilona."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank the gods"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Xenia",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready for my reward."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10826,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 335
+}

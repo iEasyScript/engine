@@ -1,0 +1,5809 @@
+{
+  "slug": "legacy-of-seergaze",
+  "name": "Legacy of Seergaze",
+  "members": true,
+  "length": "longverylong",
+  "timeline": "heroic",
+  "releaseDate": 1208822400,
+  "neededItems": [
+    {
+      "name": "Teak pyre logs",
+      "itemId": 564,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Coal",
+      "itemId": 453,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Cosmic rune",
+      "itemId": 564,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Air rune",
+      "itemId": 556,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Mithril bar",
+      "itemId": 2359,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Silver bar",
+      "itemId": 2355,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Silver weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Emerald",
+      "itemId": 1605,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Nails",
+      "itemId": -1,
+      "quantity": 10,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Havensilver greatsword",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Necromancy combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Druid pouch",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Invitation box",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Shortcut key",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Fistandantilus",
+      "level": "77",
+      "quantity": 1
+    },
+    {
+      "name": "Zaromark Sliver",
+      "level": "77",
+      "quantity": 1
+    },
+    {
+      "name": "Vyrewatch",
+      "level": "72",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "The Darkness of Hallowvale",
+    "Shades of Mort'ton"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 29,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Construction",
+      "level": 20,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 47,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 49,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 35,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Slayer",
+      "level": 31,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the mercenary adventurer east of Paterdomus in Morytania.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3439.0,
+          "heightFine": 653.0,
+          "y": 3485.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Mercenary Adventurer.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "An evil conspiracy",
+      "text": "Enter the Paterdomus Mausoleum.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 1465.0,
+          "y": 3485.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3423.0,
+          "heightFine": 5.0,
+          "y": 9891.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Silver weapon",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Havensilver greatsword",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Invitation box",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Necromancy combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Drezel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 677.0,
+          "y": 9895.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who do you think these suspicious people are?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Zamorakians"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairway to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1869
+          ],
+          "candidateObjectTypeIds": [
+            262,
+            5405,
+            11277
+          ],
+          "displayName": "Paterdomus stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 1797.0,
+          "y": 9965.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the sparkling wall storage unit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38328,
+          "modelIds": [
+            2223
+          ],
+          "displayName": "Storage unit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talisman"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            876
+          ],
+          "candidateObjectTypeIds": [
+            1415,
+            6342,
+            18905,
+            30684,
+            37349
+          ],
+          "displayName": "Paterdomus basement stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3425.0,
+          "heightFine": 712.0,
+          "y": 9899.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3405.0,
+          "heightFine": 1212.0,
+          "y": 9907.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3405.0,
+          "heightFine": 2821.0,
+          "y": 3504.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Paterdomus temple.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3403.5,
+          "heightFine": 4205.0,
+          "y": 3485.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3406.0,
+          "heightFine": 3781.0,
+          "y": 3486.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3414.5,
+          "heightFine": 4281.0,
+          "y": 3481.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3415.0,
+          "heightFine": 6405.0,
+          "y": 3482.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3406.5,
+          "heightFine": 7005.0,
+          "y": 3482.525,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "teleport"
+        },
+        {
+          "t": "conversationText",
+          "text": "Teleport"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Fistandantilus and Zaromark Sliver.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "believe it myself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crude table.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -0.4,
+          "heightFine": 500.0,
+          "y": 5.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13148,
+          "displayName": "Glove",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -1.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 0.0,
+          "heightFine": -1856.0,
+          "y": -1.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 7.5,
+          "heightFine": -1456.0,
+          "y": -2.3,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 7.0,
+          "heightFine": -4480.0,
+          "y": -2.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Paterdomus Mausoleum.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": -4840.0,
+          "y": 21.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3423.0,
+          "heightFine": 5.0,
+          "y": 9891.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Drezel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 677.0,
+          "y": 9895.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you think this has anything to do with the Guthixian Edicts?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bit scary"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass through the barrier.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "paterdomus holy barrier"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3424.0,
+          "heightFine": 1465.0,
+          "y": 3485.5,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Mercenary Adventurer.<ul><li>Easy path recommended.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3439.0,
+          "heightFine": 653.0,
+          "y": 3485.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You still want to go to Burgh de Rott?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can take you to Burgh de Rott."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the run of Temple Trekking.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "ask again"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Mercenary Adventurer.<ul><li>If the Mercenary Adventurer isn't here, skip this step.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7664,
+          "modelIds": [
+            6189
+          ],
+          "displayName": "Mercenary Adventurer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Drakan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Myreque's task",
+      "text": "Climb down the trapdoor inside the pub in Burgh de Rott.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf Hurtz.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have a job for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7630,
+          "displayName": "Crate",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 1245.0,
+          "y": 9632.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3491.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the boat to Meiyerditch south-east of Burgh de Rott.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3523.0,
+          "heightFine": 165.0,
+          "y": 3170.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "burgh de rott fixed boat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "burgh de rott fixed boat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3605.0,
+          "heightFine": 69.0,
+          "y": 3161.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "burgh de rott fixed boat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get caught by a Vyrewatch.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any vyrewatch",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Send me to the mines! (Do a bit of menial work)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2263.0,
+          "heightFine": 2765.0,
+          "y": 4620.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 15 ore from the walls.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9632,
+          "displayName": "Daeyalt ore",
+          "quantity": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ore on a minecart",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch minecart",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9632,
+          "modelIds": [],
+          "displayName": "Daeyalt ore"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll place it all in the cart."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch full minecart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any juvinate",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3621.0,
+          "heightFine": 4485.0,
+          "y": 3322.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3621.0,
+              "heightFine": 4485.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 4485.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3624.0,
+              "heightFine": 4485.0,
+              "y": 3314.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 5285.0,
+              "y": 3258.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3630.0,
+          "heightFine": 5701.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4517.0,
+          "y": 3251.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the decorated wall from the southern side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch decorated wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the lumpy rug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down trapdoor to enter the hideout.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9618.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Flaygian Screwte.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How's the research going?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "random detail"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help in some way?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "such matters"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "In search of the weapon",
+      "text": "Talk to Andiess Juip or Kael Forshaw.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7674,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7676,
+            7679,
+            22617
+          ],
+          "displayName": "Andiess Juip"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4465,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7675,
+            7677,
+            7680,
+            21661,
+            21662,
+            21665,
+            21666,
+            22618
+          ],
+          "displayName": "Kael Forshaw"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hi there, I was wondering if I could ask some questions?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "simple enough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bunk bed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3631.0,
+          "heightFine": 1565.0,
+          "y": 9632.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13151,
+          "displayName": "Combat book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the book.",
+      "warning": "Remember which page mentioned flails.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13151,
+          "modelIds": [
+            591
+          ],
+          "displayName": "Combat book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Flaygian.",
+      "warning": "Need the page number from the previous step.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.0,
+          "heightFine": 1665.0,
+          "y": 9617.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 4517.0,
+          "y": 3249.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4485.0,
+          "y": 3254.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 5285.0,
+          "y": 3256.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 5701.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.5,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3255.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the home at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3312.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3634.0,
+          "heightFine": 4485.0,
+          "y": 3316.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make-ladder on the wooden post.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 30493,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Wooden post"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            654
+          ],
+          "candidateObjectTypeIds": [
+            1651,
+            1940
+          ],
+          "displayName": "Fixed wooden post"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the post.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            654
+          ],
+          "candidateObjectTypeIds": [
+            1651,
+            1940
+          ],
+          "displayName": "Fixed wooden post"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3636.0,
+          "heightFine": 5701.0,
+          "y": 3318.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3320.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3326.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3326.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 6201.0,
+              "y": 3325.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3633.0,
+          "heightFine": 6917.0,
+          "y": 3324.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the trough.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3635.52,
+          "heightFine": 7217.0,
+          "y": 3324.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "below"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the coal barrel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3636.0,
+          "heightFine": 7217.0,
+          "y": 3323.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 453,
+          "displayName": "Coal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3633.0,
+          "heightFine": 6917.0,
+          "y": 3324.7,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3633.0,
+          "heightFine": 5701.0,
+          "y": 3326.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3634.7,
+          "heightFine": 5701.0,
+          "y": 3323.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3636.0,
+          "heightFine": 4485.0,
+          "y": 3323.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "'Dig' on the mass of debris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1464
+          ],
+          "candidateObjectTypeIds": [
+            2823,
+            2824
+          ],
+          "displayName": "Mass debris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 30508,
+          "modelIds": [
+            1119
+          ],
+          "displayName": "Empty furnace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the coal on the furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 30508,
+          "modelIds": [
+            1119
+          ],
+          "displayName": "Empty furnace"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 453,
+          "modelIds": [],
+          "displayName": "Coal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1977
+          ],
+          "displayName": "Filled furnace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1977
+          ],
+          "displayName": "Filled furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4149
+          ],
+          "candidateObjectTypeIds": [
+            4092
+          ],
+          "displayName": "Lit furnace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Laying the groundwork",
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3634.8,
+          "heightFine": 5085.0,
+          "y": 3323.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3634.0,
+          "heightFine": 5701.0,
+          "y": 3323.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the wooden beam at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3323.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3320.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3635.4,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3634.0,
+          "heightFine": 4485.0,
+          "y": 3318.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 5285.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3312.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3630.0,
+          "heightFine": 5701.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4517.0,
+          "y": 3251.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the decorated wall from the southern side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch decorated wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the lumpy rug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down trapdoor to enter the hideout.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9618.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Flaygian.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "within reason"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take 2 silver and 2 mithril bars from the barrel on the northern wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1197
+          ],
+          "candidateObjectTypeIds": [
+            603
+          ],
+          "displayName": "Silver bar barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2355,
+          "displayName": "Silver bar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1197
+          ],
+          "candidateObjectTypeIds": [
+            603
+          ],
+          "displayName": "Silver bar barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2359,
+          "displayName": "Mithril bar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a silver sickle (b) from the shelf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            798
+          ],
+          "candidateObjectTypeIds": [
+            1432
+          ],
+          "displayName": "Silver sickle shelf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2963,
+          "displayName": "Silver sickle (b)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3632.0,
+          "heightFine": 1165.0,
+          "y": 9619.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13153,
+          "displayName": "Chain link mould",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add the chain link mould to your tool belt.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13153,
+          "modelIds": [
+            588
+          ],
+          "displayName": "Chain link mould"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 13153,
+          "displayName": "Chain link mould"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.0,
+          "heightFine": 1665.0,
+          "y": 9617.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 4517.0,
+          "y": 3249.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4485.0,
+          "y": 3254.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 5285.0,
+          "y": 3256.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 5701.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.5,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3255.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the home at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3312.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3634.0,
+          "heightFine": 4485.0,
+          "y": 3316.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the post.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            654
+          ],
+          "candidateObjectTypeIds": [
+            1651,
+            1940
+          ],
+          "displayName": "Fixed wooden post"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3636.0,
+          "heightFine": 5701.0,
+          "y": 3318.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3320.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3323.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3636.0,
+          "heightFine": 4485.0,
+          "y": 3323.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make a silvthril chain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4149
+          ],
+          "candidateObjectTypeIds": [
+            4092
+          ],
+          "displayName": "Lit furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13154,
+          "displayName": "Silvthril chain",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3634.8,
+          "heightFine": 5085.0,
+          "y": 3323.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3634.0,
+          "heightFine": 5701.0,
+          "y": 3323.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the wooden beam at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3323.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3322.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3324.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3320.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            },
+            {
+              "x": 3635.4,
+              "heightFine": 5701.0,
+              "y": 3318.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3634.0,
+          "heightFine": 4485.0,
+          "y": 3318.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 5285.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3294.0
+            },
+            {
+              "x": 3628.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3312.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3316.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3630.0,
+          "heightFine": 5701.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4517.0,
+          "y": 3251.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the decorated wall from the southern side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch decorated wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the lumpy rug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down trapdoor to enter the hideout.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9618.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Flaygian.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3622.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How about using this as the head for the flail?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "on you as well"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a silver sickle (b) on Flaygian.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7672,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22620
+          ],
+          "displayName": "Flaygian Screwte"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2963,
+          "modelIds": [],
+          "displayName": "Silver sickle (b)"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How about using this as the head for the flail?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "more than pleased"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back to the lab",
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.0,
+          "heightFine": 1665.0,
+          "y": 9617.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 4517.0,
+          "y": 3249.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4485.0,
+          "y": 3254.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 5285.0,
+          "y": 3256.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 5701.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.5,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3255.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase at the end of the path.",
+      "warning": "Dismiss any followers",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3631.0,
+              "heightFine": 4485.0,
+              "y": 3267.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3268.0
+            },
+            {
+              "x": 3634.0,
+              "heightFine": 4485.0,
+              "y": 3275.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3277.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 4485.0,
+              "y": 3283.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3284.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3288.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3289.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3293.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 4485.0,
+              "y": 3293.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3295.0
+            },
+            {
+              "x": 3635.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3640.0,
+              "heightFine": 4485.0,
+              "y": 3300.0
+            },
+            {
+              "x": 3640.0,
+              "heightFine": 4485.0,
+              "y": 3302.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 4485.0,
+              "y": 3302.0
+            },
+            {
+              "x": 3637.0,
+              "heightFine": 4485.0,
+              "y": 3304.0
+            },
+            {
+              "x": 3638.0,
+              "heightFine": 4485.0,
+              "y": 3304.0
+            },
+            {
+              "x": 3638.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3641.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            },
+            {
+              "x": 3641.0,
+              "heightFine": 4485.0,
+              "y": 3307.0
+            },
+            {
+              "x": 3642.0,
+              "heightFine": 4485.0,
+              "y": 3307.0
+            },
+            {
+              "x": 3643.0,
+              "heightFine": 4485.0,
+              "y": 3306.0
+            },
+            {
+              "x": 3643.0,
+              "heightFine": 4485.0,
+              "y": 3305.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Myreque"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Look at Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5970
+          ],
+          "candidateObjectTypeIds": [
+            6058,
+            6061,
+            14166
+          ],
+          "displayName": "Dead safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "human again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything I can do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go ahead"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the door to the south. Use the saw.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.5,
+          "heightFine": 600.0,
+          "y": -15.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1230
+          ],
+          "candidateNpcTypeIds": [
+            8104,
+            8105,
+            8106,
+            8107,
+            8108,
+            8109,
+            8110,
+            14415,
+            14766,
+            24112,
+            27244,
+            27245,
+            27246,
+            27281,
+            27282,
+            30866
+          ],
+          "displayName": "Sawed door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.5,
+          "heightFine": 600.0,
+          "y": -15.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path to the large chamber where the strange stones are.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Vyrewatch and the Ivandis flail",
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fair enough"
+        },
+        {
+          "t": "conversationText",
+          "text": "Fair enough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cosmic rune",
+          "itemId": 564,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Air rune",
+          "itemId": 556,
+          "quantity": 6,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the corpse next to the rocks.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 660,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Corpse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Bloodstained Treasure"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the strange stones in the northern part of the cavern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 30528,
+          "modelIds": [
+            3936
+          ],
+          "displayName": "Strange stones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "some danger"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "GO"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defend against the vyrewatches. You can't damage them.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "warning": "Need 4 inventory spaces.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3628.0,
+          "heightFine": 965.0,
+          "y": 9646.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Blimey"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an emerald on a silver sickle (b).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1605,
+          "modelIds": [],
+          "displayName": "Emerald"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2963,
+          "modelIds": [],
+          "displayName": "Silver sickle (b)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13155,
+          "displayName": "Silver sickle emerald (b)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast Lvl-2 Enchant spell on the silver sickle emerald (b).",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13155,
+          "modelIds": [],
+          "displayName": "Silver sickle emerald (b)"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the chain on enchanted emerald sickle.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13154,
+          "modelIds": [],
+          "displayName": "Silvthril chain"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13155,
+          "modelIds": [],
+          "displayName": "Silver sickle emerald (b)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13117,
+          "displayName": "Ivandis flail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "coming right up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3626.0,
+          "heightFine": 1665.0,
+          "y": 9617.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 4517.0,
+          "y": 3249.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4485.0,
+          "y": 3254.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 5285.0,
+          "y": 3256.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 5701.0,
+          "y": 3255.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.5,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3255.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3632.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the Ivandis flail.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13117,
+          "modelIds": [],
+          "displayName": "Ivandis flail"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 13117,
+          "displayName": "Ivandis flail"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a vyrewatch.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any vyrewatch",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6618
+          ],
+          "candidateObjectTypeIds": [
+            6779,
+            6782,
+            12845,
+            17649,
+            17900,
+            22165,
+            25412,
+            85876
+          ],
+          "displayName": "Vyrewatch corpse obj"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up its corpse.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6843,
+            936
+          ],
+          "candidateObjectTypeIds": [
+            1158
+          ],
+          "displayName": "Vyrewatch corpse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Vyrewatch corpse",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            41397
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3631.0,
+          "heightFine": 5085.0,
+          "y": 3258.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3630.0,
+          "heightFine": 5701.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3258.0
+            },
+            {
+              "x": 3630.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3632.0,
+              "heightFine": 5701.0,
+              "y": 3259.0
+            },
+            {
+              "x": 3633.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3636.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            },
+            {
+              "x": 3639.0,
+              "heightFine": 5701.0,
+              "y": 3256.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3639.0,
+          "heightFine": 4485.0,
+          "y": 3258.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3640.0,
+          "heightFine": 5285.0,
+          "y": 3252.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3640.0,
+          "heightFine": 4517.0,
+          "y": 3251.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the decorated wall from the southern side.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch decorated wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the lumpy rug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch lumpy rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down trapdoor to enter the hideout.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "meiyerditch hideout trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3626.0,
+          "heightFine": 965.0,
+          "y": 9618.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Safalaan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3629.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "move out"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 4713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4846,
+            7678,
+            7681,
+            7686,
+            21589,
+            21590,
+            21593,
+            21641,
+            22587,
+            22588,
+            22589,
+            22590,
+            22593
+          ],
+          "displayName": "Safalaan"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back to the Columbarium",
+      "text": "Return to the basement of the pub in Burgh de Rott.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Teak pyre logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Flail of Ivandis kills Vyrewatch!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great story"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What should I do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "good plan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Paterdomus.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 1465.0,
+          "y": 3485.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3423.0,
+          "heightFine": 5.0,
+          "y": 9891.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Drezel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Veliaf asked me to bring this Vyrewatch corpse to you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "soul to rest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairway to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1869
+          ],
+          "candidateObjectTypeIds": [
+            262,
+            5405,
+            11277
+          ],
+          "displayName": "Paterdomus stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 1797.0,
+          "y": 9965.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pyre logs on a funeral pyre.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4093,
+          "modelIds": [
+            5586
+          ],
+          "displayName": "Funeral Pyre",
+          "atLocation": {
+            "x": 3422.0,
+            "heightFine": 1797.0,
+            "y": 9954.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6211,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Teak pyre logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6211,
+          "displayName": "Teak pyre logs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the vyre corpse on the funeral pyre.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4093,
+          "modelIds": [
+            5586
+          ],
+          "displayName": "Funeral Pyre",
+          "atLocation": {
+            "x": 3422.0,
+            "heightFine": 1797.0,
+            "y": 9954.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            6843,
+            936
+          ],
+          "candidateItemTypeIds": [
+            41397
+          ],
+          "displayName": "Vyrewatch corpse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Vyrewatch corpse",
+          "candidateItemTypeIds": [
+            41397
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light it up.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4093,
+          "modelIds": [
+            5586
+          ],
+          "displayName": "Funeral Pyre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 13159,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Ornate tomb key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the ornate tomb key from the pedestal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 13159,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Ornate tomb key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13159,
+          "displayName": "Ornate tomb key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the key on the wall storage unit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38328,
+          "modelIds": [
+            2223
+          ],
+          "displayName": "Storage unit"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13159,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Ornate tomb key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            876
+          ],
+          "candidateObjectTypeIds": [
+            1415,
+            6342,
+            18905,
+            30684,
+            37349
+          ],
+          "displayName": "Paterdomus basement stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3425.0,
+          "heightFine": 712.0,
+          "y": 9899.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Drezel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 677.0,
+          "y": 9895.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What should I do now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bushed"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Burgh de Rott pub basement.<ul><li>It's recommended to do an easy Temple Trek to get back quickly.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 965.0,
+          "y": 3232.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3490.0,
+          "heightFine": 645.0,
+          "y": 9631.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Veliaf.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1569,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21583,
+            21670,
+            21671,
+            21672,
+            21674,
+            21675
+          ],
+          "displayName": "Veliaf Hurtz"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13978,
+  "stageVarbitCompleteValue": 500,
+  "cacheQuestId": 327
+}

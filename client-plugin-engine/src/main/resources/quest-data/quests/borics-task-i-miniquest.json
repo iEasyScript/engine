@@ -1,0 +1,229 @@
+{
+  "slug": "borics-task-i-miniquest",
+  "name": "Boric's Task I (miniquest)",
+  "members": true,
+  "length": "veryshort",
+  "timeline": "champion",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Coal",
+      "itemId": 453,
+      "quantity": 30,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "What's Mine is Yours"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Mining some coal",
+      "text": "Head down the stairs behind Doric's hut to speak to Boric.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coal",
+          "itemId": 453,
+          "quantity": 30,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 919.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1572.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any Mining tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Boric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I'll go do that now."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Seers' Village coal truck mining site, west of McGrubor's Wood.<ul><li>If you don't have 20 Agility, it is quicker to use the Ardougne lodestone and run northwest.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2584.0,
+          "heightFine": 341.0,
+          "y": 3487.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2584.0,
+          "heightFine": 341.0,
+          "y": 3487.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deposit 30 coal into the coal truck.<ul><li>It does not need to be mined, it can be purchased off the Grand exchange. Make sure it isn't noted.</li><li>Once you have deposited the coal, manually move to the next step.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2584.0,
+          "heightFine": 341.0,
+          "y": 3487.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Dwarven Miner to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2207,
+          "modelIds": [
+            4419
+          ],
+          "displayName": "Dwarven Miner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Congratulations! You have completed: 'Boric's Task I (miniquest)' - Complete this miniquest."
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10022,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 429
+}

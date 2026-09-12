@@ -1,0 +1,1742 @@
+{
+  "slug": "the-brink-of-extinction",
+  "name": "The Brink of Extinction",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "mythic",
+  "releaseDate": 1354579200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh in the main plaza of TzHaar City.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15159,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Ak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east through the arch. A cutscene will begin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": false,
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north-east to the Birthing Pool and speak to TzHaar-Mej-Het.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I require TokKul."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That\u0027s the TokKul I\u0027m looking for!"
+        },
+        {
+          "t": "direction",
+          "x": 4721.0,
+          "heightFine": 552.0,
+          "y": 5173.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16230,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Het"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26147,
+          "displayName": "TokKul of TzHaar-Mej-Gek",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around the wall to where the Fight Kiln entrance is, and mine the Statue of TzHaar-Ket-Teg.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4741.0,
+          "heightFine": 552.0,
+          "y": 5153.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80705,
+          "modelIds": [],
+          "displayName": "Statue of TzHaar-Ket-Teg"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26143,
+          "displayName": "Fragment of TzHaar-Ket-Teg",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south-west to the TzHaar City entrance. Mine the nearby Statue of TzHaar-Xil-Kal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4665.0,
+          "heightFine": 552.0,
+          "y": 5067.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80706,
+          "modelIds": [],
+          "displayName": "Statue of TzHaar-Xil-Kal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26144,
+          "displayName": "Fragment of TzHaar-Xil-Kal",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the main plaza. Melt the two stacks of fragments into TokKul with the furnace slightly south-east of the main plaza.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 67995,
+          "modelIds": [],
+          "displayName": "Lava Furnace"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26143,
+          "modelIds": [],
+          "displayName": "Fragment of TzHaar-Ket-Teg"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26144,
+          "modelIds": [],
+          "displayName": "Fragment of TzHaar-Xil-Kal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26147,
+          "displayName": "TokKul of TzHaar-Mej-Gek",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26145,
+          "displayName": "TokKul of TzHaar-Ket-Teg",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26146,
+          "displayName": "TokKul of TzHaar-Xil-Kal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Goodbye."
+        },
+        {
+          "t": "direction",
+          "x": 4671.0,
+          "heightFine": 581.0,
+          "y": 5159.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15159,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Ak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 26147,
+          "displayName": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Ga\u0027al",
+      "text": "Go to the entrance to the Library, north-west of the main plaza and speak to Ga\u0027al.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, the plaza"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16233,
+          "modelIds": [],
+          "displayName": "Ga\u0027al"
+        },
+        {
+          "t": "direction",
+          "x": 4631.0,
+          "heightFine": 552.0,
+          "y": 5178.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "TzHaar City plaza"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Communication orb",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south until you reach the cooking icon on the minimap. Speak to the next Ga\u0027al.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, the plaza"
+        },
+        {
+          "t": "direction",
+          "x": 4637.0,
+          "heightFine": 552.0,
+          "y": 5114.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16233,
+          "modelIds": [],
+          "displayName": "Ga\u0027al"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "TzHaar City plaza"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue south along the eastern wall to the southwest corner of the city (east of the  TzHaar City mine), and speak to the final Ga\u0027al.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "The plaza"
+        },
+        {
+          "t": "direction",
+          "x": 4729.0,
+          "heightFine": 552.0,
+          "y": 5081.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16233,
+          "modelIds": [],
+          "displayName": "Ga\u0027al"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "TzHaar City plaza"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the main plaza and speak to TzHaar-Mej-Ak or TzHaar-Mej-Jeh again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4672.0,
+          "heightFine": 581.0,
+          "y": 5159.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15159,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Ak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 15159,
+          "modelIds": [],
+          "displayName": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Fight Kiln entrance east of Main Plaza.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "\u0027The Brink of Extinction\u0027."
+        },
+        {
+          "t": "direction",
+          "x": 4743.0,
+          "heightFine": 552.0,
+          "y": 5171.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68108,
+          "modelIds": [],
+          "displayName": "Elder Kiln"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "A cutscene plays.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "We have to take the risk. Reforge the Ga\u0027al in the Kiln."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Pursue him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run to the easternmost part of TzHaar City, where a cave entrance is. The entrance is not clickable until after you interact with the orb, cave entrance is indicated on your map.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4786.0,
+          "heightFine": 552.0,
+          "y": 5130.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4786.0,
+          "heightFine": 552.0,
+          "y": 5130.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the communication orb in your backpack.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "TokKul of TzHaar-Mej-Gek."
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26142,
+          "modelIds": [],
+          "displayName": "Communication orb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80725,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80725,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        },
+        {
+          "t": "direction",
+          "x": 4786.0,
+          "heightFine": 552.0,
+          "y": 5130.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room 1",
+      "text": "Kill the 4 Tz-Kih.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the mace, sword and knife.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26152,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80743,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80746,
+          "modelIds": [],
+          "displayName": "Obsidian knife"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26152,
+          "displayName": "Obsidian mace",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26149,
+          "displayName": "Obsidian sword",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26150,
+          "displayName": "Obsidian knife",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Put the mace on the western scale.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26152,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "priority": "all",
+          "instance": true,
+          "atLocation": {
+            "x": -5.0,
+            "heightFine": 512.0,
+            "y": 24.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80754,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Put the sword on the eastern scale.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26149,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "priority": "all",
+          "instance": true,
+          "atLocation": {
+            "x": 4.0,
+            "heightFine": 512.0,
+            "y": 24.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80745,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80732,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16266,
+          "modelIds": [],
+          "displayName": "Tz-Kek"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Tz-Kih and Tok-Xil",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move the statues such that TzHaar-Mej faces TzHaar-Ket, who faces TzHaar-Xil, who faces TzHaar-Mej. This involves a triangle formed by Xil and Mej (parallel) to the south and Ket to the north. If it doesn\u0027t work, make the triangle smaller.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 512.0,
+          "y": 32.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 512.0,
+          "y": 28.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 512.0,
+          "y": 28.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80818,
+          "modelIds": [],
+          "displayName": "Bookcase"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass the hot vent door to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80784,
+          "modelIds": [],
+          "displayName": "Hot vent door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sacred lava"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the TokHaar-Ket Champion and pick up the obsidian maul it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26153,
+          "displayName": "Obsidian maul",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass back through the hot vent door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80784,
+          "modelIds": [],
+          "displayName": "Hot vent door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 13.0,
+          "heightFine": 7080.0,
+          "y": 6.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the maul on the scales.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80757,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16268,
+          "modelIds": [],
+          "displayName": "Tz-Kil"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room 4",
+      "text": "Kill the 4 Tz-Kils.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up each of the obsidian weapons: throwing ring, sword, mace and staff.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26149,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26148,
+          "modelIds": [],
+          "displayName": "Obsidian throwing ring"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26152,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26151,
+          "modelIds": [],
+          "displayName": "Obsidian staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26151,
+          "displayName": "Obsidian staff",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26152,
+          "displayName": "Obsidian mace",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26148,
+          "displayName": "Obsidian throwing ring",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26149,
+          "displayName": "Obsidian sword",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the sword on the northwest pedestal.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26149,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "instance": true,
+          "atLocation": {
+            "x": -5.0,
+            "heightFine": 512.0,
+            "y": 24.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80745,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the maul on the northeast pedestal.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "instance": true,
+          "atLocation": {
+            "x": 4.0,
+            "heightFine": 512.0,
+            "y": 24.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80754,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the staff on the southwest pedestal.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26151,
+          "modelIds": [],
+          "displayName": "Obsidian staff"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "instance": true,
+          "atLocation": {
+            "x": -5.0,
+            "heightFine": 512.0,
+            "y": 19.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80751,
+          "modelIds": [],
+          "displayName": "Obsidian staff"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the throwing ring on the southeast pedestal.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26148,
+          "modelIds": [],
+          "displayName": "Obsidian throwing ring"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales",
+          "instance": true,
+          "atLocation": {
+            "x": 4.0,
+            "heightFine": 512.0,
+            "y": 19.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80742,
+          "modelIds": [],
+          "displayName": "Obsidian throwing ring"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the Ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16216,
+          "modelIds": [],
+          "displayName": "Ga\u0027al-Xox"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the 2 Tz-Kils and Yt-MejKot.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Touch the pedestals in the order that they light up until the puzzle is complete. There are 8 combinations you will need to complete correctly.\u003cul\u003e\u003cli\u003eRecommended to give each pedestal a number between 1-4. Write the number of the last pedestal that lights up each round in your chatbox, forming a list. When touching pedestals, simply follow the numbers in your chatbox.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "the-brink-of-extinction.memory-pedestals"
+    },
+    {
+      "text": "Go through the Ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass the hot vent door to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80784,
+          "modelIds": [],
+          "displayName": "Hot vent door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "This crucible"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the 2 TokHaar-Ket Champions and pick up the obsidian maul dropped.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26153,
+          "displayName": "Obsidian maul",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass back through the Hot vent door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80784,
+          "modelIds": [],
+          "displayName": "Hot vent door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 13.0,
+          "heightFine": 7080.0,
+          "y": 6.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the maul on the scales.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80739,
+          "modelIds": [],
+          "displayName": "Ancient scales"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80757,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16266,
+          "modelIds": [],
+          "displayName": "Tz-Kek"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the sword, maul, mace, knife and staff.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26149,
+          "modelIds": [],
+          "displayName": "Obsidian sword"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26150,
+          "modelIds": [],
+          "displayName": "Obsidian knife"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26153,
+          "modelIds": [],
+          "displayName": "Obsidian maul"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26151,
+          "modelIds": [],
+          "displayName": "Obsidian staff"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 26152,
+          "modelIds": [],
+          "displayName": "Obsidian mace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 26153,
+          "displayName": "Obsidian maul",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26149,
+          "displayName": "Obsidian sword",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26152,
+          "displayName": "Obsidian mace",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26150,
+          "displayName": "Obsidian knife",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 26151,
+          "displayName": "Obsidian staff",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect each scale for the TzHaar word. Use the correct obsidian weapon on each scale according to the table below:",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the ancient gate.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16271,
+          "modelIds": [],
+          "displayName": "Ket-Zek"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the tiles on the ground to form the TzHaar symbol.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the Ancient gate.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80731,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 80814,
+          "modelIds": [],
+          "displayName": "Bookcase"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pass the hot vent door to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 17.0,
+          "heightFine": 7045.0,
+          "y": 6.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ga\u0027al-Xox.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Hand over the Tok"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16223,
+          "modelIds": [],
+          "displayName": "Ga\u0027al-Xox"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "help me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Rotate the eastern valve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80788,
+          "modelIds": [],
+          "displayName": "Valve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16228,
+          "modelIds": [],
+          "displayName": "TokHaar-Hok"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill TokHaar-Hok.\u003cul\u003e\u003cli\u003eYou cannot teleport out or leave the fight early.\u003c/li\u003e\u003cli\u003ePray Deflect/Protection from Melee the entire fight.\u003c/li\u003e\u003cli\u003eAvoid standing on glowing floor squares, as always.\u003c/li\u003e\u003cli\u003eYou do not need to kill the spawned enemies - higher level players may focus on TokHaar-Hok. When he is defeated, the spawned enemies will die.\u003c/li\u003e\u003cli\u003eStun TokHaar-Hok once he has lost half his health, this prevents him from healing at the flowing lava.\u003c/li\u003e\u003cli\u003eThe stun mechanic may be bugged and you may only be able to use  basic Ranged ability, Binding Shot, the basic Magic ability, Impact and the Magic threshold ability, Asphyxiate, and the basic melee ability, Backhand.\u003c/li\u003e\u003cli\u003eIn Legacy Mode, you need to stun him with a special attack.\u003c/li\u003e\u003cli\u003eIn Revolution mode, you can easily stun-lock him with Backhand, Kick, Forceful Backhand, Stomp (threshold), Destroy (dual-wield threshold), or by using Death Grasp (T70+ weapon special attack) with Necromancy.\u003c/li\u003e\u003cli\u003eThe stun mechanic may be bugged and you may only be able to use  basic Ranged ability, Binding Shot, the basic Magic ability, Impact and the Magic threshold ability, Asphyxiate, and the basic melee ability, Backhand.\u003c/li\u003e\u003cli\u003eIn Legacy Mode, you need to stun him with a special attack.\u003c/li\u003e\u003cli\u003eIn Revolution mode, you can easily stun-lock him with Backhand, Kick, Forceful Backhand, Stomp (threshold), Destroy (dual-wield threshold), or by using Death Grasp (T70+ weapon special attack) with Necromancy.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bested"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to TokHaar-Hok.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16261,
+          "modelIds": [],
+          "displayName": "TokHaar-Hok"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16261,
+          "modelIds": [],
+          "displayName": "16261"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ga\u0027al-Xox.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "never allow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16224,
+          "modelIds": [],
+          "displayName": "Ga\u0027al-Xox"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ga\u0027al-Xox again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Farewell."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the city through the door. Activate your communication orb.\u003cul\u003e\u003cli\u003eIf you have destroyed your communication orb, talk to either TzHaar-Mej-Ak or TzHaar-Mej-Jeh in the main plaza of TzHaar City.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 80730,
+          "modelIds": [],
+          "displayName": "Cave exit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the Fight Kiln entrance.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "\u0027The Brink of Extinction\u0027"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68108,
+          "modelIds": [],
+          "displayName": "Elder Kiln"
+        },
+        {
+          "t": "direction",
+          "x": 4743.0,
+          "heightFine": 552.0,
+          "y": 5170.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "A cutscene ensues.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I can\u0027t wait to battle the TokHaar."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 16905,
+  "stageVarbitCompleteValue": 225,
+  "cacheQuestId": 360
+}

@@ -1,0 +1,1553 @@
+{
+  "slug": "the-hand-in-the-sand",
+  "name": "The Hand in the Sand",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1136851200,
+  "neededItems": [
+    {
+      "name": "Beer",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bucket of sand",
+      "itemId": 1783,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Lantern lens",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Earth runes",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Empty vial",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Redberries",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "White berries",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Wicked hood",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 49,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 17,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Bert in the building near Yanille's house portal.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Yanille lodestone",
+        "url": "Yanille_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 965.0,
+          "y": 3100.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Eww a hand, in the sand! Why haven't you told the authorities?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Bert.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "2 seconds"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use an empty bucket on the sand pit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1344,
+          "modelIds": [
+            1752
+          ],
+          "displayName": "Sand pit"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1783,
+          "displayName": "Bucket of sand",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy a beer from the bartender.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2553.0,
+          "heightFine": 997.0,
+          "y": 3079.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 731,
+          "modelIds": [
+            3453
+          ],
+          "displayName": "Bartender"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 731,
+          "modelIds": [
+            3453
+          ],
+          "displayName": "Bartender"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "One cheap beer please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1917,
+          "displayName": "Beer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 731,
+          "modelIds": [
+            3453
+          ],
+          "displayName": "Bartender"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "A helping hand",
+      "text": "Talk to the Guard Captain in the nearby pub.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2553.0,
+          "heightFine": 997.0,
+          "y": 3079.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3109,
+          "modelIds": [
+            4635
+          ],
+          "displayName": "Guard Captain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Beer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3109,
+          "modelIds": [
+            4635
+          ],
+          "displayName": "Guard Captain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talk to a wizard then"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3109,
+          "modelIds": [
+            4635
+          ],
+          "displayName": "Guard Captain"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ring the bell on the eastern side of the Wizards' Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2598.0,
+          "heightFine": 1765.0,
+          "y": 3085.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Zavistic Rarve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a rather sandy problem that I'd like to palm off on you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "isn't natural"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Bert.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 965.0,
+          "y": 3100.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Sandy in Brimhaven"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sandy in Brimhaven.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Karamja lodestone",
+        "url": "Karamja_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2788.0,
+          "heightFine": 2629.0,
+          "y": 3176.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take a look around"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search his desk to receive Sandy's rota.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2788.5,
+          "heightFine": 2229.0,
+          "y": 3174.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Sandys rota",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket Sandy for some sand.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6958,
+          "displayName": "Sand",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Bert.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Yanille lodestone",
+        "url": "Yanille_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 965.0,
+          "y": 3100.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "quick sharp"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16896,
+          "modelIds": [
+            4434
+          ],
+          "displayName": "Bert"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ring the Wizards' Guild bell.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2598.0,
+          "heightFine": 1765.0,
+          "y": 3085.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Zavistic Rarve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a rather sandy problem that I'd like to palm off on you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you help me more?."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "find the murderer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Truth serum",
+      "text": "Talk to Betty in Port Sarim's magic shop.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Port Sarim lodestone",
+        "url": "Port_Sarim_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3014.0,
+          "heightFine": 965.0,
+          "y": 3259.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 583,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8750,
+            9395,
+            27375,
+            31531
+          ],
+          "displayName": "Betty"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Empty vial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Redberries",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "White berries",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Lantern lens",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Sand",
+          "itemId": 72,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 583,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8750,
+            9395,
+            27375,
+            31531
+          ],
+          "displayName": "Betty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Betty about The Hand in the Sand."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "good"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 583,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8750,
+            9395,
+            27375,
+            31531
+          ],
+          "displayName": "Betty"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use redberries on the bottled water.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1951,
+          "modelIds": [],
+          "displayName": "Redberries"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6953,
+          "modelIds": [
+            180,
+            192
+          ],
+          "displayName": "Bottled water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6954,
+          "displayName": "Redberry juice",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use white berries on the redberry juice.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 239,
+          "modelIds": [],
+          "displayName": "White berries"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6954,
+          "modelIds": [
+            180,
+            192
+          ],
+          "displayName": "Redberry juice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6955,
+          "displayName": "Pink dye",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pink dye on your lantern lens.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6955,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Pink dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4542,
+          "modelIds": [],
+          "displayName": "Lantern lens"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Rose tinted lens",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Betty again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 583,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8750,
+            9395,
+            27375,
+            31531
+          ],
+          "displayName": "Betty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Betty about The Hand in the Sand."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "her counter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the shop.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 72404,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Closed door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 7345,
+          "modelIds": [
+            606
+          ],
+          "displayName": "Open Door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile and use your rose-tinted lens on the counter.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3016.0,
+          "heightFine": 965.0,
+          "y": 3259.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50941,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Counter"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Rose tinted lens"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6952,
+          "displayName": "Truth serum",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Betty yet again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 583,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8750,
+            9395,
+            27375,
+            31531
+          ],
+          "displayName": "Betty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Betty about The Hand in the Sand."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6958,
+          "displayName": "Sand"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Sandy. Try each chat option until he's distracted.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Karamja lodestone",
+        "url": "Karamja_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2788.0,
+          "heightFine": 1829.0,
+          "y": 3176.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "now is your chance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the truth serum on the coffee mug in Sandy's house.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            558
+          ],
+          "displayName": "Coffee mug"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6952,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Truth serum"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "drink it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Activate the magical orb.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6950,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Magical orb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Magical orb a",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sandy again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why is Bert's rota different from the original?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I changed it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why doesn't Bert remember the change in his hours?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "paying him more"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 40953,
+          "modelIds": [
+            4461
+          ],
+          "displayName": "Sandy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened to the wizard?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "returned to the Wizard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retrieving the head",
+      "text": "Ring the Wizards' Guild bell.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Yanille lodestone",
+        "url": "Yanille_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2598.0,
+          "heightFine": 1765.0,
+          "y": 3085.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket of sand",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Earth runes",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Wicked hood",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to the Zavistic Rarve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a rather sandy problem that I'd like to palm off on you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get you the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Zavistic Rarve again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a rather sandy problem that I'd like to palm off on you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talking to Zavistic Rarve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Entrana sandpit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mazion at the sand pit in south-west Entrana.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Law altar teleport",
+        "url": "Wicked_hood.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2819.0,
+          "heightFine": 941.0,
+          "y": 3340.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3114,
+          "modelIds": [
+            3846
+          ],
+          "displayName": "Mazion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3114,
+          "modelIds": [
+            3846
+          ],
+          "displayName": "Mazion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you the head"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3114,
+          "modelIds": [
+            3846
+          ],
+          "displayName": "Mazion"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ring the Wizards' Guild bell.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Yanille lodestone",
+        "url": "Yanille_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2598.0,
+          "heightFine": 1765.0,
+          "y": 3085.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Zavistic Rarve.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2059,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14733,
+            14745
+          ],
+          "displayName": "Zavistic Rarve"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a rather sandy problem that I'd like to palm off on you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 14030,
+  "stageVarbitCompleteValue": 160,
+  "cacheQuestId": 295
+}

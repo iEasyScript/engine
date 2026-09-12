@@ -1,0 +1,315 @@
+{
+  "slug": "rune-mythos",
+  "name": "Rune Mythos",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1691366400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Necromancy!"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Necromancy",
+      "level": 24,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Malignius Mortifer next to the ritual site.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1036.0,
+          "heightFine": 7237.0,
+          "y": 1764.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1036.0,
+          "heightFine": 7237.0,
+          "y": 1764.0,
+          "range": 16
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30258,
+            30289
+          ],
+          "displayName": "Malignius Mortifer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Craft impure essence",
+      "text": "Perform a lesser essence ritual and collect impure essence from the ritual chest.<ul><li>Malignius Mortifer will give you eight basic ghostly ink, four regular ghostly ink, and 200 pure essence for the lesser essence ritual.</li><li>You need two Elemental I glyphs, two Change I glyphs, and four light sources.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm good. What's next?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual platform"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual pedestal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You complete the ritual."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Withdraw the output of the ritual from the ritual chest on the ritual site.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55667,
+          "displayName": "Impure essence",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Craft spirit runes",
+      "text": "Head to north-eastern area of the city and enter through the dark portal with some unnoted impure essence.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1164.0,
+          "heightFine": 8453.0,
+          "y": 1820.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1311.0,
+          "heightFine": 2469.0,
+          "y": 1954.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Impure essence",
+          "itemId": 55667,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to make some spirit runes.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127380,
+          "modelIds": [
+            1914
+          ],
+          "displayName": "Spirit altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Stop playing with things you clearly aren't ready for."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with Rasial, the First Necromancer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5121,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5123,
+            30263
+          ],
+          "displayName": "Rasial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Urgh, why is he so frustrating?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft your runes.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127380,
+          "modelIds": [
+            1914
+          ],
+          "displayName": "Spirit altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 55337,
+          "displayName": "Spirit rune",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Head back to Malignius.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1036.0,
+          "heightFine": 7237.0,
+          "y": 1764.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1036.0,
+          "heightFine": 7237.0,
+          "y": 1764.0,
+          "range": 16
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30258,
+            30289
+          ],
+          "displayName": "Malignius Mortifer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 53546,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 494
+}

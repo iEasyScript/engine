@@ -1,0 +1,1935 @@
+{
+  "slug": "heroes-quest",
+  "name": "Heroes' Quest",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1014768000,
+  "neededItems": [
+    {
+      "name": "Ice gloves",
+      "itemId": 312,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Harralander potion (unfinished)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Fishing rod",
+      "itemId": 180,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Fishing bait",
+      "itemId": 313,
+      "quantity": 5,
+      "duringQuest": true
+    },
+    {
+      "name": "Lockpick",
+      "itemId": 1523,
+      "quantity": 5,
+      "duringQuest": true
+    },
+    {
+      "name": "BAG: Black full helm",
+      "itemId": 564,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "BAG: Black platebody",
+      "itemId": 918,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "BAG: Black platelegs",
+      "itemId": 402,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "PG: Coins or Ring of Charos (a)",
+      "itemId": -1,
+      "quantity": 1000,
+      "duringQuest": false
+    },
+    {
+      "name": "PG: Magic/ranged weapon",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Dusty key",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Entranan firebird",
+      "level": "1",
+      "quantity": 1
+    },
+    {
+      "name": "Grip",
+      "level": "21",
+      "quantity": 1
+    },
+    {
+      "name": "Jailer",
+      "level": "39",
+      "quantity": 1
+    },
+    {
+      "name": "Ice Queen",
+      "level": "77",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Shield of Arrav",
+    "Dragon Slayer"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 53,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Fishing",
+      "level": 53,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 50,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Defence",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "questpoints",
+      "level": 56,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Achietties outside the Heroes' Guild in Burthorpe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1093.0,
+          "y": 3514.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 796,
+          "modelIds": [
+            5583
+          ],
+          "displayName": "Achietties",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Achietties.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1093.0,
+          "y": 3514.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 796,
+          "modelIds": [
+            5583
+          ],
+          "displayName": "Achietties",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Lava Eel"
+        },
+        {
+          "t": "conversationText",
+          "text": "lava Eel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lava eel",
+      "text": "Talk to Gerrant, the fishing shop owner in Port Sarim.<ul><li>Buy a fishing rod and fishing bait from Gerrant.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3013.0,
+          "heightFine": 965.0,
+          "y": 3224.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11699,
+          "modelIds": [
+            4839
+          ],
+          "displayName": "Gerrant",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to find out how to catch a lava eel."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1581,
+          "displayName": "Blamish snail slime",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Fishing rod",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fishing bait",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Harralander potion (unfinished)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the blamish snail slime on your harralander potion (unfinished).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1581,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Blamish snail slime"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Harralander potion unf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1582,
+          "displayName": "Blamish oil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the blamish oil on your fishing rod.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 307,
+          "modelIds": [
+            180
+          ],
+          "displayName": "Fishing rod"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1582,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Blamish oil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "rub the oil into"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Taverly lodestone and enter the Taverley Dungeon to the south.",
+      "warning": "If you have the dusty key on the keyring, manually skip ahead to 'Open the gate with the dusty key in your inventory'.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2885.0,
+          "heightFine": 493.0,
+          "y": 3397.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2886.0,
+          "heightFine": 1061.0,
+          "y": 9795.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dusty key",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food if lower combat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path to the Black Knights compound.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2888.5,
+          "heightFine": 1285.0,
+          "y": 9830.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2891.0,
+          "heightFine": 1285.0,
+          "y": 9830.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.5,
+          "heightFine": 1421.0,
+          "y": 9825.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2893.0,
+          "heightFine": 1597.0,
+          "y": 9823.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.0,
+          "heightFine": 1261.0,
+          "y": 9819.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2906.0,
+          "heightFine": 1245.0,
+          "y": 9819.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2940.0,
+          "heightFine": 701.0,
+          "y": 9806.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2940.0,
+          "heightFine": 701.0,
+          "y": 9806.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 933.0,
+          "y": 9755.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 933.0,
+          "y": 9755.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2914.0,
+          "heightFine": 949.0,
+          "y": 9741.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2914.0,
+          "heightFine": 949.0,
+          "y": 9741.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2908.0,
+          "heightFine": 1000.0,
+          "y": 9712.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2908.0,
+          "heightFine": 1000.0,
+          "y": 9712.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the cells to the south-east and kill the Jailer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 985.0,
+          "y": 9692.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 985.0,
+          "y": 9692.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 201,
+          "modelIds": [
+            5565
+          ],
+          "displayName": "Jailer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the jail key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1591,
+          "displayName": "Jail key",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the jail key on the cell door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 965.0,
+          "y": 9689.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 965.0,
+          "y": 9687.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Velrak the explorer for a dusty key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3831
+          ],
+          "displayName": "Velrak"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So...do you know anywhere good to explore?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Circle back the way you came and bridge you passed earlier.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2927.0,
+          "heightFine": 925.0,
+          "y": 9756.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2927.0,
+          "heightFine": 925.0,
+          "y": 9756.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate with the dusty key in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2923.5,
+          "heightFine": 1173.0,
+          "y": 9803.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2921.0,
+          "heightFine": 1125.0,
+          "y": 9803.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run past the blue dragons.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2895.0,
+          "heightFine": 1213.0,
+          "y": 9796.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2894.0,
+          "heightFine": 1373.0,
+          "y": 9792.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch a lava eel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2893.0,
+          "heightFine": 965.0,
+          "y": 9769.0,
+          "instance": false,
+          "distance": 10
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            576
+          ],
+          "candidateObjectTypeIds": [
+            1585,
+            1631,
+            1769,
+            1770,
+            1902,
+            2637,
+            3586,
+            6965,
+            32723,
+            35253
+          ],
+          "displayName": "Fishing bubbles",
+          "priority": "closest",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2148,
+          "displayName": "Raw lava eel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook the eel on a range or fire.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cooked lava eel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Master thief's armband - Black Arm gang",
+      "text": "Talk to Katrine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3185.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20798,
+            20799
+          ],
+          "displayName": "Katrine",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I get a master thief's armband?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "four leafed clover"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Lockpick",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Black full helm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black platebody",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black platelegs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lodestone to Karamja and enter the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2810.5,
+          "heightFine": 2109.0,
+          "y": 3170.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Four leaved clover."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2813.0,
+          "heightFine": 1509.0,
+          "y": 3172.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trobert.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1884,
+          "modelIds": [
+            4935
+          ],
+          "displayName": "Trobert"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So can you help me get Scarface Pete's candlesticks?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I volunteer to undertake that mission!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1584,
+          "displayName": "ID papers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your Black armour.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1165,
+          "modelIds": [
+            564
+          ],
+          "displayName": "Black full helm"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1165,
+          "displayName": "Black full helm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1125,
+          "modelIds": [
+            918
+          ],
+          "displayName": "Black platebody"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1125,
+          "displayName": "Black platebody"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1077,
+          "modelIds": [
+            402
+          ],
+          "displayName": "Black platelegs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1077,
+          "displayName": "Black platelegs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the large mansion in the north-west part of town.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2774.0,
+          "heightFine": 2429.0,
+          "y": 3187.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2774.0,
+          "heightFine": 1861.0,
+          "y": 3189.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Grip.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 792,
+          "modelIds": [
+            4743
+          ],
+          "displayName": "Grip"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So what do my duties involve?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Misc key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the north-west part of the building and open the Treasure room door with a lockpick to enter.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2763.5,
+          "heightFine": 1829.0,
+          "y": 3197.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2765.0,
+          "heightFine": 1829.0,
+          "y": 3197.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the northern chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2766.0,
+          "heightFine": 2029.0,
+          "y": 3199.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Candlestick",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bring the candlestick back to Katrine to receive a Master Thief's Armband.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3185.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20798,
+            20799
+          ],
+          "displayName": "Katrine",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a candlestick now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Armband",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ice gloves",
+      "text": "Lodestone to Burthope and enter the cave on the mountain.",
+      "warning": "If you already have the ice gloves, withrdaw them from your bank or unequip them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2851.0,
+          "heightFine": 5533.0,
+          "y": 3505.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2825.0,
+          "heightFine": 11941.0,
+          "y": 3524.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the rock slide.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 471,
+          "modelIds": [
+            5037,
+            5037
+          ],
+          "displayName": "Rockslide"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2841.0,
+          "heightFine": 11029.0,
+          "y": 3520.0,
+          "range": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2848.0,
+          "heightFine": 10869.0,
+          "y": 3513.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2847.0,
+          "heightFine": 1093.0,
+          "y": 9912.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the west.",
+      "warning": "Be careful of the ice giants if you're low level.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2824.0,
+          "heightFine": 1405.0,
+          "y": 9907.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2821.0,
+          "heightFine": 18277.0,
+          "y": 3507.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the laldder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2825.0,
+          "heightFine": 18277.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2827.0,
+          "heightFine": 901.0,
+          "y": 9911.0,
+          "range": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder at the end of the path.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2857.0,
+          "heightFine": 1893.0,
+          "y": 9917.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2855.0,
+          "heightFine": 8981.0,
+          "y": 3516.0,
+          "range": 4
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2857.0,
+          "heightFine": 8861.0,
+          "y": 3519.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2860.0,
+          "heightFine": 1093.0,
+          "y": 9920.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the ice queen and pick up the ice gloves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2866.0,
+          "heightFine": 981.0,
+          "y": 9953.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 795,
+          "modelIds": [
+            5475
+          ],
+          "displayName": "Ice Queen",
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1580,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Ice gloves"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1580,
+          "displayName": "Ice gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Entrana firebird feather",
+      "text": "Sail to Entrana or teleport to the law altar using the wicked hood or through the Abyss.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3045.0,
+          "heightFine": 741.0,
+          "y": 3235.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 657,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            658,
+            2728,
+            2729,
+            2730,
+            2731
+          ],
+          "displayName": "Monk of Entrana",
+          "priority": "closest",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2834.0,
+          "heightFine": 965.0,
+          "y": 3335.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2846.0,
+          "heightFine": 1965.0,
+          "y": 3381.0,
+          "range": 16
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ice gloves",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Entrana",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the ice gloves, kill the Firebird, and pick up the firebird feather.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2846.0,
+          "heightFine": 1965.0,
+          "y": 3381.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3021
+          ],
+          "displayName": "Firebird",
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            174
+          ],
+          "candidateObjectTypeIds": [
+            32444,
+            32450,
+            32451,
+            112745
+          ],
+          "displayName": "Firebird feather"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1580,
+          "modelIds": [
+            312
+          ],
+          "displayName": "Ice gloves"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Firebird feather",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            47829,
+            47830
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Take the feather, eel, and armband to Achietties outside the Heroes' Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1093.0,
+          "y": 3514.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 796,
+          "modelIds": [
+            5583
+          ],
+          "displayName": "Achietties",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Entranan firebird feather",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Lava eel",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Master thief's armband",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2618,
+  "stageVarbitCompleteValue": 15,
+  "cacheQuestId": 264
+}

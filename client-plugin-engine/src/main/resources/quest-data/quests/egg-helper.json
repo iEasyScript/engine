@@ -1,0 +1,198 @@
+{
+  "slug": "egg-helper",
+  "name": "Egg Helper",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1689552000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Egg helper",
+      "text": "Talk to Nougat Bunny.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Blooming Burrow Teleport",
+        "url": "Blooming_Burrow_Teleport_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3779.0,
+          "heightFine": 2109.0,
+          "y": 4955.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny",
+          "atLocation": {
+            "x": 3779.0,
+            "heightFine": 2109.0,
+            "y": 4955.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny",
+          "atLocation": {
+            "x": 3779.0,
+            "heightFine": 2109.0,
+            "y": 4955.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "find them all"
+        },
+        {
+          "t": "conversationText",
+          "text": "good luck"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Find 12 golden eggs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 129776,
+          "modelIds": [
+            768
+          ],
+          "displayName": "Golden egg",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "12/12"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Nougat Bunny.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Blooming Burrow Teleport",
+        "url": "Blooming_Burrow_Teleport_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3779.0,
+          "heightFine": 2109.0,
+          "y": 4955.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny",
+          "atLocation": {
+            "x": 3779.0,
+            "heightFine": 2109.0,
+            "y": 4955.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny",
+          "atLocation": {
+            "x": 3779.0,
+            "heightFine": 2109.0,
+            "y": 4955.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Best of luck"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 30818,
+          "modelIds": [
+            3216
+          ],
+          "displayName": "Nougat Bunny"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": -1,
+  "stageVarbitCompleteValue": -1,
+  "cacheQuestId": -1
+}

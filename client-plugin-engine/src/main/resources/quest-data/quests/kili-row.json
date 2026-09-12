@@ -1,0 +1,404 @@
+{
+  "slug": "kili-row",
+  "name": "Kili Row",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1691366400,
+  "neededItems": [
+    {
+      "name": "Regular ghostly ink",
+      "itemId": 55236,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Basic ghostly ink",
+      "itemId": 55235,
+      "quantity": 7,
+      "duringQuest": false
+    },
+    {
+      "name": "Basic ritual candle",
+      "itemId": 55245,
+      "quantity": 4,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Bones",
+      "itemId": -1,
+      "quantity": 11,
+      "duringQuest": false
+    },
+    {
+      "name": "Basic ghostly ink",
+      "itemId": -1,
+      "quantity": 11,
+      "duringQuest": false
+    },
+    {
+      "name": "Necromancy weapons if killing chickens",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Chickens",
+      "level": "1",
+      "quantity": 5
+    }
+  ],
+  "prereqQuests": [
+    "Necromancy!"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Necromancy",
+      "level": 20,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Kili by the anvils in north-eastern corner of the City of Um.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30308,
+          "modelIds": [],
+          "displayName": "Kili"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation to get Kili's tools.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Kilis tools",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "Bye for now then!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lesser ensoul material ritual",
+      "text": "Go to the ritual site in the City of Um.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1038.0,
+          "heightFine": 6789.0,
+          "y": 1776.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1038.0,
+          "heightFine": 6789.0,
+          "y": 1776.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Kili's tools",
+          "itemId": 561,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Basic ritual candle",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Basic ghostly ink",
+          "itemId": -1,
+          "quantity": 7,
+          "duringQuest": false
+        },
+        {
+          "name": "Regular ghostly ink",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Select the Lesser ensoul material (Kili Row) with the pedestal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual pedestal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "Tools on pedestal"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            561
+          ],
+          "candidateNpcTypeIds": [
+            290
+          ],
+          "displayName": "Kilis tools"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the ritual.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual platform"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1 x Kili's tools (ensouled)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Withdraw the output from the chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "necromancy ritual chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Kilis tools",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Soul urn",
+      "text": "Go back to Kili to get a soul urn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30308,
+          "modelIds": [],
+          "displayName": "Kili"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Perfect. Come back to me when you've filled the urn."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill five chickens using Necromancy or go back to the ritual site and perform a lesser communion ritual.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "any chicken"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Your soul urn tightly shuts as it's filled with the last soul."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Kili.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1146.0,
+          "heightFine": 5445.0,
+          "y": 1807.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30308,
+          "modelIds": [],
+          "displayName": "Kili"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 53496,
+  "stageVarbitCompleteValue": 35,
+  "cacheQuestId": 500
+}

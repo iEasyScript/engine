@@ -1,0 +1,524 @@
+{
+  "slug": "dorics-task-ii-miniquest",
+  "name": "Doric's Task II (miniquest)",
+  "members": false,
+  "length": "veryshort",
+  "timeline": "adventurer",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Bronze bars (in your inventory)",
+      "itemId": 2349,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel bars (in metal bank)",
+      "itemId": -1,
+      "quantity": 10,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task I (miniquest)",
+    "Death Plateau"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 20,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 20,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to Doric in his hut north of Falador.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Doric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Attack of the Trolls",
+      "text": "Smith two steel <b>chainbodies</b>.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1105,
+          "displayName": "Steel chainbody",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bronze bars (in your inventory)",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel bars (in metal bank)",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Commander Denulth.",
+      "warning": "There are breaks in the dialogue. Make sure the conversation is completed.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Doric's Tasks"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Doric.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks, Doric."
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use Doric's anvil.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 1269.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25338,
+          "displayName": "Cannon part",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the rope ladder north of the Burthorpe lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Burthorpe lodestone",
+        "url": "Burthorpe_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            210
+          ],
+          "candidateNpcTypeIds": [
+            740,
+            958,
+            981,
+            1050,
+            1051,
+            1363,
+            1369,
+            1779,
+            1815,
+            2323,
+            2505,
+            2506,
+            2517,
+            2518,
+            2523,
+            2524,
+            2733,
+            2796,
+            2797,
+            2798,
+            2799,
+            3571,
+            3915,
+            4719,
+            4727,
+            11618,
+            11619,
+            13981,
+            14144,
+            14145,
+            21512,
+            21522,
+            21526,
+            22630,
+            22695,
+            22699
+          ],
+          "displayName": "Burthorpe rope ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2894.0,
+          "heightFine": 4843.0,
+          "y": 3560.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the middle broken cannon to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7146,
+          "modelIds": [
+            3609
+          ],
+          "displayName": "Broken cannon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You fix the cannon using the part you made."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Commander Denulth.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Doric's Tasks"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've fixed the cannon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10012,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 422
+}

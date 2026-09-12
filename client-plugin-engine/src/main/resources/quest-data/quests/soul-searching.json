@@ -1,0 +1,410 @@
+{
+  "slug": "soul-searching",
+  "name": "Soul Searching",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1721606400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Suspicious Stranger",
+      "text": "Talk to Trista on the dock north of Soul Supplies in the City of Um.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1082.0,
+          "heightFine": 325.0,
+          "y": 1816.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31128,
+          "modelIds": [],
+          "displayName": "Trista"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "listen in on their"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cadava berries",
+          "itemId": 753,
+          "quantity": 3,
+          "duringQuest": true
+        },
+        {
+          "name": "Antipoison (3)",
+          "itemId": 175,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Papyrus",
+          "itemId": 970,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Charcoal",
+          "itemId": 973,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Fishing bait",
+          "itemId": 313,
+          "quantity": 10,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the \u0027Eavesdrop\u0027 option on Trista.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31128,
+          "modelIds": [],
+          "displayName": "Eavesdrop"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Death",
+      "text": "Talk to Death in the City of Um.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Soul Searching\u0027"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30288,
+          "modelIds": [],
+          "displayName": "Death"
+        },
+        {
+          "t": "direction",
+          "x": 1102.0,
+          "heightFine": 3853.0,
+          "y": 1776.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Suspicious Stranger on the dock where Trista was earlier.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Convince"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Persuade."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Threaten."
+        },
+        {
+          "t": "direction",
+          "x": 1081.0,
+          "heightFine": 325.0,
+          "y": 1817.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31126,
+          "modelIds": [],
+          "displayName": "Suspicious Stranger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "maybe Death can help here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Death in the City of Um.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Soul Searching\u0027"
+        },
+        {
+          "t": "direction",
+          "x": 1102.0,
+          "heightFine": 3853.0,
+          "y": 1776.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30288,
+          "modelIds": [],
+          "displayName": "Death"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s try that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Malignius",
+      "text": "Talk to Malignius Mortifer at the Um ritual site with the required items in your backpack.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Quests."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Soul Searching"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 1036.0,
+          "heightFine": 7237.0,
+          "y": 1763.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30289,
+          "modelIds": [],
+          "displayName": "Malignius Mortifer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 57155,
+          "displayName": "Potion of zombification",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the dock with the Suspicious Stranger.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1082.0,
+          "heightFine": 325.0,
+          "y": 1815.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1082.0,
+          "heightFine": 325.0,
+          "y": 1815.0,
+          "range": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Zombification",
+      "text": "Drink the potion of zombification at least 8 paces away from the Suspicious Stranger but still closer than the bottom of the stairs to transmogrify into a zombie.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1092.0,
+          "heightFine": 325.0,
+          "y": 1816.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 57155,
+          "modelIds": [],
+          "displayName": "Potion of zombification"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Potion of zombification",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Suspicious Stranger.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1081.0,
+          "heightFine": 325.0,
+          "y": 1817.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31126,
+          "modelIds": [],
+          "displayName": "Suspicious Stranger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hop into my"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board the gondola.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 130746,
+          "modelIds": [],
+          "displayName": "Gondola"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 31130,
+          "modelIds": [],
+          "displayName": "Icthlarin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue dialogue with Icthlarin.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What now? (Continue Quest)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I ask that very same question"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 55818,
+  "stageVarbitCompleteValue": 65,
+  "cacheQuestId": 513
+}

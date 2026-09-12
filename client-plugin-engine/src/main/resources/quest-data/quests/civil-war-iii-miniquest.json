@@ -1,0 +1,376 @@
+{
+  "slug": "civil-war-iii-miniquest",
+  "name": "Civil War III (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1667779200,
+  "neededItems": [],
+  "recommendedItems": [
+    {
+      "name": "Sand seed/mystical sand seed",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Anne Dimitri, north of Quercus in the Wilderness.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3136.0,
+          "heightFine": 933.0,
+          "y": 3535.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Sand seed/mystical sand seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Het\u0027s Oasis"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Polletix in the Garden of Kharid, north of Al Kharid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3323.0,
+          "heightFine": 1849.0,
+          "y": 3308.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3340,
+          "modelIds": [
+            11634
+          ],
+          "displayName": "Polletix",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How\u0027s it going? (Civil War III)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get back to it"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "conversationText",
+          "text": "texture of the leaves like"
+        }
+      ],
+      "jumpOffset": 3,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the Power Planter I achievement by earning 250 Crux Eqal favor and purchasing the first unlock in Sydekix\u0027s Shop of Balance.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Power Planter I"
+        },
+        {
+          "t": "conversationText",
+          "text": "texture of the leaves like"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Polletix.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3323.0,
+          "heightFine": 1849.0,
+          "y": 3308.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3340,
+          "modelIds": [
+            11634
+          ],
+          "displayName": "Polletix",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How\u0027s it going? (Civil War III)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "give her an update"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3136.0,
+          "heightFine": 933.0,
+          "y": 3535.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we\u0027ll meet again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia in the White Knights\u0027 Castle\u0027s throne room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false,
+          "distance": 11
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "falador ground floor ladder",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2993.0,
+          "heightFine": 3909.0,
+          "y": 3341.0,
+          "range": 3
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "falador first floor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 52188,
+  "stageVarbitCompleteValue": 35,
+  "cacheQuestId": 486
+}

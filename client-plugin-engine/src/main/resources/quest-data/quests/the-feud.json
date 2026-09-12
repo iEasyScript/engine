@@ -1,0 +1,1777 @@
+{
+  "slug": "the-feud",
+  "name": "The Feud",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1112572800,
+  "neededItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Desert disguise (or coins to purcahse the items needed)",
+      "itemId": 417,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "A bucket",
+      "itemId": 1925,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Beer",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Leather gloves",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Red hot sauce (check your bank beforehand)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 1500,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Ali Morrisane in Al Kharid.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1862,
+          "modelIds": [
+            3960
+          ],
+          "displayName": "Ali Morrisane",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1077.0,
+          "y": 3211.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If you are, then why are you still selling goods from a stall?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d like to help you but...."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Ali Morrisane.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1862,
+          "modelIds": [
+            3960
+          ],
+          "displayName": "Ali Morrisane",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1077.0,
+          "y": 3211.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I\u0027m really too busy."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now have a look at my wares."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Pollnivneach",
+      "text": "Take the magic carpet next to Shantay Pass to Pollnivneach.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2291,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Rug merchant",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3311.0,
+          "heightFine": 1157.0,
+          "y": 3109.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3351.0,
+          "heightFine": 1010.0,
+          "y": 3002.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Beer",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the local bar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3358.0,
+          "heightFine": 965.0,
+          "y": 2956.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3358.0,
+          "heightFine": 965.0,
+          "y": 2956.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give three beers to Jalal the Drunk by right-click \u003ci\u003euse\u003c/i\u003e on him. Finish the dialogue with each beer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26838,
+          "modelIds": [
+            3831
+          ],
+          "displayName": "Jalal the Drunk"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1917,
+          "modelIds": [],
+          "displayName": "Beer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What do you think?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click \u003ci\u003etalk to\u003c/i\u003e a Menaphite Thug to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1904,
+          "modelIds": [
+            4341
+          ],
+          "displayName": "Menaphite Thug",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well I suppose so."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click \u003ci\u003etalk to\u003c/i\u003e a brigand or bandit in the northern part of Pollnivneach.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3361.0,
+          "heightFine": 965.0,
+          "y": 2988.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1880,
+          "modelIds": [],
+          "displayName": "Bandit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3361.0,
+          "heightFine": 965.0,
+          "y": 2988.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1880,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Bandit",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6174,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Brigand",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Maybe if I got both gangs a camel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Camels",
+      "text": "Buy red hot sauce from Isma\u0027il the Kebab seller, north-west of the well in the town centre.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1865,
+          "modelIds": [
+            3333
+          ],
+          "displayName": "Isma\u0027il the Kebab seller",
+          "distance": 4
+        },
+        {
+          "t": "direction",
+          "x": 3354.0,
+          "heightFine": 965.0,
+          "y": 2975.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Would you sell me that bottle of special kebab sauce?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks, I\u0027m good."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Come back soon, I could do with a few more customers."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 500,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the house immediately to the south-west, ask Sami the Camel Man for two camels. Offer 500 coins.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26840,
+          "modelIds": [
+            4437
+          ],
+          "displayName": "Sami the Camel Man",
+          "distance": 4
+        },
+        {
+          "t": "direction",
+          "x": 3349.0,
+          "heightFine": 965.0,
+          "y": 2964.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are those camels around the side for sale?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What price do you want for both of them?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Would 500 gold coins for the pair of them do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4603,
+          "displayName": "Receipt",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the sauce on a trough in the camel shop.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Hot sauce"
+        },
+        {
+          "t": "direction",
+          "x": 3342.5,
+          "heightFine": 965.0,
+          "y": 2960.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 6257,
+          "modelIds": [
+            684
+          ],
+          "candidateObjectTypeIds": [
+            61776,
+            61777
+          ],
+          "displayName": "Dung"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the dung with a bucket in the backpack if the dung is brown. If it is green, use more sauce on a trough until it is brown.\u003cul\u003e\u003cli\u003e2 empty buckets can be found in the camel shop.\u003c/li\u003e\u003cli\u003eObtain more buckets of dung if you plan to complete Dealing with Scabaras (1 bucket, does not consume) and My Arm\u0027s Big Adventure (3 buckets).\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1925,
+          "modelIds": [],
+          "displayName": "Bucket"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            684
+          ],
+          "candidateObjectTypeIds": [
+            61776,
+            61777
+          ],
+          "displayName": "Camel dung"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4601,
+          "displayName": "Ugthanki dung",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a Brigand to give them one of the receipts.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3362.0,
+          "heightFine": 965.0,
+          "y": 2988.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3362.0,
+          "heightFine": 965.0,
+          "y": 2988.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4625,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Bandit",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6174,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Brigand",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ahhh why do I bother!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a Menaphite Thug to give them the other receipt.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3346.0,
+          "heightFine": 965.0,
+          "y": 2958.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3346.0,
+          "heightFine": 965.0,
+          "y": 2958.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1904,
+          "modelIds": [
+            4341
+          ],
+          "displayName": "Menaphite Thug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Pickpocketing",
+      "text": "Go south-west of Pollnivneach to a big purple tent and ask Rashid the Operator to join his gang.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course, those bandits should be taught a lesson."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to \u003ci\u003epickpocket\u003c/i\u003e a villager.\u003cul\u003e\u003cli\u003eFor the tracking to work properly for this next section, game messages need to be set to \u0027On\u0027.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3359.0,
+          "heightFine": 965.0,
+          "y": 2969.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1888,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You\u0027ve been stunned."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the street urchin near the centre town fountain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1868,
+          "modelIds": [
+            2634
+          ],
+          "displayName": "Street urchin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Here you go, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Ya, I see them. Give me a sec."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to \u003ci\u003epickpocket\u003c/i\u003e a villager again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1868,
+          "modelIds": [
+            2634
+          ],
+          "displayName": "Street urchin"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 88267,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You\u0027ve been stunned."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Rashid the Operator for advice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yeah, I could do with a bit of advice."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4599,
+          "displayName": "Oak-blackjack",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the oak-blackjack and then lure a villager into a secluded area.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4599,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Oak-blackjack"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1898,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager",
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1894,
+          "modelIds": [
+            4143
+          ],
+          "candidateNpcTypeIds": [
+            1240,
+            1243,
+            1245,
+            1247,
+            1249
+          ],
+          "candidateObjectTypeIds": [
+            57261,
+            105740
+          ],
+          "displayName": "Villager",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3350.0,
+          "heightFine": 965.0,
+          "y": 2960.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Follow me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eKnock-Out\u003c/i\u003e the villager with the blackjack and \u003ci\u003epickpocket\u003c/i\u003e them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3350.0,
+          "heightFine": 965.0,
+          "y": 2955.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 88267,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4143
+          ],
+          "candidateNpcTypeIds": [
+            1240,
+            1243,
+            1245,
+            1247,
+            1249
+          ],
+          "candidateObjectTypeIds": [
+            57261,
+            105740
+          ],
+          "displayName": "Woman villager"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pick the villager\u0027s pocket"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jewels",
+      "text": "Talk to Rashid the Operator.\u003cul\u003e\u003cli\u003eYou can set your game messages to filtered now.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No! Now get going."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Keys",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Leather gloves",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Desert disguise",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the desert disguise and hide-behind the cactus near the mayor\u0027s house next to the fountain.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4611,
+          "modelIds": [
+            417
+          ],
+          "displayName": "Desert disguise"
+        },
+        {
+          "t": "direction",
+          "x": 3363.2,
+          "heightFine": 965.0,
+          "y": 2967.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The coast is clear, there appears to be nobody home."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the keys on the door.\u003cul\u003e\u003cli\u003eIf lost, talk to Rashid the Operator for another.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4589,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Keys"
+        },
+        {
+          "t": "direction",
+          "x": 3370.5,
+          "heightFine": 965.0,
+          "y": 2971.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3373.0,
+          "heightFine": 965.0,
+          "y": 2971.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 108806,
+          "modelIds": [
+            228
+          ],
+          "displayName": "Staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3374.0,
+          "heightFine": 2437.0,
+          "y": 2978.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eSearch\u003c/i\u003e the landscape picture near the bed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3375.5,
+          "heightFine": 2437.0,
+          "y": 2974.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "safe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click \u003cb\u003e1-1-2-3-5-8\u003c/b\u003e in that order \u003ci\u003eclockwise\u003c/i\u003e. Right-click the dials to help with the numbers.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4590,
+          "displayName": "Jewels",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the jewels to Rashid the Operator.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well then get to it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Traitor",
+      "text": "Talk to Rashid the Operator.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a Menaphite Thug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1905,
+          "modelIds": [
+            4341
+          ],
+          "displayName": "Menaphite Thug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well what can I say, he doesn\u0027t have that name for being loyal!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rashid the Operator.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Faisal the Barman.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26839,
+          "modelIds": [
+            3333
+          ],
+          "displayName": "Faisal the Barman",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3358.0,
+          "heightFine": 965.0,
+          "y": 2957.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m looking for Traitorous Hesham."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No thanks I\u0027m ok."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No thanks I\u0027m ok. Thanks for your time."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Maysa the Hag, in the house north-west of the bar, on the hill.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1871,
+          "modelIds": [
+            3618
+          ],
+          "displayName": "Maysa the Hag",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3343.0,
+          "heightFine": 3205.0,
+          "y": 2989.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it\u0027s about as dangerous as a rubber knife."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click and \u003ci\u003etalk to\u003c/i\u003e Badir the Snake Charmer sitting south of the bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1872,
+          "modelIds": [
+            4380
+          ],
+          "candidateObjectTypeIds": [
+            4242,
+            4244,
+            15087
+          ],
+          "displayName": "Badir the Snake Charmer",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 965.0,
+          "y": 2952.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4605,
+          "displayName": "Snake charm",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north of the Menaphite tent.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3331.0,
+          "heightFine": 757.0,
+          "y": 2960.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3331.0,
+          "heightFine": 757.0,
+          "y": 2960.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click \u003ci\u003euse\u003c/i\u003e the snake charm on a desert snake and wait until it goes into the snake basket.\u003cul\u003e\u003cli\u003eIf Badir the Snake Charmer did not give you a snake basket, it may be in your bank or talk to him again.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4605,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Snake charm"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1874,
+          "modelIds": [
+            1146
+          ],
+          "displayName": "Desert snake"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4607,
+          "displayName": "Full snake basket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Maysa the Hag twice to give her the full snake basket and ugthanki dung.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1871,
+          "modelIds": [
+            3618
+          ],
+          "displayName": "Maysa the Hag",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3343.0,
+          "heightFine": 3205.0,
+          "y": 2989.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4604,
+          "displayName": "Hag\u0027s poison",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Hag\u0027s poison on the table in the bar (it\u0027s the square one with a full beer on it, not the one with the empty beer glass).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3356.0,
+          "heightFine": 965.0,
+          "y": 2957.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4604,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Hag\u0027s poison"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You poison the drink"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rashid the Operator.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1902,
+          "modelIds": [
+            4503
+          ],
+          "candidateObjectTypeIds": [
+            63101
+          ],
+          "displayName": "Rashid the Operator",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3333.0,
+          "heightFine": 965.0,
+          "y": 2948.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "He wants to see you now to discuss the future direction of the gang."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dealing with the thugs",
+      "text": "Talk to the Menaphite Leader outside the tent.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1901,
+          "modelIds": [
+            3681
+          ],
+          "displayName": "Menaphite Leader"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Fool! You\u0027ll never get to me. Guards protect me."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Tough Guy.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1901,
+          "modelIds": [
+            3681
+          ],
+          "displayName": "Menaphite Leader"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a villager.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1890,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok I\u0027ll get to it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok I\u0027ll get to it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Bandit Leader east of the northern magic carpet station.\u003cul\u003e\u003cli\u003eThe Bandit leader will not appear if you did not talk to the villager in the previous step.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1878,
+          "modelIds": [
+            4023
+          ],
+          "displayName": "Bandit Leader",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3353.0,
+          "heightFine": 965.0,
+          "y": 3002.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Start packing your bags!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Bandit champion.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ve defeated"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a villager.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1894,
+          "modelIds": [
+            3855
+          ],
+          "displayName": "Villager",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4143
+          ],
+          "candidateNpcTypeIds": [
+            1240,
+            1243,
+            1245,
+            1247,
+            1249
+          ],
+          "candidateObjectTypeIds": [
+            57261,
+            105740
+          ],
+          "displayName": "Woman villager",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I still haven\u0027t found Ali\u0027s nephew."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hakeem the Mayor located next to the well in the middle of the town.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3360.0,
+          "heightFine": 965.0,
+          "y": 2969.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1870,
+          "modelIds": [],
+          "displayName": "Hakeem the Mayor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s just put it down to adventurer\u0027s intuition."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Ali Morrisane in Al-Kharid.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1862,
+          "modelIds": [
+            3960
+          ],
+          "displayName": "Ali Morrisane",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1077.0,
+          "y": 3211.0,
+          "instance": false,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9712,
+  "stageVarbitCompleteValue": 28,
+  "cacheQuestId": 285
+}

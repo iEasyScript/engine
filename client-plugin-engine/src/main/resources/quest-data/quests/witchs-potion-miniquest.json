@@ -1,0 +1,330 @@
+{
+  "slug": "witchs-potion-miniquest",
+  "name": "Witch's Potion (miniquest)",
+  "members": false,
+  "length": "veryshort",
+  "timeline": "pathfinder",
+  "releaseDate": 986515200,
+  "neededItems": [
+    {
+      "name": "Burnt meat (use cooked meat on a fire)",
+      "itemId": 126,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Eye of newt",
+      "itemId": 221,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Onion",
+      "itemId": 1957,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Rat",
+      "level": "1",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Hell's Kitchen",
+      "text": "Talk to Hetty in her house in Rimmington, west of the Port Sarim lodestone and south of Falador.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2967.0,
+          "heightFine": 805.0,
+          "y": 3206.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2967.0,
+          "heightFine": 805.0,
+          "y": 3206.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Burnt meat (use cooked meat on a fire)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Eye of newt",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Onion",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 307,
+          "modelIds": [
+            3579
+          ],
+          "displayName": "Hetty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for work."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with Hetty.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 307,
+          "modelIds": [
+            3579
+          ],
+          "displayName": "Hetty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, and a piece of burnt meat."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a rat for a rat's tail.<ul><li>Some rats can be found in Brian's Archery Supplies.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2957.0,
+          "heightFine": 805.0,
+          "y": 3192.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2957.0,
+          "heightFine": 805.0,
+          "y": 3192.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 47,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2682,
+            2980,
+            2981,
+            3007,
+            3008,
+            3009,
+            3010,
+            3011,
+            3012,
+            3013,
+            3014,
+            3015,
+            3016,
+            3017,
+            3018,
+            4396,
+            4415,
+            7202,
+            7204,
+            7461,
+            8209,
+            18602,
+            30337,
+            30338
+          ],
+          "displayName": "Rat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            204
+          ],
+          "candidateNpcTypeIds": [
+            3709
+          ],
+          "displayName": "Rats tail"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            204
+          ],
+          "candidateNpcTypeIds": [
+            3709
+          ],
+          "displayName": "Rats tail"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Rats tail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give Hetty the ingredients.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2967.0,
+          "heightFine": 805.0,
+          "y": 3206.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2967.0,
+          "heightFine": 805.0,
+          "y": 3206.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 307,
+          "modelIds": [
+            3579
+          ],
+          "displayName": "Hetty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, now drink from the cauldron."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink from the cauldron.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 692,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Cauldron"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2473,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 178
+}

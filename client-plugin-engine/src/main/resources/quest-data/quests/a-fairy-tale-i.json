@@ -1,0 +1,993 @@
+{
+  "slug": "a-fairy-tale-i",
+  "name": "A Fairy Tale I - Growing Pains",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1140998400,
+  "neededItems": [
+    {
+      "name": "Dramen/lunar staff",
+      "itemId": 772,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Secateurs",
+      "itemId": 5329,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Three/four random items",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Martin the Master Gardener in Draynor Village.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1301.0,
+          "y": 3253.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "General Chat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Anything I can help with?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Martin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Now that I think about it, you\u0027re right!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "some of the other gardeners"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "G.A.G",
+      "text": "Talk to Frizzy Skernip near the Port Sarim spirit tree patch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3060.0,
+          "heightFine": 965.0,
+          "y": 3256.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": 4560,
+          "modelIds": [
+            3765
+          ],
+          "displayName": "Frizzy",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you a member of the Group of Advanced Gardeners?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hard time solving our problems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elstan, north of the Falador cabbage field.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3053.0,
+          "heightFine": 1189.0,
+          "y": 3308.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2323,
+          "modelIds": [
+            5592
+          ],
+          "displayName": "Elstan",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you a member of the Group of Advanced Gardeners?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Insects"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Alain, north of the Taverly lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2885.0,
+          "heightFine": 805.0,
+          "y": 3461.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2339,
+          "modelIds": [
+            5445
+          ],
+          "displayName": "Alain",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you a member of the Group of Advanced Gardeners?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I give up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dantaera, north-west of the Catherby lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2784.0,
+          "heightFine": 2117.0,
+          "y": 3463.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2324,
+          "modelIds": [
+            4335
+          ],
+          "displayName": "Dantaera",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you a member of the Group of Advanced Gardeners?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "root of our problems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy a pair of secateurs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2305,
+          "modelIds": [
+            4197
+          ],
+          "displayName": "Vanessa"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5329,
+          "displayName": "Secateurs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ellena, easat of the Catherby lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2860.0,
+          "heightFine": 421.0,
+          "y": 3430.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2331,
+          "modelIds": [
+            4749
+          ],
+          "displayName": "Ellena",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you a member of the Group of Advanced Gardeners?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "over what you said"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Martin.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1301.0,
+          "y": 3253.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about farming problems."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "spoken to them before"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding a cure",
+      "text": "Equip your dramen staff or lunar staff and head to the Lumbridge Swamp to enter the Lost City shed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3201.5,
+          "heightFine": 1045.0,
+          "y": 3169.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2452.0,
+          "heightFine": 589.0,
+          "y": 4473.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dramen/lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Secateurs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fairy Godfather to the south. Make sure to finish the whole dialogue.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2447.0,
+          "heightFine": 645.0,
+          "y": 4426.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3304,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4433,
+            11323,
+            11324,
+            11325,
+            11326,
+            11327,
+            11328,
+            11346,
+            11347
+          ],
+          "displayName": "Fairy Godfather",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where\u0027s the Fairy Queen?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "no longer paying attention"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Nuff, north of the Zanaris bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2387.0,
+          "heightFine": 549.0,
+          "y": 4467.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3303,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4434
+          ],
+          "displayName": "Fairy Nuff",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have much time left"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb to the top of the Dark Wizards\u0027 Tower, west of Falador.\u003cul\u003e\u003cli\u003eBring combat gear if lower level.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2883.0,
+          "heightFine": 3669.0,
+          "y": 3335.25,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2884.0,
+          "heightFine": 6117.0,
+          "y": 3336.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2883.0,
+          "heightFine": 6717.0,
+          "y": 3336.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2887.0,
+          "heightFine": 9381.0,
+          "y": 3340.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zandar Horfyre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2883.0,
+          "heightFine": 10629.0,
+          "y": 3336.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3308,
+          "modelIds": [
+            14640
+          ],
+          "displayName": "Zandar Horfyre",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "my regards to Nuff"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Magic secateurs",
+      "text": "Talk to Malignius Mortifer, north-west of the Port Sarim lodestone.\u003cul\u003e\u003cli\u003eTalking to Malignius at the Um ritual site will not work.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 469.0,
+          "y": 3266.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30258,
+            30289
+          ],
+          "displayName": "Malignius Mortifer",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need help with fighting a Tanglefoot."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see you soon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Secateurs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig at the marked gravestone behind the Draynor Manor, north of the Draynor lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3106.0,
+          "heightFine": 1465.0,
+          "y": 3384.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7408,
+          "displayName": "Draynor skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Malignius.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3001.0,
+          "heightFine": 469.0,
+          "y": 3266.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2713,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30258,
+            30289
+          ],
+          "displayName": "Malignius Mortifer",
+          "distance": 20
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I was asking you about fighting a Tanglefoot..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "thanks very much"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fetch the items that Malignius requested.\u003cul\u003e\u003cli\u003eThey will be listed in your quest journal.\u003c/li\u003e\u003cli\u003eBring multiple of any edible item, or bring a filled druid pouch to ward off ghasts.\u003c/li\u003e\u003cli\u003eManually move to the next step once you have your items.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Grotto tree in the Mort Myre Swamp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 673.0,
+          "y": 3338.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 88155,
+          "modelIds": [],
+          "displayName": "natures grotto entrance",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2272.0,
+          "heightFine": 1525.0,
+          "y": 5334.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Nature Spirit to receive magic secateurs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1051,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13981
+          ],
+          "displayName": "Nature Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Magic secateurs",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20804
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final fight",
+      "text": "Return to Zanaris.\u003cul\u003e\u003cli\u003eYou can use a wicked hood to teleport to the cosmic altar.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3201.5,
+          "heightFine": 1045.0,
+          "y": 3169.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 22332,
+          "modelIds": [],
+          "displayName": "Wicked hood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2452.0,
+          "heightFine": 589.0,
+          "y": 4473.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2406.0,
+          "heightFine": 1093.0,
+          "y": 4379.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Dramen/lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Magic secateurs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Shady Grove, west of the cosmic altar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2398.5,
+          "heightFine": 509.0,
+          "y": 4379.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 50578,
+          "modelIds": [
+            8835
+          ],
+          "displayName": "Shady grove",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your magic secateurs and kill Tanglefoot.\u003cul\u003e\u003cli\u003eOff-hand weaponry will work here, but will only deal as much as the secateurs would.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -21.0,
+          "heightFine": 0.0,
+          "y": 11.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3313,
+          "modelIds": [
+            3210
+          ],
+          "displayName": "Tanglefoot",
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            342
+          ],
+          "candidateItemTypeIds": [
+            20804
+          ],
+          "displayName": "Magic secteurs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7410,
+          "modelIds": [],
+          "displayName": "Queen\u0027s secateurs",
+          "instance": true,
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the Queen\u0027s secateurs (area loot will not work).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7410,
+          "modelIds": [],
+          "displayName": "Queen\u0027s secateurs",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7410,
+          "displayName": "Queen\u0027s secateurs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Exit the Shady Grove.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Fairy Godfather.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2447.0,
+          "heightFine": 645.0,
+          "y": 4426.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3304,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4433,
+            11323,
+            11324,
+            11325,
+            11326,
+            11327,
+            11328,
+            11346,
+            11347
+          ],
+          "displayName": "Fairy Godfather",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13286,
+  "stageVarbitCompleteValue": 90,
+  "cacheQuestId": 297
+}

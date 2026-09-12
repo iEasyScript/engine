@@ -1,0 +1,253 @@
+{
+  "slug": "flag-fall-miniquest",
+  "name": "Flag Fall (miniquest)",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "worldguardian",
+  "releaseDate": 1469404800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Impressing the Locals"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "A quest for driftwood",
+      "text": "Speak to Boni at the Waiko market.<ul><li>If you have <i>just</i> completed Impressing the Locals, you may need to relog for the chat option to show up.</li><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1826.0,
+          "heightFine": 1253.0,
+          "y": 11616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1826.0,
+          "heightFine": 1253.0,
+          "y": 11616.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "boni"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I claim an uncharted isle?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Boni.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1826.0,
+          "heightFine": 1253.0,
+          "y": 11616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " I'll get back to you when I have enough driftwood."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take supplies from Rosie's crate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 11813.0,
+          "heightFine": 1253.0,
+          "y": 11611.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You take some supplies from Rosie's crate."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Quartermaster Gully to charter your ship on a voyage.<ul><li>A trip to a Short Junket costs 5 supplies per voyage.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1809.0,
+          "heightFine": 485.0,
+          "y": 11652.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1809.0,
+          "heightFine": 485.0,
+          "y": 11653.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22942,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26044
+          ],
+          "displayName": "Quartermaster Gully"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 14735,
+          "modelIds": [
+            66
+          ],
+          "displayName": "Driftwood"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect all the driftwood (if any) from the island.<br>Repeat this process until 5 driftwood has been gathered.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 14735,
+          "modelIds": [
+            66
+          ],
+          "displayName": "Driftwood"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14735,
+          "displayName": "Driftwood",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Boni.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1826.0,
+          "heightFine": 1253.0,
+          "y": 11616.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1826.0,
+          "heightFine": 1253.0,
+          "y": 11616.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "How do I claim an uncharted isle?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Congratulations! You have completed: 'Flag Fall (miniquest)' - Complete this miniquest."
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 33156,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 440
+}

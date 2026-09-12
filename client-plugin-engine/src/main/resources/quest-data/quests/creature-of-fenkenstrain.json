@@ -1,0 +1,1421 @@
+{
+  "slug": "creature-of-fenkenstrain",
+  "name": "Creature of Fenkenstrain",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1107129600,
+  "neededItems": [
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 50,
+      "duringQuest": false
+    },
+    {
+      "name": "Silver bar (metal bank works)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bronze wire",
+      "itemId": 294,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Needle",
+      "itemId": 1733,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Thread",
+      "itemId": 1734,
+      "quantity": 5,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Holy symbol",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ectophial",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Experiment",
+      "level": "35",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "The Restless Ghost"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 20,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 25,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 20,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 20,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Dr Fenkenstrain at his castle to the north-east of Canifis.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain",
+          "distance": 16
+        },
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 5125.0,
+          "y": 3551.0,
+          "instance": false,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Dr. Fenkenstrain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Braindead."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Grave-digging."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "if you insist"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Light reading",
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 5825.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 6085.0,
+          "y": 3554.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": 552,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3542.0,
+          "heightFine": 6785.0,
+          "y": 3558.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Joy of Gravedigging"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4187,
+          "displayName": "Marble amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3555.0,
+          "heightFine": 6785.0,
+          "y": 3558.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Handy Maggot Avoidance Techniques"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4188,
+          "displayName": "Obsidian amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the marble amulet on the obsidian amulet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4188,
+          "modelIds": [
+            129
+          ],
+          "displayName": "Obsidian amulet"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4187,
+          "modelIds": [
+            81
+          ],
+          "displayName": "Marble amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4183,
+          "displayName": "Star amulet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting head",
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3559.5,
+          "heightFine": 6085.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3559.0,
+          "heightFine": 5133.0,
+          "y": 3549.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": 552,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Holy symbol",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to the Gardener Ghost on the ground floor to the north.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1675,
+          "modelIds": [
+            2925
+          ],
+          "displayName": "Gardener Ghost"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened to your head?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pose oi"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile and 'dig' with the grave marker.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3608.0,
+          "heightFine": 877.0,
+          "y": 3490.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1985,
+          "modelIds": [
+            30
+          ],
+          "displayName": "Grave"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4197,
+          "displayName": "Decapitated head",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the pickled brain in the Canifis tavern.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 893.0,
+          "y": 3474.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4199,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pickled brain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 50,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4199,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pickled brain"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll buy one."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4199,
+          "displayName": "Pickled brain",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 4199,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Pickled brain"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the decapitated head on the pickled brain.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4199,
+          "modelIds": [
+            348,
+            240
+          ],
+          "displayName": "Pickled brain"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4197,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Decapitated head"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "squeeze the pickled brain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Arms, legs and torso",
+      "text": "Use the star amulet on the memorial east of Fenkenstrain's castle.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ectophial",
+        "url": "Ectophial.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4183,
+          "modelIds": [
+            210
+          ],
+          "displayName": "Star amulet"
+        },
+        {
+          "t": "direction",
+          "x": 3578.0,
+          "heightFine": 849.0,
+          "y": 3527.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 4183,
+          "displayName": "Star amulet"
+        },
+        {
+          "t": "conversationText",
+          "text": "star amulet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Ectophial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Push the memorial.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3578.0,
+          "heightFine": 849.0,
+          "y": 3527.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3577.0,
+          "heightFine": 1149.0,
+          "y": 9927.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the marked experiment creature.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1676,
+          "modelIds": [
+            1476
+          ],
+          "displayName": "Experiment",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4184,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Cavern key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4184,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Cavern key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the cavern key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4184,
+          "modelIds": [
+            285
+          ],
+          "displayName": "Cavern key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4184,
+          "displayName": "Cavern key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3510.5,
+          "heightFine": 1245.0,
+          "y": 9957.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3509.0,
+          "heightFine": 517.0,
+          "y": 9957.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3504.0,
+          "heightFine": 1013.0,
+          "y": 9970.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3504.0,
+          "heightFine": 645.0,
+          "y": 3569.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click dig on all 3 of the graves.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3502.0,
+          "heightFine": 909.0,
+          "y": 3576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4194,
+          "displayName": "Torso",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3504.0,
+          "heightFine": 941.0,
+          "y": 3577.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4195,
+          "displayName": "Arms",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3506.0,
+          "heightFine": 957.0,
+          "y": 3576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4196,
+          "displayName": "Legs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lightning",
+      "text": "Return to Dr Fenkenstrain.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have some body parts for you."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain",
+          "distance": 16
+        },
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 5125.0,
+          "y": 3551.0,
+          "instance": false,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "need 5 lots of thread"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Needle",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Thread",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze wire",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Silver bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dr Fenkenstrain again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Repair"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Gardener Ghost.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1675,
+          "modelIds": [
+            2925
+          ],
+          "displayName": "Gardener Ghost"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where the key to the shed is?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "rusty key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the shed.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3547.6,
+          "heightFine": 5825.0,
+          "y": 3565.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3546.0,
+          "heightFine": 5125.0,
+          "y": 3564.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the cupboard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3546.0,
+          "heightFine": 5825.0,
+          "y": 3563.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4190,
+          "displayName": "Garden brush",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take 3 garden canes from the pile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3551.0,
+          "heightFine": 5125.0,
+          "y": 3564.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4189,
+          "displayName": "Garden cane",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the 3 garden canes on the brush.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4189,
+          "modelIds": [
+            108
+          ],
+          "displayName": "Garden cane"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4190,
+          "modelIds": [
+            324
+          ],
+          "displayName": "Garden brush"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4191,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Extended brush"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 4189,
+          "displayName": "Garden cane"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 5825.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 6085.0,
+          "y": 3554.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the extended brush on the fireplace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2724,
+          "modelIds": [
+            672
+          ],
+          "displayName": "Fireplace",
+          "atLocation": {
+            "x": 3544.0,
+            "heightFine": 6085.0,
+            "y": 3555.0
+          }
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4191,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Extended brush"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Lightning conductor mould",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make the conductor with a silver bar at any furnace.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4201,
+          "displayName": "Conductor",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase in Fenkenstrain's castle.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Canifis lodestone",
+        "url": "Canifis_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 5825.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 6085.0,
+          "y": 3554.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder in the southern room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 6685.0,
+          "y": 3539.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3548.0,
+          "heightFine": 7045.0,
+          "y": 3540.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the lightning conductor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3548.5,
+          "heightFine": 7045.0,
+          "y": 3537.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 4201,
+          "displayName": "Conductor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 7045.0,
+          "y": 3539.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3548.0,
+          "heightFine": 6085.0,
+          "y": 3538.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 6085.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 5125.0,
+          "y": 3549.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lord Rologarth",
+      "text": "Talk to Dr Fenkenstrain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 5825.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 6085.0,
+          "y": 3554.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 6685.0,
+          "y": 3554.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3548.0,
+          "heightFine": 7045.0,
+          "y": 3553.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fenkenstrain's Monster.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1674,
+          "modelIds": [],
+          "displayName": "Lord Rologarth"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "stop Fenkenstrain"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3548.0,
+          "heightFine": 7045.0,
+          "y": 3554.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3548.0,
+          "heightFine": 6085.0,
+          "y": 3553.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3537.5,
+          "heightFine": 6085.0,
+          "y": 3552.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3537.0,
+          "heightFine": 5125.0,
+          "y": 3549.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket Dr Fenkenstrain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1670,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6694,
+            23526
+          ],
+          "displayName": "Dr Fenkenstrain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2615,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 92
+}

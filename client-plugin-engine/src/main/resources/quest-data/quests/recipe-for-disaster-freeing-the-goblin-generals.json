@@ -1,0 +1,472 @@
+{
+  "slug": "recipe-for-disaster-freeing-the-goblin-generals",
+  "name": "Recipe for Disaster: Freeing the Goblin Generals",
+  "members": true,
+  "length": "short",
+  "timeline": "legendary",
+  "releaseDate": 1142380800,
+  "neededItems": [
+    {
+      "name": "Charcoal",
+      "itemId": 973,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Spice or gnome spice",
+      "itemId": 2007,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Fishing bait",
+      "itemId": 313,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bowl of water/jug of water/bucket of water",
+      "itemId": 1921,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bread",
+      "itemId": 2309,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Orange",
+      "itemId": 168,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Blue dye",
+      "itemId": 1767,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Recipe for Disaster: Another Cook's Quest",
+    "Goblin Diplomacy"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Freeing the Generals",
+      "text": "Inspect either General Bentnoze or General Wartface. They are located in the Lumbridge Castle banquet room.<ul><li>If you've already inspected them, move to the next step.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.5,
+          "heightFine": 1477.0,
+          "y": 3221.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -7.0,
+          "heightFine": 673.0,
+          "y": 2.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 673.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should be able to find it just to the North of Falador"
+        },
+        {
+          "t": "conversationText",
+          "text": "I remember now..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Goblin Village and climb down the ladder in the eastern building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2961.0,
+          "heightFine": 645.0,
+          "y": 3507.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 321.0,
+          "y": 0.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Goblin Cook.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45315,
+          "modelIds": [
+            4773
+          ],
+          "displayName": "Goblin cook",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you need? Maybe I can get it for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, I'll see what I can do."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give him charcoal.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 973,
+          "modelIds": [],
+          "displayName": "Charcoal"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45315,
+          "modelIds": [
+            4773
+          ],
+          "displayName": "Goblin cook",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got the charcoal you were after."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Must be moving. Follow me."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4773
+          ],
+          "candidateObjectTypeIds": [
+            4771
+          ],
+          "displayName": "Dirty goblin cook",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Wonderful. Well, I guess I'll have to see what I can do."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Slice an orange into orange slices (not chunks).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2108,
+          "modelIds": [
+            168
+          ],
+          "displayName": "Orange"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2112,
+          "displayName": "Orange slices",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use any colour of dye except orange, yellow, red, or pink on the slices to create dyed orange.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1767,
+          "modelIds": [],
+          "displayName": "Blue dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1773,
+          "modelIds": [],
+          "displayName": "Purple dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1771,
+          "modelIds": [],
+          "displayName": "Green dye"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2112,
+          "modelIds": [
+            375
+          ],
+          "displayName": "Orange slices"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Dyed orange slices",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20813
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use spice on fishing bait to create spicy maggots.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2007,
+          "modelIds": [],
+          "displayName": "Spice"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 313,
+          "modelIds": [],
+          "displayName": "Fishing bait"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7513,
+          "displayName": "Spicy maggots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right click Use bread on bucket, bowl, or jug of water to create soggy bread.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2309,
+          "modelIds": [],
+          "displayName": "Bread"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1921,
+          "modelIds": [],
+          "displayName": "Bowl of water"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1937,
+          "modelIds": [],
+          "displayName": "Jug of water"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1929,
+          "modelIds": [],
+          "displayName": "Bucket of water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7512,
+          "displayName": "Soggy bread",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Goblin Cook.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4773
+          ],
+          "candidateObjectTypeIds": [
+            4771
+          ],
+          "displayName": "Dirty goblin cook",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've got the ingredients we need..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7511,
+          "displayName": "Slop of compromise",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to the dining room in Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.5,
+          "heightFine": 1477.0,
+          "y": 3221.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -7.0,
+          "heightFine": 673.0,
+          "y": 2.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the slop of compromise on either of the Generals.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7511,
+          "modelIds": [
+            264
+          ],
+          "displayName": "Slop of compromise"
+        },
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 673.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12725,
+  "stageVarbitCompleteValue": 40,
+  "cacheQuestId": 300
+}

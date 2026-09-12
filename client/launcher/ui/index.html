@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project X Launcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true">
+    <symbol id="i-crest" viewBox="0 0 32 32">
+      <g fill="currentColor">
+        <path d="M8.4 5.2 6.2 7.4l14.6 17.2 2.6 2.6 1.9-1.9-2.6-2.6L8.4 5.2Z" opacity=".95"/>
+        <path d="M23.6 5.2 25.8 7.4 11.2 24.6l-2.6 2.6-1.9-1.9 2.6-2.6L23.6 5.2Z" opacity=".95"/>
+      </g>
+      <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M4.6 8.2 9.9 3.5M27.4 8.2 22.1 3.5"/>
+      </g>
+      <circle cx="16" cy="16" r="2.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-crown" viewBox="0 0 24 24">
+      <path d="M3 8l4 4 5-7 5 7 4-4-2 11H5L3 8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M5 19h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-keep" viewBox="0 0 24 24">
+      <path d="M3 21V6h3v2.5h3V6h6v2.5h3V6h3v15H3Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9.5 21v-5.5a2.5 2.5 0 0 1 5 0V21" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24">
+      <path d="M21.66 9.41v5.18l-3.08.34-.76 1.3 1.25 2.84-4.48 2.59-1.84-2.5h-1.5l-1.84 2.5-4.48-2.59 1.25-2.84-.76-1.3-3.08-.34V9.41l3.08-.34.76-1.3-1.25-2.84 4.48-2.59 1.84 2.5h1.5l1.84-2.5 4.48 2.59-1.25 2.84.76 1.3 3.08.34Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="12" cy="12" r="3.3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    </symbol>
+    <symbol id="i-plugin" viewBox="0 0 24 24">
+      <path d="M5 5h4.7a2.3 2.3 0 0 1 4.6 0H19a1 1 0 0 1 1 1v4.2a2.3 2.3 0 0 1 0 4.6V19a1 1 0 0 1-1 1h-4.7a2.3 2.3 0 0 0-4.6 0H5a1 1 0 0 1-1-1v-4.2a2.3 2.3 0 0 0 0-4.6V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="12.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M9 20h6M12 16.5V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24">
+      <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h4.2l2 2.5h8.8A1.5 1.5 0 0 1 21 9v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 18V6.5Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-link" viewBox="0 0 24 24">
+      <path d="M10 13.8a3.6 3.6 0 0 0 5.1 0l3-3a3.6 3.6 0 1 0-5.1-5.1l-1.3 1.3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M14 10.2a3.6 3.6 0 0 0-5.1 0l-3 3a3.6 3.6 0 1 0 5.1 5.1l1.3-1.3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24">
+      <path d="M20 12a8 8 0 1 1-2.6-5.9" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-sword" viewBox="0 0 24 24">
+      <path d="M12 2.2 14.3 6.4V14H9.7V6.4L12 2.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M6.6 14h10.8M12 14v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <circle cx="12" cy="20.4" r="1.6" fill="none" stroke="currentColor" stroke-width="1.6"/>
+    </symbol>
+    <symbol id="i-seal" viewBox="0 0 24 24">
+      <circle cx="12" cy="9" r="5.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M12 6.5v5M9.5 9h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M8 13.5 6.5 21l5.5-2.5L17.5 21 16 13.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-scroll" viewBox="0 0 24 24">
+      <path d="M6 3h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M5 6a2 2 0 0 1 4 0v1H5V6Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M9 10h7M9 14h7M9 18h4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-helm" viewBox="0 0 24 24">
+      <path d="M5 11a7 7 0 0 1 14 0v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3v-6Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M5 12h14M12 12v8M9 16h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div id="app">
+    <aside class="rail">
+      <div class="brand">
+        <span class="brand-crest" role="img" aria-label="Project X"></span>
+        <span class="brand-text">
+          <span class="brand-name">Project X</span>
+          <span class="brand-sub">Launcher</span>
+        </span>
+      </div>
+
+      <nav class="nav" aria-label="Sections">
+        <button id="nav-play" class="nav-item is-active" type="button" data-view="play">
+          <svg class="nav-icon"><use href="#i-crown"/></svg>
+          <span>Play</span>
+        </button>
+        <button id="btn-clients" class="nav-item" type="button" data-view="clients">
+          <svg class="nav-icon"><use href="#i-monitor"/></svg>
+          <span>Clients</span>
+          <span id="nav-clients-count" class="nav-badge" hidden></span>
+        </button>
+        <button id="btn-plugins" class="nav-item" type="button" data-view="plugins">
+          <svg class="nav-icon"><use href="#i-plugin"/></svg>
+          <span>Plugins</span>
+        </button>
+      </nav>
+
+      <div class="rail-foot">
+        <button id="btn-settings" class="nav-item nav-item-quiet" type="button">
+          <svg class="nav-icon"><use href="#i-gear"/></svg>
+          <span>Settings</span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="content">
+    <div class="backdrop" aria-hidden="true"></div>
+
+    <!-- Outside every view: a launcher that has fallen behind installs plugins
+         and an engine built against a newer one, so this cannot be something you
+         only see if you happen to open the Plugins tab. -->
+    <div id="launcher-update" class="launcher-update" hidden>
+      <svg class="launcher-update-icon"><use href="#i-seal"/></svg>
+      <div class="launcher-update-text">
+        <b>A newer launcher is available</b>
+        <span id="launcher-update-detail"></span>
+      </div>
+      <button id="btn-launcher-update" class="btn btn-brass btn-sm" type="button">
+        <svg class="btn-icon"><use href="#i-link"/></svg>
+        Download
+      </button>
+    </div>
+
+    <main>
+      <section id="play-view" class="view">
+        <div id="no-accounts" class="section gate" hidden>
+          <span class="gate-seal"><svg><use href="#i-seal"/></svg></span>
+          <p class="gate-text">Sign in with your Jagex account to enter the realm.</p>
+          <button id="btn-login" class="btn btn-brass" type="button">Sign In</button>
+        </div>
+
+        <div id="account-panel" class="section" hidden>
+          <div class="panel">
+            <div class="slot-row">
+              <label class="slot">
+                <span class="slot-label">Account</span>
+                <select id="sel-account"></select>
+              </label>
+              <label class="slot">
+                <span class="slot-label">Character</span>
+                <select id="sel-character"></select>
+              </label>
+            </div>
+            <div class="account-actions">
+              <button id="btn-add-account" class="btn btn-iron btn-sm" type="button">Add account</button>
+              <button id="btn-logout" class="btn btn-ghost-danger btn-sm" type="button">Log out</button>
+            </div>
+          </div>
+        </div>
+
+        <button id="btn-play" class="play" type="button" hidden>
+          <span class="play-face">
+            <svg class="play-icon"><use href="#i-sword"/></svg>
+            <span class="play-label">Play</span>
+          </span>
+        </button>
+      </section>
+
+      <section id="clients-view" class="view" hidden>
+        <div class="view-head">
+          <h2 class="rule">Clients</h2>
+          <div class="view-head-actions">
+            <button id="btn-refresh-clients" class="sconce sconce-sm" type="button" title="Refresh" aria-label="Refresh">
+              <svg><use href="#i-refresh"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="hint">
+          Running NXT clients and their Project X engine state. Inject loads the
+          engine bootstrap into the client; uninject and reinject use the engine's
+          control socket.
+        </p>
+        <div id="clients-list"></div>
+        <div id="clients-empty" class="empty">
+          <span class="empty-icon"><svg><use href="#i-helm"/></svg></span>
+          No running clients found.
+        </div>
+      </section>
+
+      <section id="plugins-view" class="view" hidden>
+        <div class="view-head">
+          <h2 class="rule">Plugins</h2>
+          <div class="view-head-actions">
+            <button id="btn-refresh-plugins" class="sconce sconce-sm" type="button" title="Check for updates" aria-label="Check for updates">
+              <svg><use href="#i-refresh"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="hint">
+          Script jars the injected engine loads. Nothing is downloaded unless you ask —
+          building the modules yourself with Gradle stays the default. Installing a
+          channel replaces every jar for it in the scripts folder, including one you
+          built.
+        </p>
+
+        <div class="panel plugin-source">
+          <div class="plugin-source-row">
+            <span class="slot-label">Folder</span>
+            <code id="plugins-dir" class="plugin-path">…</code>
+            <button id="btn-open-scripts" class="btn btn-iron btn-sm" type="button">
+              <svg class="btn-icon"><use href="#i-folder"/></svg>
+              Open
+            </button>
+          </div>
+          <div class="plugin-source-row">
+            <span class="slot-label">Source</span>
+            <span id="plugins-origin" class="plugin-origin">…</span>
+          </div>
+        </div>
+
+        <div id="plugins-error" class="plugin-error" hidden></div>
+        <div id="plugins-list"></div>
+
+        <div id="downloads-section" class="section" hidden>
+          <h2 class="rule">Launcher downloads</h2>
+          <p class="hint">
+            Links to the published launcher builds — the ones to hand to someone who
+            does not have it yet.
+          </p>
+          <div id="downloads-list"></div>
+          <button id="btn-release-page" class="btn btn-iron btn-sm" type="button">
+            <svg class="btn-icon"><use href="#i-link"/></svg>
+            Open release page
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="chronicle-head">
+        <svg class="chronicle-icon"><use href="#i-scroll"/></svg>
+        <span>Activity</span>
+      </div>
+      <div id="status-log" role="log" aria-live="polite"></div>
+    </div>
+    </footer>
+  </div>
+
+  <div id="settings-modal" class="modal" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal-head">
+        <h2 id="settings-title" class="rule">Settings</h2>
+        <button id="btn-close-settings" class="sconce sconce-sm" type="button" title="Close" aria-label="Close">
+          <svg><use href="#i-close"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <label class="check">
+          <input type="checkbox" id="chk-close-after">
+          <span class="check-box"></span>
+          <span class="check-text">
+            Close launcher after game starts
+          </span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="chk-auto-inject">
+          <span class="check-box"></span>
+          <span class="check-text">
+            Auto-inject Project X on startup
+            <small>Injects the engine into the client automatically after launch.</small>
+          </span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="chk-debug-logging">
+          <span class="check-box"></span>
+          <span class="check-text">
+            Verbose logging
+            <small>Off by default. Adds per-message IPC tracing, including the Clients panel's poll — useful when diagnosing, noisy otherwise.</small>
+          </span>
+        </label>
+        <label class="slot">
+          <span class="slot-label">Custom launch command</span>
+          <input type="text" id="inp-launch-cmd" placeholder="%command%" spellcheck="false" autocomplete="off">
+          <small>Use %command% as the placeholder for the game command.</small>
+        </label>
+      </div>
+      <div class="modal-foot">
+        <button id="btn-cancel-settings" class="btn btn-iron btn-sm" type="button">Cancel</button>
+        <button id="btn-save-settings" class="btn btn-brass btn-sm" type="button">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

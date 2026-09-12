@@ -1,0 +1,2570 @@
+{
+  "slug": "evil-daves-big-day-out",
+  "name": "Evil Dave\u0027s Big Day Out",
+  "members": true,
+  "length": "medium",
+  "timeline": "worldguardian",
+  "releaseDate": 1511740800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Freaky Friday",
+      "text": "Go to the Basement of Doom, located under a house west of Edgeville bank.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3077.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3077.0,
+          "heightFine": 3045.0,
+          "y": 9893.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Evil Dave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "\u0027Evil Dave\u0027s Big Day Out\u0027."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I was looking for a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Evil Dave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "mirror I can use"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Admire the mirror.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110225,
+          "modelIds": [
+            1464
+          ],
+          "displayName": "Mirror"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "going on"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the cellar stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 600.0,
+          "y": -4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "displayName": "Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get on with it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Chores of doom",
+      "text": "Search the wardrobe for a broom and bed bug cleaner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110230,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Wardrobe"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Broom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 38769,
+          "displayName": "Broom",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110230,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Wardrobe"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bed bug cleaner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41457,
+          "displayName": "Bed bug cleaner",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sweep the rug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110235,
+          "modelIds": [],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the shelf for a bar of soap.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110228,
+          "modelIds": [],
+          "displayName": "Shelf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24875,
+          "displayName": "Soap",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wash the dishes in the sink.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110232,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Sink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the knife on the sink.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110232,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Take-knife"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 946,
+          "displayName": "Knife",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the vegetables.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110247,
+          "modelIds": [
+            9801
+          ],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [],
+          "displayName": "Open trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3382,
+          "modelIds": [],
+          "displayName": "Hell-Rat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean your bed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110237,
+          "modelIds": [
+            3048
+          ],
+          "displayName": "Bed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "check in with Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back upstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12265,
+          "modelIds": [],
+          "displayName": "Cellar stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "displayName": "Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "for his spellbook"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back downstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [],
+          "displayName": "Open trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3382,
+          "modelIds": [],
+          "displayName": "Hell-Rat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase by the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110239,
+          "modelIds": [
+            3132
+          ],
+          "displayName": "Bookcase"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I need to find the spellbook."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/3 important"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search behind the boiler in the southeast corner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110243,
+          "modelIds": [
+            2424
+          ],
+          "displayName": "Boiler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/3 important"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the drapes by the bed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110241,
+          "modelIds": [
+            462
+          ],
+          "displayName": "Drapes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "finished searching"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate Dave\u0027s spellbook.\u003cul\u003e\u003cli\u003eIf you interact with Dave\u0027s spellbook again and get the message \u0027I don\u0027t need to use the spellbook right now\u0027, interact with the drapes once more and the option to teleport to Makeover Mage will appear.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41454,
+          "modelIds": [
+            744
+          ],
+          "displayName": "Dave\u0027s spellbook"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better check"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making a withdrawal",
+      "text": "Talk to Kara.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25051,
+          "modelIds": [
+            4665
+          ],
+          "displayName": "Kara"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 1918
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Withdraw the law rune, stew, and old rug from Dave\u0027s bank",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 563,
+          "displayName": "Law rune",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41480,
+          "displayName": "Emergency stew flask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41495,
+          "displayName": "Old rug",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Clark.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25050,
+          "modelIds": [
+            2916
+          ],
+          "displayName": "Clark"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Air Runes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "would you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink the stew.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41480,
+          "modelIds": [
+            789,
+            534
+          ],
+          "displayName": "Emergency flask of stew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Empty flask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Refill the flask from any of the water fountains.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110282,
+          "modelIds": [
+            14934
+          ],
+          "displayName": "Fountain",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            198,
+            606
+          ],
+          "displayName": "Empty flask"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41482,
+          "displayName": "Flask of stew-water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Clark again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25050,
+          "modelIds": [
+            2916
+          ],
+          "displayName": "Clark"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 599,
+          "modelIds": [],
+          "displayName": "Makeover Mage"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Double trouble",
+      "text": "Talk to the makeover mage.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I killed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "displayName": "Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "took a shower"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "life got flipped"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "secret portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Do them again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sweep the rug again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110235,
+          "modelIds": [],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41470,
+          "displayName": "Broken old broom",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wash the dishes again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110232,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Sink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41469,
+          "displayName": "Broken dishes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the vegetables again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110247,
+          "modelIds": [
+            9801
+          ],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41468,
+          "displayName": "Broken vegetable knife",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            532,
+            534,
+            3125,
+            3127,
+            3130,
+            3133,
+            3181,
+            3182,
+            17674,
+            23031,
+            23032,
+            23033,
+            23034,
+            50903
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the shopkeeper at the general store to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25038,
+          "modelIds": [
+            3807
+          ],
+          "displayName": "Shopkeeper"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Go to the shops"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37123,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I... sure"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sweep the rug again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110235,
+          "modelIds": [],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wash the dishes again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110232,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Sink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the vegetables again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110247,
+          "modelIds": [
+            9801
+          ],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [],
+          "displayName": "Open trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3382,
+          "modelIds": [],
+          "displayName": "Hell-Rat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean your bed again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110237,
+          "modelIds": [
+            3048
+          ],
+          "displayName": "Bed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "chores are done"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12265,
+          "modelIds": [],
+          "displayName": "Cellar stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "displayName": "Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "head to Falador"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Carry on with the quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready to sneak in."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37123,
+          "modelIds": [],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 25047,
+          "modelIds": [],
+          "displayName": "White Knight"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sneaking in",
+      "text": "Pickup the hand-written note in front of you.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 5093.0,
+          "y": 2.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41475,
+          "displayName": "Hand-written note",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the suit of armour to the west for a knight\u0027s helmet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 99788,
+          "modelIds": [],
+          "displayName": "Suit of armour",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41474,
+          "displayName": "Knight\u0027s helmet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crates in the west for some gunpowder.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 35784,
+          "modelIds": [],
+          "displayName": "Crates"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7108,
+          "displayName": "Gunpowder",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the gunpowder on the helmet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7108,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Gunpowder"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41474,
+          "modelIds": [
+            984
+          ],
+          "displayName": "Knight\u0027s helmet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "blow up in"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the hand-written note on the helmet.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41475,
+          "modelIds": [
+            399
+          ],
+          "displayName": "Hand-written note"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41476,
+          "modelIds": [
+            984
+          ],
+          "displayName": "Knight\u0027s helmet filled with gunpowder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "shoddy and dangerous"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the helmet with fuse on the torch on the wall.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41477,
+          "modelIds": [],
+          "displayName": "Knight\u0027s helmet filled with gunpowder and a fuse"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 99809,
+          "modelIds": [],
+          "displayName": "Torch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "quickly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Get close to the guard and throw the lit decoy bomb.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": 5093.0,
+          "y": 4.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41478,
+          "modelIds": [
+            984
+          ],
+          "displayName": "Lit decoy bomb"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Forgive me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path and open the door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2.0,
+              "heightFine": 5093.0,
+              "y": 4.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 5093.0,
+              "y": 13.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 5093.0,
+              "y": 17.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 5093.0,
+              "y": 19.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": 5093.0,
+              "y": 19.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": 5093.0,
+              "y": 13.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3395,
+            6513,
+            9397,
+            9416,
+            13277,
+            15545,
+            17053,
+            18868,
+            22022,
+            25041,
+            26346,
+            27651,
+            27687,
+            29769
+          ],
+          "displayName": "Sir Amik Varze"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Amik to determine you need to give him more to drink.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 608,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3395,
+            6513,
+            9397,
+            9416,
+            13277,
+            15545,
+            17053,
+            18868,
+            22022,
+            25041,
+            26346,
+            27651,
+            27687,
+            29769
+          ],
+          "displayName": "Sir Amik Varze"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "even more drunk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow these steps quickly:\u003cul\u003e\u003cli\u003eClick the keg and wait for the drink callout.\u003c/li\u003e\u003cli\u003eClick the correct option.\u003c/li\u003e\u003cli\u003eImmediately click Sir Amik Varze.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110262,
+          "modelIds": [
+            1512
+          ],
+          "displayName": "Keg"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42641,
+          "modelIds": [],
+          "displayName": "Bed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "created when"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "become a druid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "GROUNDED"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sweep the rug again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110235,
+          "modelIds": [],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wash the dishes again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110232,
+          "modelIds": [
+            2790
+          ],
+          "displayName": "Sink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the vegetables again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110247,
+          "modelIds": [
+            9801
+          ],
+          "displayName": "Table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/4 chores"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go downstairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [],
+          "displayName": "Open trapdoor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3382,
+          "modelIds": [],
+          "displayName": "Hell-Rat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clean your bed again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110237,
+          "modelIds": [
+            3048
+          ],
+          "displayName": "Bed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "shall pass"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "wake up Dave"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Recruitment",
+      "text": "Talk to Felicity or Margaret the hell-rats.\u003cul\u003e\u003cli\u003eIf they appear as normal hell-rats: go up the stairs for a dialogue and go back down.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25058,
+          "modelIds": [],
+          "displayName": "Felicity"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25059,
+          "modelIds": [],
+          "displayName": "Margaret"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        },
+        {
+          "t": "conversationText",
+          "text": "Ciao"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Recruit any 3 of the other hell-rats.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25063,
+          "modelIds": [],
+          "displayName": "Terry"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25061,
+          "modelIds": [],
+          "displayName": "Darren"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25062,
+          "modelIds": [],
+          "displayName": "Ryan"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25060,
+          "modelIds": [],
+          "displayName": "Kevin"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25065,
+          "modelIds": [],
+          "displayName": "Alan"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25064,
+          "modelIds": [],
+          "displayName": "Pamela"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "going on a mission"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs to get to Shantay Pass.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12265,
+          "modelIds": [],
+          "displayName": "Cellar stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 25054,
+          "modelIds": [],
+          "displayName": "Shantay"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "HELL-RAT DOOM SQUAD",
+      "text": "Talk to Shantay.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25054
+          ],
+          "displayName": "Shantay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, nothing, nothing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the coconut.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 5974,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Coconut"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110259,
+          "modelIds": [],
+          "displayName": "Coconut tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41493,
+          "displayName": "Coconut",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the coconut on Shantay.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25054
+          ],
+          "displayName": "Shantay"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 5974,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Coconut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41493,
+          "displayName": "Coconut shell",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the empty shell to add a hell-rat to it.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41493,
+          "modelIds": [
+            450
+          ],
+          "displayName": "Coconut shell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "high enough"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the rope on the northeastern wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110257,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5.0,
+          "heightFine": 4517.0,
+          "y": 1.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Throw the Shell-rat.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41494,
+          "modelIds": [
+            1083
+          ],
+          "displayName": "Shell-rat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "smuggled 1/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110266,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": 1157.0,
+          "y": -2.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to open the Jail door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 76211,
+          "modelIds": [],
+          "displayName": "Jail door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -5.0,
+          "heightFine": 1093.0,
+          "y": -8.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the shady man to receive a jewel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25055,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Shady man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "no problem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the barrel inside of the jail cell to take one.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110261,
+          "modelIds": [
+            909
+          ],
+          "candidateObjectTypeIds": [
+            3363,
+            3364
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the border guards to exchange the jewel for a rope.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110267,
+          "modelIds": [
+            3999
+          ],
+          "displayName": "Border guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the rope on the coconut tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110259,
+          "modelIds": [
+            1188
+          ],
+          "displayName": "Coconut tree"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "smuggled 2/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the barrel in your inventory to load the last hell-rat into it.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            909
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "echo-echo-echo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the old rug (you got from the bank earlier) on the barrel.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41495,
+          "modelIds": [
+            2712,
+            2712
+          ],
+          "displayName": "Old rug"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            909
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 41496,
+          "displayName": "Carpet barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Roll the barrel past the Shantay pass.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 1157.0,
+          "y": -8.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 41496,
+          "modelIds": [
+            1464
+          ],
+          "displayName": "Carpet barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "smuggled 3/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shantay.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25054
+          ],
+          "displayName": "Shantay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 110249,
+          "modelIds": [],
+          "displayName": "Hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "SECRET TUNNEL",
+      "text": "Search the hole that has a slight twinkle to it.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110250,
+          "modelIds": [],
+          "displayName": "Hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 110255,
+          "modelIds": [],
+          "displayName": "Hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the sparkling holes 4 times.\u003cul\u003e\u003cli\u003eYou can also hover your mouse over the holes until you spot the hole with a little rat icon next to it.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110254,
+          "modelIds": [],
+          "displayName": "Hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "this is it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to enter the mysterious entrance as a hell-rat.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110264,
+          "modelIds": [
+            2835
+          ],
+          "displayName": "Mysterious entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "secret meeting must"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the mysterious entrance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110264,
+          "modelIds": [
+            2835
+          ],
+          "displayName": "Mysterious entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 55940,
+          "modelIds": [],
+          "displayName": "Table"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Magical support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab Dave from the empty cooking range south-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110252,
+          "modelIds": [
+            3987
+          ],
+          "displayName": "Empty cooking range"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talk about it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Select the Clean Bed option.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 110237,
+          "modelIds": [
+            3048
+          ],
+          "displayName": "Bed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Doom Squad"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather 5 hell-rats.\u003cul\u003e\u003cli\u003eIf cutscene does not begin, gather the sixth hell-rat.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25045,
+          "modelIds": [
+            996
+          ],
+          "candidateObjectTypeIds": [
+            814,
+            2329,
+            3125,
+            4262,
+            5033,
+            5236,
+            5237,
+            5611,
+            5612,
+            5828,
+            5882,
+            6248,
+            7381,
+            9539,
+            9589,
+            10714,
+            11598,
+            12430,
+            13856,
+            13857,
+            16004,
+            17102,
+            18199,
+            20366,
+            23053,
+            23849,
+            25261,
+            25796,
+            27213,
+            29101,
+            33806,
+            34146,
+            34148,
+            37145,
+            40130,
+            40775,
+            42465,
+            43090,
+            72587,
+            102556,
+            102557
+          ],
+          "displayName": "Hell-Rat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 110222,
+          "modelIds": [],
+          "displayName": "Badly drawn pentagram"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "displayName": "Doris"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Doris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3079.0,
+          "heightFine": 1669.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3381,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            25035,
+            25066
+          ],
+          "displayName": "Doris",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 38799,
+  "stageVarbitCompleteValue": 200,
+  "cacheQuestId": 395
+}

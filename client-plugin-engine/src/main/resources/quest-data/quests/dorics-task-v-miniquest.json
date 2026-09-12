@@ -1,0 +1,341 @@
+{
+  "slug": "dorics-task-v-miniquest",
+  "name": "Doric's Task V (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "heroic",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "Rune swords",
+      "itemId": 369,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Rune bars (in metal bank)",
+      "itemId": -1,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel platebodies",
+      "itemId": 576,
+      "quantity": 4,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task IV (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 50,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 50,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "A gnomish request",
+      "text": "Talk to Doric in his hut north of Falador.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rune swords",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Rune bars (in metal bank)",
+          "itemId": -1,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel platebodies",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Doric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "work on it now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith 4 Gnome platebodies.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 1269.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25339,
+          "displayName": "Gnome platebody",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith 3 rune swords + 1.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 1269.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "finish smithing: Rune sword + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 1269.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "finish smithing: Rune sword + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 1269.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "finish smithing: Rune sword + 1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Commander Montai on the Khazard Battlefield south of Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Kandarin monastery Teleport",
+        "url": "Kandarin_monastery_Teleport_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2520.0,
+          "heightFine": 989.0,
+          "y": 3209.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 470,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Commander Montai"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 470,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Commander Montai"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 470,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Commander Montai"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10016,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 425
+}

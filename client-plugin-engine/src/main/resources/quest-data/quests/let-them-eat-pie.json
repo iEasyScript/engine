@@ -1,0 +1,854 @@
+{
+  "slug": "let-them-eat-pie",
+  "name": "Let Them Eat Pie",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "pathfinder",
+  "releaseDate": 1327968000,
+  "neededItems": [
+    {
+      "name": "Raw potato",
+      "itemId": 1942,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Raw crayfish",
+      "itemId": 13433,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Wheat",
+      "itemId": 1947,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Fishing bait",
+      "itemId": 313,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Nails Newton a few steps east of the Taverley lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Taverley lodestone",
+        "url": "Taverley_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The pie shell",
+      "text": "Go south and then east across the bridge and take some fishing bait from the ground near the bait barrel and hanging fish.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2906.0,
+          "heightFine": 317.0,
+          "y": 3412.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 313,
+          "modelIds": [],
+          "displayName": "Fishing bait",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 313,
+          "displayName": "Fishing bait",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south and pick some wheat.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2896.0,
+          "heightFine": 461.0,
+          "y": 3401.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1947,
+          "displayName": "Wheat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north into the mill and climb the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2890.0,
+          "heightFine": 424.0,
+          "y": 3427.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2890.0,
+          "heightFine": 1605.0,
+          "y": 3425.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Put the wheat and fishing bait in the hopper and then operate it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2893.0,
+          "heightFine": 1605.0,
+          "y": 3426.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1947,
+          "modelIds": [],
+          "displayName": "Wheat"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 313,
+          "modelIds": [],
+          "displayName": "Fishing bait"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I hope nobody down there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the staircase and left click the flour bin to obtain maggoty flour.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2890.0,
+          "heightFine": 1605.0,
+          "y": 3426.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2890.0,
+          "heightFine": 424.0,
+          "y": 3428.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            732
+          ],
+          "candidateObjectTypeIds": [
+            194,
+            719,
+            2852
+          ],
+          "displayName": "Floury bin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            732
+          ],
+          "candidateObjectTypeIds": [
+            194,
+            719,
+            2852
+          ],
+          "displayName": "Floury bin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nails, he will give you a maggoty pie shell.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Maggot pie shell",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Filling",
+      "text": "Go north and trade Head Farmer Jones outside of the flax field to receive a free raw potato.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7044
+          ],
+          "displayName": "Farmer jones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1942,
+          "displayName": "Raw potato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go east and catch a raw crayfish.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "fishing bubble"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13433,
+          "displayName": "Crayfish",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the flax or animal field and watch the cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2888.0,
+          "heightFine": 757.0,
+          "y": 3473.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23073,
+          "displayName": "Manky crayfish",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nails.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I don't think I'll ever feel clean again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north-west along the mountain into the snowy area (lower snow area) and use a raw potato on the hole to receive a stinking potato.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2868.0,
+          "heightFine": 1605.0,
+          "y": 3475.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1942,
+          "modelIds": [],
+          "displayName": "Raw potato"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Stinky potato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the stinking potato or manky crayfish on the maggoty pie shell to create a terrible pie (uncooked).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            594
+          ],
+          "displayName": "Stinky potato"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            390
+          ],
+          "displayName": "Maggot pie shell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Uncooked terrible pie",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cook the pie. There is an oven in The Pick and Lute pub which is right next to Nails Newton.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2897.0,
+          "heightFine": 837.0,
+          "y": 3440.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23076,
+          "displayName": "Terrible pie",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nails.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Then you can take it up to Rolo and see if he swallows it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing Up",
+      "text": "Head south of Nails and pickpocket Foppish Pierre (location is marked on the map) for expensive spices.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15086,
+          "modelIds": [],
+          "displayName": "Foppish Pierre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23077,
+          "displayName": "Expensive spices",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the expensive spices on the pie to create a mouth-watering pie.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23077,
+          "modelIds": [
+            243
+          ],
+          "displayName": "Expensive spices"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23076,
+          "modelIds": [
+            1248
+          ],
+          "displayName": "Terrible pie"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the 1st floor [UK] - 2nd floor [US] of The Pick and Lute pub and talk to Rolo the Stout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2888.0,
+          "heightFine": 837.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7341
+          ],
+          "displayName": "Rolo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7341
+          ],
+          "displayName": "Rolo"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Squishy Crust Belly Filler"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I've had enough, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should check back with Nails"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to Nails.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We'd best move fast, in case he decides to send for it when he comes round."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs in the pub, open the chest and steal the seal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2888.0,
+          "heightFine": 837.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2115
+          ],
+          "candidateObjectTypeIds": [
+            1871
+          ],
+          "displayName": "Chest upstairs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2115
+          ],
+          "candidateObjectTypeIds": [
+            1871
+          ],
+          "displayName": "Chest upstairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23079,
+          "displayName": "Seal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nails to receive a forged letter.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2890.0,
+          "heightFine": 2053.0,
+          "y": 3443.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2887.0,
+          "heightFine": 837.0,
+          "y": 3443.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23080,
+          "displayName": "Forged letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deliver the letter to Foppish Pierre, just south of Nails.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15086,
+          "modelIds": [],
+          "displayName": "Foppish Pierre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well that worked"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Nails.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2881.0,
+          "heightFine": 933.0,
+          "y": 3444.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15085,
+          "modelIds": [
+            7338
+          ],
+          "displayName": "Nails Newton",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13240,
+  "stageVarbitCompleteValue": 40,
+  "cacheQuestId": 350
+}

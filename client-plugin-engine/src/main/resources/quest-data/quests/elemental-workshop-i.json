@@ -1,0 +1,632 @@
+{
+  "slug": "elemental-workshop-i",
+  "name": "Elemental Workshop I",
+  "members": true,
+  "length": "short",
+  "timeline": "adventurer",
+  "releaseDate": 1086134400,
+  "neededItems": [
+    {
+      "name": "Thread",
+      "itemId": 1734,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Soft leather",
+      "itemId": 1741,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Coal",
+      "itemId": 453,
+      "quantity": 4,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Search the bookcase in the house southwest of the Seers\u0027 Village bank.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2716.1,
+          "heightFine": 1285.0,
+          "y": 3481.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2713.0,
+          "heightFine": 1285.0,
+          "y": 3480.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the book.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click on the book and click \u003ci\u003e\u0027Cut-open\u0027\u003c/i\u003e to get a battered key. \u003cb\u003eDo not drop the book.\u003c/b\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2886,
+          "modelIds": [
+            486
+          ],
+          "displayName": "Battered book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2887,
+          "displayName": "Battered key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the building with the anvil and click on the northern wall to open the odd-looking wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2709.0,
+          "heightFine": 1125.0,
+          "y": 3495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2709.0,
+          "heightFine": 1125.0,
+          "y": 3498.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2710.0,
+          "heightFine": 1125.0,
+          "y": 3498.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2716.0,
+          "heightFine": 965.0,
+          "y": 9888.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Repairing a workshop",
+      "text": "Go into the room to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2719.0,
+          "heightFine": 965.0,
+          "y": 9904.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2719.0,
+          "heightFine": 965.0,
+          "y": 9904.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the water controls east of the water wheel to turn it green.\u003cul\u003e\u003cli\u003eKill a water elemental for a diary task.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2726.0,
+          "heightFine": 965.0,
+          "y": 9908.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You turn the handle."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the water controls west of the water wheel to turn it green.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2713.0,
+          "heightFine": 965.0,
+          "y": 9908.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18510,
+          "modelIds": [],
+          "displayName": "",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever by the water wheel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 965.0,
+          "y": 9906.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You hear the sound of a water wheel starting up."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "To obtain leather, search the crate north of the staircase in the middle room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2717.0,
+          "heightFine": 965.0,
+          "y": 9894.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1741,
+          "displayName": "Leather",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the eastern room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2734.0,
+          "heightFine": 965.0,
+          "y": 9891.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2734.0,
+          "heightFine": 965.0,
+          "y": 9891.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With thread and leather, fix the bellows.\u003cul\u003e\u003cli\u003eKill an air elemental for a diary task.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1741,
+          "modelIds": [],
+          "displayName": "Leather"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18515,
+          "modelIds": [
+            3000
+          ],
+          "displayName": "Bellows"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You stitch the leather over the hole in the bellows."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever by the bellows.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2734.0,
+          "heightFine": 965.0,
+          "y": 9887.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The bellows pump air down the pipe."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the western room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2703.0,
+          "heightFine": 965.0,
+          "y": 9894.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2703.0,
+          "heightFine": 965.0,
+          "y": 9894.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine an elemental rock and kill the earth elemental that pops out.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1020,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4910
+          ],
+          "displayName": "Earth elemental"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2892,
+          "displayName": "Elemental ore",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the elemental ore it drops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2892,
+          "modelIds": [],
+          "displayName": "Elemental ore"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2892,
+          "displayName": "Elemental ore",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the middle room and search the small boxes in the north-east part of the room to obtain a stone bowl.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2724.0,
+          "heightFine": 965.0,
+          "y": 9894.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4704,
+          "displayName": "Stone bowl",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Go to the south room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2720.0,
+          "heightFine": 965.0,
+          "y": 9877.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2720.0,
+          "heightFine": 965.0,
+          "y": 9877.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the stone bowl on the lava trough to the south.\u003cul\u003e\u003cli\u003eKill a fire elemental for a diary task.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4704,
+          "modelIds": [
+            258
+          ],
+          "displayName": "Stone bowl"
+        },
+        {
+          "t": "direction",
+          "x": 2716.0,
+          "heightFine": 965.0,
+          "y": 9871.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You fill the bowl with hot lava."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bowl of lava on the furnace in the room.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            258
+          ],
+          "displayName": "Stone bowl lava"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            1296
+          ],
+          "candidateObjectTypeIds": [
+            1027,
+            34448,
+            41113
+          ],
+          "displayName": "Dead furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The furnace bursts to life."
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 18526,
+          "modelIds": [
+            1296
+          ],
+          "candidateObjectTypeIds": [
+            1027,
+            34448,
+            41113
+          ],
+          "displayName": "Lit furnace"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the elemental ore and four coal on the furnace.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2892,
+          "modelIds": [],
+          "displayName": "Elemental ore"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 18526,
+          "modelIds": [
+            1296
+          ],
+          "candidateObjectTypeIds": [
+            1027,
+            34448,
+            41113
+          ],
+          "displayName": "Lit furnace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2893,
+          "displayName": "Elemental bar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the slashed book, go to the middle room and smith an elemental shield on an anvil workbench.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2722.0,
+          "heightFine": 965.0,
+          "y": 9888.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2675,
+  "stageVarbitCompleteValue": 524288,
+  "cacheQuestId": 275
+}

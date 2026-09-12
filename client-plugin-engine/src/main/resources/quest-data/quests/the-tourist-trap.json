@@ -1,0 +1,1795 @@
+{
+  "slug": "the-tourist-trap",
+  "name": "The Tourist Trap",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "champion",
+  "releaseDate": 1050278400,
+  "neededItems": [
+    {
+      "name": "Desert shirt",
+      "itemId": 756,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Desert robe",
+      "itemId": 471,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Desert boots",
+      "itemId": 240,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Feather",
+      "itemId": 314,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bronze bar (in your inventory)",
+      "itemId": 2349,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 200,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Desert heat protection",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Armour",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bandit camp teleports",
+      "itemId": -1,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Lockpick",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Backpack spaces",
+      "itemId": -1,
+      "quantity": 15,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Mercenary Captain",
+      "level": "15",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Fletching",
+      "level": 10,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 20,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "If you don't have desert clothes, buy them from Shantay.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3304.0,
+          "heightFine": 1093.0,
+          "y": 3119.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3304.0,
+          "heightFine": 1093.0,
+          "y": 3119.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1833,
+          "displayName": "Desert shirt",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1835,
+          "displayName": "Desert robe",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1837,
+          "displayName": "Desert boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [
+            5409
+          ],
+          "displayName": "Shantay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1837,
+          "displayName": "Desert boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [
+            5409
+          ],
+          "displayName": "Shantay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1835,
+          "displayName": "Desert robe",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 836,
+          "modelIds": [
+            5409
+          ],
+          "displayName": "Shantay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1833,
+          "displayName": "Desert shirt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Begin the quest by talking to Irena (south of Shantay Pass).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 835,
+          "modelIds": [
+            3699
+          ],
+          "displayName": "Irena"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the matter?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "When did she go into the desert?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll look for your daughter."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay Irena, calm down. I'll get your daughter back for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Irena.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 835,
+          "modelIds": [
+            3699
+          ],
+          "displayName": "Irena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lead to the desert mining camp"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Desert mining camp",
+      "text": "Run south and slightly west to the gate of the Desert Mining Camp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3265.0,
+          "heightFine": 1253.0,
+          "y": 3030.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3265.0,
+          "heightFine": 1253.0,
+          "y": 3030.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i><b>Talk</i></b> to Mercenary Captain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 830,
+          "modelIds": [
+            5211
+          ],
+          "displayName": "Mercenary Captain"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Wow! A real captain!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd love to work for a tough guy like you!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can't I do something for a strong Captain like you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sorry Sir, I don't think I can do that."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's a funny captain who can't fight his own battles!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Mercenary Captain to obtain a metal key.<ul><li>The metal key can be added to the steel key ring after One Small Favour.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 830,
+          "modelIds": [
+            5211
+          ],
+          "displayName": "Mercenary Captain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1839,
+          "displayName": "Metal key",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "add it to your inventory."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip <b>all</b> armour (includes amulets, rings, etc.) and weapons, and <b>keep</b> them unequipped whenever inside the mining camp or mine.<br><br>Once you are done unequipping everything, open the gate to enter the camp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3273.5,
+          "heightFine": 2373.0,
+          "y": 3028.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3276.0,
+          "heightFine": 2373.0,
+          "y": 3029.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Entering the mine",
+      "text": "Talk to the male slave on the east of the camp.<ul><li>If a guard catches you unlocking the slave's chains and you end up in the cell, bend the bars on the window and escape. Talk to the slave to try again.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3301.0,
+          "heightFine": 2629.0,
+          "y": 3025.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 825,
+          "modelIds": [
+            4275
+          ],
+          "displayName": "Male slave"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 825,
+          "modelIds": [
+            4275
+          ],
+          "displayName": "Male slave"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've just arrived."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh yes, that sounds interesting."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's that then?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can try to undo them for you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's funny you should say that..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yeah, okay, let's give it a go."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll trade."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yeah, good luck to you too!"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1844,
+          "displayName": "Slave shirt",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "While wearing the slave outfit, open the mine door entrance. The outfit <b>must</b> be equipped any time you enter the mine.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1844,
+          "modelIds": [
+            591
+          ],
+          "displayName": "Slave shirt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1844,
+          "displayName": "Slave shirt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1845,
+          "modelIds": [
+            360
+          ],
+          "displayName": "Slave robe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1845,
+          "displayName": "Slave robe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1846,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Slave boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1846,
+          "displayName": "Slave boots"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3301.5,
+          "heightFine": 2629.0,
+          "y": 3036.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3278.0,
+          "heightFine": 1429.0,
+          "y": 9427.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the cave around until you come to a guarded cave entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1205.0,
+          "y": 9414.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 1205.0,
+          "y": 9414.5,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Making sure not to attack him, talk to one of the guards.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5919
+          ],
+          "candidateObjectTypeIds": [
+            6185,
+            15166
+          ],
+          "displayName": "Cave guard"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to mine in a different area."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes sir, you're quite right sir."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes sir, we understand each other perfectly."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The guard moves back to his post and winks at you knowingly."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to the mine doors and exit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2304
+          ],
+          "displayName": "Cave entrance doors"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3301.5,
+          "heightFine": 2629.0,
+          "y": 3036.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip your slave clothing and leave the Desert Mining Camp through the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3273.5,
+          "heightFine": 2373.0,
+          "y": 3028.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3270.0,
+          "heightFine": 2373.0,
+          "y": 3028.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run west to the Bedabin Camp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3171.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3170.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Al Shabim in the southernmost tent to receive the Bedabin key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 832,
+          "modelIds": [
+            5613
+          ],
+          "displayName": "Al Shabim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am looking for a pineapple."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm interested."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Al Shabim gives you a key."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1852,
+          "displayName": "Bedabin key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The plans",
+      "text": "Run east back to the Desert Mining Camp and climb up the ladder in the white building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3273.5,
+          "heightFine": 2373.0,
+          "y": 3028.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3276.0,
+          "heightFine": 2373.0,
+          "y": 3029.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bronze bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Feather",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3290.0,
+          "heightFine": 2629.0,
+          "y": 3034.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3291.0,
+          "heightFine": 2629.0,
+          "y": 3032.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            756
+          ],
+          "candidateObjectTypeIds": [
+            3250,
+            3261
+          ],
+          "displayName": "White building ladder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3290.0,
+          "heightFine": 3589.0,
+          "y": 3037.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the western wall search the southernmost bookcase for a book on sailing.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3284.0,
+          "heightFine": 3589.0,
+          "y": 3032.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You notice several books on the subject of sailing."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Siad in the same room and ask him if you can chat with him, then mention the sailing book.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 831,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Captain Siad"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I wanted to have a chat?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You seem to have a lot of books!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, you're interested in sailing?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I could tell by the cut of your jib."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "salty sea dog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest beside the table to get the plans.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 3589.0,
+          "y": 3033.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You take out the plans."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1850,
+          "displayName": "Technical plans",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the Bedabin Camp and show Al Shabim the plans.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3171.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3170.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 832,
+          "modelIds": [
+            5613
+          ],
+          "displayName": "Al Shabim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm very interested."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm kind of curious."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please bring me the item when it is finished."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the tent to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3169.0,
+          "heightFine": 709.0,
+          "y": 3046.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3169.0,
+          "heightFine": 709.0,
+          "y": 3048.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the experimental anvil with a bronze bar in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3171.0,
+          "heightFine": 709.0,
+          "y": 3048.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes. I'd like to try."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "attach feathers"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a feather on the dart tip to make a prototype dart.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 314,
+          "modelIds": [],
+          "displayName": "Feather"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You successfully attach the feathers to the dart tip."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1849,
+          "displayName": "Prototype dart",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take this back to Al Shabim. He will take the prototype dart, technical plans, and Bedabin key in exchange for a bronze dart and Tenti pineapple.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3171.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3170.0,
+          "heightFine": 645.0,
+          "y": 3028.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 832,
+          "modelIds": [
+            5613
+          ],
+          "displayName": "Al Shabim"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You receive a tasty looking pineapple from Al Shabim."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 2114,
+          "displayName": "Pineapple",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Ana",
+      "text": "Head back to the cave entrance in the Desert Mining Camp.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3301.5,
+          "heightFine": 2629.0,
+          "y": 3036.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3301.0,
+          "heightFine": 2629.0,
+          "y": 3035.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the slave outfit.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1844,
+          "modelIds": [
+            591
+          ],
+          "displayName": "Slave shirt"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1844,
+          "displayName": "Slave shirt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1845,
+          "modelIds": [
+            360
+          ],
+          "displayName": "Slave robe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1845,
+          "displayName": "Slave robe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1846,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Slave boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 1846,
+          "displayName": "Slave boots"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3301.5,
+          "heightFine": 2629.0,
+          "y": 3036.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3278.0,
+          "heightFine": 1429.0,
+          "y": 9427.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave and make your way back to the guard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3280.0,
+          "heightFine": 1205.0,
+          "y": 9414.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3280.0,
+          "heightFine": 1205.0,
+          "y": 9414.5,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give the pineapple to the guard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5919
+          ],
+          "candidateObjectTypeIds": [
+            6185,
+            15166
+          ],
+          "displayName": "Cave guard"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes, yes, of course... a deal's a deal!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Search</i> one of the empty barrels nearby and answer the prompt to take it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 981.0,
+          "y": 9415.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yeah, cool!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Search</i> the mine cart to ride it.<ul><li>Failing to enter the cart will cause minor damage. If you fail, attempt to enter the cart again.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 997.0,
+          "y": 9417.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3319.0,
+          "heightFine": 989.0,
+          "y": 9431.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the northwestern passageway containing a large number of slaves at the end and you will find Ana.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3301.0,
+          "heightFine": 1261.0,
+          "y": 9466.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 822,
+          "modelIds": [
+            4017
+          ],
+          "displayName": "Ana"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the barrel in your inventory on Ana to squeeze her inside it, and head back to the mine cart.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            594
+          ],
+          "displayName": "Barrel"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 822,
+          "modelIds": [
+            4017
+          ],
+          "displayName": "Ana"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ana in barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rescuing Ana",
+      "text": "Use Ana on the mine cart first, then ride it yourself when it comes back.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3318.0,
+          "heightFine": 981.0,
+          "y": 9431.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1221
+          ],
+          "displayName": "Ana in barrel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3302.0,
+          "heightFine": 981.0,
+          "y": 9417.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the barrels around the cart and retrieve the one that has Ana in it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 981.0,
+          "y": 9415.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ana in barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the winch bucket north-west of the cart to put the barrel on it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3292.0,
+          "heightFine": 1445.0,
+          "y": 9423.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1221
+          ],
+          "displayName": "Ana in barrel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes please."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I said you were very gregarious!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better get back to work"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to the surface and go to the winch bucket in the south-western corner of the camp.<ul><li>Do not remove your slave clothes at any point.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2304
+          ],
+          "displayName": "Cave entrance doors"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3301.0,
+          "heightFine": 2629.0,
+          "y": 3035.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Operate</i> the winch.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3279.0,
+          "heightFine": 2629.0,
+          "y": 3018.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Get me OUT OF HERE!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the nearby barrel for Ana.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3278.0,
+          "heightFine": 2629.0,
+          "y": 3017.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ana in barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use Ana on the wooden cart at the centre of the camp.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1221
+          ],
+          "displayName": "Ana in barrel"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 38765,
+          "modelIds": [
+            3150
+          ],
+          "displayName": "Cart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "And the desert heat will soon get to Ana."
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Ana in barrel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Mine cart driver. (Warning: If you use the wrong responses you'll have to rescue Ana again!)<ul><li>If you fail, you need to head back into the deepest part of the mine with a barrel and get Ana out again.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3081
+          ],
+          "displayName": "Mine cart driver"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Nice cart."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "One wagon wheel says to the other, 'I'll see you around'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "'One good turn deserves another'"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fired... no, shot perhaps!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "In for a penny in for a pound."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, you see, it's like this..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Prison riot in ten minutes, get your cart out of here!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You can't leave me here, I'll get killed!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "better jump in the cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the cart and answer the prompt to get on.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3978
+          ],
+          "candidateNpcTypeIds": [
+            8644
+          ],
+          "displayName": "Cart with ana"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll get on."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Ana in barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run northeast towards Shantay Pass and talk to Irena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1093.0,
+          "y": 3111.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 835,
+          "modelIds": [
+            3699
+          ],
+          "displayName": "Irena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 835,
+          "modelIds": [
+            3699
+          ],
+          "displayName": "Irena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2501,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 272
+}

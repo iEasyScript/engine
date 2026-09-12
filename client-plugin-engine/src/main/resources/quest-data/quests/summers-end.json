@@ -1,0 +1,574 @@
+{
+  "slug": "summers-end",
+  "name": "Summer\u0027s End",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "heroic",
+  "releaseDate": 1221436800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Luring the beast",
+      "text": "Equip your ghost speak amulet and Talk to Summer at the Wilderness wall, north-east of Varrock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 13484,
+          "modelIds": [],
+          "displayName": "Summer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Jennica\u0027s ring",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pickaxes",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Summoning pouches",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue charm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Monkfish",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the white portal.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m sure he will be"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8115,
+          "modelIds": [],
+          "displayName": "Erik Bonde"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the dialogue, equip and right-click operate Jennica\u0027s ring while standing on the portal to return to the real world.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37925,
+          "modelIds": [],
+          "displayName": "Portal"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13566,
+          "modelIds": [],
+          "displayName": "Jennica\u0027s ring"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 1464,
+          "componentId": 15,
+          "slotId": 12,
+          "label": "Operate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 63,
+          "modelIds": [],
+          "displayName": "Deadly red spider"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north to the dungeon, right-click and collapse the entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -17.0,
+          "heightFine": 789.0,
+          "y": 48.0,
+          "instance": true,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37749,
+          "modelIds": [],
+          "displayName": "Collapse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37750,
+          "modelIds": [],
+          "displayName": "Entrance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Operate Jennica\u0027s ring while standing on the white portal to return to the spirit realm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 933.0,
+          "y": 3.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13566,
+          "modelIds": [],
+          "displayName": "Jennica\u0027s ring"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 1464,
+          "componentId": 15,
+          "slotId": 12,
+          "label": "Operate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6542,
+          "modelIds": [],
+          "displayName": "Summer Bonde"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north and lure the beast to the entrance with your blue charm familiar. Enter the cave before it has a chance to consume your familiar.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I am."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8128,
+          "modelIds": [],
+          "displayName": "Spirit Beast"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37749,
+          "modelIds": [],
+          "displayName": "Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37970,
+          "modelIds": [],
+          "displayName": "Fire pit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Inside the cave",
+      "text": "Avoid the beast\u0027s ranged attacks by moving away from the missiles.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I am"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37963,
+          "modelIds": [],
+          "displayName": "Roots",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13756,
+          "displayName": "Cursed willow logs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop roots along the walls to obtain cursed willow logs. You will need 15 in total.\u003cul\u003e\u003cli\u003e(Optional) Right-click use an extra log on the middle fire pit, and then lure the Beast behind it to avoid attacks while cutting the remaining logs.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37963,
+          "modelIds": [],
+          "displayName": "Roots",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13756,
+          "modelIds": [],
+          "displayName": "Cursed willow logs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37970,
+          "modelIds": [],
+          "displayName": "Fire pit"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37959,
+          "modelIds": [],
+          "displayName": "Roots",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13756,
+          "displayName": "Cursed willow logs",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click use 5 logs on one of the fire pits and then light it.\u003cul\u003e\u003cli\u003eDo not light other fire pits during cutscene.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13756,
+          "modelIds": [],
+          "displayName": "Cursed willow logs"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37970,
+          "modelIds": [],
+          "displayName": "Fire pit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 38827,
+          "modelIds": [],
+          "displayName": "Fire pit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat for a total of three fire pits.\u003cul\u003e\u003cli\u003eIf you die during the encounter your progress will be saved but unlit logs will be cleared.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37970,
+          "modelIds": [],
+          "displayName": "Fire pit"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 13756,
+          "modelIds": [],
+          "displayName": "Cursed willow logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8130,
+          "modelIds": [],
+          "displayName": "Spirit Beast"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The dark core",
+      "text": "Enter the next room by going through the passage in the south-east corner.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I know what to do."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Energy potion",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Avoid the missiles like before.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8126,
+          "modelIds": [],
+          "displayName": "Dark energy core"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Soon a dark core will appear, dig soft soil and lure the core into the hole.\u003cul\u003e\u003cli\u003eThe core may take several minutes to appear.\u003c/li\u003e\u003cli\u003eAlternatively, rotate in a circle around the room digging.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37969,
+          "modelIds": [],
+          "displayName": "Soft soil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37967,
+          "modelIds": [],
+          "displayName": "Hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat this 3 times until you receive a cutscene.\u003cul\u003e\u003cli\u003eIf you die during this encounter, your progress is saved after each trapping.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37969,
+          "modelIds": [],
+          "displayName": "Soft soil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The Beast seems to have had enough for now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The coloured graves",
+      "text": "Enter the next room by going through the passage to the east.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I am ready."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37929,
+          "modelIds": [],
+          "displayName": "Passage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take note of which grave the yellow spirit enters.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the Beast to charge a yellow attack and bless the grave marker.\u003cul\u003e\u003cli\u003eBlessing a grave consumes prayer points, which may be replenished at the altar in the room.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat for the red and blue spirit.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the spirits  then once outside, talk again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Alright, I\u0027ll come with you."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8116,
+          "modelIds": [],
+          "displayName": "Erik Bonde"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 37749,
+          "modelIds": [],
+          "displayName": "Entrance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11428,
+  "stageVarbitCompleteValue": 35,
+  "cacheQuestId": 95
+}

@@ -1,0 +1,1287 @@
+{
+  "slug": "making-history",
+  "name": "Making History",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1132617600,
+  "neededItems": [
+    {
+      "name": "Spade",
+      "itemId": 952,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ecto-tokens",
+      "itemId": -1,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Sapphire amulet",
+      "itemId": 432,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Traveller's necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ectophial",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ring of duelling",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dramen/lunar staff",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Restless Ghost",
+    "Priest in Peril"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Jorral at the Outpost south of the Eagles' Peak lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Eagles' Peak lodestone",
+        "url": "Eagles'_Peak_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2437.0,
+          "heightFine": 1241.0,
+          "y": 3347.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Traveller's necklace",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me more."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "many occupants"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all goes well"
+        },
+        {
+          "t": "conversationText",
+          "text": "do you think"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Jorral.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Jorral.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "be able to help"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Erin",
+      "text": "Talk to the silver merchant in the East Ardougne marketplace.<ul><li>Do not steal from the stall otherwise the merchant will not talk with you.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2659.0,
+          "heightFine": 1285.0,
+          "y": 3316.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 569,
+          "modelIds": [
+            6126
+          ],
+          "displayName": "Silver merchant"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Spade",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ring of duelling",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dramen/lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 569,
+          "modelIds": [
+            6126
+          ],
+          "displayName": "Silver merchant"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the outpost."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6754,
+          "displayName": "Enchanted key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 569,
+          "modelIds": [
+            6126
+          ],
+          "displayName": "Silver merchant"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig on the marked tile north-east of Castle Wars.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ring of duelling",
+        "url": "Ring_of_duelling_(1).png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2441.0,
+          "heightFine": 1109.0,
+          "y": 3139.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 952,
+          "modelIds": [],
+          "displayName": "Spade"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6759,
+          "displayName": "Chest",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the enchanted key on the chest.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6754,
+          "modelIds": [
+            759
+          ],
+          "displayName": "Enchanted key"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6759,
+          "modelIds": [
+            342
+          ],
+          "displayName": "Chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2967,
+          "displayName": "Journal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Droalak",
+      "text": "Talk to Droalak south of the General Store in Port Phasmatys.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ectophial teleport",
+        "url": "Ectophial.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3659.0,
+          "heightFine": 261.0,
+          "y": 3466.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ecto-tokens",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Sapphire amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Ectophial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 552,
+          "modelIds": [],
+          "displayName": "Ghostspeak amulet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No problem"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Melina to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3672.0,
+          "heightFine": 1125.0,
+          "y": 3479.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2934,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Melina"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2934,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Melina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Goodbye"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2934,
+          "modelIds": [
+            3483
+          ],
+          "displayName": "Melina"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Droalak again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3659.0,
+          "heightFine": 261.0,
+          "y": 3466.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6758,
+          "displayName": "Scroll",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2937,
+          "modelIds": [
+            2859
+          ],
+          "displayName": "Droalak"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dron",
+      "text": "Talk to Blanin, west of the cow pen in Rellekka.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Fremennik Province lodestone",
+        "url": "Fremennik_Province_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2674.0,
+          "heightFine": 1205.0,
+          "y": 3671.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2940,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Blanin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2940,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Blanin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "secretive guy"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2940,
+          "modelIds": [
+            4299
+          ],
+          "displayName": "Blanin"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dron, west of the helmet shop.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2659.0,
+          "heightFine": 573.0,
+          "y": 3698.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm after important answers."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why, you're the famous warrior Dron!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "weapon do I"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "An iron mace."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "rats"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Breakfast."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "devoured"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lunch."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "tea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bunnies."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "spider blood"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Red."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "years"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "36."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "months"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "8."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "interesting"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fifth and Fourth"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "house"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Northeast side of town"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "name"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Blanin."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Fluffy."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "plus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2939,
+          "modelIds": [
+            5325
+          ],
+          "displayName": "Dron"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "12, but what does that have to do with anything?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "BE GONE"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jorral",
+      "text": "Return to Jorral at the outpost, talk to him until he gives you a Letter.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Eagles' Peak lodestone",
+        "url": "Eagles'_Peak_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2437.0,
+          "heightFine": 1241.0,
+          "y": 3347.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Journal",
+          "itemId": 204,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Scroll",
+          "itemId": 276,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Traveller's necklace",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4204,
+          "displayName": "Letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to 1st floor (2nd floor[US]) of Ardougne Castle in East Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.5,
+          "heightFine": 2525.0,
+          "y": 3307.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2571.0,
+          "heightFine": 2917.0,
+          "y": 3306.0,
+          "range": 4
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2576.0,
+          "heightFine": 2917.0,
+          "y": 3297.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Lathas.",
+      "warning": "Remove Mourner outfit if equipped.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Jorral and the outpost"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to hand you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Jorral.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2437.0,
+          "heightFine": 1241.0,
+          "y": 3347.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2932,
+          "modelIds": [],
+          "displayName": "Jorral"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9664,
+  "stageVarbitCompleteValue": 4,
+  "cacheQuestId": 124
+}

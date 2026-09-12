@@ -1,0 +1,854 @@
+{
+  "slug": "you-are-it",
+  "name": "You Are It",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1525737600,
+  "neededItems": [
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Enter McGrubor\u0027s Wood north-west of the Seers\u0027 Village lodestone.\u003cul\u003e\u003cli\u003eFairy ring ALS.\u003c/li\u003e\u003c/ul\u003e",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 51,
+          "modelIds": [],
+          "displayName": "Loose Railing"
+        },
+        {
+          "t": "direction",
+          "x": 2659.0,
+          "heightFine": 1085.0,
+          "y": 3500.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2662.0,
+          "heightFine": 1109.0,
+          "y": 3500.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the marked tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 1413.0,
+          "y": 3482.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111254,
+          "modelIds": [],
+          "displayName": "Tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2644.0,
+          "heightFine": 885.0,
+          "y": 3494.0,
+          "range": 40
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the mysterious clue scroll.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 19626,
+          "modelIds": [
+            405
+          ],
+          "displayName": "Mysterious clue scroll"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Reldo in the library of Varrock Palace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hope to see you again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the mysterious clue scroll again.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 19626,
+          "modelIds": [
+            405
+          ],
+          "displayName": "Mysterious clue scroll"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 345
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Treasure trail",
+      "text": "Stand in the room with Duke Horacio on the 1st floor (2nd floor[US]) of Lumbridge Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3208.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 36773,
+          "modelIds": [],
+          "displayName": "Staircase",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3209.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 2693.0,
+          "y": 3221.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3210.0,
+          "heightFine": 2693.0,
+          "y": 3222.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove all worn items, then perform the Cry and Panic emotes (in that order).",
+      "actions": [
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 590,
+          "componentId": 11,
+          "slotId": 16,
+          "label": "1: Cry"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 590,
+          "componentId": 11,
+          "slotId": 18,
+          "label": "2: Panic"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "as you begin to cry"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "notice something different"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 1477.0,
+          "y": 3209.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dig at the marked spot in the to Lumbridge cemetery.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3241.0,
+          "heightFine": 965.0,
+          "y": 3192.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 42679,
+          "modelIds": [
+            405
+          ],
+          "displayName": "Dig"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 42680,
+          "displayName": "Locked casket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the mysterious clue scroll again.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 19626,
+          "modelIds": [
+            405
+          ],
+          "displayName": "Mysterious clue scroll"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 917
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the POH portal in Rimmington, west of the Port Sarim lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2953.0,
+          "heightFine": 1289.0,
+          "y": 3225.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15478,
+          "modelIds": [
+            4857
+          ],
+          "candidateObjectTypeIds": [
+            63421
+          ],
+          "displayName": "Portal",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2953.0,
+          "heightFine": 389.0,
+          "y": 3225.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the mysterious clue scroll again.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 19626,
+          "modelIds": [
+            405
+          ],
+          "displayName": "Mysterious clue scroll"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 345
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Draynor Manor, north of the Draynor lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.5,
+          "heightFine": 1665.0,
+          "y": 3353.5,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 47421,
+          "modelIds": [],
+          "displayName": "Large door",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3355.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door to the room to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3104.5,
+          "heightFine": 1465.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3102.0,
+          "heightFine": 965.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase in the north-western part of the room to find the casket key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3097.0,
+          "heightFine": 1565.0,
+          "y": 3362.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 42681,
+          "displayName": "Casket key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the locked casket to obtain an old necklace.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 42680,
+          "modelIds": [
+            2778
+          ],
+          "displayName": "Locked casket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 42682,
+          "displayName": "Old necklace",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mysterious hole",
+      "text": "Dig at the marked spot back in McGrubor\u0027s Wood.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 1413.0,
+          "y": 3486.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 42682,
+          "modelIds": [],
+          "displayName": "Old necklace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 111270,
+          "modelIds": [
+            588
+          ],
+          "displayName": "Mysterious Hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": 954,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the mysterious hole.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111270,
+          "modelIds": [
+            588
+          ],
+          "displayName": "Mysterious Hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 111270,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            111271
+          ],
+          "displayName": "Mysterious Hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend into the Mysterious Hole.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111270,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            111271
+          ],
+          "displayName": "Mysterious Hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the coffin.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 32.0,
+          "heightFine": 3425.0,
+          "y": 15.0,
+          "instance": true,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111260,
+          "modelIds": [],
+          "displayName": "Coffin",
+          "instance": true,
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "always admired you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "was always the trickster"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the double agent.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5141,
+          "modelIds": [
+            4845
+          ],
+          "displayName": "Uri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happens next?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let me list"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5141,
+          "modelIds": [
+            4845
+          ],
+          "displayName": "Uri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m going to look around."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take too long"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the mantle to the east. Choose The Stone.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 111265,
+          "modelIds": [
+            38712
+          ],
+          "displayName": "Mantle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 720,
+          "componentId": 32
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you done"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh my goodness"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Uri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 25485,
+          "modelIds": [
+            4845
+          ],
+          "displayName": "Uri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 40405,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 398
+}

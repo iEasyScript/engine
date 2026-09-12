@@ -1,0 +1,1359 @@
+{
+  "slug": "temple-of-ikov",
+  "name": "Temple of Ikov",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1024272000,
+  "neededItems": [
+    {
+      "name": "Light source",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bow",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Limpwurt roots",
+      "itemId": -1,
+      "quantity": 20,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Weight-reducing clothing",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Prayer potions",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dramen staff",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Any Ava's device",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ranged armour",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Fire Warrior of Lesarkus",
+      "level": "77",
+      "quantity": 1
+    },
+    {
+      "name": "Guardians of Armadyl",
+      "level": "42",
+      "quantity": 1
+    },
+    {
+      "name": "Skeletons",
+      "level": "58",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 40,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 42,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Lucien north of the Ardougne castle.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2574.0,
+          "heightFine": 1445.0,
+          "y": 3322.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm a mighty hero!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds like a laugh!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Lucien.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "small holding up there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Inside the temple",
+      "text": "Enter the Temple of Ikov north-east of the Ardougne lodestone.<ul><li>Make sure you weigh less than 4.5kg.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2677.5,
+          "heightFine": 1669.0,
+          "y": 3405.5,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2677.0,
+          "heightFine": 1861.0,
+          "y": 9806.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Light sources",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bow",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Limpwurt roots",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Any Ava's device",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ranged armour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Weight-reducing clothing",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2650.5,
+          "heightFine": 805.0,
+          "y": 9804.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2641.0,
+          "heightFine": 965.0,
+          "y": 9764.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 88,
+          "displayName": "Boots of lightness",
+          "quantity": 1
+        }
+      ],
+      "jumpOffset": 4,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut through the web.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 733,
+          "modelIds": [
+            876
+          ],
+          "displayName": "Web"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "cuts through"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the boots of lightness.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 88,
+          "modelIds": [
+            240
+          ],
+          "displayName": "Boots of lightness"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 88,
+          "displayName": "Boots of lightness",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2639.5,
+          "heightFine": 1565.0,
+          "y": 9763.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2649.0,
+          "heightFine": 805.0,
+          "y": 9805.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the Pendant of Lucien.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 86,
+          "modelIds": [
+            237
+          ],
+          "displayName": "Pendant of Lucien"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 86,
+          "displayName": "Pendant of Lucien"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the north gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.5,
+          "heightFine": 1629.0,
+          "y": 9814.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2661.0,
+          "heightFine": 1029.0,
+          "y": 9816.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk across the bridge.<ul><li>Weight needs to be 0kg or less.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.5,
+          "heightFine": 1605.0,
+          "y": 9828.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2646.0,
+          "heightFine": 1013.0,
+          "y": 9829.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the lever.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2637.0,
+          "heightFine": 1685.0,
+          "y": 9819.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 83,
+          "displayName": "Lever",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk back across the bridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.5,
+          "heightFine": 1605.0,
+          "y": 9828.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2652.0,
+          "heightFine": 973.0,
+          "y": 9828.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the lever on the lever bracket.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2671.05,
+          "heightFine": 2481.0,
+          "y": 9804.1,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 83,
+          "modelIds": [
+            60
+          ],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 83,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the lever.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 83,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Lever"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hidden machinery"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ice arrows",
+      "text": "Open the gate to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.5,
+          "heightFine": 1633.0,
+          "y": 9802.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2662.0,
+          "heightFine": 869.0,
+          "y": 9801.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bow",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Limpwurt root",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        },
+        {
+          "name": "Pendant of Lucien",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Any Ava's device",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ranged armour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Loot the chests in the tunnel for 10 ice arrows.<ul><li>The arrows will only be in 1 of the 6 chests. The location changes after successfully looting them. They can spawn in the same chest again.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2710.0,
+          "heightFine": 1125.0,
+          "y": 9850.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2719.0,
+          "heightFine": 1149.0,
+          "y": 9838.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2729.0,
+          "heightFine": 1061.0,
+          "y": 9850.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2747.0,
+          "heightFine": 1173.0,
+          "y": 9848.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2738.0,
+          "heightFine": 1389.0,
+          "y": 9835.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 2745.0,
+          "heightFine": 1125.0,
+          "y": 9821.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 78,
+          "displayName": "Ice arrows",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.5,
+          "heightFine": 1633.0,
+          "y": 9802.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2662.0,
+          "heightFine": 853.0,
+          "y": 9804.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.5,
+          "heightFine": 1629.0,
+          "y": 9814.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2661.0,
+          "heightFine": 1029.0,
+          "y": 9816.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "'Search for traps' on the lever, then pull it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1705.0,
+          "y": 9855.35,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "disable"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1705.0,
+          "y": 9855.35,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Pulled lever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the wooden door to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.0,
+          "heightFine": 1541.0,
+          "y": 9857.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2648.0,
+          "heightFine": 909.0,
+          "y": 9859.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the next door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1613.0,
+          "y": 9870.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5847
+          ],
+          "candidateObjectTypeIds": [
+            7043
+          ],
+          "displayName": "Fire warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Fire Warrior of Lesarkus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5847
+          ],
+          "candidateObjectTypeIds": [
+            7043
+          ],
+          "displayName": "Fire warrior"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 78,
+          "modelIds": [
+            537
+          ],
+          "displayName": "Ice arrows"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5847
+          ],
+          "candidateObjectTypeIds": [
+            7043
+          ],
+          "displayName": "Fire warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1613.0,
+          "y": 9870.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2646.0,
+          "heightFine": 805.0,
+          "y": 9872.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Winelda.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 276,
+          "modelIds": [
+            5367
+          ],
+          "displayName": "Winelda"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes I do!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2664.0,
+          "heightFine": 1277.0,
+          "y": 9876.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the shiny key to the south-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2628.0,
+          "heightFine": 421.0,
+          "y": 9859.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 85,
+          "displayName": "Shiny key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push through the wall to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2643.0,
+          "heightFine": 1541.0,
+          "y": 9892.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2643.0,
+          "heightFine": 741.0,
+          "y": 9894.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Siding with the guardians (recommended)",
+      "text": "Remove your pendant.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 86,
+          "displayName": "Pendant of Lucien",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Dramen staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to a guardian.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 274,
+          "modelIds": [
+            5358,
+            4017
+          ],
+          "displayName": "Guardian of Armadyl",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek the Staff of Armadyl."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lucien will give me a grand reward for it!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're right, it's time for my yearly bath."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok! I'll help!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hands you a pendant"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the Armadyl pendant.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            237
+          ],
+          "displayName": "Pendant of armadyl"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Pendant of armadyl"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Lucien in his home west of the Grand Exchange.",
+      "tpHint": {
+        "type": "fairy",
+        "hover": "Edgeville"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3128.0,
+          "heightFine": 1657.0,
+          "y": 3486.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3128.0,
+          "heightFine": 1657.0,
+          "y": 3486.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [
+        {
+          "t": "always"
+        }
+      ],
+      "jumpOffset": 3,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Siding with Lucien",
+      "text": "Try to take the staff from table. Kill any guardians if they stop you until the staff is acquired.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2964
+          ],
+          "candidateObjectTypeIds": [
+            62758,
+            62759
+          ],
+          "displayName": "Table with staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1917,
+          "displayName": "Beer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Dramen staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Talk to Lucien in his home west of the Grand Exchange.",
+      "tpHint": {
+        "type": "fairy",
+        "hover": "Edgeville"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3128.0,
+          "heightFine": 1657.0,
+          "y": 3486.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes! Here it is."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3267
+          ],
+          "candidateObjectTypeIds": [
+            3051
+          ],
+          "displayName": "Lucian"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2148,
+  "stageVarbitCompleteValue": 80,
+  "cacheQuestId": 126
+}

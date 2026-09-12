@@ -1,0 +1,535 @@
+{
+  "slug": "dwarf-cannon",
+  "name": "Dwarf Cannon",
+  "members": true,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1053993600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Captain Lawgof by the coal truck mining site west of Seers' Village.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, and game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Captain Lawgof.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "back to me once you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Repair and retrieval",
+      "text": "Inspect the six broken sections of wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4068,
+          "modelIds": [
+            1650,
+            1650,
+            1650,
+            1650,
+            1650,
+            1650
+          ],
+          "displayName": "Broken Wall",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "now fixed all these walls"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Lawgof.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we mop up these remaining goblins"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladders, directly south of the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2570.0,
+          "heightFine": 3605.0,
+          "y": 3441.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2570.0,
+          "heightFine": 4165.0,
+          "y": 3442.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2570.0,
+          "heightFine": 4765.0,
+          "y": 3443.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2569.0,
+          "heightFine": 5157.0,
+          "y": 3443.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the dwarf remains.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 0,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Dwarf remains"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 0,
+          "displayName": "Dwarf remains",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Lawgof.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see if I can find their hideout"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave directly north of the Ardougne lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2627.5,
+          "heightFine": 285.0,
+          "y": 3393.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2619.0,
+          "heightFine": 1237.0,
+          "y": 9797.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crates at the end of the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2619.0,
+              "heightFine": 1237.0,
+              "y": 9797.0
+            },
+            {
+              "x": 2612.0,
+              "heightFine": 1029.0,
+              "y": 9806.0
+            },
+            {
+              "x": 2600.0,
+              "heightFine": 1197.0,
+              "y": 9811.0
+            },
+            {
+              "x": 2593.0,
+              "heightFine": 1037.0,
+              "y": 9820.0
+            },
+            {
+              "x": 2596.0,
+              "heightFine": 1133.0,
+              "y": 9824.0
+            },
+            {
+              "x": 2592.0,
+              "heightFine": 37.0,
+              "y": 9829.0
+            },
+            {
+              "x": 2579.0,
+              "heightFine": 797.0,
+              "y": 9841.0
+            },
+            {
+              "x": 2568.0,
+              "heightFine": 69.0,
+              "y": 9846.0
+            }
+          ],
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2568.0,
+          "heightFine": 69.0,
+          "y": 9846.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks again"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return and talk to Captain Lawgof.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll see what I can do."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "back to me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the toolkit on the broken multicannon.<ul><li>Use the hooked tool on the spring.</li><li>Use the pliers on the safety switch at the bottom.</li><li>Use the tooth tool on the gear located at the bottom of the hammer.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1,
+          "modelIds": [
+            561
+          ],
+          "displayName": "Toolkit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "fixed the cannon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Lawgof. Make sure to finish conversation.<ul><li>This conversation must be completely finished.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay then, just for you!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Nulodion, next to the dwarven multicannon north-east of the Falador lodestone.<ul><li>Drop the ammo mould, and talk to him for another. Add the second one to your toolbelt.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3012.0,
+          "heightFine": 2565.0,
+          "y": 3442.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 209,
+          "modelIds": [
+            5358
+          ],
+          "displayName": "Nulodion",
+          "distance": 17
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "gives you another mould"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Captain Lawgof.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2568.0,
+          "heightFine": 1669.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 208,
+          "modelIds": [
+            7101
+          ],
+          "displayName": "Captain Lawgof",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2732,
+  "stageVarbitCompleteValue": 11,
+  "cacheQuestId": 34
+}

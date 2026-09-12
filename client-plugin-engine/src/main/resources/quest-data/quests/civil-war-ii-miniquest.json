@@ -1,0 +1,226 @@
+{
+  "slug": "civil-war-ii-miniquest",
+  "name": "Civil War II (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1665964800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Civil War I (miniquest)"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Anne Dimitri, north of Quercus in the Wilderness.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3136.0,
+          "heightFine": 933.0,
+          "y": 3535.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "diplomatic approach"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the achievement Walk on the Wildy Side I by completing one Wilderness Flash Event.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Walk on the Wildy Side"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nikkel, west of Quercus.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3116.0,
+          "heightFine": 1429.0,
+          "y": 3520.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29549,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Nikkel",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Discuss Civil War II."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Bilrach's"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "'Anne'"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3136.0,
+          "heightFine": 933.0,
+          "y": 3535.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Anne Dimitri.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29378,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            29616,
+            29704,
+            29753
+          ],
+          "displayName": "Anne Dimitri"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 52187,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 485
+}

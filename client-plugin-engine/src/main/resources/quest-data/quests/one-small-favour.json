@@ -1,0 +1,1040 @@
+{
+  "slug": "one-small-favour",
+  "name": "One Small Favour",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1109548800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Shilo Village"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Karamja",
+      "text": "Talk to Yanni Salika in Shilo Village (north of the bridge).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything else interesting to do around here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, see you in a tick!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the jungle foresters south of the village. You will receive their blunt hatchet.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about red mahogany."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll take your hatchet to get it sharpened."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The Jungle Forester hands you the blunt hatchet."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Asgarnia and Misthalin",
+      "text": "Speak to Brian in Port Sarim (Axe shop north-east of the lodestone). Make sure he takes the blunt hatchet before you leave.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you sharpen hatchets?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Look, can you sharpen this cursed hatchet or what?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, ok, I'll do it! I'll go and see Aggie."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Player has blunt hatchet removed from them."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Steel bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Clean harralander",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Clean marrentill",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Vial of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Aggie, the witch in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let me guess, you're going to ask me to do you a favour?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, Ok, I'll see if I can find Jimmy."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the H.A.M. Hideout (north-west of the Lumbridge Castle, in the Lumbridge forest). Pick the lock on the trapdoor, and climb down. Head to the middle southern cavern and speak to Johanhus Ulsbrecht.<ul><li>Or if player has completed The Chosen Commander.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for Jimmy the Chisel."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And I suppose you need me to do you a favour?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, Jimmy has to be worth more than a few scrawny chickens!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "One Small Favour"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm looking for Jimmy the Chisel."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And I suppose you need me to do you a favour?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, Jimmy has to be worth more than a few scrawny chickens!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " That's exactly right! Do this for us and we'll let Brother Jimmy go!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fred the Farmer near the sheep's pen in Lumbridge.<ul><li>Or if player has seen 'The Thing'.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Jimmy."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Jimmy."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk with Seth Groats near the chickens' pen in Lumbridge.  (Back on the east side of the river)",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, ok! I guess it's not that much further to Varrock!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Many thanks! Remember, you need to take him three steel bars."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take 3 steel bars (cannot be noted) to Horvik in the platebody shop in Varrock (north-east of the central fountain), who is ill and needs a herbal tincture.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hi, I need to talk to you about chicken cages!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I guess one good turn deserves another."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ok, I guess one good turn deserves another."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the Apothecary twice, located in south-west Varrock, at the potion icon.<ul><li>Or if player has destroyed their Doctor's hat.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Horvik is ill, I need herbal tincture."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, ok, I guess it's not that far to the Barbarian Village."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Horvik is ill, I need breathing salts and herbal tincture."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, ok, I guess it's not that far to the Barbarian Village."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Wonderful, I'd really appreciate it!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Barbarian Village (also called Gunnarsgrunn) and talk to Tassie Slipcast, located within the pottery building in the south-east.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll deal with Hammerspike!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Really, you will?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Dwarven Mine and find Hammerspike Stoutbeard on the far west side ('Hammerspike's hangout' on the map). Ask him about Tassie Slipcast.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Have you always been a gangster?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, another favour..I think I can manage that."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Taverley and talk with Sanfew, located in the house slightly south-west of Pikkupstix's Summoning Shop.<ul><li>The quest Druidic Ritual must be completed to speak with Sanfew about One Small Favour.</li><li>If Eadgar's Ruse is completed, or the third option is 'Are you taking any new initiates?'</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Are you taking any new initiates?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you accept dwarves?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A dwarf I know wants to become an initiate."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yep, it's a deal."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you taking any new initiates?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you accept dwarves?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A dwarf I know wants to become an initiate."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yep, it's a deal."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " All you need to do is add clean harralander to a vial, then add clean marrentill. It'll warm that poor fellow up a treat!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make a Guthix rest by first adding the harralander to the vial of water, then adding the marrentill. Make sure you use the harralander on the vial, instead of clicking the vial, as you may accidentally use the marrentill first.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to White Wolf Mountain, and speak to Captain Bleemadge.  Right-click to talk to him.<ul><li>To reach him enter the cave southwest of the Burthorpe lodestone (behind the Burthorpe mine entrance), then south towards the gnome glider.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have a special potion here for you from Sanfew!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll go and get you some T.R.A.S.H."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Wonderful, my friend, wonderful!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Kandarin",
+      "text": "Travel to Catherby and speak to Arhein on the docks. (General store owner, south of the lodestone)<ul><li>While here, purchase an empty pot from Arhein's Store.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk T.R.A.S.H. to you."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, Ok, I'll do it!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Seers' Village and speak to Phantuwti Fanstuwi Farsight, south-east of the lodestone.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Hi, can you give me a weather forecast?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can I do to help?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, Ok, I'll do it."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Goblin Cave south-east of the fishing guild (teleport to the Ardougne lodestone and run north).<ul><li>Sometimes the cave is not marked on the minimap. It is just outside the fence opposite the fishing guild building near the windmill.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once inside, head north, then east where you find Petra Fiyed trapped in rock. Search the sculpture.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Ardougne and speak to Wizard Cromperty, located north-east from the market.<ul><li>While you are in Ardougne, pick up five pigeon cages from the back yard of the first house south of the north-western bank. There are three cages that will respawn immediately.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about a girl stuck in some rock!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh! Ok, one more 'small favour' isn't going to kill me..I hope!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Port Khazard (teleport to Catherby and use a charter to Port Khazard or teleport to the Yanille lodestone, run east through town then north) and talk to Tindel Marchant on the southern pier.<ul><li>While you are here you can also speak to him about identifying swords for one of easy Ardougne achievements, They're Long and Pointy</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about iron oxide."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll do it!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Chat about Antiques Store"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you do here?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Feldip Hills and talk to Rantz, located to the far east of fairy ring AKS.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about a mattress."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll see what I can do."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Dat would be da good fing...den me's help wiv da flufsies sack."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west to the gnome glider and right-click to talk to Gnormadium Avlafrim.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Rantz said I should come and help you finish this project."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll take a look at them."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ok then...well, just pop over and let me know if you're not sure what you're doing...I'm sure that I'll just have to fix it myself anyway. If you need any materials, just pop over."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "For each of the 8 gnome landing lights immediately east:<ul><li>Select the 'Search' option on the gnome landing light to receive an uncut gem.</li><li>Cut the gem. If you crush one talk to the gnome to buy a replacement. .</li><li>Use the cut gem on the light it came from (from west to east is sapphire, opal, red topaz, jade).</li><li>Make sure to use them on the gnome landing light.</li><li>Make sure to use them on the gnome landing light.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need new gem to fix the lights."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, here's 500 gold, I'll buy one."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the gnome again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've fixed all the lights!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Completing the favours",
+      "text": "Go back to Rantz to receive a comfy mattress.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I've helped that Gnome, he shouldn't bother you anymore."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bronze bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Empty pot",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pigeon cage",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the mattress to Tindel in Port Khazard, who gives you iron oxide.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have the mattress."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the iron oxide to Wizard Cromperty in Ardougne, who gives you an animate rock scroll.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have that iron oxide you asked for!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read Animate rock scroll in the Goblin Cave near the trapped Petra and kill Slagilith when it appears.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read Animate rock scroll again, then talk to Petra.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Seers' Village and speak to Phantuwti in his house.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've released Petra, she should have returned."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll run you through if you don't give me that weather report."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why can't you get a clear picture?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Which special Seers tools do you mean?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you mean, 'special combination of items'?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well, let me think now...There's a copper eye, a rotating thing, and some pointy direction thingies. It's all highly scientific - and of course mystical - in a very magical 'foresight' sort of way."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Access the roof via either the ladder on the north wall of Phantuwti's house, or the ladder in the building to the east (you have to go up two ladders to get to the roof).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the weather vane twice to get three broken vane parts.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With a bronze bar, an iron bar, and a steel bar, use each of the the parts of the weather vane on any anvil (there is an anvil just north of the house).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the roof of the house and put the weathervane pillar, the directionals and the ornament back.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Phantuwti again and he will give you the weather report.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've fixed the weather vane!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the report to Arhein in Catherby.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have the weather report for you."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Captain Bleemadge on the White Wolf Mountain.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Hey there, did you get your T.R.A.S.H?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Oh yes, thanks...I've already installed it. I should go like the wind now! Tell Sanfew, that yakking old druid, I'll be happy to take him to the ogre area now... and yourself, of course, if you should like to go."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sanfew in Taverley.  (  If the player has completed 'Eadgar's Ruse.')",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Hi there, the Gnome Pilot has agreed to take you to see the ogres!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hi there, the Gnome Pilot has agreed to take you to see the ogres!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " He's agreed to take me? Well, that's wonderful! Many thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hammerspike Stoutbeard in the Dwarven Mine. Kill his minions. Talk to him again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Tassie Slipcast in Barbarian Village.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Form the unfired pot lid at the nearby potter's wheel.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire the pot lid in the pottery oven.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pot lid on an empty pot to get an airtight pot.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the apothecary in Varrock and give him the pot.<ul><li>Or if player has destroyed their Doctor's hat.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hey there! I have an air-tight pot for you!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hey there! I have an air-tight pot for you!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Horvik (Varrock Platebody Shop) and give him the herbal tincture and breathing salts.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have the tincture and the breathing salts."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again with five pigeon cages to get some chicken cages.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have the five pigeon cages you asked for!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Seth Groats in the farm in Lumbridge and give him the chicken cages.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the H.A.M. Hideout and talk to Johanhus.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You're in luck, I've managed to swing that chicken deal for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Hmmm. Congratulations on your achievement, your help will ensure the success of our venture and we can surely take our efforts forwards. Tell me, won't you consider joining our calling?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Draynor Village and talk with Aggie the witch.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about One Small Favour."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Yes! He's just returned! I'll happily be a character witness for Brian now! Please let him know that I'll help his friend however I can."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Port Sarim and talk with Brian in his axe shop (north-east of the lodestone), who gives you a sharpened hatchet.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've returned with good news."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to Shilo Village and speak with any jungle forester (closest fairy ring CKR), who gives you red mahogany logs in exchange for the hatchet.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Good news, I have your sharpened hatchet!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak with Yanni in Shilo Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Here's the red mahogany you asked for."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well, that's absolutely wonderful my friend! Many thanks!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2671,
+  "stageVarbitCompleteValue": 280,
+  "cacheQuestId": 146
+}

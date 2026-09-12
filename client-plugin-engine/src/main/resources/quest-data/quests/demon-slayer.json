@@ -1,0 +1,531 @@
+{
+  "slug": "demon-slayer",
+  "name": "Demon Slayer",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1359331200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Skeletons",
+      "level": "1",
+      "quantity": 10
+    },
+    {
+      "name": "Cultists",
+      "level": "1",
+      "quantity": 9
+    },
+    {
+      "name": "Delrith",
+      "level": "15",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "The trials",
+      "text": "Talk to Gideon Bede inside the church in north-east Varrock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3250.0,
+          "heightFine": 1253.0,
+          "y": 3483.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4731
+          ],
+          "candidateObjectTypeIds": [
+            4871
+          ],
+          "displayName": "Gideon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 1253.0,
+          "y": 3483.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4731
+          ],
+          "candidateObjectTypeIds": [
+            4871
+          ],
+          "displayName": "Gideon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Gideon.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Climb down the trapdoor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor in the room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3250.0,
+          "heightFine": 1253.0,
+          "y": 3476.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 50985,
+          "modelIds": [
+            3204
+          ],
+          "displayName": "Ladder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north and speak to any of the spirits.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3696
+          ],
+          "candidateObjectTypeIds": [
+            3626
+          ],
+          "displayName": "Faith"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I come seeking Silverlight."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Seek us there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mind",
+      "text": "Speak to the Spirit of the Mind inside the eastern room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3522
+          ],
+          "candidateObjectTypeIds": [
+            63019,
+            63030
+          ],
+          "displayName": "Mind"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek the Silverlight."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A sword that slays demons."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A powerful demon threatens Varrock."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Delrith."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "And who sends you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Gideon Bede."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Your mind is focused"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Faith",
+      "text": "Speak to the Spirit of Faith in the northern room, who'll guide you to the other side. The correct pathway is:<ul><li>3 north</li><li>2 east</li><li>3 north</li><li>2 west</li><li>1 south</li><li>2 west</li><li>4 north</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3696
+          ],
+          "candidateObjectTypeIds": [
+            3626
+          ],
+          "displayName": "Faith"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You have completed the trial"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Body",
+      "text": "Speak to the Spirit of the Body in the western room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63327,
+          "modelIds": [
+            3378
+          ],
+          "displayName": "Body"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "manual labour can be hard work"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat all 10 skeletons.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 5358,
+          "modelIds": [
+            5457
+          ],
+          "displayName": "Skeleton"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "For Varrock!",
+      "text": "Talk to the spirits in the central room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 63327,
+          "modelIds": [
+            3378
+          ],
+          "displayName": "Body"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There it is"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Melee gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Silverlight from the altar. ",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5418
+          ],
+          "displayName": "Silverlight rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2402,
+          "displayName": "Silverlight",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the ladder.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3250.0,
+          "heightFine": 1253.0,
+          "y": 3476.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the scroll to the north of the trapdoor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6758,
+          "modelIds": [
+            588
+          ],
+          "displayName": "Scroll"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the trapdoor outside the temple near the western wall (south-east Varrock, directly south of Aubury's Rune Shop).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3254.0,
+          "heightFine": 1125.0,
+          "y": 3386.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4731
+          ],
+          "candidateObjectTypeIds": [
+            4871
+          ],
+          "displayName": "Gideon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make your way west to the large room, killing all the cultists along the way.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19506,
+          "modelIds": [
+            4230,
+            4311,
+            4143
+          ],
+          "displayName": "Cultist",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That's the last of them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight Delrith. Run into Gideon's dome shield to negate most of the damage. Only Silverlight or Darklight will work.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well done, hero"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Gideon again.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 17841,
+  "stageVarbitCompleteValue": 9,
+  "cacheQuestId": 51
+}

@@ -1,0 +1,12 @@
+[package]
+name = "projectx-patcher-common"
+version = "0.1.0"
+edition = "2021"
+
+# Platform-agnostic patch targets shared by the Linux (`patcher`), Windows
+# (`patcher-win`) and macOS (`patcher-mac`) patchers. Keeping the Jagex key
+# prefixes and the HTTP-port scanner in one crate is what stops the three
+# copies drifting apart on a client update.
+
+[dependencies]
+memchr = "2"

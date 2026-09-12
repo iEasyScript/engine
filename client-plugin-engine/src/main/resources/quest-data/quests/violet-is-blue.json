@@ -1,0 +1,2376 @@
+{
+  "slug": "violet-is-blue",
+  "name": "Violet is Blue",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1545004800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Violet found on the southern tip of White Wolf Mountain.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2855.0,
+          "heightFine": 5469.0,
+          "y": 3460.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "distance": 23
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Land of Snow portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "winter portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "here and face me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Land of Snow",
+      "text": "Talk to Violet at the top of the hill after dodging the snowballs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 2560.0,
+              "y": 16.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 4640.0,
+              "y": 29.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 7360.0,
+              "y": 46.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 7704.0,
+              "y": 49.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        },
+        {
+          "t": "conversationText",
+          "text": "or a cute little cabin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 300.0,
+          "y": 16.5,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Break the door down."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "To go on an adventure."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8735,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8740,
+            8745,
+            8765,
+            8775,
+            8895,
+            25862,
+            25863,
+            27374
+          ],
+          "displayName": "Trevor",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "YOU'VE CAPTURED A HUMAN GIRL!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should probably tell her the good news"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet in the room to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Silly me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "something beginning with"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search for and bring Violet an item that begins with the letter she requested 5 times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50925,
+          "modelIds": [
+            3894
+          ],
+          "displayName": "Bed",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43810,
+          "modelIds": [
+            10335
+          ],
+          "displayName": "Toybox",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50933,
+          "modelIds": [
+            1212
+          ],
+          "displayName": "Wardrobe",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go tell Mum and Dad"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8735,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8740,
+            8745,
+            8765,
+            8775,
+            8895,
+            25862,
+            25863,
+            27374
+          ],
+          "displayName": "Trevor",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No, I don't think they'll fit me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": -1.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Go on an adventure!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Going on an adventure",
+      "text": "Investigate the frozen bucket for an empty bucket.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3728,
+          "modelIds": [
+            573
+          ],
+          "displayName": "Frozen bucket",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3728,
+          "displayName": "Frozen bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the maple tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -13.5,
+          "heightFine": 800.0,
+          "y": -4.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "A stick"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the maple tree again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -13.5,
+          "heightFine": 800.0,
+          "y": -4.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1517,
+          "displayName": "Maple logs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the logs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1517,
+          "modelIds": [],
+          "displayName": "Maple logs"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44592,
+          "displayName": "Spile",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the spile on the maple tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -13.5,
+          "heightFine": 800.0,
+          "y": -4.5,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 44592,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Spile"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "gently tap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the empty bucket on the same maple tree.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -13.5,
+          "heightFine": 800.0,
+          "y": -4.5,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3728,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Frozen bucket"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Bucket syrup",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check the four leaning trees to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2004
+          ],
+          "candidateObjectTypeIds": [
+            1129
+          ],
+          "displayName": "Tree1"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3006
+          ],
+          "candidateNpcTypeIds": [
+            4226,
+            4227,
+            4228,
+            4229,
+            4230,
+            4232,
+            4234
+          ],
+          "displayName": "Tree2"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1002
+          ],
+          "candidateObjectTypeIds": [
+            62174,
+            62186,
+            67598
+          ],
+          "displayName": "Tree3"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3006
+          ],
+          "candidateNpcTypeIds": [
+            4226,
+            4227,
+            4228,
+            4229,
+            4230,
+            4232,
+            4234
+          ],
+          "displayName": "Tree4"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4/4 areas with syrup"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8735,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8740,
+            8745,
+            8765,
+            8775,
+            8895,
+            25862,
+            25863,
+            27374
+          ],
+          "displayName": "Trevor",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have anything useful?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Shake the bushes to catch 10 fireflies.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8187,
+          "modelIds": [
+            108
+          ],
+          "displayName": "Bush",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 44602,
+          "modelIds": [
+            120
+          ],
+          "displayName": "Firefly",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "10/10"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making snow heads",
+      "text": "Talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There is some snow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the icy snow from behind Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 19030,
+          "modelIds": [
+            4512
+          ],
+          "displayName": "Snow"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what a great plan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Spam click around the headless golems to reattach all 15 heads.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "15/15"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making snowmen",
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Violet to roar at"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect 75 snowballs at the pile of snow to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": 328.0,
+          "y": -2.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 10509,
+          "displayName": "Snowball",
+          "quantity": 75
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the abandoned crate for 3 carrots, 3 top hats, 21 coal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 756.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44598,
+          "displayName": "Carrot",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 756.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tophat",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 756.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 453,
+          "displayName": "Coal",
+          "quantity": 21
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prune the tree for 6 branches.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -3.0,
+          "heightFine": 716.0,
+          "y": -2.8,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3692,
+          "displayName": "Branch",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Build all melted snowmen",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            516
+          ],
+          "displayName": "Snowman0",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2016
+          ],
+          "candidateObjectTypeIds": [
+            1128
+          ],
+          "displayName": "Snowman1",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3780
+          ],
+          "candidateNpcTypeIds": [
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            2576,
+            8275,
+            8310,
+            8466,
+            17547,
+            17822,
+            17835,
+            17938,
+            17953,
+            17982,
+            18108,
+            18115,
+            18131,
+            21242
+          ],
+          "displayName": "Snowman2",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5304
+          ],
+          "candidateObjectTypeIds": [
+            230,
+            5399
+          ],
+          "displayName": "Snowman3",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            516
+          ],
+          "displayName": "Snowman0"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            516
+          ],
+          "displayName": "Snowman0",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2016
+          ],
+          "candidateObjectTypeIds": [
+            1128
+          ],
+          "displayName": "Snowman1",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3780
+          ],
+          "candidateNpcTypeIds": [
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            2576,
+            8275,
+            8310,
+            8466,
+            17547,
+            17822,
+            17835,
+            17938,
+            17953,
+            17982,
+            18108,
+            18115,
+            18131,
+            21242
+          ],
+          "displayName": "Snowman2",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5304
+          ],
+          "candidateObjectTypeIds": [
+            230,
+            5399
+          ],
+          "displayName": "Snowman3",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2016
+          ],
+          "candidateObjectTypeIds": [
+            1128
+          ],
+          "displayName": "Snowman1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            516
+          ],
+          "displayName": "Snowman0",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2016
+          ],
+          "candidateObjectTypeIds": [
+            1128
+          ],
+          "displayName": "Snowman1",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3780
+          ],
+          "candidateNpcTypeIds": [
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            2576,
+            8275,
+            8310,
+            8466,
+            17547,
+            17822,
+            17835,
+            17938,
+            17953,
+            17982,
+            18108,
+            18115,
+            18131,
+            21242
+          ],
+          "displayName": "Snowman2",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5304
+          ],
+          "candidateObjectTypeIds": [
+            230,
+            5399
+          ],
+          "displayName": "Snowman3",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3780
+          ],
+          "candidateNpcTypeIds": [
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            2576,
+            8275,
+            8310,
+            8466,
+            17547,
+            17822,
+            17835,
+            17938,
+            17953,
+            17982,
+            18108,
+            18115,
+            18131,
+            21242
+          ],
+          "displayName": "Snowman2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            516
+          ],
+          "displayName": "Snowman0",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2016
+          ],
+          "candidateObjectTypeIds": [
+            1128
+          ],
+          "displayName": "Snowman1",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3780
+          ],
+          "candidateNpcTypeIds": [
+            1061,
+            1062,
+            1063,
+            1064,
+            1065,
+            2576,
+            8275,
+            8310,
+            8466,
+            17547,
+            17822,
+            17835,
+            17938,
+            17953,
+            17982,
+            18108,
+            18115,
+            18131,
+            21242
+          ],
+          "displayName": "Snowman2",
+          "priority": "all",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5304
+          ],
+          "candidateObjectTypeIds": [
+            230,
+            5399
+          ],
+          "displayName": "Snowman3",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5304
+          ],
+          "candidateObjectTypeIds": [
+            230,
+            5399
+          ],
+          "displayName": "Snowman3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet three times, until all snowmen are gone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "enough to walk across"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Crossing the ice",
+      "text": "Reach into the icy water on the east shore to obtain a barrel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1841,
+          "modelIds": [
+            750
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet north",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": 0.0,
+            "heightFine": 0.0,
+            "y": 5.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": 5.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": -5.0,
+            "heightFine": 0.0,
+            "y": 5.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -5.0,
+          "heightFine": 0.0,
+          "y": 4.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": -5.0,
+            "heightFine": 0.0,
+            "y": 10.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -6.0,
+          "heightFine": 0.0,
+          "y": 10.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": 3.0,
+            "heightFine": 0.0,
+            "y": 10.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3.0,
+          "heightFine": 0.0,
+          "y": 9.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": 3.0,
+            "heightFine": 0.0,
+            "y": 13.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 12.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 12.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": 8.0,
+              "heightFine": 0.0,
+              "y": 15.0
+            },
+            {
+              "x": 6.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": 0.0,
+          "y": 13.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": 0.0,
+            "heightFine": 0.0,
+            "y": 13.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 13.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 12.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 12.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push Violet north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true,
+          "atLocation": {
+            "x": 0.0,
+            "heightFine": 0.0,
+            "y": 16.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 200.0,
+          "y": 15.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we did it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8780,
+          "modelIds": [
+            40878
+          ],
+          "displayName": "Violet in a barrel",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Constructing the sled",
+      "text": "Talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "find a clear spot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the crate in the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7630,
+          "modelIds": [
+            102
+          ],
+          "displayName": "Crate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 954,
+          "displayName": "Rope",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the rotten barrel in the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 11044,
+          "modelIds": [
+            1080
+          ],
+          "displayName": "Rotten barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44614,
+          "displayName": "Barrel parts",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the ice in the north-east",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 18.0,
+          "heightFine": -806.0,
+          "y": 2.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Lantern",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the fire north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 11.0,
+          "heightFine": 1160.0,
+          "y": 13.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 973,
+          "displayName": "Charcoal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop down the Yeti Village sign to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2.0,
+          "heightFine": 2460.0,
+          "y": -20.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 44613,
+          "displayName": "Yeti sign",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the open space until the sled is built.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43872,
+          "modelIds": [
+            10572
+          ],
+          "displayName": "Open space"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4083,
+          "modelIds": [
+            10266
+          ],
+          "displayName": "Sled"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet. Choose any name.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "SO excited"
+        },
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 5325,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 400
+}

@@ -1,0 +1,971 @@
+{
+  "slug": "sheep-herder",
+  "name": "Sheep Herder",
+  "members": true,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 1029369600,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 100,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Councillor Halgrive south of the Ardougne church and north of the zoo.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2615.0,
+          "heightFine": 1197.0,
+          "y": 3301.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's wrong?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 100,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Councillor Halgrive.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "trouble spotting them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting geared up",
+      "text": "Talk to Doctor Orbon inside the church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2616.0,
+          "heightFine": 1189.0,
+          "y": 3307.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 290,
+          "modelIds": [],
+          "displayName": "Doctor Orbon",
+          "distance": 9
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I'll take it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 284,
+          "displayName": "Plague jacket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the plague jacket and trousers.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 284,
+          "modelIds": [
+            567
+          ],
+          "displayName": "Plague jacket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 285,
+          "modelIds": [
+            171
+          ],
+          "displayName": "Plague trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 284,
+          "displayName": "Plague jacket"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 284,
+          "modelIds": [
+            567
+          ],
+          "displayName": "Plague jacket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 285,
+          "modelIds": [
+            171
+          ],
+          "displayName": "Plague trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 285,
+          "displayName": "Plague trousers"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the pen west of the Ardougne lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2597.0,
+          "heightFine": 1221.0,
+          "y": 3361.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the cattleprod.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 278,
+          "modelIds": [
+            165
+          ],
+          "displayName": "Cattleprod"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 278,
+          "displayName": "Cattleprod",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the cattleprod.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 278,
+          "modelIds": [
+            165
+          ],
+          "displayName": "Cattleprod"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 278,
+          "displayName": "Cattleprod"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Herding the sheep",
+      "text": "Prod a sick-looking sheep (1) into the pen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2611.0,
+          "heightFine": 741.0,
+          "y": 3343.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)",
+          "atLocation": {
+            "x": 2597.0,
+            "heightFine": 1221.0,
+            "y": 3362.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prod a sick-looking sheep (2) into the pen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2615.0,
+          "heightFine": 549.0,
+          "y": 3370.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)",
+          "atLocation": {
+            "x": 2598.0,
+            "heightFine": 1213.0,
+            "y": 3361.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prod a sick-looking sheep (4) into the pen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2610.0,
+          "heightFine": 413.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)",
+          "atLocation": {
+            "x": 2596.0,
+            "heightFine": 1213.0,
+            "y": 3359.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prod a sick-looking sheep (3) into the pen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2562.0,
+          "heightFine": 1197.0,
+          "y": 3389.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)",
+          "atLocation": {
+            "x": 2597.0,
+            "heightFine": 1221.0,
+            "y": 3360.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Euthanising the sheep",
+      "text": "Enter the pen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2594.5,
+          "heightFine": 1621.0,
+          "y": 3361.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2597.0,
+          "heightFine": 1221.0,
+          "y": 3361.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the sheep feed on every sheep.",
+      "warning": "Face camera to the river.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 279,
+          "modelIds": [
+            351
+          ],
+          "displayName": "Sheep feed"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 279,
+          "modelIds": [
+            351
+          ],
+          "displayName": "Sheep feed"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 279,
+          "modelIds": [
+            351
+          ],
+          "displayName": "Sheep feed"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 279,
+          "modelIds": [
+            351
+          ],
+          "displayName": "Sheep feed"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up all 4 bones.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 526,
+          "modelIds": [],
+          "displayName": "Bones",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 526,
+          "displayName": "Bones",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bones on the incinerator.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2605.4,
+          "heightFine": 1721.0,
+          "y": 3360.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 526,
+          "modelIds": [],
+          "displayName": "Bones"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 526,
+          "displayName": "Bones"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Councillor Halgrive.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2615.0,
+          "heightFine": 1197.0,
+          "y": 3301.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2954
+          ],
+          "displayName": "Councillor Halgrive",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2274,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 39
+}

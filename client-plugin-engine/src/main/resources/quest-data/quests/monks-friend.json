@@ -1,0 +1,384 @@
+{
+  "slug": "monks-friend",
+  "name": "Monk's Friend",
+  "members": true,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1022544000,
+  "neededItems": [
+    {
+      "name": "Jug of water",
+      "itemId": 1937,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Normal logs",
+      "itemId": 1511,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Brother Omad on the ground floor (1st floor[US]) of the Monastery south of East Ardougne zoo.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why can't you sleep?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Brother Omad.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why can't you sleep?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's hidden under a ring of stones."
+        },
+        {
+          "t": "conversationText",
+          "text": "Please bring back the blanket!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The secret tunnel",
+      "text": "Stand in a nearby circle of stones and climb down the ladder that appears.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2561.0,
+          "heightFine": 1061.0,
+          "y": 3222.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2561.0,
+          "heightFine": 645.0,
+          "y": 9621.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south, enter the room with thieves, and grab the Child's blanket on the table to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Childs blanket ground"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Childs blanket inventory1",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Childs blanket inventory2",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Childs blanket ground",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the monastery and talk to Brother Omad.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything else I can help with?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who's Brother Cedric?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where should I look?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, I'll go and find him."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The party",
+      "text": "Talk to Brother Cedric.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2618.0,
+          "heightFine": 1029.0,
+          "y": 3248.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2618.0,
+          "heightFine": 1029.0,
+          "y": 3248.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Jug of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 280,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Cedric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'd be happy to!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Pleashhh, find me a jug of water. Once I'm sober I'll 'elp you take the wine back."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again to give him a jug of water.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 280,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Cedric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'd be happy to!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "OK, I'll see what I can find."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him once more to give him a set of logs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 280,
+          "modelIds": [
+            3069
+          ],
+          "displayName": "Brother Cedric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'd be happy to!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok! I'll see you later!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brother Omad.<ul><li>Pop a balloon for area task.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2606.0,
+          "heightFine": 2405.0,
+          "y": 3211.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2370,
+  "stageVarbitCompleteValue": 80,
+  "cacheQuestId": 266
+}

@@ -1,0 +1,2039 @@
+{
+  "slug": "the-dig-site",
+  "name": "The Dig Site",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1057708800,
+  "neededItems": [
+    {
+      "name": "Charcoal",
+      "itemId": 973,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Cup of tea",
+      "itemId": 712,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Vial",
+      "itemId": 229,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope",
+      "itemId": 954,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Uncut opal/Opal",
+      "itemId": 1625,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Speak to an examiner in the Exam Centre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4566,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Examiner",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the examiner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Digsite examiner",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "stamped letter back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Winging it",
+      "text": "Talk to Seth Minas (site manager) in Archaeology Guild.\u003cul\u003e\u003cli\u003eMake sure you have the unstamped letter otherwise the dialogue with Seth does not progress.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3328.0,
+          "heightFine": 1925.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3328.0,
+          "heightFine": 1925.0,
+          "y": 3383.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "The Dig Site quest."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26380,
+          "modelIds": [],
+          "displayName": "seth minas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I would like to see how you get on."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab a cup of tea from the desk in the south side of the building.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 712,
+          "modelIds": [],
+          "displayName": "Cup of tea"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 712,
+          "displayName": "Cup of tea",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to an examiner in the Exam Centre; choose any option, you will fail the exam regardless.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4566,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Digsite examiner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Why don\u0027t you use the resources here?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lost and found",
+      "text": "Search the green bushes to the west of the Monolith for a teddy bear.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3350.0,
+          "heightFine": 421.0,
+          "y": 3382.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3350.0,
+          "heightFine": 421.0,
+          "y": 3382.0,
+          "range": 14
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Cup of tea",
+          "itemId": 712,
+          "quantity": 1,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2358,
+          "modelIds": [
+            108
+          ],
+          "candidateObjectTypeIds": [
+            62225,
+            62237,
+            64933,
+            66290,
+            67607
+          ],
+          "displayName": "Teddy bush"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Teddy",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "Hey, something has been dropped here..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the panning tray from the small building south of the screening station.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3377.0,
+          "heightFine": 69.0,
+          "y": 3372.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3377.0,
+          "heightFine": 69.0,
+          "y": 3372.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 677,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Panning tray"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 677,
+          "displayName": "Panning tray",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to pan the water to the east of where you found the panning tray; give the Panning Guide a cup of tea.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "So how do I become invited then?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2363,
+          "modelIds": [],
+          "displayName": "fishing bubble"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You\u0027re free to pan all you want."
+        },
+        {
+          "t": "conversationText",
+          "text": "You can pan all you want."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pan until you find a special cup and for an uncut opal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "fishing bubble"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 672,
+          "displayName": "Special cup",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "fishing bubble"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1625,
+          "displayName": "Uncut opal",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1609,
+          "displayName": "Opal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket the Dig Site workman in the north-east corner of the dig site until you get an animal skull.\u003cul\u003e\u003cli\u003ePickpocket the Dig Site workman for 2 rope if you don\u0027t have any yet.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 5.0,
+          "y": 3422.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3357.0,
+          "heightFine": 5.0,
+          "y": 3422.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 613,
+          "modelIds": [
+            6
+          ],
+          "candidateObjectTypeIds": [
+            4393
+          ],
+          "displayName": "Digsite workman"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 671,
+          "displayName": "Animal skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Katarina (student) in the central area of the dig site.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3356.0,
+          "heightFine": 5.0,
+          "y": 3426.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3356.0,
+          "heightFine": 5.0,
+          "y": 3426.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 617,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Katarina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, great! Thanks!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 617,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Katarina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great, thanks for your advice."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run south-east, talk to Dorian (student).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 616,
+          "modelIds": [
+            8892
+          ],
+          "candidateObjectTypeIds": [
+            9029,
+            9043
+          ],
+          "displayName": "Dorian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I hope I didn\u0027t lose it in the water!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 616,
+          "modelIds": [
+            8892
+          ],
+          "candidateObjectTypeIds": [
+            9029,
+            9043
+          ],
+          "displayName": "Dorian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks for the information."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run west, talk to Eduardo (student) who can be found in the dig spot closest to the well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 615,
+          "modelIds": [
+            8847
+          ],
+          "candidateNpcTypeIds": [
+            24895
+          ],
+          "displayName": "Eduardo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I\u0027ll have a look for you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 615,
+          "modelIds": [
+            8847
+          ],
+          "candidateNpcTypeIds": [
+            24895
+          ],
+          "displayName": "Eduardo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I\u0027ll remember that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Exams",
+      "text": "Return to an examiner.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Opal",
+          "itemId": 1609,
+          "quantity": 1,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4567,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Digsite examiner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I certainly am."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The study of the earth, its contents and history."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "All that have passed the appropriate Earth Sciences exam."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Proper tools must be used."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Of course, you\u0027ll want to get studying for your next exam now!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eduardo (student) again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 615,
+          "modelIds": [
+            8847
+          ],
+          "candidateNpcTypeIds": [
+            24895
+          ],
+          "displayName": "Eduardo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I\u0027ll remember that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Katarina (student) again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3357.0,
+          "heightFine": 5.0,
+          "y": 3425.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3357.0,
+          "heightFine": 5.0,
+          "y": 3425.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 617,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Katarina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great, thanks for your advice."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dorian (student) again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 616,
+          "modelIds": [
+            8892
+          ],
+          "candidateObjectTypeIds": [
+            9029,
+            9043
+          ],
+          "displayName": "Dorian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks for the information."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to an examiner.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4567,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Digsite examiner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am ready for the next exam."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Samples taken in rough form; kept only in sealed containers."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Finds must be carefully handled."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Always handle with care; strike cleanly on its cleaving point."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Of course, you\u0027ll want to get studying for your next exam now!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Eduardo (student) again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3337.0,
+          "heightFine": 413.0,
+          "y": 3408.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 615,
+          "modelIds": [
+            8847
+          ],
+          "candidateNpcTypeIds": [
+            24895
+          ],
+          "displayName": "Eduardo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I\u0027ll remember that. Thanks for all your help."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Katarina (student) again; she\u0027ll want an opal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3356.0,
+          "heightFine": 5.0,
+          "y": 3426.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3356.0,
+          "heightFine": 5.0,
+          "y": 3426.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 617,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Katarina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "OK, I\u0027ll see what I can turn up for you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 617,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Katarina"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great, thanks for your advice."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dorian (student) again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3378.0,
+          "heightFine": 389.0,
+          "y": 3402.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 616,
+          "modelIds": [
+            8892
+          ],
+          "candidateObjectTypeIds": [
+            9029,
+            9043
+          ],
+          "displayName": "Dorian"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks for the information."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to an examiner.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 1477.0,
+          "y": 3345.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4567,
+          "modelIds": [
+            4281
+          ],
+          "displayName": "Digsite examiner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I am ready for the last exam..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Samples cleaned, and carried only in specimen jars."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Brush carefully and slowly using short strokes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Handle bones very carefully and keep them away from other samples."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Perhaps you should use your newfound skills to find an artefact on the site that will impress Terry, our archaeological expert."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Optional: Talk to Seth Minas for a Fruit Blast, which is needed for the subquest \"Recipe for Disaster: Another Cook\u0027s Quest.\"",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3328.0,
+          "heightFine": 1925.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3328.0,
+          "heightFine": 1925.0,
+          "y": 3383.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "The Dig Site quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something to drink, please."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26380,
+          "modelIds": [],
+          "displayName": "seth minas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Very good! Come and eat this cake I baked!"
+        },
+        {
+          "t": "conversationText",
+          "text": "A cocktail? Cheers!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Helping the expert",
+      "text": "Excavate the area on the ground named level 3 grid until you find an ancient talisman.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3380.0,
+          "heightFine": 341.0,
+          "y": 3401.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 681,
+          "displayName": "Ancient talisman",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Specimen jar",
+          "itemId": 669,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Specimen brush",
+          "itemId": 670,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Rope",
+          "itemId": 954,
+          "quantity": 2,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Terry Balando back at the Exam Centre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3361.0,
+          "heightFine": 1477.0,
+          "y": 3346.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3361.0,
+          "heightFine": 1477.0,
+          "y": 3346.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 619,
+          "modelIds": [],
+          "displayName": "Terry Balando"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You obviously have a keen eye."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click the northern-eastern winch three times.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3377.0,
+          "heightFine": 117.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3369.0,
+          "heightFine": 1021.0,
+          "y": 9827.0,
+          "range": 8
+        },
+        {
+          "t": "chatText",
+          "text": "You have unlocked a new music track: Venture2."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up an arcenia root.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 708,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Arcenia root"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 708,
+          "displayName": "Arcenia root",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bricks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 1029.0,
+          "y": 9824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That was a good idea"
+        },
+        {
+          "t": "conversationText",
+          "text": "That would be like cutting the lawn"
+        },
+        {
+          "t": "chatText",
+          "text": "Now, what am I trying to achieve here?"
+        },
+        {
+          "t": "conversationText",
+          "text": "room past these bricks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3368.0,
+          "heightFine": 1021.0,
+          "y": 9827.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3377.0,
+          "heightFine": 117.0,
+          "y": 3443.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the winch near Katarina to the southwest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3356.0,
+          "heightFine": 5.0,
+          "y": 3433.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3352.0,
+          "heightFine": 2477.0,
+          "y": 9817.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Doug Deeping to receive a chest key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 614,
+          "modelIds": [
+            3729
+          ],
+          "displayName": "Doug Deeping"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How could I move a large pile of rocks?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 432,
+          "displayName": "Chest key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Explosives expert",
+      "text": "Search the sack for an extra charcoal. Optional: Get extra for Desert Treasure.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3353.0,
+          "heightFine": 2525.0,
+          "y": 9823.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 973,
+          "displayName": "Charcoal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Chest key",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": true
+        },
+        {
+          "name": "Vial",
+          "itemId": 229,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trowel",
+          "itemId": 676,
+          "quantity": 1,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3352.0,
+          "heightFine": 2477.0,
+          "y": 9816.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3355.0,
+          "heightFine": 61.0,
+          "y": 3433.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the northeastern winch and climb down.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3377.0,
+          "heightFine": 117.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3369.0,
+          "heightFine": 1021.0,
+          "y": 9827.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the key to unlock the chest in the north east room and search it for ammonium nitrate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3383.0,
+          "heightFine": 933.0,
+          "y": 9845.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 701,
+          "displayName": "Ammonium nitrate",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "You find some ammonium nitrate inside."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the trowel on the closed barrel directly east of the chest.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 676,
+          "modelIds": [],
+          "displayName": "Trowel"
+        },
+        {
+          "t": "direction",
+          "x": 3389.0,
+          "heightFine": 1245.0,
+          "y": 9847.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 17297,
+          "modelIds": [
+            1902
+          ],
+          "candidateObjectTypeIds": [
+            4316
+          ],
+          "displayName": "Filled barrel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a vial on the barrel.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 229,
+          "modelIds": [],
+          "displayName": "Vial"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 17297,
+          "modelIds": [
+            1902
+          ],
+          "candidateObjectTypeIds": [
+            4316
+          ],
+          "displayName": "Filled barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 703,
+          "displayName": "Nitroglycerine",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "You fill the vial with some nitroglycerine."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the charcoal.\u003cul\u003e\u003cli\u003eIf you didn\u0027t bring charcoal, search the sack of charcoal a few steps north.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 703,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Nitroglycerine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 704,
+          "displayName": "Ground charcoal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mix the nitroglycerine and ammonium nitrate together.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 703,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Nitroglycerine"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 701,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Ammonium nitrate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "It has produced a foul mixture."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add ground charcoal to the mixed chemicals.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Mixed chemicals1"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 704,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Ground charcoal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "It has produced an even fouler mixture."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add arcenia root to the mixture.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Mixed chemicals2"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 708,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Arcenia root"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Excellent! This looks just right!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bricks to the south and select the compound on the brick.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 1029.0,
+          "y": 9824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, the mixture is all over the bricks. I need some way to ignite this compound."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the brick again, select your tinderbox.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3378.0,
+          "heightFine": 1029.0,
+          "y": 9824.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3494.0,
+          "heightFine": 797.0,
+          "y": 10087.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the large chamber, take the stone tablet.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3501.0,
+          "heightFine": 549.0,
+          "y": 10067.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 699,
+          "displayName": "Stone tablet",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Use the tablet on Terry Balando in the Exam Centre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3361.0,
+          "heightFine": 1477.0,
+          "y": 3346.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3361.0,
+          "heightFine": 1477.0,
+          "y": 3346.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Stone tablet (The Dig Site)",
+          "itemId": 126,
+          "quantity": 1,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 619,
+          "modelIds": [],
+          "displayName": "Terry Balando"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 699,
+          "modelIds": [
+            126
+          ],
+          "displayName": "Stone tablet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You obviously have a keen eye."
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2205,
+  "stageVarbitCompleteValue": 9,
+  "cacheQuestId": 273
+}

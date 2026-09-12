@@ -1,0 +1,2101 @@
+{
+  "slug": "violet-is-blue-too",
+  "name": "Violet is Blue Too",
+  "members": false,
+  "length": "medium",
+  "timeline": "adventurer",
+  "releaseDate": 1607904000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting Out",
+      "text": "Talk to Postie Pete at the Land of Snow portal.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2858.0,
+          "heightFine": 4869.0,
+          "y": 3456.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2858.0,
+          "heightFine": 4869.0,
+          "y": 3456.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3805,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5524,
+            8079,
+            22037,
+            22038,
+            27370,
+            28654,
+            29790,
+            30077
+          ],
+          "displayName": "Postie Pete"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43808,
+          "modelIds": [],
+          "displayName": "Land of Snow portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 27367,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Posty"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Posty and watch the cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27367,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Posty"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now, if I remember correctly"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north up the hill to Violet\u0027s house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 200.0,
+          "y": 10.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 118758,
+          "modelIds": [
+            873
+          ],
+          "candidateObjectTypeIds": [
+            937
+          ],
+          "displayName": "Bucket o\u0027 carrots"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You knock"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Progress through the dialogue.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I want to show you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Violet in her room, north-west of Betty and Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The first clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest in the eastern side of the room with Betty and Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118751,
+          "modelIds": [
+            1401
+          ],
+          "candidateObjectTypeIds": [
+            62125,
+            62129
+          ],
+          "displayName": "Chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nothing in here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The next clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the rug in Violet\u0027s room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118753,
+          "modelIds": [
+            1452
+          ],
+          "candidateObjectTypeIds": [
+            62620
+          ],
+          "displayName": "Rug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nothing underneath"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Your next clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the fireplace in the western side of the room with Betty and Trevor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118755,
+          "modelIds": [
+            4986
+          ],
+          "displayName": "Fireplace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No kidding!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, last clue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the barrel of fish under the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118757,
+          "modelIds": [
+            6366
+          ],
+          "displayName": "Barrel of fish"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "*gasp*"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Progress through the dialogue with Violet.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What should we do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You\u0027d better not keep her waiting"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the house and talk to Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I\u0027m shutting them."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Snow imps!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the snow imps.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27372,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Snow imp",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s go find him!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go south to the abandoned farm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -10.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 118825,
+          "modelIds": [
+            3726
+          ],
+          "displayName": "Wheelbarrow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest by the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.5,
+          "heightFine": 300.0,
+          "y": -28.2,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118802,
+          "modelIds": [],
+          "displayName": "Chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 118803,
+          "modelIds": [],
+          "displayName": "Chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed through dialogue with the snow imp follower (whose name is randomly selected).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "At least you got out before Christmas."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27408,
+          "modelIds": [
+            27408
+          ],
+          "candidateObjectTypeIds": [
+            2112,
+            25876,
+            29261,
+            29262,
+            29315,
+            29316,
+            29317,
+            29318,
+            29319,
+            29320,
+            29321,
+            29322,
+            31030,
+            106542
+          ],
+          "displayName": "Charlie Claus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh noooo!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Assistant Brad",
+      "text": "Go through the cutscene. ",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, Violet. Let\u0027s pick"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Assistant Brad (north-east of the burning Christmas tree).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "How can we help out?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27390,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Assistant Brad",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We\u0027ll bring you back an awesome"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north over the bridge, then  west to the Christmas tree farm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -34.0,
+          "heightFine": -1348.0,
+          "y": 28.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 27377,
+          "modelIds": [
+            59778
+          ],
+          "displayName": "Taylor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Taylor north west of the town.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27377,
+          "modelIds": [
+            59778
+          ],
+          "displayName": "Taylor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you, thank you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the wonky tree on the western side of the farm.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118761,
+          "modelIds": [
+            3744
+          ],
+          "candidateObjectTypeIds": [
+            3655,
+            3656
+          ],
+          "displayName": "Wonky tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good thinking"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the town centre and talk to Assistant Brad",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27390,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Assistant Brad"
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 2773.0,
+          "y": -27.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well, thank you both"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Assistant Susi",
+      "text": "Talk to Assistant Susi south-east of wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27391,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Assistant Susi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you both!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door on the southern side of the house east of the town centre.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118776,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door",
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you, Korg"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door north-east of the town centre",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118773,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 2669.0,
+          "y": -15.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you so much"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door on the north-west of the town centre.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118782,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door of \u0027The Mug-Inn\u0027 south-west of the town centre",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118779,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": -9.0,
+          "heightFine": 3333.0,
+          "y": -40.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yaay! Merry Christmas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Assistant Susi.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27391,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Assistant Susi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "YES!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Decorate 5 lampposts.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118787,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Lamppost",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027m so happy!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door north-east of the town centre",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118774,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 2789.0,
+          "y": -16.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That\u0027s better"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door on the north-west of the town centre.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118783,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": -4.0,
+          "heightFine": 2381.0,
+          "y": -20.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I like this one!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door of \u0027The Mug-Inn\u0027 south-west of the town centre",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118780,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": -9.0,
+          "heightFine": 3333.0,
+          "y": -40.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "PERFECT"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door on the southern side of the house east of the town centre.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118777,
+          "modelIds": [
+            336
+          ],
+          "displayName": "Door"
+        },
+        {
+          "t": "direction",
+          "x": 19.0,
+          "heightFine": 3461.0,
+          "y": -36.0,
+          "instance": true,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Looks like"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Assistant Susi.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27391,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Assistant Susi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We\u0027re on it!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Assistant Timothy",
+      "text": "Talk to Assistant Timothy north-west of the wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27392,
+          "modelIds": [
+            9636
+          ],
+          "candidateNpcTypeIds": [
+            14630
+          ],
+          "displayName": "Assistant Timothy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 27383,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Posty"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Posty, who appears north of the wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27383,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Posty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Don\u0027t worry, we\u0027ll find it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elizabeth west of the wonky tree.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27384,
+          "modelIds": [
+            9636
+          ],
+          "candidateNpcTypeIds": [
+            14630
+          ],
+          "displayName": "Elizabeth"
+        },
+        {
+          "t": "direction",
+          "x": -12.0,
+          "heightFine": 2437.0,
+          "y": -28.0,
+          "instance": true,
+          "distance": 10
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Please don\u0027t tell on me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Peter east of the tree.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27385,
+          "modelIds": [
+            9636
+          ],
+          "candidateNpcTypeIds": [
+            14630
+          ],
+          "displayName": "Peter"
+        },
+        {
+          "t": "direction",
+          "x": 14.0,
+          "heightFine": 2469.0,
+          "y": -27.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s go find Mozzie"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Mozzie in the south-eastern part of the town.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27386,
+          "modelIds": [
+            9636
+          ],
+          "candidateNpcTypeIds": [
+            14630
+          ],
+          "displayName": "Mozzie"
+        },
+        {
+          "t": "direction",
+          "x": 27.0,
+          "heightFine": 1781.0,
+          "y": -49.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Finishing touches?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Neal in the house on the hill in the southern part of the town.",
+      "actions": [
+        {
+          "t": "continueConversation"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27387,
+          "modelIds": [
+            26532
+          ],
+          "candidateObjectTypeIds": [
+            58464,
+            58465
+          ],
+          "displayName": "Neal"
+        },
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 4869.0,
+          "y": -59.0,
+          "instance": true,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 118785,
+          "modelIds": [
+            177
+          ],
+          "candidateNpcTypeIds": [
+            1,
+            2,
+            3,
+            227,
+            249,
+            253,
+            254,
+            255,
+            256,
+            257,
+            522,
+            523,
+            550,
+            645,
+            646,
+            706,
+            744,
+            872,
+            881,
+            1731,
+            1733,
+            1734,
+            1735,
+            1736,
+            1737,
+            1738,
+            1743,
+            1748,
+            2819,
+            3154,
+            3328,
+            3330,
+            3386,
+            3508,
+            3570,
+            3571,
+            3572,
+            3573,
+            3641,
+            3643,
+            3713,
+            3716,
+            3717,
+            3718,
+            3719,
+            3720,
+            3779,
+            3802,
+            3915,
+            3917,
+            3919,
+            4328,
+            4331,
+            4332,
+            4333,
+            4334,
+            4335,
+            4361,
+            4362,
+            4405,
+            4650,
+            4651,
+            4652,
+            4653,
+            4708,
+            4716,
+            4717,
+            4718,
+            4719,
+            4720,
+            4721,
+            4722,
+            4723,
+            4724,
+            4725,
+            4726,
+            4727,
+            4728,
+            4729,
+            4730,
+            4756,
+            4757,
+            4758,
+            4759,
+            4760,
+            4761,
+            4872,
+            4873,
+            4878,
+            4879,
+            4883,
+            4884,
+            4895,
+            4896,
+            4993,
+            4995,
+            4999,
+            5001,
+            5002,
+            5049,
+            5050,
+            5051,
+            5052,
+            5195,
+            5196,
+            5197,
+            5462,
+            5466,
+            5478,
+            5506,
+            5578,
+            5579,
+            5585,
+            5586,
+            5587,
+            5588,
+            5826,
+            5834,
+            5835,
+            5913,
+            5925,
+            5930,
+            5941,
+            5942,
+            5943,
+            5964,
+            7002,
+            7136,
+            7504,
+            7505,
+            7506,
+            7507,
+            7508,
+            7509,
+            7510,
+            7511,
+            7512,
+            7513,
+            7514,
+            7515,
+            7518,
+            7519,
+            7520,
+            7528,
+            7535,
+            7536,
+            7542,
+            8437,
+            8438,
+            8439,
+            8440,
+            8442,
+            8450,
+            8453,
+            9137,
+            9144,
+            9148,
+            9333,
+            12335,
+            12345,
+            12346,
+            12347,
+            13732,
+            13733,
+            13734,
+            13770,
+            13773,
+            13774,
+            13785,
+            14141,
+            14142,
+            14144,
+            14145,
+            14147,
+            14148,
+            14150,
+            14151,
+            14153,
+            14154,
+            14186,
+            14187,
+            14248,
+            14249,
+            14250,
+            14530,
+            14531,
+            14532,
+            14533,
+            14534,
+            14535,
+            14746,
+            14759,
+            15937,
+            16867,
+            17027,
+            17028,
+            17029,
+            17030,
+            17319,
+            17662,
+            17734,
+            17736,
+            18037,
+            18038,
+            18370,
+            18959,
+            18972,
+            19033,
+            19034,
+            21294,
+            22221,
+            22426,
+            22428,
+            22699,
+            22860,
+            22861,
+            23286,
+            24118,
+            24119,
+            25107,
+            25439,
+            25568,
+            26936,
+            27443,
+            27539,
+            27540,
+            27556,
+            27557,
+            27558,
+            27559,
+            27560,
+            27561,
+            27562,
+            27563,
+            27564,
+            27565,
+            27762,
+            27772,
+            27773,
+            29684,
+            29688,
+            29689,
+            29690,
+            30173,
+            30180,
+            30181,
+            30264,
+            30569,
+            32534
+          ],
+          "displayName": "Santa\u0027s \u0027naughty or nice\u0027 list"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Santa\u0027s \u0027naughty or nice\u0027 list outside the eastern window of the house.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118785,
+          "modelIds": [
+            177
+          ],
+          "candidateNpcTypeIds": [
+            1,
+            2,
+            3,
+            227,
+            249,
+            253,
+            254,
+            255,
+            256,
+            257,
+            522,
+            523,
+            550,
+            645,
+            646,
+            706,
+            744,
+            872,
+            881,
+            1731,
+            1733,
+            1734,
+            1735,
+            1736,
+            1737,
+            1738,
+            1743,
+            1748,
+            2819,
+            3154,
+            3328,
+            3330,
+            3386,
+            3508,
+            3570,
+            3571,
+            3572,
+            3573,
+            3641,
+            3643,
+            3713,
+            3716,
+            3717,
+            3718,
+            3719,
+            3720,
+            3779,
+            3802,
+            3915,
+            3917,
+            3919,
+            4328,
+            4331,
+            4332,
+            4333,
+            4334,
+            4335,
+            4361,
+            4362,
+            4405,
+            4650,
+            4651,
+            4652,
+            4653,
+            4708,
+            4716,
+            4717,
+            4718,
+            4719,
+            4720,
+            4721,
+            4722,
+            4723,
+            4724,
+            4725,
+            4726,
+            4727,
+            4728,
+            4729,
+            4730,
+            4756,
+            4757,
+            4758,
+            4759,
+            4760,
+            4761,
+            4872,
+            4873,
+            4878,
+            4879,
+            4883,
+            4884,
+            4895,
+            4896,
+            4993,
+            4995,
+            4999,
+            5001,
+            5002,
+            5049,
+            5050,
+            5051,
+            5052,
+            5195,
+            5196,
+            5197,
+            5462,
+            5466,
+            5478,
+            5506,
+            5578,
+            5579,
+            5585,
+            5586,
+            5587,
+            5588,
+            5826,
+            5834,
+            5835,
+            5913,
+            5925,
+            5930,
+            5941,
+            5942,
+            5943,
+            5964,
+            7002,
+            7136,
+            7504,
+            7505,
+            7506,
+            7507,
+            7508,
+            7509,
+            7510,
+            7511,
+            7512,
+            7513,
+            7514,
+            7515,
+            7518,
+            7519,
+            7520,
+            7528,
+            7535,
+            7536,
+            7542,
+            8437,
+            8438,
+            8439,
+            8440,
+            8442,
+            8450,
+            8453,
+            9137,
+            9144,
+            9148,
+            9333,
+            12335,
+            12345,
+            12346,
+            12347,
+            13732,
+            13733,
+            13734,
+            13770,
+            13773,
+            13774,
+            13785,
+            14141,
+            14142,
+            14144,
+            14145,
+            14147,
+            14148,
+            14150,
+            14151,
+            14153,
+            14154,
+            14186,
+            14187,
+            14248,
+            14249,
+            14250,
+            14530,
+            14531,
+            14532,
+            14533,
+            14534,
+            14535,
+            14746,
+            14759,
+            15937,
+            16867,
+            17027,
+            17028,
+            17029,
+            17030,
+            17319,
+            17662,
+            17734,
+            17736,
+            18037,
+            18038,
+            18370,
+            18959,
+            18972,
+            19033,
+            19034,
+            21294,
+            22221,
+            22426,
+            22428,
+            22699,
+            22860,
+            22861,
+            23286,
+            24118,
+            24119,
+            25107,
+            25439,
+            25568,
+            26936,
+            27443,
+            27539,
+            27540,
+            27556,
+            27557,
+            27558,
+            27559,
+            27560,
+            27561,
+            27562,
+            27563,
+            27564,
+            27565,
+            27762,
+            27772,
+            27773,
+            29684,
+            29688,
+            29689,
+            29690,
+            30173,
+            30180,
+            30181,
+            30264,
+            30569,
+            32534
+          ],
+          "displayName": "Santa\u0027s \u0027naughty or nice\u0027 list"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let\u0027s get it back"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Posty.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27383,
+          "modelIds": [
+            25728
+          ],
+          "displayName": "Posty"
+        },
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 2789.0,
+          "y": -25.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Consider this list checked twice!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the named snow imp (last name Claus) north of the wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27408,
+          "modelIds": [
+            27408
+          ],
+          "candidateObjectTypeIds": [
+            2112,
+            25876,
+            29261,
+            29262,
+            29315,
+            29316,
+            29317,
+            29318,
+            29319,
+            29320,
+            29321,
+            29322,
+            31030,
+            106542
+          ],
+          "displayName": "Charlie Claus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "But we\u0027ll be sure to make you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hal the snow impling just south-west of the wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 27394,
+          "modelIds": [
+            1614
+          ],
+          "displayName": "Hal the snow impling"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It seems no matter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the southern hill without going inside the house and launch the snow impling from your backpack three times.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 5189.0,
+          "y": -50.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 51110,
+          "modelIds": [
+            1614
+          ],
+          "displayName": "Snow impling"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Finished!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Admire the wonky tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 118766,
+          "modelIds": [
+            20547
+          ],
+          "displayName": "Wonky tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It looks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to  Violet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8733,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8755,
+            8760,
+            8770,
+            8790,
+            8796,
+            8816,
+            8890,
+            8900,
+            27364,
+            27368,
+            27389
+          ],
+          "displayName": "Violet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Say hello to Santa"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Knock on the door twice.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I can only see your feet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Betty or Trevor to complete the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8735,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8740,
+            8745,
+            8765,
+            8775,
+            8895,
+            25862,
+            25863,
+            27374
+          ],
+          "displayName": "Trevor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 36215,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 453
+}

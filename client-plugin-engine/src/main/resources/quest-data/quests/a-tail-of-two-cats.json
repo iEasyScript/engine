@@ -1,0 +1,293 @@
+{
+  "slug": "a-tail-of-two-cats",
+  "name": "A Tail of Two Cats",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1127692800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Icthlarin's Little Helper"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Cooking",
+      "level": 35,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting the quest",
+      "text": "Equip your catspeak amulet, have your pet cat with you, and talk to Unferth. His house is in eastern Burthorpe, south of Dunstan, east of Tam McGrubor and north of Xuan.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Catspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cathunt",
+      "text": "Speak to Hild in the building north of the Heroes' Guild. She will enchant the catspeak amulet for 5 death runes.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Death rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Locate Bob the cat using the catspeak amulet.<ul><li>Right-click and 'open' the amulet.</li><li>Click on the whiskers until the arrow and the eyes glow white.</li><li>Run in the direction of the arrow, occasionally re-checking the amulet, until you find Bob.</li><li>The easiest way to find Bob is to keep hopping worlds in the Carwen Essencebinder Magical Runes Shop in Burthorpe.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bob.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Storng lineage",
+      "text": "Ask Gertrude about Bob's parents in her house west of Varrock.<ul><li>If Rat Catchers hasn't been started.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Bob's parents."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Bob's parents."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Reldo in the Varrock library.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Robert the Strong."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Hello Reldo."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Bob the cat again, in the same spot you found him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Memories and Bob's list",
+      "text": "Go to Sophanem and talk to the Sphinx.<ul><li>Talk to Raetul and buy a full desert robe set, if you don't have them already.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask the Sphinx for help."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Skip the cutscene and view summary."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Potato seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Chocolate cake",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Unferth's house in Burthorpe and do the following:<ul><li>Rake the patch behind his house and plant potato seeds in it. Your cat will notify you when they are done (typically 25–35 minutes to grow). A supreme growth potion from player-owned farm cannot be used to accelerate growth. It will not get disease, and it does not need composting or watering.</li><li>If you don't have your cat out, chatbox will tell 'Perhaps I should have a look and see if Unferth's potatoes have grown...'.</li><li>Use the logs on fireplace, then light the fireplace.</li><li>Use the chocolate cake and bucket of milk on the table.</li><li>Make his bed upstairs.</li><li>Give Unferth a haircut.</li><li>If you don't have your cat out, chatbox will tell 'Perhaps I should have a look and see if Unferth's potatoes have grown...'.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Cut Unferth's hair"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Unferth once all the chores are done.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Down with the 'sickness'",
+      "text": "Talk to the Apothecary in south-west Varrock.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Tell the Apothecary that Unferth is ill."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Vial of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Desert robe outfit (white)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Druid's robe outfit",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip your weapons and equip the doctors hat/nurse hat and your white robes.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Unferth with a vial of water.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bob the cat. If he's not at his previous location, locate him again using the catspeak amulet (e).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to Unferth again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11085,
+  "stageVarbitCompleteValue": 70,
+  "cacheQuestId": 45
+}

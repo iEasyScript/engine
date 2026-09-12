@@ -1,0 +1,1077 @@
+{
+  "slug": "the-golem",
+  "name": "The Golem",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1113177600,
+  "neededItems": [
+    {
+      "name": "Empty vial",
+      "itemId": 229,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Soft clay",
+      "itemId": 1761,
+      "quantity": 4,
+      "duringQuest": false
+    },
+    {
+      "name": "Papyrus",
+      "itemId": 970,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Waterskins",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Desert robes",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Amulet of glory/Enchanted broomstick",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dominion medallion",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Dig Site pendant/Archaeology journal",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Traveller\u0027s necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Head east of the Shantay Pass to Uzer.\u003cul\u003e\u003cli\u003eBuy desert robes and waterskins from Shantay if needed.\u003c/li\u003e\u003c/ul\u003e",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3305.0,
+          "heightFine": 2293.0,
+          "y": 3117.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3305.0,
+          "heightFine": 1093.0,
+          "y": 3114.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 3303.0,
+          "heightFine": 1093.0,
+          "y": 3114.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Soft clay",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Waterskins",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Desert robes",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Amulet of glory/Enchanted broomstick",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dominion medallion",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Pick up the phoenix feather.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3344.0,
+          "heightFine": 5.0,
+          "y": 3112.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 14618,
+          "modelIds": [
+            3021
+          ],
+          "displayName": "Phoenix",
+          "distance": 20
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4621,
+          "displayName": "Phoenix feather",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the broken clay golem.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3489.0,
+          "heightFine": 1269.0,
+          "y": 3094.0,
+          "instance": false,
+          "distance": 24
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1908,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Broken clay golem",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to teh broken clay golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1908,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Broken clay golem"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Incomplete Mission",
+      "text": "Use a soft clay on the broken clay golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1908,
+          "modelIds": [
+            1554
+          ],
+          "displayName": "Broken clay golem"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1761,
+          "modelIds": [],
+          "displayName": "Soft clay"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Damage repaired"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "complete my task"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the golem again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I open the portal?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "open the portal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the letter west of the broken clay golem.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3479.0,
+          "heightFine": 645.0,
+          "y": 3092.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4204,
+          "displayName": "Letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the letter.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4615,
+          "modelIds": [
+            69
+          ],
+          "displayName": "Letter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 220
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick a black mushroom.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3495.0,
+          "heightFine": 1373.0,
+          "y": 3088.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4620,
+          "displayName": "Black mushroom",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4886.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the strange implement.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2713.0,
+          "heightFine": 805.0,
+          "y": 4913.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4619,
+          "displayName": "Strange implement",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Statuette",
+      "text": "Use the letter on Elissa east of the winch in the north-east corner of the digsite.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3379.0,
+          "heightFine": 181.0,
+          "y": 3443.0,
+          "instance": false,
+          "distance": 22
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1912,
+          "modelIds": [
+            11094
+          ],
+          "displayName": "Elissa",
+          "distance": 26
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4204,
+          "modelIds": [
+            69
+          ],
+          "displayName": "Letter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Exam Centre"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Dig Site pendant/Archaeology journal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Search the bookshelf on the southern wall in the Exam Centre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3364.0,
+          "heightFine": 2377.0,
+          "y": 3341.75,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4616,
+          "displayName": "Varmen\u0027s notes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read Varmen\u0027s notes.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            204
+          ],
+          "displayName": "Varmens notes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 960
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Curator Haig Halen in the Varrock Museum about the statuette.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3257.0,
+          "heightFine": 1637.0,
+          "y": 3449.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 646,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20829,
+            27540
+          ],
+          "displayName": "Curator Haig Halen",
+          "distance": 18
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m looking for a statuette recovered from the city of Uzer."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to open a portal to the lair of an elder-demon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dangerous thing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket him for the display cabinet key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 646,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20829,
+            27540
+          ],
+          "displayName": "Curator Haig Halen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4617,
+          "displayName": "Display cabinet key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45,
+          "modelIds": [
+            4416
+          ],
+          "displayName": "Staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3266.0,
+          "heightFine": 2821.0,
+          "y": 3455.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the display cabinet key on the northwestern most case to get the statuette.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 24627,
+          "modelIds": [
+            84
+          ],
+          "displayName": "Display case"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4617,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Display key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4618,
+          "displayName": "Statuette",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The portal",
+      "text": "Go down the stairs in the ruins of Uzer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4886.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Empty vial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Papyrus",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Waterskins",
+          "itemId": -1,
+          "quantity": 5,
+          "duringQuest": false
+        },
+        {
+          "name": "Desert robes",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Traveller\u0027s necklace",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Place the statuette in the empty alcove in the centre of the room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 6309,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Alcove"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4618,
+          "modelIds": [
+            558
+          ],
+          "displayName": "Statuette"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "insert the statuette"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the statuettes so they all point north towards the double doors. You may have to click \u0027turn\u0027 more than once.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "door grinds open"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the north.\u003cul\u003e\u003cli\u003eOptional: Take the gems from the throne at the north side of the room to unlock the achievement Looting the Demon Throne and obtain two cut rubies, two cut emeralds, and two cut sapphires.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "uzer portal door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3552.0,
+          "heightFine": 965.0,
+          "y": 4948.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back through the south portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "uzer portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4911.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The golem",
+      "text": "Go back upstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2721.5,
+          "heightFine": 1305.0,
+          "y": 4885.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3491.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "must be defeated!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u0027Grind\u0027 the black mushroom.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4620,
+          "modelIds": [],
+          "displayName": "Black mushroom"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "crush the mushroom"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4622,
+          "displayName": "Black mushroom ink",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the phoenix feather on the black mushroom ink.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4621,
+          "modelIds": [
+            87
+          ],
+          "displayName": "Phoenix feather"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4622,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Black mushroom ink"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dip the phoenix"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 4623,
+          "displayName": "Phoenix quill pen",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the phoenix quill pen on a piece of papyrus to get the golem program.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            87
+          ],
+          "displayName": "Dipped phoenix feather"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 970,
+          "modelIds": [],
+          "displayName": "Papyrus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4624,
+          "displayName": "Golem program",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Strange implement on the golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4619,
+          "modelIds": [],
+          "displayName": "Strange implement"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4624,
+          "modelIds": [
+            399
+          ],
+          "displayName": "Golem program"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "insert the key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quickly use the golem program on the golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4619,
+          "modelIds": [],
+          "displayName": "Strange implement"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4624,
+          "modelIds": [
+            399
+          ],
+          "displayName": "Golem program"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13639,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 286
+}

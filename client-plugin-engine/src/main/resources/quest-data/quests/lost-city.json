@@ -1,0 +1,432 @@
+{
+  "slug": "lost-city",
+  "name": "Lost City",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1014768000,
+  "neededItems": [
+    {
+      "name": "Items to craft combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Seeking the lost city",
+      "text": "Talk to the Warrior northwest of the Lumbridge swamp to start the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32434,
+          "modelIds": [
+            18372
+          ],
+          "displayName": "Warrior",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3150.0,
+          "heightFine": 1397.0,
+          "y": 3204.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why are you camped out here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Who\u0027s Zanaris?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If it\u0027s hidden, how are you planning to find it?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Looks like you don\u0027t know either."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the warrior.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32434,
+          "modelIds": [
+            18372
+          ],
+          "displayName": "Warrior"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "He must be hiding around here somewhere."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to chop the swamp tree south of the campsite.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3154.5,
+          "heightFine": 741.0,
+          "y": 3193.2,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 654,
+          "modelIds": [
+            4047
+          ],
+          "displayName": "Shamus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Shamus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 654,
+          "modelIds": [
+            4047
+          ],
+          "displayName": "Shamus"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve been in that shed and I didn\u0027t see a city."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please, a teleport would be useful."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Right yer are. Hold on!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Entrana",
+      "text": "Bring items to craft a weapon on Entrana. Once you\u0027re ready, manually move to the next step.\u003cul\u003e\u003cli\u003eIf you plan on using magic, you must have a magic weapon; you cannot cast spells without one.\u003c/li\u003e\u003cli\u003eYou can also remove tool belt items once you enter the dungeon, e.g. a mithril hatchet, for use in combat.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Items to craft combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to Entrana.\u003cul\u003e\u003cli\u003e\u003cb\u003eDo not craft your weapons now or you\u0027ll be thrown out of Entrana.\u003c/b\u003e\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 657,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            658,
+            2728,
+            2729,
+            2730,
+            2731
+          ],
+          "displayName": "Monk of Entrana",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3045.0,
+          "heightFine": 741.0,
+          "y": 3236.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2834.0,
+          "heightFine": 965.0,
+          "y": 3335.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run north-west though the wooded area and climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2820.0,
+          "heightFine": 693.0,
+          "y": 3373.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, that is a risk I will have to take."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2822.0,
+          "heightFine": 1061.0,
+          "y": 9774.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft your weapons now. After you\u0027re geared, run to the southern-most part of the dungeon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2860.0,
+          "heightFine": 1701.0,
+          "y": 9733.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2860.0,
+          "heightFine": 1701.0,
+          "y": 9733.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the dramen tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1292,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Dramen tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 655,
+          "modelIds": [
+            1794
+          ],
+          "displayName": "Tree spirit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the dramen tree spirit. Safe spot is marked.\u003cul\u003e\u003cli\u003eMake sure to let the dialogue appear before chopping again, or you may spawn a second spirit.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2853.0,
+          "heightFine": 885.0,
+          "y": 9733.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "With the Tree Spirit defeated, you can now chop the tree."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop the dramen tree again.\u003cul\u003e\u003cli\u003eGet multiple branches just in case.\u003c/li\u003e\u003cli\u003eGrind one with a pestal and mortar for a future quest.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1292,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Dramen tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 771,
+          "displayName": "Dramen branch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft the dramen branch using a knife",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 771,
+          "modelIds": [
+            165,
+            6
+          ],
+          "displayName": "Dramen branch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 772,
+          "displayName": "Dramen staff",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Welcome to the moon",
+      "text": "Use the Lumbridge lodestone, then enter the shed in the centre of the Lumbridge swamp while wielding a dramen staff.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            1356
+          ],
+          "candidateObjectTypeIds": [
+            1965
+          ],
+          "displayName": "Shed door",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3201.0,
+          "heightFine": 645.0,
+          "y": 3169.0,
+          "instance": false,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2551,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 262
+}

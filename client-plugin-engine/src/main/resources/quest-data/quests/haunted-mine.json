@@ -1,0 +1,1089 @@
+{
+  "slug": "haunted-mine",
+  "name": "Haunted Mine",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "heroic",
+  "releaseDate": 1103587200,
+  "neededItems": [],
+  "recommendedItems": [
+    {
+      "name": "Combat equipment and food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Games necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Nature Grotto",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ball of wool",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Burgh de Rott",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Drakan's medallion",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Treus Dayth",
+      "level": "63",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Priest in Peril"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 15,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 35,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Speak to the Zealot, north of the mine west of Burgh de Rott.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3442.0,
+          "heightFine": 1141.0,
+          "y": 3259.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1528,
+          "modelIds": [
+            3756
+          ],
+          "displayName": "Zealot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1528,
+          "modelIds": [
+            3756
+          ],
+          "displayName": "Zealot"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I follow the path of Saradomin."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I come seeking challenges and quests."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1528,
+          "modelIds": [
+            3756
+          ],
+          "displayName": "Zealot"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Zealot.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1528,
+          "modelIds": [
+            3756
+          ],
+          "displayName": "Zealot"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "into the mines"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "borrow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "too high"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket Zealot to get Zealot's key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1528,
+          "modelIds": [
+            3756
+          ],
+          "displayName": "Zealot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Zealots key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb over the cart to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3445.1,
+          "heightFine": 2629.0,
+          "y": 3236.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3443.0,
+          "heightFine": 2597.0,
+          "y": 3236.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crawl-down the cart tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 3585.0,
+          "y": 3232.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3436.0,
+          "heightFine": 1061.0,
+          "y": 9637.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Navigating the cave",
+      "text": "Run directly west through the cave and crawl-through the cart tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3404.0,
+          "heightFine": 1461.0,
+          "y": 9631.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3429.0,
+          "heightFine": 1925.0,
+          "y": 3233.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Re-enter the cave via the southern entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3429.0,
+          "heightFine": 2225.0,
+          "y": 3225.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3409.0,
+          "heightFine": 1061.0,
+          "y": 9623.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the nearby ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3422.0,
+          "heightFine": 1061.0,
+          "y": 9625.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2783.0,
+          "heightFine": 941.0,
+          "y": 4569.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the ladder directly east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2798.0,
+          "heightFine": 1157.0,
+          "y": 4567.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2733.0,
+          "heightFine": 997.0,
+          "y": 4503.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the south ladder.",
+      "warning": "Avoid the mine cart.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2725.0,
+          "heightFine": 2781.0,
+          "y": 4486.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 20793,
+          "modelIds": [
+            510
+          ],
+          "displayName": "Minecart"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2789.0,
+          "heightFine": 1189.0,
+          "y": 4487.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Glowing mushrooms",
+      "text": "Pick a glowing fungus.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2781.0,
+          "heightFine": 1197.0,
+          "y": 4488.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4075,
+          "displayName": "Glowing fungus",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the glowing fungus on the mine cart.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2778.0,
+          "heightFine": 1021.0,
+          "y": 4506.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4075,
+          "modelIds": [
+            186
+          ],
+          "displayName": "Glowing fungus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "glowing fungus in the mine cart"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check points settings.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4949,
+          "modelIds": [
+            1146
+          ],
+          "displayName": "Points settings"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the levers until your points settings matches the wiki. Click start on points settings.",
+      "warning": "If you fail, go back to the fungus step.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2785.0,
+          "heightFine": 757.0,
+          "y": 4516.0,
+          "instance": false
+        },
+        {
+          "t": "direction",
+          "x": 2769.0,
+          "heightFine": 861.0,
+          "y": 4532.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "cart is anywhere useful now"
+        },
+        {
+          "t": "chatText",
+          "text": "cart is anywhere useful now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2789.0,
+          "heightFine": 1589.0,
+          "y": 4486.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2725.0,
+          "heightFine": 2781.0,
+          "y": 4487.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2734.0,
+          "heightFine": 1405.0,
+          "y": 4503.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2799.0,
+          "heightFine": 1301.0,
+          "y": 4567.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2782.0,
+          "heightFine": 1341.0,
+          "y": 4569.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3423.0,
+          "heightFine": 1061.0,
+          "y": 9625.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crawl through the cart tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3408.0,
+          "heightFine": 1461.0,
+          "y": 9623.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3428.0,
+          "heightFine": 1925.0,
+          "y": 3225.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crawl through the cart tunnel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3429.0,
+          "heightFine": 1925.0,
+          "y": 3233.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3405.0,
+          "heightFine": 1061.0,
+          "y": 9631.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3413.0,
+          "heightFine": 1061.0,
+          "y": 9633.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2772.0,
+          "heightFine": 1341.0,
+          "y": 4577.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2798.0,
+          "heightFine": 941.0,
+          "y": 4599.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2734.0,
+          "heightFine": 829.0,
+          "y": 4535.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the south-west.",
+      "warning": "Avoid the mine carts.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2710.0,
+          "heightFine": 1125.0,
+          "y": 4540.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2774.0,
+          "heightFine": 901.0,
+          "y": 4539.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the mine cart.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2774.0,
+          "heightFine": 1221.0,
+          "y": 4537.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4075,
+          "displayName": "Glowing fungus",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Treus Dayth",
+      "text": "Climb up the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2774.0,
+          "heightFine": 1401.0,
+          "y": 4540.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2711.0,
+          "heightFine": 1157.0,
+          "y": 4540.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Zealot's key",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Glowing fungus",
+          "itemId": 186,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the east.",
+      "warning": "Avoid the mine cart.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2732.0,
+          "heightFine": 725.0,
+          "y": 4529.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2795.0,
+          "heightFine": 917.0,
+          "y": 4529.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Zealot's key on water valve.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2808.0,
+          "heightFine": 1493.0,
+          "y": 4496.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Zealots key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You open the valve"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quickly, go down the lift.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2807.0,
+          "heightFine": 1093.0,
+          "y": 4493.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "flooded with water"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk down the stairs to the south-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            738,
+            738
+          ],
+          "displayName": "Stairs",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2811.0,
+          "heightFine": 1077.0,
+          "y": 4454.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2798.5,
+          "heightFine": 1525.0,
+          "y": 4453.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2797.0,
+          "heightFine": 1125.0,
+          "y": 4453.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the innocent looking key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            333
+          ],
+          "displayName": "Innocent looking key obj"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Treus Dayth.",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the key.<ul><li>Optional: Add it to the steel key ring if you have it.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            333
+          ],
+          "displayName": "Innocent looking key obj"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Innocent looking key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting the Crystal",
+      "text": "Walk up the stairs to the east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Upstairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2750.0,
+          "heightFine": 1013.0,
+          "y": 4437.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk down the stairs to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            738,
+            738
+          ],
+          "displayName": "Stairs",
+          "atLocation": {
+            "x": 2692.5,
+            "heightFine": 1029.0,
+            "y": 4438.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2758.0,
+          "heightFine": 949.0,
+          "y": 4454.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the large door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.5,
+          "heightFine": 1681.0,
+          "y": 4449.95,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2772.0,
+          "heightFine": 1381.0,
+          "y": 4448.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cut a piece of crystal outcrop.<ul><li>If you want extra salve amulets you can mine multiple crystals.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2789.0,
+          "heightFine": 1429.0,
+          "y": 4428.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2201,
+  "stageVarbitCompleteValue": 11,
+  "cacheQuestId": 120
+}

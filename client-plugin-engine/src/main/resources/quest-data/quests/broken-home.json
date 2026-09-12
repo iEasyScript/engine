@@ -1,0 +1,7806 @@
+{
+  "slug": "broken-home",
+  "name": "Broken Home",
+  "members": false,
+  "length": "mediumlong",
+  "timeline": "pathfinder",
+  "releaseDate": 1414368000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Maria north of the Archaeology Campus.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Fort Forinthry lodestone",
+        "url": "Fort_Forinthry_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3360.0,
+          "heightFine": 1601.0,
+          "y": 3481.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20205,
+          "modelIds": [
+            4062
+          ],
+          "displayName": "Maria"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20205,
+          "modelIds": [
+            4062
+          ],
+          "displayName": "Maria"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20205,
+          "modelIds": [
+            4062
+          ],
+          "displayName": "Maria"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Maria.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20205,
+          "modelIds": [
+            4062
+          ],
+          "displayName": "Maria"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Be careful"
+        },
+        {
+          "t": "conversationText",
+          "text": "house is safe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the mansion.<ul><li>IMPORTANT: If you go in and out of a room to dodge the ghost, you have to manually go back a step.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3363.4,
+          "heightFine": 6685.0,
+          "y": 3469.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Enter."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting raven key",
+      "text": "Open WEST door (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the raven key and clock hands.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            276
+          ],
+          "candidateNpcTypeIds": [
+            344,
+            345,
+            346,
+            379,
+            714,
+            845,
+            846,
+            957,
+            2335,
+            2683,
+            22702,
+            30846,
+            31190,
+            31220
+          ],
+          "displayName": "Clock hand obj",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "Generic key obj",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            276
+          ],
+          "candidateNpcTypeIds": [
+            344,
+            345,
+            346,
+            379,
+            714,
+            845,
+            846,
+            957,
+            2335,
+            2683,
+            22702,
+            30846,
+            31190,
+            31220
+          ],
+          "displayName": "Clock hand obj",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            468
+          ],
+          "candidateNpcTypeIds": [
+            15,
+            589,
+            795,
+            796,
+            1509,
+            2960,
+            4289,
+            14327,
+            19541,
+            29181
+          ],
+          "displayName": "Generic key obj",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Clock hand",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.5,
+          "heightFine": 200.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Repairing grandfather clock and organising books",
+      "text": "Use the clock hands on the grandfather clock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 5161,
+          "modelIds": [
+            1800
+          ],
+          "displayName": "Clock",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Clock hand"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1401
+          ],
+          "candidateObjectTypeIds": [
+            62125,
+            62129
+          ],
+          "displayName": "Food chest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Meat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 1.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door. (unbolt, then enter)",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door (raven key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat only: Open and search the chest (10).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sort the pile of books.<ul><li>First pick any random order of books.</li><li>The order is from bottom to top.</li><li>Use the hints to find the correct order.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1182
+          ],
+          "candidateObjectTypeIds": [
+            874,
+            4063
+          ],
+          "displayName": "Book pile",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heading to statue puzzle",
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 8.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH MIDDLE door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Solving the statue puzzle",
+      "text": "Push the statue WEST.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue EAST.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -2.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue WEST.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue SOUTH.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -2.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue EAST.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -5.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue SOUTH.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Push the statue WEST.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the fourth eye gem from the table.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 32498,
+          "modelIds": [
+            162
+          ],
+          "displayName": "Eye gem",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 1.0,
+              "y": -6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting spider key",
+      "text": "Repeat only: Open and search the chest (20).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -8.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Ingram's research notes.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 40.0,
+          "y": -1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scroll frag1",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": 40.0,
+              "y": -1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting statue key",
+      "text": "Open NORTH-WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door to the upstairs lobby (unbolt).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door (spider key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -17.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the dead servant.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.5,
+          "heightFine": 600.0,
+          "y": -3.0,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Draw back the curtain.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 1528,
+          "modelIds": [
+            2982
+          ],
+          "displayName": "Curtain",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2952
+          ],
+          "candidateObjectTypeIds": [
+            62738,
+            62739
+          ],
+          "displayName": "Drawn shower curtain",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the faceless servant.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 93681,
+          "modelIds": [
+            3813
+          ],
+          "displayName": "Faceless servant",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heading to four statues",
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-WEST door (statue key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 6.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting scythe key",
+      "text": "Take the eye gem on the floor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            156
+          ],
+          "candidateNpcTypeIds": [
+            20,
+            434,
+            945,
+            988,
+            989,
+            990,
+            1059,
+            2256,
+            5514,
+            5515,
+            5516,
+            5517,
+            5518,
+            5519,
+            5897,
+            13445,
+            18966,
+            18979,
+            19542,
+            25273,
+            29733
+          ],
+          "displayName": "Eye gem obj2",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the statue twice. Progress all dialogue.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1905
+          ],
+          "displayName": "Eye statue",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "unlocking"
+        },
+        {
+          "t": "conversationText",
+          "text": "both eyes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the statue twice. Progress all dialogue.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1905
+          ],
+          "displayName": "Eye statue",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "unlocking"
+        },
+        {
+          "t": "conversationText",
+          "text": "both eyes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the statue twice. Progress all dialogue.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1905
+          ],
+          "displayName": "Eye statue",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "unlocking"
+        },
+        {
+          "t": "conversationText",
+          "text": "both eyes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the scythe key on the floor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 32482,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Scythe key",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heading to Saradomin shrine",
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door (scythe key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-EAST door (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting skull key",
+      "text": "Investigate the shrine.<ul><li>Search the chest for food.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 600.0,
+          "y": -4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<b>Peek</b> WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click 'Go Back'.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door (unbolt).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Shattered windows",
+      "text": "Open SOUTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-WEST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -18.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door (skull key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Searching Ormod's scribblings",
+      "text": "Open SOUTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Ormod's scribblings.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            30
+          ],
+          "displayName": "Ormods scribblings",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scroll frag2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -0.5,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Searching scorched skeleton",
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": -30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Play the grand piano.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": 800.0,
+          "y": -0.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hear a clunk nearby"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH hidden door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the scorched skeleton in SOUTH-EAST corner for an eye gem.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 93695,
+          "modelIds": [
+            3615
+          ],
+          "displayName": "Scorched skeleton",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH hidden door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 3.0,
+              "heightFine": 1.0,
+              "y": -4.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": -4.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Walking through knives maze",
+      "text": "Open NORTH-WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the butler.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": 200.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door (cleaver key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn run <b>OFF</b>. Follow the path while dodging the flying knives.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 8.0,
+              "y": 1.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 8.0,
+              "y": 2.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 8.0,
+              "y": 2.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Making alkaline concoction",
+      "text": "Open NORTH MIDDLE door.<ul><li>Turn run <b>ON</b>.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest of drawers.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1074
+          ],
+          "candidateObjectTypeIds": [
+            768
+          ],
+          "displayName": "Pipette drawer",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Pipette",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": -0.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the large pipette on the pig.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 600.0,
+          "y": 3.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            108,
+            108
+          ],
+          "displayName": "Pipette"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Pig pipette",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "You received the Large pipette of pig bile!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the furnace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.5,
+          "heightFine": 600.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 592,
+          "displayName": "Ashes",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pipette of pig bile on the cauldron.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 692,
+          "modelIds": [
+            36
+          ],
+          "displayName": "Cauldron",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            156,
+            108
+          ],
+          "displayName": "Pig pipette"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Pipette",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the human ashes on the cauldron.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Cauldron green",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 592,
+          "modelIds": [],
+          "displayName": "Ashes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 592,
+          "displayName": "Ashes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the large pipette on the cauldron.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            36
+          ],
+          "candidateObjectTypeIds": [
+            207
+          ],
+          "displayName": "Cauldron green",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            108,
+            108
+          ],
+          "displayName": "Pipette"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Alkaline pipe",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the alkaline concoction on the SOUTH door.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            156,
+            108
+          ],
+          "displayName": "Alkaline pipe"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1029
+          ],
+          "candidateObjectTypeIds": [
+            950
+          ],
+          "displayName": "Slimy door",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You dissolved the ectoplasm with the alkaline concoction!"
+        },
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Alkaline pipe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting doll key",
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -9.0,
+          "heightFine": 600.0,
+          "y": -4.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the frozen servant.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 93723,
+          "modelIds": [
+            3825
+          ],
+          "displayName": "Frozen servant",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Take the key?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pull the key free?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting tusks key",
+      "text": "Repeat only:<ul><li>Open SOUTH-EAST door.</li><li>Open and search the chest (40).</li><li>Open WEST door.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest2",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 5.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the snake key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5.0,
+          "heightFine": 1000.0,
+          "y": 2.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder (snake key).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 6.0,
+          "heightFine": 800.0,
+          "y": 2.0,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use CENTRE stairs.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -5.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -8.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": -8.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -9.0,
+          "heightFine": 1952.0,
+          "y": -2.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door (doll key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8258,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the tusks key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 32487,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Tusks key",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": -1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Searching the thief",
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": -30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-EAST door (tusks key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 12.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the bust.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16480,
+          "modelIds": [
+            2304
+          ],
+          "displayName": "Bust",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter SOUTH-WEST trap door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8367,
+          "modelIds": [
+            4122
+          ],
+          "displayName": "Trapdoor",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the thief.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 200.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 32498,
+          "displayName": "Eye gem",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.5
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.5
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heading to shrine of the son",
+      "text": "Open SOUTH-WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the statue twice. Progress all dialogue.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1905
+          ],
+          "displayName": "Eye statue",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "unlocking"
+        },
+        {
+          "t": "conversationText",
+          "text": "both eyes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST secret door (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Taking back mother's hairbrush",
+      "text": "Take from the shrine of the son.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.5,
+          "heightFine": 600.0,
+          "y": 1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Hairbrush",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST secret door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -0.5,
+          "heightFine": 600.0,
+          "y": 0.15,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 30.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 8258,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Spiral staircase",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the emaciated spirit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20214,
+          "modelIds": [
+            6099
+          ],
+          "displayName": "Lenian",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heading to hidden basement",
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.5,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 30.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move the body.<ul><li>Eat food if need be.</li></ul>",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 18.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3996
+          ],
+          "candidateObjectTypeIds": [
+            3944,
+            3945
+          ],
+          "displayName": "Slumped butler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 18.5,
+          "heightFine": 0.0,
+          "y": -1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-WEST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -1.0,
+          "heightFine": 30.0,
+          "y": 9.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door (noose key).",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": -30.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Going through long corridor",
+      "text": "Open and climb into the cupboard.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 367,
+          "modelIds": [
+            2091
+          ],
+          "displayName": "Cupboard",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 370,
+          "modelIds": [
+            3636
+          ],
+          "displayName": "Open Cupboard",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Peek through peephole along the wall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            18
+          ],
+          "candidateNpcTypeIds": [
+            1830
+          ],
+          "displayName": "Glorious hole",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click 'Go Back'.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door (unbolt).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -8.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting to the ancient door puzzle",
+      "text": "Repeat only:<ul><li>Open SOUTH-EAST door.</li><li>Open and search the chest (30).</li><li>Open WEST door.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest2",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 9.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 9.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH-EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Optional safe room:<ul><li>Open NORTH-WEST door.</li><li>Search the chest for food.</li><li>Open SOUTH door.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 5.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4.0,
+          "heightFine": 0.0,
+          "y": -3.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 6.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 6.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Solving ancient door puzzle",
+      "text": "Move all statues EXCEPT the north statue.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3516
+          ],
+          "candidateObjectTypeIds": [
+            63023,
+            63034
+          ],
+          "displayName": "Basement statue",
+          "instance": true,
+          "atLocation": {
+            "x": 9.0,
+            "heightFine": 0.0,
+            "y": 2.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3516
+          ],
+          "candidateObjectTypeIds": [
+            63023,
+            63034
+          ],
+          "displayName": "Basement statue",
+          "instance": true,
+          "atLocation": {
+            "x": 9.0,
+            "heightFine": 0.0,
+            "y": 4.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 8.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": 7.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3516
+          ],
+          "candidateObjectTypeIds": [
+            63023,
+            63034
+          ],
+          "displayName": "Basement statue",
+          "instance": true,
+          "atLocation": {
+            "x": 9.0,
+            "heightFine": 0.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the MIDDLE yellow pressure plate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 8.0,
+          "heightFine": 0.0,
+          "y": 6.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3552
+          ],
+          "candidateObjectTypeIds": [
+            3504
+          ],
+          "displayName": "Open doors",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs behind the ancient door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 8.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            },
+            {
+              "x": 16.0,
+              "heightFine": 0.0,
+              "y": 6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Climbing down the well",
+      "text": "Repeat only: Open and search the chest (50).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -10.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the mountaineering gear (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting dagger key",
+      "text": "Repeat only: Open and search the chest (60).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest2",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.<ul><li>Search NORTH chest for food.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 13.0,
+              "heightFine": 600.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the reception desk.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 7.0,
+          "heightFine": 500.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 6.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 6.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat only: Open and search the chest (70).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door (chains key).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 15.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -11.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 11.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the dagger key.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": -8.0
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 32488,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Dagger key",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Generic key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat only: Open and search the chest (80).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": -8.0
+            },
+            {
+              "x": 4.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -11.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -2.0,
+              "heightFine": 0.0,
+              "y": 11.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door (safe).",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": -6.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Leaving hidden basement",
+      "text": "Climb the rope.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            600
+          ],
+          "candidateObjectTypeIds": [
+            1904,
+            1907,
+            3638,
+            10339,
+            35254,
+            53811
+          ],
+          "displayName": "Dangling rope",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -10.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -10.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -15.0,
+              "heightFine": 0.0,
+              "y": -7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Back to grandfather clock",
+      "text": "Optional safe room:<ul><li>Open NORTH-WEST door.</li><li>Search the chest for food.</li><li>Open SOUTH door.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -4.0,
+              "heightFine": 0.0,
+              "y": 3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -6.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 0.0,
+          "y": -6.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ascend the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 4.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH-WEST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -7.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open SOUTH door (safe).",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -5.0,
+              "heightFine": -30.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Breaking the curse",
+      "text": "Open EAST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 10.5,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the CENTRE stairs.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 2.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 9.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 9.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 9.0,
+          "heightFine": 1952.0,
+          "y": 4.0,
+          "range": 10,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open EAST door.",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 8.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 8.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            },
+            {
+              "x": 9.5,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<b>Quickly</b> open SOUTH-WEST door (dagger key).",
+      "warning": "Dangerous area.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": -1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search Ingram's rantings.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            102
+          ],
+          "displayName": "Final notes",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Scroll frag3",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Combine the scroll fragments.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            489
+          ],
+          "displayName": "Notes on insanity"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Break curse",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dialogue with Ormod",
+      "text": "Repeat only:<ul><li>Open EAST door.</li><li>Open and search the chest (90).</li><li>Open WEST door.</li></ul>",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 3.0,
+              "heightFine": 0.0,
+              "y": -2.0
+            },
+            {
+              "x": 3.5,
+              "heightFine": 0.0,
+              "y": -2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1290
+          ],
+          "candidateNpcTypeIds": [
+            4589
+          ],
+          "candidateObjectTypeIds": [
+            119315
+          ],
+          "displayName": "Temporal chest2",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 33402,
+          "modelIds": [
+            1494,
+            1494
+          ],
+          "displayName": "Opened chest",
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 600.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 10,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -3.0,
+              "heightFine": 0.0,
+              "y": 2.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -3.0,
+          "heightFine": 0.0,
+          "y": 2.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open NORTH door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.5
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run EAST down the hall.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": 10.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 10.0,
+          "heightFine": 0.0,
+          "y": 1.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the scroll on the monster.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            19824
+          ],
+          "displayName": "Duke succ",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            474
+          ],
+          "displayName": "Break curse"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Break curse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the monster.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            19824
+          ],
+          "displayName": "Duke succ",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "recall the layout"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open WEST door.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 5.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -1.5,
+              "heightFine": 0.0,
+              "y": 1.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the CENTRE stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            },
+            {
+              "x": -1.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -9.0,
+              "heightFine": 0.0,
+              "y": 0.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": -9.0,
+          "heightFine": -1952.0,
+          "y": -5.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lenian.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20214,
+          "modelIds": [
+            6099
+          ],
+          "displayName": "Lenian",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "finishes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Exit the mansion.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -3.0
+            },
+            {
+              "x": 0.0,
+              "heightFine": 0.0,
+              "y": -9.5
+            }
+          ],
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Maria.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20205,
+          "modelIds": [
+            4062
+          ],
+          "displayName": "Maria"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 25561,
+  "stageVarbitCompleteValue": 50,
+  "cacheQuestId": 369
+}

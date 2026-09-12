@@ -1,0 +1,1322 @@
+{
+  "slug": "scorpion-catcher",
+  "name": "Scorpion Catcher",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1017014400,
+  "neededItems": [
+    {
+      "name": "Dusty key (unnecessary with 70 Agility)",
+      "itemId": 1590,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Bar Crawl (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Prayer",
+      "level": 31,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Thormac on the top floor of the Sorcerer's Tower, north-east of the Ardougne Lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2701.0,
+          "heightFine": 2045.0,
+          "y": 3408.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2701.0,
+          "heightFine": 2405.0,
+          "y": 3407.0,
+          "range": 3
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2704.0,
+          "heightFine": 3005.0,
+          "y": 3403.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2704.0,
+          "heightFine": 3365.0,
+          "y": 3404.0,
+          "range": 3
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2699.0,
+          "heightFine": 3965.0,
+          "y": 3405.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2699.0,
+          "heightFine": 4325.0,
+          "y": 3404.0,
+          "range": 4
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Thormac.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What assistance do you need?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "where the scorpions are now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to the Seers' Village lodestone, then speak to a Seer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 388,
+          "modelIds": [
+            3213
+          ],
+          "displayName": "Seer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Scorpion Catcher."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Your friend Thormac sent me to speak to you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Where would be the fun in that?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "First scorpion",
+      "text": "Use the Taverly lodestone and enter the Taverley Dungeon to the south.",
+      "warning": "If you have the dusty key on the keyring, manually skip ahead to 'Open the gate with the dusty key in your inventory'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7347
+          ],
+          "displayName": "Taverly dungeon entrance steps"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2886.0,
+          "heightFine": 1061.0,
+          "y": 9795.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Scorpion cage",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food if lower combat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path to the Black Knights compound.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2888.5,
+          "heightFine": 1285.0,
+          "y": 9830.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2891.0,
+          "heightFine": 1285.0,
+          "y": 9830.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.5,
+          "heightFine": 1421.0,
+          "y": 9825.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2893.0,
+          "heightFine": 1597.0,
+          "y": 9823.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.0,
+          "heightFine": 1261.0,
+          "y": 9819.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2906.0,
+          "heightFine": 1245.0,
+          "y": 9819.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2940.0,
+          "heightFine": 701.0,
+          "y": 9806.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2940.0,
+          "heightFine": 701.0,
+          "y": 9806.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 933.0,
+          "y": 9755.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 933.0,
+          "y": 9755.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2914.0,
+          "heightFine": 949.0,
+          "y": 9741.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2914.0,
+          "heightFine": 949.0,
+          "y": 9741.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2908.0,
+          "heightFine": 1000.0,
+          "y": 9712.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2908.0,
+          "heightFine": 1000.0,
+          "y": 9712.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the cells to the south-east and kill the Jailer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 985.0,
+          "y": 9692.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 985.0,
+          "y": 9692.0,
+          "range": 8
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 201,
+          "modelIds": [
+            5565
+          ],
+          "displayName": "Jailer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the jail key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1591,
+          "displayName": "Jail key",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the jail key on the cell door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2931.0,
+          "heightFine": 965.0,
+          "y": 9689.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1591,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Jail key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2931.0,
+          "heightFine": 965.0,
+          "y": 9687.0,
+          "range": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Velrak the explorer for a dusty key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3831
+          ],
+          "displayName": "Velrak"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So...do you know anywhere good to explore?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1590,
+          "displayName": "Dusty key",
+          "quantity": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Circle back the way you came and bridge you passed earlier.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2927.0,
+          "heightFine": 925.0,
+          "y": 9756.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9777.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2927.0,
+          "heightFine": 925.0,
+          "y": 9756.0,
+          "range": 8
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate with the dusty key in your inventory.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2923.5,
+          "heightFine": 1173.0,
+          "y": 9803.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2921.0,
+          "heightFine": 1125.0,
+          "y": 9803.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run past the blue dragons.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2895.0,
+          "heightFine": 1213.0,
+          "y": 9796.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2894.0,
+          "heightFine": 1373.0,
+          "y": 9792.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2892.0,
+          "heightFine": 1221.0,
+          "y": 9799.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2877.0,
+          "heightFine": 1237.0,
+          "y": 9811.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the Odd wall next to the poisonous spiders.<ul><li>If the wall does not open go back to the Seer and make sure to finish the dialogue.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2875.0,
+          "heightFine": 965.0,
+          "y": 9799.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2876.0,
+          "heightFine": 997.0,
+          "y": 9796.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 2875.0,
+          "heightFine": 965.0,
+          "y": 9798.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the scorpion cage on the Kharidian scorpion.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 456,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Scorpion cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Second scorpion",
+      "text": "Go to the Barbarian Outpost.<ul><li>A games necklace is highly recommended.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2545.5,
+          "heightFine": 965.0,
+          "y": 3569.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2548.0,
+          "heightFine": 965.0,
+          "y": 3569.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the scorpion cage on the Kharidian scorpion (it might be inside the building).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 456,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Scorpion cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2553.0,
+          "heightFine": 965.0,
+          "y": 3570.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 456,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Scorpion cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Third scorpion",
+      "text": "Go to the Edgeville Monastery, west of the Edgeville lodestone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3057.0,
+          "heightFine": 1605.0,
+          "y": 3483.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3053.0,
+          "heightFine": 1605.0,
+          "y": 3498.0,
+          "range": 2
+        },
+        {
+          "t": "distanceTo",
+          "x": 3051.0,
+          "heightFine": 1605.0,
+          "y": 3482.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the eastern ladder and go to the east side of the floor.<ul><li>If you are stopped, talk to Abbot Langley and join the order.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Monastery east ladder"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well can I join your order?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3056.0,
+          "heightFine": 2821.0,
+          "y": 3483.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch the scorpion.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 456,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Scorpion cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 109,
+          "modelIds": [
+            37080
+          ],
+          "displayName": "Pit Scorpion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Thormac.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2701.0,
+          "heightFine": 1445.0,
+          "y": 3408.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2701.0,
+          "heightFine": 2405.0,
+          "y": 3407.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2704.0,
+          "heightFine": 2405.0,
+          "y": 3403.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2704.0,
+          "heightFine": 3365.0,
+          "y": 3404.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2699.0,
+          "heightFine": 3365.0,
+          "y": 3405.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2699.0,
+          "heightFine": 4325.0,
+          "y": 3404.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 389,
+          "modelIds": [
+            4215
+          ],
+          "displayName": "Thormac"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2747,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 265
+}

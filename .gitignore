@@ -1,0 +1,99 @@
+# Ignore Gradle project-specific cache directory
+.gradle
+.kotlin
+
+# Ignore Gradle build output directory
+build
+
+# eclipse specific
+*.pydevproject
+.project
+.metadata
+bin/
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.env
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# Created by https://www.gitignore.io/api/intellij
+
+### Intellij ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
+# Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# User-specific stuff:
+.idea/
+
+## File-based project format:
+*.iws
+
+## Plugin-specific files:
+
+# IntelliJ
+/out/
+
+# mpeltonen/sbt-idea plugin
+.idea_modules/
+
+# JIRA plugin
+atlassian-ide-plugin.xml
+
+# Crashlytics plugin (for Android Studio and IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+### Intellij Patch ###
+# Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+
+serverConfig.json
+lobbyConfig.json
+worldConfig.json
+world/data/worldConfig.json
+mainlog.txt
+lobby-server.jar
+/capture/
+
+# ===== project-x monorepo additions =====
+# 24 GB JS5 cache: copied to disk for running, never git-tracked
+/data/cache/
+# Rust launcher/patcher build output (regenerable)
+target/
+# Project X engine local-only derived data (sprite/type dumps, gitignored upstream too)
+/client-plugin-engine/dumps/
+# Project X engine native bootstrap CMake output (the .so lands in client-plugin-engine/build/libs via gradle)
+/client-plugin-engine/native-bootstrap/build/
+# Local Claude Code settings
+.claude/settings.local.json
+# Python bytecode (Ghidra scripts + vendored MCP; build output already covered by target/)
+__pycache__/
+*.pyc
+# LD_PRELOAD patcher build output. client/launcher/patcher/build.sh regenerates every deploy
+# slot, including this repo-root fallback one - the .so is output, never source.
+/libprojectx_patcher.so
+/data/client/**/libprojectx_patcher.so
+/data/client/**/libprojectx_patcher.dylib
+
+# Generated on demand by `:tools:cs2 decompile-all` (its default output dir)
+/cs2-dump/
+
+# Cache source tree (unpacked cache) - becomes its own repository later
+/unpacked-cache

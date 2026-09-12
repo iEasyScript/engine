@@ -1,0 +1,2209 @@
+{
+  "slug": "dragon-slayer",
+  "name": "Dragon Slayer",
+  "members": false,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1001203200,
+  "neededItems": [
+    {
+      "name": "An unfired bowl",
+      "itemId": 288,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Wizard's mind bomb",
+      "itemId": 306,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Crayfish cage or lobster pot",
+      "itemId": 390,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A piece of silk",
+      "itemId": 950,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Regular planks",
+      "itemId": 960,
+      "quantity": 3,
+      "duringQuest": false
+    },
+    {
+      "name": "Steel nails",
+      "itemId": 1539,
+      "quantity": 90,
+      "duringQuest": false
+    },
+    {
+      "name": "An anti-dragon shield",
+      "itemId": 1116,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "questpoints",
+      "level": 32,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 8,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 20,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to the Guildmaster in the Champions' Guild near the Varrock lodestone.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3191.0,
+          "heightFine": 1221.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3191.0,
+          "heightFine": 1221.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I have a quest?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the conversation with the Guildmaster.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oziach"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Going on an adventure",
+      "text": "Talk to Oziach in the house directly north of the Edgeville lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3068.0,
+          "heightFine": 997.0,
+          "y": 3516.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3068.0,
+          "heightFine": 997.0,
+          "y": 3516.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 747,
+          "modelIds": [
+            5307
+          ],
+          "displayName": "Oziach"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you sell me a rune platebody?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Guildmaster of the Champions' Guild told me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I thought you were going to give me a quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "A dragon, that sounds like fun."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Go talk to the Guildmaster in the Champions' Guild."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the Guildmaster in the Champions' Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3191.0,
+          "heightFine": 1221.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3191.0,
+          "heightFine": 1221.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I talked to Oziach..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you're serious about taking on Elvarg, first you'll need to get to Crandor."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I find the route to Crandor?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Only one map exists that shows the route through the reefs of Crandor."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Melzar's map piece?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Melzar built a castle on the site of the Crandorian refugee camp, north of Rimmington."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 1542,
+          "displayName": "Maze key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Thalzar's map piece?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thalzar was the most paranoid of the three wizards."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Lozar's map piece?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Unfortunately, goblin raiders killed her and stole everything"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where can I find the right ship?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If there's still one in existence, it's probably in Port Sarim"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I protect myself from the dragon's breath?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I believe the Duke of Lumbridge has a special shield in his armoury that is enchanted against dragon's breath."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 198,
+          "modelIds": [
+            7104
+          ],
+          "displayName": "Guildmaster"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll get going!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, I'll get going!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "First map part",
+      "text": "Go to Melzar's Maze, north-west of Rimmington.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2937.0,
+          "heightFine": 709.0,
+          "y": 3246.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2924.0,
+          "heightFine": 1925.0,
+          "y": 9584.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Maze key",
+          "itemId": 444,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door with the maze key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.5,
+          "heightFine": 965.0,
+          "y": 9584.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2910.0,
+          "heightFine": 965.0,
+          "y": 9584.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the small zombie rat with the long tail and pick up the red key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2979
+          ],
+          "displayName": "Small rat zombie"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Red key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Red key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the red key in your inventory, go through the north-west door.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Red key"
+        },
+        {
+          "t": "direction",
+          "x": 2896.5,
+          "heightFine": 965.0,
+          "y": 9589.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2894.0,
+          "heightFine": 965.0,
+          "y": 9589.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2899.0,
+          "heightFine": 965.0,
+          "y": 9592.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2898.0,
+          "heightFine": 2149.0,
+          "y": 9592.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the thin hooded ghost with the patterned robe to receive the orange key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1446
+          ],
+          "candidateObjectTypeIds": [
+            536
+          ],
+          "displayName": "Thin patterened ghost"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Orange key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Orange key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the orange key in your inventory, go through the door second from the north on the eastern wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.5,
+          "heightFine": 2149.0,
+          "y": 9589.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2903.0,
+          "heightFine": 2149.0,
+          "y": 9589.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2905.0,
+          "heightFine": 2149.0,
+          "y": 9590.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2905.0,
+          "heightFine": 3333.0,
+          "y": 9589.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the skeleton with the small round shield and pick up the yellow key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5142
+          ],
+          "candidateObjectTypeIds": [
+            5148
+          ],
+          "displayName": "Round shield skeleton"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Yellow key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Yellow key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the yellow key in your inventory, go through the south-western most door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2895.0,
+          "heightFine": 3333.0,
+          "y": 9585.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2895.0,
+          "heightFine": 3333.0,
+          "y": 9583.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder at the end of the hallway.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.0,
+          "heightFine": 3333.0,
+          "y": 9576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2910.0,
+          "heightFine": 2149.0,
+          "y": 9576.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2908.0,
+          "heightFine": 2149.0,
+          "y": 9576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2909.0,
+          "heightFine": 965.0,
+          "y": 9576.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2903.0,
+          "heightFine": 965.0,
+          "y": 9576.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2932.0,
+          "heightFine": 965.0,
+          "y": 9641.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the zombies until one drops a blue key. One of them will drop a blue key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 73,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            74,
+            75,
+            76,
+            1826,
+            2714,
+            3622,
+            4392,
+            4393,
+            4394,
+            4938,
+            4939,
+            5293,
+            5294,
+            5295,
+            5296,
+            5297,
+            5298,
+            5299,
+            5300,
+            5301,
+            5302,
+            5303,
+            5304,
+            5305,
+            5306,
+            5307,
+            5308,
+            5309,
+            5310,
+            5311,
+            5312,
+            5313,
+            5314,
+            5315,
+            5316,
+            5317,
+            5318,
+            5319,
+            5320,
+            5321,
+            5322,
+            5323,
+            5324,
+            5325,
+            5326,
+            5327,
+            5328,
+            5329,
+            5330,
+            5331,
+            5375,
+            5376,
+            5377,
+            5378,
+            5379,
+            5380,
+            5393,
+            5394,
+            5395,
+            5396,
+            5397,
+            5398,
+            5399,
+            5400,
+            5401,
+            5402,
+            5403,
+            5404,
+            5405,
+            5406,
+            5407,
+            5408,
+            5409,
+            5410,
+            6099,
+            6100,
+            6131,
+            7789,
+            7790,
+            7791,
+            7792,
+            8142,
+            8143,
+            8144,
+            8145,
+            10364,
+            10365,
+            10366,
+            10367,
+            10368,
+            10369,
+            10370,
+            10371,
+            10372,
+            10373,
+            10374,
+            10375,
+            10376,
+            10377,
+            10378,
+            10379,
+            10380,
+            10381,
+            10382,
+            10383,
+            10384,
+            10385,
+            12372,
+            14196,
+            14197,
+            14198,
+            14204,
+            14205,
+            14206,
+            15344,
+            15393,
+            16749,
+            16750,
+            16751,
+            16752,
+            16753,
+            16754,
+            16755,
+            16756,
+            16757,
+            16758,
+            17013,
+            18594,
+            18595,
+            18598,
+            18599,
+            18600,
+            18601,
+            18958,
+            18971,
+            20897,
+            20898,
+            20899,
+            20900,
+            20901,
+            20902,
+            20903,
+            20904,
+            20912,
+            20913,
+            20914,
+            20915,
+            20916,
+            20917,
+            20918,
+            20919,
+            20920,
+            20921,
+            20922,
+            20923,
+            23046,
+            23047,
+            23048,
+            23049,
+            23050,
+            23051,
+            23052,
+            23053,
+            24145,
+            26162,
+            26163,
+            26164,
+            26165,
+            26166,
+            26167,
+            26168,
+            26169,
+            30379,
+            30380,
+            30381,
+            30382,
+            31131,
+            31132,
+            31133,
+            31305
+          ],
+          "displayName": "Zombie"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Blue key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blue key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the blue key in your inventory, open the blue door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2930.5,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2928.0,
+          "heightFine": 965.0,
+          "y": 9644.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Melzar the Mad and pick up the magenta key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3597
+          ],
+          "candidateObjectTypeIds": [
+            3514
+          ],
+          "displayName": "Melzar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Magenta key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Magenta key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the magenta key in your inventory, pass through the magenta door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2929.0,
+          "heightFine": 965.0,
+          "y": 9651.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2929.0,
+          "heightFine": 965.0,
+          "y": 9653.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the lesser demon and pick up the green key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4095
+          ],
+          "displayName": "Small lesser demon"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            444
+          ],
+          "candidateNpcTypeIds": [
+            680,
+            1776,
+            2511,
+            2512,
+            12233,
+            16864
+          ],
+          "displayName": "Green key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Green key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With the green key in your inventory, pass through the green door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9655.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2936.0,
+          "heightFine": 965.0,
+          "y": 9658.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest and search it for the map part.<ul><li>Note: Make sure you finish the dialogue, or you will not receive the map part.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2935.0,
+          "heightFine": 965.0,
+          "y": 9657.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map piece one",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Second map part",
+      "text": "Talk to the Oracle on Ice Mountain south-west of the Edgeville lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3011.0,
+          "heightFine": 6149.0,
+          "y": 3500.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3011.0,
+          "heightFine": 6149.0,
+          "y": 3500.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 746,
+          "modelIds": [],
+          "displayName": "Oracle"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek a piece of the map to the island of Crandor."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Last, a bowl that's not seen heat."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel south into the dwarven mines.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3018.5,
+          "heightFine": 2565.0,
+          "y": 3450.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3018.0,
+          "heightFine": 965.0,
+          "y": 9850.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the unfired bowl on the 'Magic door'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            288
+          ],
+          "displayName": "Unfired bowl"
+        },
+        {
+          "t": "direction",
+          "x": 3050.5,
+          "heightFine": 917.0,
+          "y": 9840.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You put the unfired bowl into the opening in the door."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the wizard's mind bomb on the 'Magic door'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            306
+          ],
+          "candidateNpcTypeIds": [
+            21,
+            125,
+            145,
+            158,
+            211,
+            212,
+            398,
+            399,
+            475,
+            477,
+            478,
+            720,
+            1059,
+            1512,
+            2245,
+            2246,
+            2589,
+            3067,
+            3073,
+            4290,
+            5826,
+            8450,
+            8453,
+            8857,
+            10225,
+            10226,
+            10227,
+            10228,
+            10229,
+            10230,
+            10231,
+            10232,
+            10233,
+            10234,
+            10235,
+            11271,
+            19540
+          ],
+          "displayName": "Wizards mind bomb"
+        },
+        {
+          "t": "direction",
+          "x": 3050.5,
+          "heightFine": 917.0,
+          "y": 9840.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You pour the Wizard's Mind Bomb into the opening in the door."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the crayfish cage/lobster pot on the 'Magic door'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 13431,
+          "modelIds": [
+            390
+          ],
+          "displayName": "Crayfish cage"
+        },
+        {
+          "t": "direction",
+          "x": 3050.5,
+          "heightFine": 917.0,
+          "y": 9840.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You put the small crustacean cage into the opening in the door."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the silk on the 'Magic door'.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 950,
+          "modelIds": [],
+          "displayName": "Silk"
+        },
+        {
+          "t": "direction",
+          "x": 3050.5,
+          "heightFine": 917.0,
+          "y": 9840.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The door opens..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the chest in the room and search for the second map part after opening. You need to click again to search after the dialogue, it does not automatically loot or search.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3057.0,
+          "heightFine": 917.0,
+          "y": 9841.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map piece two",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Third map part",
+      "text": "Head to Port Sarim Jail and talk to Wormbrain in the cell.<ul><li>You may need to speak with the Guild Master at this point before you can attack Wormbrain.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3011.0,
+          "heightFine": 1317.0,
+          "y": 3193.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3011.0,
+          "heightFine": 1317.0,
+          "y": 3193.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 10000,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "There are two ways to obtain the third map part:<ul><li>Talk to Wormbrain and pay him 10,000 coins for the map part.</li><li>Attack Wormbrain and use the loot interface or telekinetic grab to get the map part that he drops.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 745,
+          "modelIds": [
+            4647
+          ],
+          "displayName": "Wormbrain"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            207
+          ],
+          "candidateNpcTypeIds": [
+            350,
+            401,
+            597,
+            982,
+            5585,
+            5586,
+            5587,
+            5588
+          ],
+          "displayName": "Map piece three"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I believe you've got a piece of map that I need."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I suppose I could pay you for the map piece..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright then, 10,000 it is."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Map piece three",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a map part on any one of the other parts to form the complete Crandor map.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            117
+          ],
+          "displayName": "Map piece one"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Map piece two"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            207
+          ],
+          "displayName": "Map piece three"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 35109,
+          "displayName": "Map",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining an anti-dragon shield",
+      "text": "Talk to Duke Horacio on the 1st floor (2nd floor [US]) of Lumbridge Castle.<ul><li>You can also buy an anti-dragon shield from the Grand Exchange to skip this step entirely.</li><li>If the dialogue option for the anti-dragon shield doesn't appear, you need to talk to the Guildmaster about protection from dragon fire</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3204.0,
+          "heightFine": 1477.0,
+          "y": 3209.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3213.0,
+          "heightFine": 1477.0,
+          "y": 3218.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "lumbridge bottom stairs 0"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3205.0,
+          "heightFine": 2693.0,
+          "y": 3209.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 741,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2088,
+            7933,
+            17413,
+            17441,
+            21167,
+            29145
+          ],
+          "displayName": "Duke Horacio"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I seek a shield that will protect me from dragonbreath."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Elvarg, the dragon of Crandor island!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, are you going to give me the shield or not?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Anti dragon shield",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Obtaining a ship",
+      "text": "In Port Sarim, buy the beautiful ship <i>Lady Lumbridge</i> from Klarense, by the Void knight Squire.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3047.0,
+          "heightFine": 741.0,
+          "y": 3204.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3047.0,
+          "heightFine": 741.0,
+          "y": 3204.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 2000,
+          "duringQuest": false
+        },
+        {
+          "name": "Crandor map",
+          "itemId": 594,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel nails",
+          "itemId": -1,
+          "quantity": 90,
+          "duringQuest": false
+        },
+        {
+          "name": "Plank",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 744,
+          "modelIds": [
+            3981
+          ],
+          "displayName": "Klarense"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to buy her."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yep, sounds good."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okey dokey, she's all yours!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the damaged deck of the ship.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            42
+          ],
+          "displayName": "Deck hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You nail a final plank over the hole. You have successfully patched the hole in the deck."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ned, in the house north-east of the bank in Draynor Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3100.0,
+          "heightFine": 1317.0,
+          "y": 3257.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3100.0,
+          "heightFine": 1317.0,
+          "y": 3257.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 918,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4475,
+            18606,
+            19303,
+            19308
+          ],
+          "displayName": "Ned"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're a sailor? Could you take me to Crandor?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Excellent! I'll meet you at the ship, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The fight",
+      "text": "Bank to prepare the battle against Elvarg.<ul><li>Melee is recommended due to how hit chances are calculated.</li><li>Players with level 37 Prayer can use Protect from Magic.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3049.0,
+          "heightFine": 901.0,
+          "y": 3209.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3049.0,
+          "heightFine": 901.0,
+          "y": 3209.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Board your ship and talk to Ned. Tell him you're ready to sail to Crandor Isle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 918,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4475,
+            18606,
+            19303,
+            19308
+          ],
+          "displayName": "Ned"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, let's go!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes, let's go!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You are knocked unconscious and later awake on an ash-strewn beach."
+        },
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 53.0,
+          "y": 3237.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After crashing on the island, follow the light grey path around and up to the top of the mountain. Climb down the hole.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2834.0,
+          "heightFine": 3893.0,
+          "y": 3258.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            780
+          ],
+          "candidateObjectTypeIds": [
+            438
+          ],
+          "displayName": "Crandor hole"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            780
+          ],
+          "candidateObjectTypeIds": [
+            438
+          ],
+          "displayName": "Crandor hole"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2833.0,
+          "heightFine": 4405.0,
+          "y": 9658.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Before you climb over to Elvarg its advisable to open the shortcut in the wall south of the short wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2836.0,
+          "heightFine": 2741.0,
+          "y": 9599.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2836.0,
+          "heightFine": 2597.0,
+          "y": 9598.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb over the wall and kill Elvarg.<ul><li>Wear your dragonfire protection before hopping over, or your stats will get drained resulting most likely in a failed kill.</li><li>If you leave Crandor before killing Elvarg and opening the shortcut, you will need 3 planks and 90 steel nails to repair the ship to get back.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2847.0,
+          "heightFine": 3333.0,
+          "y": 9636.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 3333.0,
+          "y": 9636.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Elvargs head",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Take Elvarg's head to Oziach in Edgeville.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3068.0,
+          "heightFine": 997.0,
+          "y": 3516.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3068.0,
+          "heightFine": 997.0,
+          "y": 3516.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 747,
+          "modelIds": [
+            5307
+          ],
+          "displayName": "Oziach"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2268,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 66
+}

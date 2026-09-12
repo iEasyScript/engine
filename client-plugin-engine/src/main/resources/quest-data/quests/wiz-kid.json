@@ -1,0 +1,1101 @@
+{
+  "slug": "wiz-kid",
+  "name": "Wiz Kid",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1774278419,
+  "neededItems": [
+    {
+      "name": "Air runes",
+      "itemId": 556,
+      "quantity": 8,
+      "duringQuest": false
+    },
+    {
+      "name": "Water runes",
+      "itemId": 555,
+      "quantity": 6,
+      "duringQuest": false
+    },
+    {
+      "name": "Earth runes",
+      "itemId": 557,
+      "quantity": 4,
+      "duringQuest": false
+    },
+    {
+      "name": "Nature runes",
+      "itemId": 561,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Law runes",
+      "itemId": 563,
+      "quantity": 4,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Wicked hood",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Stardust",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Visions of Havenhythe"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Magic",
+      "level": 33,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Ben at the Marigold Farm.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Havenhythe lodestone",
+        "url": "Visions_of_Havenhythe_icon.png?78f5e"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3562.0,
+          "heightFine": 8489.0,
+          "y": 1480.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What could go wrong?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you Mr Wizard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Teleport spell",
+      "text": "Talk to Ben again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I brought enough runes for me too."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Air runes",
+          "itemId": 556,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Water runes",
+          "itemId": 555,
+          "quantity": 6,
+          "duringQuest": false
+        },
+        {
+          "name": "Earth runes",
+          "itemId": 557,
+          "quantity": 4,
+          "duringQuest": false
+        },
+        {
+          "name": "Nature runes",
+          "itemId": 561,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Law runes",
+          "itemId": 563,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben yet again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "yards from here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast the Wendlewick teleport.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "WOAH"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben (again).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "coming from the windmill"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder to the top of the windmill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 1448.0,
+          "y": 21.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 2672.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 4080.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 3072.0,
+          "y": 21.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 4080.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "race you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder to the ground floor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 4080.0,
+          "y": 21.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 848.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 2672.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3.0,
+          "heightFine": 3072.0,
+          "y": 21.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 4.0,
+          "heightFine": 848.0,
+          "y": 21.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Telekinetic grab spell",
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "prime example of"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take flowers from the kitchen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.3,
+          "heightFine": 1060.0,
+          "y": -10.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 39637,
+          "displayName": "Bunch of flowers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the flowers on the stool near Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3893,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Stool"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers",
+          "instance": true,
+          "atLocation": {
+            "x": 8.0,
+            "heightFine": 688.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "cast telekinetic grab for"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast telekinetic grab on the flowers.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers",
+          "instance": true,
+          "atLocation": {
+            "x": 8.0,
+            "heightFine": 688.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "disappeared into the AIR"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "back on the stool"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Place the flowers on the stool again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3893,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Stool"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers",
+          "instance": true,
+          "atLocation": {
+            "x": 8.0,
+            "heightFine": 688.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "on the training stool"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bones to bananas spell",
+      "text": "Dig the dirt mound.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -14.0,
+          "heightFine": 560.0,
+          "y": -11.0,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60460,
+          "displayName": "Crow bones",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the crow bones on the training stool.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3893,
+          "modelIds": [
+            1020
+          ],
+          "displayName": "Stool"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 39637,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bunch of flowers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 60460,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Crow bones",
+          "instance": true,
+          "atLocation": {
+            "x": 8.0,
+            "heightFine": 688.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "for you, though"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast bones to bananas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 60460,
+          "modelIds": [
+            504
+          ],
+          "displayName": "Crow bones",
+          "instance": true,
+          "atLocation": {
+            "x": 8.0,
+            "heightFine": 688.0,
+            "y": 8.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "smell bananas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "assess him"
+        },
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wizards' Tower",
+      "text": "Talk to Archmage Sedridor on the 2nd floor of the Wizards' Tower.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Runecrafting guild teleport",
+        "url": "Wicked_hood.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3097.0,
+          "heightFine": 16773.0,
+          "y": 3147.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 14723,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14744
+          ],
+          "displayName": "Sedridor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Wicked hood",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Stardust",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14723,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14744
+          ],
+          "displayName": "Sedridor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Wiz Kid'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "talk to Wizard Isidor"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 14723,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14744
+          ],
+          "displayName": "Sedridor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to WIzard Isidor on the floor below.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3093.0,
+          "heightFine": 8613.0,
+          "y": 3156.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16175,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            18841,
+            32710,
+            32711
+          ],
+          "displayName": "Wizard Isidor"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16175,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            18841,
+            32710,
+            32711
+          ],
+          "displayName": "Wizard Isidor"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about 'Wiz Kid'."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "meet you there"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16175,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            18841,
+            32710,
+            32711
+          ],
+          "displayName": "Wizard Isidor"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Ben.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Havenhythe lodestone",
+        "url": "Visions_of_Havenhythe_icon.png?78f5e"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3562.0,
+          "heightFine": 8489.0,
+          "y": 1480.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all those spells"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ben.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5151,
+          "modelIds": [
+            3156
+          ],
+          "displayName": "Ben"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 60829,
+  "stageVarbitCompleteValue": 95,
+  "cacheQuestId": 529
+}

@@ -1,0 +1,631 @@
+{
+  "slug": "duck-quest",
+  "name": "Duck Quest",
+  "members": false,
+  "length": "shortmedium",
+  "timeline": "pathfinder",
+  "releaseDate": 1744588800,
+  "neededItems": [
+    {
+      "name": "Vial of Water",
+      "itemId": 227,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Duck Food",
+      "itemId": 420,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Following the trail",
+      "text": "Head south of the bank in Draynor Village and fish the fishing spot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3087.0,
+          "heightFine": 101.0,
+          "y": 3224.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3087.0,
+          "heightFine": 101.0,
+          "y": 3224.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3825,
+          "modelIds": [
+            1185
+          ],
+          "displayName": "Fishing spot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the cutscene.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "There, there!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Let's continue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the debris north of the bridge and continue picking it up:<ul><li>South east along the coast</li><li>East into the swamp</li><li>North past the Lumbridge castle towards Fred the Farmer's house (through Lumbridge market)</li><li>North over the bridge</li><li>Just west near the Waddle Willow tree.</li>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 49268,
+          "modelIds": [
+            327
+          ],
+          "displayName": "Debris"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Perhaps that druid"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Inducktion",
+      "text": "Talk to Breadstix.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31814,
+          "modelIds": [
+            3369
+          ],
+          "displayName": "Breadstix"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you up to at the moment?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the language?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6546,
+          "displayName": "Recipe",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Vial of Water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Duck Food",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use duck food on a vial of water to make a duckspeak potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            420
+          ],
+          "candidateItemTypeIds": [
+            20817
+          ],
+          "displayName": "Duckfood"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 227,
+          "modelIds": [],
+          "displayName": "Vial of water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2394,
+          "displayName": "Potion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Breadstix again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31814,
+          "modelIds": [
+            3369
+          ],
+          "displayName": "Breadstix"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Of course!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink the potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2394,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Potion"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You've almost got it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jemima.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31815,
+          "modelIds": [
+            27162
+          ],
+          "displayName": "Jemima"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay - I'll start the Inducktion."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hello there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Invigilatoad.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22962,
+          "modelIds": [
+            14916
+          ],
+          "displayName": "Toad"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, okay! I'll eat the peas"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Eat each of the six peas. They are indicated as red dots on the minimap.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 132911,
+          "modelIds": [
+            396,
+            396,
+            396,
+            396,
+            396,
+            396
+          ],
+          "displayName": "Peas",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should let the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Invigilatoad again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22962,
+          "modelIds": [
+            14916
+          ],
+          "displayName": "Toad"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It sounds like this will be a little more difficult"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sit down at the relaxing spot at the end of the path to the west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4077
+          ],
+          "candidateNpcTypeIds": [
+            24923
+          ],
+          "displayName": "Relax"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Take in your surroundings"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, we're finally in Paddlington"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Paddlington",
+      "text": "Talk to Paddlington Badger on the west edge of the sanctuary.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32634,
+          "modelIds": [
+            1719
+          ],
+          "displayName": "Badger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No worries, dear!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the floor button on the east side of the sanctuary.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Floor button1"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Hmm, interesting."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Press the floor button south from Paddlington badger.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Floor button2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Something might happen?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That was much easier"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Press the floor button on the east side of the sanctuary.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            384
+          ],
+          "candidateNpcTypeIds": [
+            210,
+            943,
+            22107,
+            25274
+          ],
+          "displayName": "Floor button1"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "At the same time, you and the duckling step on to the buttons."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the tree bud directly north of the east button.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 132930,
+          "modelIds": [
+            1200
+          ],
+          "displayName": "Tree bud"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Now you have a beak full of soapy tree sap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the toad statue twice.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 15368,
+          "modelIds": [
+            8310
+          ],
+          "displayName": "Statue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You and the duckling decide"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to duckling's dad or mum.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1125,
+          "modelIds": [
+            27162
+          ],
+          "displayName": "Dad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You  make your way through Paddlington"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 58012,
+  "stageVarbitCompleteValue": 115,
+  "cacheQuestId": 520
+}

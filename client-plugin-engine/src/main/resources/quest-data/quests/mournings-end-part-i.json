@@ -1,0 +1,3181 @@
+{
+  "slug": "mournings-end-part-i",
+  "name": "Mourning's End Part I",
+  "members": true,
+  "length": "longverylong",
+  "timeline": "legendary",
+  "releaseDate": 1121731200,
+  "neededItems": [
+    {
+      "name": "Silk",
+      "itemId": 950,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Bear fur",
+      "itemId": 120,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bucket of water",
+      "itemId": 1929,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ogre bellows",
+      "itemId": 2871,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Red dye",
+      "itemId": 1763,
+      "quantity": 3,
+      "duringQuest": true
+    },
+    {
+      "name": "Blue dye",
+      "itemId": 1767,
+      "quantity": 3,
+      "duringQuest": true
+    },
+    {
+      "name": "Yellow dye",
+      "itemId": 1765,
+      "quantity": 3,
+      "duringQuest": true
+    },
+    {
+      "name": "Green dye",
+      "itemId": 1771,
+      "quantity": 3,
+      "duringQuest": true
+    },
+    {
+      "name": "Rotten apple",
+      "itemId": 186,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Coal",
+      "itemId": 453,
+      "quantity": 10,
+      "duringQuest": false
+    },
+    {
+      "name": "Barrel of naphtha",
+      "itemId": 3221,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Feather",
+      "itemId": 314,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Toad crunchies",
+      "itemId": 243,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Soft leather",
+      "itemId": 1741,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Magic log",
+      "itemId": 1513,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ring of dueling",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Mourner",
+      "level": "79-86",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Roving Elves",
+    "Sheep Herder",
+    "Big Chompy Bird Hunting"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Ranged",
+      "level": 60,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 50,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Meeting the rebels",
+      "text": "Talk to Eluned in Isafdar.<ul><li>Chop magic logs nearby.</li><li>Kill a grizzly bear just west of Lletya if you need bear fur.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2290.0,
+          "heightFine": 1005.0,
+          "y": 3149.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        },
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Mourning's End"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Eluned.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 404,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2376,
+            21532,
+            21533
+          ],
+          "displayName": "Eluned"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2351.0,
+          "heightFine": 1669.0,
+          "y": 3172.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arianwyn.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1202,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8913,
+            8914,
+            8950,
+            8966,
+            19557,
+            19565,
+            19811,
+            19812,
+            19838,
+            19896,
+            21535,
+            23894
+          ],
+          "displayName": "Arianwyn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mourners in the mountains",
+      "text": "Kill a mourner at Arandar.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Eagles' Peak lodestone",
+        "url": "Eagles'_Peak_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2385.5,
+          "heightFine": 5213.0,
+          "y": 3334.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Silk",
+          "itemId": -1,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Crystal teleport seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bear fur",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of water",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up all items the mourner drops.<ul><li>Get 2 sets for Within the Light.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1506,
+          "displayName": "Gas mask",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Mourner cape",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6069,
+          "displayName": "Mourner boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6068,
+          "displayName": "Mourner gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6064,
+          "displayName": "Bloody mourner top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6071,
+          "displayName": "Mourner letter",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1506,
+          "modelIds": [
+            1362
+          ],
+          "displayName": "Gas mask"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            492
+          ],
+          "displayName": "Mourner cape"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6069,
+          "modelIds": [
+            420
+          ],
+          "displayName": "Mourner boots"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6068,
+          "modelIds": [
+            615
+          ],
+          "displayName": "Mourner gloves"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            666
+          ],
+          "candidateObjectTypeIds": [
+            1943,
+            1944
+          ],
+          "displayName": "Torn mourner trousers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Torn mourner trousers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the letter.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6071,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Mourner letter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Tegid at the Taverly lake.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Taverley lodestone",
+        "url": "Taverley_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2920.5,
+          "heightFine": 77.0,
+          "y": 3418.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1213,
+          "modelIds": [],
+          "displayName": "Tegid"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1213,
+          "modelIds": [],
+          "displayName": "Tegid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll try it"
+        },
+        {
+          "t": "conversationText",
+          "text": "give it a try"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 1213,
+          "modelIds": [],
+          "displayName": "Tegid"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the laundry basket.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2917.0,
+          "heightFine": 385.0,
+          "y": 3419.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Steal the soap"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24875,
+          "displayName": "Soap",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the soap on the bloody mourner top with a bucket of water.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 24875,
+          "modelIds": [
+            180
+          ],
+          "displayName": "Soap"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6064,
+          "modelIds": [
+            456,
+            72
+          ],
+          "displayName": "Bloody mourner top"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Clean mourner top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Oronwen in the Lletya clothing shop.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Crystal teleport seed",
+        "url": "Crystal_teleport_seed.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2326.0,
+          "heightFine": 1669.0,
+          "y": 3176.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2353,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Oronwen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2353,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Oronwen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you mend clothes?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have all I need to mend my trousers."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have them done"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2353,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Oronwen"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the trousers to be mended.<ul><li>Buy 3 of each dye from her.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2353,
+          "modelIds": [
+            5985
+          ],
+          "displayName": "Oronwen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How are you doing with my trousers?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Mended mourner trousers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Amongst the Death Guard",
+      "text": "Equip the mourner gear.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "mourner gear"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "mourner gear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Feather",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Toad crunchies",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Soft leather",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Magic log",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mourner letter",
+          "itemId": 372,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Mourners' headquarters in the north-eastern corner of West Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Descend the trapdoor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2044.0,
+          "heightFine": 7973.0,
+          "y": 4649.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Head Mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to explain it all"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you sure"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "need of an explanation"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "tarnished key"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the gnome on a rack in the west room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9328,
+          "modelIds": [
+            4563
+          ],
+          "displayName": "Gnome on a rack"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You said about toad crunchies and being tickled."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sooner or later"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a feather on the gnome.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9328,
+          "modelIds": [
+            4563
+          ],
+          "displayName": "Gnome on a rack"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 314,
+          "modelIds": [],
+          "displayName": "Feather"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "quite working"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a feather on the gnome again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9328,
+          "modelIds": [
+            4563
+          ],
+          "displayName": "Gnome on a rack"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 314,
+          "modelIds": [],
+          "displayName": "Feather"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "little blighter"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the gnome again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9328,
+          "modelIds": [
+            4563
+          ],
+          "displayName": "Gnome on a rack"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "all tied up"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Release the gnome.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 9328,
+          "modelIds": [
+            4563
+          ],
+          "displayName": "Gnome on a rack"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "toad crunchies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the gnome after a minute passes.<ul><li>Lobby if he disappears.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3257,
+          "modelIds": [
+            3621
+          ],
+          "displayName": "Gnome"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dyeing the non-dying",
+      "text": "Enter Rantz's cave in Feldip Hills.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 1317.0,
+          "y": 2997.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2871,
+          "displayName": "Ogre bellows",
+          "quantity": 1
+        }
+      ],
+      "jumpOffset": 5,
+      "neededItems": [
+        {
+          "name": "Ogre bellows",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Fixed device",
+          "itemId": 597,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mourner gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Red dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Blue dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Yellow dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "Green dye",
+          "itemId": -1,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "red toad",
+          "itemId": 477,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "blue toad",
+          "itemId": 477,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "yellow toad",
+          "itemId": 477,
+          "quantity": 3,
+          "duringQuest": false
+        },
+        {
+          "name": "green toad",
+          "itemId": 477,
+          "quantity": 3,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2647.0,
+          "heightFine": 1133.0,
+          "y": 9378.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "rantz cave entrance"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "'Unlock' the locked ogre chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3377,
+          "modelIds": [],
+          "displayName": "Locked Ogre chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "rock off the chest"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 3378,
+          "modelIds": [],
+          "displayName": "Unlocked Ogre chest"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3378,
+          "modelIds": [],
+          "displayName": "Unlocked Ogre chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2871,
+          "displayName": "Ogre bellows",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1849.0,
+          "y": 9376.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2629.0,
+          "heightFine": 1453.0,
+          "y": 2997.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bottle of dye on your empty ogre bellows. Use the blue dye bellows on the swamp toad.",
+      "warning": "If your ogre bellows is filled with swamp gas, use it on swamp toads until empty.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1013,
+          "modelIds": [],
+          "displayName": "Swamp toad",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "empty ogre bellows"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1767,
+          "modelIds": [],
+          "displayName": "Blue dye"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6089,
+          "displayName": "Blue toad",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat the same steps with red dye.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1013,
+          "modelIds": [],
+          "displayName": "Swamp toad",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "empty ogre bellows"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1763,
+          "modelIds": [],
+          "displayName": "Red dye"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6090,
+          "displayName": "Red toad",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat the same steps with yellow dye.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1013,
+          "modelIds": [],
+          "displayName": "Swamp toad",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "empty ogre bellows"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1765,
+          "modelIds": [],
+          "displayName": "Yellow dye"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6091,
+          "displayName": "Yellow toad",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat the same steps with green dye.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1013,
+          "modelIds": [],
+          "displayName": "Swamp toad",
+          "priority": "closest"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "empty ogre bellows"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1771,
+          "modelIds": [],
+          "displayName": "Green dye"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6092,
+          "displayName": "Green toad",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a red toad on the fixed device.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6090,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Red toad"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6090,
+          "displayName": "Red toad"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the fixed device.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6082,
+          "displayName": "Fixed device"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire the toad at the sick-looking sheep (1) from the equipment interface.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2613.0,
+          "heightFine": 613.0,
+          "y": 3346.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2345,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2377
+          ],
+          "displayName": "Sick-looking sheep (1)",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9216
+          ],
+          "candidateObjectTypeIds": [
+            9218,
+            9219,
+            9220,
+            9221,
+            9222
+          ],
+          "displayName": "Fresh sick looking sheep1"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire a green toad at the sick-looking sheep (2) from the equipment interface.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2612.0,
+          "heightFine": 789.0,
+          "y": 3368.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2346,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2378
+          ],
+          "displayName": "Sick-looking sheep (2)",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6092,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Green toad"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9216
+          ],
+          "candidateObjectTypeIds": [
+            9218,
+            9219,
+            9220,
+            9221,
+            9222
+          ],
+          "displayName": "Fresh sick looking sheep2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire a yellow toad at the sick-looking sheep (4) from the equipment interface.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2612.0,
+          "heightFine": 349.0,
+          "y": 3376.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2348,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2380
+          ],
+          "displayName": "Sick-looking sheep (4)",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6091,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Yellow toad"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fire a blue toad at the sick-looking sheep (3) from the equipment interface.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2565.0,
+          "heightFine": 1037.0,
+          "y": 3389.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2347,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2379
+          ],
+          "displayName": "Sick-looking sheep (3)",
+          "priority": "all"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6089,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Blue toad"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6082,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Fixed device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            9216
+          ],
+          "candidateObjectTypeIds": [
+            9218,
+            9219,
+            9220,
+            9221,
+            9222
+          ],
+          "displayName": "Fresh sick looking sheep3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unequip the fixed device.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6082,
+          "displayName": "Fixed device",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Head Mourner at the Mourners' Headquarters.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes Sir"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Elena's advice",
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2044.0,
+          "heightFine": 8473.0,
+          "y": 4650.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2543.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rotten apple",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a rotten apple from the ground west of the headquarters.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2535.0,
+          "heightFine": 1253.0,
+          "y": 3333.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1984,
+          "displayName": "Rotten apple",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elena, north-east of Ardougne Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "rotten apple for you"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Elena again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "leave you to it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait a minute or world-hop, then talk to her again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "infected the trees"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing the poison",
+      "text": "Pick up an empty barrel in the fenced-in apple orchard north-west of Ardougne.<ul><li>Grab an extra if you don't have a barrel of naphtha.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2487.0,
+          "heightFine": 901.0,
+          "y": 3371.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 1841,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coal",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        },
+        {
+          "name": "Barrel of naphtha",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1841,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1841,
+          "displayName": "Barrel",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 1841,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the empty barrel on the rotten apple pile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2487.0,
+          "heightFine": 949.0,
+          "y": 3374.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Barrel of rotten apples",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the apple barrel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2484.0,
+          "heightFine": 1597.0,
+          "y": 3374.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Barrel of crushed rotten apples",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20811
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your barrel on the tar south of the Tirannwn lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Tirannwn lodestone",
+        "url": "Tirannwn_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2263.0,
+          "heightFine": 325.0,
+          "y": 3127.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1841,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Barrel"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Barrel of tar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3221,
+          "displayName": "Barrel of naphtha",
+          "quantity": 1
+        }
+      ],
+      "jumpOffset": 5,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your barrel of tar on the fractionation still outside of the Chemist's house.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Port Sarim lodestone",
+        "url": "Port_Sarim_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2927.0,
+          "heightFine": 2185.0,
+          "y": 3212.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            414
+          ],
+          "displayName": "Barrel of tar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Create a barrel of naphtha.<ul><li>Increase the tar regulator twice.</li><li>Wait until the pressure valve is in the green.</li><li>Increase the pressure valve once.</li><li>'Add coal' in 1-2 increments to get the heat valve in the green.</li><li>When the distillation bar is full, exit the interface.</li></ul>",
+      "warning": "No tracking for this step.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3221,
+          "displayName": "Barrel of naphtha",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2927.0,
+          "heightFine": 2185.0,
+          "y": 3212.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            414
+          ],
+          "displayName": "Barrel of tar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3221,
+          "displayName": "Barrel of naphtha",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the barrel of naphtha on the apple barrel, then use the apple mix on your sieve.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6097,
+          "modelIds": [
+            312,
+            144
+          ],
+          "displayName": "Sieve"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3221,
+          "modelIds": [
+            354,
+            18
+          ],
+          "displayName": "Barrel of naphtha"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            372
+          ],
+          "candidateItemTypeIds": [
+            20811
+          ],
+          "displayName": "Barrel of crushed rotten apples"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6096,
+          "displayName": "Toxic naphtha",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the toxic naphtha on any cooking range.",
+      "warning": "Do NOT use the toxic naphtha on an open fire or it'll explode.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6098,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Toxic powder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6098,
+          "displayName": "Toxic powder",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "West Ardougne's woe",
+      "text": "Enter the largest building in the centre of West Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2525.5,
+          "heightFine": 1789.0,
+          "y": 3310.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2526.0,
+          "heightFine": 1189.0,
+          "y": 3313.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use one of the toxic powder on one of the grain sacks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2521.0,
+          "heightFine": 1189.0,
+          "y": 3316.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6098,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Toxic powder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6098,
+          "displayName": "Toxic powder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs in the church to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2531.0,
+          "heightFine": 1557.0,
+          "y": 3294.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2530.0,
+          "heightFine": 2117.0,
+          "y": 3294.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the toxic powder on the grain.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2531.0,
+          "heightFine": 2117.0,
+          "y": 3291.0,
+          "instance": false,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6098,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Toxic powder"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 6098,
+          "displayName": "Toxic powder"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Head Mourner at the Mourners' Headquarters.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1785.0,
+          "y": 3320.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        },
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2542.0,
+          "heightFine": 1285.0,
+          "y": 3327.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2045.0,
+          "heightFine": 7973.0,
+          "y": 4629.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 17551,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            17796,
+            19623,
+            19638
+          ],
+          "displayName": "Head Mourner"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2777,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 289
+}

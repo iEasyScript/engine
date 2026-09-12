@@ -1,0 +1,1215 @@
+{
+  "slug": "nature-spirit",
+  "name": "Nature Spirit",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "adventurer",
+  "releaseDate": 1089676800,
+  "neededItems": [
+    {
+      "name": "Silver sickle ",
+      "itemId": 2961,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Ghostspeak amulet",
+      "itemId": 552,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Food if low level",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Prayer potion",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Ghasts",
+      "level": "35",
+      "quantity": 3
+    }
+  ],
+  "prereqQuests": [
+    "Priest in Peril",
+    "The Restless Ghost"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 18,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 20,
+      "ironmanOnly": true
+    },
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 20,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Drezel, who is located underground near Paterdomus.<ul><li>Make sure you have prayer points before starting.</li><li>You should have six empty backpack spaces; otherwise the food he gives you will appear on the floor.</li><li>If you have just completed Priest in Peril, exit and re-enter the Mausoleum.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything else interesting to do around here?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Ghostspeak amulet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to Drezel.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll go and look for him."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm sure."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you can return to me and confirm he is safe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mort Myre Swamp",
+      "text": "Exit into Morytania.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 977.0,
+          "y": 9886.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3428.0,
+          "heightFine": 1765.0,
+          "y": 3485.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the gate to the south.<ul><li>If you just completed Priest in Peril, unlock the Canifis lodestone before continuing</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3443.5,
+          "heightFine": 669.0,
+          "y": 3457.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3443.0,
+          "heightFine": 565.0,
+          "y": 3455.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump across the broken bridge and onto the round island to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.5,
+          "heightFine": 229.0,
+          "y": 3329.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 69.0,
+          "y": 3332.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The ghost of the grotto",
+      "text": "<i>Search</i> the bench nearby for a small mirror.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3437.0,
+          "heightFine": 661.0,
+          "y": 3337.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Small mirror",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20802
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Search</i> the grotto tree for Filliman's journal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "natures grotto entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Fillimans journal",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Equip</i> your ghostspeak amulet and <i>talk</i> to Filliman Tarlock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1050,
+          "modelIds": [
+            3723
+          ],
+          "displayName": "Filliman Tarlock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How long have you been a ghost?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I just have to figure out"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1050,
+          "modelIds": [
+            3723
+          ],
+          "displayName": "Filliman Tarlock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, what's your plan?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "nature spirit"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1050,
+          "modelIds": [
+            3723
+          ],
+          "displayName": "Filliman Tarlock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "figure out the other things we need"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Becoming a nature spirit",
+      "text": "Return to Drezel in Paterdomus.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 965.0,
+          "y": 3485.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 5.0,
+          "y": 9892.0,
+          "range": 30
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 677.0,
+          "y": 9895.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck, adventurer."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump the bridge.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3936
+          ],
+          "candidateObjectTypeIds": [
+            3984
+          ],
+          "displayName": "Bridge shortcut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 165.0,
+          "y": 3327.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run to the marked tile.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3422.0,
+          "heightFine": 597.0,
+          "y": 3337.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 597.0,
+          "y": 3337.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast the druidic spell in your backpack.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2968,
+          "modelIds": [
+            399
+          ],
+          "displayName": "Druidic spell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2352
+          ],
+          "displayName": "Fungus log1"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2412
+          ],
+          "displayName": "Fungus log2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick the fungus from the log.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2352
+          ],
+          "displayName": "Fungus log1"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2412
+          ],
+          "displayName": "Fungus log2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2970,
+          "displayName": "Mort myre fungus",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Filliman.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3936
+          ],
+          "candidateObjectTypeIds": [
+            3984
+          ],
+          "displayName": "Bridge shortcut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 69.0,
+          "y": 3332.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1050,
+          "modelIds": [
+            3723
+          ],
+          "displayName": "Filliman Tarlock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the Mort myre fungus on the western, yellow stone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3439.0,
+          "heightFine": 165.0,
+          "y": 3336.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2970,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Mort myre fungus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aha, yes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3441.0,
+          "heightFine": 141.0,
+          "y": 3336.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the used spell on the eastern, grey stone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3441.0,
+          "heightFine": 141.0,
+          "y": 3336.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2969,
+          "modelIds": [
+            399
+          ],
+          "displayName": "A used spell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aha, yes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on top of the orange stone by right-click selecting 'Walk here'.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 141.0,
+          "y": 3335.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 141.0,
+          "y": 3335.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tell Filliman the puzzle is solved.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1050,
+          "modelIds": [
+            3723
+          ],
+          "displayName": "Filliman Tarlock"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think I've solved the puzzle!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aha, everything"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Enter</i> the Grotto tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "natures grotto entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2272.0,
+          "heightFine": 1525.0,
+          "y": 5334.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Search</i> the Grotto in the centre and Filliman will speak to you.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2271.5,
+          "heightFine": 1465.0,
+          "y": 5340.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, thanks."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Killing the ghasts",
+      "text": "Obtain a silver sickle by purchasing it from the Grand Exchange or crafting one yourself.<ul><li>If crafting, a sickle mould can be bought from the crafting shop in Al Kharid, and silver mined north of Al Kharid.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2961,
+          "displayName": "Silver sickle",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the grotto quickly by speaking to Drezel.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 1565.0,
+          "y": 3485.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 5.0,
+          "y": 9892.0,
+          "range": 30
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3440.0,
+          "heightFine": 677.0,
+          "y": 9895.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7690,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7707,
+            22578,
+            22579
+          ],
+          "displayName": "Drezel",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 85.0,
+          "y": 3333.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the grotto tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "natures grotto entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2272.0,
+          "heightFine": 1525.0,
+          "y": 5334.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Nature Spirit.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1051,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13981
+          ],
+          "displayName": "Nature Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ghast to you until you flee"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the grotto.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2272.0,
+          "heightFine": 1925.0,
+          "y": 5333.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 173.0,
+          "y": 3337.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump the bridge and stand next to the nearby rotting log.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3936
+          ],
+          "candidateObjectTypeIds": [
+            3984
+          ],
+          "displayName": "Bridge shortcut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3440.0,
+          "heightFine": 357.0,
+          "y": 3327.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3423.0,
+          "heightFine": 685.0,
+          "y": 3336.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3423.0,
+          "heightFine": 685.0,
+          "y": 3336.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>Bloom</i> the silver sickle (b) in your backpack.<ul><li>Blooming requires at least 1 prayer point.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2963,
+          "modelIds": [],
+          "displayName": "Silver sickle (b)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2352
+          ],
+          "displayName": "Fungus log1"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2412
+          ],
+          "displayName": "Fungus log2"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick the fungi from the log. Repeat until you have at least 3 total fungi in your inventory.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2963,
+          "modelIds": [],
+          "displayName": "Silver sickle (b)"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2352
+          ],
+          "displayName": "Fungus log1"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2412
+          ],
+          "displayName": "Fungus log2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2970,
+          "displayName": "Mort myre fungus",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fill the druid pouch.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2957,
+          "modelIds": [],
+          "displayName": "Druid pouch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You add 3 natures harvests to your druid pouch."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Invoke and kill 3 nearby ghasts, consuming 1 fungus per invocation.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5367
+          ],
+          "candidateNpcTypeIds": [
+            1708
+          ],
+          "displayName": "Invoked ghast",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "That's all three ghasts!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the Nature Spirit in the grotto.<ul><li>(Optional) After completing the quest, pray at the altar to complete one of the easy Morytania achievements, Fortified Spirit.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "natures grotto entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2272.0,
+          "heightFine": 1525.0,
+          "y": 5334.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1051,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13981
+          ],
+          "displayName": "Nature Spirit"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2355,
+  "stageVarbitCompleteValue": 110,
+  "cacheQuestId": 133
+}

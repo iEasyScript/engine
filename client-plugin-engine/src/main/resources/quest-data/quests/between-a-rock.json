@@ -1,0 +1,398 @@
+{
+  "slug": "between-a-rock",
+  "name": "Between a Rock...",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1111363200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Dwarf Cannon",
+    "Fishing Contest"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "The dwarven scholar",
+      "text": "Talk to Dondakan the Dwarf about cannonballs in the Keldagrim south-west mine.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Why are you firing a cannon at a wall?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So why were you trying to get through the rock again?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sounds interesting!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I'll be back later."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the western half of the Keldagrim Palace (the big building in the centre of Keldagrim) ground floor[UK]1st floor[US], talk to the Dwarven Engineer.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Arzinian Avatar",
+      "text": "Teleport to the Falador lodestone and run north-east to the Dwarven mines (stay outside)<ul><li>Teleport using the skull sceptre and run west.</li><li>Or teleport to the Invention Guild and run directly east.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Rolad, who is located in the most north-eastern building near the ladder to the mines. There is a pause in the dialogue; be sure to finish the whole conversation.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the ladder to enter the Dwarven mines.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill scorpions in the southeast to get the first page. It will appear in your backpack.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the mine carts just to the north for the second page. They may also be in the mine carts just south of the ladder you entered the dungeon from.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine any ore rocks in the mine to find the last page (the rocks in the resource dungeon connected to the mine do not work).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Rolad  and read the book. Don't destroy the book yet.<ul><li>If you don't have an ammo mould for the next step, it can be bought from Nulodion for 5 coins. The ammo mould can be stored on your tool belt.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Of course."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Splendid, now, there's a good dwarf!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Yellow stones",
+      "text": "Return to Dondakan. Talk to him, and then use a gold bar on him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Gold bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ammo mould",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to any furnace with an ammo mould and make a golden cannonball.<ul><li>There is a furnace in the west side of the Keldagrim Palace.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Dondakan and use the golden cannonball on him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm sure this will crack open the rock."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So you want to... fire me into the rock?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can't argue with that, shoot me in!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Well, it's not so simple... like I said, I need to make some modifications to my cannon. They're not really designed to fire humans, you know."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cannon ergonomics",
+      "text": "Read the dwarven lore book to find a piece of base schematics.<ul><li>If you lost the book, you may speak to Rolad.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Gold bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to the Taverley lodestone, run north and enter the cave by the tree patch.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the bar inside the Dwarven Tunnel and talk to Khorvak, a dwarven engineer.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No, I've had enough of buying drinks for people!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " It's always like this... Sure, I'll help you Player, just as soon as you get me a drink!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Dwarven Engineer on the west side of the ground floor[UK]1st floor[US] of the Keldagrim Palace (the same one you went to earlier) for another part of the schematics.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Assemble on any of the schematics.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Move around (and rotate if needed) the pieces, referring to finished schematics pictured right.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith a gold helmet on the anvil in the same room which requires three gold bars by using a gold bar on the anvil.<ul><li>If you are proceeding or completed Legends' Quest.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Gold helmet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Gold helmet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " You forge a beautiful and very heavy helmet made out of solid gold."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Striking gold",
+      "text": "Prepare to fight a level 50-56 enemy, along with your gold helmet.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Gold helmet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Dondakan, equip your gold helmet and ask him to shoot you into the rock.<ul><li>During the cutscene, click directly on the text 'Click to continue', clicking anywhere else will exit and restart the cutscene.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You may fire when ready!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ah, such enthusiasm! Okay, here we go, let me have a look at those schematics and we'll get started."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once inside the cave, do not remove the gold helmet or you will have to restart.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine at least 6 gold ores, which is required to damage the enemy, and keep them in the backpack. The more ores mined (up to a maximum of 15), the lower its combat level.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump-through the first wall of flames and right-click talk on the next ring of fire.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Arzinian Avatar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Dondakan.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12797,
+  "stageVarbitCompleteValue": 110,
+  "cacheQuestId": 284
+}

@@ -1,0 +1,1143 @@
+{
+  "slug": "troll-stronghold",
+  "name": "Troll Stronghold",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "heroic",
+  "releaseDate": 1093305600,
+  "neededItems": [
+    {
+      "name": "Climbing boots, rock climbing boots or 12 coins",
+      "itemId": 18788,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Free inventory spaces",
+      "itemId": -1,
+      "quantity": 4,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Twig",
+      "level": "70",
+      "quantity": 1
+    },
+    {
+      "name": "Berry",
+      "level": "70",
+      "quantity": 1
+    },
+    {
+      "name": "Dad",
+      "level": "77",
+      "quantity": 1
+    },
+    {
+      "name": "Troll General",
+      "level": "91",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Death Plateau"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 15,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Commander Denulth in Burthorpe, east of the castle.<ul><li>If Denulth tells you that the ambush is still being planned, try asking him about the White Knights first.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1597.0,
+          "y": 3561.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2918.0,
+          "heightFine": 1597.0,
+          "y": 3561.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [],
+          "displayName": "Commander Denulth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How goes your fight with the trolls?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Is there anything I can do to help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you don't own climbing boots, buy them from Freda first.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2820.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2820.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can I buy some Climbing boots?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Buy standard boots for 12gp."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18788,
+          "displayName": "Climbing boots",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mountain climbing",
+      "text": "Enter Sabbot's cave from Death Plateau.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2858.5,
+          "heightFine": 1589.0,
+          "y": 3579.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2269.0,
+          "heightFine": 1013.0,
+          "y": 4752.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed through the cavern's obstacles.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2436
+          ],
+          "displayName": "Open wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3405.0,
+          "heightFine": 3365.0,
+          "y": 4283.0,
+          "range": 10
+        },
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 3406.0,
+          "heightFine": 2245.0,
+          "y": 4279.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3406.0,
+          "heightFine": 3365.0,
+          "y": 4281.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3406.0,
+          "heightFine": 2245.0,
+          "y": 4279.0,
+          "range": 10
+        },
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Keep going through the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3434.0,
+          "heightFine": 2245.0,
+          "y": 4276.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3434.0,
+          "heightFine": 2245.0,
+          "y": 4275.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3430.0,
+          "heightFine": 2245.0,
+          "y": 4261.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3566,
+          "modelIds": [
+            348
+          ],
+          "displayName": "Rope swing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3430.0,
+          "heightFine": 2245.0,
+          "y": 4261.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4253.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave through the cave exit.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.5,
+          "heightFine": 2245.0,
+          "y": 4238.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3425.0,
+          "heightFine": 3365.0,
+          "y": 4238.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3436.0,
+          "heightFine": 3365.0,
+          "y": 4240.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5787
+          ],
+          "displayName": "Themap"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "debug",
+      "text": "Climb the rock wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2848.0,
+          "heightFine": 3525.0,
+          "y": 3620.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2848.0,
+          "heightFine": 3525.0,
+          "y": 3623.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the path and climb another rock wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2900.0,
+          "heightFine": 2565.0,
+          "y": 3610.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2902.0,
+          "heightFine": 2565.0,
+          "y": 3610.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Dad",
+      "text": "Open the arena gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2912.5,
+          "heightFine": 1581.0,
+          "y": 3609.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2915.0,
+          "heightFine": 1581.0,
+          "y": 3610.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "No human pass through arena without defeating Dad!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Dad.<ul><li>Very low level players may need food.</li></ul><ul><li>You may choose to kill him or spare him.</li></ul><ul><li>An easy way to kill Dad safely is to bring him over to the northern gate or down by the southern rocks and safe spot him.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1125,
+          "modelIds": [
+            5721
+          ],
+          "displayName": "Dad"
+        },
+        {
+          "t": "direction",
+          "x": 2927.0,
+          "heightFine": 1605.0,
+          "y": 3617.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Stop! You win. Not hurt Dad."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "debug",
+      "text": "Exit through the north gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2927.5,
+          "heightFine": 1605.0,
+          "y": 3619.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2927.0,
+          "heightFine": 1605.0,
+          "y": 3622.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave to the northwest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.5,
+          "heightFine": 1605.0,
+          "y": 3638.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2907.0,
+          "heightFine": 1277.0,
+          "y": 10019.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2907.0,
+          "heightFine": 1277.0,
+          "y": 10037.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2922.0,
+          "heightFine": 1605.0,
+          "y": 3658.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run around the mountain and enter the cave entrance.<ul><li>If you have 47 agility, you can use the agility shortcuts instead.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2928.0,
+          "heightFine": 1605.0,
+          "y": 3678.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2928.0,
+          "heightFine": 1605.0,
+          "y": 3678.0,
+          "range": 3
+        },
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 2565.0,
+          "y": 3687.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2865.0,
+          "heightFine": 3045.0,
+          "y": 3664.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2923.0,
+          "heightFine": 1605.0,
+          "y": 3693.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2923.0,
+          "heightFine": 1605.0,
+          "y": 3693.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 2565.0,
+          "y": 3687.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2865.0,
+          "heightFine": 3045.0,
+          "y": 3664.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2911.0,
+          "heightFine": 1605.0,
+          "y": 3703.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2911.0,
+          "heightFine": 1605.0,
+          "y": 3703.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 2565.0,
+          "y": 3687.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2865.0,
+          "heightFine": 3045.0,
+          "y": 3664.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2884.0,
+          "heightFine": 1605.0,
+          "y": 3701.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2884.0,
+          "heightFine": 1605.0,
+          "y": 3701.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2849.0,
+          "heightFine": 2565.0,
+          "y": 3687.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2865.0,
+          "heightFine": 3045.0,
+          "y": 3664.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2849.0,
+          "heightFine": 2565.0,
+          "y": 3687.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2837.0,
+          "heightFine": 2901.0,
+          "y": 10090.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Prison break",
+      "text": "Run south, go through the open wooden door, then continue north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": 1.0,
+          "y": 1.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a troll general and take the prison key.<ul><li>If you're low level, you can lure the troll general to the marked tile.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1115,
+          "modelIds": [
+            6138
+          ],
+          "displayName": "Troll general"
+        },
+        {
+          "t": "direction",
+          "x": 2832.0,
+          "heightFine": 2925.0,
+          "y": 10061.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3135,
+          "displayName": "Prison key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stone staircase to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2843.0,
+          "heightFine": 2853.0,
+          "y": 10108.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2840.0,
+          "heightFine": 1797.0,
+          "y": 10108.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Unlock the Prison Door to the immediate east and head down the stone staircase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2848.0,
+          "heightFine": 1877.0,
+          "y": 10107.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2850.0,
+          "heightFine": 1893.0,
+          "y": 10107.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2852.5,
+          "heightFine": 1893.0,
+          "y": 10107.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2852.0,
+          "heightFine": 885.0,
+          "y": 10104.0,
+          "range": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket (or kill) Twig and Berry. Safe spot inside one of the open cells if needed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1127,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Berry"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cell key1",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 18804,
+          "modelIds": [
+            4914
+          ],
+          "displayName": "Twig"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Cell key2",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the cell keys and unlock the two jail cells.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2831.5,
+          "heightFine": 861.0,
+          "y": 10082.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks! I'm off back home!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2831.5,
+          "heightFine": 741.0,
+          "y": 10078.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you, my friend."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dunstan, the blacksmith in north-eastern Burthorpe.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2926.0,
+          "heightFine": 1349.0,
+          "y": 3550.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 1082,
+          "modelIds": [],
+          "displayName": "Dunstan"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1082,
+          "modelIds": [],
+          "displayName": "Dunstan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2347,
+  "stageVarbitCompleteValue": 50,
+  "cacheQuestId": 85
+}

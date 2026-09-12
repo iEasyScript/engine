@@ -1,0 +1,1151 @@
+{
+  "slug": "witchs-house",
+  "name": "Witch's House",
+  "members": false,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1014768000,
+  "neededItems": [
+    {
+      "name": "Leather gloves",
+      "itemId": 1059,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Cheese",
+      "itemId": 1985,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Combat gear (Magic equipment and water spells work best)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Highest healing food",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Chicken",
+      "level": "16",
+      "quantity": 1
+    },
+    {
+      "name": "Giant spider",
+      "level": "23",
+      "quantity": 1
+    },
+    {
+      "name": "Bear",
+      "level": "37",
+      "quantity": 1
+    },
+    {
+      "name": "Wolf",
+      "level": "49",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to Harvey, west of Falador by the crumbling wall.<ul><li>For the tracking to work properly, you need to have the chat visible, and game messages set to 'On' or 'Filtered'.<li></li>The crumbling wall requires level 5 Agility to cross.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 653.0,
+          "y": 3355.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2925.0,
+          "heightFine": 653.0,
+          "y": 3355.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 895,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Harvey"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's the matter?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Entering the house",
+      "text": "Go to the front door of the house and look under the potted plant for the house key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.0,
+          "heightFine": 589.0,
+          "y": 3374.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2409,
+          "displayName": "House key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go inside the house and climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2892.5,
+          "heightFine": 637.0,
+          "y": 3373.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2895.0,
+          "heightFine": 645.0,
+          "y": 3373.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2899.0,
+          "heightFine": 645.0,
+          "y": 3375.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2773.0,
+          "heightFine": 645.0,
+          "y": 9759.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you didn't bring leather gloves, search the nearby crates for a pair. You may have to search several times.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2773.0,
+          "heightFine": 645.0,
+          "y": 9755.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1059,
+          "displayName": "Leather gloves",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your leather gloves and enter the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2770.0,
+          "heightFine": 645.0,
+          "y": 9756.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1059,
+          "modelIds": [],
+          "displayName": "Leather gloves"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2769.0,
+          "heightFine": 645.0,
+          "y": 9756.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the cupboard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2765.0,
+          "heightFine": 645.0,
+          "y": 9756.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2410,
+          "displayName": "Magnet",
+          "quantity": 1
+        },
+        {
+          "t": "conversationText",
+          "text": "You find a magnet in the cupboard."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2774.0,
+          "heightFine": 645.0,
+          "y": 9759.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2898.0,
+          "heightFine": 645.0,
+          "y": 3375.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab the cheese off of the table.<ul><li>The leather gloves aren't necessary for the rest of the quest.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1985,
+          "modelIds": [],
+          "displayName": "Cheese"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1985,
+          "displayName": "Cheese",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the room located on the south end of the house.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2894.0,
+          "heightFine": 645.0,
+          "y": 3367.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2894.0,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Right-Click Use</i> cheese on the mouse hole on the eastern wall.<ul><li>If you accidentally eat it, it will respawn on the table.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2895.5,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 901,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5994,
+            5995,
+            7205,
+            25860,
+            25861
+          ],
+          "displayName": "Mouse"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the magnet on the mouse.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2410,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Magnet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There is a strange whirring noise from above the door frame."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Retrieving the ball",
+      "text": "Exit the door and make your way to the fountain, being careful not to be seen by the witch.<ul><li>Strategically walk behind the shrubs to hide, being sure to stand in the middle space of each shrub. Surge can be used; timing is key.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2894.0,
+          "heightFine": 645.0,
+          "y": 3365.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2894.0,
+          "heightFine": 645.0,
+          "y": 3363.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2901.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2901.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2909.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2909.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2917.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2917.0,
+          "heightFine": 645.0,
+          "y": 3360.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 645.0,
+          "y": 3365.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2925.0,
+          "heightFine": 645.0,
+          "y": 3365.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2918.0,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        },
+        {
+          "t": "direction",
+          "x": 2911.0,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2911.0,
+          "heightFine": 645.0,
+          "y": 3366.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Check fountain for a shed key.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2901.0,
+          "heightFine": 645.0,
+          "y": 3369.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You discover a secret compartment with a small key inside, which you take."
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 2411,
+          "displayName": "Shed key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the shed and open the door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2926.5,
+          "heightFine": 645.0,
+          "y": 3364.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2927.0,
+          "heightFine": 645.0,
+          "y": 3364.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Try to take the ball, the experiment will appear and attack you.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2407,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Ball"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2214
+          ],
+          "candidateNpcTypeIds": [
+            5948,
+            5949,
+            5950,
+            5951,
+            8639,
+            16731,
+            16732,
+            16733,
+            25978
+          ],
+          "candidateObjectTypeIds": [
+            83,
+            84,
+            85,
+            2639,
+            3550,
+            4451,
+            4657,
+            4909,
+            7261,
+            7526,
+            9289,
+            10606,
+            11449,
+            11450,
+            11575,
+            12421,
+            12423,
+            12424,
+            12774,
+            13141,
+            13697,
+            13725,
+            15283,
+            15284,
+            15285,
+            16511,
+            20269,
+            20980,
+            23274,
+            25287,
+            25636,
+            33252,
+            33253,
+            33254,
+            36033,
+            36473,
+            38427,
+            39471,
+            41661,
+            44337,
+            46444,
+            47610,
+            49251,
+            49252,
+            49253,
+            49254,
+            49255,
+            49256,
+            49259,
+            52263,
+            52848,
+            53120,
+            61944,
+            63335,
+            63336,
+            63337,
+            63338,
+            63339,
+            63340,
+            73631,
+            74382,
+            75641,
+            75643,
+            75773,
+            75778,
+            75882,
+            75911,
+            81584,
+            83903,
+            85964,
+            88456,
+            89277,
+            89278,
+            89279,
+            89280,
+            89281,
+            89282,
+            89283,
+            89284,
+            89285,
+            90299,
+            92445,
+            92446,
+            93233,
+            96805,
+            99915,
+            100842,
+            101303,
+            104329,
+            106762,
+            109359,
+            110965,
+            112669,
+            114142,
+            119043,
+            119050,
+            119065,
+            119067,
+            119327,
+            119348,
+            119349,
+            119350,
+            119351,
+            119352,
+            119353,
+            119354,
+            119355,
+            121365,
+            129967
+          ],
+          "displayName": "Experiment chicken"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the Witch's experiment four times.<ul><li>All forms of the experiment/shapeshifter are weak to Water Spells.</li><li>You'll have to start over if you leave before killing the last experiment.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2214
+          ],
+          "candidateNpcTypeIds": [
+            5948,
+            5949,
+            5950,
+            5951,
+            8639,
+            16731,
+            16732,
+            16733,
+            25978
+          ],
+          "candidateObjectTypeIds": [
+            83,
+            84,
+            85,
+            2639,
+            3550,
+            4451,
+            4657,
+            4909,
+            7261,
+            7526,
+            9289,
+            10606,
+            11449,
+            11450,
+            11575,
+            12421,
+            12423,
+            12424,
+            12774,
+            13141,
+            13697,
+            13725,
+            15283,
+            15284,
+            15285,
+            16511,
+            20269,
+            20980,
+            23274,
+            25287,
+            25636,
+            33252,
+            33253,
+            33254,
+            36033,
+            36473,
+            38427,
+            39471,
+            41661,
+            44337,
+            46444,
+            47610,
+            49251,
+            49252,
+            49253,
+            49254,
+            49255,
+            49256,
+            49259,
+            52263,
+            52848,
+            53120,
+            61944,
+            63335,
+            63336,
+            63337,
+            63338,
+            63339,
+            63340,
+            73631,
+            74382,
+            75641,
+            75643,
+            75773,
+            75778,
+            75882,
+            75911,
+            81584,
+            83903,
+            85964,
+            88456,
+            89277,
+            89278,
+            89279,
+            89280,
+            89281,
+            89282,
+            89283,
+            89284,
+            89285,
+            90299,
+            92445,
+            92446,
+            93233,
+            96805,
+            99915,
+            100842,
+            101303,
+            104329,
+            106762,
+            109359,
+            110965,
+            112669,
+            114142,
+            119043,
+            119050,
+            119065,
+            119067,
+            119327,
+            119348,
+            119349,
+            119350,
+            119351,
+            119352,
+            119353,
+            119354,
+            119355,
+            121365,
+            129967
+          ],
+          "displayName": "Experiment chicken"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2655
+          ],
+          "candidateNpcTypeIds": [
+            7821,
+            7836,
+            7901
+          ],
+          "displayName": "Experiment spider"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2802
+          ],
+          "candidateNpcTypeIds": [
+            21080
+          ],
+          "displayName": "Experiment bear"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6276
+          ],
+          "candidateNpcTypeIds": [
+            1969,
+            2001
+          ],
+          "displayName": "Experiment wolf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You finally defeat the shapeshifter."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the ball.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2407,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Ball"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2407,
+          "displayName": "Ball",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Lodestone out or get caught by the witch to teleport outside quickly. She will <b>not</b> take the ball.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2920.0,
+          "heightFine": 645.0,
+          "y": 3363.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 176,
+          "modelIds": [
+            4899
+          ],
+          "displayName": "Witch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2891.0,
+          "heightFine": 629.0,
+          "y": 3373.0,
+          "range": 6
+        },
+        {
+          "t": "distanceTo",
+          "x": 2967.0,
+          "heightFine": 1461.0,
+          "y": 3403.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2878.0,
+          "heightFine": 1045.0,
+          "y": 3442.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return and talk to Harvey.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 653.0,
+          "y": 3355.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2925.0,
+          "heightFine": 653.0,
+          "y": 3355.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 895,
+          "modelIds": [
+            4140
+          ],
+          "displayName": "Harvey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2276,
+  "stageVarbitCompleteValue": 7,
+  "cacheQuestId": 263
+}

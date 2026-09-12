@@ -1,0 +1,1119 @@
+{
+  "slug": "shades-of-mortton",
+  "name": "Shades of Mort'ton",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1098057600,
+  "neededItems": [
+    {
+      "name": "Vial of water",
+      "itemId": 227,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Ashes",
+      "itemId": 592,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Clean tarromin",
+      "itemId": 253,
+      "quantity": 2,
+      "duringQuest": true
+    },
+    {
+      "name": "Normal logs",
+      "itemId": 1511,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 1000,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Flamtaer bracelet",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Flamtaer hammer",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Loar shades",
+      "level": "58",
+      "quantity": 5
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 20,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 15,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Firemaking",
+      "level": 6,
+      "ironmanOnly": false
+    },
+    {
+      "type": "misc",
+      "level": 0,
+      "text": "It's best to do this quest on world 88.",
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Search the shelf on the wall south-western ruined house in Mort'ton.<ul><li></li></ul>",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3480.65,
+          "heightFine": 1501.0,
+          "y": 3279.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2408,
+          "displayName": "Diary",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the diary.<ul><li>If you didn't find a diary, check your bank.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2408,
+          "modelIds": [
+            204
+          ],
+          "displayName": "Diary"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the vials (on the ground near the shelf).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 229,
+          "modelIds": [],
+          "displayName": "Vial",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 229,
+          "displayName": "Vial",
+          "quantity": 2
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 227,
+          "displayName": "Vial of water",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make vials of water by using the empty vials on the sink nearby.<ul><li>(Optional) Search the smashed table for extra tarromin and one grimy rogue's purse.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3495.5,
+          "heightFine": 901.0,
+          "y": 3288.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 227,
+          "displayName": "Vial of water",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Serum 207",
+      "text": "Make 2 tarromin potions (unfinished).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 227,
+          "modelIds": [],
+          "displayName": "Vial of water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tarromin potion unf",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mix the tarromin potion (unfinished) with ashes to make 2 Serum 207 (3)s.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Tarromin potion unf"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Serum207",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the Serum 207 on Afflicted(Razmire) in the general store, then talk to him.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are all these shadowy creatures?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll dispatch those dark and evil creatures."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I want to inspect them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill five Loar Shades and pick up their remains.<ul><li>Be sure to talk to Razmire first.</li><li>They can be safespotted using the rocks south west of the waypost in the middle of town.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            360
+          ],
+          "candidateNpcTypeIds": [
+            796,
+            1776,
+            12233,
+            16864,
+            29181
+          ],
+          "displayName": "Lore shade puddle",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1503
+          ],
+          "candidateObjectTypeIds": [
+            568
+          ],
+          "displayName": "Lore shade",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            408
+          ],
+          "candidateNpcTypeIds": [
+            352,
+            2732,
+            3343,
+            3381,
+            4296,
+            4739,
+            5513,
+            14189,
+            25035,
+            25066,
+            26828,
+            29808,
+            29809,
+            29824,
+            29915,
+            30109,
+            30543,
+            30546,
+            30551,
+            30552,
+            30583,
+            30594,
+            30699,
+            30851,
+            32585
+          ],
+          "displayName": "Lore remains"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Lore remains",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give him the remains. He may require more Serum 207.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I can trade with you now"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the serum on Ulsquire Shauncy, located in the house east of the general store.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 901.0,
+          "y": 3289.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "He wanders off to study the bones"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait a minute and ask him about the remains and the temple.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 901.0,
+          "y": 3289.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What did you find out about the remains?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm not surprised that he never took"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 901.0,
+          "y": 3289.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can you tell me about that temple?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thankfully Razmire stocks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 901.0,
+          "y": 3289.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, thanks"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ok, thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Razmire.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have another question."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can you tell me about that temple?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what it looked like back in pagan times"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy at least one olive oil from his general store.<ul><li>(Optional) Buy a Flamtaer hammer to build the temple 75% faster, and for the medium Morytania achievement, \"Flamtaer Will Get You Everywhere\".</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you open a store for me?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I see the general store please?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 24867,
+          "displayName": "Olive oil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open his builders' store. Buy 5 timber beams, 5 limestone bricks, 25 swamp paste.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 8837,
+          "displayName": "Timber beam",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3420,
+          "displayName": "Limestone brick",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3488.0,
+          "heightFine": 901.0,
+          "y": 3296.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3861
+          ],
+          "displayName": "Razmire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1941,
+          "displayName": "Swamp paste",
+          "quantity": 25
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Repairing the temple",
+      "text": "Head north-east and kill shades or repair the temple to increase your sanctity.<ul><li>Hop to World 88 which is the official world for this minigame.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3506.0,
+          "heightFine": 1285.0,
+          "y": 3316.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3506.0,
+          "heightFine": 1285.0,
+          "y": 3316.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the temple until you reach 100% and at least 20 sanctity.<ul><li>Shade luring dummies can be used to distract the Loar Shades when repairing the temple.</li><li>Using the Flamtaer bracelet, the solo player can instantly create the temple walls section by section, until at 100%.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            396
+          ],
+          "candidateNpcTypeIds": [
+            680
+          ],
+          "displayName": "Built altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the sacred altar in the centre of the temple.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            396
+          ],
+          "candidateNpcTypeIds": [
+            680
+          ],
+          "displayName": "Built altar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            870
+          ],
+          "displayName": "Lit altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your olive oil on the flame to make sacred oil.<ul><li>(Optional) Use Serum 207 on the flame to make Serum 208, which permanently cures NPCs and is required for an achievement.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            870
+          ],
+          "displayName": "Lit altar"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 24867,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Olive oil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 34437,
+          "displayName": "Sacred oil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Burning a shade",
+      "text": "Use the sacred oil on a log to create a pyre log.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1511,
+          "modelIds": [],
+          "displayName": "Logs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 34437,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Sacred oil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3438,
+          "displayName": "Pyre logs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on any funeral pyre add the pyre logs. Click again to add the loar remains. Click again to sacrifice them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3507.0,
+          "heightFine": 797.0,
+          "y": 3277.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4093,
+          "modelIds": [
+            1350
+          ],
+          "displayName": "Funeral Pyre",
+          "priority": "closest",
+          "distance": 14
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "A Bronze key"
+        },
+        {
+          "t": "chatText",
+          "text": "coins have been added to"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ulsquire.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3496.0,
+          "heightFine": 901.0,
+          "y": 3289.0,
+          "instance": false,
+          "distance": 1
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire afflicted",
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3219
+          ],
+          "candidateObjectTypeIds": [
+            3050
+          ],
+          "displayName": "Ulsquire cured",
+          "distance": 2
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2620,
+  "stageVarbitCompleteValue": 85,
+  "cacheQuestId": 279
+}

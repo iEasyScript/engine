@@ -1,0 +1,778 @@
+{
+  "slug": "death-plateau",
+  "name": "Death Plateau",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1327968000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Commander Denulth who is located north east of the Burthorpe Lodestone, south of the agility course.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            5730
+          ],
+          "displayName": "Denulth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any quests for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The dwarves",
+      "text": "Head west past the castle and through a defensive wall, into a cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2858.5,
+          "heightFine": 1589.0,
+          "y": 3579.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 15096,
+          "modelIds": [
+            4608
+          ],
+          "displayName": "Sabbot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sabbot.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15096,
+          "modelIds": [
+            4608
+          ],
+          "displayName": "Sabbot"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve been sent to look for a route to Death Plateau. Can you help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Aye, see you later then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave and go to the house south-west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2269.0,
+          "heightFine": 1013.0,
+          "y": 4751.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2858.0,
+          "heightFine": 1589.0,
+          "y": 3579.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2821.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2821.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Freda.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15099,
+          "modelIds": [
+            5769
+          ],
+          "displayName": "Freda"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Climbing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Boots and Routes",
+      "text": "Home Teleport to Burthorpe or walk east. Speak to Dunstan outside the house to the south-east of Denulth to add spikes to the climbing boots.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2925.0,
+          "heightFine": 1333.0,
+          "y": 3551.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2925.0,
+          "heightFine": 1333.0,
+          "y": 3551.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1082,
+          "modelIds": [
+            7722
+          ],
+          "displayName": "Dunstan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you put some fresh spikes on these climbing boots for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Spiked",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bring the spiked boots back to Freda.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2821.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2821.0,
+          "heightFine": 3525.0,
+          "y": 3555.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15099,
+          "modelIds": [
+            5769
+          ],
+          "displayName": "Freda"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23084,
+          "displayName": "Survey",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the Survey that is received.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23084,
+          "modelIds": [
+            609
+          ],
+          "displayName": "Survey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 1242
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to Sabbot\u0027s cave and mine the wall west of him.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2858.5,
+          "heightFine": 1589.0,
+          "y": 3579.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 15096,
+          "modelIds": [
+            4608
+          ],
+          "displayName": "Sabbot"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            2787
+          ],
+          "candidateObjectTypeIds": [
+            5589,
+            5594,
+            5617,
+            5644,
+            5690
+          ],
+          "displayName": "Mine wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "modelIds": [
+            2436
+          ],
+          "displayName": "Open wall"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed through the cavern\u0027s obstacles.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            2436
+          ],
+          "displayName": "Open wall"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3405.0,
+          "heightFine": 3365.0,
+          "y": 4283.0,
+          "range": 10
+        },
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 3406.0,
+          "heightFine": 2245.0,
+          "y": 4279.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3406.0,
+          "heightFine": 3365.0,
+          "y": 4281.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3406.0,
+          "heightFine": 2245.0,
+          "y": 4279.0,
+          "range": 10
+        },
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3422.0,
+          "heightFine": 2245.0,
+          "y": 4280.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Keep going through the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3434.0,
+          "heightFine": 2245.0,
+          "y": 4276.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3434.0,
+          "heightFine": 2245.0,
+          "y": 4275.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3430.0,
+          "heightFine": 2245.0,
+          "y": 4261.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3566,
+          "modelIds": [
+            348
+          ],
+          "displayName": "Rope swing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3430.0,
+          "heightFine": 2245.0,
+          "y": 4261.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3415.0,
+          "heightFine": 2245.0,
+          "y": 4260.0,
+          "range": 0
+        },
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4253.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3417.0,
+          "heightFine": 2245.0,
+          "y": 4252.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave through the cave exit.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3421.5,
+          "heightFine": 2245.0,
+          "y": 4238.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3425.0,
+          "heightFine": 3365.0,
+          "y": 4238.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3436.0,
+          "heightFine": 3365.0,
+          "y": 4240.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 15100,
+          "modelIds": [
+            5787
+          ],
+          "displayName": "The map"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "The Map will approach the player.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            5787
+          ],
+          "displayName": "Themap"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Prepare to die, troll!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inCombatWith",
+          "npcId": -1,
+          "displayName": "The Map"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill The Map.\u003cul\u003e\u003cli\u003eThe Map will not be counted as killed if you are in a group.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I think that takes care of him"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Home teleport to Burthorpe and talk to Commander Denulth. Then watch or skip the cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2918.0,
+          "heightFine": 1605.0,
+          "y": 3561.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1060,
+          "modelIds": [
+            5730
+          ],
+          "displayName": "Denulth"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10848,
+  "stageVarbitCompleteValue": 65,
+  "cacheQuestId": 140
+}

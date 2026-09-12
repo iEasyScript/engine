@@ -1,0 +1,676 @@
+{
+  "slug": "the-elder-kiln",
+  "name": "The Elder Kiln",
+  "members": true,
+  "length": "long",
+  "timeline": "legendary",
+  "releaseDate": 1329177600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to TzHaar-Mej-Jeh at the Birthing Pool in TzHaar City.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4708.0,
+          "heightFine": 552.0,
+          "y": 5159.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15166,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Jeh"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Hatching",
+      "text": "Keep the gauge within the two arrows using fire spells to heat it and water spells to cool it until the egg hatches.\u003cul\u003e\u003cli\u003eThe two TzHaar will also fire occasionally. Keep an eye on them as both may shoot fire spells at the egg simultaneously which could result in overheating.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It hatches"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to TzHaar-Mej-Jeh.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What\u0027s a Ga\u0027al?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why do you do this?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can\u0027t you teach them your ways?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Teach is for JalYt"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "In the pits",
+      "text": "Go west to the main plaza and talk to TzHaar-Mej-Ak.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve come for that Ga\u0027al."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 4671.0,
+          "heightFine": 581.0,
+          "y": 5157.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15158,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Ak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill all enemies in the Fight Pits whilst protecting Ga\u0027al-Jeh.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You think you can save this"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, kill TzHaar-Ket-Yit\u0027tal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15181,
+          "modelIds": [],
+          "displayName": "TzHaar-Ket-Yit\u0027tal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Path to the kiln",
+      "text": "Talk to one of the TzHaar-Mejs.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "It\u0027s the remains of your dead that you use as currency."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course I\u0027ll help the TzHaar."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I had better be on my way."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, follow me."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68108,
+          "modelIds": [],
+          "displayName": "Elder Kiln"
+        },
+        {
+          "t": "direction",
+          "x": 4743.0,
+          "heightFine": 552.0,
+          "y": 5169.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 68121,
+          "modelIds": [],
+          "displayName": "Chasm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room one",
+      "text": "Jump the chasm  and kill all of the monsters.\u003cul\u003e\u003cli\u003eDo not use protection prayers and disable your auras until the TokTz-Ket-Dill\u0027s shell is broken as this will increase the frequency of making the rocks fall on you, dealing over 1,000 damage.\u003c/li\u003e\u003cli\u003eYou need a pickaxe to break the shell of TokTz-Ket-Dill, which is weak against water spell after its shell is broken.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Come on, Xox!"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68122,
+          "modelIds": [],
+          "displayName": "Chasm"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ground stop here."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the skeleton at the end of the cavern  to receive Journal of Perjour.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Reach in and take the book."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68106,
+          "modelIds": [],
+          "displayName": "Skeleton"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23646,
+          "displayName": "Journal of Perjour",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed to the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68113,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There. What\u0027s that?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room two",
+      "text": "Take the TokKul on the ground and kill all of the monsters.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed to the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68114,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 68540,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room three",
+      "text": "Kill all of the monsters and examine the note in the Journal of Perjour (the book which should be in your backpack).",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "For the left scale, use the picture to find its resulting sum and put that much tokkul on it.  Repeat for the right scale. A Tzhaar number symbol can be higher than 15 that is shown in the picture of this guide on the right.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23646,
+          "modelIds": [],
+          "displayName": "Journal of Perjour"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Read the note"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": 739
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "the-elder-kiln.ancient-scales"
+    },
+    {
+      "text": "For the left scale, use the picture to find its resulting sum and put that much tokkul on it.  Repeat for the right scale. A Tzhaar number symbol can be higher than 15 that is shown in the picture of this guide on the right.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 68542,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "the-elder-kiln.ancient-scales"
+    },
+    {
+      "text": "Proceed to the next room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68542,
+          "modelIds": [],
+          "displayName": "Ancient gate"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 68124,
+          "modelIds": [],
+          "displayName": "Chasm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room four",
+      "text": "Go through the room, jumping over chasms and killing the TokTz-Ket-Dill along the way.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68124,
+          "modelIds": [],
+          "displayName": "Chasm",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68126,
+          "modelIds": [],
+          "displayName": "Chasm",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68128,
+          "modelIds": [],
+          "displayName": "Chasm",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68130,
+          "modelIds": [],
+          "displayName": "Chasm",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68132,
+          "modelIds": [],
+          "displayName": "Chasm",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68116,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 15188,
+          "modelIds": [],
+          "displayName": "Lava monster"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Room five",
+      "text": "Kill the monsters in this room.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Checkpoint"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed to the next room.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68112,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It has been"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The elder kiln",
+      "text": "Complete all seven waves of the Kiln.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Come speak with us"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to TokHaar-Hok.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s see what rock you\u0027re forged from, then."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need your help."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I think he should, so the Ga\u0027al can live good lives."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15195,
+          "modelIds": [],
+          "displayName": "TokHaar-Hok"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What\u0027s wrong"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Proceed back through the caves, ignoring monsters along the way.\u003cul\u003e\u003cli\u003eTeleporting away and attempting to avoid heading back through the caves will result in the player being forced to return where Ga\u0027al Xox was left at the kiln, then head back through the caves as originally intended.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68120,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 68117,
+          "modelIds": [],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the centre of the Main Plaza and talk to one of TzHaar-Mejs.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Even after all we\u0027ve done, you can\u0027t trust the Ga\u0027al?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Let Ga\u0027al-Xox fight]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m only interested in the power of that Kiln."
+        },
+        {
+          "t": "direction",
+          "x": 4671.0,
+          "heightFine": 581.0,
+          "y": 5157.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15158,
+          "modelIds": [],
+          "displayName": "TzHaar-Mej-Ak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9091,
+  "stageVarbitCompleteValue": 170,
+  "cacheQuestId": 351
+}

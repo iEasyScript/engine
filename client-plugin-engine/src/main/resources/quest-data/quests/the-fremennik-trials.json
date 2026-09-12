@@ -1,0 +1,3462 @@
+{
+  "slug": "the-fremennik-trials",
+  "name": "The Fremennik Trials",
+  "members": true,
+  "length": "long",
+  "timeline": "champion",
+  "releaseDate": 1099353600,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 5250,
+      "duringQuest": false
+    },
+    {
+      "name": "Raw shark, raw manta ray, or raw sea turtle",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "A beer",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Raw potato",
+      "itemId": 1942,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Cabbage",
+      "itemId": 1965,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Onion",
+      "itemId": 1957,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Ring of recoil",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "The trials",
+      "text": "Talk to Brundt the Chieftain in the longhall in Rellekka.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2085.0,
+          "y": 3668.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1294,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7394,
+            7395,
+            9118,
+            9135,
+            9139,
+            9315,
+            9323,
+            9331,
+            13284,
+            17059,
+            21215,
+            27677,
+            29647
+          ],
+          "displayName": "Brundt the Chieftain",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any quests?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about something else"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to Brundt the Chieftain.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2085.0,
+          "y": 3668.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1294,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7394,
+            7395,
+            9118,
+            9135,
+            9139,
+            9315,
+            9323,
+            9331,
+            13284,
+            17059,
+            21215,
+            27677,
+            29647
+          ],
+          "displayName": "Brundt the Chieftain",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to become a Fremennik!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Manni the Reveller",
+      "text": "Talk to Manni the Reveller.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1286,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13283
+          ],
+          "displayName": "Manni the Reveller"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "drink no more and yields"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Beer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 250,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up a Keg of beer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 3711,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Keg of beer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3711,
+          "displayName": "Keg of beer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up a beer.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 1917,
+          "modelIds": [],
+          "displayName": "Beer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1917,
+          "displayName": "Beer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Poison Salesman at Forester\u0027s Arms in Seers\u0027 Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2695.0,
+          "heightFine": 1157.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 820,
+          "modelIds": [],
+          "displayName": "Poison Salesman",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Fremennik Trials"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yes please"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use beer on council workman at the bridge south of Rellekka.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2654.0,
+          "heightFine": 901.0,
+          "y": 3591.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1287,
+          "modelIds": [
+            4353
+          ],
+          "displayName": "Council workman",
+          "distance": 12
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1917,
+          "modelIds": [],
+          "displayName": "Beer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Strange object",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eLight\u003c/i\u003e the strange object and \u003ci\u003eput-inside pipe\u003c/i\u003e on the outside eastern wall of the Rellekka longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2662.65,
+          "heightFine": 2233.0,
+          "y": 3673.85,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            282
+          ],
+          "displayName": "Strange object"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4162,
+          "modelIds": [],
+          "displayName": "Pipe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That is going"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand next to Manni in the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 2085.0,
+          "y": 3674.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2658.0,
+          "heightFine": 2085.0,
+          "y": 3674.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e low alcohol keg on the keg of beer in the backpack.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3711,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Keg of beer"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3712,
+          "modelIds": [],
+          "displayName": "Low alcohol keg"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "refill it with with low alcohol beer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Challenge Manni.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1286,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13283
+          ],
+          "displayName": "Manni the Reveller"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "counsh... gets my vote"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Olaf the Bard",
+      "text": "Speak to Olaf the Bard, east of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2672.0,
+          "heightFine": 1253.0,
+          "y": 3682.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1269,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13287
+          ],
+          "displayName": "Olaf the Bard",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "more music lovers"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Raw potato",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Onion",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Raw shark, raw manta ray, or raw sea turtle",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chop off a branch of the swaying tree to the south-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2738.5,
+          "heightFine": 2389.0,
+          "y": 3638.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4142,
+          "modelIds": [
+            4455
+          ],
+          "displayName": "Swaying tree",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3692,
+          "displayName": "Branch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft the branch into an unstrung lyre.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            165
+          ],
+          "displayName": "Swaying tree branch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3688,
+          "displayName": "Unstrung lyre",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lalli to the south-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2770.0,
+          "heightFine": 1189.0,
+          "y": 3621.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1270,
+          "modelIds": [
+            3423
+          ],
+          "displayName": "Lalli",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Other human?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "okay, well, bye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Askeladden south of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 1309.0,
+          "y": 3659.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1295,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2439
+          ],
+          "displayName": "Askeladden",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3695,
+          "displayName": "Pet rock",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grab a raw potato, an onion, and cabbage from the farm in south-east Rellekka.\u003cul\u003e\u003cli\u003eGrab an extra onion and cabbage in case you accidentally eat them.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2674.0,
+          "heightFine": 1053.0,
+          "y": 3655.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1957,
+          "displayName": "Onion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2674.0,
+          "heightFine": 1101.0,
+          "y": 3653.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1942,
+          "displayName": "Raw potato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2674.0,
+          "heightFine": 1125.0,
+          "y": 3651.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1965,
+          "displayName": "Cabbage",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the potato, onion, cabbage, and pet rock on Lalli\u0027s Stew.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.0,
+          "heightFine": 1165.0,
+          "y": 3623.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4149,
+          "modelIds": [
+            570
+          ],
+          "candidateObjectTypeIds": [
+            2048,
+            2049
+          ],
+          "displayName": "Lalli\u0027s Stew",
+          "distance": 20
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1957,
+          "modelIds": [],
+          "displayName": "Onion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "onion into the cauldron"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.0,
+          "heightFine": 1165.0,
+          "y": 3623.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4149,
+          "modelIds": [
+            570
+          ],
+          "candidateObjectTypeIds": [
+            2048,
+            2049
+          ],
+          "displayName": "Lalli\u0027s Stew",
+          "distance": 20
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1942,
+          "modelIds": [],
+          "displayName": "Raw potato"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "potato into the cauldron"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.0,
+          "heightFine": 1165.0,
+          "y": 3623.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4149,
+          "modelIds": [
+            570
+          ],
+          "candidateObjectTypeIds": [
+            2048,
+            2049
+          ],
+          "displayName": "Lalli\u0027s Stew",
+          "distance": 20
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1965,
+          "modelIds": [],
+          "displayName": "Cabbage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "cabbage into the cauldron"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2772.0,
+          "heightFine": 1165.0,
+          "y": 3623.5,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4149,
+          "modelIds": [
+            570
+          ],
+          "candidateObjectTypeIds": [
+            2048,
+            2049
+          ],
+          "displayName": "Lalli\u0027s Stew",
+          "distance": 20
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3695,
+          "modelIds": [
+            216
+          ],
+          "displayName": "Pet rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "pet rock into the cauldron"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Lalli to obtain a golden fleece.\u003cul\u003e\u003cli\u003eUse the drop trick to obtain another if you plan on completing Kili\u0027s Knowledge VII.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2770.0,
+          "heightFine": 1189.0,
+          "y": 3621.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1270,
+          "modelIds": [
+            3423
+          ],
+          "displayName": "Lalli",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3693,
+          "displayName": "Golden fleece",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the golden fleece on a spinning wheel in south-west Rellekka.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2617.0,
+          "heightFine": 1041.0,
+          "y": 3659.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3693,
+          "modelIds": [
+            219
+          ],
+          "displayName": "Golden fleece"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3694,
+          "displayName": "Golden wool",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the wool on the unstrung lyre.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3694,
+          "modelIds": [
+            174,
+            120
+          ],
+          "displayName": "Golden wool"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3688,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Unstrung lyre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "golden strings to the lyre"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e your raw shark, manta ray or sea turtle on the strange altar south-west of Rellekka.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2626.0,
+          "heightFine": 453.0,
+          "y": 3598.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 383,
+          "modelIds": [
+            270
+          ],
+          "displayName": "Raw shark"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Many thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the backstage of the longhall through the north-east door.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2666.5,
+          "heightFine": 2485.0,
+          "y": 3683.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2665.0,
+          "heightFine": 2085.0,
+          "y": 3683.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Step on stage and play the enchanted lyre.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2565.0,
+          "y": 3683.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3688,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Unstrung lyre"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "certainly earned my vote"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sigli the Huntsman",
+      "text": "Talk to Sigli the Huntsman near Rellekka\u0027s southern entrance.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.0,
+          "heightFine": 1221.0,
+          "y": 3652.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1281,
+          "modelIds": [],
+          "displayName": "Sigli the Huntsman",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What\u0027s a Draugen?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have completed this task"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 5000,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the received hunters\u0027 talisman to locate and kill The Draugen.\u003cul\u003e\u003cli\u003eThe Draugen is not visible until you get close to his location.\u003c/li\u003e\u003cli\u003eLook for a tiny grey butterfly.\u003c/li\u003e\u003cli\u003eOnce next to the butterfly, click on the talisman.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            372
+          ],
+          "candidateItemTypeIds": [
+            20811
+          ],
+          "displayName": "Hunters talisman"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            4320
+          ],
+          "candidateObjectTypeIds": [
+            4366,
+            15098,
+            16968
+          ],
+          "displayName": "Draugen"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1280,
+          "modelIds": [],
+          "displayName": "Butterfly"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "absorb the Draugen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Sigli to receive his vote.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.0,
+          "heightFine": 1221.0,
+          "y": 3652.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1281,
+          "modelIds": [],
+          "displayName": "Sigli the Huntsman",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sigmund The Merchant",
+      "text": "Talk to Sigmund The Merchant in the marketplace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2641.0,
+          "heightFine": 645.0,
+          "y": 3680.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1282,
+          "modelIds": [],
+          "displayName": "Sigmund The Merchant",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "to find whatever you need"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Sailor on the middle dock.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.0,
+          "heightFine": 325.0,
+          "y": 3693.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1304,
+          "modelIds": [
+            4953
+          ],
+          "displayName": "Sailor",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sounds like a fair deal to me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Olaf the Bard, east of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2672.0,
+          "heightFine": 1253.0,
+          "y": 3682.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1269,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13287
+          ],
+          "displayName": "Olaf the Bard",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will be happy to spend the time on composing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Yrsa in the clothing store, west of the marketplace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2624.0,
+          "heightFine": 741.0,
+          "y": 3674.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1301,
+          "modelIds": [],
+          "displayName": "Yrsa",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brundt the Chieftain in the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2085.0,
+          "y": 3668.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1294,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7394,
+            7395,
+            9118,
+            9135,
+            9139,
+            9315,
+            9323,
+            9331,
+            13284,
+            17059,
+            21215,
+            27677,
+            29647
+          ],
+          "displayName": "Brundt the Chieftain",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "best of luck with the rest of your trials"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sigli the Huntsman, south of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.0,
+          "heightFine": 1221.0,
+          "y": 3652.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1281,
+          "modelIds": [],
+          "displayName": "Sigli the Huntsman",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "who knows where my hunting ground is"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Skulgrimen, north of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1093.0,
+          "y": 3692.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1303,
+          "modelIds": [],
+          "displayName": "Skulgrimen",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Sounds good to me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fisherman, north of the marketplace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2641.0,
+          "heightFine": 325.0,
+          "y": 3699.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1302,
+          "modelIds": [
+            5673
+          ],
+          "displayName": "Fisherman",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Swensen the Navigator, south of the market.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.5,
+          "heightFine": 1061.0,
+          "y": 3659.5,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1283,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13286
+          ],
+          "displayName": "Swensen the Navigator",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "time to make a forecast somehow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Peer the Seer, west of Swensen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2634.0,
+          "heightFine": 901.0,
+          "y": 3669.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1288,
+          "modelIds": [],
+          "displayName": "Peer the Seer",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Fremennik Trials"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That is all"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thorvald the Warrior, north of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1093.0,
+          "y": 3692.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13285
+          ],
+          "displayName": "Thorvald the Warrior",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Manni the Reveller in the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 2085.0,
+          "y": 3674.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1286,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13283
+          ],
+          "displayName": "Manni the Reveller",
+          "distance": 9
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "That\u0027s all"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thora the Barkeep in the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2662.0,
+          "heightFine": 2085.0,
+          "y": 3673.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1300,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21216
+          ],
+          "displayName": "Thora the Barkeep",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go ask him yourself though"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Askeladden outside the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 1309.0,
+          "y": 3659.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1295,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2439
+          ],
+          "displayName": "Askeladden",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I can relieve you of"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thora the Barkeep.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2662.0,
+          "heightFine": 2085.0,
+          "y": 3673.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1300,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            21216
+          ],
+          "displayName": "Thora the Barkeep",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "called Askeladden coming in here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Manni the Reveller.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.0,
+          "heightFine": 2085.0,
+          "y": 3674.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1286,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13283
+          ],
+          "displayName": "Manni the Reveller",
+          "distance": 9
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "happy with the trade then"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thorvald the Warrior.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1093.0,
+          "y": 3692.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13285
+          ],
+          "displayName": "Thorvald the Warrior",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will fulfill it to my utmost"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Peer the Seer.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2634.0,
+          "heightFine": 901.0,
+          "y": 3669.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1288,
+          "modelIds": [],
+          "displayName": "Peer the Seer",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Fremennik Trials"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "greatest security I can imagine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Swensen the Navigator.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.5,
+          "heightFine": 1061.0,
+          "y": 3659.5,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1283,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13286
+          ],
+          "displayName": "Swensen the Navigator",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "local fishing patterns with my gratitude"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fisherman.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2641.0,
+          "heightFine": 325.0,
+          "y": 3699.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1302,
+          "modelIds": [
+            5673
+          ],
+          "displayName": "Fisherman",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "have the stupid fish"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Skulgrimen.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1093.0,
+          "y": 3692.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1303,
+          "modelIds": [],
+          "displayName": "Skulgrimen",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sigli.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2661.0,
+          "heightFine": 1221.0,
+          "y": 3652.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1281,
+          "modelIds": [],
+          "displayName": "Sigli the Huntsman",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "dependent on it for my skill anyway"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Brundt.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2085.0,
+          "y": 3668.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1294,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7394,
+            7395,
+            9118,
+            9135,
+            9139,
+            9315,
+            9323,
+            9331,
+            13284,
+            17059,
+            21215,
+            27677,
+            29647
+          ],
+          "displayName": "Brundt the Chieftain",
+          "distance": 5
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "reduced sales taxes on all"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Yrsa.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2624.0,
+          "heightFine": 741.0,
+          "y": 3674.0,
+          "instance": false,
+          "distance": 2
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1301,
+          "modelIds": [],
+          "displayName": "Yrsa",
+          "distance": 3
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "come to me next time for shoes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Olaf.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2672.0,
+          "heightFine": 1253.0,
+          "y": 3682.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1269,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13287
+          ],
+          "displayName": "Olaf the Bard",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "one of my finest works yet"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Sailor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.0,
+          "heightFine": 325.0,
+          "y": 3693.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1304,
+          "modelIds": [
+            4953
+          ],
+          "displayName": "Sailor",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about the Merchant\u0027s trial"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "or my chances are worse than ever"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finally, talk to Sigmund.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2641.0,
+          "heightFine": 645.0,
+          "y": 3680.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1282,
+          "modelIds": [],
+          "displayName": "Sigmund The Merchant",
+          "distance": 16
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "recommend you to the council of elders"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Swensen the Navigator",
+      "text": "Talk to Swensen the Navigator in his house south-west of the longhall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2646.0,
+          "heightFine": 1061.0,
+          "y": 3660.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1283,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13286
+          ],
+          "displayName": "Swensen the Navigator",
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Watch and learn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2644.0,
+          "heightFine": 1061.0,
+          "y": 3657.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2631.0,
+          "heightFine": 741.0,
+          "y": 10006.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 597.0,
+          "y": 10002.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2642.0,
+          "heightFine": 1021.0,
+          "y": 10017.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "West.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2639.0,
+          "heightFine": 893.0,
+          "y": 10015.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2651.0,
+          "heightFine": 749.0,
+          "y": 10004.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2656.0,
+          "heightFine": 749.0,
+          "y": 10004.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2667.0,
+          "heightFine": 797.0,
+          "y": 10015.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 837.0,
+          "y": 10018.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2630.0,
+          "heightFine": 1277.0,
+          "y": 10028.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "South.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2630.0,
+          "heightFine": 1205.0,
+          "y": 10023.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2653.0,
+          "heightFine": 709.0,
+          "y": 10035.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "East.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2656.0,
+          "heightFine": 613.0,
+          "y": 10037.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2668.0,
+          "heightFine": 861.0,
+          "y": 10026.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2666.0,
+          "heightFine": 1093.0,
+          "y": 10029.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2665.0,
+          "heightFine": 997.0,
+          "y": 10038.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder, then talk to Swensen to receive his vote.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1297.0,
+          "y": 10037.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2649.0,
+          "heightFine": 1061.0,
+          "y": 3661.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Of course outerlander"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Thorvald the Warrior",
+      "text": "Talk to Thorvald the Warrior north of the longhall.\u003cul\u003e\u003cli\u003eYou are not allowed to bring in weapons, armour, or beasts of burden.\u003c/li\u003e\u003cli\u003eYou can bring potions, food, rings of recoil, \u003ci\u003ealready summoned\u003c/i\u003e familiars, and you can remove your pickaxe/hatchet from your tool belt.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2665.0,
+          "heightFine": 1093.0,
+          "y": 3692.5,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13285
+          ],
+          "displayName": "Thorvald the Warrior",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "spell that will do that for you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder and wait for him to appear to begin the fight.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2667.0,
+          "heightFine": 1093.0,
+          "y": 3694.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2671.0,
+          "heightFine": 2245.0,
+          "y": 10098.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Koschei the Deathless three times. Either kill him the fourth time or let yourself be defeated. \u003cb\u003eYou will not die.\u003c/b\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "have completed the warriors trial"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thorvald to receive his vote.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1289,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13285
+          ],
+          "displayName": "Thorvald the Warrior"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "impressed with your bravery in combat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Peer the Seer",
+      "text": "Speak to Peer the Seer, south-west of the market in Rellekka.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2634.0,
+          "heightFine": 901.0,
+          "y": 3669.0,
+          "instance": false,
+          "distance": 16
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1288,
+          "modelIds": [],
+          "displayName": "Peer the Seer",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Fremennik Trials"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "As you wish"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Click on the door to the house. Read the riddle. The first sentence determines the answer:\u003cbr/\u003e\u003ctable\u003e\u003ctbody\u003e\u003ctr\u003e\u003cth\u003eRiddle\u003c/th\u003e\u003cth\u003eAnswer\u003c/th\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in mage\u003c/td\u003e\u003ctd\u003eMind\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in tar\u003c/td\u003e\u003ctd\u003eTree\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in the well\u003c/td\u003e\u003ctd\u003eLife\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in fish\u003c/td\u003e\u003ctd\u003eFire\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in water\u003c/td\u003e\u003ctd\u003eTime\u003c/td\u003e\u003c/tr\u003e\u003ctr\u003e\u003ctd\u003eMy first is in wizard\u003c/td\u003e\u003ctd\u003eWind\u003c/td\u003e\u003c/tr\u003e\u003c/tbody\u003e\u003c/table\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 1661.0,
+          "y": 3666.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You have solved the riddle!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [],
+      "solverId": "the-fremennik-trials.combination-lock"
+    },
+    {
+      "text": "Enter the building and climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 1661.0,
+          "y": 3663.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2631.0,
+          "heightFine": 2565.0,
+          "y": 3662.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open then search the south-west cupboard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.5,
+          "heightFine": 3065.0,
+          "y": 3660.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3727,
+          "displayName": "Empty bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Study the unicorn\u0027s head.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2632.0,
+          "heightFine": 3065.0,
+          "y": 3660.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 9947,
+          "displayName": "Old red disk",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Study the bull\u0027s head.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2634.0,
+          "heightFine": 3065.0,
+          "y": 3660.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3744,
+          "displayName": "Wooden disk",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open then search the eastern chest.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2638.0,
+          "heightFine": 2565.0,
+          "y": 3662.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3732,
+          "displayName": "Empty jug",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2634.0,
+          "heightFine": 3065.0,
+          "y": 3665.2,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3742,
+          "displayName": "Red herring",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the red herring on the cooking range.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.0,
+          "heightFine": 3065.0,
+          "y": 3663.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3742,
+          "modelIds": [
+            174
+          ],
+          "displayName": "Red herring"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3746,
+          "displayName": "Sticky red goop",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the goop on the wooden disk.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3744,
+          "modelIds": [
+            66
+          ],
+          "displayName": "Wooden disk"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3746,
+          "modelIds": [
+            45
+          ],
+          "displayName": "Sticky red goop"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3743,
+          "displayName": "Red disk",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 9947,
+          "displayName": "Old red disk",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the eastern trapdoor and \u003ci\u003euse\u003c/i\u003e the two disks on the abstract mural.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 2565.0,
+          "y": 3663.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2636.0,
+          "heightFine": 1061.0,
+          "y": 3662.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2633.66,
+          "heightFine": 1761.0,
+          "y": 3663.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 9947,
+          "modelIds": [
+            66
+          ],
+          "displayName": "Old red disk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3737,
+          "displayName": "Vase lid",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 1661.0,
+          "y": 3663.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2636.0,
+          "heightFine": 2565.0,
+          "y": 3662.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the empty jug on the tap.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2628.7,
+          "heightFine": 2965.0,
+          "y": 3661.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3732,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Empty jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3729,
+          "displayName": "Full jug",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the jug on the empty bucket.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3727,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Empty bucket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3729,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Full jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3724,
+          "displayName": "3/5ths full bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the empty jug on the tap again and fill the bucket.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3732,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Empty jug"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4176,
+          "modelIds": [],
+          "displayName": "Tap"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3729,
+          "displayName": "Full jug",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the full jug on the 3/5ths full bucket.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Three fifths bucket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3729,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Full jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3731,
+          "displayName": "1/3rds full jug",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the full bucket on the drain to get an empty bucket.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3722,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Full bucket"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4175,
+          "modelIds": [],
+          "displayName": "Drain"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3727,
+          "displayName": "Empty bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the 1/3rds full jug on the empty bucket, then \u003ci\u003eUse\u003c/i\u003e the empty jug on the tap",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3727,
+          "modelIds": [
+            582
+          ],
+          "displayName": "Empty bucket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3732,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Empty jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3729,
+          "displayName": "Full jug",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 3726,
+          "displayName": "1/5ths full bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the full jug on the 1/5ths full bucket.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3726,
+          "modelIds": [
+            582
+          ],
+          "displayName": "1/5ths full bucket"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3729,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Full jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3723,
+          "displayName": "4/5ths full bucket",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the 4/5ths full bucket on the northwestern chest.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3723,
+          "modelIds": [
+            570
+          ],
+          "displayName": "4/5ths full bucket"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4170,
+          "modelIds": [],
+          "displayName": "Chest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3734,
+          "displayName": "Vase",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the vase on the tap.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2628.7,
+          "heightFine": 2965.0,
+          "y": 3661.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 710,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Vase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You fill the strange looking vase with water"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the vase lid on the vase of water.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3737,
+          "modelIds": [
+            54
+          ],
+          "displayName": "Vase lid"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3735,
+          "modelIds": [],
+          "displayName": "Vase of water"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3738,
+          "displayName": "Sealed vase",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the sealed vase on the frozen table.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2638.0,
+          "heightFine": 2965.0,
+          "y": 3665.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3738,
+          "modelIds": [
+            234
+          ],
+          "displayName": "Sealed vase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3741,
+          "displayName": "Frozen key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "\u003ci\u003eUse\u003c/i\u003e the frozen key on the range.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2629.0,
+          "heightFine": 3065.0,
+          "y": 3663.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3741,
+          "modelIds": [
+            333,
+            234
+          ],
+          "displayName": "Frozen key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3745,
+          "displayName": "Seer\u0027s key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the trapdoor and exit the building.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 2565.0,
+          "y": 3663.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2636.0,
+          "heightFine": 1061.0,
+          "y": 3662.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 1661.0,
+          "y": 3666.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "vote in your favour"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Brundt the Chieftain in the longhall in Rellekka.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2658.5,
+          "heightFine": 2085.0,
+          "y": 3668.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1294,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7394,
+            7395,
+            9118,
+            9135,
+            9139,
+            9315,
+            9323,
+            9331,
+            13284,
+            17059,
+            21215,
+            27677,
+            29647
+          ],
+          "displayName": "Brundt the Chieftain",
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2262,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 280
+}

@@ -1,0 +1,1823 @@
+{
+  "slug": "rag-and-bone-man",
+  "name": "Rag and Bone Man",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "pathfinder",
+  "releaseDate": 1144627200,
+  "neededItems": [
+    {
+      "name": "Empty pot",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": false
+    },
+    {
+      "name": "Any type of logs",
+      "itemId": -1,
+      "quantity": 8,
+      "duringQuest": true
+    },
+    {
+      "name": "Any light source",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Rope (if never entered Lumbridge caves)",
+      "itemId": 954,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Combat gear",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Spiny helmet",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Bullseye lantern",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Goblin",
+      "level": "11",
+      "quantity": 1
+    },
+    {
+      "name": "Ram",
+      "level": "2",
+      "quantity": 1
+    },
+    {
+      "name": "Giant rat",
+      "level": "4",
+      "quantity": 1
+    },
+    {
+      "name": "Big frog",
+      "level": "18",
+      "quantity": 1
+    },
+    {
+      "name": "Monkey",
+      "level": "8",
+      "quantity": 1
+    },
+    {
+      "name": "Bear",
+      "level": "32",
+      "quantity": 1
+    },
+    {
+      "name": "Unicorn",
+      "level": "15",
+      "quantity": 1
+    },
+    {
+      "name": "Giant bat",
+      "level": "14",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to the Odd Old Man in Silvarea.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Fort_Forinthry_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3366.0,
+          "heightFine": 2445.0,
+          "y": 3501.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Empty pot",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Anything I can do to help?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Odd Old Man.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Bye!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Vinegar",
+      "text": "Talk to Fortunato in the Draynor Village market.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Draynor Village lodestone",
+        "url": "Draynor_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3085.0,
+          "heightFine": 1317.0,
+          "y": 3249.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 3671,
+          "modelIds": [
+            4011
+          ],
+          "displayName": "Fortunato"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3671,
+          "modelIds": [
+            4011
+          ],
+          "displayName": "Fortunato"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Rag and Bone Man."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I have some in specially"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 3671,
+          "modelIds": [
+            4011
+          ],
+          "displayName": "Fortunato"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy 8 jugs of vinegar.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Vinegar",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a jugs of vinegar on an empty pot.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            366
+          ],
+          "displayName": "Vinegar"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "pot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Vinegar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Goblin skull",
+      "text": "Kill a goblin north of the Lumbridge lodestone.<ul><li>You can drop the empty jugs.</li></ul>",
+      "warning": "Might not be visible after killing the mob.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Lumbridge lodestone",
+        "url": "Lumbridge_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3212.0,
+          "heightFine": 917.0,
+          "y": 3279.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3212.0,
+          "heightFine": 917.0,
+          "y": 3279.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Combat gear",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Pot of vinegar",
+          "itemId": 306,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 61945,
+          "modelIds": [
+            4560,
+            4608
+          ],
+          "displayName": "Goblin",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7812,
+          "modelIds": [
+            234
+          ],
+          "displayName": "Goblin skull"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7812,
+          "displayName": "Goblin skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the goblin skull.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7812,
+          "modelIds": [
+            234
+          ],
+          "displayName": "Goblin skull"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7812,
+          "displayName": "Goblin skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the goblin skull on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7812,
+          "modelIds": [
+            234
+          ],
+          "displayName": "Goblin skull"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ram skull",
+      "text": "Climb over the stile.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 993,
+          "modelIds": [
+            1200
+          ],
+          "displayName": "Stile"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3199.0,
+          "heightFine": 909.0,
+          "y": 3288.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a ram.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 16739,
+          "modelIds": [
+            7512
+          ],
+          "displayName": "RAM",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7818,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Ram skull"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the ram skull.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7818,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Ram skull"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7818,
+          "displayName": "Ram skull",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ram skull on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7818,
+          "modelIds": [
+            477
+          ],
+          "displayName": "Ram skull"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Giant rat bone",
+      "text": "Kill a giant rat to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3188.0,
+          "heightFine": 1301.0,
+          "y": 3210.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 86,
+          "modelIds": [
+            32256
+          ],
+          "displayName": "Giant rat"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7824,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Giant rat bone"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7824,
+          "displayName": "Giant rat bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 86,
+          "modelIds": [
+            32256
+          ],
+          "displayName": "Giant rat",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7824,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Giant rat bone"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7824,
+          "displayName": "Giant rat bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 86,
+          "modelIds": [
+            32256
+          ],
+          "displayName": "Giant rat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the giant rat bone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7824,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Giant rat bone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7824,
+          "displayName": "Giant rat bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the giant rat bone on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7824,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Giant rat bone"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Giant frog leg",
+      "text": "Climb down the dark hole under the tree in the Lumbridge swamp.<ul><li>If this is your first visit, use a rope on the tree.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3164.0,
+          "heightFine": 949.0,
+          "y": 3167.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5943
+          ],
+          "candidateObjectTypeIds": [
+            6207
+          ],
+          "displayName": "Lumbridge swamp tree"
+        },
+        {
+          "t": "distanceTo",
+          "x": 3168.0,
+          "heightFine": 1029.0,
+          "y": 9572.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Any light source",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Rope (if never entered Lumbridge caves)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": [
+        {
+          "name": "Spiny helmet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bullseye lantern",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5943
+          ],
+          "candidateObjectTypeIds": [
+            6207
+          ],
+          "displayName": "Lumbridge swamp tree"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 954,
+          "modelIds": [],
+          "displayName": "Rope"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3168.0,
+          "heightFine": 1029.0,
+          "y": 9572.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5943
+          ],
+          "candidateObjectTypeIds": [
+            6207
+          ],
+          "displayName": "Lumbridge swamp tree"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a big frog.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1829,
+          "modelIds": [
+            1359
+          ],
+          "displayName": "Big frog",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7908,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Big frog leg"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7908,
+          "displayName": "Big frog leg",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the big frog leg.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7908,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Big frog leg"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7908,
+          "displayName": "Big frog leg",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the big frog leg on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7908,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Big frog leg"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Monkey paw",
+      "text": "Kill a monkey near the Karamja lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Karamja lodestone",
+        "url": "Karamja_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2744.0,
+          "heightFine": 789.0,
+          "y": 3162.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 4033,
+          "modelIds": [
+            1371
+          ],
+          "displayName": "Monkey"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7854,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Monkey paw"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7854,
+          "displayName": "Monkey paw",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 4033,
+          "modelIds": [
+            1371
+          ],
+          "displayName": "Monkey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7854,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Monkey paw"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7854,
+          "displayName": "Monkey paw",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "item",
+          "typeId": 4033,
+          "modelIds": [
+            1371
+          ],
+          "displayName": "Monkey"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the monkey paw.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7854,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Monkey paw"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7854,
+          "displayName": "Monkey paw",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the monkey paw on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7854,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Monkey paw"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bear ribs",
+      "text": "Kill a bear east of the Ardougne lodestone.",
+      "warning": "Might not be visible after killing the mob.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2694.0,
+          "heightFine": 973.0,
+          "y": 3346.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 112411,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Bear"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7815,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bear ribs"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7815,
+          "displayName": "Bear ribs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 112411,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Bear",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7815,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bear ribs"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7815,
+          "displayName": "Bear ribs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 112411,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Bear"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the bear ribs.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7815,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bear ribs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7815,
+          "displayName": "Bear ribs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bear ribs on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7815,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Bear ribs"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 6
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Unicorn bone",
+      "text": "Kill a unicorn to the north.",
+      "warning": "Might not be visible after killing the mob.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2700.0,
+          "heightFine": 1141.0,
+          "y": 3434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 89,
+          "modelIds": [
+            49122
+          ],
+          "displayName": "Unicorn"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7821,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Unicorn bone"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7821,
+          "displayName": "Unicorn bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 89,
+          "modelIds": [
+            49122
+          ],
+          "displayName": "Unicorn",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7821,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Unicorn bone"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7821,
+          "displayName": "Unicorn bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 89,
+          "modelIds": [
+            49122
+          ],
+          "displayName": "Unicorn"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the unicorn bone.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7821,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Unicorn bone"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7821,
+          "displayName": "Unicorn bone",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the unicorn bone on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7821,
+          "modelIds": [
+            252
+          ],
+          "displayName": "Unicorn bone"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 7
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Giant bat wing",
+      "text": "Kill a giant bat to the south-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2752.0,
+          "heightFine": 933.0,
+          "y": 3402.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 78,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Giant bat"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7827,
+          "modelIds": [
+            462
+          ],
+          "displayName": "Giant bat wing"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7827,
+          "displayName": "Giant bat wing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Pot of vinegar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 78,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Giant bat",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 7827,
+          "modelIds": [
+            462
+          ],
+          "displayName": "Giant bat wing"
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 7827,
+          "displayName": "Giant bat wing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 78,
+          "modelIds": [
+            2394
+          ],
+          "displayName": "Giant bat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the giant bat wing.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 7827,
+          "modelIds": [
+            462
+          ],
+          "displayName": "Giant bat wing"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7827,
+          "displayName": "Giant bat wing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the giant bat wing on a pot of vinegar.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7827,
+          "modelIds": [
+            462
+          ],
+          "displayName": "Giant bat wing"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 7811,
+          "modelIds": [
+            306
+          ],
+          "displayName": "Pot of vinegar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Cleaning the bones",
+      "text": "Go back to the Odd Old Man's hut.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Fort_Forinthry_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3361.0,
+          "heightFine": 2501.0,
+          "y": 3505.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3361.0,
+          "heightFine": 2501.0,
+          "y": 3505.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bone in vinegar",
+          "itemId": 588,
+          "quantity": 8,
+          "duringQuest": false
+        },
+        {
+          "name": "Any type of logs",
+          "itemId": -1,
+          "quantity": 8,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add logs to the pot boiler.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2340
+          ],
+          "displayName": "Empty pot boiler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2730
+          ],
+          "displayName": "Empty pot boiler with logs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add a pot of bones to the pot boiler.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2730
+          ],
+          "displayName": "Empty pot boiler with logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3036
+          ],
+          "displayName": "Pot boiler with logs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the fire.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3036
+          ],
+          "displayName": "Pot boiler with logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3510
+          ],
+          "candidateObjectTypeIds": [
+            62985,
+            62993
+          ],
+          "displayName": "Lit pot boiler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the bone to boil.<ul><li>Hopping worlds will skip the boiling.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2928
+          ],
+          "displayName": "Ready pot boiler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Remove the bone from the pot boiler.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2928
+          ],
+          "displayName": "Ready pot boiler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2340
+          ],
+          "displayName": "Empty pot boiler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7813,
+          "displayName": "Bone in vinegar",
+          "quantity": 1
+        }
+      ],
+      "jumpOffset": -5,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the Odd Old Man.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9173,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9174
+          ],
+          "displayName": "Odd Old Man"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12837,
+  "stageVarbitCompleteValue": 4,
+  "cacheQuestId": 68
+}

@@ -1,0 +1,462 @@
+{
+  "slug": "druidic-ritual",
+  "name": "Druidic Ritual",
+  "members": false,
+  "length": "short",
+  "timeline": "pathfinder",
+  "releaseDate": 1327968000,
+  "neededItems": [
+    {
+      "name": "Vial",
+      "itemId": 229,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Kaqemeex south of the Heroes\u0027 Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2924.0,
+          "heightFine": 1997.0,
+          "y": 3484.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2924.0,
+          "heightFine": 1997.0,
+          "y": 3484.0,
+          "range": 15
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 83122,
+          "modelIds": [
+            6474
+          ],
+          "displayName": "Kaqemeex"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Druidic Ritual."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you need help with?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m pretty sure I\u0027ve heard that before."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Will do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run directly south and enter the last house on the west near the Herblore icon.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2917.0,
+          "heightFine": 1093.0,
+          "y": 3438.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2917.0,
+          "heightFine": 1093.0,
+          "y": 3438.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sanfew.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 454,
+          "modelIds": [
+            5958
+          ],
+          "displayName": "Sanfew"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027ve been sent to help make an ointment of imbalance for Kaqemeex."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, I\u0027ll do that then."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Well thank you very much!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gathering ingredients",
+      "text": "Go north and enter the Burthorpe Slayer Cave directly east of the crayfish pond.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2918.0,
+          "heightFine": 661.0,
+          "y": 3466.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2214.0,
+          "heightFine": 1861.0,
+          "y": 4532.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Vial",
+          "itemId": 229,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south and fill your vial at the subterranean spring for a vial of living water.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2207.0,
+          "heightFine": 1103.0,
+          "y": 4492.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2207.0,
+          "heightFine": 1103.0,
+          "y": 4492.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 31613,
+          "modelIds": [
+            546
+          ],
+          "displayName": "Spring"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23096,
+          "displayName": "Living water",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2218.0,
+          "heightFine": 1861.0,
+          "y": 4532.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2918.0,
+          "heightFine": 661.0,
+          "y": 3467.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south until you find wandering wyrmwood, then take-from one of them for wandering wyrmwood.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2909.0,
+          "heightFine": 789.0,
+          "y": 3382.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2909.0,
+          "heightFine": 789.0,
+          "y": 3382.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "modelIds": [
+            2328
+          ],
+          "displayName": "Wandering wyrmwood",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23097,
+          "displayName": "Plucked wyrmwood",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "At the west part of the lake, bait the Sparkling Fishing Spot.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2905.0,
+          "heightFine": 61.0,
+          "y": 3398.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2905.0,
+          "heightFine": 61.0,
+          "y": 3398.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3825,
+          "modelIds": [
+            846
+          ],
+          "displayName": "Fishing spot"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 42360,
+          "displayName": "Fish",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Gather-scales from the stone fish, choosing the chisel option.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 23098,
+          "modelIds": [
+            534
+          ],
+          "displayName": "Stone fish"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 23099,
+          "displayName": "Stone scales",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Sanfew for a cutscene.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2917.0,
+          "heightFine": 1093.0,
+          "y": 3438.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2917.0,
+          "heightFine": 1093.0,
+          "y": 3438.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 454,
+          "modelIds": [
+            5958
+          ],
+          "displayName": "Sanfew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There we go."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13366,
+  "stageVarbitCompleteValue": 8,
+  "cacheQuestId": 111
+}

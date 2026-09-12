@@ -1,0 +1,114 @@
+{
+  "slug": "alpha-vs-omega",
+  "name": "Alpha vs Omega",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1691366400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Remains of the Necrolord",
+    "Soul (Well of Souls)"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Rasial, the First Necromancer on the bridge in the City of Um.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]<ul><li>If Rasial, the First Necromancer isn't there, home teleport to the City of Um or relog.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kharen in City of Um to travel to Rasial's Citadel.<ul><li>You must talk to Kharen; using the right-click travel option will not start the fight.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(The following is also shown as a regular overhead message:) Rasial: I think, perhaps, it is finally time to test you. (Continues below.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The fight",
+      "text": "Defeat Hermod, the Spirit of War. Cannot be killed with deathtouched dart.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat Rasial, the First Necromancer. Cannot be killed with deathtouched dart.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "A cutscene ensues. Continue speaking with Rasial, the First Necromancer.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Death in the City of Um to complete the quest.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 53497,
+  "stageVarbitCompleteValue": 30,
+  "cacheQuestId": 499
+}

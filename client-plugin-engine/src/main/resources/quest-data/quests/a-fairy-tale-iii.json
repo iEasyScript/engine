@@ -1,0 +1,1789 @@
+{
+  "slug": "a-fairy-tale-iii",
+  "name": "A Fairy Tale III - Battle at Ork's Rift",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1273708800,
+  "neededItems": [
+    {
+      "name": "Nuff's certificate",
+      "itemId": 9025,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bucket of milk",
+      "itemId": 1927,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Dramen/lunar staff",
+      "itemId": 772,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Secateurs",
+      "itemId": 5329,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Hammer",
+      "itemId": 2347,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "General Grombold",
+      "level": "85",
+      "quantity": 1
+    },
+    {
+      "name": "General Shredflesh",
+      "level": "85",
+      "quantity": 1
+    },
+    {
+      "name": "General Bre'egth",
+      "level": "85",
+      "quantity": 1
+    },
+    {
+      "name": "Fairy Godfather",
+      "level": "84",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "A Fairy Tale II - Cure a Queen"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 36,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Farming",
+      "level": 54,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 51,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Use any fairy ring to travel to Zanaris with Nuff's certificate in your inventory. If you can start the quest, you will be redirected to the Sparse Plane.<ul><li>If you cannot start the quest, enter and leave Zanaris via fairy rings repeatedly until Fairy Very Wise appears and talks to you. It may require up to 30 minutes after completing A Fairy Tale II - Cure a Queen. If you've declined her before, you have to travel by fairy ring BIR to reach her.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2455.0,
+          "heightFine": 965.0,
+          "y": 4396.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Nuff's certificate",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dramen staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Lunar staff",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Very Wise.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4442,
+          "modelIds": [
+            1365
+          ],
+          "displayName": "Fairy Very Wise"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Of course I'll help. What do I need to do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Please teleport me there right away!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1560.0,
+          "heightFine": 973.0,
+          "y": 4235.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Fairy Queen in the headquarters.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12090,
+          "modelIds": [
+            1620
+          ],
+          "displayName": "Fairy Queen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll help."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Fairy Queen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12090,
+          "modelIds": [
+            1620
+          ],
+          "displayName": "Fairy Queen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "ready to watch it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Briefing",
+      "text": "Turn on the projector to watch the first briefing.",
+      "warning": "Be wary of cutscenes that may trigger epilepsy.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1584.85,
+          "heightFine": 1369.0,
+          "y": 4241.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Show a non-flickering briefing."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Tooth Fairy again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Right, I understand about fairy tooth magic now."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the projector when"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn on the projector to watch the second briefing.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1584.85,
+          "heightFine": 1369.0,
+          "y": 4241.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Show a non-flickering briefing."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Agree to collect the Tooth Fairy's wand.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll go and collect your wand."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go get some"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up a hammer and secateurs to the north-west.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2347,
+          "modelIds": [],
+          "displayName": "Hammer",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 5329,
+          "modelIds": [],
+          "displayName": "Secateurs",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2347,
+          "displayName": "Hammer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2347,
+          "modelIds": [],
+          "displayName": "Hammer",
+          "priority": "closest"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 5329,
+          "modelIds": [],
+          "displayName": "Secateurs",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 5329,
+          "displayName": "Secateurs",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the hammer on the secateurs.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2347,
+          "modelIds": [],
+          "displayName": "Hammer"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 5329,
+          "modelIds": [],
+          "displayName": "Secateurs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18673,
+          "displayName": "Tooth extractor",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Zanaris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1560.0,
+          "heightFine": 973.0,
+          "y": 4234.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gnarly",
+      "text": "Use the tooth extractor on the door to the house north-west of Zanaris bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2379.5,
+          "heightFine": 1149.0,
+          "y": 4468.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18673,
+          "modelIds": [
+            768
+          ],
+          "displayName": "Tooth extractor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "lock"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bucket of milk",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Tooth extractor",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gnarly inside the home.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 18674,
+          "modelIds": [
+            2334
+          ],
+          "displayName": "Gnarly"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I do something for you...in return for the wand?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Your enamel shimmers like a river of silver in the moonlight."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've never seen such amazing, inspired and dream-like toothiness."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I can see your bicuspid ancestry is an example to all molar-kind."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You're a wonderful guard tooth with lovely cusps."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Gnarly needs milk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bucket of milk on Gnarly.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 18674,
+          "modelIds": [
+            2334
+          ],
+          "displayName": "Gnarly"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1927,
+          "modelIds": [],
+          "displayName": "Bucket of milk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll close my eyes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, okay! Keep your enamel on, I'll pick you up."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18674,
+          "displayName": "Gnarly",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Fairy Resistance HQ.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 772,
+          "modelIds": [],
+          "displayName": "Dramen staff"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1561.0,
+          "heightFine": 917.0,
+          "y": 4234.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Tooth Fairy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "turn on the projector"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn on the projector.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1584.85,
+          "heightFine": 1369.0,
+          "y": 4241.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Show a non-flickering briefing."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the briefing, agree to the tooth extraction.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I understand all of that."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I accept."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Pain? Bring it on! Replace my tooth."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Step onto the yellow flowers and use the wave emote.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1584.0,
+          "heightFine": 1245.0,
+          "y": 4237.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "reawwy good"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Zanaris.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1560.0,
+          "heightFine": 973.0,
+          "y": 4234.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Bre'egth's Tooth",
+      "text": "Talk to General Bre'egth outside of the Zanaris mill, northwest of the fairy ring.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4776
+          ],
+          "displayName": "Breegth"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's wrong with your mouth?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "sure to do that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to a nearby Ork.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6271,
+          "modelIds": [
+            4665
+          ],
+          "displayName": "Ork"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know anything about K'Chunk?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "boring me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Fairy Fixit near the fairy ring.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 941.0,
+          "y": 4433.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4455,
+          "modelIds": [],
+          "displayName": "Fairy Fixit",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you know about K'Chunk?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "many thanks"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to DIP.<ul><li>Recommended: Bring 4 regular planks and 8 nails of any kind to fix the bridge by using a plank on the broken bridge.</li><li>Recommended: Bring 8 willow logs if you have level 85 Firemaking, light the bonfire for K'Chunk and receive 10,000 Firemaking experience.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3763.0,
+          "heightFine": 165.0,
+          "y": 2930.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to K'Chunk.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3393
+          ],
+          "displayName": "K chunk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You knocked out Bre'egth's tooth, didn't you?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "tricksy fing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket him for the tooth.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3393
+          ],
+          "displayName": "K chunk"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Breegth tooth",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gromblod's Tooth",
+      "text": "Teleport to BKQ.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3763.0,
+          "heightFine": 165.0,
+          "y": 2930.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3041.0,
+          "heightFine": 1565.0,
+          "y": 4532.0,
+          "range": 4
+        },
+        {
+          "t": "distanceTo",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2412.0,
+          "heightFine": 989.0,
+          "y": 4434.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3041.0,
+          "heightFine": 1565.0,
+          "y": 4532.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Wood Dryad to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3029.0,
+          "heightFine": 885.0,
+          "y": 4518.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4441,
+          "modelIds": [
+            7140
+          ],
+          "displayName": "Wood Dryad",
+          "distance": 16
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Have you seen Gromblod?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "can be done"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to General Gromblod.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5610
+          ],
+          "displayName": "Gromblod"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let's see what"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Wood Dryad again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4441,
+          "modelIds": [
+            7140
+          ],
+          "displayName": "Wood Dryad"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "CLR"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to CLR.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3041.0,
+          "heightFine": 1549.0,
+          "y": 4532.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2735.0,
+          "heightFine": 5669.0,
+          "y": 2742.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick a mango.<ul><li>Recommended: unblock this end of the hollow log if you haven't yet.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 38055,
+          "modelIds": [
+            804
+          ],
+          "displayName": "Mango tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18676,
+          "displayName": "Mango",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to BKQ.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2735.0,
+          "heightFine": 5669.0,
+          "y": 2742.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3041.0,
+          "heightFine": 1565.0,
+          "y": 4532.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gromblod.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5610
+          ],
+          "displayName": "Gromblod"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 18677,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Mango with tooth"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the mango with tooth.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 18677,
+          "modelIds": [
+            432
+          ],
+          "displayName": "Mango with tooth"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18677,
+          "displayName": "Mango with tooth",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Extract the tooth from the mango with tooth.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18677,
+          "modelIds": [
+            258
+          ],
+          "displayName": "Mango with tooth"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18673,
+          "modelIds": [
+            768
+          ],
+          "displayName": "Tooth extractor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gromblod tooth",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Shredflesh's Tooth",
+      "text": "Teleport to ALP.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3041.0,
+          "heightFine": 1549.0,
+          "y": 4532.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2468.0,
+          "heightFine": 965.0,
+          "y": 4189.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to General Shredflesh.",
+      "warning": "There's no tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5928
+          ],
+          "candidateObjectTypeIds": [
+            6071,
+            6072,
+            34038
+          ],
+          "displayName": "Shredflesh"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help with something?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So your tooth is really hurting, is it?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Which tooth is it that's so terribly painful and hurting?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And the pain is very high is it?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm a dentist; I can extract it for you!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What's a bit of pain for a huge ork hero like you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "If the tooth isn't pulled out, all your teeth will hurt much worse!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let me pull it out! What are you, an ork or a goblin?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll make sure it doesn't hurt a bit; I'm a professional."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "test"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the extractor on him.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5928
+          ],
+          "candidateObjectTypeIds": [
+            6071,
+            6072,
+            34038
+          ],
+          "displayName": "Shredflesh"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 18673,
+          "modelIds": [
+            768
+          ],
+          "displayName": "Tooth extractor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Gromblod tooth",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Clear the pile of rocks behind Shredflesh.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12034,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Rock pile"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 12034,
+          "modelIds": [
+            2082
+          ],
+          "displayName": "Rock pile"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2468.0,
+          "heightFine": 965.0,
+          "y": 4189.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1560.0,
+          "heightFine": 941.0,
+          "y": 4234.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Tooth Fairy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "on the projector"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn on the projector.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1584.85,
+          "heightFine": 1369.0,
+          "y": 4241.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Fairy Godfather"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Tooth Fairy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you are dismissed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final battle",
+      "text": "Prepare for the final battle. Move to the next step manually when you're ready.<ul><li>You can bank your dramen/lunar staff.</li><li>Bring combat gear and food.</li><li>Bring the 3 ork teeth.</li><li>Bring the fairy wand.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Fairy wand",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to BIR, DIP, CLR, ALP. (If the fairy ring at BIR does not appear, lobby and start over.)",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Look through fairy tree where you'll encounter a cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 52617,
+          "modelIds": [
+            3414
+          ],
+          "displayName": "Fairy tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Queen Bee"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 100,
+          "instance": true
+        },
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene talk to the Tooth Fairy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11376,
+          "modelIds": [
+            1626
+          ],
+          "displayName": "Tooth Fairy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let him escape"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Look through the fairy tree.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 52617,
+          "modelIds": [
+            3414
+          ],
+          "displayName": "Fairy tree"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "You squeeze past"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "How to kill the Fairy Godfather:<ul><li>Use all 3 teeth on the farming patches.</li><li>Stand by the patches and kill the generals and ork warriors; Prioritize any general using the drum near the rift, to stop new orks from spawning.</li><li>Once the teeth have grown, instruct them to fight.</li><li>Focus on ork warriors while the teeth focus on killing the generals.</li><li>After you and the teeth kill the generals, kill the godfather (let the teeth attack the godfather to reduce the shields). Ensure all 3 teeth are attacking the godfather at once, as each one removes a layer of his 3-layer shield (note: if all 3 teeth aren't attacking the godfather, you will not land hits as his shield will still be active)</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Breegth tooth"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            138
+          ],
+          "displayName": "Gromblod tooth"
+        },
+        {
+          "t": "direction",
+          "x": 6.5,
+          "heightFine": 0.0,
+          "y": -13.5,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 14.5,
+          "heightFine": 0.0,
+          "y": -11.5,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "direction",
+          "x": 20.5,
+          "heightFine": 0.0,
+          "y": -4.5,
+          "instance": true,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay, okay"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to the Fairy Godfather for a cutscene.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3304,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4433,
+            11323,
+            11324,
+            11325,
+            11326,
+            11327,
+            11328,
+            11346,
+            11347
+          ],
+          "displayName": "Fairy Godfather"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Fairy Queen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12090,
+          "modelIds": [
+            1620
+          ],
+          "displayName": "Fairy Queen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please teleport me there now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3077.0,
+          "heightFine": 1301.0,
+          "y": 3253.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Martin the Master Gardener.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3299,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15854,
+            17384
+          ],
+          "displayName": "Martin the Master Gardener"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about farming problems and fairies."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9928,
+  "stageVarbitCompleteValue": 180,
+  "cacheQuestId": 337
+}

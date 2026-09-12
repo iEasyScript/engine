@@ -1,0 +1,563 @@
+{
+  "slug": "love-story",
+  "name": "Love Story",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "legendary",
+  "releaseDate": 1278288000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Swan Song"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "A damsel in distress",
+      "text": "Talk to Mabel in the barn east of the Draynor Village lodestone.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me what's wrong?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, off I go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Solve the hay bale puzzle:<ul><li>As you arrive, go north once and push the one hay bale there all the way to the western wall.</li><li>Standing where you are, push a pair of hay bales at your immediate south twice.</li><li>Go one square east and push another pair of hay bales to the south.</li><li>Push the single hay bale directly west of you.</li><li>Finally, push the two hay bales to the south of you to clear the path.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the ring.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zenevivia.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What's happened to Mabel?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Are you going to give Mabel her ring?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you want me to do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, off I go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search any hay bale for a twig, give it to her.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to her again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Will you return Mabel's ring and leave now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm trying to complete this quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright, I'll accept. I'll make you regret this!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Wise Old Man",
+      "text": "Go to Draynor Village and talk to the Wise Old Man.<ul><li>This option may not show up unless the quest Garden of Tranquillity is completed if you started it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A woman called Zenevivia wishes to challenge us."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Zenevivia? Y-y-you've met Zenevivia?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, talk to him outside his house. If you have a familiar summoned then you must dismiss it to be able to progress.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "No."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, let's go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The Wise Old Man begins following the player."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Rimmington house portal, talk to him again (Home Teleport works, teleport to Port Sarim and head west).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can we get in there?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " I believe we'll be able to do it by chipping a teleport spell to change its destination manually. Magic is so flexible if you know these tricks!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "When he leaves, walk to the house just east of the portal and talk to him once more.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Now, listen carefully. You've got to access the core of the tablet - where the spell is stored - so that you can modify it manually."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the 'chipped' teleport to house tablet, solve the puzzle by dragging and dropping tiles from the left side on to the correct spots according to the photo here.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Zenevivia's house",
+      "text": "While standing next to the Wise Old Man, break the chipped tablet.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Oak plank",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mithril bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Steel bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Clockwork",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the dungeon.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Traps? Very dangerous. You go first."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Hmmph."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the cutscene, continue dialogue with the Wise Old Man.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What are we going to build?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " You'll need a mithril bar, 2 oak planks and either a clockwork mechanism or a steel bar. Bring them to Zenevivia's workshop and I'll show you what to do next."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Craft via on the Clockmaker's bench in the workshop room.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the bench again to create a dummy.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, I'll get on with it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the dungeon. During this part, there will be a pulsating purple light around your screen. Any players sensitive to flashing lights should proceed with caution.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Traverse through the dungeon, deactivating all the traps by walking on them and then return to the surface.<ul><li>Pit guardian rooms have 2 traps each, except for the scabarite room, having only one.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the staircase.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, get it out now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " You retrieve the dummy from the dungeon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The dungeon pit",
+      "text": "Enter the dungeon.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm sure I found them all. Let's enter."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The player and the Wise Old Man both enter the dungeon."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Traverse through the dungeon, killing all the enemies (high-level players need not worry about using super antifire for the iron dragon as it is fairly weak and may be killed quickly).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the final door, talk to the Wise Old Man.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "She's insane; let's kill her and leave!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, let's go and face her."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(Continues below.)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final battle",
+      "text": "Talk to Zenevivia to start the battle. If you fail your first  attempts, return to the Wise Old Man at the house in Rimmington. Right click on the house teleport tabs to modify them for another teleport to the fight.<ul><li>Avoid the flames on the floor, they deal low damage.</li><li>Zenevivia uses magic spells and flames on the floor that can quickly deal around 600 damage.</li><li>She will sometimes use protection prayers so prepare to switch attack styles or just use Necromancy.</li><li>She can be knocked off pillars using abilities that knock back enemies, such as Kick.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After she is defeated, talk to her.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Robbing the Wizards' Tower",
+      "text": "You will return to Draynor Village.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zenevivia in the Wise Old Man's house.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Have you still got Mabel's ring?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "When will you give me Mabel's ring?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Stealing is wrong."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "When are you going to attack?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Quite soon, I think. Go upstairs and look through our telescope, you should get quite a good view."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs and look through the telescope and watch the Wizards' Tower Robbery.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head downstairs, talk to Zenevivia again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Are you going to try any more robberies?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I have Mabel's ring back now?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Oh, are you still fussing about that stupid girl's ring? Yes, I'll give it back, and I promise I won't bother her again."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 12598,
+  "stageVarbitCompleteValue": 150,
+  "cacheQuestId": 340
+}

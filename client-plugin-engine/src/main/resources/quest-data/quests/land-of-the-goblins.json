@@ -1,0 +1,746 @@
+{
+  "slug": "land-of-the-goblins",
+  "name": "Land of the Goblins",
+  "members": true,
+  "length": "long",
+  "timeline": "heroic",
+  "releaseDate": 1194825600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Another Slice of H.A.M.",
+    "Fishing Contest"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Land of the Goblins",
+      "text": "Talk to Grubfoot in the Dorgeshuun Mines.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Mistag, why won't you let Grubfoot into the city?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll take responsibility for Grubfoot."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]<ul><li>Dismiss any familiar or Grubfoot won't follow you.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Yu'biusk",
+      "text": "With Grubfoot following, enter Dorgesh-Kaan using the door to the south and head north-west where Oldak is.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the north-west room, talk to Zanik.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "So why have you come to talk to Zanik?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What was this new dream?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do you know your dream was true?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I promise not to tell anyone where the temple is."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Then let's go!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "You not a goblin!",
+      "text": "If you forgot to bring the toadflax potion, proceed until Zanik has entered into the temple.<ul><li>Otherwise, you will need to go back to Oldak in Dorgesh-Kaan to meet with her, and provide him two law runes and one molten glass.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Black mushroom ink",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Vial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Toadflax potion (unfinished)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once you teleport with Zanik, head north-west to the temple entrance blocked by two goblin guards.<ul><li>Pick and grind a black mushroom into an empty vial if you don't already have black mushroom ink.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the guards and they will allow Zanik to pass into the temple.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Makeover Mage south-west of Falador.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "More..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you turn me into a goblin?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to slip past some goblin guards."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you turn me into a goblin or not?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pharmakos berries on an unfinished toadflax potion to create the goblin potion.<ul><li>(Optional) After making the potion, collect another set of pharmakos berries if planning to complete the Contract Claws mystery.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the goblin cave (just north of the Ardougne lodestone).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Transmogrification",
+      "text": "Unequip all items and dismiss any followers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Goblin mail",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "In front of the goblin guards, drink the goblin potion (pick any goblin appearance).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the entrance.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Me want get into temple."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm [goblin name]."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "North, sitting on his throne, talk to the High Priest.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about Yu'biusk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I understand the ways of the Big High War God."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm ready for the test."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the quiz.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "True."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Big High War God commands it."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "False."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Goblins were not mighty warriors before he chose us."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "False."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's one of the commandments."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Lead goblins to victory over the whole world."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " That right! And war will end in victory and victory last forever!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the quiz, ask about Yu'biusk.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about Yu'biusk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Yu'biusk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Never mind."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dye your goblin mail black with the mushroom ink.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear the black goblin mail and go in the north-east room by talking to the goblin in the passage.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket the priest for a key. Keep this key. You will need it later.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zanik in the prison cell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Sit tight. I'll be back soon."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate in the room to find the teleport sphere.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Zanik again, she will teleport.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have a teleport sphere here."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Oh, thank you, [Player]!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Whitefish",
+      "text": "Leave the cave.<ul><li>You can equip a piece of equipment to be thrown out, then you can teleport to Draynor.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black goblin mail",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Slimy eel",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aggie in Draynor Village.<ul><li>Or, if Vampyre Slayer is complete.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "More..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you make dyes for me please?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you make black or white dye?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "More..."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you make dyes for me please?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you make black or white dye?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Black dye can be made by grinding up black mushrooms. That's dead easy. The mushrooms grow in some old caves and ruins, and you can grind them up yourself with a pestle and mortar."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to Seers' Village lodestone and head south-west to Hemenster near the Ranging Guild. Alternatively, use a combat bracelet.<ul><li>Be sure to have a raw slimy eel or you will have to repeat the next steps.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Attempt to open the gate near Morris.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to catch a Hemenster whitefish."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After finishing the dialogue, open the gate.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Catch a whitefish.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Aggie and use the goblin mail on her.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Macabre crypt",
+      "text": "Unequip any items and dismiss any followers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Blue dye",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Yellow dye",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Purple dye",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Orange dye",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to the goblin temple entrance, take a sip of your goblin potion, and equip your white goblin mail.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the temple.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Steal the white key from the priest in the room west of the temple.<ul><li>Remove the goblin mail to leave the room quicker.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat the operation of stealing keys, dying your mail in the following order:<ul><li>Yellow (north-west)</li><li>Purple (south-west)</li><li>Orange (south-east)</li><li>Blue (east)</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Prepare for battle",
+      "text": "Enter the crypt (large door north of the temple).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Prepare for battle by equipping weapons and armour.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the Say-name option on each of the graves. After killing them, talk to them.<ul><li>South-west: Snothead</li><li>South-east: Snailfeet</li><li>North-west: Mosschin</li><li>North-east: Redeyes</li><li>North: Strongbones (ignore his skeleton minions)</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Yu'biusk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What was your predecessor's name?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Goodbye."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Snailfeet"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Mosschin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Redeyes"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Strongbones"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Strongbones after defeating him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Where is Yu'biusk?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Goodbye."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Goodbye, human. I am sure that the Chosen Commander will find what she is looking for when you bring her to Yu'biusk."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Home portal",
+      "text": "Return to Dorgesh-Kaan and speak with Zanik in the north-west (Oldak's lab).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With a light source, head to the south end of Dorgesh-Kaan using fairy code AJQ. Alternatively, without using fairy rings:<ul><li>Go up the stairs to the agility course.</li><li>At the start of the agility course, climb down the ladder west of the agility cable.</li><li>Follow the cave path east then south to the Fairy ring.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Adjust the machines next to Oldak, use combination 9-4-1, activate the machine.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the strange box in the north-western part of Yu'biusk for a cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue dialogue with Oldak.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13322,
+  "stageVarbitCompleteValue": 18,
+  "cacheQuestId": 322
+}

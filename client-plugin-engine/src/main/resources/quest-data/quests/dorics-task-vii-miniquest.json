@@ -1,0 +1,711 @@
+{
+  "slug": "dorics-task-vii-miniquest",
+  "name": "Doric's Task VII (miniquest)",
+  "members": true,
+  "length": "short",
+  "timeline": "legendary",
+  "releaseDate": 1350432000,
+  "neededItems": [],
+  "recommendedItems": [
+    {
+      "name": "Ring of slaying",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ring of wealth",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Fairy ring access",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task VI (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 65,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Nostalgic Warhammers",
+      "text": "Talk to Doric in his hut north of Falador.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Ring of wealth",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Doric.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm on it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Santiri in the north-westernmost building in western Keldagrim.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Fremennik Province lodestone",
+        "url": "Fremennik_Province_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2829.0,
+          "heightFine": 1285.0,
+          "y": 10228.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1846,
+          "modelIds": [
+            6090
+          ],
+          "displayName": "Dwarven Boatman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm ready and don't mind it taking a few minutes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Doric sent me here to make your dreams come true."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll ask him for it now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 13464,
+          "displayName": "Task list",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 54,
+          "modelIds": [
+            522
+          ],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2828.0,
+          "heightFine": 2885.0,
+          "y": 10214.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Supreme Commander.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8819,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            8820
+          ],
+          "displayName": "Supreme Commander"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 25340,
+          "displayName": "Black guard warhammer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the anvil to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2828.0,
+          "heightFine": 2325.0,
+          "y": 10201.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "crack the Black"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Santiri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2829.0,
+          "heightFine": 1285.0,
+          "y": 10228.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have your warhammer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "be right back"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Librarian to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2861.0,
+          "heightFine": 1285.0,
+          "y": 10225.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2165,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13363
+          ],
+          "displayName": "Librarian"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2165,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13363
+          ],
+          "displayName": "Librarian"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about first generation black warhammers?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "can find out"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2165,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            13363
+          ],
+          "displayName": "Librarian"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Stonemason to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2848.5,
+          "heightFine": 1925.0,
+          "y": 10184.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 123267,
+          "modelIds": [
+            6219
+          ],
+          "displayName": "Stonemason"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 123267,
+          "modelIds": [
+            6219
+          ],
+          "displayName": "Stonemason"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know anything about crushing warhammers?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "it if you want"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 123267,
+          "modelIds": [
+            6219
+          ],
+          "displayName": "Stonemason"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the cracked warhammer on the stone crusher.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 15466,
+          "modelIds": [
+            1479
+          ],
+          "displayName": "Stone crusher"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1332,
+            24
+          ],
+          "candidateItemTypeIds": [
+            20789,
+            20792
+          ],
+          "displayName": "Cracked black guard warhammer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "crushed under the stone"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Santiri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2829.0,
+          "heightFine": 1285.0,
+          "y": 10228.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have your warhammer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the crushed warhammer on the well to the east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2897.5,
+          "heightFine": 1877.0,
+          "y": 10219.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            1356,
+            24
+          ],
+          "candidateItemTypeIds": [
+            20789,
+            20792
+          ],
+          "displayName": "Crushed black guard warhammer"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Rusted black guard warhammer",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            20789,
+            20792
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Santiri.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2829.0,
+          "heightFine": 1285.0,
+          "y": 10228.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have your warhammer."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 2152,
+          "modelIds": [],
+          "displayName": "Santiri"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10018,
+  "stageVarbitCompleteValue": 6,
+  "cacheQuestId": 427
+}

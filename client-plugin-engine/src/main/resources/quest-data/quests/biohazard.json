@@ -1,0 +1,1368 @@
+{
+  "slug": "biohazard",
+  "name": "Biohazard",
+  "members": true,
+  "length": "medium",
+  "timeline": "adventurer",
+  "releaseDate": 1035331200,
+  "neededItems": [
+    {
+      "name": "coins",
+      "itemId": -1,
+      "quantity": 10,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Plague City"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Elena in a house just west of the East Ardougne north bank, across the river.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Elena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "he lives next to the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Hoppin' the wall",
+      "text": "Talk to Jerico, south of the Ardougne north bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1189.0,
+          "y": 3324.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 366,
+          "modelIds": [],
+          "displayName": "Jerico",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thanks Jerico."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the cupboard.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2611.0,
+          "heightFine": 1589.0,
+          "y": 3326.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 422,
+          "displayName": "Bird feed",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up a pigeon cage behind Jerico's house.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 424,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Pigeon cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 424,
+          "displayName": "Pigeon cage",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> bird feed on the watchtower fence.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2563.0,
+          "heightFine": 1293.0,
+          "y": 3304.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 422,
+          "modelIds": [
+            90
+          ],
+          "displayName": "Bird feed"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The mourners do not seem"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the pigeon cage.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 424,
+          "modelIds": [
+            576
+          ],
+          "displayName": "Pigeon cage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "The pigeons fly towards the watch tower."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Omart along the wall to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 350,
+          "modelIds": [
+            4374
+          ],
+          "displayName": "Omart",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2559.0,
+          "heightFine": 1357.0,
+          "y": 3266.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ok, lets do it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2554.0,
+          "heightFine": 1157.0,
+          "y": 3268.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Infiltration",
+      "text": "Pick up the rotten apple to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2535.0,
+          "heightFine": 1253.0,
+          "y": 3333.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 2518,
+          "modelIds": [
+            186
+          ],
+          "displayName": "Rotten tomato",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2518,
+          "displayName": "Rotten tomato",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Squeeze through the gap in the metal fence.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            774
+          ],
+          "candidateObjectTypeIds": [
+            2288
+          ],
+          "displayName": "Gap in fence"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2544.0,
+          "heightFine": 1285.0,
+          "y": 3331.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the rotten apple on the cauldron.<ul><li>Don't eat the rotten apple.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 692,
+          "modelIds": [
+            570
+          ],
+          "displayName": "Cauldron"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2518,
+          "modelIds": [
+            186
+          ],
+          "displayName": "Rotten tomato"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "That wasn't very nice"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Nurse Sarah, south-west of the church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2516.0,
+          "heightFine": 1029.0,
+          "y": 3274.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19610,
+          "modelIds": [
+            3579
+          ],
+          "displayName": "Nurse Sarah",
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "strange that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the box on the north side of the house to obtain a doctors' gown.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2062,
+          "modelIds": [
+            468
+          ],
+          "displayName": "Box"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            834
+          ],
+          "candidateObjectTypeIds": [
+            1434,
+            1460,
+            1490,
+            1503,
+            3738,
+            3754,
+            5319,
+            5320,
+            5321,
+            5322,
+            5323,
+            5530,
+            6002,
+            6289,
+            6378,
+            6788,
+            8935,
+            8941,
+            9383,
+            11147,
+            12187,
+            12455,
+            12457,
+            12459,
+            12659,
+            14190,
+            15173,
+            15179,
+            15525,
+            16058,
+            16193,
+            16297,
+            16319,
+            17224,
+            17514,
+            17664,
+            17871,
+            17902,
+            18471,
+            19050,
+            19051,
+            19697,
+            19698,
+            20103,
+            20105,
+            20152,
+            20291,
+            20499,
+            21490,
+            21540,
+            22170,
+            22363,
+            23075,
+            23078,
+            23198,
+            23578,
+            23597,
+            25414,
+            25840,
+            26582,
+            26593,
+            26760,
+            30370,
+            30657,
+            31438,
+            31555,
+            31771,
+            34008,
+            36763,
+            37527,
+            38387,
+            38412,
+            38414,
+            44026,
+            44326,
+            44497,
+            67560,
+            111489,
+            116240
+          ],
+          "displayName": "Open box"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Doctors gown",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the Mourner Headquarters with the gown equipped.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3320.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            210
+          ],
+          "displayName": "Doctors gown"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2551.0,
+          "heightFine": 1285.0,
+          "y": 3322.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2544.0,
+          "heightFine": 1685.0,
+          "y": 3325.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2545.0,
+          "heightFine": 2245.0,
+          "y": 3325.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a Mourner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8953,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            16714,
+            16715,
+            16716,
+            16723,
+            19569,
+            19570,
+            19574,
+            19619,
+            19620,
+            19621,
+            19624,
+            19625,
+            19628,
+            19629,
+            19630,
+            19632,
+            19633,
+            19634,
+            19635,
+            19639,
+            19640,
+            19641,
+            19645,
+            19665
+          ],
+          "displayName": "Mourner",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 423,
+          "displayName": "Key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "<i>Use</i> the key on the gate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2551.5,
+          "heightFine": 2945.0,
+          "y": 3325.5,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 423,
+          "modelIds": [
+            444
+          ],
+          "displayName": "Key"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2553.0,
+          "heightFine": 2245.0,
+          "y": 3326.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the crate.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2554.0,
+          "heightFine": 2245.0,
+          "y": 3327.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 420,
+          "displayName": "Distillator",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ardougne lodestone, then talk to Elena again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Those vials are fragile"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Samples",
+      "text": "<b>Do not teleport.</b> Bank your plague sample.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2616.0,
+          "heightFine": 1689.0,
+          "y": 3331.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 418,
+          "displayName": "Plague sample"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lodestone to Falador and withdraw the plague sample.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2946.0,
+          "heightFine": 1125.0,
+          "y": 3367.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 418,
+          "displayName": "Plague sample",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Chemist west of Rimmington. Be careful to choose the right chat option.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 367,
+          "modelIds": [],
+          "displayName": "Chemist",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 2932.0,
+          "heightFine": 981.0,
+          "y": 3210.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about Biohazard."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's ok, I'm Elena's friend."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I just need some touch paper for a guy called Guidor."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 419,
+          "displayName": "Touch paper",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chancy outside.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 338,
+          "modelIds": [
+            4482
+          ],
+          "displayName": "Chancy"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You give him the vial of liquid honey..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "vial of liquid honey"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Da Vinci.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 336,
+          "modelIds": [
+            4929
+          ],
+          "displayName": "Da Vinci"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You give him the vial of ethenea..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "vial of ethenea"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hops.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 340,
+          "modelIds": [
+            4575,
+            4497
+          ],
+          "displayName": "Hops"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You give him the vial of sulphuric broline..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "vial of sulphuric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Deposit your plague sample again. A nearby deposit box is marked.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3047.0,
+          "heightFine": 1241.0,
+          "y": 3237.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 418,
+          "displayName": "Plague sample"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Delivering the samples",
+      "text": "Lodestone to Varrock, then retrieve the plague sample from the east bank.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3254.0,
+          "heightFine": 1937.0,
+          "y": 3419.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 418,
+          "displayName": "Plague sample",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Touch paper",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the gate in the south-east corner of Varrock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 37,
+          "modelIds": [
+            984
+          ],
+          "displayName": "Gate",
+          "distance": 12
+        },
+        {
+          "t": "direction",
+          "x": 3263.5,
+          "heightFine": 1125.0,
+          "y": 3405.5,
+          "instance": false,
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3266.0,
+          "heightFine": 1125.0,
+          "y": 3405.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the 3 chemist's assistants.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3269.0,
+          "heightFine": 1125.0,
+          "y": 3390.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 340,
+          "modelIds": [
+            4575,
+            4497
+          ],
+          "displayName": "Hops",
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5523
+          ],
+          "candidateObjectTypeIds": [
+            33755
+          ],
+          "displayName": "Da vinci and chancy",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 416,
+          "displayName": "Liquid honey",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3269.0,
+          "heightFine": 1125.0,
+          "y": 3390.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 340,
+          "modelIds": [
+            4575,
+            4497
+          ],
+          "displayName": "Hops",
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5523
+          ],
+          "candidateObjectTypeIds": [
+            33755
+          ],
+          "displayName": "Da vinci and chancy",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 415,
+          "displayName": "Ethenea",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3269.0,
+          "heightFine": 1125.0,
+          "y": 3390.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 340,
+          "modelIds": [
+            4575,
+            4497
+          ],
+          "displayName": "Hops",
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            5523
+          ],
+          "candidateObjectTypeIds": [
+            33755
+          ],
+          "displayName": "Da vinci and chancy",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 417,
+          "displayName": "Sulphuric broline",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy a priest gown top and bottoms.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3281.0,
+          "heightFine": 1285.0,
+          "y": 3397.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3705
+          ],
+          "displayName": "Dress shop owner",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Priest gown top",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3281.0,
+          "heightFine": 1285.0,
+          "y": 3397.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3705
+          ],
+          "displayName": "Dress shop owner",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Priest gown bottoms",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip the priest gown, then talk to Guidor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3284.0,
+          "heightFine": 1125.0,
+          "y": 3382.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 343,
+          "modelIds": [
+            4458
+          ],
+          "displayName": "Guidor",
+          "distance": 8
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            354
+          ],
+          "displayName": "Priest gown top"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            123
+          ],
+          "displayName": "Priest gown bottoms"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've come to ask your assistance in stopping a plague."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've been sent by your old pupil Elena."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's why Elena wanted you to do it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "The only question is"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Lodestone to Ardougne, then talk to Elena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2592.0,
+          "heightFine": 1157.0,
+          "y": 3336.0,
+          "instance": false,
+          "distance": 3
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3209,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3215,
+            19609,
+            19612
+          ],
+          "displayName": "Elena",
+          "distance": 3
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "King of East Ardougne"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Lathas, on the 1st floor (2nd floor US) of the castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2571.0,
+          "heightFine": 2225.0,
+          "y": 3307.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2572.0,
+          "heightFine": 2917.0,
+          "y": 3306.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 19546,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            19631
+          ],
+          "displayName": "King Lathas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I don't understand..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2535,
+  "stageVarbitCompleteValue": 16,
+  "cacheQuestId": 128
+}

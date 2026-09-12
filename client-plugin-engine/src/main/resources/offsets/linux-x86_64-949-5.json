@@ -1,0 +1,2995 @@
+{
+  "schema": 1,
+  "imageBase": "0x0",
+  "objects": {
+    "OClient": {
+      "CLIENT_CYCLE": {
+        "value": "0x500",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CLIENT_RENDER_CYCLE": {
+        "value": "0x508",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "SDL_MANAGER": {
+        "value": "0x18680",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "INPUT": {
+        "value": "0x18d10",
+        "note": "949-1 jag::input::Input, embedded (Client::GetInput is `return client + 0x18d10`)",
+        "carried_from": "949-4"
+      },
+      "BUILD_AREA_VECTOR": {
+        "value": "0x193d8",
+        "confidence": "HIGH",
+        "note": "manager_class jag::game::WorldList (2/2 sites)"
+      },
+      "CAMERA": {
+        "value": "0x19420",
+        "confidence": "HIGH",
+        "note": "manager_class jag::game::Camera (5/7 sites)"
+      },
+      "CONNECTION_MANAGER": {
+        "value": "0x19440",
+        "confidence": "HIGH",
+        "note": "manager_class jag::ConnectionManager (2/3 sites)"
+      },
+      "HINTTRAIL_LIST": {
+        "value": "0x19480",
+        "note": "jag::PacketHandlers::HintTrail@0x00188880 MOV R9,[RBX] (client) then MOV RDI,[R9+0x19480] - the HintTrailList container. Re-verified on 949-5; the handler moved from 0x00187f3a but the field did not.",
+        "verified_build": "949-5"
+      },
+      "INTERFACE_MANAGER": {
+        "value": "0x19488",
+        "confidence": "CERTAIN",
+        "note": "jag::InterfaceManager. Settled on 949-5 as ONE object behind what were three separate names. Evidence, all on the target: it is the `this` the LoginProtocolHandler passes at two sites to the per-tick routine that clears the key-event vector and refills it from the recorder ring; it is the `this` of EnterTargetMode/LeaveTargetMode, which write and clear the target-mode trio (active flag, verb string, target-name string); and it is the base if_find does `ADD 0x30` on to reach the component container. ~200 loads, almost all if_*/cc_* opcode handlers and interface packet handlers. The key-event vector ClientProt::FlushPerTick drains is a member of THIS object, so the former OClient.INPUT_EVENT_VIEW was this same field under a type name that does not exist. Leaf function names in this family are not all attested - identification here rests on the behaviour, not on them.",
+        "verified_build": "949-5"
+      },
+      "MAINLOGIC_MANAGER": {
+        "value": "0x194a8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MINIMENU": {
+        "value": "0x194b0",
+        "note": "949-1 jag::MiniMenu (right-click context menu)",
+        "carried_from": "949-4"
+      },
+      "NPC_MANAGER": {
+        "value": "0x194b8",
+        "confidence": "HIGH",
+        "note": "manager_class jag::NPCList (14/14 sites)"
+      },
+      "ITEMSTACK_LIST": {
+        "value": "0x194c0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLAYER_MANAGER": {
+        "value": "0x194d8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PROJECTILE_LIST": {
+        "value": "0x194e8",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "SPOTANIM_MANAGER": {
+        "value": "0x19510",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "INVENTORY_MANAGER": {
+        "value": "0x19550",
+        "confidence": "HIGH",
+        "note": "manager_class jag::game::InventoryManager (14/14 sites)"
+      },
+      "SCENE_MANAGER": {
+        "value": "0x19558",
+        "confidence": "HIGH",
+        "note": "manager_class jag::game::SceneManager (41/44 sites)"
+      },
+      "MAIN_STATE": {
+        "value": "0x19b28",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "LOGGED_IN_PLAYER": {
+        "value": "0x19b30",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLAYER_VAR_DOMAIN": {
+        "value": "0x19b40",
+        "confidence": "HIGH",
+        "note": "manager_class jag::game::PlayerVarDomain (5/5 sites)"
+      },
+      "HINTARROW_LIST": {
+        "value": "0x19478",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 MOV RSI,[RDI] (client) then MOV RBP,[RSI+0x19478]. Distinct from OClient.HINTTRAIL_LIST (+0x19480) - the arrow/icon list sits 8 bytes before the trail list.",
+        "verified_build": "949-5"
+      }
+    },
+    "OInput": {
+      "GLOBAL_HANDLER": {
+        "value": "0x8",
+        "note": "949-1 jag::input::InputHandler*, dispatched after every named handler",
+        "carried_from": "949-4"
+      },
+      "LAST_MOUSE_X": {
+        "value": "0x88",
+        "note": "949-1 written only by OnMouseMotion; OnScrollWheel sources the wheel event position from here",
+        "carried_from": "949-4"
+      },
+      "LAST_MOUSE_Y": {
+        "value": "0x8c",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CLIENT": {
+        "value": "0x90",
+        "note": "949-1 back-pointer to the owning jag::Client",
+        "carried_from": "949-4"
+      },
+      "CONSOLE_KEY_HELD": {
+        "value": "0x98",
+        "note": "949-1 while set, OnKeyChar drops every codepoint",
+        "carried_from": "949-4"
+      },
+      "SIZE": {
+        "value": "0xa0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OInputHandler": {
+      "LMOUSE_DOWN": {
+        "value": "0x8",
+        "note": "949-1 bool(float x, float y)",
+        "carried_from": "949-4"
+      },
+      "LMOUSE_UP": {
+        "value": "0x48",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MMOUSE_DOWN": {
+        "value": "0x88",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MMOUSE_UP": {
+        "value": "0xc8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "RMOUSE_DOWN": {
+        "value": "0x108",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "RMOUSE_UP": {
+        "value": "0x148",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MOUSE_MOVE": {
+        "value": "0x188",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MOUSE_WHEEL": {
+        "value": "0x1c8",
+        "note": "949-1 bool(float x, float y, float wheelX, float wheelY)",
+        "carried_from": "949-4"
+      },
+      "KEY_DOWN": {
+        "value": "0x208",
+        "note": "949-1 bool(int keycode)",
+        "carried_from": "949-4"
+      },
+      "KEY_UP": {
+        "value": "0x248",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "KEY_CHAR": {
+        "value": "0x288",
+        "note": "949-1 bool(int unicodeCodepoint)",
+        "carried_from": "949-4"
+      },
+      "SIZE": {
+        "value": "0x608",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OSDLManager": {
+      "WINDOW": {
+        "value": "0x90",
+        "carried_from": "949-4"
+      },
+      "SDL_WINDOW": {
+        "value": "0x28",
+        "carried_from": "949-4"
+      },
+      "WINDOW_FLAGS_BITFIELD": {
+        "value": "0x40",
+        "carried_from": "949-4"
+      }
+    },
+    "OSDLWindow": {
+      "WINDOW_NAME": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "WINDOW_DATA": {
+        "value": "0xd8",
+        "carried_from": "949-4"
+      }
+    },
+    "OSDLWindowData": {},
+    "OItemStackList": {
+      "RB_TREE_BASE": {
+        "value": "0x18",
+        "carried_from": "949-4"
+      }
+    },
+    "OItemStackNode": {
+      "LEFT": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "RIGHT": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "PARENT": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "POS_PLANE": {
+        "value": "0x20",
+        "carried_from": "949-4"
+      },
+      "POS_X": {
+        "value": "0x24",
+        "carried_from": "949-4"
+      },
+      "POS_Y": {
+        "value": "0x28",
+        "carried_from": "949-4"
+      },
+      "ITEM_STACK": {
+        "value": "0x38",
+        "carried_from": "949-4"
+      }
+    },
+    "OItemStack": {
+      "ITEM_VECTOR": {
+        "value": "0x70",
+        "carried_from": "949-4"
+      },
+      "ITEM_VECTOR_ELEM_SIZE": {
+        "value": "0x90",
+        "carried_from": "949-4"
+      },
+      "ITEM_ID": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "ITEM_AMOUNT": {
+        "value": "0x4",
+        "carried_from": "949-4"
+      }
+    },
+    "OProjectileList": {
+      "SIZE": {
+        "value": "0x50",
+        "note": "949-1 (ProjectileList::Add capacity==100 check)",
+        "carried_from": "949-4"
+      }
+    },
+    "OProjectile": {
+      "ID": {
+        "value": "0x60",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "LOCKON_SERVER_INDEX": {
+        "value": "0x70",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OInterfaceManager": {
+      "INTERFACE_LIST": {
+        "value": "0x30",
+        "note": "jag::game::InterfaceList, EMBEDDED in the manager - if_find@0x002ed9d8 does ADD R12,0x30 on the manager, not a load. Renamed from INTERFACE_LIST_PTR: it is a sub-object, not a pointer.",
+        "carried_from": "949-4"
+      },
+      "KEY_EVENT_BEGIN": {
+        "value": "0x88",
+        "confidence": "CERTAIN",
+        "note": "Per-tick key-event vector, a member of jag::InterfaceManager. The manager's own input pass clears it (begin stored into end) and push-backs one record per key drained from the recorder ring; jag::ClientProt::FlushPerTick then walks begin..end at the record stride and emits the packet. Moved off the fabricated OInputEventView type, addresses unchanged.",
+        "verified_build": "949-5"
+      },
+      "KEY_EVENT_END": {
+        "value": "0x90",
+        "confidence": "CERTAIN",
+        "note": "Per-tick key-event vector, a member of jag::InterfaceManager. The manager's own input pass clears it (begin stored into end) and push-backs one record per key drained from the recorder ring; jag::ClientProt::FlushPerTick then walks begin..end at the record stride and emits the packet. Moved off the fabricated OInputEventView type, addresses unchanged. One past the last.",
+        "verified_build": "949-5"
+      }
+    },
+    "OInterfaceList": {
+      "START_PTR": {
+        "value": "0x38",
+        "carried_from": "949-4"
+      },
+      "END_PTR": {
+        "value": "0x40",
+        "carried_from": "949-4"
+      },
+      "CAPACITY_PTR": {
+        "value": "0x48",
+        "carried_from": "949-4"
+      },
+      "PARENT_OFFSET": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "ENTRY_STRIDE": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OInterfaceParent": {
+      "CHILD_ARRAY_BEGIN": {
+        "value": "0x8",
+        "note": "EASTL vector triple at parent+0x8: { begin, end, capacity }. Each element is 0x18 bytes: byte 0 = \"removed\" flag (0 = live slot), bytes 0x10..0x17 = shared_ptr value (the InterfaceComponent pointer). Derived from jag::InterfaceManager::DrawComponentList @ 0x00428480 — the loop reads *(char*)(elem+0) for the live check and *(void**)(elem+0x10) for the component pointer, stepping by 0x18 from begin to end. | 949-1",
+        "carried_from": "949-4"
+      },
+      "CHILD_ARRAY_END": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CHILD_SLOT_STRIDE": {
+        "value": "0x18",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CHILD_SLOT_HIDDEN_FLAG": {
+        "value": "0x0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CHILD_SLOT_PTR": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OInterfaceComponent": {
+      "INTERFACE_ID": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "COMPONENT_ID": {
+        "value": "0xa",
+        "carried_from": "949-4"
+      },
+      "PARENT_LAYER_ID": {
+        "value": "0xe",
+        "note": "ushort parent-layer component id; 0xffff = no parent layer. Indexes the InterfaceParent child-slot array (stride 0x18, component shared_ptr at slot+0x10). NOT a component type: the CS2 component type is consumed by the InterfaceComponent factory to pick the C++ subclass and is never written back onto the object."
+      },
+      "SLOT_ID": {
+        "value": "0xc",
+        "carried_from": "949-4"
+      },
+      "PARENT_SHAREDPTR": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "FLAGS": {
+        "value": "0x31",
+        "note": "Bitfield. Bit 0x20 = visible flag (set/cleared by jag::game::InterfaceComponent::SetVisibleFlag @ 0x00216600). Other bits (e.g. 0x04, 0x08) are not yet decoded.",
+        "carried_from": "949-4"
+      },
+      "X_ORIGIN_MODE": {
+        "value": "0x32",
+        "note": "byte: 0=use X_ORIGIN_OFFSET, 1=center (-w/2), 2=right-anchor (-w)",
+        "carried_from": "949-4"
+      },
+      "Y_ORIGIN_MODE": {
+        "value": "0x33",
+        "note": "byte: same semantics as X_ORIGIN_MODE for vertical axis",
+        "carried_from": "949-4"
+      },
+      "X_ANCHOR_MODE": {
+        "value": "0x34",
+        "note": "byte: 0=absolute, 1=parent-w-minus, 2=fraction-of-parent-w (read by Layer::LayoutChild @ 0x004bda10)",
+        "carried_from": "949-4"
+      },
+      "Y_ANCHOR_MODE": {
+        "value": "0x35",
+        "note": "byte: same semantics as X_ANCHOR_MODE for vertical axis",
+        "carried_from": "949-4"
+      },
+      "X_ORIGIN_OFFSET": {
+        "value": "0x38",
+        "note": "int: applied when X_ORIGIN_MODE == 0",
+        "carried_from": "949-4"
+      },
+      "Y_ORIGIN_OFFSET": {
+        "value": "0x3c",
+        "note": "int: applied when Y_ORIGIN_MODE == 0",
+        "carried_from": "949-4"
+      },
+      "RAW_WIDTH": {
+        "value": "0x40",
+        "note": "int: unanchored WIDTH input, fed through X_ANCHOR_MODE into SCREEN_WIDTH by Layer::LayoutChild. Position comes from X_ORIGIN_OFFSET via X_ORIGIN_MODE, not from here",
+        "carried_from": "949-4"
+      },
+      "RAW_HEIGHT": {
+        "value": "0x44",
+        "note": "int: unanchored HEIGHT input, fed through Y_ANCHOR_MODE into SCREEN_HEIGHT",
+        "carried_from": "949-4"
+      },
+      "PARENT_REL_X": {
+        "value": "0x50",
+        "note": "Parent-LOCAL position written each frame by the layout pass (Layer::LayoutChildren -> Layer::LayoutChild). NOT screen-absolute. Absolute X/Y is reconstructed each frame in jag::InterfaceManager::DrawComponentList by adding the slot's screen-absolute origin to these values; that data is ephemeral and only available via the INTERFACEMANAGER_DRAWCOMPONENTLIST hook (see hooks.impl.InterfaceComponentRectCapture). | 949-1 int: parent-local X within parent layer's interior coord system",
+        "carried_from": "949-4"
+      },
+      "PARENT_REL_Y": {
+        "value": "0x54",
+        "note": "949-1 int: parent-local Y",
+        "carried_from": "949-4"
+      },
+      "SCREEN_WIDTH": {
+        "value": "0x58",
+        "note": "949-1 int: width in pixels",
+        "carried_from": "949-4"
+      },
+      "SCREEN_HEIGHT": {
+        "value": "0x5c",
+        "note": "949-1 int: height in pixels",
+        "carried_from": "949-4"
+      },
+      "TEXT": {
+        "value": "0x160",
+        "carried_from": "949-4"
+      },
+      "GRAPHIC_ID": {
+        "value": "0x168",
+        "carried_from": "949-4"
+      },
+      "ITEM_ID": {
+        "value": "0x180",
+        "carried_from": "949-4"
+      },
+      "STACK_SIZE": {
+        "value": "0x188",
+        "carried_from": "949-4"
+      },
+      "MODEL_ID": {
+        "value": "0x190",
+        "note": "int, -1 = none; config type-6 defaultMediaId / IF_SETMODEL target (GetModelId @0x172200)",
+        "carried_from": "949-4"
+      },
+      "MODEL_OBJECT": {
+        "value": "0x198",
+        "note": "pointer, lazily-built model object, null until built",
+        "carried_from": "949-4"
+      },
+      "SLOT_CHILDREN": {
+        "value": "0x1a8",
+        "note": "A component's child components are NOT a single vector at a fixed offset — a Layer stores them in a paged array at +0x1A0 (begin) / +0x1A8 (end), 0x68-byte page entries (see jag::game::Layer draw FUN_003eccd0). The canonical, flat way to reach every component is InterfaceParent's slot vector at +0x8, indexed by component id (InterfaceParent.get / the InterfaceList.getComponent path). There is no per-component CHILDREN vector; the old CHILDREN=0x178 was bogus (it overlapped ITEM_ID/STACK_SIZE and read them as a vector header). | vector<0x18>",
+        "carried_from": "949-4"
+      }
+    },
+    "OLoggedInPlayer": {
+      "PLAYER_RIGHTS": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "PLAYER_INDEX": {
+        "value": "0x48",
+        "carried_from": "949-4"
+      },
+      "PLAYER_NAME": {
+        "value": "0x68",
+        "carried_from": "949-4"
+      },
+      "TARGET_INDEX": {
+        "value": "0x98",
+        "carried_from": "949-4"
+      },
+      "TARGET_TYPE": {
+        "value": "0x9a",
+        "carried_from": "949-4"
+      }
+    },
+    "OPlayerManager": {
+      "PLAYER_LIST": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "PLAYER_LIST_NODE_ENTITY": {
+        "value": "0x30",
+        "carried_from": "949-4"
+      }
+    },
+    "ONPCManager": {
+      "HASH_TABLE": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "LOCAL_NPC_INDICES": {
+        "value": "0xa0a0",
+        "carried_from": "949-4"
+      },
+      "HASH_ELEMENT_SIZE": {
+        "value": "0x20",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OSceneManager": {
+      "WORLD_ARRAY": {
+        "value": "0x58",
+        "carried_from": "949-4"
+      },
+      "CURRENT_WORLD_INDEX": {
+        "value": "0x70",
+        "carried_from": "949-4"
+      },
+      "WORLD_ARRAY_STRIDE": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OWorld": {
+      "VIEW_MATRIX": {
+        "value": "0x13100",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "PROJECTION_MATRIX": {
+        "value": "0x13200",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARE_X_OFFSET": {
+        "value": "0x13fd4",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARE_Y_OFFSET": {
+        "value": "0x13fd8",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARE_X_MAX": {
+        "value": "0x13fdc",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARE_Y_MAX": {
+        "value": "0x13fe0",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARES_VECTOR": {
+        "value": "0x14020",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "ROOT_GRAPH_NODE": {
+        "value": "0x10170",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "HEIGHT_MAP": {
+        "value": "0x14058",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "LINK_MAP": {
+        "value": "0x14068",
+        "confidence": "HIGH",
+        "note": "func_name"
+      }
+    },
+    "OHeightMap": {
+      "GRID": {
+        "value": "0x8",
+        "note": "949-1 HeightMap + 0x8 -> region grid ptr",
+        "carried_from": "949-4"
+      },
+      "CELL_STRIDE": {
+        "value": "0x18",
+        "note": "949-1 MAPSQUARES_VECTOR cell stride",
+        "carried_from": "949-4"
+      },
+      "CELL_CONTAINER": {
+        "value": "0x8",
+        "note": "949-1 cell + 0x8 -> RegionHeightContainer",
+        "carried_from": "949-4"
+      },
+      "CELL_SENTINEL": {
+        "value": "0x10",
+        "note": "949-1 cell + 0x10 == BASE+EMPTY_CELL_SENTINEL_REL when empty",
+        "carried_from": "949-4"
+      },
+      "EMPTY_CELL_SENTINEL_REL": {
+        "value": "0x1693a70",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5: 0x1692a70 -> 0x1693a70. Read off LEA RAX,[0x1693a70] in jag::game::HeightMap::SampleRegionFineHeight at four independent sites; sibling returns are B+4 and B+8. NAME IS MISLEADING: the _REL suffix means module-relative, not a struct displacement, and the target is not a heightmap-private sentinel - it is a shared 4-entry int32 pool {0,1,2,3} in .bss written once by a global ctor and returned as a const int* by ~100 unrelated functions. The engine test 'returned pointer == this address => empty cell' remains valid because the sampler returns &pool[0] on the no-data path. Labelled jag::g_constIntPool_0_3 in the 949-5 DB.",
+        "verified_build": "949-5"
+      }
+    },
+    "ORegionHeightContainer": {
+      "PRIMARY": {
+        "value": "0x90",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "FALLBACK": {
+        "value": "0xeba0",
+        "note": "949-1 (was 0xeb88)",
+        "carried_from": "949-4"
+      },
+      "READY_LO": {
+        "value": "0x11",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "READY_HI": {
+        "value": "0x12",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "NOT_LOADED_FLAG": {
+        "value": "0x159",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLANE_VEC_BEGIN": {
+        "value": "0x160",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLANE_VEC_END": {
+        "value": "0x168",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLANE_STRIDE": {
+        "value": "0x10",
+        "note": "949-1 plane-vec element stride",
+        "carried_from": "949-4"
+      },
+      "PLANE_ELEM": {
+        "value": "0x8",
+        "note": "949-1 plane-vec element -> vertex grid ptr",
+        "carried_from": "949-4"
+      },
+      "PLANE0_BRIDGE_GRID": {
+        "value": "0x1e8",
+        "note": "949-1 plane-0 bridge vertex grid ptr",
+        "carried_from": "949-4"
+      },
+      "VERTEX_COL_STRIDE": {
+        "value": "0x18",
+        "note": "949-1 vertex grid column stride",
+        "carried_from": "949-4"
+      },
+      "VERTEX_ROW_STRIDE": {
+        "value": "0x4",
+        "note": "949-1 vertex grid row (int32) stride",
+        "carried_from": "949-4"
+      },
+      "LINK_HEIGHT_PLANE_COUNT": {
+        "value": "0x1d0",
+        "note": "949-1 additive link-height plane count",
+        "carried_from": "949-4"
+      },
+      "LINK_HEIGHT_GRID": {
+        "value": "0x1d8",
+        "note": "949-1 additive int16 link-height grid ptr",
+        "carried_from": "949-4"
+      },
+      "LINK_PLANE_STRIDE": {
+        "value": "0x4000",
+        "note": "949-1 link-height plane stride",
+        "carried_from": "949-4"
+      },
+      "LINK_COL_STRIDE": {
+        "value": "0x100",
+        "note": "949-1 link-height column stride",
+        "carried_from": "949-4"
+      },
+      "LINK_ROW_STRIDE": {
+        "value": "0x4",
+        "note": "949-1 link-height row cell (2x int16)",
+        "carried_from": "949-4"
+      }
+    },
+    "OMapSquare": {
+      "MAPSQUARE_X": {
+        "value": "0x5c",
+        "confidence": "HIGH",
+        "note": "CORRECTS shipped 0x40. Linux ctor jag::game::MapSquare::MapSquare@0x4da670 stores arg4->+0x5c; +0x40 is a qword -1 sentinel (param_1[8]=-1) whose -1 is never tested. X-vs-Y fixed three ways: teardown@0x4d3790 loads [+0x5c]->ESI,[+0x60]->EDX matching the (X=RSI,Y=RDX) order of World::GetMapSquare@0x48bf90 and GetLocationContainerAt@0x4991a0; the light-grid AABB at +0x70..0x7c is (minX,minY,maxX,maxY) built from (arg4,arg5); the debug string \"PointLightGrid (%i,%i)\" formats (arg4,arg5). MapSquare object stride 0x10d80. Anchor recipe OMapSquare.MAPSQUARE_X in this registry derives all four (x, x+4, x+0xc, x+0x14) but cannot fire yet: importAnchors reads updater_data_*/anchors.json, which is generated by `export` from this registry, and the 949-1 baseline export predates the recipe. Recorded here so 949-4 is correct now; anchors are emitted AFTER verified_fields, so the recipe wins automatically once an export regenerates anchors.json. | RE-VERIFIED unchanged against 949-5: MapSquare::MapSquare MOV [reg+0x5c],arg4 with arg5 stored to +0x60.",
+        "verified_build": "949-5"
+      },
+      "CHUNK_SIZE_FLAG": {
+        "value": "0x70",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "MAPSQUARE_Y": {
+        "value": "0x60",
+        "confidence": "STALE_CARRY",
+        "note": "CORRECTS shipped 0x9c. Linux ctor @0x4da670 stores arg5->+0x60. Nothing writes +0x9c at all; X/Y are replicated only at +0x5c/+0x60, +0x1e8/+0x1ec and +0xece0/+0xece4. Anchor recipe OMapSquare.MAPSQUARE_X in this registry derives all four (x, x+4, x+0xc, x+0x14) but cannot fire yet: importAnchors reads updater_data_*/anchors.json, which is generated by `export` from this registry, and the 949-1 baseline export predates the recipe. Recorded here so 949-4 is correct now; anchors are emitted AFTER verified_fields, so the recipe wins automatically once an export regenerates anchors.json.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "COMPOSITE_DATA_COUNTER": {
+        "value": "0x68",
+        "confidence": "STALE_CARRY",
+        "note": "CORRECTS shipped 0xa8. Linux ctor @0x4da670: param_1[0xd]=arg6[0] with LOCK INC [ctrl+8] - the shared_ptr control block. +0xa8 is a BYTE store, so it cannot be a control word. Anchor recipe OMapSquare.MAPSQUARE_X in this registry derives all four (x, x+4, x+0xc, x+0x14) but cannot fire yet: importAnchors reads updater_data_*/anchors.json, which is generated by `export` from this registry, and the 949-1 baseline export predates the recipe. Recorded here so 949-4 is correct now; anchors are emitted AFTER verified_fields, so the recipe wins automatically once an export regenerates anchors.json.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "COMPOSITE_DATA": {
+        "value": "0x70",
+        "confidence": "STALE_CARRY",
+        "note": "CORRECTS shipped 0xb0. Linux ctor @0x4da670: param_1[0xe]=arg6[1], the object half. GetLocationContainerAt@0x4991a0 computes chunkSize=(*(long*)(this+0x70)==0)?16:8, so COMPOSITE_DATA and CHUNK_SIZE_FLAG(0x70) are the SAME field; a table with COMPOSITE_DATA at 0xb0 while CHUNK_SIZE_FLAG stayed 0x70 was internally contradictory. +0xb0 is a plain zeroed qword never assigned. Anchor recipe OMapSquare.MAPSQUARE_X in this registry derives all four (x, x+4, x+0xc, x+0x14) but cannot fire yet: importAnchors reads updater_data_*/anchors.json, which is generated by `export` from this registry, and the 949-1 baseline export predates the recipe. Recorded here so 949-4 is correct now; anchors are emitted AFTER verified_fields, so the recipe wins automatically once an export regenerates anchors.json.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "LOCATION_CONTAINERS": {
+        "value": "0xeb80",
+        "confidence": "HIGH",
+        "note": "func_name"
+      }
+    },
+    "OLocationContainer": {
+      "ENTRY_STRIDE": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "ENTRY_LOCATION_PTR_OFFSET": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "PRIMARY_LOCATIONS_BEGIN": {
+        "value": "0xc8",
+        "note": "949-1 main scene-object list",
+        "carried_from": "949-4"
+      },
+      "PRIMARY_LOCATIONS_END": {
+        "value": "0xd0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "MULTI_LOCATIONS_BEGIN": {
+        "value": "0xb0",
+        "note": "949-1 multi-tile span entries",
+        "carried_from": "949-4"
+      },
+      "MULTI_LOCATIONS_END": {
+        "value": "0xb8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "TERTIARY_LOCATIONS_BEGIN": {
+        "value": "0xe0",
+        "note": "949-1 animated scenery / extras",
+        "carried_from": "949-4"
+      },
+      "TERTIARY_LOCATIONS_END": {
+        "value": "0xe8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "DISPATCH_SLOT_TABLE_START": {
+        "value": "0xf8",
+        "note": "949-1 5 sub-slots x 0x48 stride",
+        "carried_from": "949-4"
+      },
+      "DISPATCH_SLOT_STRIDE": {
+        "value": "0x48",
+        "carried_from": "949-4"
+      },
+      "DISPATCH_SLOT_COUNT": {
+        "value": "0x5",
+        "type": "int",
+        "carried_from": "949-4"
+      }
+    },
+    "OLocation": {
+      "RENDER_NODE_CTRL": {
+        "value": "0x268",
+        "confidence": "STALE_CARRY",
+        "note": "CORRECTS shipped 0x58, wrong on both platforms. Linux: +0x58/+0x60 is enable_shared_from_this - factory @0x4c9bdc/0x4c9be0/0x4c9be7 writes Location+0x58 = its OWN control block and Location+0x60 = this, released via the WEAK helper FUN_0027f7b0 in ~Location@0x4b9680 (same code at 0x1586ee). So the shipped field reads back NON-NULL (the Location itself) - worse than a null, because the engine then reads Location+0x30 as a transform and +0x288 as mesh components, both garbage. Real render node is slot 0 of five 0x20-byte {resolved,pending} shared_ptr blocks at +0x268/+0x288/+0x2a8/+0x2c8/+0x2e8; reset helper FUN_002281d0 shows {ctrl@+0x268, obj@+0x270}. sizeof(Location)=0x3b0 (pool stride 0x3d0, object at ctrl+0x20). Origin of the bug: jag::game::Location::SetupRenderNodes@0x15efd0 is MISNAMED (its this reads +0x14a0, far past 0x3b0) and its old comment asserted renderNodeControlBlock=0x58/renderNode=0x60.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "RENDER_NODE": {
+        "value": "0x270",
+        "confidence": "STALE_CARRY",
+        "note": "CORRECTS shipped 0x60. Linux vftable+0xa0 mesh pick test FUN_00481e70: LEA RDI,[RDI+0x268]; CALL 0x141130 (poll/promote the async model handle); MOV RSI,[RBX+0x270]; TEST RSI,RSI; then MOV RDI,[RSI+0x268] (mesh-component vector) and ADD RSI,0x30 (world transform) into jag::ScenePicker::MeshTrianglePickTest - the ORenderModel signature. Ghidra: jag::game::Location::Location = 0x4c9660, ~Location = 0x4b9680, vftable 0x14258c0.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "VISIBLE_TYPE": {
+        "value": "0xc8",
+        "carried_from": "949-4"
+      },
+      "ORIGINAL_TYPE": {
+        "value": "0xd8",
+        "carried_from": "949-4"
+      },
+      "SHAPE": {
+        "value": "0x120",
+        "carried_from": "949-4"
+      },
+      "ROTATION": {
+        "value": "0x121",
+        "carried_from": "949-4"
+      },
+      "POS_X": {
+        "value": "0x16c",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "POS_Y": {
+        "value": "0x170",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "IS_DELETED": {
+        "value": "0x18d",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "IS_HIDDEN": {
+        "value": "0x18f",
+        "confidence": "STALE_CARRY",
+        "note": "OLocation.IS_HIDDEN = 0x18f. CORRECTS the shipped 0x18e, an unverified 949-1 carry on BOTH platforms. Nothing in the ELF reads Location+0x18e (a scan for CMP byte[reg+0x18e],0 returns zero matches) while +0x18f is read 20 times; on the PE the only +0x18e read is in the unrelated FUN_00723f30, against five +0x18f reads that all sit in Location methods. +0x18f is the early-out 'skip this location' gate: ELF pick test FUN_00481e70 opens with CMP byte[RDI+0x18f],0 / JNZ -> return 0, and the PE analogue FUN_003bfb00 opens with CMP byte[RCX+0x18f],0 / JNZ -> bail followed by the verified MOV RDI,[RCX+0x330] and CMP qword[RDI+0x968],0 - instruction-for-instruction the same shape. IS_DELETED remains the separate byte at 0x18d.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "TYPE_ID": {
+        "value": "0x1a8",
+        "carried_from": "949-4"
+      },
+      "HIGHLIGHT_INTENSITY": {
+        "value": "0x31c",
+        "note": "Highlight intensity (float). Per-frame update function FUN_005e4ce0 writes this from its float parameter when its conditions allow. The renderer reads this; if it's 0.0f no highlight is drawn. We write 1.0f to override.",
+        "carried_from": "949-4"
+      },
+      "HIGHLIGHT_CATEGORY": {
+        "value": "0x324",
+        "note": "Highlight category index (int). FUN_005e4ce0 writes from its int parameter. Index into g_highlightCategoryTable @ 0x013a3de0 — 0 = IMPORTANT.",
+        "carried_from": "949-4"
+      },
+      "SHOW_AS_IMPORTANT": {
+        "value": "0x32c",
+        "note": "Boolean (byte) — \"show as important\" flag. Verified in jag::opcode::highlight_set_loc_show_as_important @ 0x00269200 (writes `*(bool *)(this+0x32c) = bVar5` after entityType check `this[0x10] == 0`). On its own NOT sufficient — the renderer also needs HIGHLIGHT_INTENSITY and HIGHLIGHT_CATEGORY set, which the binary writes via FUN_005e4ce0 (a per-Location vtable method) only when its own conditions pass. We bypass by writing all three fields directly.",
+        "carried_from": "949-4"
+      }
+    },
+    "OCombinedLocation": {
+      "LOCATION_DATA_VECTOR": {
+        "value": "0xa0",
+        "carried_from": "949-4"
+      },
+      "VECTOR_ELEMENT_LOC_SHAREDPTR": {
+        "value": "0xa0",
+        "carried_from": "949-4"
+      },
+      "RENDER_MODEL": {
+        "value": "0x958",
+        "note": "Render model ptr (same layout as ORenderModel: transform@+0x30, meshComponents@+0x288)",
+        "carried_from": "949-4"
+      }
+    },
+    "OCombinedLocationSection": {
+      "TYPE_SHAREDPTR": {
+        "value": "0xa8",
+        "note": "also 0xB0 if A8 is wrong transform in some situations?",
+        "carried_from": "949-4"
+      },
+      "HIDDEN": {
+        "value": "0xf2",
+        "carried_from": "949-4"
+      },
+      "SHAPE": {
+        "value": "0xb8",
+        "carried_from": "949-4"
+      },
+      "ROTATION": {
+        "value": "0xb9",
+        "carried_from": "949-4"
+      },
+      "POS_X": {
+        "value": "0x9c",
+        "carried_from": "949-4"
+      },
+      "POS_Y": {
+        "value": "0xa0",
+        "carried_from": "949-4"
+      }
+    },
+    "OLocationType": {
+      "ID": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "SIZE_X": {
+        "value": "0x37c",
+        "note": "Footprint size in tiles. Verified against Ghidra LocType@0x37C/0x380 (DecodeType opcodes 14/15) and the runtime readers LocType::GetHillData and Location build (FUN_0062b2e0), which both read `*(int*)(typePtr + 0x37C)`/`+0x380` from the same LocType pointer the engine holds. | 949-1 (GetUnderRoofLevelForZone reads +0x37c/+0x380 in both builds)",
+        "carried_from": "949-4"
+      },
+      "SIZE_Y": {
+        "value": "0x380",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OSpotAnimManager": {
+      "VTABLE": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "CLIENT_REF": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "FIRST_NODE": {
+        "value": "0x10",
+        "note": "TODO most likely eastl::list or linkedlist can be abstracted",
+        "carried_from": "949-4"
+      },
+      "LIST_SIZE": {
+        "value": "0x50",
+        "carried_from": "949-4"
+      },
+      "POOL_FREE_LIST_HEAD": {
+        "value": "0x20",
+        "confidence": "STALE_CARRY",
+        "note": "Node pool is based at manager+0x20. The allocate-or-recycle helper (ELF 0x129780, called from SpotAnimManager::Add@0x16a060 via LEA RDI,[RBX+0x20]; PE Add@0x19e6c0 identical) reads exactly four words: pool+0x00 free-list head, pool+0x08 bump cursor, pool+0x10 bump limit, pool+0x18 element stride = manager-relative 0x20/0x28/0x30/0x38, identical on both builds. Replaces the POOL_START/POOL_END pair, which had no correct binding: the allocator is a free-list plus a bump allocator, not a start/end pair. Surrounding fields corroborate the shared layout: head 0x10, tail 0x18, size 0x50 on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "POOL_BUMP_CURSOR": {
+        "value": "0x28",
+        "confidence": "STALE_CARRY",
+        "note": "Node pool is based at manager+0x20. The allocate-or-recycle helper (ELF 0x129780, called from SpotAnimManager::Add@0x16a060 via LEA RDI,[RBX+0x20]; PE Add@0x19e6c0 identical) reads exactly four words: pool+0x00 free-list head, pool+0x08 bump cursor, pool+0x10 bump limit, pool+0x18 element stride = manager-relative 0x20/0x28/0x30/0x38, identical on both builds. Replaces the POOL_START/POOL_END pair, which had no correct binding: the allocator is a free-list plus a bump allocator, not a start/end pair. Surrounding fields corroborate the shared layout: head 0x10, tail 0x18, size 0x50 on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "POOL_BUMP_LIMIT": {
+        "value": "0x30",
+        "confidence": "STALE_CARRY",
+        "note": "Node pool is based at manager+0x20. The allocate-or-recycle helper (ELF 0x129780, called from SpotAnimManager::Add@0x16a060 via LEA RDI,[RBX+0x20]; PE Add@0x19e6c0 identical) reads exactly four words: pool+0x00 free-list head, pool+0x08 bump cursor, pool+0x10 bump limit, pool+0x18 element stride = manager-relative 0x20/0x28/0x30/0x38, identical on both builds. Replaces the POOL_START/POOL_END pair, which had no correct binding: the allocator is a free-list plus a bump allocator, not a start/end pair. Surrounding fields corroborate the shared layout: head 0x10, tail 0x18, size 0x50 on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "POOL_ELEMENT_STRIDE": {
+        "value": "0x38",
+        "confidence": "STALE_CARRY",
+        "note": "Node pool is based at manager+0x20. The allocate-or-recycle helper (ELF 0x129780, called from SpotAnimManager::Add@0x16a060 via LEA RDI,[RBX+0x20]; PE Add@0x19e6c0 identical) reads exactly four words: pool+0x00 free-list head, pool+0x08 bump cursor, pool+0x10 bump limit, pool+0x18 element stride = manager-relative 0x20/0x28/0x30/0x38, identical on both builds. Replaces the POOL_START/POOL_END pair, which had no correct binding: the allocator is a free-list plus a bump allocator, not a start/end pair. Surrounding fields corroborate the shared layout: head 0x10, tail 0x18, size 0x50 on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      }
+    },
+    "OSpotAnimNode": {
+      "NEXT": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "VALUE": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      }
+    },
+    "OPlayerVarDomain": {
+      "HASH_TABLE": {
+        "value": "0x1c0d0",
+        "carried_from": "949-4"
+      },
+      "VAR_ID": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "VAR_VALUE": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      }
+    },
+    "OClientVarDomain": {
+      "HASH_TABLE": {
+        "value": "0x18",
+        "carried_from": "949-4"
+      },
+      "VAR_ID": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "VAR_VALUE": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      }
+    },
+    "OMiniMenuEntry": {
+      "TARGET_STRING": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "ACTION_STRING": {
+        "value": "0x18",
+        "carried_from": "949-4"
+      },
+      "HIGHLIGHT_TYPE": {
+        "value": "0x30",
+        "carried_from": "949-4"
+      },
+      "ACTION": {
+        "value": "0x38",
+        "carried_from": "949-4"
+      },
+      "UNK_1": {
+        "value": "0x40",
+        "carried_from": "949-4"
+      },
+      "ITEM_ID": {
+        "value": "0x44",
+        "carried_from": "949-4"
+      },
+      "PARAM_1": {
+        "value": "0x48",
+        "carried_from": "949-4"
+      },
+      "PARAM_2": {
+        "value": "0x4c",
+        "carried_from": "949-4"
+      },
+      "PARAM_3": {
+        "value": "0x50",
+        "carried_from": "949-4"
+      },
+      "TARGETED_ENTITY": {
+        "value": "0x120",
+        "carried_from": "949-4"
+      }
+    },
+    "OMiniMenu": {
+      "MENU_OPEN": {
+        "value": "0x68",
+        "note": "Non-zero only while a right-click menu is open. OPOBJ folds it into the trailing flags byte: set => server picks up immediately (\"Take\"); clear => server opens the area-loot interface.",
+        "carried_from": "949-4"
+      }
+    },
+    "OMiniMenuAction": {
+      "ACTION_VTABLE": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "CLIENT": {
+        "value": "0x0",
+        "note": "jag::Client* the send callback reads out of its `this`. Verified in DoOpWalk @0x161b30, which opens with `lVar3 = *param_1` and reaches every manager through it. Windows keeps the same field at +0x8.",
+        "carried_from": "949-4"
+      },
+      "VTABLE_ACTION_SEND_FUNCTION": {
+        "value": "0x18",
+        "carried_from": "949-4"
+      },
+      "ACTION_ID": {
+        "value": "0x20",
+        "carried_from": "949-4"
+      }
+    },
+    "OMainLogicManager": {
+      "STAT_TABLE": {
+        "value": "0x73a0",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "CLIENT_VAR_DOMAIN": {
+        "value": "0x73a8",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "CLICK_BUFFER_BASE": {
+        "value": "0x4590",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CLICK_BUFFER_CAPACITY": {
+        "value": "0x32",
+        "type": "int",
+        "carried_from": "949-4"
+      },
+      "CLICK_ENTRY_SIZE": {
+        "value": "0x28",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "CLICK_BUFFER_WRITE": {
+        "value": "0x4d60",
+        "note": "Renamed from the previous HEAD/TAIL pair, which had the roles inverted. Verified in SendEventMouseClick and in the movement ring's pop and producer: the first dword after the slots is the WRITE cursor, the second is the READ cursor, and a ring is empty when they are equal.",
+        "carried_from": "949-4"
+      },
+      "CLICK_BUFFER_READ": {
+        "value": "0x4d64",
+        "note": "Renamed from the previous HEAD/TAIL pair, which had the roles inverted. Verified in SendEventMouseClick and in the movement ring's pop and producer: the first dword after the slots is the WRITE cursor, the second is the READ cursor, and a ring is empty when they are equal.",
+        "carried_from": "949-4"
+      },
+      "MOVE_BUFFER_BASE": {
+        "value": "0x4d68",
+        "confidence": "CERTAIN",
+        "note": "Movement ring, distinct from the click ring. Read off PopEventMouseMoveSample's slot LEA and corroborated by the producer, which writes at the same array through the recorder sub-object.",
+        "carried_from": "949-4"
+      },
+      "MOVE_BUFFER_WRITE": {
+        "value": "0x6ca8",
+        "confidence": "CERTAIN",
+        "note": "First dword after the 200 slots. The producer writes the slot it indexes then advances this.",
+        "carried_from": "949-4"
+      },
+      "MOVE_BUFFER_READ": {
+        "value": "0x6cac",
+        "confidence": "CERTAIN",
+        "note": "Second dword after the slots. PopEventMouseMoveSample advances this on every pop, including samples the sender then elides.",
+        "carried_from": "949-4"
+      },
+      "MOVE_BUFFER_CAPACITY": {
+        "value": "0xc8",
+        "confidence": "CERTAIN",
+        "note": "200 slots; the pop wraps above 199 and the producer wraps above 199.",
+        "type": "int",
+        "carried_from": "949-4"
+      },
+      "MOVE_ENTRY_SIZE": {
+        "value": "0x28",
+        "confidence": "CERTAIN",
+        "note": "Same 40-byte MouseSample as the click ring.",
+        "carried_from": "949-4"
+      }
+    },
+    "OMouseSample": {
+      "BUTTON": {
+        "value": "0x0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "X": {
+        "value": "0x4",
+        "confidence": "CERTAIN",
+        "note": "Was transposed with Y in this table. SendEventMouseClick builds the position word as (slot[+8] << 16) | slot[+4] and the wire is little-endian, so slot[+4] leaves first and is X; the movement producer likewise stores its first float argument at slot[+4].",
+        "carried_from": "949-4"
+      },
+      "Y": {
+        "value": "0x8",
+        "confidence": "CERTAIN",
+        "note": "See X.",
+        "carried_from": "949-4"
+      },
+      "TIMESTAMP_MS": {
+        "value": "0x18",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OStatTable": {
+      "TABLE_SIZE": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "TABLE_BEGIN": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "ENTRY_SIZE": {
+        "value": "0x18",
+        "carried_from": "949-4"
+      }
+    },
+    "OStat": {
+      "INFO_PTR": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "EXPERIENCE": {
+        "value": "0xc",
+        "carried_from": "949-4"
+      },
+      "REAL_LEVEL": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "CURRENT_LEVEL": {
+        "value": "0x14",
+        "carried_from": "949-4"
+      },
+      "XP_IN_TENTHS": {
+        "value": "0x8",
+        "note": "Single BYTE at +0x8 (the three bytes above it are padding the client never initialises -- read them and the flag is spurious). Non-zero when the client tracks this skill's experience in TENTHS of an xp point, which is how it represents progress past the 200,000,000 cap (the stored value then caps at 2,000,000,000). StatTable::UpdateStat stores the wire value raw and divides by 10 for the level lookup, so a reader that ignores this flag reports 10x the real experience once it is set. Normal accounts run with it clear -- the plain stat_xp opcode returns the stored value unscaled.",
+        "carried_from": "949-4"
+      }
+    },
+    "OInventory": {
+      "INVENTORY_ID": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "INVENTORY_ITEMS": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "OBJ_VAR_DOMAINS": {
+        "value": "0x28",
+        "carried_from": "949-4"
+      },
+      "OBJ_VAR_DOMAIN_STRIDE": {
+        "value": "0x38",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "OBJ_VAR_DOMAIN_FIELD": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OObjVarDomain": {
+      "ELEMENT_SIZE": {
+        "value": "0x30",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OGraphNode": {
+      "DIRECTION_X": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "DIRECTION_Y": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "DIRECTION_Z": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MIN_X": {
+        "value": "0x40",
+        "note": "Current transformed AABB (axis-aligned bounding box) Stored as two SSE-aligned float4 vectors in raw {X, Z, Y} memory order (same axis layout as scene position at 0xF0/0xF4/0xF8)",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MIN_Z": {
+        "value": "0x44",
+        "note": "height axis (raw component 1)",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MIN_Y": {
+        "value": "0x48",
+        "note": "depth axis (raw component 2)",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MAX_X": {
+        "value": "0x50",
+        "note": "0x4C = min_w padding (unused)",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MAX_Z": {
+        "value": "0x54",
+        "note": "height axis (raw component 1)",
+        "carried_from": "949-4"
+      },
+      "BOUNDS_MAX_Y": {
+        "value": "0x58",
+        "note": "depth axis (raw component 2)",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MIN_X": {
+        "value": "0x60",
+        "note": "0x5C = marker (-1.0) Source/untransformed AABB (same {X, Z, Y} layout)",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MIN_Z": {
+        "value": "0x64",
+        "note": "height axis",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MIN_Y": {
+        "value": "0x68",
+        "note": "depth axis",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MAX_X": {
+        "value": "0x70",
+        "note": "0x6C = src min_w padding",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MAX_Z": {
+        "value": "0x74",
+        "note": "height axis",
+        "carried_from": "949-4"
+      },
+      "SRC_BOUNDS_MAX_Y": {
+        "value": "0x78",
+        "note": "depth axis",
+        "carried_from": "949-4"
+      },
+      "LOCAL_X": {
+        "value": "0xd0",
+        "note": "0x7C = src marker Local position (before parent accumulation)",
+        "carried_from": "949-4"
+      },
+      "LOCAL_Z": {
+        "value": "0xd4",
+        "carried_from": "949-4"
+      },
+      "LOCAL_Y": {
+        "value": "0xd8",
+        "carried_from": "949-4"
+      },
+      "DEPTH": {
+        "value": "0xdc",
+        "carried_from": "949-4"
+      },
+      "SCENE_X": {
+        "value": "0xf0",
+        "note": "Scene position (accumulated world position = local + parent chain)",
+        "carried_from": "949-4"
+      },
+      "SCENE_Y": {
+        "value": "0xf8",
+        "carried_from": "949-4"
+      },
+      "SCENE_Z": {
+        "value": "0xf4",
+        "carried_from": "949-4"
+      },
+      "FLAGS": {
+        "value": "0xfc",
+        "carried_from": "949-4"
+      },
+      "CHILDREN": {
+        "value": "0x138",
+        "carried_from": "949-4"
+      },
+      "ENTITY": {
+        "value": "0x1a0",
+        "note": "949-1 (graphNode+0x1a0 = Entity back-ptr, verified in ProjectileList::Add)",
+        "carried_from": "949-4"
+      },
+      "FRAME_COUNT": {
+        "value": "0x1ac",
+        "carried_from": "949-4"
+      }
+    },
+    "OEntity": {
+      "GRAPH_NODE": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "ENTITY_TYPE": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "PICK_TYPE": {
+        "value": "0x14",
+        "note": "Screen-space picking data (populated by render pipeline, used by ScenePicker::TestEntityHit) | int: 0=point/circle, non-zero=line segment",
+        "carried_from": "949-4"
+      },
+      "SCREEN_X1": {
+        "value": "0x18",
+        "note": "int: line endpoint 1 X (line mode)",
+        "carried_from": "949-4"
+      },
+      "SCREEN_Y1": {
+        "value": "0x1c",
+        "note": "int: line endpoint 1 Y (line mode)",
+        "carried_from": "949-4"
+      },
+      "SCREEN_X2": {
+        "value": "0x20",
+        "note": "int: line endpoint 2 X (line mode)",
+        "carried_from": "949-4"
+      },
+      "SCREEN_Y2": {
+        "value": "0x24",
+        "note": "int: line endpoint 2 Y (line mode)",
+        "carried_from": "949-4"
+      },
+      "LINE_RADIUS": {
+        "value": "0x28",
+        "note": "int: picking radius (line mode)",
+        "carried_from": "949-4"
+      },
+      "SCREEN_CENTER_X": {
+        "value": "0x30",
+        "note": "int: screen center X (point mode)",
+        "carried_from": "949-4"
+      },
+      "SCREEN_CENTER_Y": {
+        "value": "0x34",
+        "note": "int: screen center Y (point mode)",
+        "carried_from": "949-4"
+      },
+      "POINT_RADIUS": {
+        "value": "0x38",
+        "note": "int: picking radius (point mode)",
+        "carried_from": "949-4"
+      },
+      "ENTITY_PLANE": {
+        "value": "0x40",
+        "carried_from": "949-4"
+      },
+      "SIZE": {
+        "value": "0x184",
+        "carried_from": "949-4"
+      },
+      "ANIMATION_SHARED_PTR": {
+        "value": "0xaa0",
+        "confidence": "CERTAIN",
+        "note": "Base of the animation slot's active shared_ptr; the object word is at +0x8. jag::game::AnimatedModel::ServiceAnimationLoading @0x691790 swaps pending into active as {ctrl slot+0x20, obj slot+0x28} with the slot based at entity+0xa80.",
+        "verified_build": "949-5"
+      },
+      "RENDER_MODEL": {
+        "value": "0xc58",
+        "note": "Render model data (PathingEntity ONLY - NPC/Player, NOT Location) Location entities use OLocation.RENDER_NODE (0x60) instead, which has the same ORenderModel layout | ptr: render model data for mesh projection/picking (PathingEntity only)",
+        "carried_from": "949-4"
+      },
+      "ANIM_IDS_BEGIN": {
+        "value": "0x2c8",
+        "confidence": "STALE_CARRY",
+        "note": "Animation ids are an eastl::fixed_vector<int,4> on the entity. Linux: the ANIM setter at 0x00aeee30 (reached from jag::PacketHandlers::NpcAnimSpecific@0x000f2320, which loads vtable slot [vt+0x1e0], compares it to the default impl 0x004e4190 and devirtualizes) loads RAX=[entity+0x2c8] and R10=[entity+0x2d0], then compares the four incoming ints ([RSI],+4,+8,+0xc) against the four stored, looping R13 = 0..0x10 step 4. Windows: PathingEntity ctor@0x0031d380 initialises the same vector - in_RCX[0x59]=[0x5a]=[0x5d]=entity+0x2f0 and in_RCX[0x5b]=entity+0x300, i.e. begin=end=0x2f0, capacity_end=0x300, inline buffer 0x2f0..0x300 = 4 ints. Identical offsets on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "ANIM_IDS_END": {
+        "value": "0x2d0",
+        "confidence": "STALE_CARRY",
+        "note": "Animation ids are an eastl::fixed_vector<int,4> on the entity. Linux: the ANIM setter at 0x00aeee30 (reached from jag::PacketHandlers::NpcAnimSpecific@0x000f2320, which loads vtable slot [vt+0x1e0], compares it to the default impl 0x004e4190 and devirtualizes) loads RAX=[entity+0x2c8] and R10=[entity+0x2d0], then compares the four incoming ints ([RSI],+4,+8,+0xc) against the four stored, looping R13 = 0..0x10 step 4. Windows: PathingEntity ctor@0x0031d380 initialises the same vector - in_RCX[0x59]=[0x5a]=[0x5d]=entity+0x2f0 and in_RCX[0x5b]=entity+0x300, i.e. begin=end=0x2f0, capacity_end=0x300, inline buffer 0x2f0..0x300 = 4 ints. Identical offsets on both platforms.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "ANIMATION_ID": {
+        "value": "0xa88",
+        "confidence": "HIGH",
+        "note": "Animation entries are {id, object at id+0x20}. Linux FUN_004810b0 (idle test) checks `[e+0xaa8]==0 && [e+0xa88]==-1` then `[e+0x978]==0 && [e+0x958]==-1`; Windows FUN_00321490 (same idle test, HYPOTHESIS-commented in the DB) checks `[e+0xab0]==0 && [e+0xa90]==-1`. Both pair an object null-check with an id == -1 test, exactly the engine's isAnimating semantics. Windows slot base is 0xa88 (FUN_002ee6b0 calls FUN_002f07a0(entity+0x300 + 0xf1*8)) and FUN_002f07a0 sets slot+0x8 = -1, so the id is slot+0x8 = 0xa90. The Linux slot base is therefore 0xa80, making the shipped Linux 0xa88 the id and CORRECT. Windows slots sit +0x8 later than Linux for this cluster. | RE-VERIFIED unchanged against 949-5: entity idle-test CMP dword [reg+0xa88],-1 guarded by null-test on the anim object slot.",
+        "verified_build": "949-5"
+      }
+    },
+    "ORenderModel": {
+      "WORLD_TRANSFORM": {
+        "value": "0x30",
+        "note": "float[16]: 4x4 model-to-world transform matrix",
+        "carried_from": "949-4"
+      },
+      "MESH_COMPONENTS": {
+        "value": "0x268",
+        "confidence": "HIGH",
+        "note": "ORenderModel.MESH_COMPONENTS = 0x268. CORRECTS the shipped 0x288, an unverified 949-1 carry that nothing in the ELF reads. Two independent sites in the Location pick test FUN_00481e70 use +0x268 on the render model: @0x481f70 MOV RDI,[RSI+0x268] with RSI = Location.renderNode (+0x270), and @0x481ecf MOV R11,[R9+0x268] with R9 = the parent CombinedLocation's model (+0x958); both are followed by MOV RDX,[..] then ADD RDX,0x8 and paired with LEA RSI,[model+0x30] as the world transform - exactly the chain the engine's MeshComponents reader performs. The PE uses +0x268 at the identical site @0x39e7c0. | RE-VERIFIED unchanged against 949-5: Location pick test, two agreeing MOV r64,[reg+0x268] loads.",
+        "verified_build": "949-5"
+      },
+      "HL_COLOR_R": {
+        "value": "0x100",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_COLOR_G": {
+        "value": "0x104",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_COLOR_B": {
+        "value": "0x108",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_BASE_ALPHA": {
+        "value": "0x10c",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_STRENGTH": {
+        "value": "0x110",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_FACTOR": {
+        "value": "0x114",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "HL_MODE": {
+        "value": "0x134",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OMeshComponent": {
+      "MESH_DATA": {
+        "value": "0x20",
+        "note": "ptr: mesh data (vertices, indices, etc.)",
+        "carried_from": "949-4"
+      },
+      "BONE_COUNT": {
+        "value": "0x2f0",
+        "note": "ulong: number of bones for skinning",
+        "carried_from": "949-4"
+      },
+      "BONE_MATRICES": {
+        "value": "0x2f8",
+        "note": "ptr: array of 3x4 column-major bone matrices (12 floats each)",
+        "carried_from": "949-4"
+      },
+      "BONE_ANIM_CHECK": {
+        "value": "0x350",
+        "note": "ptr: non-null when bone animation data is active",
+        "carried_from": "949-4"
+      }
+    },
+    "OMeshData": {
+      "VERTEX_SCALE": {
+        "value": "0x2c",
+        "note": "float: dequantization scale for int16 vertices (GPU's uVertexScale)",
+        "carried_from": "949-4"
+      },
+      "INDEX_BUFFER": {
+        "value": "0xb8",
+        "note": "ptr: uint16 index buffer start (CPU-resident)",
+        "carried_from": "949-4"
+      },
+      "INDEX_BUFFER_END": {
+        "value": "0xc0",
+        "note": "ptr: uint16 index buffer end (CPU-resident)",
+        "carried_from": "949-4"
+      },
+      "VERTEX_POSITIONS": {
+        "value": "0x118",
+        "note": "ptr: float4 vertex positions stride=0x10 (GPU-only, NULL for skinned)",
+        "carried_from": "949-4"
+      },
+      "SKINNING_DATA": {
+        "value": "0x138",
+        "note": "ptr/count: non-null = skinned mesh (controls skinned vs unskinned path)",
+        "carried_from": "949-4"
+      },
+      "SKINNED_VERTEX_DATA": {
+        "value": "0x130",
+        "confidence": "STALE_CARRY",
+        "note": "Both builds' ScenePicker::MeshTrianglePickTest branch on the skinning selector [meshData+0x138] and pass meshData+0x130 on the SKINNED path (Linux jag::ScenePicker::MeshTrianglePickTest@0xc41820 -> FUN_007ffa00(ctx, mesh+0x130, mesh+0x148, mesh+0xb8, ...); Windows FUN_004e4630 -> FUN_004f7390(ctx, mesh+0x130, mesh+0x148, ...)). The unskinned path passes mesh+0x118 in both (=VERTEX_POSITIONS), and both paths pass mesh+0x148 (=VERTEX_WEIGHTS) and mesh+0xb8 (=INDEX_BUFFER), all three already confirmed identical across platforms. The shipped Linux 0x140 appears on neither binary's pick path and would sit AFTER the selector rather than before it.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "VERTEX_WEIGHTS": {
+        "value": "0x148",
+        "note": "ptr: per-vertex bone/weight data (8 bytes/vertex, CPU-resident)",
+        "carried_from": "949-4"
+      }
+    },
+    "OAnimation": {
+      "ID": {
+        "value": "0x0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::AnimationWrapper::Create @0x685e10 pool-allocates a 0x68-byte control block, publishes the wrapper at ctrl+0x20, and seeds it with MOV ECX,[animType+0x8]; MOV [ctrl+0x20],ECX. The PE Create @0x2f2890 emits the same run of stores.",
+        "verified_build": "949-5"
+      },
+      "CURRENT_FRAME": {
+        "value": "0x24",
+        "confidence": "CERTAIN",
+        "note": "Seeded to -1 by AnimationWrapper::Create (MOV dword [ctrl+0x44],0xffffffff, i.e. object+0x24) and used as the last-emitted frame cursor by the frame-event loop inlined in jag::game::AnimationWrapper::Update @0x68fe70; the PE keeps that loop out of line as EmitFrameEvents @0x2f0de0 with the same displacements.",
+        "verified_build": "949-5"
+      }
+    },
+    "ONPC": {
+      "FRAMES_ALIVE": {
+        "value": "0x910",
+        "carried_from": "949-4"
+      },
+      "ID": {
+        "value": "0x1060",
+        "carried_from": "949-4"
+      },
+      "TYPE_ID": {
+        "value": "0x1064",
+        "carried_from": "949-4"
+      },
+      "CURRENT_HP": {
+        "value": "0x112c",
+        "confidence": "HIGH",
+        "note": "string_xref"
+      },
+      "MAX_HP": {
+        "value": "0x1148",
+        "confidence": "HIGH",
+        "note": "string_xref"
+      },
+      "HIDDEN_MENUOP_FLAGS": {
+        "value": "0x115c",
+        "carried_from": "949-4"
+      },
+      "SHOW_AS_IMPORTANT": {
+        "value": "0x1100",
+        "confidence": "HIGH",
+        "note": "string_xref"
+      },
+      "RENDER_ANIM": {
+        "value": "0x958",
+        "confidence": "STALE_CARRY",
+        "note": "Animation entries are {id, object at id+0x20}. Linux FUN_004810b0 (idle test) checks `[e+0xaa8]==0 && [e+0xa88]==-1` then `[e+0x978]==0 && [e+0x958]==-1`; Windows FUN_00321490 (same idle test, HYPOTHESIS-commented in the DB) checks `[e+0xab0]==0 && [e+0xa90]==-1`. Both pair an object null-check with an id == -1 test, exactly the engine's isAnimating semantics. Windows slot base is 0xa88 (FUN_002ee6b0 calls FUN_002f07a0(entity+0x300 + 0xf1*8)) and FUN_002f07a0 sets slot+0x8 = -1, so the id is slot+0x8 = 0xa90. The Linux slot base is therefore 0xa80, making the shipped Linux 0xa88 the id and CORRECT. Windows slots sit +0x8 later than Linux for this cluster.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      }
+    },
+    "ONPCType": {
+      "ID": {
+        "value": "0x4",
+        "carried_from": "949-4"
+      }
+    },
+    "OPathingEntity": {
+      "SERVER_INDEX": {
+        "value": "0x88",
+        "carried_from": "949-4"
+      },
+      "NAME": {
+        "value": "0x90",
+        "carried_from": "949-4"
+      },
+      "INTERACTING_NPC_SID": {
+        "value": "0x1b4",
+        "carried_from": "949-4"
+      },
+      "ROUTE_WAYPOINT_MANAGER": {
+        "value": "0x268",
+        "carried_from": "949-4"
+      },
+      "WAYPOINT_COUNT": {
+        "value": "0x30",
+        "carried_from": "949-4"
+      },
+      "HITMARKS_AND_HEADBARS": {
+        "value": "0xef8",
+        "confidence": "HIGH",
+        "note": "func_name"
+      },
+      "FINE_POS_X": {
+        "value": "0x270",
+        "confidence": "HIGH",
+        "note": "SetFinePosition@0x004a50c0 (Linux) writes MOVSS [RBX+0x270],x / [RBX+0x274],y / [RBX+0x278],z; GetCurrentFinePosition@0x00ad3ea0 reads the same triple after checking waypoint count [+0x30] on the route manager [+0x268]. Windows PathingEntity ctor@0x0031d380 zero-inits the identical set [0x270],[0x278],[0x280],[0x288],[0x290],[0x298],[0x2a0],[0x2a8],[0x2b0],[0x2b8],[0x2c0] - the 0x270..0x2c0 block is byte-identical across platforms. | RE-VERIFIED unchanged against 949-5: PathingEntity::SetFinePosition MOVSS [reg+0x270].",
+        "verified_build": "949-5"
+      },
+      "FINE_POS_Y": {
+        "value": "0x274",
+        "confidence": "HIGH",
+        "note": "SetFinePosition@0x004a50c0 (Linux) writes MOVSS [RBX+0x270],x / [RBX+0x274],y / [RBX+0x278],z; GetCurrentFinePosition@0x00ad3ea0 reads the same triple after checking waypoint count [+0x30] on the route manager [+0x268]. Windows PathingEntity ctor@0x0031d380 zero-inits the identical set [0x270],[0x278],[0x280],[0x288],[0x290],[0x298],[0x2a0],[0x2a8],[0x2b0],[0x2b8],[0x2c0] - the 0x270..0x2c0 block is byte-identical across platforms. | RE-VERIFIED unchanged against 949-5: PathingEntity::SetFinePosition MOVSS [reg+0x274].",
+        "verified_build": "949-5"
+      },
+      "FINE_POS_Z": {
+        "value": "0x278",
+        "confidence": "HIGH",
+        "note": "SetFinePosition@0x004a50c0 (Linux) writes MOVSS [RBX+0x270],x / [RBX+0x274],y / [RBX+0x278],z; GetCurrentFinePosition@0x00ad3ea0 reads the same triple after checking waypoint count [+0x30] on the route manager [+0x268]. Windows PathingEntity ctor@0x0031d380 zero-inits the identical set [0x270],[0x278],[0x280],[0x288],[0x290],[0x298],[0x2a0],[0x2a8],[0x2b0],[0x2b8],[0x2c0] - the 0x270..0x2c0 block is byte-identical across platforms. | RE-VERIFIED unchanged against 949-5: PathingEntity::SetFinePosition MOVSS [reg+0x278].",
+        "verified_build": "949-5"
+      },
+      "MOVE_TARGET_X": {
+        "value": "0x2a8",
+        "confidence": "STALE_CARRY",
+        "note": "SetFinePosition@0x004a50c0 (Linux) movement interpolator: [+0x280] start time, [+0x288]/[+0x290]/[+0x298] from-xyz doubles, [+0x2a0] end time, [+0x2a8]/[+0x2b0]/[+0x2b8] target-xyz doubles (cvtss2sd of the x/y/z just written to 0x270/0x274/0x278), [+0x2c0] int. Windows ctor@0x0031d380 zero-inits the identical set. NOTE these are DOUBLES, not floats.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "MOVE_TARGET_Y": {
+        "value": "0x2b0",
+        "confidence": "STALE_CARRY",
+        "note": "SetFinePosition@0x004a50c0 (Linux) movement interpolator: [+0x280] start time, [+0x288]/[+0x290]/[+0x298] from-xyz doubles, [+0x2a0] end time, [+0x2a8]/[+0x2b0]/[+0x2b8] target-xyz doubles (cvtss2sd of the x/y/z just written to 0x270/0x274/0x278), [+0x2c0] int. Windows ctor@0x0031d380 zero-inits the identical set. NOTE these are DOUBLES, not floats.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      },
+      "MOVE_TARGET_Z": {
+        "value": "0x2b8",
+        "confidence": "STALE_CARRY",
+        "note": "SetFinePosition@0x004a50c0 (Linux) movement interpolator: [+0x280] start time, [+0x288]/[+0x290]/[+0x298] from-xyz doubles, [+0x2a0] end time, [+0x2a8]/[+0x2b0]/[+0x2b8] target-xyz doubles (cvtss2sd of the x/y/z just written to 0x270/0x274/0x278), [+0x2c0] int. Windows ctor@0x0031d380 zero-inits the identical set. NOTE these are DOUBLES, not floats.",
+        "verified_build": "949-4",
+        "carried_from": "949-4",
+        "needs_reverification": true
+      }
+    },
+    "OHitmarksAndHeadbars": {
+      "HIT_VECTOR": {
+        "value": "0x20",
+        "carried_from": "949-4"
+      },
+      "HEADBAR_LINKEDLIST_VECTOR_START": {
+        "value": "0x28",
+        "carried_from": "949-4"
+      },
+      "HEADBAR_STRIDE": {
+        "value": "0x1b0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OHit": {
+      "TYPE": {
+        "value": "0x0",
+        "carried_from": "949-4"
+      },
+      "DAMAGE": {
+        "value": "0x4",
+        "carried_from": "949-4"
+      },
+      "CLIENTCYCLE_CREATED": {
+        "value": "0x8",
+        "note": "uint32",
+        "carried_from": "949-4"
+      },
+      "UNKNEG1_1": {
+        "value": "0xc",
+        "carried_from": "949-4"
+      },
+      "UNKNEG1_2": {
+        "value": "0x10",
+        "carried_from": "949-4"
+      },
+      "DURATION_CLIENTCYLES": {
+        "value": "0x14",
+        "carried_from": "949-4"
+      },
+      "STRIDE": {
+        "value": "0x18",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OHeadbar": {
+      "TYPE_PTR": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "TYPE_ID": {
+        "value": "0x8",
+        "carried_from": "949-4"
+      },
+      "CLIENTCYCLE_CREATED": {
+        "value": "0x20",
+        "note": "uint32",
+        "carried_from": "949-4"
+      },
+      "FROM_FILL": {
+        "value": "0x24",
+        "carried_from": "949-4"
+      },
+      "ZERO": {
+        "value": "0x28",
+        "carried_from": "949-4"
+      },
+      "TO_FILL": {
+        "value": "0x2c",
+        "carried_from": "949-4"
+      },
+      "ZERO2": {
+        "value": "0x30",
+        "carried_from": "949-4"
+      },
+      "DURATION_CLIENTCYCLES": {
+        "value": "0x34",
+        "carried_from": "949-4"
+      }
+    },
+    "OHitmark": {},
+    "OSpotAnim": {
+      "ID": {
+        "value": "0x74",
+        "carried_from": "949-4"
+      },
+      "CREATED_CLIENTCYCLE": {
+        "value": "0x18c",
+        "carried_from": "949-4"
+      }
+    },
+    "OHintArrow": {
+      "TARGET_ENTITY_SHARED_PTR": {
+        "value": "0x88",
+        "note": "HintArrow entity is 0x98 bytes total (FUN_0016b500 @ 0x0016b500, alloc size 0x98). Entity type 0xd written at +0x10 (OEntity.ENTITY_TYPE). | null shared_ptr {ctrl=0, ptr=0} at +0x88..+0x97",
+        "carried_from": "949-4"
+      },
+      "TARGET_POS_VEC3": {
+        "value": "0x70",
+        "note": "16-byte inline Vec3 at +0x70",
+        "carried_from": "949-4"
+      }
+    },
+    "OHintTrailList": {
+      "SLOT_ARRAY": {
+        "value": "0x10",
+        "note": "jag::PacketHandlers::HintTrail@0x00188880 LEA RBP,[RDI+R8*0x8+0x10] - the packet's slot byte indexes 8-byte pointers from base +0x10. Not an eastl::vector: a vector would load begin/end from the object.",
+        "verified_build": "949-5"
+      },
+      "SLOT_COUNT": {
+        "value": "0x8",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 passes list+0x50 on to the entity as its owner pointer, so the slot array ends at +0x50: (0x50-0x10)/8 = 8. The Windows per-tick sweep bounds the same array with literal LEA +0x10/+0x50.",
+        "verified_build": "949-5"
+      }
+    },
+    "OServerConnection": {
+      "CLIENT_STREAM": {
+        "value": "0x8",
+        "note": "949-1 ptr to jag::ClientStream (the raw TCP socket wrapper)",
+        "carried_from": "949-4"
+      },
+      "CURRENT_OPCODE": {
+        "value": "0x2c",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "RESOLVED_SIZE": {
+        "value": "0x30",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "ISAAC_PTR": {
+        "value": "0x2b8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PACKET_BASE": {
+        "value": "0x2c0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "BUF_DATA": {
+        "value": "0x2d0",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "BUF_POS": {
+        "value": "0x2d8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PENDING_LIST_HEAD": {
+        "value": "0x48",
+        "confidence": "CERTAIN",
+        "note": "Head sentinel of the intrusive pending-message list. jag::game::ServerConnection::FlushClientMessages @0x52f5d0 drains the outgoing queue: it runs while the counter at +0x88 is non-zero, reads the head node at +0x48 as {control block +0x10, message +0x18}, writes the message's byte count through ClientStream::Write, adds it to the lifetime counter at +0x2e4 and subtracts it from the queued-bytes total at +0x2b0, unlinks the node and either frees it or pushes it back onto the freelist at +0x58 depending on whether it lies inside the pool block bounded by +0x80 and +0x68, then decrements +0x88.",
+        "verified_build": "949-5"
+      },
+      "PENDING_COUNT": {
+        "value": "0x88",
+        "confidence": "CERTAIN",
+        "note": "Number of queued outgoing messages, and the loop guard in the flush. jag::game::ServerConnection::FlushClientMessages @0x52f5d0 drains the outgoing queue: it runs while the counter at +0x88 is non-zero, reads the head node at +0x48 as {control block +0x10, message +0x18}, writes the message's byte count through ClientStream::Write, adds it to the lifetime counter at +0x2e4 and subtracts it from the queued-bytes total at +0x2b0, unlinks the node and either frees it or pushes it back onto the freelist at +0x58 depending on whether it lies inside the pool block bounded by +0x80 and +0x68, then decrements +0x88.",
+        "verified_build": "949-5"
+      }
+    },
+    "OConnectionManager": {
+      "GAME_CONNECTION": {
+        "value": "0x18",
+        "note": "949-1 (not re-hit this pass) ServerConnection* (active when LOGGED_IN / mainState 30)",
+        "carried_from": "949-4"
+      },
+      "LOGIN_CONNECTION": {
+        "value": "0x28",
+        "note": "949-1 (not re-hit this pass) ServerConnection* (active during login states)",
+        "carried_from": "949-4"
+      },
+      "HANDLE_STATE": {
+        "value": "0x8",
+        "note": "949-1 TcpIn reads the live ServerConnection state as *(handle + 8)",
+        "carried_from": "949-4"
+      }
+    },
+    "OLocChangeRecord": {
+      "RECORD": {
+        "value": "0x8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PLANE": {
+        "value": "0x8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "TILE_X": {
+        "value": "0xc",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "TILE_Y": {
+        "value": "0x10",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "KIND": {
+        "value": "0x68",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OTcpConnectionMessage": {
+      "FIXED_SIZE": {
+        "value": "0x4",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "BUF_DATA": {
+        "value": "0x18",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "BUF_WRITE_POS": {
+        "value": "0x20",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "PAYLOAD_LENGTH": {
+        "value": "0x28",
+        "confidence": "CERTAIN",
+        "note": "i32 final byte count. jag::game::TcpConnectionMessage::Init @0x12af30 zeroes it alongside the rest of the embedded Packet, the enqueue path fills it from the write cursor, and FlushClientMessages reads it as the length argument of ClientStream::Write and as the amount to add to the sent-byte counter.",
+        "verified_build": "949-5"
+      },
+      "PROT_PTR": {
+        "value": "0x30",
+        "confidence": "CERTAIN",
+        "note": "ProtEntry back-pointer, written by Init @0x12af30 on both of its buffer-swap paths right before it takes the opcode byte out of the same descriptor. NOT 0x38: that is the PE's slot for the same member, the one field of this class whose offset the two compilers disagree on - 0x0/0x4/0x10/0x18/0x20/0x28 are shared.",
+        "verified_build": "949-5"
+      }
+    },
+    "OVarInfo": {
+      "TYPE_PTR": {
+        "value": "0x8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      },
+      "VAR_ID": {
+        "value": "0x8",
+        "note": "949-1",
+        "carried_from": "949-4"
+      }
+    },
+    "OMouseProtSender": {
+      "VTABLE": {
+        "value": "0x0",
+        "confidence": "CERTAIN",
+        "note": "slot0 HasPendingWork, slot1 SendClick, slot4 PopMoveSample.",
+        "carried_from": "949-4"
+      },
+      "CLIENT": {
+        "value": "0x8",
+        "confidence": "CERTAIN",
+        "note": "Back-pointer to the Client; the pop reaches MainLogicManager through it.",
+        "carried_from": "949-4"
+      },
+      "LAST_SENT_X": {
+        "value": "0x10",
+        "confidence": "CERTAIN",
+        "note": "X of the previously emitted movement sample; basis of the position delta and the same-position elision. Clobbered by the movement stage.",
+        "carried_from": "949-4"
+      },
+      "LAST_SENT_Y": {
+        "value": "0x14",
+        "confidence": "CERTAIN",
+        "note": "Y counterpart.",
+        "carried_from": "949-4"
+      },
+      "LAST_MOVE_SAMPLE_TIME": {
+        "value": "0x18",
+        "confidence": "CERTAIN",
+        "note": "Timestamp of the last movement sample written; zero selects the absolute form. Also the staleness reference in HasPendingWork.",
+        "carried_from": "949-4"
+      },
+      "LAST_CLICK_SAMPLE_TIME": {
+        "value": "0x20",
+        "confidence": "CERTAIN",
+        "note": "Click stage only.",
+        "carried_from": "949-4"
+      }
+    },
+    "OKeyEvent": {
+      "KEY_ID": {
+        "value": "0x0",
+        "confidence": "CERTAIN",
+        "note": "Post-remap protocol key id. Only its low byte reaches the wire.",
+        "carried_from": "949-4"
+      },
+      "CHAR_CODE": {
+        "value": "0x4",
+        "confidence": "CERTAIN",
+        "note": "Typed character; set only by the char delegate, which feeds a different ring.",
+        "carried_from": "949-4"
+      },
+      "RAW_KEY_CODE": {
+        "value": "0x8",
+        "confidence": "CERTAIN",
+        "note": "Original platform key code, kept for local use and never sent.",
+        "carried_from": "949-4"
+      },
+      "REPEAT": {
+        "value": "0xc",
+        "confidence": "CERTAIN",
+        "note": "Auto-repeat flag. The packet builder emits only records whose value is zero.",
+        "carried_from": "949-4"
+      },
+      "MODIFIER_MASK": {
+        "value": "0x10",
+        "confidence": "CERTAIN",
+        "note": "Local-only; never reaches the wire.",
+        "carried_from": "949-4"
+      },
+      "TIMESTAMP_MS": {
+        "value": "0x18",
+        "confidence": "CERTAIN",
+        "note": "Stamped from the same global clock as mouse samples; the wire carries a 24-bit delta against the previously emitted key event.",
+        "carried_from": "949-4"
+      },
+      "SIZE": {
+        "value": "0x20",
+        "confidence": "CERTAIN",
+        "note": "Record stride.",
+        "carried_from": "949-4"
+      }
+    },
+    "OClientProt": {
+      "CLIENT": {
+        "value": "0x8",
+        "confidence": "CERTAIN",
+        "note": "Back-pointer to the Client.",
+        "carried_from": "949-4"
+      },
+      "EVENT_MOUSE_SENDER": {
+        "value": "0x10",
+        "confidence": "CERTAIN",
+        "note": "First sender FlushPerTick flushes.",
+        "carried_from": "949-4"
+      },
+      "NATIVE_MOUSE_SENDER": {
+        "value": "0x38",
+        "confidence": "CERTAIN",
+        "note": "Second sender; has no producer on Linux, so it flushes nothing.",
+        "carried_from": "949-4"
+      },
+      "LAST_KEY_EVENT_TIME": {
+        "value": "0x2818",
+        "confidence": "CERTAIN",
+        "note": "Reference the key packet's 24-bit time delta is measured against; advanced per emitted record.",
+        "carried_from": "949-4"
+      }
+    },
+    "OInputGlobals": {
+      "MOUSE_X": {
+        "value": "0x168dbd8",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5. jag::input::Input::OnMouseMotion@0xcc2430 stores x->0x168dbd8 and y->0x168dbd4; jag::input::Input::OnLeftButtonDown@0xcc3440 stores the literal 1 ->0x168dbdc and writes both coords. The whole .data/.bss block moved +0x1000 on this build, independently confirmed by OGlobal.CLIENT (0x1678620->0x1679620) and OGlobal.MONOTONIC_CLOCK_MS (0x146e998->0x146f998). Carrying the 949-4 value would have silently pointed synthetic input at the wrong globals.",
+        "verified_build": "949-5"
+      },
+      "MOUSE_Y": {
+        "value": "0x168dbd4",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5. jag::input::Input::OnMouseMotion@0xcc2430 stores x->0x168dbd8 and y->0x168dbd4; jag::input::Input::OnLeftButtonDown@0xcc3440 stores the literal 1 ->0x168dbdc and writes both coords. The whole .data/.bss block moved +0x1000 on this build, independently confirmed by OGlobal.CLIENT (0x1678620->0x1679620) and OGlobal.MONOTONIC_CLOCK_MS (0x146e998->0x146f998). Carrying the 949-4 value would have silently pointed synthetic input at the wrong globals.",
+        "verified_build": "949-5"
+      },
+      "LEFT_BUTTON_STATE": {
+        "value": "0x168dbdc",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5. jag::input::Input::OnMouseMotion@0xcc2430 stores x->0x168dbd8 and y->0x168dbd4; jag::input::Input::OnLeftButtonDown@0xcc3440 stores the literal 1 ->0x168dbdc and writes both coords. The whole .data/.bss block moved +0x1000 on this build, independently confirmed by OGlobal.CLIENT (0x1678620->0x1679620) and OGlobal.MONOTONIC_CLOCK_MS (0x146e998->0x146f998). Carrying the 949-4 value would have silently pointed synthetic input at the wrong globals.",
+        "verified_build": "949-5"
+      },
+      "MIDDLE_BUTTON_STATE": {
+        "value": "0x168dbdd",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5 by reading its own store: the SDL event pump handles mouse buttons 2 and 3 INLINE (jag::input::Input has no middle/right handler on Linux, only Left/Key/Motion/Wheel). The pump's MOV byte ptr [rip+disp],1 for button==2 resolves to 0x168dbdd, with a matching clear-to-0 site. Previously MEDIUM because it was inferred from the +0x1000 shift plus contiguous layout; now read directly.",
+        "verified_build": "949-5"
+      },
+      "RIGHT_BUTTON_STATE": {
+        "value": "0x168dbde",
+        "confidence": "HIGH",
+        "note": "Re-derived against 949-5 by reading its own store: the SDL pump's MOV byte ptr [rip+disp],1 for button==3 resolves to 0x168dbde, with a matching clear site, and TouchLongPressToRightClick writes the same byte - two independent writers. Previously MEDIUM (inferred); now read directly.",
+        "verified_build": "949-5"
+      }
+    },
+    "OGlobal": {
+      "MONOTONIC_CLOCK_MS": {
+        "value": "0x146f998",
+        "confidence": "HIGH",
+        "note": "Unnamed .data global the mouse movement producer loads and stores verbatim into a sample timestamp; the clock both mouse prot senders delta-encode against. Relocated 0x146e998->0x146f998 from two independent readers that decompile instruction-for-instruction identically with the displacement moved by exactly +0x1000: jag::ClientProt::RecordNativeMouseMove and jag::ClientProt::NativeMouseProtHasPendingWork, plus a matching xref fingerprint across the whole named reader set and the single tick-updater write site. Recorded here because table regeneration DROPS every absolute address as un-carryable, which is exactly how this entry was destroyed going into 949-5.",
+        "verified_build": "949-5"
+      },
+      "CLIENT": {
+        "value": "0x1679620",
+        "confidence": "HIGH",
+        "note": "func_name CHANGED"
+      }
+    },
+    "OFunctions": {
+      "CONNECTIONMANAGER_TCPIN": {
+        "value": "0x0012b590",
+        "confidence": "CERTAIN",
+        "note": "jag::ConnectionManager::TcpIn"
+      },
+      "CLIENT_SETMAINSTATE": {
+        "value": "0x00290810",
+        "confidence": "CERTAIN",
+        "note": "jag::Client::SetMainState"
+      },
+      "STATTABLE_UPDATESTAT": {
+        "value": "0x000ed200",
+        "confidence": "CERTAIN",
+        "note": "jag::game::StatTable::UpdateStat"
+      },
+      "CLIENT_MAINLOGIC": {
+        "value": "0x002bcd60",
+        "confidence": "CERTAIN",
+        "note": "jag::Client::MainLogic"
+      },
+      "SERVERPROT_DECODE_UPDATE_INV_PARTIAL": {
+        "value": "0x001863e0",
+        "confidence": "CERTAIN",
+        "note": "jag::PacketHandlers::UpdateInvPartial"
+      },
+      "SERVERPROT_DECODE_UPDATE_INV_FULL": {
+        "value": "0x001ab890",
+        "confidence": "CERTAIN",
+        "note": "jag::PacketHandlers::UpdateInvFull"
+      },
+      "CHATHISTORY_ADDCHAT_HOOKABLE": {
+        "value": "0x001a0d80",
+        "confidence": "CERTAIN",
+        "note": "jag::ChatHistory::AddChat_hookable"
+      },
+      "PLAYERVARDOMAIN_SETVARVALUEFROMSERVER": {
+        "value": "0x00527150",
+        "confidence": "CERTAIN",
+        "note": "jag::game::PlayerVarDomain::SetVarValueFromServer"
+      },
+      "PLAYERVARDOMAIN_SETVARVALUE": {
+        "value": "0x004fd140",
+        "confidence": "CERTAIN",
+        "note": "jag::game::PlayerVarDomain::SetVarValue"
+      },
+      "CLIENTVARDOMAIN_SETVARVALUE": {
+        "value": "0x001b16b0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientVarDomain::SetVarValue"
+      },
+      "MINIMENU_DOACTION": {
+        "value": "0x00190310",
+        "confidence": "CERTAIN",
+        "note": "jag::MiniMenu::DoAction"
+      },
+      "INTERFACEMANAGER_IFBUTTONXINNER": {
+        "value": "0x003ea170",
+        "confidence": "CERTAIN",
+        "note": "jag::InterfaceManager::IfButtonXInner"
+      },
+      "PROJECTILELIST_ADD": {
+        "value": "0x00b045a0",
+        "confidence": "CERTAIN",
+        "note": "jag::ProjectileList::Add"
+      },
+      "ENTITY_ENTITY": {
+        "value": "0x00141c50",
+        "confidence": "CERTAIN",
+        "note": "jag::game::Entity::Entity"
+      },
+      "ENTITY_ENTITY_DESTRUCT": {
+        "value": "0x004d8dc0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::Entity::~Entity"
+      },
+      "INVENTORYMANAGER_GETINVENTORY": {
+        "value": "0x0052b3c0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::InventoryManager::GetInventory"
+      },
+      "HITMARKSANDHEADBARS_ADDHEADBAR": {
+        "value": "0x00491e50",
+        "confidence": "CERTAIN",
+        "note": "jag::HitmarksAndHeadbars::AddHeadbar"
+      },
+      "HITMARKSANDHEADBARS_ADDHITMARK": {
+        "value": "0x00492c50",
+        "confidence": "CERTAIN",
+        "note": "jag::HitmarksAndHeadbars::AddHitmark"
+      },
+      "INPUT_INPUT_ONKEYDOWNINNER": {
+        "value": "0x00cb3920",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnKeyDownInner"
+      },
+      "INPUT_INPUT_ONKEYUPINNER": {
+        "value": "0x00cb33c0",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnKeyUpInner"
+      },
+      "SCRIPTRUNNER_EXECUTEHOOKINNER": {
+        "value": "0x00328ae0",
+        "confidence": "CERTAIN",
+        "note": "jag::ScriptRunner::ExecuteHookInner"
+      },
+      "SCRIPTRUNNER_EXECUTESCRIPT": {
+        "value": "0x00326580",
+        "confidence": "CERTAIN",
+        "note": "jag::ScriptRunner::ExecuteScript"
+      },
+      "SCRIPTRUNNER_GETCLIENTSCRIPTSTATE": {
+        "value": "0x00316890",
+        "confidence": "CERTAIN",
+        "note": "jag::ScriptRunner::GetClientScriptState"
+      },
+      "SCRIPTRUNNER_CONTINUESCRIPT": {
+        "value": "0x00326170",
+        "confidence": "CERTAIN",
+        "note": "jag::ScriptRunner::ContinueScript"
+      },
+      "SCRIPTRUNNER_GET_BY_ID": {
+        "value": "0x00327bb0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientScriptHelpers::GetByID"
+      },
+      "INPUT_INPUT_ONMOUSEMOTION": {
+        "value": "0x00cc2430",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnMouseMotion"
+      },
+      "INPUT_INPUT_ONLEFTBUTTONDOWN": {
+        "value": "0x00cc3440",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnLeftButtonDown"
+      },
+      "INPUT_INPUT_ONLEFTBUTTONUP": {
+        "value": "0x00cc3040",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnLeftButtonUp"
+      },
+      "INPUT_INPUT_ONSCROLLWHEEL": {
+        "value": "0x00cc1bb0",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnScrollWheel"
+      },
+      "INPUT_INPUT_ONKEYCHARINNER": {
+        "value": "0x00cb2ee0",
+        "confidence": "CERTAIN",
+        "note": "jag::input::Input::OnKeyCharInner"
+      },
+      "EVENTLISTENERS_CALLLISTENERS_FF": {
+        "value": "0x00cc16f0",
+        "confidence": "CERTAIN",
+        "note": "jag::EventListeners::CallListeners_ff"
+      },
+      "INPUTSTATE_ISKEYDOWN": {
+        "value": "0x00cc1b40",
+        "confidence": "CERTAIN",
+        "note": "jag::input::InputState::IsKeyDown"
+      },
+      "TCPCONNECTIONMESSAGE_INIT": {
+        "value": "0x0012af30",
+        "confidence": "CERTAIN",
+        "note": "jag::game::TcpConnectionMessage::Init"
+      },
+      "TCPCONNECTIONMESSAGE_INIT_INCOMING": {
+        "value": "0x001a7130",
+        "confidence": "CERTAIN",
+        "note": "jag::game::TcpConnectionMessage::InitIncoming"
+      },
+      "SENDCLIENTMESSAGE": {
+        "value": "0x00cdad60",
+        "confidence": "CERTAIN",
+        "note": "jag::Packet::SendClientMessage"
+      },
+      "REBUILD_NORMAL_HANDLER": {
+        "value": "0x001e1bd0",
+        "confidence": "CERTAIN",
+        "note": "jag::PacketHandlers::RebuildNormal"
+      },
+      "BUILD_AREA_INIT": {
+        "value": "0x006c1ff0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::RebuildSceneEntry::Reset"
+      },
+      "INTERFACEMANAGER_DRAWCOMPONENTLIST": {
+        "value": "0x0040bf40",
+        "confidence": "CERTAIN",
+        "note": "jag::InterfaceManager::DrawComponentList"
+      },
+      "CLIENTPROT_SENDEVENTMOUSECLICK": {
+        "value": "0x00182fb0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientProt::SendEventMouseClick"
+      },
+      "APPLY_LOC_CHANGE": {
+        "value": "0x00136fc0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::ApplyLocChange"
+      },
+      "CLIENTERROR_REPORTERROR": {
+        "value": "0x007c3700",
+        "confidence": "CERTAIN",
+        "note": "jag::game::ClientError::ReportError"
+      },
+      "CLIENTSTREAM_READ": {
+        "value": "0x00b724a0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientStream::Read"
+      },
+      "CLIENTSTREAM_WRITE": {
+        "value": "0x00b71cb0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientStream::Write"
+      },
+      "SERVERCONNECTION_FLUSHCLIENTMESSAGES": {
+        "value": "0x0052f5d0",
+        "confidence": "CERTAIN",
+        "note": "jag::game::ServerConnection::FlushClientMessages"
+      },
+      "CLIENTPROT_SENDNATIVEMOUSECLICK": {
+        "value": "0x00182de0",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientProt::SendNativeMouseClick"
+      },
+      "CLIENTPROT_FLUSHMOUSEPROTSENDER": {
+        "value": "0x00182900",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientProt::FlushMouseProtSender"
+      },
+      "CLIENTPROT_FLUSHPERTICK": {
+        "value": "0x001a1700",
+        "confidence": "CERTAIN",
+        "note": "jag::ClientProt::FlushPerTick"
+      }
+    },
+    "OHintTrail": {
+      "TARGET_ID": {
+        "value": "0x60",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 stores param_4 (HINT_TRAIL target id, gT_unsigned_int & 0x7fffffff) at entity+0x60 and drops the cached target entity when it changes. 0xffffffff for a bare coordinate trail.",
+        "verified_build": "949-5"
+      },
+      "POINTS_BEGIN": {
+        "value": "0x70",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 eastl::fixed_vector<HintTrailPoint> begin. Inline storage starts at +0x98, so an untouched trail points into itself rather than the heap.",
+        "verified_build": "949-5"
+      },
+      "POINTS_END": {
+        "value": "0x78",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 one past the last trail point. The LAST point is the hint's destination - the tile the map hint icon marks.",
+        "verified_build": "949-5"
+      },
+      "POINT_STRIDE": {
+        "value": "0x28",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 appends with `plVar15 + 5` (5 qwords) and grows capacity in 0x28 blocks.",
+        "verified_build": "949-5"
+      },
+      "POINT_FINE_X": {
+        "value": "0x8",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 stores (tileX * 0x200) + 0x100 here. Confirmed by LinkMap::ReadTileFlags(..., (int)[point+0x8] >> 9, ...) - >>9 is /512 back to a tile.",
+        "verified_build": "949-5"
+      },
+      "POINT_FINE_HEIGHT": {
+        "value": "0xc",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 seeds -1.0f (0xbf800000) and overwrites it from HeightMap::GetFineHeight once the tile is loaded; still -1.0f means the point has not been placed on the ground yet.",
+        "verified_build": "949-5"
+      },
+      "POINT_FINE_Y": {
+        "value": "0x10",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 stores (tileY * 0x200) + 0x100 here. Confirmed by LinkMap::ReadTileFlags(..., (int)[point+0x10] >> 9).",
+        "verified_build": "949-5"
+      },
+      "TARGET_ENTITY_SHARED_PTR": {
+        "value": "0x1498",
+        "note": "jag::game::HintTrail::BuildFromPacket@0x00163de0 resolved target entity shared_ptr (ctrl block at +0x14a0); jag::PacketHandlers::HintTrail@0x00188880 clears both on the 0x7fff clear opcode. Set for hints that point at an entity rather than a coordinate.",
+        "verified_build": "949-5"
+      }
+    },
+    "OHintArrowList": {
+      "ARROW_SLOTS": {
+        "value": "0x10",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 arrow entity pointers at list+0x10+slot*8. Non-null marks the slot live; the clear path nulls exactly this.",
+        "verified_build": "949-5"
+      },
+      "POINTER_SLOTS": {
+        "value": "0x50",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 arrow-pointer entities at list+0x50+slot*8, same slot index as ARROW_SLOTS.",
+        "verified_build": "949-5"
+      },
+      "DESCRIPTORS": {
+        "value": "0x90",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 POD descriptor array at list+0x90+slot*DESCRIPTOR_STRIDE, written directly by the handler - no entity or shared_ptr chasing needed to read where a hint points.",
+        "verified_build": "949-5"
+      },
+      "DESCRIPTOR_STRIDE": {
+        "value": "0x2c",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 slot*0x2c indexes the descriptor array.",
+        "verified_build": "949-5"
+      },
+      "SLOT_COUNT": {
+        "value": "0x8",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 slot = packetByte >> 5, so 0..7. The three arrays are 8 entries each (+0x10..+0x4f, +0x50..+0x8f, +0x90..+0x22f).",
+        "verified_build": "949-5"
+      }
+    },
+    "OHintArrowDescriptor": {
+      "KIND": {
+        "value": "0x4",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 2 for a coordinate hint; the raw sub-opcode (1 or 10) for an entity hint.",
+        "verified_build": "949-5"
+      },
+      "TARGET_INDEX": {
+        "value": "0x10",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 server index of the hinted entity, 0xffffffff for a coordinate hint.",
+        "verified_build": "949-5"
+      },
+      "FINE_X": {
+        "value": "0x1c",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 float, first gT_unsigned_short * 0x200 plus a subtile offset chosen by the hint kind. Divide by 512 for the tile.",
+        "verified_build": "949-5"
+      },
+      "HEIGHT": {
+        "value": "0x20",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 float, packet byte * 8.",
+        "verified_build": "949-5"
+      },
+      "FINE_Y": {
+        "value": "0x24",
+        "note": "jag::PacketHandlers::HintArrow@0x00185f90 float, second gT_unsigned_short * 0x200 plus a subtile offset. Divide by 512 for the tile.",
+        "verified_build": "949-5"
+      }
+    },
+    "OInputState": {
+      "KEY_NODE_VK": {
+        "value": "0x20",
+        "confidence": "CERTAIN",
+        "note": "int key (virtual-key code, SDL-native here) within a node. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site.",
+        "verified_build": "949-5"
+      },
+      "KEY_NODE_PRESSED": {
+        "value": "0x24",
+        "confidence": "CERTAIN",
+        "note": "pressed byte within a node. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site.",
+        "verified_build": "949-5"
+      },
+      "KEY_DOWN_MAP_ROOT": {
+        "value": "0x1686730",
+        "confidence": "CERTAIN",
+        "note": "Root pointer of the key-down rbtree; null before the first key is seen. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site. The DB's older entry-point comment names 0x1685720/0x1685730 - a 949-4 pair that moved with the .data layout on this sub-revision; the values here are read off the instruction stream.",
+        "verified_build": "949-5"
+      },
+      "KEY_DOWN_MAP_ANCHOR": {
+        "value": "0x1686720",
+        "confidence": "CERTAIN",
+        "note": "End sentinel the walk compares the candidate against, 0x10 below the root exactly as on the PE. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site.",
+        "verified_build": "949-5"
+      },
+      "KEY_NODE_RIGHT": {
+        "value": "0x0",
+        "confidence": "CERTAIN",
+        "note": "Child followed when the node's key is LESS than the one being looked up. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site.",
+        "verified_build": "949-5"
+      },
+      "KEY_NODE_LEFT": {
+        "value": "0x8",
+        "confidence": "CERTAIN",
+        "note": "Child followed when the node's key is greater than or equal to the one being looked up. jag::input::InputState::IsKeyDown @0xcc1b40 is the whole lookup: it walks the rbtree from the root pointer, descending through the node word at +0x0 while the node's key is below the one being sought and through the word at +0x8 otherwise, tracks the last node it descended left from as the candidate, and returns that candidate's byte at +0x24 once its key at +0x20 is confirmed not greater. Same node shape and same anchor/root pair spacing as the PE, where the map is walked inline because MSVC inlines IsKeyDown at every site.",
+        "verified_build": "949-5"
+      }
+    },
+    "OPendingMessageNode": {
+      "MESSAGE": {
+        "value": "0x18",
+        "confidence": "CERTAIN",
+        "note": "TcpConnectionMessage* held by a pending-list node; walk from OServerConnection.PENDING_LIST_HEAD. jag::game::ServerConnection::FlushClientMessages @0x52f5d0 drains the outgoing queue: it runs while the counter at +0x88 is non-zero, reads the head node at +0x48 as {control block +0x10, message +0x18}, writes the message's byte count through ClientStream::Write, adds it to the lifetime counter at +0x2e4 and subtracts it from the queued-bytes total at +0x2b0, unlinks the node and either frees it or pushes it back onto the freelist at +0x58 depending on whether it lies inside the pool block bounded by +0x80 and +0x68, then decrements +0x88.",
+        "verified_build": "949-5"
+      }
+    }
+  },
+  "objectNotes": {
+    "doActions": "66 DoActions total, all registered by ONE function on Linux: the jag::MiniMenu ctor FUN_00078b4e installs every sender inline (there is no second component-action registrar as there is on Windows). Action object layout: +0x00 client ctx, +0x10 invoker thunk, +0x18 sender fn (all three written at runtime by the ctor), +0x20 dispatch id, +0x24 kind (both written by the static initializer FUN_000af050). Layout re-derived from this binary and validated by reproducing five already-correct rows exactly before any change: SELECT_NPC 8, WALK 23, DIALOGUE 30, SELECT_TILE 59, and COMPONENT 57 / COMPONENT_SIXPLUS 1007 sharing one sender. LOC FAMILY CORRECTED 2026-07: the loc rows were mis-paired, every name sitting one slot below its true sender, which left OBJECT_4 with no address at all (0x0, so DoActionOpcode.OBJECT_4.fire() was a no-op). True kind-3 mapping is id 1 SELECT_OBJECT 0x162af0, 2 OBJECT_1 0x162bc0, 3 OBJECT_2 0x162ba0, 4 OBJECT_3 0x162b80, 5 OBJECT_4 0x162b60, 1001 OBJECT_5 0x162b40, 1002 OBJECT_6 0x162b20. SELECT_OBJECT's sender was previously absent from the table entirely; it is the only loc sender that branches on jag::g_protocolRevision (descriptor DAT_016844b0 = ClientProt op 9 size 17 below 0x3b5, else DAT_01683e10 = op 116 size 18) and the only one SendOpLoc special-cases to also emit the pending selection state, and FUN_001cdfa0 groups its action object with the other select-family objects (SELECT_TILE, SELECT_NPC, SELECT_GROUND_ITEM, PLAYER_SELECT, COMP_ON_PLAYER, SELECT_COMPONENT_ITEM) and no other loc action. Each of DoOpLoc1..6 dispatches a distinct fixed-size-9 ClientProt op (41, 70, 33, 91, 1, 88), so a wrong pairing would have sent the wrong in-game action rather than failing loudly. ALIAS IDS: Linux has the same alias-copy pattern as Windows - the ctor calls FUN_00cbee00(dst,src) to copy a registered object's callable into a second object under another id, giving loc 1001/1002 also as 6/7 (recorded as OBJECT_5_ALT/OBJECT_6_ALT), npc 2009-2013/3003 also as 9-13/1003, player 44-53 also as 2044-2053. Which id of a pair the client actually dispatches at runtime is UNKNOWN and matters only for DoActionOpcode.getActionById; no existing row's id was flipped between members of a pair. Next lead for that: capture real menu clicks on a 5-op and a 6-op loc and read the dispatched id.",
+    "OInputGlobals": "jag::input::InputState file-scope statics. Y precedes X in memory and both are floats — the same order and type were confirmed independently in the Windows build, so this is a real field order.",
+    "OClient": "Client object byte-identical 948-5→949-1 (both constructors alloc size 0x53358 with identical field init), so every OClient offset is unchanged. All //949-1 tags below are direct-verified STABLE, not carried.",
+    "OInputHandler": "EventListeners slots on jag::input::InputHandler: slot n at 0x08 + n*0x40, each { begin, end, capacityEnd, mutex }. Middle and right buttons have no Input entry point — the platform adapter writes the OInputGlobals button byte itself and calls CallListeners on these slots directly.",
+    "OSDLWindow": "https://github.com/libsdl-org/SDL/blob/dd4f5df8242b36ab61f843a5e3fc8cf024156514/src/video/SDL_sysvideo.h#L45",
+    "OSDLWindowData": "https://github.com/libsdl-org/SDL/blob/dd4f5df8242b36ab61f843a5e3fc8cf024156514/src/video/x11/SDL_x11window.h#L43",
+    "OProjectile": "Construction re-verified byte-identical in ProjectileList::Add (949-1).",
+    "OWorld": "Whole World struct shifted +0x20 (948-5 -> 949-1). Matrices verified via the world->screen projection helper (FUN_00a6e2b0 caller FUN_00482760) + ProcessCollectedEntities; grid/heightmap/ linkmap via HeightMap::GetFineHeight, FUN_001463e0, Location::SetupRenderNodes; root via World ctor.",
+    "OHeightMap": "jag::game::HeightMap (World[HEIGHT_MAP]). GetFineHeight: grid = *(HeightMap + GRID); the grid's region bounds & map-square vector ARE the OWorld build-area fields (MAPSQUARE_*_OFFSET/_MAX, MAPSQUARES_VECTOR), so those are referenced from OWorld, not duplicated. Each vector cell (CELL_STRIDE) holds the per-map- square ORegionHeightContainer at +CELL_CONTAINER; an empty cell reads BASE + EMPTY_CELL_SENTINEL_REL.",
+    "ORegionHeightContainer": "jag::game::RegionHeightContainer — per-map-square height data. SampleRegionFineHeight@0x0049aff0 selects PRIMARY or FALLBACK (usable iff byte[READY_LO]==byte[READY_HI]; byte[NOT_LOADED_FLAG]!=0 => not loaded), samples the per-plane int32 vertex grid (PLANE_VEC_*, or PLANE0_BRIDGE_GRID for plane 0), then ADDS the signed-int16 LINK_HEIGHT grid (SampleTileLinkHeightOffset@0x0047ab50 — raised platforms/bridge decks).",
+    "OMapSquare": "+0x18 was inserted before LOCATION_CONTAINERS (LocationContainerAt reads [MS+0xeb80] in 949-1 vs [MS+0xeb68] in 948-5). Header stable: CHUNK_SIZE_FLAG@0x70 and the height-container ptr@0x90 are read at the same offsets in both builds, so everything <=0xb0 is unshifted.",
+    "OLocationContainer": "LocationContainer slot vectors — STABLE 948-5 -> 949-1 (all offsets read at the same positions in FUN_00499210 + UPDATE_ZONE_FULL_FOLLOWS on 949-1). Entry stride 0x10 {shared_ptr ctrl, Location*}; the Location pointer lives at entry+8.",
+    "OLocation": "Location struct STABLE 948-5 -> 949-1 (distinct object, no growth): +0x8 graphNode, +0x10 type, +0x40 plane, +0x50 worldData, +0x58/+0x60 render node all read identically in Location::SetupRenderNodes/GetPickPriority; POS_X/POS_Y/IS_DELETED re-read in FUN_00499210 + UPDATE_ZONE_FULL_FOLLOWS on 949-1. Fields not individually re-read carry over unchanged.",
+    "OCombinedLocation": "!!! 949-1 UNVERIFIED — CombinedLocation/Section only seen in the 948-5 UPDATE_ZONE decoder (section X@0x9c, Y@0xa0, type shared_ptr@0xa8). Re-derive against the 949-1 zone decoder before trusting for composite/instanced maps.",
+    "OMainLogicManager": "MLM reached via Client+MAINLOGIC_MANAGER (verified). Click ring re-verified STABLE in SendEventMouseClick (949-1).",
+    "OServerConnection": "All fields re-verified STABLE in ConnectionManager::TcpIn (949-1).",
+    "OLocChangeRecord": "Loc record reached via *(collectorArg+RECORD) inside jag::game::ApplyLocChange.",
+    "OTcpConnectionMessage": "Outgoing jag::game::TcpConnectionMessage object (sharedPtr value at +8), read in SendClientMessage.",
+    "OVarInfo": "varInfo -> VarType (TYPE_PTR) -> var id (VAR_ID), read in PlayerVarDomain/ClientVarDomain set hooks.",
+    "ONPC": "CURRENT_HP/MAX_HP hold a 0-100 health RATIO, not absolute hitpoints — the NXT client is only told the headbar proportion. Verified live on 949-1: Man, Cow, Skoblin and Guard all read 100/100 at full health, with every neighbouring dword zero, so the values are deliberate rather than garbage. A displacement scan of .text finds no direct dword access at either offset; the write goes through the update-mask handler's computed pointer. Do not 'correct' these to absolute HP on that scan alone — still unconfirmed is whether they track damage, which needs an NPC observed at partial health."
+  },
+  "doActions": [
+    {
+      "name": "SELECT_OBJECT",
+      "id": 1,
+      "method": "DoOpSelectLoc",
+      "value": "0x1634b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_1",
+      "id": 2,
+      "method": "DoOpLoc1",
+      "value": "0x163580",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_2",
+      "id": 3,
+      "method": "DoOpLoc2",
+      "value": "0x163560",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_3",
+      "id": 4,
+      "method": "DoOpLoc3",
+      "value": "0x163540",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_4",
+      "id": 5,
+      "method": "DoOpLoc4",
+      "value": "0x163520",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "SELECT_NPC",
+      "id": 8,
+      "method": "DoOpTargetNpc",
+      "value": "0x162f60",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_1",
+      "id": 9,
+      "method": "DoOpNpc1",
+      "value": "0x163030",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_2",
+      "id": 10,
+      "method": "DoOpNpc2",
+      "value": "0x163010",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_3",
+      "id": 11,
+      "method": "DoOpNpc3",
+      "value": "0x162ff0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_4",
+      "id": 12,
+      "method": "DoOpNpc4",
+      "value": "0x162fd0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_5",
+      "id": 13,
+      "method": "DoOpNpc5",
+      "value": "0x162fb0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_SELECT",
+      "id": 15,
+      "method": "DoOpSelectPlayer",
+      "value": "0x162b90",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "COMP_ON_PLAYER",
+      "id": 16,
+      "method": "DoOpComponentOnPlayer",
+      "value": "0x162b70",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "SELECT_GROUND_ITEM",
+      "id": 17,
+      "method": "DoOpSelectObjStack",
+      "value": "0x137a60",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_1",
+      "id": 18,
+      "method": "DoOpObjStack1",
+      "value": "0x1388f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_2",
+      "id": 19,
+      "method": "DoOpObjStack2",
+      "value": "0x1388e0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_3",
+      "id": 20,
+      "method": "DoOpObjStack3",
+      "value": "0x1388d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_4",
+      "id": 21,
+      "method": "DoOpObjStack4",
+      "value": "0x1388c0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_5",
+      "id": 22,
+      "method": "DoOpObjStack5",
+      "value": "0x1388b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "WALK",
+      "id": 23,
+      "method": "DoOpWalk",
+      "value": "0x1624f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "SELECT_TILE",
+      "id": 59,
+      "method": "DoOpSelectTile",
+      "value": "0x162150",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_5",
+      "id": 1001,
+      "method": "DoOpLoc5",
+      "value": "0x163500",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_6",
+      "id": 1002,
+      "method": "DoOpLoc6",
+      "value": "0x1634e0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_6",
+      "id": 1003,
+      "method": "DoOpNpc6",
+      "value": "0x162f90",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "GROUND_ITEM_6",
+      "id": 1004,
+      "method": "DoOpObjStack6",
+      "value": "0x1388a0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_1",
+      "id": 2044,
+      "method": "DoOpPlayer1",
+      "value": "0x1384f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_2",
+      "id": 2045,
+      "method": "DoOpPlayer2",
+      "value": "0x1384d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_3",
+      "id": 2046,
+      "method": "DoOpPlayer3",
+      "value": "0x1384b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_4",
+      "id": 2047,
+      "method": "DoOpPlayer4",
+      "value": "0x138490",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_5",
+      "id": 2048,
+      "method": "DoOpPlayer5",
+      "value": "0x138470",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_6",
+      "id": 2049,
+      "method": "DoOpPlayer6",
+      "value": "0x138450",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_7",
+      "id": 2050,
+      "method": "DoOpPlayer7",
+      "value": "0x138430",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_8",
+      "id": 2051,
+      "method": "DoOpPlayer8",
+      "value": "0x138410",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_9",
+      "id": 2052,
+      "method": "DoOpPlayer9",
+      "value": "0x1383f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_10",
+      "id": 2053,
+      "method": "DoOpPlayer10",
+      "value": "0x1383d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "SELECT_COMPONENT",
+      "id": 25,
+      "method": "DoOpTargetComponent",
+      "value": "0xf3b00",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "DIALOGUE",
+      "id": 30,
+      "method": "DoOpDialog",
+      "value": "0x123bf0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "COMPONENT",
+      "id": 57,
+      "method": "DoOpComponent",
+      "value": "0xf39b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "SELECT_COMPONENT_ITEM",
+      "id": 58,
+      "method": "DoOpTargetComponentItem",
+      "value": "0x155af0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "COMPONENT_SIXPLUS",
+      "id": 1007,
+      "method": "DoOpComponent6Plus",
+      "value": "0xf39b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNK_1005",
+      "id": 1005,
+      "method": "Unk1005",
+      "value": "0x1477d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_5_ALT",
+      "id": 6,
+      "method": "DoOpLoc5",
+      "value": "0x163500",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "OBJECT_6_ALT",
+      "id": 7,
+      "method": "DoOpLoc6",
+      "value": "0x1634e0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_1_ALT",
+      "id": 2009,
+      "kind": 4,
+      "value": "0x163030",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_2_ALT",
+      "id": 2010,
+      "kind": 4,
+      "value": "0x163010",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_3_ALT",
+      "id": 2011,
+      "kind": 4,
+      "value": "0x162ff0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_4_ALT",
+      "id": 2012,
+      "kind": 4,
+      "value": "0x162fd0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_5_ALT",
+      "id": 2013,
+      "kind": 4,
+      "value": "0x162fb0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "NPC_6_ALT",
+      "id": 3003,
+      "kind": 4,
+      "value": "0x162f90",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_1_ALT",
+      "id": 44,
+      "kind": 7,
+      "value": "0x1384f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_2_ALT",
+      "id": 45,
+      "kind": 7,
+      "value": "0x1384d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_3_ALT",
+      "id": 46,
+      "kind": 7,
+      "value": "0x1384b0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_4_ALT",
+      "id": 47,
+      "kind": 7,
+      "value": "0x138490",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_5_ALT",
+      "id": 48,
+      "kind": 7,
+      "value": "0x138470",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_6_ALT",
+      "id": 49,
+      "kind": 7,
+      "value": "0x138450",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_7_ALT",
+      "id": 50,
+      "kind": 7,
+      "value": "0x138430",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_8_ALT",
+      "id": 51,
+      "kind": 7,
+      "value": "0x138410",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_9_ALT",
+      "id": 52,
+      "kind": 7,
+      "value": "0x1383f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "PLAYER_10_ALT",
+      "id": 53,
+      "kind": 7,
+      "value": "0x1383d0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_60",
+      "id": 60,
+      "kind": 0,
+      "value": "0x137e20",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_1008",
+      "id": 1008,
+      "kind": 9,
+      "value": "0xf2920",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_1009",
+      "id": 1009,
+      "kind": 9,
+      "value": "0xf28f0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_1010",
+      "id": 1010,
+      "kind": 9,
+      "value": "0xf28c0",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_1011",
+      "id": 1011,
+      "kind": 9,
+      "value": "0xf2890",
+      "verified_build": "949-5"
+    },
+    {
+      "name": "UNKNOWN_1012",
+      "id": 1012,
+      "kind": 9,
+      "value": "0xf2860",
+      "verified_build": "949-5"
+    }
+  ],
+  "platform": "linux-x86_64",
+  "build": "949-5"
+}

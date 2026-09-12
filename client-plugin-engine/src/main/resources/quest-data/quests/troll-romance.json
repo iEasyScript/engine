@@ -1,0 +1,358 @@
+{
+  "slug": "troll-romance",
+  "name": "Troll Romance",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1104883200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Troll Stronghold"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Hitch",
+      "text": "Go to the middle level of the Troll Stronghold.<ul><li>Enter the cave entrance from Trollheim and go down one level.</li><li>Otherwise, enter the secret entrance from the entrance to Fremennik Slayer Dungeon (fairy ring code AJR) or Death Plateau and go up one level.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Climbing boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim Teleport",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim tablet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ug on the middle level of the Troll Stronghold. Offer him your help.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Awww, you poor troll. What seems to be the problem?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Don't worry now. I'll see what I can do."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aga in the room to the north.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "So... how's your... um... love life?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Errr... I've got to go."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Arrg in the same room.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Your girlfriend said you know where to find Trollweiss?"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ug again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Survival techniques",
+      "text": "Teleport to Burthorpe and talk to Freda in the plateaus west of Burthorpe.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where I can find Trollweiss?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That's all, thanks."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Rope",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Maple logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Yew logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Swamp tar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cake tin",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bucket of wax",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Dunstan east of the Burthorpe lodestone about a sled.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need a sled!!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to him again to give him a rope, maple or yew logs, and an iron bar.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use swamp tar on a wax bucket (with a cake tin in your inventory).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your wax on the sled.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Sledding",
+      "text": "Enter the cave entrance opposite the ice gate, which located north-west of the main entrance to Troll Stronghold.<ul><li>Preferably use Trollheim Teleport here if you have it.</li><li>Otherwise, you need to go through the Troll Stronghold and past Trollheim.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Climbing boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim Teleport",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollheim tablet",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Sled (waxed)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north-west and exit the cave through the crevasse.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south, equip your sled and slide through the slope.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "After the end of the first part of the ride, pick the Trollweiss flowers west of your location. Do not sled any further south at this point or you will have to climb the mountain again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Ug.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The things we do for love...",
+      "text": "Talk to Arrg and tell him you're here to kill him. The fight will start immediately after that. Arrg also attacks immediately after the teleport, so be prepared.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I am here to kill you!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Climbing boots",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Trollweiss",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Arrg.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Ug and talk to him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2135,
+  "stageVarbitCompleteValue": 45,
+  "cacheQuestId": 90
+}

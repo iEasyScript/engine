@@ -1,0 +1,340 @@
+{
+  "slug": "that-old-black-magic-my-one-and-only-lute",
+  "name": "That Old Black Magic: My One and Only Lute",
+  "members": true,
+  "length": "short",
+  "timeline": "ageofchaos",
+  "releaseDate": 1691366400,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Blood Pact"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Necromancy",
+      "level": 32,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Help the band",
+      "text": "Talk to Lady Grey, behind Death in the City of Um and agree to get her guitar back.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1113.0,
+          "heightFine": 3845.0,
+          "y": 1775.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1113.0,
+          "heightFine": 3845.0,
+          "y": 1775.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30183,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30184,
+            31310
+          ],
+          "displayName": "Lady Grey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to Lady Grey.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30183,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30184,
+            31310
+          ],
+          "displayName": "Lady Grey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Subquest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue speaking to Lady Grey.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30183,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30184,
+            31310
+          ],
+          "displayName": "Lady Grey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll try to be gentle."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to the Lumbridge Catacombs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3247.0,
+          "heightFine": 965.0,
+          "y": 3198.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3877.0,
+          "heightFine": 2457.0,
+          "y": 5526.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "At the end of the catacombs, kill Dragith Nurn using necromancy and pick up Lady Grey's guitar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3874.0,
+          "heightFine": 2457.0,
+          "y": 5527.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3869.0,
+          "heightFine": 985.0,
+          "y": 5524.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3867.0,
+          "heightFine": 985.0,
+          "y": 5524.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3972.0,
+          "heightFine": 985.0,
+          "y": 5565.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3995.0,
+          "heightFine": 997.0,
+          "y": 5470.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 9622,
+          "modelIds": [
+            5937
+          ],
+          "displayName": "Dragith Nurn"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9622,
+          "modelIds": [
+            5937
+          ],
+          "displayName": "Dragith Nurn"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Guitar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the City of Um and speak to Lady Grey. Hand her the guitar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1113.0,
+          "heightFine": 3845.0,
+          "y": 1775.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1113.0,
+          "heightFine": 3845.0,
+          "y": 1775.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30183,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            30184,
+            31310
+          ],
+          "displayName": "Lady Grey"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Trumpeter."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "None right now."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": -1,
+  "stageVarbitCompleteValue": -1,
+  "cacheQuestId": -1
+}

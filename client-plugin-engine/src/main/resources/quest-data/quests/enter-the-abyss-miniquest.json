@@ -1,0 +1,382 @@
+{
+  "slug": "enter-the-abyss-miniquest",
+  "name": "Enter the Abyss (miniquest)",
+  "members": true,
+  "length": "veryshort",
+  "timeline": "champion",
+  "releaseDate": 1118620800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Runecrafting",
+      "level": 5,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to the Mage of Zamorak north of Edgeville, over the wilderness wall.<ul><li>Do not wear any Saradomin or Guthix equipment.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Edgeville lodestone",
+        "url": "Edgeville_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6367,
+          "modelIds": [
+            3939
+          ],
+          "displayName": "Zamorak mage",
+          "distance": 8
+        },
+        {
+          "t": "direction",
+          "x": 3107.0,
+          "heightFine": 1261.0,
+          "y": 3558.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to the Mage of Zamorak.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6367,
+          "modelIds": [
+            3939
+          ],
+          "displayName": "Zamorak mage"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Here is not the place to talk."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting the readings",
+      "text": "Talk to the Mage of Zamorak in the Temple of Zamorak, in the southeast of Varrock.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Varrock lodestone",
+        "url": "Varrock_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6367,
+          "modelIds": [
+            3939
+          ],
+          "displayName": "Zamorak mage",
+          "distance": 6
+        },
+        {
+          "t": "direction",
+          "x": 3259.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where do you get your runes from?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If you encounter any difficulties speak to me again."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Scrying orb",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the <i>teleport</i> option Aubury in his rune shop to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3253.0,
+          "heightFine": 1125.0,
+          "y": 3401.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5913,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14746,
+            20777,
+            25107,
+            27443
+          ],
+          "displayName": "Aubury",
+          "distance": 4
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 1553.0,
+          "y": 1.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Wizard's Tower south of Draynor and go to the 2nd floor (3rd floor[US]).<ul><li>It is recommended to use a wicked hood to teleport to the tower.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Runecrafting guild teleport",
+        "url": "Wicked_hood.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3102.0,
+          "heightFine": 1925.0,
+          "y": 3155.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3102.0,
+          "heightFine": 8613.0,
+          "y": 3155.0,
+          "range": 8
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 3102.0,
+          "heightFine": 16773.0,
+          "y": 3155.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3102.0,
+          "heightFine": 8613.0,
+          "y": 3155.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3102.0,
+          "heightFine": 16773.0,
+          "y": 3155.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the <i>teleport</i> option on Archmage Sedridor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 14723,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            14744
+          ],
+          "displayName": "Sedridor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 1553.0,
+          "y": 1.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to Wizard Cromperty's house in northeast Ardougne.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2683.0,
+          "heightFine": 1285.0,
+          "y": 3325.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2683.0,
+          "heightFine": 1285.0,
+          "y": 3325.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the <i>teleport</i> option on Wizard Cromperty.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2328,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6375
+          ],
+          "displayName": "Wizard Cromperty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -1.0,
+          "heightFine": 1553.0,
+          "y": 1.0,
+          "range": 20,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to the Temple of Zamorak in southeast of Varrock.<ul><li>Speak to the Mage of Zamorak a third time to unlock the Abyss after completing the miniquest.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Varrock lodestone",
+        "url": "Varrock_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6367,
+          "modelIds": [
+            3939
+          ],
+          "displayName": "Zamorak mage",
+          "distance": 6
+        },
+        {
+          "t": "direction",
+          "x": 3259.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 3149,
+  "stageVarbitCompleteValue": 4,
+  "cacheQuestId": 404
+}

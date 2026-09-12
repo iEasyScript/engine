@@ -1,0 +1,2618 @@
+{
+  "slug": "succession",
+  "name": "Succession",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "ageofchaos",
+  "releaseDate": 1670198400,
+  "neededItems": [],
+  "recommendedItems": [
+    {
+      "name": "Archaeology journal",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Wilderness sword",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Adrasteia in the White Knights\u0027 Castle\u0027s throne room.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to \u0027On\u0027, and chat timestamps on.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false,
+          "distance": 11
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "falador ground floor ladder",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2993.0,
+          "heightFine": 3909.0,
+          "y": 3341.0,
+          "range": 3
+        },
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "falador first floor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go to Senntisten"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s continue our journey."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Clues in the prison",
+      "text": "Enter the ancient doors in the Varrock Dig Site.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3333.5,
+          "heightFine": 1269.0,
+          "y": 3453.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Archaeology journal",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "text": "Discover the large footprint downstairs. (1/5)\u003cul\u003e\u003cli\u003eAll discoverable entities in this quest should be marked by a red dot on your minimap.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3009,
+          "modelIds": [
+            48
+          ],
+          "displayName": "Large footprint"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 1/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs.",
+      "actions": [
+        {
+          "t": "pathGuide",
+          "waypoints": [
+            {
+              "x": -10.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -22.0,
+              "heightFine": 0.0,
+              "y": 1.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": 1504.0,
+              "y": 1.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": 2412.0,
+              "y": 0.0
+            },
+            {
+              "x": -26.0,
+              "heightFine": 2400.0,
+              "y": -3.0
+            }
+          ],
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -26.0,
+          "heightFine": 2565.0,
+          "y": -3.0,
+          "range": 0,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover one of the bodies of demon cultists. (2/5)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29679,
+          "modelIds": [
+            9774
+          ],
+          "candidateObjectTypeIds": [
+            10044,
+            10047
+          ],
+          "displayName": "Body of a demon cultist",
+          "priority": "closest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 2/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover scratch marks. (3/5)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3011,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Scratch marks",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 3/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover ancient Zarosian architecture. (4/5)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -10.5,
+          "heightFine": 3600.0,
+          "y": -16.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 4/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover note from a worker. (5/5)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 3004,
+          "modelIds": [
+            735
+          ],
+          "candidateObjectTypeIds": [
+            3259,
+            3260
+          ],
+          "displayName": "Note from a worker",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 5/5"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia again to continue.\u003cul\u003e\u003cli\u003eYou must dismiss followers for the following steps.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29684,
+          "modelIds": [],
+          "displayName": "Khazard guard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Khazard",
+      "text": "Talk to one of the Khazard guards.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29684,
+          "modelIds": [
+            4923
+          ],
+          "displayName": "Khazard guard",
+          "priority": "closest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29689,
+          "modelIds": [],
+          "displayName": "Khazard guard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to one of the guards again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29689,
+          "modelIds": [
+            4923
+          ],
+          "displayName": "Khazard guard",
+          "priority": "closest",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "ritual circle myself"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Reset the puzzle with one of the long chests until you\u0027re prompted to skip the puzzle.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29687,
+          "modelIds": [
+            2715
+          ],
+          "displayName": "Long chest",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Reset to starting position."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Skip this puzzle (2 attempts)."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "new ritual marker"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m ready to move on."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Clues in Menaphos",
+      "text": "Enter the Grand Library in Menaphos.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3171.0,
+          "heightFine": 8765.0,
+          "y": 2709.5,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Succession"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia in the library.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Farewell."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "any damage she caused"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover The Corruption on the first level from top, near the south-eastern corner. (1/3)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -4.5,
+          "heightFine": -1760.0,
+          "y": -17.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "1/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover The Secret Chamber opposite The Corruption, in the south-western corner. (2/3)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -51.5,
+          "heightFine": -2260.0,
+          "y": -19.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "2/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover The Living Dead on the bottom level, near the north-eastern corner. (3/3)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -21.0,
+          "heightFine": -6680.0,
+          "y": 11.5,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to the Magister\u0027s chamber.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Travel to the Magister\u0027s chamber. (0/3)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 4895,
+          "modelIds": [],
+          "displayName": "Soul obelisk"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "look destroyed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the imbued bones on the western side of the chamber. (1/3)",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 5635,
+          "modelIds": [
+            3714
+          ],
+          "displayName": "Imbued bones",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "4/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the fragments of an obelisk next to the soul obelisk. (2/3)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7808,
+          "modelIds": [
+            258
+          ],
+          "displayName": "Fragments of an obelisk",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "5/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Touch the soul obelisk.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4895,
+          "modelIds": [
+            3138
+          ],
+          "displayName": "Soul obelisk",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Magister is indisposed"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 10.5,
+          "heightFine": 800.0,
+          "y": 31.0,
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4898,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 13.0,
+          "heightFine": 3773.0,
+          "y": 42.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the magical residue. (3/3)",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 3781.0,
+          "y": 46.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 5071,
+          "modelIds": [],
+          "displayName": "Magical residue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "6/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Travel to the Soul Altar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Travel to the Soul Altar. (0/3)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 4891,
+          "modelIds": [],
+          "displayName": "Soul Altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the scorch marks. (1/3)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4893,
+          "modelIds": [
+            414
+          ],
+          "displayName": "Scorch marks",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "7/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the Soul Altar. (2/3)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 4891,
+          "modelIds": [
+            3405
+          ],
+          "displayName": "Soul Altar",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "8/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Ka. (3/3)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29696,
+          "modelIds": [
+            3822
+          ],
+          "displayName": "Ka"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "9/9"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Vengeance and the Magister",
+      "text": "Talk to Adrasteia.\u003cul\u003e\u003cli\u003eYou must dismiss followers and have no items for the following steps. Adrasteia can bank your items for you.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "got so far."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Magister.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29700,
+          "modelIds": [
+            7626
+          ],
+          "displayName": "The Magister"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "burning inside her"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat the Magister.\u003cul\u003e\u003cli\u003eAll prayers are disabled. Use abilities in order to win the fight.\u003c/li\u003e\u003cli\u003eIf you die, you will be teleported to Menaphos gate. Enter the gate to return to the quest.\u003c/li\u003e\u003cli\u003eIf you fail to defeat him twice, there will be an option to skip the combat phase.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, and skip this combat encounter (2 attempts)."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29702,
+          "modelIds": [],
+          "displayName": "The Magister"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Zamorakians are researching"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I\u0027m ready to move on."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "throne room in Falador"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing disguise in the Wilderness",
+      "text": "Talk to Adrasteia in the White Knights\u0027 Castle\u0027s throne room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2993.0,
+          "heightFine": 2725.0,
+          "y": 3341.0,
+          "instance": false,
+          "distance": 11
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 11727,
+          "modelIds": [],
+          "displayName": "Ladder",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2993.0,
+          "heightFine": 3909.0,
+          "y": 3341.0,
+          "range": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": [
+        {
+          "name": "Wilderness sword",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ]
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "modelIds": [],
+          "displayName": "falador first floor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2984.0,
+          "heightFine": 5093.0,
+          "y": 3340.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Never mind."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "let\u0027s go"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine the argonlike rocks for 28 argonlike ore north-east of Fort Forinthry in the wilderness.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3351.0,
+          "heightFine": 1293.0,
+          "y": 3577.0,
+          "instance": false,
+          "distance": 23
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7813,
+          "modelIds": [
+            3678
+          ],
+          "displayName": "Argonlike rock",
+          "distance": 24
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s continue our journey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54110,
+          "displayName": "Argonlike ore",
+          "quantity": 28
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smelt at the furnace in the eastern ruins.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3209.0,
+          "heightFine": 2061.0,
+          "y": 3740.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s continue our journey"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54111,
+          "displayName": "Argonlike bar",
+          "quantity": 28
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith at the anvil in the building west of the Mage Arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3064.0,
+          "heightFine": 1397.0,
+          "y": 3951.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "argonlike pickaxe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        },
+        {
+          "t": "conversationText",
+          "text": "meet you there"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Mage Arena",
+      "text": "Equip the argonlike equipment.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            3498,
+            12
+          ],
+          "displayName": "Argonlike helm"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Argonlike helm"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54113,
+          "modelIds": [
+            5322
+          ],
+          "displayName": "Argonlike platebody"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54113,
+          "displayName": "Argonlike platebody"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54114,
+          "modelIds": [
+            5112
+          ],
+          "displayName": "Argonlike platelegs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54114,
+          "displayName": "Argonlike platelegs"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54115,
+          "modelIds": [
+            2556
+          ],
+          "displayName": "Argonlike gauntlets"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54115,
+          "displayName": "Argonlike gauntlets"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54116,
+          "modelIds": [
+            1236
+          ],
+          "displayName": "Argonlike boots"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54116,
+          "displayName": "Argonlike boots"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54117,
+          "modelIds": [
+            411
+          ],
+          "displayName": "Argonlike battleaxe"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54117,
+          "displayName": "Argonlike battleaxe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54118,
+          "modelIds": [
+            795
+          ],
+          "displayName": "Argonlike kiteshield"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 54118,
+          "displayName": "Argonlike kiteshield"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia the Forgotten to the south-east up the stairs leading up to the Mage Arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3086.0,
+          "heightFine": 2405.0,
+          "y": 3934.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29675,
+          "modelIds": [
+            23166
+          ],
+          "displayName": "Adrasteia the Forgotten",
+          "distance": 21
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, enter the Mage Arena."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "might be in charge"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vengeance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29699,
+          "modelIds": [
+            17802
+          ],
+          "displayName": "Vengeance",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I wait for orders."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "missive in her hand"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29622,
+          "modelIds": [
+            17802
+          ],
+          "displayName": "Vengeance",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I chase after them."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "What will you do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29622,
+          "modelIds": [
+            17802
+          ],
+          "displayName": "Vengeance",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I refuse."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Are you ready"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29622,
+          "modelIds": [
+            17802
+          ],
+          "displayName": "Vengeance",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m ready"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29705,
+          "modelIds": [],
+          "displayName": "Forgotten mage"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Defeat the 3 waves of enemies.\u003cul\u003e\u003cli\u003eYou can use prayers. It is recommended to use magic protection prayers in waves 1, 2 and melee protection in wave 3.\u003c/li\u003e\u003cli\u003eAfter each enemy is defeated, restore your health with the health orbs.\u003c/li\u003e\u003cli\u003eIf you fail a wave two times, the wave can be skipped to continue.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, and skip this combat encounter (2 attempts)."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Excellent"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the scuff marks. (1/4)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 26228,
+          "modelIds": [
+            528
+          ],
+          "displayName": "Scuff marks",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 1/4"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Eavesdrop the defeated forgotten mage in the north. (2/4)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29713,
+          "modelIds": [
+            4362
+          ],
+          "candidateObjectTypeIds": [
+            4229,
+            4232,
+            21346,
+            21347,
+            34253,
+            34254
+          ],
+          "displayName": "Defeated forgotten archer",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 2/4"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Discover the scorch mark. (3/4)",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7839,
+          "modelIds": [
+            96
+          ],
+          "displayName": "Scorch mark",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 3/4"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Eavesdrop the defeated forgotten mage in the south. (4/4)",
+      "warning": "Known issue: can\u0027t highlight the defeated forgotten mage.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29719,
+          "modelIds": [
+            9351
+          ],
+          "displayName": "Defeated forgotten mage",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "clue: 4/4"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29675,
+          "modelIds": [
+            23166
+          ],
+          "displayName": "Adrasteia the Forgotten",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29724,
+          "modelIds": [],
+          "displayName": "Kolodion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kolodion.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29724,
+          "modelIds": [
+            2961
+          ],
+          "displayName": "Kolodion",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29675,
+          "modelIds": [],
+          "displayName": "Adrasteia the Forgotten"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29675,
+          "modelIds": [
+            23166
+          ],
+          "displayName": "Adrasteia the Forgotten",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what to do next"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the Mage Arena.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -5.0,
+          "heightFine": -1636.0,
+          "y": -0.5,
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, search the caves beneath the Mage Arena."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "changedInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ritual marker",
+      "text": "Inspect the modified ritual marker.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 56684,
+          "modelIds": [
+            8160
+          ],
+          "displayName": "Modified ritual marker",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "catastrophe"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the rune pouch.",
+      "warning": "Known issue: No tracking for this step due to a quest bug at the time of development.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 92961,
+          "modelIds": [
+            912
+          ],
+          "displayName": "Rune pouch",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54122,
+          "displayName": "Rune pouch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the rune pouch in your backpack.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54122,
+          "modelIds": [
+            912
+          ],
+          "displayName": "Rune pouch"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54123,
+          "displayName": "Empty rune pouch",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the white dust and choose the option empty rune pouch.",
+      "warning": "Known issue: No tracking for this step due to a quest bug at the time of development.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 92964,
+          "modelIds": [
+            72
+          ],
+          "displayName": "White dust",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54127,
+          "displayName": "Pouch of white dust",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the one measly fire rune on a sharp rock.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 92967,
+          "modelIds": [
+            3036
+          ],
+          "displayName": "Sharp rock",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54124,
+          "modelIds": [
+            327
+          ],
+          "displayName": "One measly fire rune"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54125,
+          "displayName": "Inert fire rune fragments",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia and choose the option inert fire rune fragments.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29675,
+          "modelIds": [
+            23166
+          ],
+          "displayName": "Adrasteia the Forgotten",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Show an item in your backpack to Adrasteia.]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54126,
+          "displayName": "Volatile fire rune fragments",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pouch of white dust on the sparkling pool to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 36004,
+          "modelIds": [
+            2646
+          ],
+          "displayName": "Sparkling pool",
+          "instance": true
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 1509.0,
+          "y": 0.0,
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54127,
+          "modelIds": [],
+          "displayName": "Pouch of white dust"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 54128,
+          "displayName": "Soggy pouch of grey paste",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Sabotage the modified ritual marker and choose the option volatile fire rune fragments.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 66577,
+          "modelIds": [
+            8160
+          ],
+          "displayName": "Modified ritual marker",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Alright"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Conceal the blatantly sabotaged ritual marker and choose the option soggy pouch of grey paste.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 92947,
+          "modelIds": [
+            8160
+          ],
+          "displayName": "Blatantly sabotaged ritual marker",
+          "instance": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 54128,
+          "modelIds": [],
+          "displayName": "Soggy pouch of grey paste"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Step into the sparkling pool.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 36004,
+          "modelIds": [
+            2646
+          ],
+          "displayName": "Sparkling pool",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Exit this cave and return to the deep Wilderness."
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 1509.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 409,
+          "modelIds": [],
+          "displayName": "Altar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 28806,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            28852,
+            28862,
+            29144,
+            29314,
+            29322,
+            29435,
+            29674,
+            29676,
+            29738,
+            29788,
+            29789
+          ],
+          "displayName": "Adrasteia"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Say nothing]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Adrasteia again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29788,
+          "modelIds": [
+            55662
+          ],
+          "candidateNpcTypeIds": [
+            10592,
+            10593,
+            10594,
+            10595,
+            12981,
+            15349,
+            15400,
+            29587
+          ],
+          "displayName": "Adrasteia",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have the seating plan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Asgarnian Ambassador"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "nearest me on my left"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            55662
+          ],
+          "candidateNpcTypeIds": [
+            10592,
+            10593,
+            10594,
+            10595,
+            12981,
+            15349,
+            15400,
+            29587
+          ],
+          "displayName": "Adrasteia white outfit",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Kandarian Ambassador"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "furthest from me on my right"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            55662
+          ],
+          "candidateNpcTypeIds": [
+            10592,
+            10593,
+            10594,
+            10595,
+            12981,
+            15349,
+            15400,
+            29587
+          ],
+          "displayName": "Adrasteia white outfit",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Menaphite Ambassador"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "the last seat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            55662
+          ],
+          "candidateNpcTypeIds": [
+            10592,
+            10593,
+            10594,
+            10595,
+            12981,
+            15349,
+            15400,
+            29587
+          ],
+          "displayName": "Adrasteia white outfit",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "The Misthalinian Ambassador"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hello from time to time"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            55662
+          ],
+          "candidateNpcTypeIds": [
+            10592,
+            10593,
+            10594,
+            10595,
+            12981,
+            15349,
+            15400,
+            29587
+          ],
+          "displayName": "Adrasteia white outfit",
+          "instance": true
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I promise"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 29739,
+          "modelIds": [],
+          "displayName": "Forgotten warrior"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The coronation and usurpation",
+      "text": "Watch all cutscenes.",
+      "warning": "Clicking out of the dialogue after any of the cutscenes will cause you to rewatch the cutscenes.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Guards - kill her"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 10 forgotten warriors.\u003cul\u003e\u003cli\u003eUse the abilities via the interface at the top of the screen. Make frequent use of the Blast ability (3) to kill multiple enemies around you.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "10/10"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "righteous and the hope"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill 20 more forgotten warriors.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "20/20"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue dialogue with Adrasteia.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            57774
+          ],
+          "candidateNpcTypeIds": [
+            11524
+          ],
+          "displayName": "Adrasteia white outfit crown"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 52349,
+  "stageVarbitCompleteValue": 255,
+  "cacheQuestId": 487
+}

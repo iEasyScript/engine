@@ -1,0 +1,566 @@
+{
+  "slug": "impressing-the-locals",
+  "name": "Impressing the Locals",
+  "members": true,
+  "length": "short",
+  "timeline": "worldguardian",
+  "releaseDate": 1468195200,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 1000,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Trader Stan on the south-eastern dock of Port Sarim.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Port Sarim lodestone",
+        "url": "Port_Sarim_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3033.0,
+          "heightFine": 741.0,
+          "y": 3190.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3033.0,
+          "heightFine": 741.0,
+          "y": 3190.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Skulls pirate, Jed."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Trader Stan.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About a quartermaster."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'd suggest you talk to Surula in your personal port bar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Ask about the different potential crewmates.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About a navigator."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's rare to find one outside the Eastern Lands, but I happen to know one called Umi. "
+        },
+        {
+          "t": "conversationText",
+          "text": "You should go to Umi"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About a bosun."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Port Sarim lodestone"
+        },
+        {
+          "t": "conversationText",
+          "text": "old lighthouse jail"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Guide",
+      "text": "Talk to Guard Captain Roarkwin in the Port Sarim Jail located to the west.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3013.0,
+          "heightFine": 1317.0,
+          "y": 3185.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Never mind."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3013.0,
+          "heightFine": 1317.0,
+          "y": 3185.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            6279
+          ],
+          "candidateObjectTypeIds": [
+            6854
+          ],
+          "displayName": "Roarkwin"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Yeah, she's rented a room above the pottery there."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seasinger Umi inside the player-owned port portal in Port Sarim.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3033.0,
+          "heightFine": 965.0,
+          "y": 3243.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "player owned ports portal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "player owned ports portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16518,
+          "modelIds": [
+            6180
+          ],
+          "displayName": "Seasinger Umi"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16518,
+          "modelIds": [
+            6180
+          ],
+          "displayName": "Seasinger Umi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Besides, she's better than me at navigating anyway AND she's a full-blown seasinger. She's the clever one, so mum always said."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Surula, the Barmaid in the player-owned port bar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16522,
+          "modelIds": [],
+          "displayName": "Surula"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "If he gives you the run-around, just tell him I sent you and that'll set him straight."
+        },
+        {
+          "t": "conversationText",
+          "text": "I'm sure he won't be able to say no... or much of anything, really."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the stairs and talk to Mister Gully.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            804
+          ],
+          "candidateObjectTypeIds": [
+            3313
+          ],
+          "displayName": "Bar staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 22941,
+          "modelIds": [],
+          "displayName": "Mister Gully"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22941,
+          "modelIds": [],
+          "displayName": "Mister Gully"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll inform Trader Stan you've joined the crew!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Black Knight sergeant upstairs in the pottery house southwest of the Draynor lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3091.0,
+          "heightFine": 1285.0,
+          "y": 3283.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3091.0,
+          "heightFine": 1285.0,
+          "y": 3283.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            8832
+          ],
+          "displayName": "Draynor staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3094.0,
+          "heightFine": 2469.0,
+          "y": 3281.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "black knight sergeant bosun"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Thank you, sergeant...well, I guess bosun now. I'll let Trader Stan know you've joined the crew."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Seasinger Jemi at the Rimmington well.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2956.0,
+          "heightFine": 805.0,
+          "y": 3208.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2956.0,
+          "heightFine": 805.0,
+          "y": 3208.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 22664,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            22945,
+            22952
+          ],
+          "displayName": "Seasinger Jemi"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Great, I'll go tell Trader Stan that I've got a navigator!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Return to Trader Stan.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3033.0,
+          "heightFine": 741.0,
+          "y": 3190.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3033.0,
+          "heightFine": 741.0,
+          "y": 3190.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 4650,
+          "modelIds": [],
+          "displayName": "Trader Stan"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Skulls pirate, Jed."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Congratulations! You have completed: 'The Arc' - Access to The Arc"
+        },
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 33059,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 387
+}

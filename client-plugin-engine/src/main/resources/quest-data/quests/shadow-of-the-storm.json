@@ -1,0 +1,1194 @@
+{
+  "slug": "shadow-of-the-storm",
+  "name": "Shadow of the Storm",
+  "members": true,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1131926400,
+  "neededItems": [
+    {
+      "name": "Silverlight",
+      "itemId": 2402,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Silver bar (metal bank works)",
+      "itemId": 2355,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Empty vial",
+      "itemId": 229,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "3 pieces of a black outfit (refer to wiki)",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Strange implement",
+      "itemId": 4619,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Waterskins",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Food",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Desert robes",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Energy potions",
+      "itemId": -1,
+      "quantity": 2,
+      "duringQuest": false
+    },
+    {
+      "name": "Amulet of glory",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Ring of duelling",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Traveller's necklace",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Agrith Naar",
+      "level": "84",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Demon Slayer",
+    "The Golem"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Crafting",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Father Reen south of Al Kharid bank.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Al Kharid lodestone",
+        "url": "Al_Kharid_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3272.0,
+          "heightFine": 1789.0,
+          "y": 3157.0,
+          "instance": false,
+          "distance": 20
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2899,
+          "modelIds": [
+            3783
+          ],
+          "displayName": "Father Reen",
+          "distance": 24
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Contiue talking to Father Reen.<ul><li>He will give you Silverlight if you've dyed or destroyed it.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2899,
+          "modelIds": [
+            3783
+          ],
+          "displayName": "Father Reen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "finished some business here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Evil Dave",
+      "text": "Talk to Father Badden at Uzer, east of Shantay Pass.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "South of the Desert Eagle's Eyrie",
+        "url": "Traveller's_necklace_(new).png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 741.0,
+          "y": 3092.0,
+          "instance": false,
+          "distance": 22
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2902,
+          "modelIds": [
+            3405
+          ],
+          "displayName": "Father Badden",
+          "distance": 26
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Reen sent me."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So what do you want me to do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I do that?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "some way to convince"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Silverlight",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Empty vial",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "3 pieces of a black outfit (refer to wiki)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick a black mushroom.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3495.0,
+          "heightFine": 1373.0,
+          "y": 3088.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4620,
+          "displayName": "Black mushroom",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Dyed silverlight",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the black mushroom ink on the silverlight.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 4622,
+          "modelIds": [],
+          "displayName": "Black mushroom ink"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2402,
+          "modelIds": [],
+          "displayName": "Silverlight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Dyed silverlight",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4886.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the strange implement.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2713.0,
+          "heightFine": 805.0,
+          "y": 4913.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 4619,
+          "displayName": "Strange implement",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Evil Dave while wearing your three black items and your dyed Silverlight.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            894
+          ],
+          "displayName": "Dyed silverlight"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to join your group."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm evil!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "wish to join us"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Demonic Sigil",
+      "text": "Talk to Denath.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2904,
+          "modelIds": [
+            5283
+          ],
+          "displayName": "Denath"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I have to do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with my preparations"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Silver bar (metal bank works)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jennifer to get a demonic sigil mould.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2913,
+          "modelIds": [
+            3546
+          ],
+          "displayName": "Jennifer"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have the demonic sigil mould?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6747,
+          "displayName": "Demonic sigil mould",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Matthew.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2911,
+          "modelIds": [
+            3849
+          ],
+          "displayName": "Matthew"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know what happened to Josef?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Denath is really up to"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to any furnace and smelt a demonic sigil.<ul><li>Your black outfit can be discarded at this point and replaced with combat gear.</li><li>Keep Silverlight for the duration of the quest.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6748,
+          "displayName": "Demonic sigil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Ritual",
+      "text": "Talk to the clay golem outside the ruins.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "South of the Desert Eagle's Eyrie",
+        "url": "Traveller's_necklace_(new).png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 741.0,
+          "y": 3092.0,
+          "instance": false,
+          "distance": 22
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem",
+          "distance": 26
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Did you see anything happen last night?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "incident from my memory"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Demonic sigil",
+          "itemId": 441,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Look in the nearby kilns for a demonic tome.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            360
+          ],
+          "candidateNpcTypeIds": [
+            796,
+            1776,
+            12233,
+            16864,
+            29181
+          ],
+          "displayName": "Broken kiln1",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            210
+          ],
+          "candidateNpcTypeIds": [
+            740,
+            958,
+            981,
+            1050,
+            1051,
+            1363,
+            1369,
+            1779,
+            1815,
+            2323,
+            2505,
+            2506,
+            2517,
+            2518,
+            2523,
+            2524,
+            2733,
+            2796,
+            2797,
+            2798,
+            2799,
+            3571,
+            3915,
+            4719,
+            4727,
+            11618,
+            11619,
+            13981,
+            14144,
+            14145,
+            21512,
+            21522,
+            21526,
+            22630,
+            22695,
+            22699
+          ],
+          "displayName": "Broken kiln2",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            360
+          ],
+          "candidateNpcTypeIds": [
+            796,
+            1776,
+            12233,
+            16864,
+            29181
+          ],
+          "displayName": "Broken kiln3"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6749,
+          "displayName": "Demonic tome",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4886.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "uzer portal door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Matthew.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2911,
+          "modelIds": [
+            3849
+          ],
+          "displayName": "Matthew"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We must prepare"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Denath.",
+      "warning": "Be sure to remember the incantation, as you'll need it again later in the quest.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2904,
+          "modelIds": [
+            5283
+          ],
+          "displayName": "Denath"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I forgot the incantation."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Ignoramus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Complete the circle and click the sigil to chant the incantation.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -2.0,
+          "heightFine": 0.0,
+          "y": 18.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6748,
+          "modelIds": [
+            441
+          ],
+          "displayName": "Demonic sigil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 6748,
+          "modelIds": [
+            441
+          ],
+          "displayName": "Demonic sigil"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Be sure to take the sigil from the floor, or you will have to make a new one at a furnace.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6748,
+          "modelIds": [
+            441
+          ],
+          "displayName": "Demonic sigil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6748,
+          "displayName": "Demonic sigil",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the portal.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "uzer portal"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take Tanya's sigil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 6748,
+          "modelIds": [
+            441
+          ],
+          "displayName": "Demonic sigil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6748,
+          "displayName": "Demonic sigil",
+          "quantity": 3
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Tell Evil Dave to return to the lair - you should have 4 sigils now.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2909,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2910,
+            3378,
+            3394,
+            20830,
+            25034
+          ],
+          "displayName": "Evil Dave"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You've got to get back to the throne room!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 6748,
+          "displayName": "Demonic sigil",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2721.5,
+          "heightFine": 1305.0,
+          "y": 4885.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3491.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rallying the troops",
+      "text": "Talk to Father Badden.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2902,
+          "modelIds": [
+            3405
+          ],
+          "displayName": "Father Badden"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "We must prepare"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Father Reen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2899,
+          "modelIds": [
+            3783
+          ],
+          "displayName": "Father Reen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, don't be so simple-minded!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "hurry inside"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the golem.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1910,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2927,
+            2928,
+            6785
+          ],
+          "displayName": "Clay golem"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Use the strange implement]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "through the portal"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3492.0,
+          "heightFine": 1333.0,
+          "y": 3090.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2721.0,
+          "heightFine": 805.0,
+          "y": 4886.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "uzer portal door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The final fight",
+      "text": "Talk to Matthew to start the incantation.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2911,
+          "modelIds": [
+            3849
+          ],
+          "displayName": "Matthew"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we go"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Silverlight (dyed)",
+          "itemId": 894,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Demonic sigil",
+          "itemId": -1,
+          "quantity": 4,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand on the marked tile and chant with the demonic sigil.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 19.0,
+          "instance": true,
+          "tile": true
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 6748,
+          "modelIds": [
+            441
+          ],
+          "displayName": "Demonic sigil"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "interfaceOpen",
+          "interfaceId": -1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Chant Demonic Sigil and say the incantation <b>backwards</b>.<ul><li>The incantation is on page 6 of the demonic tome.</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "prepare to die"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the demon with the Silverlight (dyed). After defeating it, you will have the Darklight equipped.<ul><li>You can damage the demon with any combat style, but you must equip the Silverlight (dyed) as it dies.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            894
+          ],
+          "displayName": "Dyed silverlight"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10495,
+  "stageVarbitCompleteValue": 125,
+  "cacheQuestId": 71
+}

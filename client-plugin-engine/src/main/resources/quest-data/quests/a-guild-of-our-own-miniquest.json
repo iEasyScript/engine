@@ -1,0 +1,712 @@
+{
+  "slug": "a-guild-of-our-own-miniquest",
+  "name": "A Guild of Our Own (miniquest)",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "legendary",
+  "releaseDate": 1272412800,
+  "neededItems": [
+    {
+      "name": "Any blackjack",
+      "itemId": 102,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Lockpick",
+      "itemId": 1523,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Irit potion (unfinished)",
+      "itemId": 90,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Onion",
+      "itemId": 1957,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Bowl",
+      "itemId": 1923,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Lost Her Marbles (miniquest)",
+    "The Feud"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Agility",
+      "level": 40,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Herblore",
+      "level": 46,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 62,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Overview",
+      "text": "Talk to Darren Lightfinger just inside of the Thieves' Guild in Lumbridge.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3223.0,
+          "heightFine": 1125.0,
+          "y": 3268.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4634.0,
+          "heightFine": 5.0,
+          "y": 5768.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "darren lightfinger2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Darren Lightfinger.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "darren lightfinger2"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Talk to him about getting it set up for you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chief Thief Robin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            11280
+          ],
+          "displayName": "Chief Thief Robin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About this caper..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll be back with the vial, then."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use a bowl on an onion to make chopped onion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1957,
+          "modelIds": [],
+          "displayName": "Onion"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1923,
+          "modelIds": [],
+          "displayName": "Bowl"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1871,
+          "displayName": "Chopped onion",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use irit potion (unfinished) with chopped onion to get a vial of stench.<ul><li>Be careful not to eat the chopped onion.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Irit potion unf"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1871,
+          "modelIds": [
+            597
+          ],
+          "displayName": "Chopped onion"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18661,
+          "displayName": "Vial of stench",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Chief Thief Robin to get a vial of stench (a).<ul><li>If it does not work, talk to Darren Lightfinger about a disguise, and then talk to Robin again.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7955,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            11280
+          ],
+          "displayName": "Chief Thief Robin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "About this caper..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Vial of stench a",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Guild registry",
+      "text": "In a building south-east of Ardougne market.<ul><li>If you fail any of the below steps, come back to this step.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2677.5,
+          "heightFine": 965.0,
+          "y": 3289.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Lockpick",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Blackjack",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Vial of stench (a)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickpocket the Registrar for a cuckoo clock key.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11272,
+          "modelIds": [
+            6111
+          ],
+          "displayName": "Registrar",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18664,
+          "displayName": "Cuckoo clock key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wind the clock on the wall in the north room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3114
+          ],
+          "displayName": "Wall clock",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "A few seconds to"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go in the south room, wait for the Registrar to get to the clock room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": -1.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1.0,
+          "heightFine": 0.0,
+          "y": -1.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your blackjack, <i>Lure</i>, <i>Knock-out</i>, then <i>Steal-from</i> the guard.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            102
+          ],
+          "displayName": "Willow blackjack"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 3249,
+          "modelIds": [
+            4545
+          ],
+          "displayName": "Guard",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18665,
+          "displayName": "Lever key",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pull the vault lever behind the desk.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 4.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [
+            1128
+          ],
+          "displayName": "Open trapdoor"
+        },
+        {
+          "t": "chatText",
+          "text": "You unlock the lever and pull it down."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go down the trapdoor that opens, the following steps are no longer time sensitive.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 12268,
+          "modelIds": [
+            1128
+          ],
+          "displayName": "Open trapdoor",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 545.0,
+          "heightFine": 1.0,
+          "y": -23.0,
+          "range": 4,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>pick-lock</i> on the vault door.",
+      "actions": [
+        {
+          "t": "resetInstance"
+        },
+        {
+          "t": "direction",
+          "x": 545.0,
+          "heightFine": 1.0,
+          "y": -26.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 545.0,
+          "heightFine": 1.0,
+          "y": -27.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click <i>check</i> the chest for traps, then open it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 546.0,
+          "heightFine": 1.0,
+          "y": -27.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18666,
+          "displayName": "Bonds",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the boxes under the square hole in the wall to exit.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 547.0,
+          "heightFine": 1.0,
+          "y": -24.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Leave the vault."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2680.0,
+          "heightFine": 1013.0,
+          "y": 3295.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Bank (recommended) or destroy your vial of stench (a).",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Vial of stench a"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": -1,
+          "displayName": "Vial of stench a"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Bonds (A Guild of Our Own)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Re-enter the building and talk to the Registrar.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2677.5,
+          "heightFine": 965.0,
+          "y": 3289.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "range": 8,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 11272,
+          "modelIds": [
+            6111
+          ],
+          "displayName": "Registrar",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Then I think I'll be on my way"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Darren Lightfinger.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3223.0,
+          "heightFine": 1125.0,
+          "y": 3268.3,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 4634.0,
+          "heightFine": 5.0,
+          "y": 5768.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "darren lightfinger2"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to talk abou tthe caper I'm doing for you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 9022,
+  "stageVarbitCompleteValue": 40,
+  "cacheQuestId": 415
+}

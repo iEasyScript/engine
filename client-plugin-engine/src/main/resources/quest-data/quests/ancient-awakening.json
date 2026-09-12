@@ -1,0 +1,925 @@
+{
+  "slug": "ancient-awakening",
+  "name": "Ancient Awakening",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1696809600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting off",
+      "text": "Talk to Overseer Siv in the Command Centre in the Fort Forinthry.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Ancient Awakening\u0027."
+        },
+        {
+          "t": "direction",
+          "x": 3319.0,
+          "heightFine": 453.0,
+          "y": 3541.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 29811,
+          "modelIds": [],
+          "displayName": "Overseer Siv"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about quests"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north of Fort Forinthry and enter the Wilderness crypt entrance. Beware of risen ghosts inside.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3291.0,
+          "heightFine": 677.0,
+          "y": 3609.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125311,
+          "modelIds": [],
+          "displayName": "Wilderness Crypt Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30019,
+          "modelIds": [],
+          "displayName": "Risen ghost"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding artefacts",
+      "text": "Go across the bridge and enter the ancient door.\u003cul\u003e\u003cli\u003eIf the bridge is missing, log out and back in to have it reappear.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -18.0,
+          "heightFine": 3685.0,
+          "y": -35.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 125745,
+          "modelIds": [],
+          "displayName": "Ancient door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to any character near the map table.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How have you"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I was just"
+        },
+        {
+          "t": "direction",
+          "x": -7.0,
+          "heightFine": 3837.0,
+          "y": 22.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30553,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I\u0027ll see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect 20 dragonkin artefacts in the tomb. Kill any tomb zombies that appear, and then collect the artefacts they drop. The zombies are based on your combat level, e.g. 3,200 life points at combat level 152. One can be collected from each Dragonkin artefact hotspot throughout the crypt as well.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127681,
+          "modelIds": [],
+          "displayName": "Dragonkin artefact",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 55940,
+          "modelIds": [],
+          "displayName": "Dragonkin artefact",
+          "priority": "all"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30565,
+          "modelIds": [],
+          "displayName": "Tomb zombie",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "20/20"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to anyone near the map table again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "direction",
+          "x": -6.0,
+          "heightFine": 3845.0,
+          "y": 21.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30553,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Jolly Boar"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Jolly Boar Inn",
+      "text": "Go to the Jolly Boar Inn, south-west of Fort Forinthry. Use the marker to continue the quest at the entrance, then stay on the ground floor[UK]1st floor[US].",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3281.0,
+          "heightFine": 965.0,
+          "y": 3511.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127713,
+          "modelIds": [],
+          "displayName": "Ancient Awakening"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bill at the bar.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I don\u0027t need to know your family history, Bill."
+        },
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 965.0,
+          "y": -18.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30555,
+          "modelIds": [],
+          "displayName": "Bill"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " I should be off now, anyways. Goodbye, Your Grace."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the staircase, talk to Ellamaria.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Let\u0027s skip the small talk."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127682,
+          "modelIds": [],
+          "displayName": "Staircase"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30554,
+          "modelIds": [],
+          "displayName": "Ellamaria"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "See you at the fort"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue the quest with the marker near the bridge west of the Champions\u0027 Guild.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3162.0,
+          "heightFine": 829.0,
+          "y": 3364.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127713,
+          "modelIds": [],
+          "displayName": "Ancient Awakening"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Aster slightly south.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need you to return to the fort."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30552,
+          "modelIds": [],
+          "displayName": "Aster"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " We will be embarking on an expedition to Ungael. I need you back at the fort to discuss preparations."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to Fort Forinthry, continue Ancient Awakening at the Town Hall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1093.0,
+          "y": 3559.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127713,
+          "modelIds": [],
+          "displayName": "Ancient Awakening"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to anyone in the Town Hall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30553,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "As you may know"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Leave through the marker at the entrance to the Town Hall.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127720,
+          "modelIds": [],
+          "displayName": "Ancient Awakening"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Grove east of the fort and interact with the rowboat to travel to Ungael.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 3359.0,
+          "heightFine": 1317.0,
+          "y": 3556.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127688,
+          "modelIds": [],
+          "displayName": "Rowboat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill all of the attacking monsters.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It appears Zemo"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the team and make your way north-east up the path.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 30.0,
+          "heightFine": 4317.0,
+          "y": 49.0,
+          "instance": true,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 30.0,
+          "heightFine": 4317.0,
+          "y": 49.0,
+          "range": 6,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the Ruins Entrance.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127692,
+          "modelIds": [],
+          "displayName": "Ruins Entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 30.0,
+          "heightFine": 4357.0,
+          "y": 53.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the stairs to the east, then head west. Interact with the tower entrance.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        },
+        {
+          "t": "direction",
+          "x": 13.0,
+          "heightFine": 8165.0,
+          "y": 95.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127696,
+          "modelIds": [],
+          "displayName": "Tower entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "There!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "fight our way through"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Undead waves",
+      "text": "Defeat 12 waves of Zemouregal\u0027s minions. After each wave of enemies, you have to activate necrotic energy and sometimes choose a power-up for one of your allies. See the full guide for details on all waves and power-ups.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 127592,
+          "modelIds": [],
+          "displayName": "Imposing Statue"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting off the island",
+      "text": "Talk to Aster.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "You couldn\u0027t"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30583,
+          "modelIds": [],
+          "displayName": "Aster"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "must be something here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the doorway to the south.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127475,
+          "modelIds": [],
+          "displayName": "Doorway"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 30.0,
+          "heightFine": 6405.0,
+          "y": 83.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk west, then south, then interact with runic projector.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 6.0,
+          "heightFine": 6405.0,
+          "y": 65.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127522,
+          "modelIds": [],
+          "displayName": "Runic projector"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "that will help"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect three motes of energy from:\u003cul\u003e\u003cli\u003eGo north to catch the mote just outside the tower.\u003c/li\u003e\u003cli\u003eSearching bookcase in the north.\u003c/li\u003e\u003cli\u003eSearching ruined pillar in the south-west.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127702,
+          "modelIds": [],
+          "displayName": "Bookcase"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127699,
+          "modelIds": [],
+          "displayName": "Ruined pillar"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30579,
+          "modelIds": [],
+          "displayName": "Mote of energy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "3/3"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the runic projector.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127522,
+          "modelIds": [],
+          "displayName": "Runic projector"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 30581,
+          "modelIds": [],
+          "displayName": "Archivist"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Listen to the archivist.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What is this place?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about Vorkath."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me about this tomb."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you activate the conduit?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30581,
+          "modelIds": [],
+          "displayName": "Archivist"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 127585,
+          "modelIds": [],
+          "displayName": "Mysterious device"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the mysterious device to the south-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127585,
+          "modelIds": [],
+          "displayName": "Mysterious device"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 125769,
+          "modelIds": [],
+          "displayName": "Map table"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Fort Forinthry and continue via the marker in front of the Town Hall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3303.0,
+          "heightFine": 1093.0,
+          "y": 3559.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 127713,
+          "modelIds": [],
+          "displayName": "Ancient Awakening"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to anyone in the Town Hall.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 30553,
+          "modelIds": [],
+          "displayName": "The Raptor"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 54562,
+  "stageVarbitCompleteValue": 50,
+  "cacheQuestId": 502
+}

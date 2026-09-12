@@ -1,0 +1,1298 @@
+{
+  "slug": "missing-my-mummy",
+  "name": "Missing My Mummy",
+  "members": true,
+  "length": "mediumlong",
+  "timeline": "champion",
+  "releaseDate": 1242691200,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Pharaoh\u0027s pyramid",
+      "text": "Talk to Leela, north of the Draynor Village jail.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        },
+        {
+          "t": "direction",
+          "x": 3121.0,
+          "heightFine": 965.0,
+          "y": 3259.0,
+          "instance": false,
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]\u003cul\u003e\u003cli\u003eIf Leela does not show up in Draynor Village, you need to complete the Stolen Hearts and Diamond in the Rough quests first, even if Icthlarin\u0027s Little Helper is already completed.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the flat-topped pyramid Uzer Mastaba from the west side, south of Uzer.\u003cul\u003e\u003cli\u003eTeleport to the fairy ring DLQ and then run east.\u003c/li\u003e\u003cli\u003eTeleport to Al Kharid and go south to Shantay\u0027s Pass (Or use amulet of glory\u0027s teleport to Al Kharid).\u003c/li\u003e\u003cli\u003eUse the magic carpet network to get to Uzer.\u003c/li\u003e\u003cli\u003eTeleport with the traveller\u0027s necklace to desert eagles\u0027 eyrie.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3491.0,
+          "heightFine": 5.0,
+          "y": 3026.0,
+          "instance": false,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43014,
+          "modelIds": [],
+          "displayName": "Pyramid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the initial east chamber, rummage and kill the skeleton for a canopic jar.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14804,
+          "modelIds": [],
+          "displayName": "Canopic jar"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14804,
+          "displayName": "Canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north-west and through the imposing doors to the south.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 965.0,
+          "y": 37.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42928,
+          "modelIds": [],
+          "displayName": "Imposing door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -19.0,
+          "heightFine": 965.0,
+          "y": 33.0,
+          "range": 2,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the four skeletons in the room for a mummy hand and the scroll of the dead. The mummy hand and scroll of the dead don\u0027t appear in area loot, you need to right click to take them.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42999,
+          "modelIds": [],
+          "displayName": "Skeleton"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43000,
+          "modelIds": [],
+          "displayName": "Skeleton"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43001,
+          "modelIds": [],
+          "displayName": "Skeleton"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43002,
+          "modelIds": [],
+          "displayName": "Skeleton"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14810,
+          "modelIds": [],
+          "displayName": "Mummy hand"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14796,
+          "modelIds": [],
+          "displayName": "Scroll of the dead"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14796,
+          "displayName": "Scroll of the dead",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 14810,
+          "displayName": "Mummy hand",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me about"
+        },
+        {
+          "t": "direction",
+          "x": 3122.0,
+          "heightFine": 965.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anything else"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What do you know"
+        },
+        {
+          "t": "direction",
+          "x": 3122.0,
+          "heightFine": 965.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anything else"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Personality and name"
+        },
+        {
+          "t": "direction",
+          "x": 3122.0,
+          "heightFine": 965.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anything else"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "How can I reunite"
+        },
+        {
+          "t": "direction",
+          "x": 3122.0,
+          "heightFine": 965.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "anything else"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I think I can deal with this myself."
+        },
+        {
+          "t": "direction",
+          "x": 3122.0,
+          "heightFine": 965.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Farewell"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing the sarcophagus",
+      "text": "The scroll of praise:\nGet an Al Kharid flyer from Waseem the Leaflet Dropper north of the Al Kharid mine (at the entrance to the desert).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What are the flyers for"
+        },
+        {
+          "t": "direction",
+          "x": 3283.0,
+          "heightFine": 757.0,
+          "y": 3324.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 26817,
+          "modelIds": [],
+          "displayName": "Waseem the Leaflet Dropper"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 7922,
+          "displayName": "Al Kharid flyer",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Al Kharid flyer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Sq\u0027irkjuice",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ring of charos (a)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "title": "Preparing the sarcophagus",
+      "text": "EQUIP YOUR RING OF CHAROS\n\nWith your Al Kharid flyer, talk to Reldo in the Varrock palace library about the pyramid.  He will give you a scroll of praise.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027d like to talk about a pyramid."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Reldo"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14808,
+          "displayName": "Scroll of praise",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Al Kharid flyer",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Sq\u0027irkjuice",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ring of charos (a)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Osman without the Ring of Charos equipped.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have some questions about a tomb."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I\u0027m after ways to reunite the mummy in the pyramid."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1862,
+          "modelIds": [],
+          "displayName": "Ali Morrisane"
+        },
+        {
+          "t": "direction",
+          "x": 3302.0,
+          "heightFine": 1005.0,
+          "y": 3212.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14812,
+          "displayName": "Mummy\u0027s name papyrus",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 14813,
+          "displayName": "Copied name papyrus",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Squirk juice of any kind",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": true
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "title": "Collecting canopic jars`",
+      "text": "Return to the pyramid with prayer points.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3490.0,
+          "heightFine": 5.0,
+          "y": 3025.0,
+          "instance": false,
+          "distance": 7
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 43014,
+          "modelIds": [],
+          "displayName": "Pyramid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Again, open the imposing door in the north-west corner.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42928,
+          "modelIds": [],
+          "displayName": "Imposing door"
+        },
+        {
+          "t": "direction",
+          "x": -20.0,
+          "heightFine": 965.0,
+          "y": 37.0,
+          "instance": true,
+          "distance": 6
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": -20.0,
+          "heightFine": 960.0,
+          "y": 34.0,
+          "range": 1,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the golem and descend the stairs (You may be placed in the mummy\u0027s tomb after descending the stairs, past the puzzle. If so, you will need to cross the puzzle to do the next 4 steps).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7497,
+          "modelIds": [],
+          "displayName": "Golem guard"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 33304,
+          "modelIds": [],
+          "displayName": "Stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42935,
+          "modelIds": [],
+          "displayName": "Blue tile"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Find a path of blue and green blocks or of red and yellow blocks all the way through.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 5.0,
+          "y": 0.0,
+          "range": 7,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go across the tiled room and collect the first canopic jar to the west of the northern staircase.\u003cul\u003e\u003cli\u003eIf you spawn at the bottom of the northern staircase simply pick up the canopic jar to the west.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14805,
+          "modelIds": [],
+          "displayName": "Canopic jar"
+        },
+        {
+          "t": "direction",
+          "x": -11.0,
+          "heightFine": 965.0,
+          "y": 30.0,
+          "instance": true,
+          "distance": 5
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14805,
+          "displayName": "Canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect the two remaining canopic jars and mummy with no hand in the tunnels. If you did not collect the fourth earlier, it can be found on one of the skeleton bodies upstairs, \u0027Rummage\u0027 them and defeat them.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 30.0,
+          "heightFine": 965.0,
+          "y": 32.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14806,
+          "modelIds": [],
+          "displayName": "Canopic jar"
+        },
+        {
+          "t": "direction",
+          "x": 32.0,
+          "heightFine": 965.0,
+          "y": 11.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14807,
+          "modelIds": [],
+          "displayName": "Canopic jar"
+        },
+        {
+          "t": "direction",
+          "x": 27.0,
+          "heightFine": 965.0,
+          "y": 3.0,
+          "instance": true,
+          "distance": 6
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "grounditem",
+          "typeId": 14811,
+          "modelIds": [],
+          "displayName": "Mummy with no hand"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14811,
+          "displayName": "Mummy with no hand",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 14807,
+          "displayName": "Canopic jar",
+          "quantity": 1
+        },
+        {
+          "t": "inventoryContains",
+          "itemId": 14806,
+          "displayName": "Canopic jar",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the mummy hand on the mummy with no hand.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 14811,
+          "modelIds": [],
+          "displayName": "Mummy with no hand"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 14810,
+          "modelIds": [],
+          "displayName": "Mummy hand"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14809,
+          "displayName": "Senliten\u0027s mummy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the tiled room and cross back towards the empty sarcophagus.\u003cul\u003e\u003cli\u003eYou may go upstairs, and back downstairs to teleport to the tomb room to skip the tile puzzle.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 0.0,
+          "heightFine": 0.0,
+          "y": 0.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 0.0,
+          "heightFine": 5.0,
+          "y": 0.0,
+          "range": 7,
+          "instance": true
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Restoring the tomb",
+      "text": "Place jar on the shelves 4 times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42963,
+          "modelIds": [],
+          "displayName": "Empty shelves"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42967,
+          "modelIds": [],
+          "displayName": "Full shelves"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Fire rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Willow log",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Jug of wine",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Spice",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Empty pot",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Wheat",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fill the empty sarcophagus.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42953,
+          "modelIds": [],
+          "displayName": "Empty sarcophagus"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42956,
+          "modelIds": [],
+          "displayName": "Sarcophagus"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pray at the 5 broken statues.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42983,
+          "modelIds": [],
+          "displayName": "Broken statue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42985,
+          "modelIds": [],
+          "displayName": "Broken statue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42981,
+          "modelIds": [],
+          "displayName": "Broken statue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42980,
+          "modelIds": [],
+          "displayName": "Broken statue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42976,
+          "modelIds": [],
+          "displayName": "Crondis"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42974,
+          "modelIds": [],
+          "displayName": "Amascut"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42975,
+          "modelIds": [],
+          "displayName": "Apmeken"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42976,
+          "modelIds": [],
+          "displayName": "Crondis"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42979,
+          "modelIds": [],
+          "displayName": "Scabaras"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42977,
+          "modelIds": [],
+          "displayName": "Het"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repair the chair and table.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42958,
+          "modelIds": [],
+          "displayName": "Broken chair"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42969,
+          "modelIds": [],
+          "displayName": "Broken table"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42968,
+          "modelIds": [],
+          "displayName": "Regal table"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42957,
+          "modelIds": [],
+          "displayName": "Regal chair"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use spice on your jug of wine.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1993,
+          "modelIds": [],
+          "displayName": "Jug of wine"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2007,
+          "modelIds": [],
+          "displayName": "Spice"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14815,
+          "displayName": "Spiced wine",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use wheat on your empty pot.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1931,
+          "modelIds": [],
+          "displayName": "Empty pot"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1947,
+          "modelIds": [],
+          "displayName": "Wheat"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 14816,
+          "displayName": "Pot of wheat",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Replace the pot and jug.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42962,
+          "modelIds": [],
+          "displayName": "Broken pot"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42960,
+          "modelIds": [],
+          "displayName": "Broken jug"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42961,
+          "modelIds": [],
+          "displayName": "Pot of wheat"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42959,
+          "modelIds": [],
+          "displayName": "Spiced wine"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Run east and kill the shadow. Then light the enchanted sconces in the following order: south, north, west, east. Shadows will spawn and must be killed between each sconce lighting.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42991,
+          "modelIds": [],
+          "displayName": "Enchanted sconce"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7475,
+          "modelIds": [],
+          "displayName": "Tumeken\u0027s shadow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7476,
+          "modelIds": [],
+          "displayName": "Tumeken\u0027s shadow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7477,
+          "modelIds": [],
+          "displayName": "Tumeken\u0027s shadow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7479,
+          "modelIds": [],
+          "displayName": "Tumeken\u0027s shadow"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7480,
+          "modelIds": [],
+          "displayName": "Tumeken\u0027s shadow"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Your actions have fully restored the mummy\u0027s shadow"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Queen\u0027s chamber and create the statue on the empty base, then carve it 2 times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42971,
+          "modelIds": [],
+          "displayName": "Statue base"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42970,
+          "modelIds": [],
+          "displayName": "Senliten\u0027s statue"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 42972,
+          "modelIds": [],
+          "displayName": "Senliten\u0027s statue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 42973,
+          "modelIds": [],
+          "displayName": "Senliten\u0027s ushabti"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Pharaoh Queen who has appeared in front of the table to give her the 2 papyri and the Scroll of Praise.  (Not required for quest completion, only for 100% rebuild)",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I have nothing more to say."
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 7470,
+          "modelIds": [],
+          "displayName": "Pharaoh Queen"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Tread softly in the land of the living."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click check-progress on your scroll of the dead or pyramid journal to verify you\u0027ve rebuilt the mummy 75%, otherwise check any parts missed. (Or 100% if you want to finish the mummy)",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 14796,
+          "modelIds": [],
+          "displayName": "Scroll of the dead"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "manual"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Leela in Draynor Village.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 15799,
+          "modelIds": [],
+          "displayName": "Leela"
+        },
+        {
+          "t": "direction",
+          "x": 3121.0,
+          "heightFine": 1005.0,
+          "y": 3260.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11167,
+  "stageVarbitCompleteValue": 60,
+  "cacheQuestId": 77
+}

@@ -1,0 +1,1887 @@
+{
+  "slug": "throne-of-miscellania",
+  "name": "Throne of Miscellania",
+  "members": true,
+  "length": "medium",
+  "timeline": "heroic",
+  "releaseDate": 1101686400,
+  "neededItems": [
+    {
+      "name": "Iron bar",
+      "itemId": 2351,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Any log",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Flowers",
+      "itemId": 600,
+      "quantity": 1,
+      "duringQuest": true
+    },
+    {
+      "name": "Cake (if courting Prince Brand)",
+      "itemId": 1891,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Oak shortbow (if courting Princess Astrid)",
+      "itemId": 144,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Gold ring (any tradeable, metal ring works)",
+      "itemId": 531,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "The Fremennik Trials"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to King Vargas, 1st floor (2nd floor[US]) in the castle on the western island of Miscellania.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to King Vargas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "that's what he's here for"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Being the messenger",
+      "text": "Talk to Queen Sigrid on the 1st floor (2nd floor[US]) of the castle on the eastern half of the island.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2615.0,
+          "heightFine": 1869.0,
+          "y": 3867.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Iron bar",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "officially recognise Etceteria"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "convince her there are better anthems"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Queen Sigrid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2613.0,
+          "heightFine": 1925.0,
+          "y": 3875.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see what I can do"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Prince Brand in the bedroom south of King Vargas's room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 757,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3918,
+            9136,
+            9143,
+            9147,
+            9328,
+            9332
+          ],
+          "displayName": "Prince Brand"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Don't mention it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Advisor Ghrim in King Vargas's room.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I make peace with Etceteria?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Are there any other matters"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back and talk to Queen Sigrid.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2614.0,
+          "heightFine": 1201.0,
+          "y": 3867.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2615.0,
+          "heightFine": 1869.0,
+          "y": 3867.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 9088,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            9138,
+            9145,
+            9317
+          ],
+          "displayName": "Queen Sigrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "King Vargas' signature"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "pen large enough for me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Derrik at the anvil on the north of the island.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2550.0,
+          "heightFine": 965.0,
+          "y": 3896.0,
+          "instance": false,
+          "distance": 4
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1376,
+          "modelIds": [
+            5715
+          ],
+          "displayName": "Derrik",
+          "distance": 4
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have a slightly strange request..."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3897,
+          "displayName": "Giant nib",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the giant nib on your logs.<ul><li>You can chop an evergreen for logs.</li></ul>",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 3897,
+          "modelIds": [
+            147
+          ],
+          "displayName": "Giant nib"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [],
+          "displayName": "any logs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 3898,
+          "displayName": "Giant pen",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy some flowers from the flower girl if you don't have any.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 1378,
+          "modelIds": [
+            3567
+          ],
+          "displayName": "Flower Girl"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 2460,
+          "displayName": "Flowers",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "keep at it then"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Advisor Ghrim about marriage.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How am I supposed to get the Prince or Princess to marry me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "would be a good way to start"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "To marry the princess",
+      "text": "Talk to Princess Astrid on the same floor to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I will consider accepting to marry you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Flowers",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bow",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ring",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess Astrid 3 more times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He's been very helpful."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hahahaha!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Archery is a noble art!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "he chose him to be his advisor"
+        },
+        {
+          "t": "conversationText",
+          "text": "so glad you agree"
+        },
+        {
+          "t": "conversationText",
+          "text": "have confidence in your skills"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He's been very helpful."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hahahaha!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Archery is a noble art!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "he chose him to be his advisor"
+        },
+        {
+          "t": "conversationText",
+          "text": "so glad you agree"
+        },
+        {
+          "t": "conversationText",
+          "text": "have confidence in your skills"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "He's been very helpful."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hahahaha!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Archery is a noble art!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "he chose him to be his advisor"
+        },
+        {
+          "t": "conversationText",
+          "text": "so glad you agree"
+        },
+        {
+          "t": "conversationText",
+          "text": "have confidence in your skills"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the flowers on her.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 2460,
+          "modelIds": [
+            600
+          ],
+          "displayName": "Flowers"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "They're lovely"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Perform the Dance emote in her room.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Impressive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess Astrid to tell her your name.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Very well, Princess"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess Astrid again and agree with her again 3 times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened next?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds like a good idea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm quite fond of it myself."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "realised that neither of us"
+        },
+        {
+          "t": "conversationText",
+          "text": "Thank you"
+        },
+        {
+          "t": "conversationText",
+          "text": "someone who shares my interests"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened next?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds like a good idea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm quite fond of it myself."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "realised that neither of us"
+        },
+        {
+          "t": "conversationText",
+          "text": "Thank you"
+        },
+        {
+          "t": "conversationText",
+          "text": "someone who shares my interests"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What happened next?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds like a good idea."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm quite fond of it myself."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "realised that neither of us"
+        },
+        {
+          "t": "conversationText",
+          "text": "Thank you"
+        },
+        {
+          "t": "conversationText",
+          "text": "someone who shares my interests"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give her a bow by using it on her.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 843,
+          "modelIds": [
+            144
+          ],
+          "displayName": "Oak shortbow"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "It's lovely"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess Astrid.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "onto the shortlist"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Princess Astrid again and agree with her again 3 times.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I suppose you don't have much opportunity to."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's a lovely little country."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And what a great bard he makes!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take me with you sometime"
+        },
+        {
+          "t": "conversationText",
+          "text": "glad you like it"
+        },
+        {
+          "t": "conversationText",
+          "text": "quite the bard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I suppose you don't have much opportunity to."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's a lovely little country."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And what a great bard he makes!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take me with you sometime"
+        },
+        {
+          "t": "conversationText",
+          "text": "glad you like it"
+        },
+        {
+          "t": "conversationText",
+          "text": "quite the bard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationInactive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3154,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3919,
+            9137,
+            9144,
+            9148,
+            9329,
+            9333
+          ],
+          "displayName": "Princess Astrid"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I suppose you don't have much opportunity to."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "It's a lovely little country."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "And what a great bard he makes!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "take me with you sometime"
+        },
+        {
+          "t": "conversationText",
+          "text": "glad you like it"
+        },
+        {
+          "t": "conversationText",
+          "text": "quite the bard"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Blow a kiss at Princess Astrid.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you the charmer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ring on her.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I have agreed to marry you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "To marry the prince",
+      "text": "Go to the room to the south and talk to Prince Brand.",
+      "warning": "This path is not tracked currently. It will be implemented at a later date.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Flowers",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cake",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ring",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Prince Brand about 3 more times, trying to impress and/or agree with him.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the clap or cheer emote.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the flowers on him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Prince Brand and agree with him again 3 times.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Listen to his saga.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the cake on him.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Prince Brand and agree with him again 3 times.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "When he calls you 'Dear', blow a kiss at him.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the ring on Prince Brand.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You should try to gain their support"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Helping the population",
+      "text": "Talk to Advisor Ghrim about support.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 3119,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            3120
+          ],
+          "displayName": "Advisor Ghrim"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How do I gain the support of the population?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "of the population supports you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "You need to make 75% of the population like you. You can check your approval percentage by talking to the people you're helping. To do this, perform any of the following tasks on the island:<ul><li>Raking weeds</li><li>Chopping trees.</li><li>Mining coal.</li><li>Fishing at the docks to the south.</li><li>Purchase Flowers (mixed) from the Flower Girl (50% chance of +1% per flower)</li></ul>",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "seem remarkably popular for a newcomer"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to King Vargas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2505.0,
+          "heightFine": 2245.0,
+          "y": 3848.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2504.0,
+          "heightFine": 3237.0,
+          "y": 3849.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5185,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            7400,
+            7402,
+            9099,
+            9102,
+            9142,
+            9316
+          ],
+          "displayName": "King Vargas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2236,
+  "stageVarbitCompleteValue": 100,
+  "cacheQuestId": 282
+}

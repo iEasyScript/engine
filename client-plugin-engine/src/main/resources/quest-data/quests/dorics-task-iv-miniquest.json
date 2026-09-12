@@ -1,0 +1,285 @@
+{
+  "slug": "dorics-task-iv-miniquest",
+  "name": "Doric's Task IV (miniquest)",
+  "members": false,
+  "length": "medium",
+  "timeline": "champion",
+  "releaseDate": 1350432000,
+  "neededItems": [
+    {
+      "name": "48 Adamant bars (in metal bank) or",
+      "itemId": 2361,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Adamant full helm +2",
+      "itemId": 885,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Adamant platebody +2",
+      "itemId": 1344,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Adamant platelegs +2",
+      "itemId": 1260,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Adamant gauntlets +2",
+      "itemId": 348,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Adamant armoured boots +2",
+      "itemId": 480,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Doric's Task III (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Smithing",
+      "level": 40,
+      "ironmanOnly": false
+    },
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 40,
+      "ironmanOnly": true
+    }
+  ],
+  "steps": [
+    {
+      "title": "Burial armour",
+      "text": "Speak to Doric in his hut north of Falador.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Falador_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2958.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Adamant bars (in metal bank) or",
+          "itemId": -1,
+          "quantity": 48,
+          "duringQuest": false
+        },
+        {
+          "name": "Adamant full helm +2",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Adamant platebody +2",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Adamant platelegs +2",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Adamant gauntlets +2",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Adamant armoured boots +2",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any more Smithing tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 284,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            15946,
+            26276,
+            27688
+          ],
+          "displayName": "Doric"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Make an adamant burial set in the Artisans' Workshop located in southeast Falador.<ul><li>You must make the 'burial set' and not make the burial items individually.</li><li>If the player has never made burial armour before they must first talk to Suak in the eastern part of the Artisans' Workshop.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3041.0,
+          "heightFine": 1125.0,
+          "y": 3340.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3041.0,
+          "heightFine": 1125.0,
+          "y": 3340.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "NamedSym(name=adamantBurialSet)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Suak.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3059.0,
+          "heightFine": 1125.0,
+          "y": 3344.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3059.0,
+          "heightFine": 1125.0,
+          "y": 3344.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 85,
+          "modelIds": [
+            6075
+          ],
+          "displayName": "Suak"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10014,
+  "stageVarbitCompleteValue": 3,
+  "cacheQuestId": 424
+}

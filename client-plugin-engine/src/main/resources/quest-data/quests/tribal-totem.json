@@ -1,0 +1,396 @@
+{
+  "slug": "tribal-totem",
+  "name": "Tribal Totem",
+  "members": true,
+  "length": "short",
+  "timeline": "champion",
+  "releaseDate": 1020124800,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Thieving",
+      "level": 21,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Kangai Mau in the large building north of Brimhaven's pub.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Karamja lodestone",
+        "url": "Karamja_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2793.0,
+          "heightFine": 1829.0,
+          "y": 3183.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 846,
+          "modelIds": [
+            3135
+          ],
+          "displayName": "Kangai Mau",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm in search of adventure!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Kangai Mau.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 846,
+          "modelIds": [
+            3135
+          ],
+          "displayName": "Kangai Mau"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You tell me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the marked crate at the RPDT depot, south of the eastern bank.<ul><li>Take a ship from Brimhaven to complete the easy Karmaja achievement <i>Avast Ardougne!</i>.</li></ul>",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Ardougne lodestone",
+        "url": "Ardougne_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2650.0,
+          "heightFine": 1685.0,
+          "y": 3271.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1858,
+          "displayName": "Address label",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the address label on the stack of two crates.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2650.0,
+          "heightFine": 2000.0,
+          "y": 3272.0,
+          "instance": false
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 1858,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Address label"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "deliver it for me"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to an RPDT employee.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 843,
+          "modelIds": [],
+          "displayName": "RPDT employee",
+          "priority": "closest"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So, when are you going to deliver this crate?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I guess we could"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Wizard Cromperty in north-east of the Ardougne.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2683.0,
+          "heightFine": 1285.0,
+          "y": 3324.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2328,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6375
+          ],
+          "displayName": "Wizard Cromperty",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "So what have you invented?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I be teleported please?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, that sounds good. Teleport me!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okey dokey"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2328,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            6375
+          ],
+          "displayName": "Wizard Cromperty"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceFrom",
+          "x": 2681.0,
+          "heightFine": 1285.0,
+          "y": 3325.0,
+          "range": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the western door, using the code 'KURT' to get in.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2632.5,
+          "heightFine": 2045.0,
+          "y": 3322.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2631.0,
+          "heightFine": 1445.0,
+          "y": 3322.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click investigate the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 2045.0,
+          "y": 3324.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "senses"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2631.0,
+          "heightFine": 2045.0,
+          "y": 3324.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2629.0,
+          "heightFine": 2405.0,
+          "y": 3324.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest in the next room.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2636.0,
+          "heightFine": 2805.0,
+          "y": 3324.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Tribal totem",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Kangai Mau in Brimhaven with the totem.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Karamja lodestone",
+        "url": "Karamja_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2793.0,
+          "heightFine": 1829.0,
+          "y": 3183.0,
+          "instance": false,
+          "distance": 5
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 846,
+          "modelIds": [
+            3135
+          ],
+          "displayName": "Kangai Mau",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2783,
+  "stageVarbitCompleteValue": 5,
+  "cacheQuestId": 40
+}

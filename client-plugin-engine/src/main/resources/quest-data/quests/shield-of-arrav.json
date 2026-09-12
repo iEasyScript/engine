@@ -1,0 +1,844 @@
+{
+  "slug": "shield-of-arrav",
+  "name": "Shield of Arrav",
+  "members": false,
+  "length": "medium",
+  "timeline": "pathfinder",
+  "releaseDate": 978566400,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 20,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [
+    {
+      "name": "Jonny the Beard",
+      "level": "1",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Reldo in the Varrock Palace library.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm in search of a quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Reldo.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'm sure it's in the library here somewhere"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase for <i>The Shield of Arrav</i> book.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3211.8,
+          "heightFine": 1953.0,
+          "y": 3493.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Blue book",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Read the book.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            495
+          ],
+          "displayName": "Blue book"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I should show this book"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Reldo.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3210.0,
+          "heightFine": 1253.0,
+          "y": 3493.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 2660,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2661,
+            20835,
+            21328,
+            29766,
+            30121,
+            30122
+          ],
+          "displayName": "Reldo",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where I can find the Phoenix Gang?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "with the Phoenix Gang"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Phoenix Gang",
+      "text": "Talk to Baraek in the north-east of Varrock square.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3219.0,
+          "heightFine": 965.0,
+          "y": 3434.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 547,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20795
+          ],
+          "displayName": "Baraek",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can you tell me where I can find the Phoenix Gang?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Alright. Have 10 gold coins."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Thanks!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "types to be messed about"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder into the Phoenix Gang Hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3244.0,
+          "heightFine": 1125.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3243.0,
+          "heightFine": 5.0,
+          "y": 9783.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Straven and ask to join. Tell him you know who he is.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 644,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20800
+          ],
+          "displayName": "Straven"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know who you are!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd like to offer you my services."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I'll get right on it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3244.0,
+          "heightFine": 5.0,
+          "y": 9783.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3244.0,
+          "heightFine": 1125.0,
+          "y": 3382.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Jonny the beard in the Blue Moon Inn.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3223.0,
+          "heightFine": 1125.0,
+          "y": 3397.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 645,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20802,
+            20803,
+            20804,
+            20805
+          ],
+          "displayName": "Jonny the beard",
+          "distance": 8
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 761,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Intel report"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pickup the intel report.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 761,
+          "modelIds": [
+            276
+          ],
+          "displayName": "Intel report"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 761,
+          "displayName": "Intel report",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Straven.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3244.0,
+          "heightFine": 1125.0,
+          "y": 3383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3243.0,
+          "heightFine": 5.0,
+          "y": 9783.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 644,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20800
+          ],
+          "displayName": "Straven"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "round the front of this building"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the chest in the south-west corner of the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3235.0,
+          "heightFine": 5.0,
+          "y": 9761.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Broken shield right",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Exit the hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3244.0,
+          "heightFine": 5.0,
+          "y": 9783.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3244.0,
+          "heightFine": 1125.0,
+          "y": 3382.0,
+          "range": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb the ladder in the house east of the Phoenix Gang Hideout.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3252.0,
+          "heightFine": 1125.0,
+          "y": 3384.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3252.0,
+          "heightFine": 2341.0,
+          "y": 3385.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the two Phoenix crossbows.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 767,
+          "modelIds": [
+            558
+          ],
+          "displayName": "Phoenix crossbow",
+          "priority": "all"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 767,
+          "displayName": "Phoenix crossbow",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Black Arm Gang",
+      "text": "Talk to Charlie the Tramp north of the Varrock lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3207.0,
+          "heightFine": 1061.0,
+          "y": 3392.0,
+          "instance": false,
+          "distance": 14
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 641,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20796
+          ],
+          "displayName": "Charlie the Tramp",
+          "distance": 14
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where I can find the Black Arm Gang hideout?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "That sounds fair. (Pay 10 gold.)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "She's pretty dangerous"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 10,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Katrine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3185.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20798,
+            20799
+          ],
+          "displayName": "Katrine",
+          "distance": 12
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I've heard you're the Black Arm Gang."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'd rather not reveal my sources."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to become a member of your gang."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Well, you can give me a try, can't you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No problem. I'll get you two phoenix crossbows."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "due east of here"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Katrine again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3185.0,
+          "heightFine": 1125.0,
+          "y": 3385.0,
+          "instance": false,
+          "distance": 12
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 642,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            20798,
+            20799
+          ],
+          "displayName": "Katrine",
+          "distance": 12
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Feel free to enter any of the rooms"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the staircase to the north.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 45,
+          "modelIds": [
+            4416
+          ],
+          "displayName": "Staircase"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3188.0,
+          "heightFine": 2309.0,
+          "y": 3392.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the cupboard on the south-eastern wall.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3189.0,
+          "heightFine": 2609.0,
+          "y": 3385.9,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": -1,
+          "displayName": "Broken shield left",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Use one half of the shield on the other.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            540
+          ],
+          "displayName": "Broken shield right"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": -1,
+          "modelIds": [
+            471
+          ],
+          "displayName": "Broken shield left"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 34328,
+          "displayName": "Shield of Arrav",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Roald in the Varrock Palace.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3222.0,
+          "heightFine": 1253.0,
+          "y": 3473.0,
+          "instance": false,
+          "distance": 8
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald",
+          "distance": 8
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about the Shield of Arrav."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2738,
+  "stageVarbitCompleteValue": 7,
+  "cacheQuestId": 63
+}

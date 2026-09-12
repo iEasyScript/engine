@@ -1,0 +1,2841 @@
+{
+  "slug": "while-guthix-sleeps",
+  "name": "While Guthix Sleeps",
+  "members": true,
+  "length": "veryverylong",
+  "timeline": "mythic",
+  "releaseDate": 1227657600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Defender of Varrock",
+    "Dream Mentor",
+    "Shilo Village",
+    "Temple of Ikov",
+    "Legends' Quest",
+    "The Path of Glouphrie",
+    "Tears of Guthix (quest)",
+    "Wanted!",
+    "The Hunt for Surok (miniquest)",
+    "Warriors' Guild",
+    "Nature Spirit"
+  ],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Starting out",
+      "text": "Talk to Radimus Erkle in the Legends' Guild (fairy ring BLR).",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm interested, where do I report?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In Taverley, talk to Ivy Sophista in the house west of the summoning obelisk.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Ask about 'While Guthix Sleeps'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Our friend in common places great faith in totems."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Good, I'm glad you've arrived. Meet Thaerisk upstairs, there is much to discuss and Lucien's spies are everywhere."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs and talk to Thaerisk Cemphier. Kill both assassins that appear.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thaerisk again.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What efforts are you making against Lucien?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are our options?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I know about the 'Fist of Guthix'."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do you need me to do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Reldo in Varrock Palace library and 'Talk about Lucien and Movario'<ul><li>If Desperate Times is completed, you need to choose one more chat option before proceed the aforementioned quest dialogue.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Lucien and Movario."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What can you tell me about Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What does Movario do?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where does Movario live?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "[Talk to Reldo.]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finding Movario's base",
+      "text": "Talk to the Hunting expert in Feldip Hunter area and ask about tracking down a person.  She is north of Oo'glog lodestone, or south-west of fairy ring AKS. After the conversation she will give you a mort myre fungus.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A creature to help track down a person."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I catch a wild broav?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I do once I've caught a broav?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ring of charos (a)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west and trap pit (which builds a pitfall trap) at the square trap pit (uses one set of logs), then use your mort myre fungus on the built trap.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dismantle the collapsed trap to obtain an unconscious broav.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Hunting expert again about tracking a person.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A creature to help track down a person."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Okay, I'll key it to you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the west of Fight Arena and into the laundry room two houses north of the pub. (Kandarin monastery Teleport then run south, or Watchtower Teleport and run north are quick ways to get there.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With your ring of charos (a) equipped, talk to the Khazard launderer to obtain dirty laundry.<ul><li>If you brought coins instead, take them out of your coin pouch and use them on the launderer.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Charm) Tell me all you know about Movario."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I need information. Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Offer five thousand coins for information on Movario."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Not exactly the information I was interested in... Oh, hang on, wait...does that mean you have some of his clothes in to be washed?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Khazard Battleground north-west (north of Tree Gnome Village and across the bridges).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-over the crumbled wall inside the north-westernmost building.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop your Broav in the room with the broken table then use the dirty laundry on him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the broken table to reveal a trapdoor, then go down.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door, and follow the path to the north, then climb-down the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the old battered door and find the correct rune to use on it. After you enter the correct rune, you'll hear a click.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the door again (boost your Thieving level if needed), and you will find a trap to disarm.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm an awesome thief, I'll disable it easily!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If unsuccessful:)(Transcript missing. edit)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the old battered door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the painting on the east wall .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll flip the catch and see what happens."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the Search option on the bookcases until you receive the chat response  CLICK!.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the wire that faintly glows to the next bookshelf. (for those with colorblindness, zoom the camera in to see the wire slightly pulsate)<ul><li>Search that bookshelf.</li><li>Repeat, searching each bookshelf until the electricity on the gate disappears.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and search the spiral staircase to disarm the trap, then climb-up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the desk to obtain Movario's notes (volume 1)<ul><li>Read the notes.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up the waste-paper basket.<ul><li>With Movario's notes in your backpack, search the basket.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the west of the waste-paper basket.<ul><li>Use the ruby key on the bookcase.</li><li>Climb-up the stairs just north of you.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bed.<ul><li>Use the ruby key on the bed chest.</li><li>Search the bed chest to disarm the traps</li><li>Open and search it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll attempt it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) You disarm the trap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down twice to the wire room and cross-over the broken wall, then search the drawers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up your Broav and look-at the thermometer. Note down the number it says. Check your current character's weight in your equipment interface. You must equalise both numbers. If you weigh more than the number: subtract the number from the thermometer from your character's weight to get the result number. For example: if the thermometer says 20 and you weigh 30 kg, you would need 10 kg. If you weigh less than the number: subtract your character's weight from the number from to get the result number.<ul><li>Pick up your Broav if you haven't already, otherwise it will mess with the numbers.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the floor of this room is a Pile of weights. Take weights equalling the result number you got. CAUTION: You will not be able to recover any items dropped in this room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the spiral staircase. If you weigh more than the number: use all the weights on the statue just north of you, then open the door just east. If you weigh less than the number: keep the weights in your inventory and open the door east of the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east through the door and up the ladder to leave the hideout.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Hunting expert in Feldip Hunter area and ask about tracking down a person.  She is north of Oo'glog lodestone, or south-west of fairy ring AKS. After the conversation she will give you a mort myre fungus.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A creature to help track down a person."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I catch a wild broav?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I do once I've caught a broav?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go west and trap pit (which builds a pitfall trap) at the square trap pit (uses one set of logs), then use your mort myre fungus on the built trap.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Dismantle the collapsed trap to obtain an unconscious broav.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the Hunting expert again about tracking a person.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "A creature to help track down a person."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Okay, I'll key it to you."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the west of Fight Arena and into the laundry room two houses north of the pub. (Kandarin monastery Teleport then run south, or Watchtower Teleport and run north are quick ways to get there.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With your ring of charos (a) equipped, talk to the Khazard launderer to obtain dirty laundry.<ul><li>If you brought coins instead, take them out of your coin pouch and use them on the launderer.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Charm) Tell me all you know about Movario."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I need information. Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Offer five thousand coins for information on Movario."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Not exactly the information I was interested in... Oh, hang on, wait...does that mean you have some of his clothes in to be washed?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Khazard Battleground north-west (north of Tree Gnome Village and across the bridges).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-over the crumbled wall inside the north-westernmost building.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop your Broav in the room with the broken table then use the dirty laundry on him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the broken table to reveal a trapdoor, then go down.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door, and follow the path to the north, then climb-down the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the old battered door and find the correct rune to use on it. After you enter the correct rune, you'll hear a click.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the door again (boost your Thieving level if needed), and you will find a trap to disarm.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm an awesome thief, I'll disable it easily!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If unsuccessful:)(Transcript missing. edit)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the old battered door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the painting on the east wall .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll flip the catch and see what happens."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the Search option on the bookcases until you receive the chat response  CLICK!.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the wire that faintly glows to the next bookshelf. (for those with colorblindness, zoom the camera in to see the wire slightly pulsate)<ul><li>Search that bookshelf.</li><li>Repeat, searching each bookshelf until the electricity on the gate disappears.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and search the spiral staircase to disarm the trap, then climb-up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the desk to obtain Movario's notes (volume 1)<ul><li>Read the notes.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up the waste-paper basket.<ul><li>With Movario's notes in your backpack, search the basket.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the west of the waste-paper basket.<ul><li>Use the ruby key on the bookcase.</li><li>Climb-up the stairs just north of you.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bed.<ul><li>Use the ruby key on the bed chest.</li><li>Search the bed chest to disarm the traps</li><li>Open and search it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll attempt it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) You disarm the trap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down twice to the wire room and cross-over the broken wall, then search the drawers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up your Broav and look-at the thermometer. Note down the number it says. Check your current character's weight in your equipment interface. You must equalise both numbers. If you weigh more than the number: subtract the number from the thermometer from your character's weight to get the result number. For example: if the thermometer says 20 and you weigh 30 kg, you would need 10 kg. If you weigh less than the number: subtract your character's weight from the number from to get the result number.<ul><li>Pick up your Broav if you haven't already, otherwise it will mess with the numbers.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the floor of this room is a Pile of weights. Take weights equalling the result number you got. CAUTION: You will not be able to recover any items dropped in this room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the spiral staircase. If you weigh more than the number: use all the weights on the statue just north of you, then open the door just east. If you weigh less than the number: keep the weights in your inventory and open the door east of the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east through the door and up the ladder to leave the hideout.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the west of Fight Arena and into the laundry room two houses north of the pub. (Kandarin monastery Teleport then run south, or Watchtower Teleport and run north are quick ways to get there.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With your ring of charos (a) equipped, talk to the Khazard launderer to obtain dirty laundry.<ul><li>If you brought coins instead, take them out of your coin pouch and use them on the launderer.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Charm) Tell me all you know about Movario."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "No, I need information. Do you know someone called Movario?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Offer five thousand coins for information on Movario."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Not exactly the information I was interested in... Oh, hang on, wait...does that mean you have some of his clothes in to be washed?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the Khazard Battleground north-west (north of Tree Gnome Village and across the bridges).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-over the crumbled wall inside the north-westernmost building.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drop your Broav in the room with the broken table then use the dirty laundry on him.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the broken table to reveal a trapdoor, then go down.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door, and follow the path to the north, then climb-down the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the old battered door and find the correct rune to use on it. After you enter the correct rune, you'll hear a click.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the door again (boost your Thieving level if needed), and you will find a trap to disarm.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm an awesome thief, I'll disable it easily!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If unsuccessful:)(Transcript missing. edit)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the old battered door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the painting on the east wall .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll flip the catch and see what happens."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the Search option on the bookcases until you receive the chat response  CLICK!.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the wire that faintly glows to the next bookshelf. (for those with colorblindness, zoom the camera in to see the wire slightly pulsate)<ul><li>Search that bookshelf.</li><li>Repeat, searching each bookshelf until the electricity on the gate disappears.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and search the spiral staircase to disarm the trap, then climb-up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the desk to obtain Movario's notes (volume 1)<ul><li>Read the notes.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up the waste-paper basket.<ul><li>With Movario's notes in your backpack, search the basket.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the west of the waste-paper basket.<ul><li>Use the ruby key on the bookcase.</li><li>Climb-up the stairs just north of you.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bed.<ul><li>Use the ruby key on the bed chest.</li><li>Search the bed chest to disarm the traps</li><li>Open and search it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll attempt it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) You disarm the trap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down twice to the wire room and cross-over the broken wall, then search the drawers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up your Broav and look-at the thermometer. Note down the number it says. Check your current character's weight in your equipment interface. You must equalise both numbers. If you weigh more than the number: subtract the number from the thermometer from your character's weight to get the result number. For example: if the thermometer says 20 and you weigh 30 kg, you would need 10 kg. If you weigh less than the number: subtract your character's weight from the number from to get the result number.<ul><li>Pick up your Broav if you haven't already, otherwise it will mess with the numbers.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the floor of this room is a Pile of weights. Take weights equalling the result number you got. CAUTION: You will not be able to recover any items dropped in this room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the spiral staircase. If you weigh more than the number: use all the weights on the statue just north of you, then open the door just east. If you weigh less than the number: keep the weights in your inventory and open the door east of the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east through the door and up the ladder to leave the hideout.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the door, and follow the path to the north, then climb-down the stairs.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the old battered door and find the correct rune to use on it. After you enter the correct rune, you'll hear a click.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the door again (boost your Thieving level if needed), and you will find a trap to disarm.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'm an awesome thief, I'll disable it easily!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If unsuccessful:)(Transcript missing. edit)"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go through the old battered door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the painting on the east wall .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll flip the catch and see what happens."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the Search option on the bookcases until you receive the chat response  CLICK!.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the wire that faintly glows to the next bookshelf. (for those with colorblindness, zoom the camera in to see the wire slightly pulsate)<ul><li>Search that bookshelf.</li><li>Repeat, searching each bookshelf until the electricity on the gate disappears.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and search the spiral staircase to disarm the trap, then climb-up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the desk to obtain Movario's notes (volume 1)<ul><li>Read the notes.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up the waste-paper basket.<ul><li>With Movario's notes in your backpack, search the basket.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the west of the waste-paper basket.<ul><li>Use the ruby key on the bookcase.</li><li>Climb-up the stairs just north of you.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bed.<ul><li>Use the ruby key on the bed chest.</li><li>Search the bed chest to disarm the traps</li><li>Open and search it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll attempt it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) You disarm the trap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down twice to the wire room and cross-over the broken wall, then search the drawers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up your Broav and look-at the thermometer. Note down the number it says. Check your current character's weight in your equipment interface. You must equalise both numbers. If you weigh more than the number: subtract the number from the thermometer from your character's weight to get the result number. For example: if the thermometer says 20 and you weigh 30 kg, you would need 10 kg. If you weigh less than the number: subtract your character's weight from the number from to get the result number.<ul><li>Pick up your Broav if you haven't already, otherwise it will mess with the numbers.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the floor of this room is a Pile of weights. Take weights equalling the result number you got. CAUTION: You will not be able to recover any items dropped in this room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the spiral staircase. If you weigh more than the number: use all the weights on the statue just north of you, then open the door just east. If you weigh less than the number: keep the weights in your inventory and open the door east of the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east through the door and up the ladder to leave the hideout.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the painting on the east wall .",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll flip the catch and see what happens."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Choose the Search option on the bookcases until you receive the chat response  CLICK!.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the wire that faintly glows to the next bookshelf. (for those with colorblindness, zoom the camera in to see the wire slightly pulsate)<ul><li>Search that bookshelf.</li><li>Repeat, searching each bookshelf until the electricity on the gate disappears.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open the gate and search the spiral staircase to disarm the trap, then climb-up.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the desk to obtain Movario's notes (volume 1)<ul><li>Read the notes.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up the waste-paper basket.<ul><li>With Movario's notes in your backpack, search the basket.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bookcase to the west of the waste-paper basket.<ul><li>Use the ruby key on the bookcase.</li><li>Climb-up the stairs just north of you.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the bed.<ul><li>Use the ruby key on the bed chest.</li><li>Search the bed chest to disarm the traps</li><li>Open and search it.</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I'll attempt it."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "(If successful:) You disarm the trap."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back down twice to the wire room and cross-over the broken wall, then search the drawers.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick-up your Broav and look-at the thermometer. Note down the number it says. Check your current character's weight in your equipment interface. You must equalise both numbers. If you weigh more than the number: subtract the number from the thermometer from your character's weight to get the result number. For example: if the thermometer says 20 and you weigh 30 kg, you would need 10 kg. If you weigh less than the number: subtract your character's weight from the number from to get the result number.<ul><li>Pick up your Broav if you haven't already, otherwise it will mess with the numbers.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "On the floor of this room is a Pile of weights. Take weights equalling the result number you got. CAUTION: You will not be able to recover any items dropped in this room.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb back up the spiral staircase. If you weigh more than the number: use all the weights on the statue just north of you, then open the door just east. If you weigh less than the number: keep the weights in your inventory and open the door east of the statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head east through the door and up the ladder to leave the hideout.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Catching Lucien's spy",
+      "text": "Return to Thaerisk Cemphier in Taverley with the items obtained in Movario's base.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What should I do now?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Sorry, I have to go."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Strange key loop",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Strange key teeth",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Movario's notes (volume 1)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Movario's notes (volume 2)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mercenary axeman",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Mercenary mage",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the building in McGrubor's Wood (Seers' Village lodestone or fairy ring ALS), and a cutscene will start. Kill all the mercenaries.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the dead mercenaries and talk to the wounded Guardian of Armadyl.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go upstairs in the Seers' Village pub and talk to Idria.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you know where Lucien is?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How can I get to Lucien?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " We've been unable to track down his base of operations. So we're going to have to be more aggressive - we'll work our way up the food chain."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Sir Tiffy Cashien in the Falador Park.  or  if the Slug Menace hasn't been completed.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "While Guthix Sleeps."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " What, pray tell, can my expertise assist with?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the White Knights' Castle.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "In the eastern room on the ground floor[UK]1st floor[US], talk to Akrisae.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "How can I get to Draynor?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You hand over 20 gold pieces in return for the dye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "At Draynor Village, use the teleorb on the shady stranger wearing white robes and near the shore. This may take several attempts.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Akrisae in the White Knight's Castle. Cutscene plays.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If you don't have a snapdragon seed for the next step, buy one from Thaerisk.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Could you help me get a snapdragon seed?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " You manage to lever the rock away from the brazier."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Thaerisk to teleport to Port Sarim.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Can you teleport me to Port Sarim, please?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Very well, prepare yourself."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Super truth serum and recruiting the Heroes",
+      "text": "Talk to Betty in the Port Sarim magic shop for truth serum and pink dye.  (If The Hand In The Sand quest is completed )",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Betty about While Guthix Sleeps."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please can I have a standard truth serum?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk to Betty about While Guthix Sleeps."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please can I have a standard truth serum?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, please!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You hand over 20 gold pieces in return for the dye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Lantern lens",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Snapdragon seed",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Coins",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Air rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cosmic rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Astral rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "If the snapdragon seed isn't already on the counter, talk to her again until she places the seed on the counter.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the pink dye on your lantern lens.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Stand just inside the doorway, use the lens with the counter and take the enriched snapdragon seed.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "If not already, switch to the Lunar spellbook.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Using the most western staircase in White Knight Castle, head to the top of the castle and plant the seed in the herb patch.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back downstairs and talk to Thaerisk on the ground floor of the eastern part of the castle.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I've planted the enriched snapdragon seed."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Very good Player!"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast NPC Contact to talk to the following people:<ul><li>Turael</li><li>Duradel</li><li>Mazchna</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Lucien."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Lucien."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Lucien."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ah, that troublesome Mahjarrat! I've heard rumours of his evil. What is he conspiring to do now?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Hazelmere upstairs in the hut east of Yanille near fairy ring CLS.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Questioning the spy",
+      "text": "Pick the enriched snapdragon (top of west tower at White Knights' Castle) and mix it into your truth serum for a super truth serum.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Truth serum",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Astral rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Cosmic rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Air rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back to the room with Thaerisk and the others.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Open and search the drawers to find charcoal and papyrus.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go into the cell and use the serum on the shady stranger.  The correct chat option varies from player to player. Exhaust chat options until you reach the correct one so that the stranger drinks the serum.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "[Any option]"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to the shady stranger again.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Idria.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cast NPC Contact to talk to Cyrisus.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Lucien."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Ah, that troublesome Mahjarrat! I've heard rumours of his evil. What is he conspiring to do now?"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Warriors' Guild and talk to the following:<ul><li>Ghommal just outside</li><li>Harrallak Menarous in the main lobby</li><li>Sloane upstairs</li></ul>",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I need to talk to you about Lucien!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Recruit Sloane for the hero party."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Lucien? I've heard the name, and not good things along with it."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the White Knights' Castle and speak to Idria, then Akrisae.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Into the Black Knights' Fortress",
+      "text": "Switch back to the standard spellbook.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Unpowered orb",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Charge Orb",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Skull of Remembrance",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bronze med helm",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Iron chainbody",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black armour set",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Black Knight captain's armour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "You will need 10 free inventory slots to proceed.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your disguise and head inside Black Knights' Fortress with all the items above or use the skull of remembrance to teleport to the ritual chamber, and make your way down to the ground floor[UK]1st floor[US].",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the ladder in the south-west corner.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Along the east wall, right-click search the floor tile. Cast your charge orb spell on the floor tile.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-down the trapdoor.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill Elite Black Knights to obtain a helmet, platebody and platelegs if you don't have a set already. The three pieces of armor are gaurenteed to drop until 3 pieces are received. Do not use multi-target abilities as killing two Elite Black Knights at once will cause them both to drop the same piece, with both counting toward the first 3 pieces received. Equip the full set to remove their aggression.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north by jumping across the broken bridge, go east, and climb up the wall.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump over the barricade and walk north-west until you reach a fork in the path, then head east.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Silif in the northmost cell.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Silif, it's me, [Name]. Are you okay?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I want to get you out of here. Any suggestions?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'll be back to try to get you out."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back west and enter the northern centre Solid black door.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search all desks and wardrobes in the room for:<ul><li>Another set of elite black armour</li><li>Full set of Dagon'hai robes</li><li>Restore potion (4) (Do not drink the restore potion)</li><li>Strange teleorb</li><li>Lobster (Do not eat the lobster)</li><li>If you accidentally eat the lobster, any kind of cooked food will work as well.</li><li>If you accidentally eat the lobster, any kind of cooked food will work as well.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Right-click search the key rack on the northern wall (a few tiles east of the wardrobe) for a Cell key.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter Silif's cell. Use the piece of food on Silif, then the potion.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have a plan?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Yes, we should try to get into Dark Squall's inner base. I believe I can memorise the maps and plans in there and duplicate them when I return to Falador."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Give Silif a set of elite black armour (dismiss your familiar if you have one).",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the northern room. Walk to the map board on the southern wall then talk to Silif.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Plant the teleorb on Dark Squall, who is located in the east of the room, then escape back to Falador.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Akrisae.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What would this orb look like?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How will I be able to get to Lucien's base?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear your Dagon'hai robes and enter the nearby jail cell.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder in the north-eastern corner, stand in the stone circle in the middle of the room, and right-click activate the strange teleorb. (Note: Activation will fail if the required runes are in a pouch.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the north-eastern path towards the chapel and climb-up the ice wall. There is a stick in the ice wall to indicate where to climb.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump-to the ledge on the chapel into the Wilderness.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk east to activate a cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Falador after the cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Idria.<ul><li>If she won't talk about Movario and instead keeps saying to investigate Lucien's camp, then unfortunately the game glitched and you must go back and rewatch the cutscene. Remember to bring the strange teleorb, a law rune, and a death rune. A good indicator that the cutscene registered is to check for the 'You have unlocked a new music track: The Evil Within' game message.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Lucien's Army",
+      "text": "Talk to Akrisae.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What would this orb look like?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "How will I be able to get to Lucien's base?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay, thanks."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Strange teleorb",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dagon'hai robe armour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Law rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Death rune",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wear your Dagon'hai robes and enter the nearby jail cell.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the ladder in the north-eastern corner, stand in the stone circle in the middle of the room, and right-click activate the strange teleorb. (Note: Activation will fail if the required runes are in a pouch.)",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Follow the north-eastern path towards the chapel and climb-up the ice wall. There is a stick in the ice wall to indicate where to climb.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump-to the ledge on the chapel into the Wilderness.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Walk east to activate a cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Falador after the cutscene.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Idria.<ul><li>If she won't talk about Movario and instead keeps saying to investigate Lucien's camp, then unfortunately the game glitched and you must go back and rewatch the cutscene. Remember to bring the strange teleorb, a law rune, and a death rune. A good indicator that the cutscene registered is to check for the 'You have unlocked a new music track: The Evil Within' game message.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Into the chasm",
+      "text": "Go to the Tears of Guthix cavern.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Sapphire lantern (lit)",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Dagon'hai robe armour",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Bloom",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Druid pouch",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Ouroboros pouch",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Equip your Dagon'hai robes and talk to Movario.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "I am Surok, Lucien has sent me to check on your progress."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I could go down to the bottom first, to make sure it's safe!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I shall return."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": ""
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "With a sapphire lantern lit, right-click travel into cavern with a light creature.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the northernmost skeleton for a silver sickle (b) and 6 druid pouches.<ul><li>If you have an Ouroboros pouch or brought two druid pouches of your own, you can drop the silver sickle to save inventory space.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the rocks  in the north-eastern corner. Then search on the brazier that appears, choosing the chisel option to receive a fire orb.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat on the north-west rock for the earth orb.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Repeat for the standing lit braziers for air and water orbs in the south-western and south-eastern corners.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head further south to reach three skull cavities on the southern wall. Examine each recessed block and use the respective orb on the block.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the wall twice and use the water orb on the recessed block.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Jump down the same way you came up. For each of the three lower skulls, enter its nose cavity.<ul><li>Dismiss any followers and empty both your main and off-hand slots before entering the cavities.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Crawl along the tunnel in each cavity to its end. Examine the door there and insert the respective element key into the door lock. Crawl back through the tunnel and exit the skull.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb up the walls to the upper skull. Use the fire key on the skull's recessed block, then search the stone cube in front of the skull.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb-through the cave opening to enter the Guthixian temple.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "You will now need at least two free inventory slots, though more can make it quicker to proceed. Ensure that you have also deactivated any sign of the porter effects.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "There are eight statues in this temple. Each, when examined, will reveal what type of potion must be 'made' at that statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your druid pouches on the druid spirits. Each will drop required ingredients for the statues once - if these are lost (e.g. by dropping and letting them timeout), you will have to get replacements yourself. Grace of the elves will send items to the bank so unequip it or disable its porter functionality.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do not let your druid pouch empty completely or it disappears! You need 3 open inventory slots to add (3) Flowers into the druid pouch.<ul><li>Use the Bloom spell on your Silver sickle (b) while standing on or close to the dead vine to grow some Vine flower to recharge your druid pouch.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the herbs and the secondary ingredients on the various statues referencing the table below. Not all keywords will be on statues.<ul><li>If you have an ouroboros pouch, you do not need to worry about the druid pouch losing charges. However, you must carry a druid pouch in your inventory to 'use' it on the spirits, though it will never deplete.</li><li>If you need to refill your druid pouch, right-click bloom with your silver sickle near dead vines to get flowers. These can be used to refill the druid pouch. If you received a mort myre fungus from the druids, use it with the correct statue or drop it for a moment before filling the druid pouch else you will lose it!</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the dolmens you receive from the statues on the Stone Table in the middle of the temple. It will open the huge door in front of it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "You will now need at least two free inventory slots, though more can make it quicker to proceed. Ensure that you have also deactivated any sign of the porter effects.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "There are eight statues in this temple. Each, when examined, will reveal what type of potion must be 'made' at that statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your druid pouches on the druid spirits. Each will drop required ingredients for the statues once - if these are lost (e.g. by dropping and letting them timeout), you will have to get replacements yourself. Grace of the elves will send items to the bank so unequip it or disable its porter functionality.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do not let your druid pouch empty completely or it disappears! You need 3 open inventory slots to add (3) Flowers into the druid pouch.<ul><li>Use the Bloom spell on your Silver sickle (b) while standing on or close to the dead vine to grow some Vine flower to recharge your druid pouch.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the herbs and the secondary ingredients on the various statues referencing the table below. Not all keywords will be on statues.<ul><li>If you have an ouroboros pouch, you do not need to worry about the druid pouch losing charges. However, you must carry a druid pouch in your inventory to 'use' it on the spirits, though it will never deplete.</li><li>If you need to refill your druid pouch, right-click bloom with your silver sickle near dead vines to get flowers. These can be used to refill the druid pouch. If you received a mort myre fungus from the druids, use it with the correct statue or drop it for a moment before filling the druid pouch else you will lose it!</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the dolmens you receive from the statues on the Stone Table in the middle of the temple. It will open the huge door in front of it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "You will now need at least two free inventory slots, though more can make it quicker to proceed. Ensure that you have also deactivated any sign of the porter effects.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "There are eight statues in this temple. Each, when examined, will reveal what type of potion must be 'made' at that statue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use your druid pouches on the druid spirits. Each will drop required ingredients for the statues once - if these are lost (e.g. by dropping and letting them timeout), you will have to get replacements yourself. Grace of the elves will send items to the bank so unequip it or disable its porter functionality.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Do not let your druid pouch empty completely or it disappears! You need 3 open inventory slots to add (3) Flowers into the druid pouch.<ul><li>Use the Bloom spell on your Silver sickle (b) while standing on or close to the dead vine to grow some Vine flower to recharge your druid pouch.</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the herbs and the secondary ingredients on the various statues referencing the table below. Not all keywords will be on statues.<ul><li>If you have an ouroboros pouch, you do not need to worry about the druid pouch losing charges. However, you must carry a druid pouch in your inventory to 'use' it on the spirits, though it will never deplete.</li><li>If you need to refill your druid pouch, right-click bloom with your silver sickle near dead vines to get flowers. These can be used to refill the druid pouch. If you received a mort myre fungus from the druids, use it with the correct statue or drop it for a moment before filling the druid pouch else you will lose it!</li></ul>",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the dolmens you receive from the statues on the Stone Table in the middle of the temple. It will open the huge door in front of it.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Stone of Jas",
+      "text": "Make whatever arrangements necessary to battle the level 117 Balance Elemental that can use all three combat styles, and lowers your combat stats (except for Necromancy). You can leave the area to get supplies, but always bring your lit sapphire lantern. Don't forget to bring at least two combat styles for the tormented demon fight, unless using Necromancy. The Balance Elemental drains combat stats during the fight, so be sure to bring at least one full super restore.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Proceed down the corridor and enter a large chamber.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Once ready, search the mysterious stone  and kill the Balance Elemental that appears. See the strategy guide here.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, I need to investigate this, even if it kills me!"
+        }
+      ],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Search the mysterious stone again for a cutscene. Doing so boosts all your combat stats to level 255 except Prayer.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue dialogue with Movario , then with Lucien.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What are you going to do with the Stone of Jas?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What is the Stone of Jas?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You can't let Lucien get the Stone of Jas!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What if someone should stand in your way?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you going to do with the Stone of Jas?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why is the Stone of Jas so important to you?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you really hope to follow in the footsteps of Zamorak?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " My destiny is my concern! You needn't bother yourself, your days will end soon enough."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the two Tormented demons, switching between your two combat styles.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Idria to have her teleport you to Falador.",
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "Yes, a teleport out of here would be good."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": " Arcanus Sempitor Teleportus Retainus."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue dialogue with Idria in Falador.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Quest complete!",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Optional: after using of all four of Idria's 100,000 exp boosts, talk to her again to view the 'Elsewhere...' epilogue.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 11858,
+  "stageVarbitCompleteValue": 910,
+  "cacheQuestId": 86
+}

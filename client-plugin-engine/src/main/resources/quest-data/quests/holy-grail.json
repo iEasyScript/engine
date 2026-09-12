@@ -1,0 +1,1135 @@
+{
+  "slug": "holy-grail",
+  "name": "Holy Grail",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "champion",
+  "releaseDate": 1027382400,
+  "neededItems": [
+    {
+      "name": "Excalibur",
+      "itemId": 35,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Camelot teleport tablets",
+      "itemId": -1,
+      "quantity": 5,
+      "duringQuest": false
+    },
+    {
+      "name": "Amulet of glory",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Wicked hood",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Tokkul-Zo, for quick access to the Fairy ring network",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Activated Draynor, Karamja, and Port Sarim lodestones",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [
+    {
+      "name": "Black Knight Titan",
+      "level": "28",
+      "quantity": 1
+    }
+  ],
+  "prereqQuests": [
+    "Merlin's Crystal"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Attack",
+      "level": 30,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Royal hunt",
+      "text": "Talk to King Arthur in Camelot Castle.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 251,
+          "modelIds": [],
+          "displayName": "King Arthur"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me of this quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to King Arthur.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 251,
+          "modelIds": [],
+          "displayName": "King Arthur"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me of this quest."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "He has set up his workshop in the room next to the library."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to the 1st floor (2nd floor[US]) using the staircase and talk to Merlin.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "camelot ground floor stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2751.0,
+          "heightFine": 1925.0,
+          "y": 3513.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2767.0,
+          "heightFine": 1925.0,
+          "y": 3501.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 249,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            27762,
+            27772
+          ],
+          "displayName": "Merlin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 249,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            27762,
+            27772
+          ],
+          "displayName": "Merlin"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Tell me of this quest."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Where can I find Sir Galahad?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "He lives somewhere west of McGrubor's Wood I think."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The Fisher King",
+      "text": "Go to Entrana by talking to a Monk of Entrana. You will be asked to bank armour and weapons, which can also be done at the bank deposit box at the docks.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3047.0,
+          "heightFine": 741.0,
+          "y": 3236.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3047.0,
+          "heightFine": 741.0,
+          "y": 3236.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 657,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            658,
+            2728,
+            2729,
+            2730,
+            2731
+          ],
+          "displayName": "Monk of Entrana"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2834.0,
+          "heightFine": 965.0,
+          "y": 3335.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the high priest, who is in the main chapel of the church.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2851.0,
+          "heightFine": 1010.0,
+          "y": 3348.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2851.0,
+          "heightFine": 1010.0,
+          "y": 3348.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "conversationHighlight",
+          "text": "What can you tell me about this place?"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "entrana high priest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Nor do I really care."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to the crone who appears.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3315
+          ],
+          "displayName": "Old crone"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I will go searching."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Good luck with that."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Another realm",
+      "text": "Head to Seers' Village lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2689.0,
+          "heightFine": 1077.0,
+          "y": 3482.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2689.0,
+          "heightFine": 1077.0,
+          "y": 3482.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Galahad, located in a building west of McGrubor's Wood and east of the coal trucks.<ul><li>You must speak to the crone on Entrana first, or he will not give you the holy table napkin.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2613.0,
+          "heightFine": 965.0,
+          "y": 3477.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2613.0,
+          "heightFine": 965.0,
+          "y": 3477.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 218,
+          "modelIds": [
+            4005
+          ],
+          "displayName": "Galahad"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I'm on a quest to find the Holy Grail!"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Why did you leave?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I have a feeling you may need to come back and speak to me anyway..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head to the Draynor Manor.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3352.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3108.0,
+          "heightFine": 965.0,
+          "y": 3352.0,
+          "range": 12
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take the holy table napkin to the southern room of the top-most floor of Draynor Manor.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "draynor manor front door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3109.0,
+          "heightFine": 965.0,
+          "y": 3355.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": -1,
+          "modelIds": [],
+          "displayName": "draynor manor ground floor stairs"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3108.0,
+          "heightFine": 2213.0,
+          "y": 3366.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3105.0,
+          "heightFine": 2213.0,
+          "y": 3363.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3105.0,
+          "heightFine": 3429.0,
+          "y": 3362.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the two magic whistles on the table.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3107.0,
+          "heightFine": 3429.0,
+          "y": 3359.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 16,
+          "displayName": "Magic whistle",
+          "quantity": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Bank and get your combat gear (if you haven't already). Bring Excalibur. Move to the next step when you're ready.",
+      "actions": [],
+      "postconditions": [],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Black guardian",
+      "text": "Go to Brimhaven and blow the whistle under the wooden watchtower.<ul><li>Optional: If you have 40 Mining, and haven't completed the easy Karamja diaries, mine gold nearby before using the whistle.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2742.0,
+          "heightFine": 517.0,
+          "y": 3235.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2806.0,
+          "heightFine": 909.0,
+          "y": 4715.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Magic whistle",
+          "itemId": 126,
+          "quantity": 2,
+          "duringQuest": false
+        },
+        {
+          "name": "Excalibur",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go north-west and defeat Black Knight Titan with Excalibur.<ul><li>Low levels may find it useful to safespot the Black Knight Titan with Magic, Ranged, or Necromancy and last hit him with Excalibur.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 221,
+          "modelIds": [
+            1686
+          ],
+          "displayName": "Black Knight Titan"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2790.0,
+          "heightFine": 661.0,
+          "y": 4722.0,
+          "range": 0
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head south along the river and talk to the fisherman by the river. <b>Be sure to keep the magic whistle in your inventory from this point forward.</b>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2797.0,
+          "heightFine": 1149.0,
+          "y": 4704.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 219,
+          "modelIds": [
+            4296
+          ],
+          "displayName": "Fisherman"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 219,
+          "modelIds": [
+            4296
+          ],
+          "displayName": "Fisherman"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Any idea how to get into the castle?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "You must be blind then. There's ALWAYS bells there when I go to the castle."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Heirloom",
+      "text": "Go south-west, to the castle. Take the grail bell on the ground outside the castle and ring it.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 3621.0,
+          "y": 4694.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "item",
+          "typeId": 17,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Grail bell"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 17,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Grail bell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 17,
+          "displayName": "Grail bell",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 17,
+          "modelIds": [
+            408
+          ],
+          "displayName": "Grail bell"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2761.0,
+          "heightFine": 3621.0,
+          "y": 4692.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head upstairs and talk to the Fisher King.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2761.0,
+          "heightFine": 3621.0,
+          "y": 4681.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2762.0,
+          "heightFine": 4581.0,
+          "y": 4682.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7146
+          ],
+          "displayName": "Fisher king"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You don't look too well."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I shall go and see if I can find him."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to King Arthur in Camelot Castle. Make sure you have space to receive the magic gold feather.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 251,
+          "modelIds": [],
+          "displayName": "King Arthur"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 18,
+          "displayName": "Magic gold feather",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Teleport to the Falador lodestone.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2967.0,
+          "heightFine": 1461.0,
+          "y": 3403.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2967.0,
+          "heightFine": 1461.0,
+          "y": 3403.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head north to the Goblin Village.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2955.0,
+          "heightFine": 645.0,
+          "y": 3502.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2955.0,
+          "heightFine": 645.0,
+          "y": 3502.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go into the eastern house, and right-click to open the sacks to find Sir Percival.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2962.0,
+          "heightFine": 645.0,
+          "y": 3504.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Your father wishes to speak to you."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryDoesNotContain",
+          "itemId": 16,
+          "displayName": "Magic whistle"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to the Fisher King's castle in his realm by blowing your whistle north west of Brimhaven (or by using Fairy ring BJR).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2742.0,
+          "heightFine": 517.0,
+          "y": 3235.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2678.0,
+          "heightFine": 1005.0,
+          "y": 4715.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2635.0,
+          "heightFine": 3621.0,
+          "y": 4693.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2635.0,
+          "heightFine": 3621.0,
+          "y": 4693.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go up the staircase on the east side of the castle, climb to the top floor and grab the Holy grail.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2648.5,
+          "heightFine": 3621.0,
+          "y": 4684.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2651.0,
+          "heightFine": 4581.0,
+          "y": 4684.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2651.0,
+          "heightFine": 4581.0,
+          "y": 4684.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 2650.0,
+          "heightFine": 5541.0,
+          "y": 4684.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2649.0,
+          "heightFine": 5541.0,
+          "y": 4684.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 19,
+          "displayName": "Holy grail",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go back to King Arthur.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2762.0,
+          "heightFine": 645.0,
+          "y": 3510.0,
+          "range": 8
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 251,
+          "modelIds": [],
+          "displayName": "King Arthur"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 2330,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 112
+}

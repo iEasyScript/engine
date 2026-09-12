@@ -1,0 +1,797 @@
+{
+  "slug": "all-fired-up",
+  "name": "All Fired Up",
+  "members": true,
+  "length": "shortmedium",
+  "timeline": "champion",
+  "releaseDate": 1219708800,
+  "neededItems": [
+    {
+      "name": "Logs",
+      "itemId": 1511,
+      "quantity": 45,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Priest in Peril"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Firemaking",
+      "level": 43,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting Started",
+      "text": "Talk to King Roald in Varrock Palace.",
+      "warning": "For the tracking to work properly, you need to have the chat visible, game messages set to 'On', and chat timestamps on.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Varrock lodestone",
+        "url": "Varrock_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3222.0,
+          "heightFine": 1253.0,
+          "y": 3472.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Greet the king."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh? Tell me more!"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to King Roald.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "in your hands"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Tending the Beacons",
+      "text": "Talk to Blaze Sharpeye in Silvarea.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Falador lodestone",
+        "url": "Fort_Forinthry_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3394.0,
+          "heightFine": 4821.0,
+          "y": 3469.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Logs",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Does it matter what type of log I use?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "well use normal logs"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add-logs to the unlit beacon (20 logs).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            3444
+          ],
+          "displayName": "Unlit beacon1"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4302
+          ],
+          "candidateObjectTypeIds": [
+            4169
+          ],
+          "displayName": "Unlit beacon l1"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            789
+          ],
+          "candidateObjectTypeIds": [
+            61808
+          ],
+          "displayName": "Lit beacon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the beacon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4302
+          ],
+          "candidateObjectTypeIds": [
+            4169
+          ],
+          "displayName": "Unlit beacon l1"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            789
+          ],
+          "candidateObjectTypeIds": [
+            61808
+          ],
+          "displayName": "Lit beacon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Blaze again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Okay."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Okay."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Acquire 20 more logs by chopping or banking.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 1511,
+          "displayName": "Logs",
+          "quantity": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add-logs to the unlit beacon near the Odd Old Man in Silvarea (20 logs).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3344.0,
+          "heightFine": 3941.0,
+          "y": 3511.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7890
+          ],
+          "candidateObjectTypeIds": [
+            8319
+          ],
+          "displayName": "Unlit beacon2",
+          "atLocation": {
+            "x": 3344.0,
+            "heightFine": 3941.0,
+            "y": 3511.0
+          }
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7890
+          ],
+          "candidateObjectTypeIds": [
+            8319
+          ],
+          "displayName": "Unlit beacon2",
+          "atLocation": {
+            "x": 3344.0,
+            "heightFine": 3941.0,
+            "y": 3511.0
+          }
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            1170
+          ],
+          "candidateObjectTypeIds": [
+            1088,
+            1115,
+            3647,
+            5345,
+            7385,
+            7504,
+            7505,
+            9621,
+            10491,
+            12885,
+            12886,
+            14997,
+            15682,
+            15981,
+            20065,
+            21354,
+            25771,
+            29798,
+            32032,
+            33058,
+            37337,
+            40039,
+            41116,
+            44042,
+            44055,
+            44101,
+            102287
+          ],
+          "displayName": "Logs in beacon"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            789
+          ],
+          "candidateObjectTypeIds": [
+            61808
+          ],
+          "displayName": "Lit logs in beacon"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7890
+          ],
+          "candidateObjectTypeIds": [
+            8319
+          ],
+          "displayName": "Unlit beacon2"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Light the beacon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            7890
+          ],
+          "candidateObjectTypeIds": [
+            8319
+          ],
+          "displayName": "Unlit beacon2",
+          "atLocation": {
+            "x": 3344.0,
+            "heightFine": 3941.0,
+            "y": 3511.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            789
+          ],
+          "candidateObjectTypeIds": [
+            61808
+          ],
+          "displayName": "Lit logs in beacon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Blaze.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3394.0,
+          "heightFine": 4821.0,
+          "y": 3469.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Oh, alright, then."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Backing away now"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Add-logs to the beacon (5 logs).",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            4302
+          ],
+          "candidateObjectTypeIds": [
+            4169
+          ],
+          "displayName": "Dying beacon"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "back to life"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Blaze.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 5191,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            5194
+          ],
+          "displayName": "Blaze Sharpeye"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": ""
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "right on that"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to King Roald.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3222.0,
+          "heightFine": 1253.0,
+          "y": 3472.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about All Fired Up."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 648,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            2590,
+            5838,
+            17051,
+            21326,
+            26345,
+            27684,
+            29818,
+            29918,
+            29919,
+            30084,
+            30698,
+            30717
+          ],
+          "displayName": "King Roald"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 13518,
+  "stageVarbitCompleteValue": 90,
+  "cacheQuestId": 29
+}

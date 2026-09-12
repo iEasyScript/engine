@@ -1,0 +1,808 @@
+{
+  "slug": "sins-of-the-father",
+  "name": "Sins of the Father",
+  "members": true,
+  "length": "short",
+  "timeline": "worldguardian",
+  "releaseDate": 1600041600,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Desperate Measures"
+  ],
+  "questReqs": [
+    {
+      "type": "misc",
+      "level": 0,
+      "text": "85 in Crafting, Runecrafting, Smithing, or Invention",
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Mr Mordaut at the Anachronia base camp.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5469.0,
+          "heightFine": 11781.0,
+          "y": 2338.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Anachronia."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about Kerapac."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Mr Mordaut.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 16871,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26402,
+            26545,
+            27546,
+            30733,
+            30734
+          ],
+          "displayName": "Mr Mordaut"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "they saw"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Walkthrough",
+      "text": "Talk to Eliza south of the lodestone.",
+      "tpHint": {
+        "type": "icon",
+        "hover": "Anachronia lodestone",
+        "url": "Anachronia_lodestone_icon.png"
+      },
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5432.0,
+          "heightFine": 6661.0,
+          "y": 2335.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8856,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26429
+          ],
+          "displayName": "Eliza"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8856,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26429
+          ],
+          "displayName": "Eliza"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Kerapac"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "go and investigate"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8856,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26429
+          ],
+          "displayName": "Eliza"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the Dragonkin statue to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5408.0,
+          "heightFine": 5249.0,
+          "y": 2404.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 2610,
+          "modelIds": [
+            780
+          ],
+          "displayName": "Dragonkin statue"
+        },
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2088
+          ],
+          "candidateObjectTypeIds": [
+            1183
+          ],
+          "displayName": "Dragonkin statue door"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 2610,
+          "modelIds": [
+            780
+          ],
+          "displayName": "Dragonkin statue"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2088
+          ],
+          "candidateObjectTypeIds": [
+            1183
+          ],
+          "displayName": "Dragonkin statue door"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 2610,
+          "modelIds": [
+            780
+          ],
+          "displayName": "Dragonkin statue"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the door.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2088
+          ],
+          "candidateObjectTypeIds": [
+            1183
+          ],
+          "displayName": "Dragonkin statue door"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 5513.0,
+          "heightFine": 4581.0,
+          "y": 2971.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 5526.0,
+          "heightFine": 2661.0,
+          "y": 2979.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        },
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are you doing here?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Can I help with the machine?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Play tutorial."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "distil them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect 20 resources from one of the nodes.<ul><li>A chat box will appear. Confirm it or you won't be able to continue dialogue with Vicendithas.</li></ul>",
+      "warning": "Only dragonflesh is tracked as of now.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50500,
+          "modelIds": [
+            3090
+          ],
+          "displayName": "Dragonflesh",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            2622
+          ],
+          "displayName": "Anima nuggets obj",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50502,
+          "modelIds": [
+            2382
+          ],
+          "displayName": "Scrap metal",
+          "instance": true
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50503,
+          "modelIds": [
+            2982
+          ],
+          "displayName": "Nicknacks",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50495,
+          "displayName": "Enriched dragonflesh",
+          "quantity": 20
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Collect an effigy casing.<ul><li>Another chat box will appear. Confirm it too.</li></ul>",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 50499,
+          "modelIds": [
+            14430
+          ],
+          "displayName": "Effigy casing",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50499,
+          "displayName": "Effigy casing",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bring it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Go to Kerapac's workbench and construct the effigy.",
+      "warning": "Only the volatile effigy is tracked as of now.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "typeId": -1,
+          "modelIds": [
+            27066
+          ],
+          "displayName": "Kerapacs workbench",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 50509,
+          "displayName": "Volatile effigy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "Turn the"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Turn the valves in the order instructed.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 7442,
+          "modelIds": [
+            12420
+          ],
+          "displayName": "Valve",
+          "priority": "all",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Excellent"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the incubator hatch to deposit the effigy.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117975,
+          "modelIds": [
+            2931
+          ],
+          "displayName": "Incubator hatch",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "incubate for you"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wait for the effigy to be processed.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "processing the effigies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Interact with the incubator hatch again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 117975,
+          "modelIds": [
+            2931
+          ],
+          "displayName": "Incubator hatch",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationActive"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Vicendithas again.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 8980,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            23860,
+            26370,
+            27234,
+            27235,
+            28848,
+            28855,
+            28865,
+            28890,
+            28955
+          ],
+          "displayName": "Vicendithas",
+          "instance": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 15817,
+  "stageVarbitCompleteValue": 10,
+  "cacheQuestId": 466
+}

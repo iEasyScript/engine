@@ -1,0 +1,547 @@
+{
+  "slug": "borics-task-ii-miniquest",
+  "name": "Boric's Task II (miniquest)",
+  "members": true,
+  "length": "veryshort",
+  "timeline": "champion",
+  "releaseDate": 1350432000,
+  "neededItems": [],
+  "recommendedItems": [],
+  "combatNPCs": [],
+  "prereqQuests": [
+    "Boric's Task I (miniquest)"
+  ],
+  "questReqs": [
+    {
+      "type": "skill",
+      "name": "Mining",
+      "level": 40,
+      "ironmanOnly": false
+    }
+  ],
+  "steps": [
+    {
+      "title": "Having a brawl",
+      "text": "Head down the stairs at Doric's workshop to speak to Boric.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Coal",
+          "itemId": 453,
+          "quantity": 30,
+          "duringQuest": false
+        },
+        {
+          "name": "Highest level ore box available",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 919.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1572.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Do you have any Mining tasks for me?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Finish the conversation with Boric.<br><br>Head to the following mining locations and mine any ore. Multiple ores may need to be mined. A living rock brawler will spawn, kill it. The locations are:",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Oh, and please be discreet about my involvement in this. I don't want our workers to get the wrong impression."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Legends' Guild south-west mine (Ardougne lodestone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2709.0,
+          "heightFine": 1029.0,
+          "y": 3331.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Al Kharid mine (Al Kharid lodestone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3300.0,
+          "heightFine": 549.0,
+          "y": 3298.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Karamja north-west mine (Karamja lodestone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2733.0,
+          "heightFine": 549.0,
+          "y": 3223.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Lumbridge south-west mine (Lumbridge lodstone).",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3148.0,
+          "heightFine": 5.0,
+          "y": 3148.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Agility Pyramid north-west mine<ul><li>Use the Menaphos lodestone, exit the city, run North.</li><li>Use the Al Kharid lodestone, go South through Shantay Pass, go south through Pollnivneach.</li></ul>",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3322.0,
+          "heightFine": 133.0,
+          "y": 2874.0,
+          "instance": false
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 6514,
+          "modelIds": [
+            3564
+          ],
+          "displayName": "Living rock brawler"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Head back and talk to Boric.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 2959.0,
+          "heightFine": 869.0,
+          "y": 3439.0,
+          "range": 2
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "direction",
+          "x": 2959.0,
+          "heightFine": 919.0,
+          "y": 3444.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 1572.0,
+          "heightFine": 1317.0,
+          "y": 5988.0,
+          "range": 5
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 730,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            4233
+          ],
+          "displayName": "Boric"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 10023,
+  "stageVarbitCompleteValue": 2,
+  "cacheQuestId": 430
+}

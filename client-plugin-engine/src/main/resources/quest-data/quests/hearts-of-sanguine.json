@@ -1,0 +1,2684 @@
+{
+  "slug": "hearts-of-sanguine",
+  "name": "Hearts of Sanguine",
+  "members": true,
+  "length": "medium",
+  "timeline": "ageofchaos",
+  "releaseDate": 1774278419,
+  "neededItems": [
+    {
+      "name": "Coins",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    },
+    {
+      "name": "Copper ore",
+      "itemId": 436,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "Tin ore",
+      "itemId": 438,
+      "quantity": 10,
+      "duringQuest": true
+    },
+    {
+      "name": "Wendlewick ale",
+      "itemId": 1917,
+      "quantity": 1,
+      "duringQuest": true
+    }
+  ],
+  "recommendedItems": [
+    {
+      "name": "Melee armour",
+      "itemId": -1,
+      "quantity": 1,
+      "duringQuest": false
+    }
+  ],
+  "combatNPCs": [],
+  "prereqQuests": [],
+  "questReqs": [],
+  "steps": [
+    {
+      "title": "Getting started",
+      "text": "Talk to Adam north of the Wendlewick market.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 8613.0,
+          "y": 1571.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questInterfaceOpen"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "[Accept Quest]",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "questStarted"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Continue talking to Adam.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "speak to both of them"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Rumors",
+      "text": "Talk to Raz in her house between Highweald Forest and Hollow Hill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3574.0,
+          "heightFine": 19621.0,
+          "y": 1641.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see if I can find it"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Inspect the dead bear to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3572.0,
+          "heightFine": 23485.0,
+          "y": 1675.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32690,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Dead bear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32690,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Dead bear"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32690,
+          "modelIds": [
+            2802
+          ],
+          "displayName": "Dead bear"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Raz.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3574.0,
+          "heightFine": 19621.0,
+          "y": 1641.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "bottom of this"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32558,
+          "modelIds": [],
+          "displayName": "Raz"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bartender Gefen in the Wendlewick tavern.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3499.0,
+          "heightFine": 8317.0,
+          "y": 1498.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32524,
+          "modelIds": [],
+          "displayName": "Bartender Gefen"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32524,
+          "modelIds": [],
+          "displayName": "Bartender Gefen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "keep you updated"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32524,
+          "modelIds": [],
+          "displayName": "Bartender Gefen"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Buy a Wendlewick ale.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32524,
+          "modelIds": [],
+          "displayName": "Trade and Buy Ale"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Hearts of Sanguine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60512,
+          "displayName": "Wendlewick ale",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Matthew.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32579,
+          "modelIds": [
+            7623
+          ],
+          "displayName": "Matthew"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "appreciate the information"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Miriam outside of the tavern.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32548,
+          "modelIds": [
+            13791
+          ],
+          "displayName": "Miriam"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "I see"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Jacob",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32578,
+          "modelIds": [
+            15276
+          ],
+          "displayName": "Jacob"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "will want to hear"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Bartender Gefen.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32524,
+          "modelIds": [],
+          "displayName": "Bartender Gefen"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what we uncovered"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Adam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 8613.0,
+          "y": 1571.0,
+          "instance": false
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "owns the Eastfold Farm"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "To the farm",
+      "text": "Talk to Farmer Rachel at the Eastfold Farm.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3612.0,
+          "heightFine": 7333.0,
+          "y": 1436.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 10206,
+          "modelIds": [
+            10650
+          ],
+          "displayName": "Farmer Rachel"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 10206,
+          "modelIds": [
+            10650
+          ],
+          "displayName": "Farmer Rachel"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "track them down for"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 10206,
+          "modelIds": [
+            10650
+          ],
+          "displayName": "Farmer Rachel"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Investigate the bloodsplatter to the north at the broken fence",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136598,
+          "modelIds": [
+            54
+          ],
+          "displayName": "Bloodsplatter"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "see where it goes"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave entrance to the north-east.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136478,
+          "modelIds": [
+            19302
+          ],
+          "displayName": "Cave entrance"
+        },
+        {
+          "t": "direction",
+          "x": 3639.0,
+          "heightFine": 7445.0,
+          "y": 1478.0,
+          "instance": false,
+          "distance": 7
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Watch the cutscene.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Speak to Anya",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32678,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32679,
+            32680,
+            32682
+          ],
+          "displayName": "Anya"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What are we dealing with?"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "What do I need to do?"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "and we may begin"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb to the top of the Wendlewick lighthouse.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3450.0,
+          "heightFine": 7837.0,
+          "y": 1495.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3454.0,
+          "heightFine": 11509.0,
+          "y": 1495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Esther.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20511,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32672,
+            32686
+          ],
+          "displayName": "Esther"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "(Continue Quest)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "On it"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3452.5,
+          "heightFine": 11517.0,
+          "y": 1495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3452.0,
+          "heightFine": 7237.0,
+          "y": 1494.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Gathering ingredients",
+      "text": "Pick the Wendlewick poppy at the top of the hill.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3454.0,
+          "heightFine": 13125.0,
+          "y": 1454.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 129485,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Poppies"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136607,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Poppies",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60408,
+          "displayName": "Wendlewick poppy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 136607,
+          "modelIds": [
+            372
+          ],
+          "displayName": "Poppies"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Wolf\u0027s tongue mushrooms next to fairy ring.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3596.0,
+          "heightFine": 6349.0,
+          "y": 1413.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 136603,
+          "modelIds": [
+            1242
+          ],
+          "candidateObjectTypeIds": [
+            3802,
+            5348,
+            12889,
+            19929,
+            21361,
+            24711,
+            25772,
+            26785,
+            32120,
+            34430,
+            41117
+          ],
+          "displayName": "Wolf\u0027s tongue mushrooms"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136603,
+          "modelIds": [
+            1242
+          ],
+          "candidateObjectTypeIds": [
+            3802,
+            5348,
+            12889,
+            19929,
+            21361,
+            24711,
+            25772,
+            26785,
+            32120,
+            34430,
+            41117
+          ],
+          "displayName": "Wolf\u0027s tongue mushrooms",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60407,
+          "displayName": "Wolf\u0027s tongue",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            22317
+          ]
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 136603,
+          "modelIds": [
+            1242
+          ],
+          "candidateObjectTypeIds": [
+            3802,
+            5348,
+            12889,
+            19929,
+            21361,
+            24711,
+            25772,
+            26785,
+            32120,
+            34430,
+            41117
+          ],
+          "displayName": "Wolf\u0027s tongue mushrooms"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill a hedgehog west of the Shrine of Inanna.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3531.0,
+          "heightFine": 6821.0,
+          "y": 1402.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 31856,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 31856,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60409,
+          "displayName": "Hedgehog spines",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 31856,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Pick up the hedgehog spines.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "item",
+          "typeId": 60409,
+          "modelIds": [
+            510
+          ],
+          "displayName": "Hedgehog spines"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60409,
+          "displayName": "Hedgehog spines",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb to the top of the Wendlewick lighthouse.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3450.0,
+          "heightFine": 7837.0,
+          "y": 1495.4,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3454.0,
+          "heightFine": 11509.0,
+          "y": 1495.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Esther.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20511,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32672,
+            32686
+          ],
+          "displayName": "Esther"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "goes nothing"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Antisanguine potion",
+      "text": "Take a vial from the vial cabinet.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136620,
+          "modelIds": [
+            1392
+          ],
+          "displayName": "Vial cabinet"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 229,
+          "displayName": "Vial",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fill the vial with oil.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136618,
+          "modelIds": [
+            900
+          ],
+          "displayName": "Vat of oil"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 229,
+          "modelIds": [],
+          "displayName": "Vial"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60420,
+          "displayName": "Vial of oil",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the vial of oil on the fireplace.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60420,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Vial of oil"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Yes"
+        },
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136616,
+          "modelIds": [],
+          "displayName": "Fireplace"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60421,
+          "displayName": "Vial of oil (s)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take some hedgehog spines.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136614,
+          "modelIds": [
+            1404
+          ],
+          "candidateObjectTypeIds": [
+            1867
+          ],
+          "displayName": "Bucket of hedgehog spines"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60409,
+          "displayName": "Hedgehog spines",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Grind the hedgehog spines.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60409,
+          "modelIds": [
+            510
+          ],
+          "displayName": "Hedgehog spines"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60414,
+          "displayName": "Crushed hedgehog spines",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mix the curshed hedgehog spine with the vial of oil.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60421,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Vial of oil (s)"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60414,
+          "modelIds": [
+            72
+          ],
+          "displayName": "Crushed hedgehog spines"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60422,
+          "displayName": "Vial of oil (crushed hedgehog spine)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take from the sack of flowers.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136612,
+          "modelIds": [
+            1008
+          ],
+          "displayName": "Sack of flowers"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60408,
+          "displayName": "Wendlewick poppy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Press the poppy on the table.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136624,
+          "modelIds": [
+            3948
+          ],
+          "displayName": "Table"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Press Wendlewick poppy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60413,
+          "displayName": "Pressed Wendlewick poppy",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mix the pressed poppy with the vial of oil.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60422,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Vial of oil (crushed hedgehog spine)"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60408,
+          "modelIds": [
+            264
+          ],
+          "displayName": "Wendlewick poppy"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60423,
+          "displayName": "Vial of oil (crushed hedgehog spine, pressed Wendlewick poppy)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Take a wolf\u0027s tongue from the sack of mushrooms.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136610,
+          "modelIds": [
+            4929
+          ],
+          "displayName": "Sack of mushrooms"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60407,
+          "displayName": "Wolf\u0027s tongue",
+          "quantity": 1,
+          "candidateItemTypeIds": [
+            22317
+          ]
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Weight out 30g on the desk.",
+      "warning": "No tracking for this step.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136622,
+          "modelIds": [
+            8223
+          ],
+          "displayName": "Desk"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Weigh wolf\u0027s tongue"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Weigh out 30g"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60410,
+          "displayName": "Wolf\u0027s tongue (30g)",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mix the wolf\u0027s tongue with the vial of oil.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60423,
+          "modelIds": [
+            90,
+            288
+          ],
+          "displayName": "Vial of oil (crushed hedgehog spine, pressed Wendlewick poppy)"
+        },
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60410,
+          "modelIds": [
+            234
+          ],
+          "candidateItemTypeIds": [
+            22317
+          ],
+          "displayName": "Wolf\u0027s tongue (30g)"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60424,
+          "displayName": "Antisanguine",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Esther.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20511,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32672,
+            32686
+          ],
+          "displayName": "Esther"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "Lead the way"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Climb down the stairs.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3452.5,
+          "heightFine": 11517.0,
+          "y": 1495.5,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceToWithHeight",
+          "x": 3452.0,
+          "heightFine": 7237.0,
+          "y": 1494.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Field testing",
+      "text": "Test the antisanguine potion on a hedgehog south of the Shrine of Inanna.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3573.0,
+          "heightFine": 3301.0,
+          "y": 1376.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32693,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Antisanguine potion",
+          "itemId": 66,
+          "quantity": 1,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32693,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "relatively small"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32693,
+          "modelIds": [
+            15000
+          ],
+          "displayName": "Hedgehog"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Kill the hedgehog.",
+      "actions": [],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "different dosage on"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Cross the stepping stones.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3584.0,
+          "heightFine": 2965.0,
+          "y": 1359.0,
+          "instance": false,
+          "tile": true
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3588.0,
+          "heightFine": 2925.0,
+          "y": 1359.0,
+          "range": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Test the antisanguine potion on the duck.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32696,
+          "modelIds": [
+            27162
+          ],
+          "displayName": "Duck",
+          "atLocation": {
+            "x": 3590.0,
+            "heightFine": 3133.0,
+            "y": 1363.0
+          }
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "..."
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Use the antisanguine potion on a badger to the north-east.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3608.0,
+          "heightFine": 4557.0,
+          "y": 1383.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32701,
+          "modelIds": [
+            40374
+          ],
+          "displayName": "Badger"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32701,
+          "modelIds": [
+            40374
+          ],
+          "displayName": "Badger"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "forging this weapon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Getting a silver weapon",
+      "text": "Talk to Liat at the Wendlewick smithy.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3511.0,
+          "heightFine": 8101.0,
+          "y": 1539.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Backpack spaces",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "rump kick coming"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gidon at the Highweald Forest mine to the north.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3517.0,
+          "heightFine": 19553.0,
+          "y": 1691.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32538,
+          "modelIds": [
+            7443
+          ],
+          "displayName": "Gidon"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32538,
+          "modelIds": [
+            7443
+          ],
+          "displayName": "Gidon"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "what I can do"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32538,
+          "modelIds": [
+            7443
+          ],
+          "displayName": "Gidon"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 10 copper ore.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113026,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            113027,
+            113028,
+            113086,
+            113087,
+            113088,
+            113146,
+            113147,
+            113148,
+            114183,
+            114184
+          ],
+          "displayName": "Copper rock",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 436,
+          "displayName": "Copper ore",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 10 tin ore.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113029,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            113030,
+            113031,
+            113089,
+            113090,
+            113091,
+            113149,
+            113150,
+            113151,
+            114185,
+            114186,
+            114187
+          ],
+          "displayName": "Tin rock",
+          "priority": "closest"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 438,
+          "displayName": "Tin ore",
+          "quantity": 10
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Liat.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3511.0,
+          "heightFine": 8101.0,
+          "y": 1539.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "he\u0027ll surprise you"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the new cave entrance in the Highweald Forest mine.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3517.0,
+          "heightFine": 19061.0,
+          "y": 1695.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "object",
+          "typeId": 136471,
+          "modelIds": [
+            3708
+          ],
+          "candidateNpcTypeIds": [
+            3154,
+            3919,
+            9137,
+            9144,
+            9148,
+            9333,
+            22221
+          ],
+          "displayName": "Cave exit"
+        },
+        {
+          "t": "distanceTo",
+          "x": 3487.0,
+          "heightFine": 2845.0,
+          "y": 8071.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136471,
+          "modelIds": [
+            3708
+          ],
+          "candidateNpcTypeIds": [
+            3154,
+            3919,
+            9137,
+            9144,
+            9148,
+            9333,
+            22221
+          ],
+          "displayName": "Cave exit"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3487.0,
+          "heightFine": 2845.0,
+          "y": 8071.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "object",
+          "typeId": 136471,
+          "modelIds": [
+            3708
+          ],
+          "candidateNpcTypeIds": [
+            3154,
+            3919,
+            9137,
+            9144,
+            9148,
+            9333,
+            22221
+          ],
+          "displayName": "Cave exit"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Gidon.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32538,
+          "modelIds": [
+            7443
+          ],
+          "displayName": "Gidon"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "All yours"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Mine 4 havensilver ore.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136445,
+          "modelIds": [],
+          "candidateObjectTypeIds": [
+            136446,
+            136447
+          ],
+          "displayName": "Havensilver rock"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60295,
+          "displayName": "Havensilver ore",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Liat again.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3511.0,
+          "heightFine": 8101.0,
+          "y": 1539.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "get in my way"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32540,
+          "modelIds": [
+            5757
+          ],
+          "displayName": "Liat"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smelt the ores into havensilver bars.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113261,
+          "modelIds": [
+            7029
+          ],
+          "displayName": "Furnace"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 37,
+          "componentId": 52,
+          "slotId": 57
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60296,
+          "displayName": "Havensilver bar",
+          "quantity": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Smith a Havensilver greatsword.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 113259,
+          "modelIds": [],
+          "displayName": "Forge"
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 37,
+          "componentId": 72,
+          "slotId": 3
+        },
+        {
+          "t": "interfaceComponentHighlight",
+          "interfaceId": 37,
+          "componentId": 103,
+          "slotId": 1
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inventoryContains",
+          "itemId": 60298,
+          "displayName": "Havensilver greatsword",
+          "quantity": 1
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "The heart",
+      "text": "Talk to Anya at the cave east of Marigold Farm.",
+      "warning": "Make sure you have your antisanguine potion.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3633.0,
+          "heightFine": 8749.0,
+          "y": 1475.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 32678,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32679,
+            32680,
+            32682
+          ],
+          "displayName": "Anya"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [
+        {
+          "name": "Antisanguine potion",
+          "itemId": -1,
+          "quantity": 1,
+          "duringQuest": false
+        },
+        {
+          "name": "Food",
+          "itemId": -1,
+          "quantity": 20,
+          "duringQuest": false
+        }
+      ],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32678,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32679,
+            32680,
+            32682
+          ],
+          "displayName": "Anya"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "I have no reason not to trust her"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "you require more"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 32678,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32679,
+            32680,
+            32682
+          ],
+          "displayName": "Anya"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Drink the antisanguine potion.",
+      "actions": [
+        {
+          "t": "inventoryHighlight",
+          "itemId": 60424,
+          "modelIds": [
+            66,
+            240
+          ],
+          "displayName": "Antisanguine"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "chatText",
+          "text": "of your antisanguine potion"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Enter the cave.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "object",
+          "typeId": 136478,
+          "modelIds": [
+            19302
+          ],
+          "displayName": "Cave entrance"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "inInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Fight the Sanguine heart.\u003cul\u003e\u003cli\u003eThe heart is invulnerable when tumors spawn.\u003c/li\u003e\u003cli\u003eAvoid the exploding pustules.\u003c/li\u003e\u003c/ul\u003e",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "model",
+          "modelIds": [
+            2946
+          ],
+          "candidateNpcTypeIds": [
+            1626
+          ],
+          "displayName": "Sanguine tumor"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "notInInstance"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Talk to Anya.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 32678,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32679,
+            32680,
+            32682
+          ],
+          "displayName": "Anya"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "good news"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Leave the cave.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3424.0,
+          "heightFine": 1989.0,
+          "y": 7877.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "distanceTo",
+          "x": 3638.0,
+          "heightFine": 8037.0,
+          "y": 1475.0,
+          "range": 4
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "title": "Finishing up",
+      "text": "Talk to Zeke.",
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 541,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            26619,
+            31155,
+            31221,
+            32673,
+            32688
+          ],
+          "displayName": "Zeke"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "You could have"
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "conversationText",
+          "text": "we were victorious"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "text": "Return to Adam.",
+      "actions": [
+        {
+          "t": "direction",
+          "x": 3482.0,
+          "heightFine": 8613.0,
+          "y": 1571.0,
+          "instance": false
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "modelVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpconditions": [],
+      "jumpOffset": 0,
+      "neededItems": [],
+      "recommendedItems": []
+    },
+    {
+      "actions": [
+        {
+          "t": "modelHighlight",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        },
+        {
+          "t": "conversationHighlight",
+          "text": "Talk about \u0027Hearts of Sanguine\u0027."
+        }
+      ],
+      "postconditions": [
+        {
+          "t": "questComplete"
+        }
+      ],
+      "jumpconditions": [
+        {
+          "t": "modelNotVisible",
+          "kind": "npc",
+          "typeId": 20510,
+          "modelIds": [],
+          "candidateNpcTypeIds": [
+            32671,
+            32684
+          ],
+          "displayName": "Adam"
+        }
+      ],
+      "jumpOffset": -1,
+      "neededItems": [],
+      "recommendedItems": []
+    }
+  ],
+  "stageVarbit": 60597,
+  "stageVarbitCompleteValue": 75,
+  "cacheQuestId": 527
+}
