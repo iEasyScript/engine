@@ -29,6 +29,11 @@ class CombinedLocationSection(raw: MemorySegment) : Entity(raw), SceneObject {
     override val tile: Tile
         get() = Tile.of(ptr.readInt(OCombinedLocationSection.POS_X), ptr.readInt(OCombinedLocationSection.POS_Y), plane)
 
+    override val tileX: Int
+        get() = tile.x
+    override val tileY: Int
+        get() = tile.y
+
     override val id: Int
         get() = realType?.id ?: 0
 

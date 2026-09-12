@@ -34,6 +34,10 @@ interface SceneObject {
     val sizeX: Int get() = 1
     val sizeY: Int get() = 1
 
+    // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
+    val tileX: Int get() = tile.x
+    val tileY: Int get() = tile.y
+
     /**
      * World tiles this object's ground footprint covers. Origin [tile] is the SW corner; the
      * footprint spans [sizeX]×[sizeY] tiles with the dimensions swapped for odd rotations — matching

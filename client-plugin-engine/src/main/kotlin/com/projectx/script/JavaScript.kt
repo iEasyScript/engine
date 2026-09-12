@@ -1,7 +1,12 @@
 package com.projectx.script
 
+import com.projectx.script.api.localPlayer
 import org.projectx.core.game.skill.Skill
+import java.util.concurrent.ThreadLocalRandom
 import java.util.function.BooleanSupplier
+import kotlin.math.roundToInt
+
+private const val TICK_MILLIS = 600
 
 /**
  * Base class for scripts written in Java.
@@ -19,14 +24,33 @@ abstract class JavaScript : Script() {
     /** One pass of the script. Return what the engine should wait for before the next pass. */
     abstract fun onLoop(): Wait
 
-    final override suspend fun loop() {
-        when (val wait = onLoop()) {
+    final override suspend fun loop() = perform(onLoop())
+
+    private suspend fun perform(wait: Wait?) {
+        when (wait) {
+            null -> Unit
             is Wait.Millis -> delay(wait.mean, wait.variance)
             is Wait.Until -> delayUntil(wait.timeoutMillis, wait.pollMillis) { wait.predicate.asBoolean }
             is Wait.While -> delayWhile(wait.timeoutMillis) { wait.predicate.asBoolean }
             is Wait.XpDrop -> waitForXPDrop(wait.skill, wait.timeoutMillis)
+            is Wait.Idle -> {
+                var idleChecks = 0
+                delayUntil(wait.maxTicks.toLong() * TICK_MILLIS, TICK_MILLIS) {
+                    idleChecks = if (localPlayer.isMoving || localPlayer.isAnimating) 0 else idleChecks + 1
+                    idleChecks >= wait.idleChecks
+                }
+            }
+            is Wait.Sequence -> for (step in wait.steps) {
+                if (stopped) return
+                perform(step.run())
+            }
         }
     }
+}
+
+/** One step of a [Wait.sequence]: act, then return what to wait for before the next step, or null for nothing. */
+fun interface Step {
+    fun run(): Wait?
 }
 
 /**
@@ -51,6 +75,10 @@ sealed class Wait {
 
     class XpDrop internal constructor(val skill: Skill?, val timeoutMillis: Long) : Wait()
 
+    class Idle internal constructor(val maxTicks: Int, val idleChecks: Int) : Wait()
+
+    class Sequence internal constructor(val steps: List<Step>) : Wait()
+
     companion object {
         /** A fixed pause. Prefer the randomised overload; a constant delay is a recognisable pattern. */
         @JvmStatic
@@ -59,6 +87,17 @@ sealed class Wait {
         /** A randomised pause around [mean], spread by [variance]. */
         @JvmStatic
         fun ms(mean: Int, variance: Int): Wait = Millis(mean, variance)
+
+        /** A pause picked uniformly between [minMillis] and [maxMillis], inclusive. */
+        @JvmStatic
+        fun between(minMillis: Int, maxMillis: Int): Wait =
+            Millis(ThreadLocalRandom.current().nextInt(minMillis, maxMillis + 1), 0)
+
+        /** [ticks] game ticks of 600 ms (fractions allowed), plus 0..[jitterMillis] ms picked uniformly. */
+        @JvmStatic
+        @JvmOverloads
+        fun ticks(ticks: Double, jitterMillis: Int = 0): Wait =
+            Millis((ticks * TICK_MILLIS).roundToInt() + ThreadLocalRandom.current().nextInt(jitterMillis + 1), 0)
 
         /** Wait until [predicate] holds, giving up after [timeoutMillis]. */
         @JvmStatic
@@ -76,5 +115,20 @@ sealed class Wait {
         @JvmOverloads
         fun xpDrop(skill: Skill? = null, timeoutMillis: Long = 15000): Wait =
             XpDrop(skill, timeoutMillis)
+
+        /**
+         * Wait for the player to stop moving and animating: checked once a tick, finished once
+         * [idleChecks] checks in a row see nothing going on, or after [maxTicks] ticks.
+         */
+        @JvmStatic
+        fun untilIdle(maxTicks: Int, idleChecks: Int): Wait = Idle(maxTicks, idleChecks)
+
+        /**
+         * Run [steps] one after another, each performing its own wait before the next starts — the
+         * non-blocking way to write "click, wait, click, wait". A step runs only when the one before
+         * it has finished waiting, so it always sees the game as it is at that moment.
+         */
+        @JvmStatic
+        fun sequence(vararg steps: Step): Wait = Sequence(steps.toList())
     }
 }

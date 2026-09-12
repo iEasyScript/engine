@@ -34,6 +34,11 @@ class Location(raw: MemorySegment) : Entity(raw), SceneObject {
     override val tile: Tile
         get() = Tile.of(ptr.readInt(OLocation.POS_X), ptr.readInt(OLocation.POS_Y), plane)
 
+    override val tileX: Int
+        get() = tile.x
+    override val tileY: Int
+        get() = tile.y
+
     override val id: Int
         get() = realType?.id ?: typeId
 

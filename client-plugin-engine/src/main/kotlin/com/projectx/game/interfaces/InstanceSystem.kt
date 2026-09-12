@@ -59,6 +59,7 @@ class InstanceSystem {
         private val joinInstanceSlot = boxSlot("join_instance")
         private val rejoinInstanceSlot = boxSlot("rejoin_instance")
 
+        @JvmStatic
         fun isOpen() = interfaces.isOpen(INSTANCE_SYSTEM_INTERFACE_ID)
 
         private fun getComponentText(slot: IFSlot): String =
@@ -77,28 +78,34 @@ class InstanceSystem {
                 protection = getComponentText(valueProtectionSlot)
             )
 
+        @JvmStatic
         fun setMaxPlayers(increase: Boolean) {
             val slot = if (increase) addMaxPlayersSlot else subtractMaxPlayersSlot
             slot.click(1)
         }
 
+        @JvmStatic
         fun setMinCombat(increase: Boolean) {
             val slot = if (increase) addMinCombatSlot else subtractMinCombatSlot
             slot.click(1)
         }
 
+        @JvmStatic
         fun cycleSpawnSpeed(cycleRight: Boolean) {
             val slot = if (cycleRight) cycleRightSpawnSpeedSlot else cycleLeftSpawnSpeedSlot
             slot.click(1)
         }
 
+        @JvmStatic
         fun cycleProtection(cycleRight: Boolean) {
             val slot = if (cycleRight) cycleRightProtectionSlot else cycleLeftProtectionSlot
             slot.click(1)
         }
 
+        @JvmStatic
         fun startInstance() = startInstanceSlot.click(1)
 
+        @JvmStatic
         fun rejoinInstance() = rejoinInstanceSlot.click(1)
 
 
@@ -108,6 +115,7 @@ class InstanceSystem {
             IFSlot(1469, 1, 0).click() //last entered player name click?
         }
 
+        @JvmStatic
         fun debugComponents() {
             println("=== Instance Interface Debug ===")
             println("Is interface open: ${isOpen()}")
@@ -130,6 +138,7 @@ class InstanceSystem {
             println("===========================")
         }
 
+        @JvmStatic
         fun getTimeRemainingMs(): Long {
             val instanceExpiryTimeMinutes = varps.getVar(INSTANCE_EXPIRY_TIME_ID)
             val minutesRemaining = (instanceExpiryTimeMinutes - currentTimeMins - 1).toLong()
@@ -154,6 +163,7 @@ class InstanceSystem {
             return maxOf(0L, totalMilliseconds)
         }
 
+        @JvmStatic
         fun getFormattedTimeRemaining(): String {
             val millisRemaining = getTimeRemainingMs()
             if (millisRemaining == 0L) return "00:00"
@@ -169,8 +179,10 @@ class InstanceSystem {
                 String.format("%02d:%02d", minutes, seconds)
         }
 
+        @JvmStatic
         fun isExpired() = getTimeRemainingMs() == 0L
 
+        @JvmStatic
         fun hasOngoingInstance() = getTimeRemainingMs() > 0L
 
         private val currentTimeMins get() = (System.currentTimeMillis() / 60000).toInt()

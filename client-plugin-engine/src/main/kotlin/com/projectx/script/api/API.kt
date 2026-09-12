@@ -481,6 +481,12 @@ fun walkTo(tile: Tile, minimap: Boolean): Boolean {
         return false
 }
 
+// Tile-taking functions are name-mangled on the JVM; these coordinate forms are the Java entry points.
+@JvmOverloads
+fun walkToTile(x: Int, y: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, localPlayer.plane), minimap)
+
+fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
+
 private val porters =
     intArrayOf(29275, 29276, 29277, 29278, 29279, 29280, 29281, 29282, 29283, 29284, 29285, 29286, 51490, 51491)
 
@@ -892,6 +898,11 @@ val elvenShardCD get() = varps.getVarBit(40606) != 0
 val onStandardPrayers get() = varps.getVarBit(16789) != 0
 val onCursesPrayers get() = varps.getVarBit(16789) == 1
 val inCombat get() = varps.getVarBit(1899) == 1
+
+private const val MINING_STAMINA_VARBIT = 43187
+
+/** Mining stamina in points (varbit mining_stamina, 0..1023); the maximum grows with Mining level. */
+val miningStamina get() = varps.getVarBit(MINING_STAMINA_VARBIT)
 val isStunned get()= localPlayer.spotAnims.any { it.id == 4531 }
 
 val combatTarget get() = npcs.values.firstOrNull { npc -> npc.spotAnims.any { it.id in 9082..9086 || it.id in 9102..9106 } }
@@ -1179,10 +1190,10 @@ fun getCurrentWorld(): Int {
     return regex.find(worldText)?.groupValues?.get(1)?.toInt() ?: 0
 }
 
-/**
- * IsPlayerLoading - Checks if a user is on a loading screen state.
- */
-fun isPlayerLoading() = Bootstrap.client.mainState == MainState.LOGGED_IN
+fun isLoggedIn() = Bootstrap.client.mainState == MainState.LOGGED_IN
+
+/** True while the client is anywhere but in game: loading, reconnecting, login screen or lobby. */
+fun isPlayerLoading() = !isLoggedIn()
 
 /**
  * Handles the world hopping logic for Project X Scripts.
@@ -1209,8 +1220,7 @@ suspend fun Script.randomizedWorldHop(membersOnly: Boolean = true) {
         println("[WORLD HOPPER] Changing Worlds to $worldToUse")
         IFSlot(1587, 8, worldToUse).click(2)
 
-        // Ensure local player is active
-        waitThenDelayUntil(2000, 30000) { isPlayerLoading() }
+        waitThenDelayUntil(2000, 30000) { isLoggedIn() }
         println("[WORLD HOPPER] Finished Loading World.")
     }
 }

@@ -48,6 +48,12 @@ abstract class Entity(raw: MemorySegment) {
     val plane: Int
         get() = ptr.readInt(OEntity.ENTITY_PLANE)
 
+    // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
+    open val tileX: Int
+        get() = tile.x
+    open val tileY: Int
+        get() = tile.y
+
     /** Picking mode: 0 = point/circle test, non-zero = line segment test. */
     val pickType: Int
         get() = ptr.readInt(OEntity.PICK_TYPE)
