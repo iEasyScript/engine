@@ -26,25 +26,8 @@ package_url() {
     echo "https://github.com/${ASSET_REPO}/releases/download/${RELEASE_TAG}/$1"
 }
 
-# Human-facing identity for a plugin channel, resolved into plugin_id/plugin_name/
-# plugin_description. Kept here rather than in the launcher so adding a channel
-# needs no launcher release for it to show up correctly.
-plugin_meta() {
-    case "$1" in
-        official-scripts-*)
-            plugin_id='official'
-            plugin_name='Official Scripts'
-            plugin_description='First-party scripts maintained by the Project X team. Built from client-plugin-engine/official-scripts.'
-            ;;
-        community-scripts-*)
-            plugin_id='community'
-            plugin_name='Community Scripts'
-            plugin_description='Community-contributed scripts. Built from client-plugin-engine/community-scripts.'
-            ;;
-        *) return 1 ;;
-    esac
-}
-
+# Scripts are published by their own repositories, which the launcher reads
+# directly, so this release offers no plugins and the list stays empty.
 plugins='[]'
 launchers='[]'
 # The three engine-home artifacts are not plugins — the launcher installs them
@@ -82,15 +65,6 @@ for path in "$DIST"/*; do
     url="$(package_url "$file")"
 
     case "$file" in
-        official-scripts-*.jar|community-scripts-*.jar)
-            plugin_meta "$file"
-            plugins="$(printf '%s' "$plugins" | jq \
-                --arg id "$plugin_id" --arg name "$plugin_name" --arg description "$plugin_description" \
-                --arg file "$file" --arg version "$PROJECTX_VERSION" \
-                --arg sha256 "$sha" --argjson size "$size" --arg url "$url" \
-                '. + [{id: $id, name: $name, description: $description, file: $file,
-                       version: $version, sha256: $sha256, size: $size, url: $url}]')"
-            ;;
         projectx-engine-*.jar)
             engine="$(jq -n --arg file "$file" --arg version "$PROJECTX_VERSION" \
                 --arg sha256 "$sha" --argjson size "$size" --arg url "$url" \

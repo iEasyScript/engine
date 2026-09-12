@@ -14,7 +14,7 @@ regression; the process is wrecked by the file swap, and only a restart recovers
   mapped. Same for anything else that reaches `jar`. Use `compileTestKotlin` while injected and run
   `test` only when the client is down — check with `pgrep -x rs2client` first.
 - Build the real jar only when **not** injected. The order is **uninject → rebuild → reinject**.
-- Script jars are a partial exception: `:client-plugin-engine:official-scripts:build` never touches the
+- Script jars are a partial exception: building a script repo's jar never touches the
   engine `.so` or shadowJar, so it is safe *for the engine* while injected. ⛔ **It is NOT safe while a
   script from that jar is running.** The script `URLClassLoader` holds the jar open and resolves suspend
   lambdas / `State` continuation classes *lazily*, so overwriting it mid-run makes the next new code path

@@ -122,8 +122,6 @@ project-x/
 ├── client-plugin-engine/                    # Project X injection engine == :client-plugin-engine module
 │   ├── src/main/kotlin/com/projectx/…       #   cache, game/nxt, hooks, mcp, script, ui, scene, …
 │   ├── native-bootstrap/                    #   C++20 bootstrap (funchook + imgui submodules)
-│   ├── official-scripts/                    #   :client-plugin-engine:official-scripts (first-party, default)
-│   ├── community-scripts/                   #   :client-plugin-engine:community-scripts (-PcommunityScripts)
 │   └── inject                               #   GDB-dlopen injector script
 ├── client-plugin-engine-supervisor/         # Pure-Java hot-reload supervisor (system-classpath layer)
 ├── data/                                    # NXT client binaries + ~24 GB JS5 cache (cache gitignored)
@@ -140,12 +138,11 @@ project-x/
 ```
 
 **Build:** unified Gradle build, **Kotlin 2.3.20 / JDK 25**. `./gradlew projects` shows
-`:core :lobby :world :tools :client-plugin-engine :client-plugin-engine:official-scripts
-:client-plugin-engine-supervisor`. The engine keeps its native CMake tasks
-(`:client-plugin-engine:buildNativeBootstrap` → `libprojectxbootstrap.so`). First-party scripts
-build by default via `:client-plugin-engine:official-scripts`; community-contributed scripts live
-in `:client-plugin-engine:community-scripts`, which is excluded from the default build and only
-included when the `communityScripts` Gradle property (or `COMMUNITY_SCRIPTS` env var) is set.
+`:core :tools :packetlog :client-plugin-engine :client-plugin-engine-supervisor`. The engine keeps its
+native CMake tasks (`:client-plugin-engine:buildNativeBootstrap` → `libprojectxbootstrap.so`). No
+scripts are built here: they live in the public `iEasyScript/official-scripts` and
+`iEasyScript/community-scripts` repositories, compile against the `iEasyScript/script-api` jars, and
+reach users through those repositories' own releases.
 
 **Cache source tree (unpack / repack any cache):** `world.gregs.voidps.cache.store` (containers,
 reference tables, groups, the sector and SQLite stores, the converter) + `world.gregs.voidps.cache.source`

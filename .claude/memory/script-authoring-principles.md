@@ -1,9 +1,8 @@
 # Script authoring — reactive, humanised, modular
 
-⛔ **All authoring/editing of code in `client-plugin-engine/official-scripts/` or
-`client-plugin-engine/community-scripts/` goes through the `script-writer` subagent**
-(`.claude/agents/script-writer.md`), including the supporting sensing/map/render/util code and tests
-in those modules.
+⛔ **All script authoring/editing (the official-scripts and community-scripts repositories) goes
+through the `script-writer` subagent** (`.claude/agents/script-writer.md`), including supporting
+sensing/map/render/util code and tests.
 
 ## Reactive behaviour is the whole point
 

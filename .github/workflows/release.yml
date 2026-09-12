@@ -26,7 +26,7 @@ jobs:
       is_release: ${{ steps.pick.outputs.is_release }}
     steps:
       # One place decides the version every other job stamps in, so a run can
-      # never emit a launcher and a plugin jar that disagree.
+      # never emit a launcher and an engine jar that disagree.
       - id: pick
         run: |
           if [ "$GITHUB_REF_TYPE" = "tag" ]; then
@@ -41,48 +41,6 @@ jobs:
           fi
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "resolved version: $version"
-
-  plugins:
-    needs: version
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - module: official-scripts
-            task: ":client-plugin-engine:official-scripts:jar"
-            dir: client-plugin-engine/official-scripts/build/libs
-            extra: ""
-          - module: community-scripts
-            task: ":client-plugin-engine:community-scripts:jar"
-            dir: client-plugin-engine/community-scripts/build/libs
-            # settings.gradle.kts only includes the module when this is set.
-            extra: "-PcommunityScripts=true"
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: "25"
-      - uses: gradle/actions/setup-gradle@v4
-      # The per-module jar task is deliberately narrower than assemble: it never
-      # pulls the engine's CMake tasks in, so this job needs no C++ toolchain.
-      - name: Build jar
-        run: |
-          chmod +x ./gradlew
-          ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} ${{ matrix.extra }} ${{ matrix.task }}
-      - name: Stage
-        run: |
-          set -eu
-          v='${{ needs.version.outputs.version }}'
-          m='${{ matrix.module }}'
-          mkdir -p dist
-          cp "${{ matrix.dir }}/$m-$v.jar" "dist/$m-$v.jar"
-          cd dist && sha256sum "$m-$v.jar" > "$m-$v.jar.sha256"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.module }}
-          path: dist/
 
   engine-jar:
     needs: version
@@ -357,7 +315,7 @@ jobs:
           path: dist/
 
   release:
-    needs: [version, plugins, engine-jar, bootstrap-linux, bootstrap-windows, launcher, bundle]
+    needs: [version, engine-jar, bootstrap-linux, bootstrap-windows, launcher, bundle]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -390,10 +348,11 @@ jobs:
           tag_name: ${{ needs.version.outputs.tag }}
           name: Project X ${{ needs.version.outputs.version }}
           body: |
-            Launcher bundles, the Project X engine and plugin jars for ${{ needs.version.outputs.version }}.
+            Launcher bundles and the Project X engine for ${{ needs.version.outputs.version }}.
 
-            The launcher installs the engine jar and the plugin jars from this
-            release itself, verified against plugins-manifest.json.
+            The launcher installs the engine from this release itself, verified
+            against plugins-manifest.json. Scripts ship from the official-scripts
+            and community-scripts repositories.
           files: |
             dist/*
             plugins-manifest.json
@@ -403,7 +362,7 @@ jobs:
   # distribution repository that holds no source, giving users permanent
   # `releases/latest/download/...` links.
   publish-launcher:
-    needs: [version, bundle, engine-jar, bootstrap-linux, bootstrap-windows, plugins]
+    needs: [version, bundle, engine-jar, bootstrap-linux, bootstrap-windows]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
     steps:

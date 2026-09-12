@@ -353,13 +353,10 @@ RSA keys, and cannot reach a local server.
 > `HOME` per mode; Windows has no equivalent yet. Alternating between the Live and Private realms
 > makes each overwrite the other's cached reference tables, so expect re-downloads after a switch.
 
-**Engine scripts.** Scripts are Kotlin classes (annotated `@ScriptDescription`) packaged as JARs in
-`~/.projectx/scripts/`, auto-discovered at runtime:
-
-```bash
-./gradlew :client-plugin-engine:official-scripts:build                       # first-party (default)
-./gradlew -PcommunityScripts :client-plugin-engine:community-scripts:build   # community (opt-in)
-```
+**Engine scripts.** Scripts are Kotlin or Java classes (annotated `@ScriptDescription`) packaged as JARs in
+`~/.projectx/scripts/`, auto-discovered at runtime. They are not built in this repository: see
+`iEasyScript/official-scripts`, `iEasyScript/community-scripts` and the `iEasyScript/script-template`
+starter.
 
 > After **any** engine code change, rebuild the real artifact with `./gradlew :client-plugin-engine:shadowJar` —
 > `compileKotlin` alone leaves a stale injected jar. Never rebuild the shadow jar while injected;

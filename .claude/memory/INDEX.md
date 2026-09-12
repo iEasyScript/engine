@@ -64,6 +64,6 @@ Committed, VCS-shared knowledge, loaded every session. One line per topic; each 
 - [[script-authoring-principles]] — ⛔ all script authoring goes through the `script-writer` agent;
   react to outcomes, never blind-sleep; gaussian delays; register content, don't grow a dispatch chain;
   expose debug primitives not predicates; don't stop a bot for death while testing.
-- [[script-modules-official-community]] — scripts live in `:client-plugin-engine:official-scripts`
-  (default) and `:client-plugin-engine:community-scripts` (opt-in); engine script-facing API must be
+- [[script-modules-official-community]] — scripts live OUTSIDE this repo (public official-scripts /
+  community-scripts repos, built against script-api); engine script-facing API must be
   public, not `internal`.

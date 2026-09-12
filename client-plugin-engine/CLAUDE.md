@@ -49,12 +49,6 @@ Project X is a reverse engineering tool for the Linux RuneScape NXT client. It i
 # Build native bootstrap library only
 ./gradlew buildNativeBootstrap
 
-# Build first-party scripts (outputs to ~/.projectx/scripts/)
-./gradlew :client-plugin-engine:official-scripts:build
-
-# Build community scripts (opt-in; not part of the default build)
-./gradlew -PcommunityScripts :client-plugin-engine:community-scripts:build
-
 # Inject into running RS3 client
 ./inject.sh
 ```
@@ -116,19 +110,10 @@ options were lost and `LoadLibraryW` will fail on the target machine.
 ### Native Bootstrap (`native-bootstrap/`)
 C++20 library producing `libprojectxbootstrap.so`. Uses funchook for function interception, ImGui + SDL2 + EGL for overlay rendering. CMake build system.
 
-### Script Modules (`official-scripts/`, `community-scripts/`)
-The concrete automation scripts live in two separate Gradle subprojects, **not** in `:client-plugin-engine`
-itself — the engine only provides the framework and discovers script JARs at runtime.
-- **`official-scripts/`** (`:client-plugin-engine:official-scripts`) — first-party scripts (trent + devin
-  authorship, including the dungeoneering suite and the `ExampleModuleScript` demo). Built by
-  default. The `com.projectx.script.impl.trent` / `.devin` packages live here.
-- **`community-scripts/`** (`:client-plugin-engine:community-scripts`) — community-contributed scripts
-  (`qb`, `bp`, `gibson`, `mel`, `pineapple`, `BugAbuser`, …). Optional and **excluded from the
-  default build**; include it with `-PcommunityScripts` (or the `COMMUNITY_SCRIPTS` env var).
-  Depends on `:client-plugin-engine:official-scripts` (a few community scripts reuse first-party ones).
-
-Each module builds a plain JAR and copies it to `~/.projectx/scripts/` for auto-discovery by
-`ScriptExecutor`.
+### Scripts
+No scripts live in this module. They are in the public `iEasyScript/official-scripts` and
+`iEasyScript/community-scripts` repositories, built against the `iEasyScript/script-api` jars; each
+release jar lands in `~/.projectx/scripts/` for auto-discovery by `ScriptExecutor`.
 
 ### Key Patterns
 - **Memory access:** Project Panama (`java.lang.foreign`) — `MemorySegment`, `Arena`, `Linker`, `FunctionDescriptor`
