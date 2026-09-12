@@ -68,7 +68,9 @@ jobs:
       # The per-module jar task is deliberately narrower than assemble: it never
       # pulls the engine's CMake tasks in, so this job needs no C++ toolchain.
       - name: Build jar
-        run: ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} ${{ matrix.extra }} ${{ matrix.task }}
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} ${{ matrix.extra }} ${{ matrix.task }}
       - name: Stage
         run: |
           set -eu
@@ -98,7 +100,9 @@ jobs:
       # No cmake on this runner by design: the engine's native tasks skip
       # themselves, and the bootstraps are built by their own jobs.
       - name: Build engine jar
-        run: ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} :client-plugin-engine:shadowJar :client-plugin-engine:copySupervisorJar
+        run: |
+          chmod +x ./gradlew
+          ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} :client-plugin-engine:shadowJar :client-plugin-engine:copySupervisorJar
       - name: Stage
         run: |
           set -eu
