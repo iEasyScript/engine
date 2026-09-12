@@ -254,6 +254,8 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev
       - name: Build the launcher
+        env:
+          PROJECTX_VERSION: ${{ needs.version.outputs.version }}
         run: cargo build --release --manifest-path client/launcher/Cargo.toml --bin project-x-launcher
       # A bare launcher is not a working install: a patched launch needs the
       # patcher, and injection needs the injectors. They are small and
@@ -415,6 +417,22 @@ jobs:
           mkdir -p dist
           find incoming -type f -exec cp -n {} dist/ \;
           ls -la dist/
+      # A versioned filename makes releases/latest/download/<name> break on every
+      # release, so publish an unversioned copy of each archive alongside it. The
+      # engine release keeps the versioned names, which the manifest reads.
+      - name: Add unversioned copies for permanent links
+        run: |
+          set -eu
+          v='${{ needs.version.outputs.version }}'
+          cd dist
+          for f in *; do
+            case "$f" in *.sha256) continue;; esac
+            stable="$(echo "$f" | sed "s/-$v//")"
+            [ "$stable" = "$f" ] && continue
+            cp "$f" "$stable"
+            sha256sum "$stable" > "$stable.sha256"
+          done
+          ls -la
       - name: Publish to the public launcher repository
         env:
           # A PAT with contents:write on iEasyScript/launcher. The default token
