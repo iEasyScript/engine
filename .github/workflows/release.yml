@@ -97,12 +97,13 @@ jobs:
           distribution: temurin
           java-version: "25"
       - uses: gradle/actions/setup-gradle@v4
-      # No cmake on this runner by design: the engine's native tasks skip
-      # themselves, and the bootstraps are built by their own jobs.
+      # The runner image ships cmake, so the engine's native tasks would run here
+      # and fail for want of SDL2. Exclude them: the bootstraps are built by
+      # their own jobs, on runners that install the toolchain.
       - name: Build engine jar
         run: |
           chmod +x ./gradlew
-          ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }} :client-plugin-engine:shadowJar :client-plugin-engine:copySupervisorJar
+          ./gradlew --stacktrace -PprojectxVersion=${{ needs.version.outputs.version }}             :client-plugin-engine:shadowJar :client-plugin-engine:copySupervisorJar             -x :client-plugin-engine:configureNativeBootstrap             -x :client-plugin-engine:buildNativeBootstrap             -x :client-plugin-engine:copyNativeLibToBuild
       - name: Stage
         run: |
           set -eu
