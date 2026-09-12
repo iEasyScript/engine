@@ -253,35 +253,109 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev
-      - name: Build
+      - name: Build the launcher
         run: cargo build --release --manifest-path client/launcher/Cargo.toml --bin project-x-launcher
+      # A bare launcher is not a working install: a patched launch needs the
+      # patcher, and injection needs the injectors. They are small and
+      # platform-specific, so they ship in the bundle.
+      - name: Build the patcher and injectors
+        shell: bash
+        run: |
+          set -eu
+          case '${{ matrix.name }}' in
+            windows-*) cargo build --release --manifest-path client/launcher/patcher-win/Cargo.toml ;;
+            linux-*)   cargo build --release --manifest-path client/launcher/patcher/Cargo.toml ;;
+            macos-*)   cargo build --release --manifest-path client/launcher/patcher-mac/Cargo.toml ;;
+          esac
       - name: Stage
         shell: bash
         run: |
           set -eu
-          v='${{ needs.version.outputs.version }}'
-          n='${{ matrix.name }}'
-          mkdir -p dist stage
-          case '${{ matrix.archive }}' in
-            zip)
+          mkdir -p stage
+          case '${{ matrix.name }}' in
+            windows-*)
               cp client/launcher/target/release/project-x-launcher.exe stage/
-              cd stage && 7z a -tzip "../dist/project-x-launcher-$n-$v.zip" . >/dev/null
+              cp client/launcher/patcher-win/target/release/projectx_patcher.dll stage/
+              cp client/launcher/patcher-win/target/release/projectx_injector.exe stage/
+              cp client/launcher/patcher-win/target/release/projectx_engine_injector.exe stage/
               ;;
-            targz)
+            linux-*)
               cp client/launcher/target/release/project-x-launcher stage/
-              tar -czf "dist/project-x-launcher-$n-$v.tar.gz" -C stage .
+              cp client/launcher/patcher/target/release/libprojectx_patcher.so stage/
               ;;
-            bare)
-              cp client/launcher/target/release/project-x-launcher "dist/project-x-launcher-$n-$v"
+            macos-*)
+              cp client/launcher/target/release/project-x-launcher stage/
+              cp client/launcher/patcher-mac/target/release/libprojectx_patcher.dylib stage/
               ;;
           esac
+          ls -la stage/
       - uses: actions/upload-artifact@v4
         with:
           name: launcher-${{ matrix.name }}
+          path: stage/
+
+  # Per-platform bundles: everything needed for a working install, in the search
+  # slots the launcher already uses. The ~160 MB engine jar is deliberately left
+  # out — the launcher downloads that one asset into its data dir on first use,
+  # so this download stays small and the engine can update without a new
+  # launcher.
+  #
+  #   project-x-launcher[.exe]
+  #   projectx_patcher.dll | libprojectx_patcher.so, *_injector.exe
+  #   engine/  bootstrap + supervisor, the seed for PROJECTX_HOME_DIR
+  bundle:
+    needs: [version, launcher, engine-jar, bootstrap-linux, bootstrap-windows]
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: linux-x86_64
+            bootstrap: bootstrap-linux
+            archive: targz
+          - name: windows-x86_64
+            bootstrap: bootstrap-windows
+            archive: zip
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: "{launcher-${{ matrix.name }},${{ matrix.bootstrap }},engine-jar}"
+          path: incoming
+      - name: Assemble
+        run: |
+          set -eu
+          v='${{ needs.version.outputs.version }}'
+          n='${{ matrix.name }}'
+          dir="project-x-launcher-$n-$v"
+          mkdir -p "$dir/engine" dist
+
+          cp incoming/launcher-$n/* "$dir/"
+          # The bootstrap ships versioned as its own release asset; inside the
+          # bundle it takes the fixed name the injector resolves by.
+          for f in incoming/${{ matrix.bootstrap }}/*; do
+            case "$f" in
+              *.so)  cp "$f" "$dir/engine/libprojectxbootstrap.so" ;;
+              *.dll) cp "$f" "$dir/engine/projectxbootstrap.dll" ;;
+            esac
+          done
+          cp incoming/engine-jar/projectx-supervisor-*.jar "$dir/engine/projectx-supervisor.jar"
+
+          chmod +x "$dir/project-x-launcher" 2>/dev/null || true
+          find "$dir" -type f | sort
+
+          case '${{ matrix.archive }}' in
+            zip)   zip -qr "dist/$dir.zip" "$dir" ;;
+            targz) tar -czf "dist/$dir.tar.gz" "$dir" ;;
+          esac
+          cd dist && for f in *; do sha256sum "$f" > "$f.sha256"; done
+          ls -la
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bundle-${{ matrix.name }}
           path: dist/
 
   release:
-    needs: [version, plugins, engine-jar, bootstrap-linux, bootstrap-windows, launcher]
+    needs: [version, plugins, engine-jar, bootstrap-linux, bootstrap-windows, launcher, bundle]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
     steps:
@@ -327,13 +401,13 @@ jobs:
   # distribution repository that holds no source, giving users permanent
   # `releases/latest/download/...` links.
   publish-launcher:
-    needs: [version, launcher]
+    needs: [version, bundle]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
         with:
-          pattern: launcher-*
+          pattern: bundle-*
           path: incoming
       - name: Collect
         run: |
