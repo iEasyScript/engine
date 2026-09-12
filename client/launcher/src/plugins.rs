@@ -28,7 +28,10 @@ use crate::HTTP_DOWNLOAD_TIMEOUT;
 
 const DEFAULT_API_HOST: &str = "https://api.github.com";
 const DEFAULT_WEB_HOST: &str = "https://github.com";
-const DEFAULT_PROJECT_PATH: &str = "iEasyScript/engine";
+/// The public distribution repository. The engine repository is private, so its
+/// release assets 404 for users; this is where the engine home artifacts and the
+/// manifest are published.
+const DEFAULT_PROJECT_PATH: &str = "iEasyScript/launcher";
 
 /// The Release asset link the CI publish job attaches. Version-free by design so
 /// the lookup is a name match rather than a parse.

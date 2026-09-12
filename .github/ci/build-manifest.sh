@@ -17,8 +17,13 @@ OUT="${2:?output file}"
 
 : "${PROJECTX_VERSION:?}" "${GITHUB_REPOSITORY:?}" "${RELEASE_TAG:?}"
 
+# Assets are served from the public distribution repository: release assets on a
+# private repository 404 for anyone without access, which would leave a user's
+# engine stuck at whatever they already had.
+ASSET_REPO="${ASSET_REPO:-$GITHUB_REPOSITORY}"
+
 package_url() {
-    echo "https://github.com/${GITHUB_REPOSITORY}/releases/download/${RELEASE_TAG}/$1"
+    echo "https://github.com/${ASSET_REPO}/releases/download/${RELEASE_TAG}/$1"
 }
 
 # Human-facing identity for a plugin channel, resolved into plugin_id/plugin_name/

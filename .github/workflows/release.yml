@@ -403,13 +403,13 @@ jobs:
   # distribution repository that holds no source, giving users permanent
   # `releases/latest/download/...` links.
   publish-launcher:
-    needs: [version, bundle]
+    needs: [version, bundle, engine-jar, bootstrap-linux, bootstrap-windows, plugins]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
-          pattern: bundle-*
           path: incoming
       - name: Collect
         run: |
@@ -433,6 +433,21 @@ jobs:
             sha256sum "$stable" > "$stable.sha256"
           done
           ls -la
+      # The manifest the launcher reads must live beside the assets it names, and
+      # its URLs must point at this public repository rather than the private one.
+      - name: Build the manifest for the public assets
+        env:
+          PROJECTX_VERSION: ${{ needs.version.outputs.version }}
+          RELEASE_TAG: ${{ needs.version.outputs.tag }}
+          ASSET_REPO: iEasyScript/launcher
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -eu
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends jq
+          chmod +x .github/ci/build-manifest.sh
+          ./.github/ci/build-manifest.sh dist plugins-manifest.json
+          cp plugins-manifest.json dist/
       - name: Publish to the public launcher repository
         env:
           # A PAT with contents:write on iEasyScript/launcher. The default token
