@@ -9,8 +9,9 @@ build
 *.pydevproject
 .project
 .metadata
-bin/
-bin/**
+# Build output only. Not src/bin, which is where Cargo keeps binary sources.
+/bin/
+/bin/**
 tmp/**
 tmp/**/*
 *.tmp
