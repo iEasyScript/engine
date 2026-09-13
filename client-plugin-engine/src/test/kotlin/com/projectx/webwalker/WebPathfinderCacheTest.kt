@@ -39,6 +39,13 @@ class WebPathfinderCacheTest {
     }
 
     @Test
+    fun `plans onward from lodestone arrival tiles`() {
+        assertRoute(3233, 3221, 3092, 3243)
+        assertRoute(3214, 3376, 3185, 3436)
+        assertRoute(2967, 3403, 3013, 3355)
+    }
+
+    @Test
     fun `gives up on an island in bounded time`() {
         val started = System.nanoTime()
         val result = WebPathfinder().find(3222, 3218, 0, 2918, 3175, 2)

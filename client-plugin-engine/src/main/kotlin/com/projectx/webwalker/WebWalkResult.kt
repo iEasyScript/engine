@@ -1,5 +1,7 @@
 package com.projectx.webwalker
 
+import com.projectx.script.api.Lodestone
+
 enum class WebWalkStatus {
     /** The player is within the arrival distance of the destination. */
     ARRIVED,
@@ -26,13 +28,20 @@ enum class WebWalkStatus {
     STOPPED,
 }
 
-/** The outcome of a web walk or path search; [path] is set whenever a route was planned. */
+/**
+ * The outcome of a web walk or path search; [path] is set whenever a route was planned, and [lodestone] names the
+ * lodestone the walk teleported to on the way, if any.
+ */
 class WebWalkResult internal constructor(
     val status: WebWalkStatus,
     val message: String,
     val path: WebPath? = null,
+    val lodestone: Lodestone? = null,
 ) {
     val isSuccess: Boolean get() = status == WebWalkStatus.ARRIVED || status == WebWalkStatus.PATH_FOUND
 
-    override fun toString(): String = "$status: $message"
+    internal fun via(lodestone: Lodestone?): WebWalkResult =
+        if (lodestone == null || this.lodestone != null) this else WebWalkResult(status, message, path, lodestone)
+
+    override fun toString(): String = if (lodestone == null) "$status: $message" else "$status: $message (via the ${lodestone.name} lodestone)"
 }

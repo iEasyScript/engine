@@ -59,8 +59,12 @@ class TraversalBuilder<T : StateMachineScript<T>> {
 
     fun walkExact(tile: Tile, minimap: Boolean = false, reached: () -> Boolean) = nodes.add(TileExactNode(tile, minimap, customReached = reached))
 
-    fun webWalk(destination: Tile, arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE, reached: (() -> Boolean)? = null) =
-        nodes.add(WebWalkNode(destination, arriveDistance, reached))
+    fun webWalk(
+        destination: Tile,
+        arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+        useLodestones: Boolean = true,
+        reached: (() -> Boolean)? = null,
+    ) = nodes.add(WebWalkNode(destination, arriveDistance, reached, useLodestones))
 
     fun door(doorInfo: DoorInfo, direction: DoorDirection, reached: (() -> Boolean)? = null) = nodes.add(DoorNode(doorInfo, direction, reached))
     fun doorIn(doorInfo: DoorInfo, reached: (() -> Boolean)? = null) = nodes.add(DoorNode(doorInfo, DoorDirection.IN, reached))

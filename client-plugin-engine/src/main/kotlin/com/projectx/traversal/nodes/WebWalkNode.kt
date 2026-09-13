@@ -12,10 +12,11 @@ class WebWalkNode(
     private val destination: Tile,
     private val arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
     private val customReached: (() -> Boolean)? = null,
+    private val useLodestones: Boolean = true,
 ) : TraversalNode() {
 
     override suspend fun process(script: Script): Boolean {
-        val result = WebWalker.walk(script, destination, arriveDistance)
+        val result = WebWalker.walk(script, destination, arriveDistance, useLodestones)
         if (result.status != WebWalkStatus.ARRIVED) println("[WebWalk] ${result}")
         return result.status == WebWalkStatus.ARRIVED
     }
@@ -23,7 +24,7 @@ class WebWalkNode(
     override fun reached(script: Script): Boolean =
         customReached?.invoke() ?: (localPlayer.tile.plane == destination.plane && localPlayer.tile.withinDistance(destination, arriveDistance))
 
-    override fun copy(): TraversalNode = WebWalkNode(destination, arriveDistance, customReached)
+    override fun copy(): TraversalNode = WebWalkNode(destination, arriveDistance, customReached, useLodestones)
 
     override fun toString(): String = "[WebWalk: $destination]"
 }

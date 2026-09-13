@@ -492,9 +492,15 @@ fun walkToTile(x: Int, y: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, 
 
 fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
 
-/** Walks to [destination] from anywhere on the world map; see [WebWalker]. Java scripts use `Wait.webWalk`. */
-suspend fun Script.webWalk(destination: Tile, arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE): WebWalkResult =
-    WebWalker.walk(this, destination, arriveDistance)
+/**
+ * Walks to [destination] from anywhere on the world map, teleporting to an unlocked lodestone first when that is
+ * quicker and [useLodestones] allows it; see [WebWalker]. Java scripts use `Wait.webWalk`.
+ */
+suspend fun Script.webWalk(
+    destination: Tile,
+    arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+    useLodestones: Boolean = true,
+): WebWalkResult = WebWalker.walk(this, destination, arriveDistance, useLodestones)
 
 /**
  * Tile geometry and player state
@@ -1458,36 +1464,49 @@ suspend fun Script.teleportWithGroupSystem(boss: GroupTeleports) {
     }
 }
 
-/** LODESTONE **/
+/**
+ * The lodestone network. [id] is the lodestone's teleport button on the lodestone map (interface 1092); [varbit] is
+ * the player var that is set once it is unlocked, or -1 where no unlock var is known.
+ */
 enum class Lodestone(val id: Int, val object_id: Int, val object_id_unlocked: Int, val tile: Tile, val varbit: Int) {
-    AL_KHARID(11, 69846, 69847, Tile.of(3297, 3184, 0), 28),
-    ANACHRONIA(25, 113743, 113744, Tile.of(5431, 2338, 0), 44270),
-    ARDOUGNE(12, 69848, 69849, Tile.of(2634, 3348, 0), 29),
-    ASHDALE(34, -1, -1, Tile.of(2474, 2708, 2), 22430),
-    BANDIT_CAMP(9, 69842, 69843, Tile.of(3214, 2954, 0), -1), //check DT completion instead
-    BURTHOPE(13, -1, -1, Tile.of(2899, 3544, 0), -1),
-    CANIFIS(27, 84755, 84756, Tile.of(3517, 3515, 0), 18523),
-    CATHERBY(14, 69852, 69853, Tile.of(2811, 3449, 0), 31),
-    DRAYNOR_VILLAGE(15, 69854, 69855, Tile.of(3105, 3298, 0), 32),
-    EAGLES_PEAK(28, 84757, 84758, Tile.of(2366, 3479, 0), 18524),
-    EDGEVILLE(16, 69856, 69857, Tile.of(3067, 3505, 0), 33),
-    FALADOR(17, 69858, 69859, Tile.of(2967, 3403, 0), 34),
-    FORT_FORINTHRY(23, 124994, 124995, Tile.of(3298, 3525, 0), 52518),
-    FREMENNIK_PROVINCE(29, 84759, 84760, Tile.of(2712, 3677, 0), 18525),
-    KARAMJA(30, 84761, 84762, Tile.of(2761, 3147, 0), 18526),
-    LUNAR_ISLE(10, -1, -1, Tile.of(2085, 3914, 0), 9482), //this is for Lunar Dip completed
-    LUMBRIDGE(18, 69860, 69861, Tile.of(3233, 3221, 0), 35),
-    MENAPHOS(24, 109415, 109416, Tile.of(3216, 2716, 0), 36173),
-    OOGLOG(31, -1, -1, Tile.of(2532, 2871, 0), 18527),
-    PORT_SARIM(19, 69862, 69863, Tile.of(3011, 3217, 0), 36),
-    PRIFDDINAS(35, 93371, 93372, Tile.of(2208, 3360, 1), 24967),
-    SEERS_VILLAGE(20, 69864, 69865, Tile.of(2689, 3482, 0), 37),
-    TAVERLEY(21, 69866, 69867, Tile.of(2878, 3442, 0), 38),
-    TIRANNWN(32, 84765, 84766, Tile.of(2254, 3149, 0), 18528),
-    UM(36, 127267, 127268, Tile.of(1084, 1768, 1), -1),
-    VARROCK(22, 69868, 69869, Tile.of(3214, 3376, 0), 39),
-    WILDERNESS(33, 84767, 84768, Tile.of(3143, 3635, 0), 18529),
-    YANILLE(26, 69870, 69871, Tile.of(2529, 3094, 0), 40);
+    AL_KHARID(10, 69846, 69847, Tile.of(3297, 3184, 0), 28),
+    ANACHRONIA(24, 113743, 113744, Tile.of(5431, 2338, 0), 44270),
+    ARDOUGNE(11, 69848, 69849, Tile.of(2634, 3348, 0), 29),
+    ASHDALE(33, -1, -1, Tile.of(2474, 2708, 2), 22430),
+    BANDIT_CAMP(8, 69842, 69843, Tile.of(3214, 2954, 0), -1),
+    BURTHOPE(12, -1, -1, Tile.of(2899, 3544, 0), -1),
+    CANIFIS(26, 84755, 84756, Tile.of(3517, 3515, 0), 18523),
+    CATHERBY(13, 69852, 69853, Tile.of(2811, 3449, 0), 31),
+    DRAYNOR_VILLAGE(14, 69854, 69855, Tile.of(3105, 3298, 0), 32),
+    EAGLES_PEAK(27, 84757, 84758, Tile.of(2366, 3479, 0), 18524),
+    EDGEVILLE(15, 69856, 69857, Tile.of(3067, 3505, 0), 33),
+    FALADOR(16, 69858, 69859, Tile.of(2967, 3403, 0), 34),
+    FORT_FORINTHRY(22, 124994, 124995, Tile.of(3298, 3525, 0), 52518),
+    FREMENNIK_PROVINCE(28, 84759, 84760, Tile.of(2712, 3677, 0), 18525),
+    KARAMJA(29, 84761, 84762, Tile.of(2761, 3147, 0), 18526),
+    LUNAR_ISLE(9, -1, -1, Tile.of(2085, 3914, 0), -1),
+    LUMBRIDGE(17, 69860, 69861, Tile.of(3233, 3221, 0), 35),
+    MENAPHOS(23, 109415, 109416, Tile.of(3216, 2716, 0), 36173),
+    OOGLOG(30, -1, -1, Tile.of(2532, 2871, 0), 18527),
+    PORT_SARIM(18, 69862, 69863, Tile.of(3011, 3217, 0), 36),
+    PRIFDDINAS(34, 93371, 93372, Tile.of(2208, 3360, 1), 24967),
+    SEERS_VILLAGE(19, 69864, 69865, Tile.of(2689, 3482, 0), 37),
+    TAVERLEY(20, 69866, 69867, Tile.of(2878, 3442, 0), 38),
+    TIRANNWN(31, 84765, 84766, Tile.of(2254, 3149, 0), 18528),
+    UM(35, 127267, 127268, Tile.of(1084, 1768, 1), -1),
+    VARROCK(21, 69868, 69869, Tile.of(3214, 3376, 0), 39),
+    WILDERNESS(32, 84767, 84768, Tile.of(3143, 3635, 0), 18529),
+    YANILLE(25, 69870, 69871, Tile.of(2529, 3094, 0), 40);
+
+    /**
+     * True once this lodestone can be teleported to. Burthorpe is open to everyone; a lodestone with no known unlock
+     * var ([varbit] -1) reports false rather than risk a teleport the game refuses.
+     */
+    fun isUnlocked(): Boolean = when {
+        this == BURTHOPE -> true
+        varbit == -1 -> false
+        else -> varps.getVarBit(varbit) > 0
+    }
 }
 
 val isLodestoneUiOpen

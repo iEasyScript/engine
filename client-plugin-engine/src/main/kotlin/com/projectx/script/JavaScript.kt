@@ -66,7 +66,7 @@ abstract class JavaScript : Script() {
                 if (!perform(next)) return false
             }
             is Wait.WebWalk -> {
-                val result = WebWalker.walk(this, Tile.of(wait.x, wait.y, wait.plane), wait.arriveDistance)
+                val result = WebWalker.walk(this, Tile.of(wait.x, wait.y, wait.plane), wait.arriveDistance, wait.useLodestones)
                 wait.onResult?.accept(result)
             }
         }
@@ -113,6 +113,7 @@ sealed class Wait {
         val plane: Int,
         val arriveDistance: Int,
         val onResult: Consumer<WebWalkResult>?,
+        val useLodestones: Boolean,
     ) : Wait()
 
     object Abort : Wait()
@@ -195,8 +196,9 @@ sealed class Wait {
 
         /**
          * Walk to ([x], [y]) on [plane] from anywhere on the world map, planning the route from cache collision and
-         * opening doors on the way; finished within [arriveDistance] tiles. [onResult], when given, receives how it
-         * ended, so a step after this one can tell arriving from failing. See [WebWalker] for what routes cover.
+         * opening doors on the way; finished within [arriveDistance] tiles. A long walk teleports to an unlocked
+         * lodestone first when that is quicker, unless [useLodestones] is false. [onResult], when given, receives how
+         * it ended, so a step after this one can tell arriving from failing. See [WebWalker] for what routes cover.
          */
         @JvmStatic
         @JvmOverloads
@@ -206,7 +208,8 @@ sealed class Wait {
             plane: Int,
             arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
             onResult: Consumer<WebWalkResult>? = null,
-        ): Wait = WebWalk(x, y, plane, arriveDistance, onResult)
+            useLodestones: Boolean = true,
+        ): Wait = WebWalk(x, y, plane, arriveDistance, onResult, useLodestones)
 
         /**
          * Returned from a step: skip every remaining step of the sequences and loops it belongs to, and
