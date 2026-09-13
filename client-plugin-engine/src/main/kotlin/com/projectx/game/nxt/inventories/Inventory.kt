@@ -111,6 +111,11 @@ class Inventory(raw: MemorySegment, val interfaceId: Int = -1, val componentId: 
 
     fun clickItems(name: String, option: String) = firstOrNull { it.name.contains(name) }?.click(option) == true
 
+    fun findByNameContaining(part: String) = firstOrNull { it.amount > 0 && it.name.contains(part) }
+
+    val usedSlots: Int
+        get() = if (!exists) 0 else count { true }
+
     val freeSlots: Int
         get() = if (!exists) 0 else items.size.toInt() - count { true }
 

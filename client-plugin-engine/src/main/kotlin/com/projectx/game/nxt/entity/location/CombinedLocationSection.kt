@@ -33,6 +33,12 @@ class CombinedLocationSection(raw: MemorySegment) : Entity(raw), SceneObject {
         get() = tile.x
     override val tileY: Int
         get() = tile.y
+    override val centerX: Double
+        get() = super<SceneObject>.centerX
+    override val centerY: Double
+        get() = super<SceneObject>.centerY
+
+    override fun distanceTo(x: Double, y: Double) = super<SceneObject>.distanceTo(x, y)
 
     override val id: Int
         get() = realType?.id ?: 0

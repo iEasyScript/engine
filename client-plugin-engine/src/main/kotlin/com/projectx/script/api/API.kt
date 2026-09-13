@@ -15,11 +15,13 @@ import com.projectx.game.interfaces.Bank.Companion.doBankItemsAction
 import com.projectx.game.interfaces.IFSlot
 import com.projectx.game.interfaces.InstanceSystem
 import com.projectx.game.interfaces.parseAllActionBarAbilities
+import com.projectx.game.interfaces.parseAllActionBarItems
 import org.projectx.core.game.combat.Ability
 import org.projectx.core.game.combat.AbilityType
 import org.projectx.core.game.combat.Effect
 import com.projectx.game.nxt.DoActionOpcode
 import com.projectx.game.nxt.MainState
+import com.projectx.game.nxt.entity.Entity
 import com.projectx.game.nxt.entity.SpotAnim
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.game.nxt.entity.npc.NPC
@@ -30,6 +32,7 @@ import com.projectx.script.api.Relics.NONE
 import com.projectx.util.gaussian
 import kotlin.math.abs
 import kotlin.math.ceil
+import kotlin.math.hypot
 import kotlin.math.roundToInt
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.CopyOnWriteArrayList
@@ -487,6 +490,75 @@ fun walkToTile(x: Int, y: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, 
 
 fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
 
+/**
+ * Tile geometry and player state
+ */
+fun playerDistanceTo(x: Double, y: Double) = hypot(localPlayer.tileX - x, localPlayer.tileY - y)
+
+/** The object whose footprint centre is nearest the player, or null for an empty list. */
+fun <T : SceneObject> closestObject(objects: Iterable<T>): T? {
+    val x = localPlayer.tileX.toDouble()
+    val y = localPlayer.tileY.toDouble()
+    return objects.minByOrNull { it.distanceTo(x, y) }
+}
+
+/** The NPC, player or other entity whose footprint centre is nearest the player, or null for an empty list. */
+fun <T : Entity> closestEntity(entities: Iterable<T>): T? {
+    val x = localPlayer.tileX.toDouble()
+    val y = localPlayer.tileY.toDouble()
+    return entities.minByOrNull { it.distanceTo(x, y) }
+}
+
+/** True when ([x], [y]) is at least [safeDistance] tiles, counting diagonals as one, from every {x, y} marker. */
+fun isTileSafe(x: Int, y: Int, markers: List<IntArray>, safeDistance: Int) =
+    markers.none { maxOf(abs(x - it[0]), abs(y - it[1])) < safeDistance }
+
+/** The safe tile ([isTileSafe]) nearest the player within [range] tiles, as {x, y}, or null when there is none. */
+fun nearestSafeTile(markers: List<IntArray>, safeDistance: Int, range: Int): IntArray? {
+    val px = localPlayer.tileX
+    val py = localPlayer.tileY
+    var best: IntArray? = null
+    var bestDistance = Int.MAX_VALUE
+    for (dx in -range..range) {
+        for (dy in -range..range) {
+            val distance = dx * dx + dy * dy
+            if (distance < bestDistance && distance <= range * range && isTileSafe(px + dx, py + dy, markers, safeDistance)) {
+                bestDistance = distance
+                best = intArrayOf(px + dx, py + dy)
+            }
+        }
+    }
+    return best
+}
+
+/** The tile just outside [obj]'s footprint nearest the player, as {x, y}: where to stand, or land a dive, beside it. */
+fun tileBeside(obj: SceneObject): IntArray {
+    val px = localPlayer.tileX
+    val py = localPlayer.tileY
+    val minX = obj.tileX - 1
+    val minY = obj.tileY - 1
+    val maxX = obj.tileX + obj.sizeX.coerceAtLeast(1)
+    val maxY = obj.tileY + obj.sizeY.coerceAtLeast(1)
+    var best = intArrayOf(minX, minY)
+    var bestDistance = Int.MAX_VALUE
+    for (x in minX..maxX) {
+        for (y in minY..maxY) {
+            if (x != minX && x != maxX && y != minY && y != maxY) continue
+            val distance = (x - px) * (x - px) + (y - py) * (y - py)
+            if (distance < bestDistance) {
+                bestDistance = distance
+                best = intArrayOf(x, y)
+            }
+        }
+    }
+    return best
+}
+
+/** Not animating: the idle animation ids the client reports between actions. */
+fun isPlayerIdle() = localPlayer.animationId in -1..1
+
+fun isPlayerBusy() = localPlayer.isMoving || localPlayer.isAnimating
+
 private val porters =
     intArrayOf(29275, 29276, 29277, 29278, 29279, 29280, 29281, 29282, 29283, 29284, 29285, 29286, 51490, 51491)
 
@@ -877,6 +949,8 @@ private val DIVE_ABILITIES = listOf(Ability.DIVE, Ability.BLADED_DIVE)
 
 val diveAbility get() = DIVE_ABILITIES.firstOrNull { actionbarAbilities[it.type] != null }
 
+fun isDiveReady() = diveAbility?.offCdIgnoreGCD == true
+
 fun dive(tile: Tile): Boolean {
     val ability = diveAbility ?: return false
     if (!ability.offCdIgnoreGCD) return false
@@ -907,6 +981,18 @@ val isStunned get()= localPlayer.spotAnims.any { it.id == 4531 }
 
 val combatTarget get() = npcs.values.firstOrNull { npc -> npc.spotAnims.any { it.id in 9082..9086 || it.id in 9102..9106 } }
 val hasCombatTarget get() = combatTarget != null
+
+/** The action bar slot holding any of [itemIds], or null when none is on the bar. */
+fun actionBarItemSlot(vararg itemIds: Int): IFSlot? =
+    parseAllActionBarItems().firstOrNull { it.first in itemIds }?.second
+
+/** Uses the first of [itemIds] found in the inventory with [option], falling back to the action bar. */
+fun useInventoryOrActionBarItem(option: String, vararg itemIds: Int): Boolean {
+    for (id in itemIds) {
+        if (inventory.getItem(id)?.click(option) == true) return true
+    }
+    return actionBarItemSlot(*itemIds)?.click(1) == true
+}
 
 fun drinkOverload() = !isOverloaded && inventory.clickItem(Regex(".*overload.*", RegexOption.IGNORE_CASE), 1)
 fun activateExcalibur() =

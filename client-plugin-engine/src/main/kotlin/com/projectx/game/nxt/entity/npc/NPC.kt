@@ -68,6 +68,9 @@ class NPC(raw: MemorySegment) : PathingEntity(raw) {
         }
     }
 
+    /** Uses [action] when the NPC offers it, otherwise its first option. */
+    fun interactOrFirst(action: String) = interact(action) || interact(0)
+
     fun target(): Boolean {
         if (!exists()) return false
         DoActionOpcode.SELECT_NPC.fire(serverIndex, 0, 0)

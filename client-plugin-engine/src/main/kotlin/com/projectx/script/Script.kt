@@ -13,6 +13,11 @@ import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.startCoroutine
 
 abstract class Script {
+    companion object {
+        /** The pause the engine takes after every [loop] pass, on top of anything the pass waited for. */
+        const val LOOP_PASS_MILLIS = 40
+    }
+
     private var pendingEventWaitCompleted = false
     private var pendingEventPredicate: Predicate<Event>? = null
     private val parallelScripts = mutableListOf<Script>()
@@ -40,7 +45,7 @@ abstract class Script {
             onStart()
             while (!stopped) {
                 loop()
-                delay(40)
+                delay(LOOP_PASS_MILLIS)
             }
             onStop()
             stopParallelScripts()

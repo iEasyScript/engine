@@ -7,6 +7,7 @@ import world.gregs.voidps.cache.type.data.LocType
 import world.gregs.voidps.map.ObjectShape
 import world.gregs.voidps.type.Tile
 import java.lang.foreign.MemorySegment
+import kotlin.math.hypot
 
 private val MENU_OPS = arrayOf(
     DoActionOpcode.OBJECT_1,
@@ -37,6 +38,13 @@ interface SceneObject {
     // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
     val tileX: Int get() = tile.x
     val tileY: Int get() = tile.y
+
+    /** Centre of the footprint in tile coordinates; a 3x3 rock centres one tile in from its origin. */
+    val centerX: Double get() = tileX + (sizeX.coerceAtLeast(1) - 1) / 2.0
+    val centerY: Double get() = tileY + (sizeY.coerceAtLeast(1) - 1) / 2.0
+
+    /** Straight-line distance in tiles from the footprint centre to ([x], [y]). */
+    fun distanceTo(x: Double, y: Double) = hypot(centerX - x, centerY - y)
 
     /**
      * World tiles this object's ground footprint covers. Origin [tile] is the SW corner; the
@@ -72,6 +80,9 @@ interface SceneObject {
             false
         }
     }
+
+    /** Uses [action] when the object offers it, otherwise its first option. */
+    fun interactOrFirst(action: String) = interact(action) || interact(0)
 
     fun target(): Boolean {
         DoActionOpcode.SELECT_OBJECT.fire(id, tile.x, tile.y)

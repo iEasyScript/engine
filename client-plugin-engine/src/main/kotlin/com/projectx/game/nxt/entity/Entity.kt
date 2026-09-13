@@ -15,6 +15,7 @@ import com.projectx.game.nxt.EntityType
 import com.projectx.game.nxt.OEntity
 import com.projectx.game.math.Vector2f
 import java.lang.foreign.MemorySegment
+import kotlin.math.hypot
 import kotlin.math.roundToInt
 
 private const val MAX_ANIM_IDS = 16
@@ -53,6 +54,15 @@ abstract class Entity(raw: MemorySegment) {
         get() = tile.x
     open val tileY: Int
         get() = tile.y
+
+    /** Centre of the entity's footprint in tile coordinates; a size-3 NPC centres a tile in from its origin. */
+    open val centerX: Double
+        get() = tileX + (size.coerceAtLeast(1) - 1) / 2.0
+    open val centerY: Double
+        get() = tileY + (size.coerceAtLeast(1) - 1) / 2.0
+
+    /** Straight-line distance in tiles from the footprint centre to ([x], [y]). */
+    open fun distanceTo(x: Double, y: Double) = hypot(centerX - x, centerY - y)
 
     /** Picking mode: 0 = point/circle test, non-zero = line segment test. */
     val pickType: Int

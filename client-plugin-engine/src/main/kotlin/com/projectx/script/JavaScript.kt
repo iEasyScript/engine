@@ -24,11 +24,21 @@ abstract class JavaScript : Script() {
     /** One pass of the script. Return what the engine should wait for before the next pass. */
     abstract fun onLoop(): Wait
 
-    final override suspend fun loop() = perform(onLoop())
+    /**
+     * Called before every step of a [Wait.sequence] or [Wait.loop] runs. A step can start long after
+     * [onLoop] returned, so refresh anything the steps read from the game here.
+     */
+    protected open fun beforeEachStep() {}
 
-    private suspend fun perform(wait: Wait?) {
+    final override suspend fun loop() {
+        perform(onLoop())
+    }
+
+    /** Performs [wait]; false once a [Wait.abort] has ended the steps it was part of. */
+    private suspend fun perform(wait: Wait?): Boolean {
         when (wait) {
             null -> Unit
+            Wait.Abort -> return false
             is Wait.Millis -> delay(wait.mean, wait.variance)
             is Wait.Until -> delayUntil(wait.timeoutMillis, wait.pollMillis) { wait.predicate.asBoolean }
             is Wait.While -> delayWhile(wait.timeoutMillis) { wait.predicate.asBoolean }
@@ -41,10 +51,17 @@ abstract class JavaScript : Script() {
                 }
             }
             is Wait.Sequence -> for (step in wait.steps) {
-                if (stopped) return
-                perform(step.run())
+                if (stopped) return true
+                beforeEachStep()
+                if (!perform(step.run())) return false
+            }
+            is Wait.Loop -> while (!stopped) {
+                beforeEachStep()
+                val next = wait.step.run() ?: break
+                if (!perform(next)) return false
             }
         }
+        return true
     }
 }
 
@@ -79,6 +96,10 @@ sealed class Wait {
 
     class Sequence internal constructor(val steps: List<Step>) : Wait()
 
+    class Loop internal constructor(val step: Step) : Wait()
+
+    object Abort : Wait()
+
     companion object {
         /** A fixed pause. Prefer the randomised overload; a constant delay is a recognisable pattern. */
         @JvmStatic
@@ -96,8 +117,16 @@ sealed class Wait {
         /** [ticks] game ticks of 600 ms (fractions allowed), plus 0..[jitterMillis] ms picked uniformly. */
         @JvmStatic
         @JvmOverloads
-        fun ticks(ticks: Double, jitterMillis: Int = 0): Wait =
-            Millis((ticks * TICK_MILLIS).roundToInt() + ThreadLocalRandom.current().nextInt(jitterMillis + 1), 0)
+        fun ticks(ticks: Double, jitterMillis: Int = 0): Wait = ticks(ticks, 0, jitterMillis)
+
+        /** [ticks] game ticks of 600 ms (fractions allowed), plus [minJitterMillis]..[maxJitterMillis] ms picked uniformly. */
+        @JvmStatic
+        fun ticks(ticks: Double, minJitterMillis: Int, maxJitterMillis: Int): Wait =
+            Millis(
+                (ticks * TICK_MILLIS).roundToInt() +
+                    ThreadLocalRandom.current().nextInt(minJitterMillis, maxJitterMillis + 1),
+                0,
+            )
 
         /** Wait until [predicate] holds, giving up after [timeoutMillis]. */
         @JvmStatic
@@ -130,5 +159,19 @@ sealed class Wait {
          */
         @JvmStatic
         fun sequence(vararg steps: Step): Wait = Sequence(steps.toList())
+
+        /**
+         * Run [step] again and again, performing the wait it returns each time, until it returns null.
+         * The non-blocking form of a `while` loop with a sleep inside it.
+         */
+        @JvmStatic
+        fun loop(step: Step): Wait = Loop(step)
+
+        /**
+         * Returned from a step: skip every remaining step of the sequences and loops it belongs to, and
+         * go straight on to the next [JavaScript.onLoop].
+         */
+        @JvmStatic
+        fun abort(): Wait = Abort
     }
 }
