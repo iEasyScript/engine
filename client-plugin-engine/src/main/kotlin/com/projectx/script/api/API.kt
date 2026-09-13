@@ -227,6 +227,7 @@ suspend fun Script.findAndPickupItems(vararg items: String): Boolean {
 /**
  * Spotanim utilities
  */
+@JvmOverloads
 fun getAllSpotAnimsWithinRange(range: Int = 20, predicate: (SpotAnim) -> Boolean): List<SpotAnim> = spotAnims
     .filter {
         it.tile.plane == localPlayer.tile.plane && it.tile.getDistance(localPlayer.tile) <= range && predicate.invoke(
@@ -235,6 +236,7 @@ fun getAllSpotAnimsWithinRange(range: Int = 20, predicate: (SpotAnim) -> Boolean
     }
     .sortedBy { it.tile.getDistance(localPlayer.tile) }
 
+@JvmOverloads
 fun findClosestSpotAnim(
     maxRange: Int = 20,
     checkReachable: Boolean = false,
@@ -252,6 +254,7 @@ fun findClosestSpotAnim(
         ?.first
 }
 
+@JvmOverloads
 fun findClosestSpotAnim(id: Int, range: Int = 20) = findClosestSpotAnim(range) { it.id == id }
 
 /**
@@ -297,24 +300,29 @@ fun findClosestObjectToTile(fromTile: Tile, id: Int, range: Int = 20) =
 fun findClosestObjectToTileWithOption(fromTile: Tile, option: String, range: Int = 20) =
     findClosestObjectToTile(fromTile, range) { it.hasOption(option) }
 
+@JvmOverloads
 fun findClosestReachableObject(maxRange: Int = 20, predicate: (SceneObject) -> Boolean) =
     findClosestObjectToTile(localPlayer.tile, maxRange, true, predicate)
 
+@JvmOverloads
 fun interactClosestReachableObject(option: String, range: Int = 20): Boolean {
     val target = findClosestReachableObject(range) { it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestReachableObject(objectId: Int, option: String, range: Int = 20): Boolean {
     val target = findClosestReachableObject(range) { it.id == objectId && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestReachableObject(objectName: String, option: String, range: Int = 20): Boolean {
     val target = findClosestReachableObject(range) { it.name() == objectName && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestReachableObject(objectNameRegex: Regex, option: String, range: Int = 20): Boolean {
     val target =
         findClosestReachableObject(range) { objectNameRegex.matches(it.name()) && it.hasOption(option) } ?: return false
@@ -345,45 +353,102 @@ fun interactClosestReachableObjectToTile(tile: Tile, objectNameRegex: Regex, opt
     return target.interact(option)
 }
 
+// Coordinate forms of the Tile-taking functions above: Tile is an inline value class, so those compile to mangled JVM
+// names Java cannot call.
+
+fun getAllObjectsWithinRange(x: Int, y: Int, plane: Int, range: Int): List<SceneObject> =
+    getAllObjectsWithinRange(Tile.of(x, y, plane), range)
+
+@JvmOverloads
+fun findClosestObjectToTile(
+    x: Int,
+    y: Int,
+    plane: Int,
+    range: Int = 20,
+    checkReachable: Boolean = false,
+    predicate: (SceneObject) -> Boolean
+): SceneObject? = findClosestObjectToTile(Tile.of(x, y, plane), range, checkReachable, predicate)
+
+@JvmOverloads
+fun findClosestReachableObjectToTile(x: Int, y: Int, plane: Int, maxRange: Int = 20, predicate: (SceneObject) -> Boolean) =
+    findClosestReachableObjectToTile(Tile.of(x, y, plane), maxRange, predicate)
+
+@JvmOverloads
+fun findClosestObjectToTile(x: Int, y: Int, plane: Int, name: String, range: Int = 20) =
+    findClosestObjectToTile(Tile.of(x, y, plane), name, range)
+
+@JvmOverloads
+fun findClosestObjectToTile(x: Int, y: Int, plane: Int, id: Int, range: Int = 20) =
+    findClosestObjectToTile(Tile.of(x, y, plane), id, range)
+
+@JvmOverloads
+fun findClosestObjectToTileWithOption(x: Int, y: Int, plane: Int, option: String, range: Int = 20) =
+    findClosestObjectToTileWithOption(Tile.of(x, y, plane), option, range)
+
+@JvmOverloads
+fun interactClosestReachableObjectToTile(x: Int, y: Int, plane: Int, option: String, range: Int = 20): Boolean =
+    interactClosestReachableObjectToTile(Tile.of(x, y, plane), option, range)
+
+@JvmOverloads
+fun interactClosestReachableObjectToTile(x: Int, y: Int, plane: Int, objectId: Int, option: String, range: Int = 20): Boolean =
+    interactClosestReachableObjectToTile(Tile.of(x, y, plane), objectId, option, range)
+
+@JvmOverloads
+fun interactClosestReachableObjectToTile(x: Int, y: Int, plane: Int, objectName: String, option: String, range: Int = 20): Boolean =
+    interactClosestReachableObjectToTile(Tile.of(x, y, plane), objectName, option, range)
+
+@JvmOverloads
 fun findClosestReachableObject(name: String, range: Int = 20) = findClosestReachableObject(range) { it.name() == name }
+@JvmOverloads
 fun findClosestReachableObject(id: Int, range: Int = 20) = findClosestReachableObject(range) { it.id == id }
+@JvmOverloads
 fun findClosestReachableObjectWithOption(option: String, range: Int = 20) =
     findClosestReachableObject(range) { it.hasOption(option) }
 
+@JvmOverloads
 fun interactClosestObject(option: String, range: Int = 20): Boolean {
     val target = findClosestObjectToTile(localPlayer.tile, range) { it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestObject(objectId: Int, option: String, range: Int = 20): Boolean {
     val target = findClosestObjectToTile(localPlayer.tile, range) { it.id == objectId && it.hasOption(option) }
         ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestObject(objectName: String, option: String, range: Int = 20): Boolean {
     val target = findClosestObjectToTile(localPlayer.tile, range) { it.name() == objectName && it.hasOption(option) }
         ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestObjectFromIds(vararg objectIds: Int, option: String, range: Int = 20): Boolean {
     val target = getAllObjectsWithinRange(range).filter { it.id in objectIds && it.hasOption(option) }
         .minByOrNull { it.tile.getDistance(localPlayer.tile) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun findClosestObject(range: Int = 20, predicate: (SceneObject) -> Boolean) =
     findClosestObjectToTile(localPlayer.tile, range, false, predicate)
 
+@JvmOverloads
 fun findClosestObject(name: String, range: Int = 20) = findClosestObject(range) { it.name() == name }
+@JvmOverloads
 fun findClosestObject(name: String, range: Int = 20, predicate: (SceneObject) -> Boolean) =
     findClosestObject(range) { it.name() == name && predicate.invoke(it) }
 
+@JvmOverloads
 fun findClosestObject(id: Int, range: Int = 20) = findClosestObject(range) { it.id == id }
+@JvmOverloads
 fun findClosestObjectWithOption(option: String, range: Int = 20) = findClosestObject(range) { it.hasOption(option) }
 
 
+@JvmOverloads
 fun findClosestObjectInArea(
     area: Area,
     checkReachable: Boolean = false,
@@ -409,16 +474,19 @@ fun findClosestObjectInArea(
 // Stale NPC entries in the manager occasionally have null backing memory; reading their
 // tile/size NPEs deep in NativeAccess. Filter those out per-entry rather than letting the
 // whole iteration die.
+@JvmOverloads
 fun allNpcsWithinRange(maxRange: Int = 20) = npcs.values.mapNotNull { npc ->
     runCatching { if (npc.tile.withinDistance(localPlayer.tile, maxRange)) npc else null }.getOrNull()
 }.sortedBy { runCatching { it.tile.getDistance(localPlayer.tile) }.getOrDefault(Int.MAX_VALUE) }
 
+@JvmOverloads
 fun allNpcsWithinRange(maxRange: Int = 20, predicate: (NPC) -> Boolean) = npcs.values.mapNotNull { npc ->
     runCatching {
         if (npc.tile.withinDistance(localPlayer.tile, maxRange) && predicate.invoke(npc)) npc else null
     }.getOrNull()
 }.sortedBy { runCatching { it.tile.getDistance(localPlayer.tile) }.getOrDefault(Int.MAX_VALUE) }
 
+@JvmOverloads
 fun findClosestNPC(maxRange: Int = 20, checkReachable: Boolean = false, predicate: (NPC) -> Boolean): NPC? {
     return allNpcsWithinRange(maxRange) { predicate.invoke(it) }
         .mapNotNull { npc ->
@@ -432,47 +500,61 @@ fun findClosestNPC(maxRange: Int = 20, checkReachable: Boolean = false, predicat
         ?.first
 }
 
+@JvmOverloads
 fun findClosestNPC(name: String, range: Int = 20) = findClosestNPC(range) { it.name() == name }
+@JvmOverloads
 fun findClosestNPC(id: Int, range: Int = 20) = findClosestNPC(range) { it.id == id }
+@JvmOverloads
 fun findClosestNPCWithOption(option: String, range: Int = 20) = findClosestNPC(range) { it.hasOption(option) }
 
+@JvmOverloads
 fun findClosestReachableNPC(maxRange: Int = 20, predicate: (NPC) -> Boolean) = findClosestNPC(maxRange, true, predicate)
 
+@JvmOverloads
 fun interactClosestNPC(option: String, range: Int = 20): Boolean {
     val target = findClosestNPC(range) { it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestNPC(npcId: Int, option: String, range: Int = 20): Boolean {
     val target = findClosestNPC(range) { it.id == npcId && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestNPC(npcName: String, option: String, range: Int = 20): Boolean {
     val target = findClosestNPC(range) { it.name == npcName && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun findClosestReachableNPC(name: String, range: Int = 20) = findClosestReachableNPC(range) { it.name() == name }
+@JvmOverloads
 fun findClosestReachableNPC(id: Int, range: Int = 20) = findClosestReachableNPC(range) { it.id == id }
+@JvmOverloads
 fun findClosestReachableNPCWithOption(option: String, range: Int = 20) =
     findClosestReachableNPC(range) { it.hasOption(option) }
 
+@JvmOverloads
 fun interactClosestReachableNPC(option: String, range: Int = 20): Boolean {
     val target = findClosestReachableNPC(range) { it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestReachableNPC(npcId: Int, option: String, range: Int = 20): Boolean {
     val target = findClosestReachableNPC(range) { it.id == npcId && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun interactClosestReachableNPC(npcName: String, option: String, range: Int = 20): Boolean {
     val target = findClosestReachableNPC(range) { it.name() == npcName && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
+@JvmOverloads
 fun findNPC(range: Int = 20, predicate: (NPC) -> Boolean) = npcs.values.firstOrNull { predicate.invoke(it) }
 
 /**
@@ -490,7 +572,13 @@ fun walkTo(tile: Tile, minimap: Boolean): Boolean {
 @JvmOverloads
 fun walkToTile(x: Int, y: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, localPlayer.plane), minimap)
 
+/** Walks to ([x], [y]) on [plane]; false when it is more than 40 tiles away. */
+@JvmOverloads
+fun walkToTile(x: Int, y: Int, plane: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, plane), minimap)
+
 fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
+
+fun diveToTile(x: Int, y: Int, plane: Int) = dive(Tile.of(x, y, plane))
 
 /**
  * Walks to [destination] from anywhere on the world map, teleporting to an unlocked lodestone first when that is
@@ -652,6 +740,7 @@ suspend fun Script.waitUntilNotAniMoving(timeout: Long = 30000) {
 /**
  * Interface utilities
  */
+@JvmOverloads
 fun interactComponent(optionNum: Int, interfaceId: Int, componentId: Int, slotId: Int = -1): Boolean {
     val slot = IFSlot(interfaceId, componentId, slotId)
     return slot.click(optionNum)
@@ -746,6 +835,7 @@ val bankWithdrawNotes
 
 private val knownBankOptions = arrayOf("Bank", "Use", "Open")
 
+@JvmOverloads
 fun openClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean {
     findClosestObjectToTile(localPlayer.tile, range, checkReachable) {
         it.name().contains("Bank") || it.hasOption("Bank")
@@ -773,6 +863,7 @@ fun openClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean {
     return false
 }
 
+@JvmOverloads
 fun loadLastPresetClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean {
     findClosestObjectToTile(localPlayer.tile, range, checkReachable) {
         it.name().contains("Bank") || it.hasOption("Bank")
@@ -808,6 +899,7 @@ fun depositBankWorn() = doBankAction(Bank.DEPOSIT_WORN_COMPONENT_ID)
 fun setBankWithdrawNotes(notes: Boolean) =
     if (bankWithdrawNotes != notes) doBankAction(Bank.CERT_COMPONENT_ID) else true
 
+@JvmOverloads
 fun depositBankItem(name: String, amount: Int = 0) = when (amount) {
     1 -> doBankInventoryAction(name, 2)
     5 -> doBankInventoryAction(name, 3)
@@ -820,6 +912,7 @@ fun depositBankItem(name: String, amount: Int = 0) = when (amount) {
     }
 }
 
+@JvmOverloads
 fun depositBankItem(name: Regex, amount: Int = 0) = when (amount) {
     1 -> doBankInventoryAction(name, 2)
     5 -> doBankInventoryAction(name, 3)
@@ -832,6 +925,7 @@ fun depositBankItem(name: Regex, amount: Int = 0) = when (amount) {
     }
 }
 
+@JvmOverloads
 fun withdrawBankItem(name: String, amount: Int = 0) = when (amount) {
     1 -> doBankItemsAction(name, 2)
     5 -> doBankItemsAction(name, 3)
@@ -844,6 +938,7 @@ fun withdrawBankItem(name: String, amount: Int = 0) = when (amount) {
     }
 }
 
+@JvmOverloads
 fun withdrawBankItem(name: Regex, amount: Int = 0) = when (amount) {
     1 -> doBankItemsAction(name, 2)
     5 -> doBankItemsAction(name, 3)
@@ -1007,9 +1102,11 @@ suspend fun Script.castWithEffectStacks(
     )
 }
 
+@JvmOverloads
 fun abilityOffCd(ability: Ability, ignoreGCD: Boolean = false) =
     if (ignoreGCD) ability.offCdIgnoreGCD else ability.offCd
 
+@JvmOverloads
 fun abilityCooldownTicks(ability: Ability, ignoreGCD: Boolean = false) =
     if (ignoreGCD) ability.cooldownTicksIgnoreGCD else ability.cooldownTicks
 
@@ -1095,8 +1192,50 @@ fun startInstance() = InstanceSystem.startInstance()
 /**
  * Misc utilities
  */
-data class DangerZone(val center: Tile, val radius: Int)
-data class TileArea(val tile: Tile, val sizeX: Int, val sizeY: Int)
+data class DangerZone(val center: Tile, val radius: Int) {
+    constructor(centerX: Int, centerY: Int, plane: Int, radius: Int) : this(Tile.of(centerX, centerY, plane), radius)
+
+    // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
+    val centerX: Int get() = center.x
+    val centerY: Int get() = center.y
+    val plane: Int get() = center.plane
+}
+
+data class TileArea(val tile: Tile, val sizeX: Int, val sizeY: Int) {
+    constructor(x: Int, y: Int, plane: Int, sizeX: Int, sizeY: Int) : this(Tile.of(x, y, plane), sizeX, sizeY)
+
+    val tileX: Int get() = tile.x
+    val tileY: Int get() = tile.y
+    val plane: Int get() = tile.plane
+}
+
+/** [calculateClosestSafeTile] from ([x], [y]) on [plane], for Java; the target area defaults to that one tile. */
+@JvmOverloads
+fun calculateClosestSafeTile(
+    x: Int,
+    y: Int,
+    plane: Int,
+    dangerZones: List<DangerZone>,
+    targetArea: TileArea = TileArea(x, y, plane, 1, 1),
+    obstacles: List<TileArea> = emptyList(),
+    maxRadius: Int = 10,
+    checkObstacleLos: Boolean = true
+): Tile? = calculateClosestSafeTile(Tile.of(x, y, plane), dangerZones, targetArea, obstacles, maxRadius, checkObstacleLos)
+
+/** [calculateClosestReachableSafeTile] from ([x], [y]) on [plane], for Java. */
+@JvmOverloads
+fun calculateClosestReachableSafeTile(
+    x: Int,
+    y: Int,
+    plane: Int,
+    dangerZones: List<DangerZone>,
+    targetArea: TileArea = TileArea(x, y, plane, 1, 1),
+    maxRadius: Int = 10
+): Tile? = calculateClosestReachableSafeTile(Tile.of(x, y, plane), dangerZones, targetArea, maxRadius)
+
+/** [bresenhamLos] between two tiles given as coordinates, for Java. */
+fun bresenhamLos(startX: Int, startY: Int, endX: Int, endY: Int, obstacles: List<TileArea>): Boolean =
+    bresenhamLos(Tile.of(startX, startY, 0), Tile.of(endX, endY, 0), obstacles)
 
 fun calculateClosestSafeTile(
     currentPos: Tile,
@@ -1558,6 +1697,11 @@ enum class Lodestone(val id: Int, val object_id: Int, val object_id_unlocked: In
     WILDERNESS(32, 84767, 84768, Tile.of(3143, 3635, 0), 18529),
     YANILLE(25, 69870, 69871, Tile.of(2529, 3094, 0), 40);
 
+    // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
+    val tileX: Int get() = tile.x
+    val tileY: Int get() = tile.y
+    val plane: Int get() = tile.plane
+
     /**
      * True once this lodestone can be teleported to. Burthorpe is open to everyone; a lodestone with no known unlock
      * var ([varbit] -1) reports false rather than risk a teleport the game refuses.
@@ -1650,9 +1794,11 @@ enum class Relics(val value: Int) {
 
     companion object {
         /** Lookup a [Relics] by its numeric [id]; returns [NONE] when not found. */
+        @JvmStatic
         fun fromId(id: Int): Relics = entries.firstOrNull { it.value == id } ?: NONE
 
         /** Lookup a [Relics] by its [name] (case-insensitive); returns [NONE] when not found. */
+        @JvmStatic
         fun fromName(name: String): Relics = entries.firstOrNull { it.name.equals(name, true) } ?: NONE
 
 

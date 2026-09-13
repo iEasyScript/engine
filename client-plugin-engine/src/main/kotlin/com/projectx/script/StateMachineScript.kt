@@ -1,6 +1,7 @@
 package com.projectx.script
 
 import com.projectx.script.event.Event
+import kotlinx.coroutines.CancellationException
 
 abstract class StateMachineScript<T : StateMachineScript<T>> : Script() {
     protected var currentState: State<T>
@@ -19,6 +20,9 @@ abstract class StateMachineScript<T : StateMachineScript<T>> : Script() {
                 return
             }
             currentState.loop(this)
+        } catch (cancelled: CancellationException) {
+            // shouldInterrupt cancelled the pass: not an error, and swallowing it would let the pass run on.
+            throw cancelled
         } catch (exception: Throwable) {
             exception.printStackTrace()
         }

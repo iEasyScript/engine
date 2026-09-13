@@ -8,6 +8,7 @@ fun boolState(initialValue: Boolean): ImGuiState<Boolean> = BooleanState(initial
 fun intState(initialValue: Int): ImGuiState<Int> = IntState(initialValue)
 
 fun floatState(initialValue: Float): ImGuiState<Float> = FloatState(initialValue)
+@JvmOverloads
 fun stringState(initialValue: String, maxLength: Int = 256): ImGuiState<String> = StringState(initialValue, maxLength)
 
 data class FloatRange(val min: ImGuiState<Float>, val max: ImGuiState<Float>) : AutoCloseable {

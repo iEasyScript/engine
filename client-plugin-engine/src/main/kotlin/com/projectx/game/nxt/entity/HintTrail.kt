@@ -81,6 +81,7 @@ class HintTrail(raw: MemorySegment) : Entity(raw) {
          * graph looking for hint entities instead means dereferencing thousands of loosely validated
          * node pointers per sweep, which is a SIGSEGV waiting for a scene reload to happen underneath it.
          */
+        @JvmStatic
         fun all(): List<HintTrail> = runCatching {
             val container = Bootstrap.client.ptr.readLong(OClient.HINTTRAIL_LIST)
             if (container == 0L) return emptyList()
@@ -94,6 +95,7 @@ class HintTrail(raw: MemorySegment) : Entity(raw) {
         }.getOrDefault(emptyList())
 
         /** Destinations of every live hint, nearest first. */
+        @JvmStatic
         fun destinations(): List<Tile> = all().mapNotNull { it.destination }
 
         private const val ENTITY_BYTES = 0x14b0L

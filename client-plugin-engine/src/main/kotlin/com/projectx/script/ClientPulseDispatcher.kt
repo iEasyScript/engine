@@ -30,9 +30,11 @@ class ClientPulseDispatcher : CoroutineDispatcher(), Delay {
     }
 
     override fun scheduleResumeAfterDelay(timeMillis: Long, continuation: CancellableContinuation<Unit>) {
-        synchronized(this) {
-            tasks.add(ScheduledTask(System.currentTimeMillis() + timeMillis, continuation))
-        }
+        val task = ScheduledTask(System.currentTimeMillis() + timeMillis, continuation)
+        synchronized(this) { tasks.add(task) }
+        // A cancelled delay (an interrupted wait, or a timeout firing) must leave the queue, or it lingers until due and
+        // is then reported as a dropped continuation.
+        continuation.invokeOnCancellation { synchronized(this) { tasks.remove(task) } }
     }
 
     override fun invokeOnTimeout(timeMillis: Long, block: Runnable, context: CoroutineContext): DisposableHandle {

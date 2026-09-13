@@ -11,6 +11,7 @@ import java.util.concurrent.atomic.AtomicReference
 class MenuScope : LayoutScope {
     override val commands = mutableListOf<ImGuiCommand>()
 
+    @JvmOverloads
     fun menuItem(label: String, shortcut: String = "", selected: Boolean = false, onClick: () -> Unit) {
         commands.add(MenuItemActionCommand(label, shortcut, selected, onClick))
     }
@@ -35,6 +36,7 @@ class MenuScope : LayoutScope {
 class ContextMenuScope : LayoutScope {
     override val commands = mutableListOf<ImGuiCommand>()
 
+    @JvmOverloads
     fun menuItem(label: String, shortcut: String = "", selected: Boolean = false, onClick: () -> Unit) {
         commands.add(MenuItemActionCommand(label, shortcut, selected, onClick))
     }

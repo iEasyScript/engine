@@ -22,6 +22,7 @@ data class GraphicNineSlice(
     val bottomRight: GraphicPiece
 ) {
     companion object {
+        @JvmStatic
         fun fromGraphicIds(
             topLeft: Int,
             top: Int,

@@ -45,6 +45,7 @@ interface SceneObject {
     // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
     val tileX: Int get() = tile.x
     val tileY: Int get() = tile.y
+    val plane: Int get() = tile.plane
 
     /** Centre of the footprint in tile coordinates; a 3x3 rock centres one tile in from its origin. */
     val centerX: Double get() = tileX + (footprintX - 1) / 2.0

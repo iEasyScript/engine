@@ -126,6 +126,7 @@ enum class MessageType(val id: Int) {
     GLOBAL_ANNOUNCEMENT(137);
 
     companion object {
+        @JvmStatic
         fun forId(id: Int): MessageType? = entries.firstOrNull { it.id == id }
     }
 }

@@ -29,7 +29,7 @@ fun <T, I> I.withAction(label: String, run: () -> T?): I where I : ConfigItem<T>
     return this
 }
 
-class BooleanConfigItem(
+class BooleanConfigItem @JvmOverloads constructor(
     override val name: String,
     override val description: String,
     initialValue: Boolean = false
@@ -38,7 +38,7 @@ class BooleanConfigItem(
     override var action: ConfigAction<Boolean>? = null
 }
 
-class IntConfigItem(
+class IntConfigItem @JvmOverloads constructor(
     override val name: String,
     override val description: String,
     initialValue: Int = 0,
@@ -49,7 +49,7 @@ class IntConfigItem(
     override var action: ConfigAction<Int>? = null
 }
 
-class StringConfigItem(
+class StringConfigItem @JvmOverloads constructor(
     override val name: String,
     override val description: String,
     initialValue: String = ""
@@ -78,7 +78,7 @@ class EnumConfigItem<T : Enum<T>>(
     override var action: ConfigAction<T>? = null
 }
 
-class InfoDisplayConfigItem(
+class InfoDisplayConfigItem @JvmOverloads constructor(
     override val name: String,
     override val description: String,
     initialValue: String = ""
@@ -91,7 +91,7 @@ class InfoDisplayConfigItem(
  * Valueless marker: the items declared after it (up to the next section) render under a
  * collapsible header. Nothing is persisted; the open state lives in ImGui like any header.
  */
-class ConfigSection(
+class ConfigSection @JvmOverloads constructor(
     override val name: String,
     override val description: String = "",
     val defaultOpen: Boolean = true

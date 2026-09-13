@@ -48,7 +48,9 @@ fun getUnitsPerHour(unitsGained: Int, startTime: Long) = (unitsGained / hoursEla
 fun getFormattedUnitsPerHour(unitsGained: Int, startTime: Long) = format(getUnitsPerHour(unitsGained, startTime))
 
 fun format(number: Int) = NumberFormat.getNumberInstance(Locale.US).format(number)
+@JvmOverloads
 fun format(number: Float, decimals: Int = 2): String = String.format(Locale.US, "%.${decimals}f", number)
+@JvmOverloads
 fun format(number: Double, decimals: Int = 2): String = String.format(Locale.US, "%.${decimals}f", number)
 
 fun formatElapsedTime(currTime: Long, startTime: Long): String {

@@ -21,21 +21,31 @@ object Smithing {
     const val QUANTITY_VARP = 8336
 
     const val METAL_BANK_INV = 858
+    @JvmStatic
     val metalBank get() = Bootstrap.client.inventoryManager[METAL_BANK_INV]
 
+    @JvmStatic
     val TIER_BUTTON = linkedMapOf(0 to 149, 1 to 161, 2 to 159, 3 to 157, 4 to 155, 5 to 153, 50 to 151)
 
+    @JvmStatic
     val isOpen get() = interfaces.isOpen(INTERFACE)
+    @JvmStatic
     val baseObjectId get() = varps.getVar(BASE_OBJECT_VARP)
+    @JvmStatic
     val tier get() = varps.getVarBit(TIER_VARBIT)
+    @JvmStatic
     val quantity get() = varps.getVar(QUANTITY_VARP)
+    @JvmStatic
     val selectedName get() = interfaces.getComponent(INTERFACE, ITEM_NAME)?.text ?: ""
 
+    @JvmStatic
     fun tierAvailable(t: Int) =
         TIER_BUTTON[t]?.let { interfaces.getComponent(INTERFACE, it) != null } == true
 
+    @JvmStatic
     fun listRows() = interfaces.getComponent(INTERFACE, ITEM_LIST)?.slotChildren.orEmpty()
 
+    @JvmStatic
     val quantityMax get() = (interfaces.getComponent(INTERFACE, QUANTITY_SELECT)?.slotChildren?.size ?: 0) + QUANTITY_MIN - 1
 }
 
@@ -108,6 +118,7 @@ fun smithBarsAvailable(barItem: Int): Int {
     return if (manager.exists(Smithing.METAL_BANK_INV)) manager[Smithing.METAL_BANK_INV].count(barItem) else 0
 }
 
+@JvmOverloads
 fun smithBatchSize(barItem: Int, cumulativeBars: Int, cap: Int = 20): Int {
     if (cumulativeBars <= 0) return 0
     return minOf(cap, smithBarsAvailable(barItem) / cumulativeBars)

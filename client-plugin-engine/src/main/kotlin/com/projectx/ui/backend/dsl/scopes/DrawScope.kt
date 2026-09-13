@@ -19,22 +19,27 @@ class BackgroundDrawListScope {
     @PublishedApi
     internal val drawCommands = mutableListOf<ImGuiDrawCommand>()
 
+    @JvmOverloads
     fun line(from: Vector2f, to: Vector2f, color: Int, thickness: Float = 1f) {
         drawCommands.add(DrawLineCommand(from.x, from.y, to.x, to.y, color, thickness))
     }
     
+    @JvmOverloads
     fun rect(from: Vector2f, to: Vector2f, color: Int, rounding: Float = 0f, thickness: Float = 1f) {
         drawCommands.add(DrawRectCommand(from.x, from.y, to.x, to.y, color, rounding, 0, thickness))
     }
     
+    @JvmOverloads
     fun rectFilled(from: Vector2f, to: Vector2f, color: Int, rounding: Float = 0f) {
         drawCommands.add(DrawRectFilledCommand(from.x, from.y, to.x, to.y, color, rounding, 0))
     }
     
+    @JvmOverloads
     fun circle(center: Vector2f, radius: Float, color: Int, segments: Int = 0, thickness: Float = 1f) {
         drawCommands.add(DrawCircleCommand(center.x, center.y, radius, color, segments, thickness))
     }
     
+    @JvmOverloads
     fun circleFilled(center: Vector2f, radius: Float, color: Int, segments: Int = 0) {
         drawCommands.add(DrawCircleFilledCommand(center.x, center.y, radius, color, segments))
     }
@@ -43,14 +48,17 @@ class BackgroundDrawListScope {
         drawCommands.add(DrawTextCommand(pos.x, pos.y, color, text))
     }
 
+    @JvmOverloads
     fun image(texturePath: String, pos: Vector2f, size: Vector2f, color: Int = -1) {
         drawCommands.add(DrawImageCommand(texturePath, pos.x, pos.y, pos.x + size.x, pos.y + size.y, color))
     }
 
+    @JvmOverloads
     fun image(texture: ImGuiTexture, pos: Vector2f, size: Vector2f, color: Int = -1) {
         drawCommands.add(DrawTextureCommand(texture, pos.x, pos.y, pos.x + size.x, pos.y + size.y, color))
     }
 
+    @JvmOverloads
     fun imageOnTile(tileFine: Vector3f, texture: ImGuiTexture, size: Vector2f, color: Int = -1) {
         val center = worldToScreen(tileFine) ?: return
         val pos = Vector2f(center.x - size.x * 0.5f, center.y - size.y * 0.5f)
@@ -100,6 +108,7 @@ class BackgroundDrawListScope {
         text(Vector2f(center.x - text.length * HALF_CHAR_WIDTH, center.y + offsetY), color, text)
     }
 
+    @JvmOverloads
     fun watermark(
         texture: ImGuiTexture,
         corner: Corner = Corner.BottomRight,
@@ -115,6 +124,7 @@ class BackgroundDrawListScope {
         drawCommands.add(DrawConvexPolyFilledCommand(points, color))
     }
 
+    @JvmOverloads
     fun polyLine(points: FloatArray, color: Int, flags: Int = 0, thickness: Float = 1f) {
         drawCommands.add(DrawPolylineCommand(points, color, flags, thickness))
     }
@@ -141,6 +151,22 @@ class BackgroundDrawListScope {
         tile(Vector3f(tile.x * 512.0f + 256.0f, tile.y * 512.0f + 256.0f, z), color)
     }
 
+    // Coordinate forms of the Tile-taking draws above: Tile is an inline value class, so those compile to mangled JVM
+    // names Java cannot call.
+
+    /** Highlights tile ([x], [y]) on [plane]. */
+    fun tile(x: Int, y: Int, plane: Int, color: Int) = tile(Tile.of(x, y, plane), color)
+
+    /** Spans a [size]x[size] footprint anchored at its south-west tile ([x], [y]) on [plane]. */
+    fun tileArea(x: Int, y: Int, plane: Int, size: Int, color: Int) = tileArea(Tile.of(x, y, plane), size, color)
+
+    /** Draws [text] above tile ([x], [y]) on [plane]. */
+    fun textOnTile(x: Int, y: Int, plane: Int, color: Int, text: String) = textOnTile(Tile.of(x, y, plane), color, text)
+
+    /** Draws [texture] at [size], centred on tile ([x], [y]) on [plane]. */
+    fun imageOnTile(x: Int, y: Int, plane: Int, texture: ImGuiTexture, size: Vector2f) = imageOnTile(Tile.of(x, y, plane), texture, size)
+
+    @JvmOverloads
     fun drawProgressBar(
         x: Float, 
         y: Float, 
@@ -159,6 +185,7 @@ class BackgroundDrawListScope {
         }
     }
 
+    @JvmOverloads
     fun drawProgressBarWithGradient(
         x: Float, 
         y: Float, 
@@ -179,6 +206,7 @@ class BackgroundDrawListScope {
         drawProgressBar(x, y, width, height, progress, backgroundColor, progressColor, rounding)
     }
 
+    @JvmOverloads
     fun drawXpProgressBar(
         x: Float,
         y: Float, 
@@ -208,6 +236,7 @@ class BackgroundDrawListScope {
         return if (currentLevel < 120) y + 22f else y + 16f
     }
 
+    @JvmOverloads
     fun drawScriptPanel(
         x: Float, 
         y: Float, 
@@ -222,6 +251,7 @@ class BackgroundDrawListScope {
         rect(Vector2f(x, y), Vector2f(x + width, y + height), borderColor, rounding, borderThickness)
     }
 
+    @JvmOverloads
     fun drawStatusIndicator(
         x: Float, 
         y: Float, 

@@ -46,7 +46,7 @@ abstract class Entity(raw: MemorySegment) {
     open val size
         get() = ptr.readByte(OEntity.SIZE).toInt()
 
-    val plane: Int
+    open val plane: Int
         get() = ptr.readInt(OEntity.ENTITY_PLANE)
 
     // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.

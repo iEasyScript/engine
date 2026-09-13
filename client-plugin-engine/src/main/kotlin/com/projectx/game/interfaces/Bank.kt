@@ -11,15 +11,24 @@ class Bank {
 
         private fun component(name: String) = Gameval.requireComponentHash("bank:$name") and 0xFFFF
 
+        @JvmStatic
         val BANK_ITEMS_COMPONENT_ID = component("bank_inv")
+        @JvmStatic
         val BANK_INV_COMPONENT_ID = component("inventory_click")
+        @JvmStatic
         val SHARE_QUICK_COMPONENT_ID = component("share_quick_click")
+        @JvmStatic
         val CLOSE_COMPONENT_ID = component("close_button_layer")
+        @JvmStatic
         val CERT_COMPONENT_ID = component("bank_cert_button")
+        @JvmStatic
         val TABS_ALL_COMPONENT_ID = component("tabs_all_button")
+        @JvmStatic
         val DEPOSIT_INVENTORY_COMPONENT_ID = component("bank_inv_button")
+        @JvmStatic
         val DEPOSIT_WORN_COMPONENT_ID = component("bank_worn_button")
 
+        @JvmStatic
         fun fetchBankArray(componentId: Int): ArrayList<InterfaceComponent> {
             val bankItems = interfaces.getComponent(BANK_INTERFACE_ID, componentId)
             val bankChildren = bankItems?.slotChildren
@@ -33,9 +42,13 @@ class Bank {
             return res
         }
 
+        @JvmStatic
         fun fetchBankItemsArray() = fetchBankArray(BANK_ITEMS_COMPONENT_ID)
+        @JvmStatic
         fun fetchBankInventoryArray() = fetchBankArray(BANK_INV_COMPONENT_ID)
 
+        @JvmOverloads
+        @JvmStatic
         fun doBankAction(componentId: Int, slotId: Int = -1, optionNum: Int = 1) =
             IFSlot(BANK_INTERFACE_ID, componentId, slotId).click(optionNum)
 

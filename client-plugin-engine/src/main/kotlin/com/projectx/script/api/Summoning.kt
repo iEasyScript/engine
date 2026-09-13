@@ -111,9 +111,13 @@ enum class Familiar (val pouchId: Int, val pouchName: String = "None", val speci
     PAK_MAMMOTH(36060, "Pak mammoth pouch", SpecialType.PASSIVE);
 
     companion object {
+        @JvmStatic
         fun getName(id: Int): String = entries.firstOrNull { it.pouchId == id }?.pouchName ?: NONE.pouchName
+        @JvmStatic
         fun getId(name: String): Int = entries.firstOrNull { it.name == name }?.pouchId ?: NONE.pouchId
+        @JvmStatic
         fun getType(name: String): SpecialType = entries.firstOrNull { it.name == name }?.specialType ?: SpecialType.NONE
+        @JvmStatic
         fun getType(id: Int): SpecialType = entries.firstOrNull { it.pouchId == id }?.specialType ?: SpecialType.NONE
     }
 }

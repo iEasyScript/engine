@@ -134,6 +134,7 @@ enum class Key(private val sdl: Int, private val virtualKey: Int) {
     companion object {
         private val byNative: Map<Int, Key> by lazy { entries.associateBy { it.native } }
 
+        @JvmStatic
         fun fromNative(code: Int): Key? = byNative[code]
 
         /**
@@ -141,6 +142,7 @@ enum class Key(private val sdl: Int, private val virtualKey: Int) {
          * Win32 by uppercase, so passing a raw char code through would land on a numpad key on
          * Windows.
          */
+        @JvmStatic
         fun forChar(char: Char): Key? = when (char) {
             in 'a'..'z' -> valueOf(char.uppercaseChar().toString())
             in 'A'..'Z' -> valueOf(char.toString())

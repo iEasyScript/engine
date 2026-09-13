@@ -28,6 +28,7 @@ class TabBarScope {
         return last.value
     }
 
+    @JvmOverloads
     inline fun tabItemButton(label: String, flags: Int = 0, crossinline onClick: () -> Unit) {
         commands.add(TabItemButtonActionCommand(label, flags) { onClick() })
     }
@@ -37,6 +38,7 @@ class TabBarScope {
 class TreeScope : LayoutScope {
     override val commands = mutableListOf<ImGuiCommand>()
 
+    @JvmOverloads
     inline fun treeNode(label: String, flags: Int = ImGuiTreeNodeFlags.None, block: TreeScope.() -> Unit): Boolean {
         val key = "last_tree_treeNode_${label}_${flags}"
         val last = CommandRenderer.getSharedState(key) { boolState(false) }

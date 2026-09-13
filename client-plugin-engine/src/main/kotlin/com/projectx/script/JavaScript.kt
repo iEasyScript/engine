@@ -2,16 +2,8 @@ package com.projectx.script
 
 import com.projectx.script.api.localPlayer
 import com.projectx.util.gaussian
-import com.projectx.webwalker.WebWalkResult
 import com.projectx.webwalker.WebWalker
-import org.projectx.core.game.skill.Skill
 import world.gregs.voidps.type.Tile
-import java.util.concurrent.ThreadLocalRandom
-import java.util.function.BooleanSupplier
-import java.util.function.Consumer
-import kotlin.math.roundToInt
-
-private const val TICK_MILLIS = 600
 
 /**
  * Base class for scripts written in Java.
@@ -23,6 +15,7 @@ private const val TICK_MILLIS = 600
  *
  * [onLoop] therefore returns the [Wait] the engine should perform on the script's behalf,
  * and the engine does the suspending. Outcome-gated waits stay available: see [Wait.until].
+ * Every Kotlin helper that waits has a [Wait] of the same name, so nothing in the API is Kotlin-only.
  */
 abstract class JavaScript : Script() {
 
@@ -34,13 +27,6 @@ abstract class JavaScript : Script() {
      * [onLoop] returned, so refresh anything the steps read from the game here.
      */
     protected open fun beforeEachStep() {}
-
-    /**
-     * Checked about every [INTERRUPT_POLL_MILLIS] while a wait runs, and before every step. Returning true abandons
-     * the current wait and every sequence and loop around it, and [onLoop] runs straight away: the way to react to
-     * something urgent, such as standing in an attack's floor marker, in the middle of a long action. Keep it cheap.
-     */
-    protected open fun shouldInterrupt(): Boolean = false
 
     private var interrupted = false
 
@@ -101,157 +87,25 @@ abstract class JavaScript : Script() {
                 val result = WebWalker.walk(this, Tile.of(wait.x, wait.y, wait.plane), wait.arriveDistance, wait.useLodestones)
                 wait.onResult?.accept(result)
             }
+            is Wait.Call<*> -> performCall(wait)
         }
         return !interrupted
     }
 
+    private suspend fun <T> performCall(wait: Wait.Call<T>) {
+        // Boxed so a helper that legitimately returns null is not mistaken for an interrupted one.
+        val outcome = interruptWhen({ interruptRequested() }) { Outcome(wait.action(this)) } ?: return
+        wait.onResult?.accept(outcome.value)
+    }
+
+    private class Outcome<T>(val value: T)
+
     companion object {
-        const val INTERRUPT_POLL_MILLIS = 50
+        const val INTERRUPT_POLL_MILLIS = Script.INTERRUPT_POLL_MILLIS
     }
 }
 
 /** One step of a [Wait.sequence]: act, then return what to wait for before the next step, or null for nothing. */
 fun interface Step {
     fun run(): Wait?
-}
-
-/**
- * What a [JavaScript] asks the engine to wait for. Build one with the static factories —
- * prefer [until] over [ms] wherever an outcome can be observed, so the script reacts to the
- * game rather than to a guess.
- */
-sealed class Wait {
-
-    class Millis internal constructor(val mean: Int, val variance: Int) : Wait()
-
-    class Until internal constructor(
-        val predicate: BooleanSupplier,
-        val timeoutMillis: Long,
-        val pollMillis: Int,
-    ) : Wait()
-
-    class While internal constructor(
-        val predicate: BooleanSupplier,
-        val timeoutMillis: Long,
-    ) : Wait()
-
-    class XpDrop internal constructor(val skill: Skill?, val timeoutMillis: Long) : Wait()
-
-    class Idle internal constructor(val maxTicks: Int, val idleChecks: Int, val countAnimation: Boolean) : Wait()
-
-    class Sequence internal constructor(val steps: List<Step>) : Wait()
-
-    class Loop internal constructor(val step: Step) : Wait()
-
-    class WebWalk internal constructor(
-        val x: Int,
-        val y: Int,
-        val plane: Int,
-        val arriveDistance: Int,
-        val onResult: Consumer<WebWalkResult>?,
-        val useLodestones: Boolean,
-    ) : Wait()
-
-    object Abort : Wait()
-
-    companion object {
-        /** A fixed pause. Prefer the randomised overload; a constant delay is a recognisable pattern. */
-        @JvmStatic
-        fun ms(millis: Int): Wait = Millis(millis, 0)
-
-        /** A randomised pause around [mean], spread by [variance]. */
-        @JvmStatic
-        fun ms(mean: Int, variance: Int): Wait = Millis(mean, variance)
-
-        /** A pause picked uniformly between [minMillis] and [maxMillis], inclusive. */
-        @JvmStatic
-        fun between(minMillis: Int, maxMillis: Int): Wait =
-            Millis(ThreadLocalRandom.current().nextInt(minMillis, maxMillis + 1), 0)
-
-        /** [ticks] game ticks of 600 ms (fractions allowed), plus 0..[jitterMillis] ms picked uniformly. */
-        @JvmStatic
-        @JvmOverloads
-        fun ticks(ticks: Double, jitterMillis: Int = 0): Wait = ticks(ticks, 0, jitterMillis)
-
-        /** [ticks] game ticks of 600 ms (fractions allowed), plus [minJitterMillis]..[maxJitterMillis] ms picked uniformly. */
-        @JvmStatic
-        fun ticks(ticks: Double, minJitterMillis: Int, maxJitterMillis: Int): Wait =
-            Millis(
-                (ticks * TICK_MILLIS).roundToInt() +
-                    ThreadLocalRandom.current().nextInt(minJitterMillis, maxJitterMillis + 1),
-                0,
-            )
-
-        /** Wait until [predicate] holds, giving up after [timeoutMillis]. */
-        @JvmStatic
-        @JvmOverloads
-        fun until(predicate: BooleanSupplier, timeoutMillis: Long, pollMillis: Int = 100): Wait =
-            Until(predicate, timeoutMillis, pollMillis)
-
-        /** Wait while [predicate] holds, giving up after [timeoutMillis]. */
-        @JvmStatic
-        fun whileTrue(predicate: BooleanSupplier, timeoutMillis: Long): Wait =
-            While(predicate, timeoutMillis)
-
-        /** Wait for the next experience drop, optionally in one [skill]. */
-        @JvmStatic
-        @JvmOverloads
-        fun xpDrop(skill: Skill? = null, timeoutMillis: Long = 15000): Wait =
-            XpDrop(skill, timeoutMillis)
-
-        /**
-         * Wait for the player to stop moving and animating: checked once a tick, finished once
-         * [idleChecks] checks in a row see nothing going on, or after [maxTicks] ticks.
-         */
-        @JvmStatic
-        fun untilIdle(maxTicks: Int, idleChecks: Int): Wait = Idle(maxTicks, idleChecks, countAnimation = true)
-
-        /**
-         * Wait for the player to stop moving, ignoring animation: checked once a tick, finished once
-         * [stillChecks] checks in a row see no movement, or after [maxTicks] ticks. Use it after clicking
-         * something you walk to and then keep working at, such as a rock or an altar, where [untilIdle]
-         * would wait out the whole activity.
-         */
-        @JvmStatic
-        fun untilStoppedMoving(maxTicks: Int, stillChecks: Int): Wait = Idle(maxTicks, stillChecks, countAnimation = false)
-
-        /**
-         * Run [steps] one after another, each performing its own wait before the next starts — the
-         * non-blocking way to write "click, wait, click, wait". A step runs only when the one before
-         * it has finished waiting, so it always sees the game as it is at that moment.
-         */
-        @JvmStatic
-        fun sequence(vararg steps: Step): Wait = Sequence(steps.toList())
-
-        /**
-         * Run [step] again and again, performing the wait it returns each time, until it returns null.
-         * The non-blocking form of a `while` loop with a sleep inside it.
-         */
-        @JvmStatic
-        fun loop(step: Step): Wait = Loop(step)
-
-        /**
-         * Walk to ([x], [y]) on [plane] from anywhere on the world map, planning the route from cache collision and
-         * opening doors on the way; finished within [arriveDistance] tiles. A long walk teleports to an unlocked
-         * lodestone first when that is quicker, unless [useLodestones] is false. [onResult], when given, receives how
-         * it ended, so a step after this one can tell arriving from failing. See [WebWalker] for what routes cover.
-         */
-        @JvmStatic
-        @JvmOverloads
-        fun webWalk(
-            x: Int,
-            y: Int,
-            plane: Int,
-            arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
-            onResult: Consumer<WebWalkResult>? = null,
-            useLodestones: Boolean = true,
-        ): Wait = WebWalk(x, y, plane, arriveDistance, onResult, useLodestones)
-
-        /**
-         * Returned from a step: skip every remaining step of the sequences and loops it belongs to, and
-         * go straight on to the next [JavaScript.onLoop].
-         */
-        @JvmStatic
-        fun abort(): Wait = Abort
-    }
 }

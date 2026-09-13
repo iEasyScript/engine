@@ -33,6 +33,9 @@ class CombinedLocationSection(raw: MemorySegment) : Entity(raw), SceneObject {
         get() = tile.x
     override val tileY: Int
         get() = tile.y
+    // The entity's own plane: SceneObject's default reads it back from tile, which is built from this.
+    override val plane: Int
+        get() = super<Entity>.plane
     override val centerX: Double
         get() = super<SceneObject>.centerX
     override val centerY: Double

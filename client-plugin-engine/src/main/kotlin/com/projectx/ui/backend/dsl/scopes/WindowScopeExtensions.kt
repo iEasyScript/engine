@@ -11,6 +11,7 @@ import com.projectx.ui.backend.flags.WindowFlags
 import com.projectx.ui.backend.rendering.CommandRenderer
 import java.util.concurrent.atomic.AtomicReference
 
+@JvmOverloads
 fun WindowScope.menuItem(label: String, shortcut: String = "", selected: Boolean = false, onClick: () -> Unit) {
     commands.add(MenuItemActionCommand(label, shortcut, selected, onClick))
 }
@@ -28,6 +29,7 @@ fun WindowScope.setTooltip(text: String) {
     commands.add(SetTooltipCommand(text))
 }
 
+@JvmOverloads
 fun WindowScope.rangeSliderFloat(
     label: String,
     minState: ImGuiState<Float>,
@@ -42,6 +44,7 @@ fun WindowScope.rangeSliderFloat(
     return changed.get()
 }
 
+@JvmOverloads
 fun WindowScope.rangeSliderInt(
     label: String,
     minState: ImGuiState<Int>,
@@ -56,6 +59,7 @@ fun WindowScope.rangeSliderInt(
     return changed.get()
 }
 
+@JvmOverloads
 inline fun WindowScope.child(
     id: String,
     width: Float = 0f,
@@ -72,6 +76,7 @@ inline fun WindowScope.child(
     commands.add(EndChildCommand())
 }
 
+@JvmOverloads
 inline fun WindowScope.menu(
     label: String,
     enabled: Boolean = true,
@@ -116,6 +121,7 @@ inline fun WindowScope.combo(
     return isOpen.value
 }
 
+@JvmOverloads
 fun WindowScope.combo(
     label: String,
     currentItem: ImGuiState<Int>,
@@ -125,6 +131,7 @@ fun WindowScope.combo(
     commands.add(ComboCommand(label, currentItem, items, maxItemsShown))
 }
 
+@JvmOverloads
 fun WindowScope.combo(
     label: String,
     currentIndex: Int,
@@ -143,6 +150,7 @@ fun WindowScope.itemTooltip(text: String) {
     commands.add(ItemTooltipCommand(text))
 }
 
+@JvmOverloads
 inline fun WindowScope.tabBar(
     id: String,
     flags: Int = 0,
@@ -160,6 +168,7 @@ inline fun WindowScope.tabBar(
     return last.value
 }
 
+@JvmOverloads
 inline fun WindowScope.treeNode(
     label: String,
     flags: Int = ImGuiTreeNodeFlags.None,
@@ -177,6 +186,7 @@ inline fun WindowScope.treeNode(
     return last.value
 }
 
+@JvmOverloads
 fun WindowScope.multiSelectListBox(
     label: String,
     items: List<String>,
@@ -229,6 +239,7 @@ inline fun WindowScope.itemWidth(width: Float, block: ChildScope.() -> Unit) {
     commands.add(PopItemWidthCommand())
 }
 
+@JvmOverloads
 inline fun WindowScope.popup(
     id: String,
     flags: Int = 0,
@@ -296,6 +307,7 @@ fun WindowScope.popupModal(
     return last.value
 }
 
+@JvmOverloads
 inline fun WindowScope.contextMenuItem(
     id: String? = null,
     mouseButton: Int = 1,
@@ -310,6 +322,7 @@ inline fun WindowScope.contextMenuItem(
     return result.get()
 }
 
+@JvmOverloads
 inline fun WindowScope.contextMenuWindow(
     id: String? = null,
     mouseButton: Int = 1,
@@ -325,6 +338,7 @@ inline fun WindowScope.contextMenuWindow(
     return result.get()
 }
 
+@JvmOverloads
 inline fun WindowScope.contextMenuVoid(
     id: String? = null,
     mouseButton: Int = 1,
@@ -339,6 +353,7 @@ inline fun WindowScope.contextMenuVoid(
     return result.get()
 }
 
+@JvmOverloads
 inline fun WindowScope.confirmationDialog(
     title: String,
     message: String,
@@ -357,6 +372,7 @@ inline fun WindowScope.confirmationDialog(
     }
 }
 
+@JvmOverloads
 inline fun WindowScope.inputDialog(
     title: String,
     label: String,
@@ -376,6 +392,7 @@ inline fun WindowScope.inputDialog(
     }
 }
 
+@JvmOverloads
 inline fun WindowScope.choiceDialog(
     title: String,
     message: String,

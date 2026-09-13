@@ -7,6 +7,7 @@ import com.projectx.ui.backend.dsl.commands.*
 class TableScope : LayoutScope {
     override val commands = mutableListOf<ImGuiCommand>()
 
+    @JvmOverloads
     fun setupColumn(label: String, flags: Int = 0, width: Float = 0f) {
         commands.add(TableSetupColumnCommand(label, flags, width))
     }
@@ -27,6 +28,7 @@ class TableScope : LayoutScope {
         commands.add(TextCommand(text))
     }
     
+    @JvmOverloads
     fun button(label: String, width: Float = 0f, height: Float = 0f, onClick: () -> Unit) {
         commands.add(ButtonCommand(label, width, height, onClick))
     }

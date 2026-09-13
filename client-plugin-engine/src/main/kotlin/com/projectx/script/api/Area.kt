@@ -13,6 +13,7 @@ import kotlin.math.sqrt
 sealed class Area {
     fun getArea(): Area = this
 
+    @JvmOverloads
     fun getOverlap(other: Area, ignoreZ: Boolean = false): Set<Tile> {
         val otherCoordinates = other.getCoordinates().toSet()
         if (otherCoordinates.isEmpty()) return emptySet()
@@ -33,10 +34,14 @@ sealed class Area {
         return result
     }
 
-    fun overlaps(other: Tile, ignoreZ: Boolean = false): Boolean {
-        return overlaps(other, ignoreZ)
-    }
+    // This called itself, so any use overflowed the stack.
+    fun overlaps(other: Tile, ignoreZ: Boolean = false): Boolean =
+        getCoordinates().any { it.x == other.x && it.y == other.y && (ignoreZ || it.plane == other.plane) }
 
+    /** Whether ([x], [y]) on [plane] lies inside this area. */
+    fun contains(x: Int, y: Int, plane: Int): Boolean = contains(Tile.of(x, y, plane))
+
+    @JvmOverloads
     fun overlaps(other: Area, ignoreZ: Boolean = false): Boolean {
         val thisCoords = getCoordinates()
         val otherCoords = other.getCoordinates()
@@ -90,6 +95,21 @@ sealed class Area {
 
     fun getCoordinate(): Tile? = getCentroid()
 
+    // Functions returning a Tile compile to mangled names, and a non-null Tile reaches Java as a packed int. These
+    // name themselves and return a Tile object, so Java can read getX(), getY() and getLevel().
+
+    /** A random tile in the area. */
+    @JvmName("randomTile")
+    fun randomTile(): Tile? = getRandomCoordinate()
+
+    /** A random tile in the area that nothing blocks, or null when every tile is blocked. */
+    @JvmName("randomWalkableTile")
+    fun randomWalkableTile(): Tile? = getRandomWalkableCoordinate()
+
+    /** The tile at the centre of the area, or null when it is empty. */
+    @JvmName("centreTile")
+    fun centreTile(): Tile? = getCentroid()
+
     abstract fun toRectangular(): Rectangular
     abstract fun toPolygonal(): Polygonal
     abstract fun toCircular(): Circular
@@ -100,6 +120,8 @@ sealed class Area {
         private val center: Tile,
         private val radius: Double
     ) : Area() {
+        constructor(centerX: Int, centerY: Int, plane: Int, radius: Double) : this(Tile.of(centerX, centerY, plane), radius)
+
         private var coordinatesCache: List<Tile>? = null
 
         override fun toRectangular(): Rectangular {
@@ -162,9 +184,15 @@ sealed class Area {
         
         fun getRadius(): Double = radius
         fun getCenter(): Tile = center
+        fun getCenterX(): Int = center.x
+        fun getCenterY(): Int = center.y
+        fun getPlane(): Int = center.plane
     }
 
     class Polygonal(coordinates: List<Tile>) : Area() {
+        /** A polygon through the corners ([xs] `[i]`, [ys] `[i]`) on [plane], for Java. */
+        constructor(xs: IntArray, ys: IntArray, plane: Int) : this(xs.indices.map { Tile.of(xs[it], ys[it], plane) })
+
         private val polygon: Polygon
         private val plane: Int
         private var coordinatesCache: List<Tile>? = null
@@ -243,6 +271,9 @@ sealed class Area {
             bottomLeft,
             Tile.of(bottomLeft.x + width, bottomLeft.y + height, bottomLeft.plane)
         )
+
+        /** The rectangle between corners ([x1], [y1]) and ([x2], [y2]) on [plane], for Java. */
+        constructor(x1: Int, y1: Int, x2: Int, y2: Int, plane: Int) : this(Tile.of(x1, y1, plane), Tile.of(x2, y2, plane))
 
         override fun toRectangular(): Rectangular = this
 

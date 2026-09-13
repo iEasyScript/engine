@@ -34,6 +34,7 @@ object WorldToScreen {
         return ViewportInfo(viewX, viewY, viewW, viewH)
     }
 
+    @JvmStatic
     fun worldToScreen(worldFine: Vector3f): Vector2f? {
         val projMatrix = Bootstrap.client.sceneManager.currentWorld?.projectionMatrix ?: return null
 
@@ -59,6 +60,7 @@ object WorldToScreen {
 
     fun getEstimatedTileCenter(tile: Tile, heightFine: Float = 0f) = getEstimatedTileCenter(Vector3f((tile.x.toFloat() + 0.5f) * 512.0f, (tile.y.toFloat() + 0.5f) * 512.0f, heightFine))
 
+    @JvmStatic
     fun getEstimatedTileCenter(pointFine: Vector3f): Vector2f? {
         if (Bootstrap.client.mainState != MainState.LOGGED_IN) return null
         return try {

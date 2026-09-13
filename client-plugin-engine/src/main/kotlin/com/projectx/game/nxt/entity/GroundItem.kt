@@ -18,6 +18,11 @@ private val MENU_OPS = arrayOf(
 )
 
 data class GroundItem(val id: Int, var amount: Int = 1, val tile: Tile) {
+    // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
+    val tileX: Int get() = tile.x
+    val tileY: Int get() = tile.y
+    val plane: Int get() = tile.plane
+
     val name: String
         get() = Cache.obj(id)?.name ?: "null"
 

@@ -45,6 +45,7 @@ const val PROPERTY_LABEL_WIDTH = 150f
  * Every [row] therefore starts and ends on the same two vertical edges, which is what stops a panel reading
  * as a pile of differently-sized controls. Pair it with [section] rather than laying widgets out freehand.
  */
+@JvmOverloads
 inline fun LayoutScope.properties(
     id: String,
     labelWidth: Float = PROPERTY_LABEL_WIDTH,
@@ -58,6 +59,7 @@ inline fun LayoutScope.properties(
 }
 
 /** [properties] with the cell padding tightened, for dense read-only tables built from [valueRow]. */
+@JvmOverloads
 inline fun LayoutScope.readout(
     id: String,
     labelWidth: Float = PROPERTY_LABEL_WIDTH,
@@ -98,6 +100,7 @@ fun TableScope.valueRow(label: String, value: String) {
  * Checkboxes on an aligned grid instead of a ragged run of [sameLine] calls, so their boxes line up in
  * columns regardless of how long the individual labels are.
  */
+@JvmOverloads
 fun LayoutScope.checkboxGrid(id: String, items: List<Pair<String, ImGuiState<Boolean>>>, columns: Int = 2) {
     table(id = id, columns = columns) {
         repeat(columns) { setupColumn("c$it", ImGuiTableColumnFlags.WidthStretch) }
@@ -115,6 +118,7 @@ fun LayoutScope.checkboxGrid(id: String, items: List<Pair<String, ImGuiState<Boo
  * [textColor] null inherits the ambient text colour, which the dark theme sets light — correct for
  * the theme's recessed button fills. Pass a dark colour only when filling a button with an accent.
  */
+@JvmOverloads
 fun LayoutScope.button(
     label: String,
     width: Float = 0f,
@@ -146,9 +150,11 @@ fun LayoutScope.inputText(label: String, textState: ImGuiState<String>, flags: I
 fun LayoutScope.inputText(label: String, currentValue: String, maxLength: Int = 256, flags: InputTextFlags = InputTextFlags.None, onChange: (String) -> Unit) {
     commands.add(InputTextActionValueCommand(label, currentValue, maxLength, flags.value, onChange))
 }
+@JvmOverloads
 fun LayoutScope.inputInt(label: String, state: ImGuiState<Int>, step: Int = 1, stepFast: Int = 10) {
     commands.add(InputIntCommand(label, state, step, stepFast))
 }
+@JvmOverloads
 fun LayoutScope.inputInt(label: String, currentValue: Int, step: Int = 1, stepFast: Int = 10, onChange: (Int) -> Unit) {
     commands.add(InputIntActionValueCommand(label, currentValue, step, stepFast, onChange))
 }
@@ -163,9 +169,11 @@ fun LayoutScope.sliderInt(label: String, state: ImGuiState<Int>, min: Int, max: 
 fun LayoutScope.setScrollHereY(ratio: Float) { commands.add(SetScrollHereYCommand(ratio)) }
 fun LayoutScope.scrollToBottomIfPinned() { commands.add(ScrollToBottomIfPinnedCommand) }
 
+@JvmOverloads
 fun LayoutScope.colorEdit4(label: String, r: ImGuiState<Float>, g: ImGuiState<Float>, b: ImGuiState<Float>, a: ImGuiState<Float>, flags: Int = 0) {
     commands.add(ColorEdit4Command(label, r, g, b, a, flags))
 }
+@JvmOverloads
 fun LayoutScope.colorPicker4(label: String, r: ImGuiState<Float>, g: ImGuiState<Float>, b: ImGuiState<Float>, a: ImGuiState<Float>, flags: Int = 0) {
     commands.add(ColorPicker4Command(label, r, g, b, a, flags))
 }
@@ -186,6 +194,7 @@ inline fun LayoutScope.combo(label: String, preview: String, block: ComboScope.(
     commands.add(EndComboCommand())
     return isOpen.value
 }
+@JvmOverloads
 fun LayoutScope.combo(label: String, currentItem: ImGuiState<Int>, items: List<String>, maxItemsShown: Int = -1) {
     commands.add(PushStyleColorCommand(ImGuiCol.Button, hex("#ffffff11")))
     commands.add(PushStyleColorCommand(ImGuiCol.ButtonHovered, hex("#ffffff22")))
@@ -193,6 +202,7 @@ fun LayoutScope.combo(label: String, currentItem: ImGuiState<Int>, items: List<S
     commands.add(ComboCommand(label, currentItem, items, maxItemsShown))
     commands.add(PopStyleColorCommand(3))
 }
+@JvmOverloads
 fun LayoutScope.combo(label: String, currentIndex: Int, items: List<String>, maxItemsShown: Int = -1, onChange: (Int) -> Unit) {
     commands.add(PushStyleColorCommand(ImGuiCol.Button, hex("#ffffff11")))
     commands.add(PushStyleColorCommand(ImGuiCol.ButtonHovered, hex("#ffffff22")))
@@ -201,6 +211,7 @@ fun LayoutScope.combo(label: String, currentIndex: Int, items: List<String>, max
     commands.add(PopStyleColorCommand(3))
 }
 
+@JvmOverloads
 inline fun LayoutScope.table(id: String, columns: Int, flags: Int = 0, block: TableScope.() -> Unit): Boolean {
     val key = "last_scope_table_${id}_${columns}_${flags}"
     val last = CommandRenderer.getSharedState(key) { boolState(false) }
@@ -216,11 +227,13 @@ inline fun LayoutScope.table(id: String, columns: Int, flags: Int = 0, block: Ta
     return last.value
 }
 
+@JvmOverloads
 fun LayoutScope.tableSetupColumn(label: String, flags: Int = 0, width: Float = 0f) { commands.add(TableSetupColumnCommand(label, flags, width)) }
 fun LayoutScope.tableHeadersRow() { commands.add(TableHeadersRowCommand()) }
 fun LayoutScope.tableNextRow() { commands.add(TableNextRowCommand()) }
 fun LayoutScope.tableNextColumn() { commands.add(TableNextColumnCommand()) }
 
+@JvmOverloads
 inline fun LayoutScope.listBox(label: String, sizeX: Float = 0f, sizeY: Float = 0f, block: ListBoxScope.() -> Unit): Boolean {
     val key = "last_listBox_${label}_${sizeX}_${sizeY}"
     val last = CommandRenderer.getSharedState(key) { boolState(false) }
@@ -276,6 +289,7 @@ fun LayoutScope.isItemHovered(): Boolean {
 }
 
 /** Previous frame's result. Keyed only by [mouseButton] - see the caveat on [isItemHovered]. */
+@JvmOverloads
 fun LayoutScope.isItemClicked(mouseButton: Int = 0): Boolean {
     val key = "last_isItemClicked_${mouseButton}"
     val last = CommandRenderer.getSharedState(key) { boolState(false) }
@@ -285,6 +299,7 @@ fun LayoutScope.isItemClicked(mouseButton: Int = 0): Boolean {
     return last.value
 }
 
+@JvmOverloads
 fun LayoutScope.progressBar(
     fraction: Float,
     sizeX: Float = -1f,
@@ -292,6 +307,7 @@ fun LayoutScope.progressBar(
     overlay: String? = null
 ) { commands.add(ProgressBarCommand(fraction, sizeX, sizeY, overlay)) }
 
+@JvmOverloads
 fun LayoutScope.dragFloat(
     label: String,
     state: ImGuiState<Float>,
@@ -302,6 +318,7 @@ fun LayoutScope.dragFloat(
     flags: Int = 0
 ) { commands.add(DragFloatCommand(label, state, speed, min, max, format, flags)) }
 
+@JvmOverloads
 fun LayoutScope.dragInt(
     label: String,
     state: ImGuiState<Int>,
@@ -357,6 +374,7 @@ fun LayoutScope.inputFloat4(
     flags: InputTextFlags = InputTextFlags.None
 ) { commands.add(InputFloat4Command(label, x, y, z, w, format, flags.value)) }
 
+@JvmOverloads
 fun LayoutScope.colorEdit3(
     label: String,
     r: ImGuiState<Float>,
@@ -368,6 +386,7 @@ fun LayoutScope.colorEdit3(
     commands.add(ColorEdit4Command(label, r, g, b, dummyAlpha, flags))
 }
 
+@JvmOverloads
 fun LayoutScope.image(
     texture: ImGuiTexture,
     sizeX: Float,
@@ -380,6 +399,7 @@ fun LayoutScope.image(
     borderColor: Int = 0
 ) { commands.add(ImageCommand(texture, sizeX, sizeY, uv0X, uv0Y, uv1X, uv1Y, tintColor, borderColor)) }
 
+@JvmOverloads
 fun LayoutScope.imageButton(
     texture: ImGuiTexture,
     sizeX: Float,
@@ -398,6 +418,7 @@ fun LayoutScope.imageButton(
  * Framed icon button, one standard frame tall so it aligns with widgets beside it. Unlike
  * [imageButton] it carries an id, so many can coexist in one frame.
  */
+@JvmOverloads
 fun LayoutScope.iconButton(
     id: String,
     texture: ImGuiTexture,
@@ -407,6 +428,7 @@ fun LayoutScope.iconButton(
     onClick: () -> Unit
 ) { commands.add(IconButtonCommand(id, texture, iconSize, buttonWidth, tintColor, onClick)) }
 
+@JvmOverloads
 fun LayoutScope.watermark(
     texture: ImGuiTexture,
     corner: Corner = Corner.BottomRight,
@@ -418,6 +440,7 @@ fun LayoutScope.watermark(
     commands.add(WindowWatermarkCommand(texture, corner, paddingX, paddingY, alpha, scale))
 }
 
+@JvmOverloads
 fun LayoutScope.triSliceImageButton(
     id: String,
     left: ImGuiTexture,
@@ -433,6 +456,7 @@ fun LayoutScope.triSliceImageButton(
     commands.add(TriSliceImageButtonCommand(id, left, middle, right, width, height, tileMiddle, label, labelColor, onClick))
 }
 
+@JvmOverloads
 fun LayoutScope.triSliceImageButtonFromGraphics(
     id: String,
     leftGraphicId: Int,
@@ -448,10 +472,12 @@ fun LayoutScope.triSliceImageButtonFromGraphics(
     commands.add(TriSliceImageButtonFromIdsCommand(id, leftGraphicId, middleGraphicId, rightGraphicId, width, height, tileMiddle, label, labelColor, onClick))
 }
 
+@JvmOverloads
 fun LayoutScope.windowGraphicSkin(skin: GraphicNineSlice, tileEdges: Boolean = true, tileCenter: Boolean = true) {
     commands.add(WindowNineSliceCommand(skin, tileEdges, tileCenter))
 }
 
+@JvmOverloads
 fun LayoutScope.windowGraphicSkinFromIds(
     topLeft: Int,
     top: Int,
@@ -469,6 +495,7 @@ fun LayoutScope.windowGraphicSkinFromIds(
     commands.add(WindowNineSliceCommand(skin, tileEdges, tileCenter))
 }
 
+@JvmOverloads
 inline fun LayoutScope.windowGraphicSkinContent(
     skin: GraphicNineSlice,
     tileEdges: Boolean = true,
@@ -491,6 +518,7 @@ inline fun LayoutScope.windowGraphicSkinContent(
     commands.add(EndChildCommand())
 }
 
+@JvmOverloads
 fun LayoutScope.applyBackgroundOverlay(
     overlay: ImGuiTexture,
     alpha: Float,
@@ -499,6 +527,7 @@ fun LayoutScope.applyBackgroundOverlay(
     commands.add(WindowBackgroundOverlayCommand(overlay, alpha, tiled))
 }
 
+@JvmOverloads
 inline fun LayoutScope.windowGraphicSkinContentFromIds(
     topLeft: Int,
     top: Int,
@@ -517,6 +546,7 @@ inline fun LayoutScope.windowGraphicSkinContentFromIds(
     windowGraphicSkinContent(skin, tileEdges, tileCenter, block)
 }
 
+@JvmOverloads
 inline fun LayoutScope.tabBar(
     id: String,
     flags: Int = 0,
@@ -536,6 +566,7 @@ inline fun LayoutScope.tabBar(
     return last.value
 }
 
+@JvmOverloads
 inline fun LayoutScope.scrollableWithGraphicScrollbar(
     id: String,
     width: Float = 0f,
@@ -559,7 +590,9 @@ inline fun LayoutScope.scrollableWithGraphicScrollbar(
     commands.add(PopStyleVarCommand(1))
 }
 
+@JvmOverloads
 fun LayoutScope.indent(width: Float = 0f) { commands.add(IndentCommand(width)) }
+@JvmOverloads
 fun LayoutScope.unindent(width: Float = 0f) { commands.add(UnindentCommand(width)) }
 fun LayoutScope.setNextItemWidth(width: Float) { commands.add(SetNextItemWidthCommand(width)) }
 fun LayoutScope.setCursorPos(x: Float, y: Float) { commands.add(SetCursorPosCommand(x, y)) }
@@ -567,6 +600,7 @@ fun LayoutScope.setCursorPosX(x: Float) { commands.add(SetCursorPosXCommand(x)) 
 fun LayoutScope.setCursorPosY(y: Float) { commands.add(SetCursorPosYCommand(y)) }
 fun LayoutScope.alignTextToFramePadding() { commands.add(AlignTextToFramePaddingCommand()) }
 
+@JvmOverloads
 fun LayoutScope.columns(count: Int = 1, id: String? = null, border: Boolean = true) { commands.add(ColumnsCommand(count, id, border)) }
 fun LayoutScope.nextColumn() { commands.add(NextColumnCommand()) }
 fun LayoutScope.setColumnWidth(columnIndex: Int, width: Float) { commands.add(SetColumnWidthCommand(columnIndex, width)) }
@@ -582,6 +616,7 @@ fun LayoutScope.treePop() { commands.add(TreePopCommand()) }
  * font's limited range. Reports the previous frame's state: a command cannot answer in the frame it is
  * recorded, and the state write is queued after the header closes so a shut node can still be reopened.
  */
+@JvmOverloads
 fun LayoutScope.treeNodeToggle(label: String, flags: Int = ImGuiTreeNodeFlags.None): Boolean {
     val last = CommandRenderer.getSharedState("treeToggle_$label") { boolState(false) }
     val result = AtomicReference(false)
@@ -596,6 +631,7 @@ fun LayoutScope.treeNodeToggle(label: String, flags: Int = ImGuiTreeNodeFlags.No
  * [collapsingHeader] overload below it draws no frame and opens no bordered child, so rows stay flush
  * with their container instead of nesting a box inside a box.
  */
+@JvmOverloads
 inline fun LayoutScope.treeNode(label: String, flags: Int = ImGuiTreeNodeFlags.None, block: ChildScope.() -> Unit) {
     commands.add(TreeNodeCommand(label, flags, AtomicReference(false)))
     val scope = ChildScope()
@@ -610,6 +646,7 @@ inline fun LayoutScope.treeNode(label: String, flags: Int = ImGuiTreeNodeFlags.N
  * The header already draws its own frame, so the body is only indented rather than boxed - wrapping it in a
  * bordered child as well nests one frame inside another and reads as two unrelated containers.
  */
+@JvmOverloads
 inline fun LayoutScope.collapsingHeader(label: String, flags: Int = 0, block: ChildScope.() -> Unit) {
     commands.add(CollapsingHeaderCommand(label, flags, AtomicReference(false)))
     commands.add(IndentCommand())
@@ -624,8 +661,10 @@ inline fun LayoutScope.collapsingHeader(label: String, flags: Int = 0, block: Ch
 
 fun LayoutScope.pushStyleVar(styleVar: ImGuiStyleVar, value: Float) { commands.add(PushStyleVarFloatCommand(styleVar, value)) }
 fun LayoutScope.pushStyleVar(styleVar: ImGuiStyleVar, x: Float, y: Float) { commands.add(PushStyleVarVec2Command(styleVar, x, y)) }
+@JvmOverloads
 fun LayoutScope.popStyleVar(count: Int = 1) { commands.add(PopStyleVarCommand(count)) }
 fun LayoutScope.pushStyleColor(colorIndex: ImGuiCol, color: Int) { commands.add(PushStyleColorCommand(colorIndex, color)) }
+@JvmOverloads
 fun LayoutScope.popStyleColor(count: Int = 1) { commands.add(PopStyleColorCommand(count)) }
 
 fun LayoutScope.selectable(label: String, isSelected: Boolean, onClick: () -> Unit) {
@@ -634,6 +673,7 @@ fun LayoutScope.selectable(label: String, isSelected: Boolean, onClick: () -> Un
 fun LayoutScope.pushItemWidth(width: Float) { commands.add(PushItemWidthCommand(width)) }
 fun LayoutScope.popItemWidth() { commands.add(PopItemWidthCommand()) }
 
+@JvmOverloads
 inline fun LayoutScope.child(
     id: String,
     width: Float = 0f,
@@ -648,6 +688,7 @@ inline fun LayoutScope.child(
     commands.add(EndChildCommand())
 }
 
+@JvmOverloads
 fun LayoutScope.xpProgressBar(
     skill: Skill,
     width: Float = -1f,

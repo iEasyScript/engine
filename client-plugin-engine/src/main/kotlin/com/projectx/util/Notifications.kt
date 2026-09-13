@@ -15,6 +15,7 @@ private val sharedTrayIcon: TrayIcon by lazy {
     }
 }
 
+@JvmOverloads
 fun showNotification(title: String, message: String, playSound: Boolean = Configuration.config.soundEnabled) {
     val config = Configuration.config
 

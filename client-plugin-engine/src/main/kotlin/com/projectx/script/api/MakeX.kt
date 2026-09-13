@@ -46,14 +46,21 @@ object MakeX {
     const val CATEGORY_NAMES_ENUM_VARP = 7881
 
     // Overlay that hosts the built category dropdown, keyed by the active top-level (game/lobby/login).
+    @JvmStatic
     val CATEGORY_OVERLAYS = listOf(CatList(1477, 896), CatList(906, 165), CatList(744, 356))
 
+    @JvmStatic
     val isOpen get() = interfaces.isOpen(PARENT)
+    @JvmStatic
     val hasPanel get() = interfaces.isOpen(PANEL)
+    @JvmStatic
     val inProgress get() = hasActiveMakeXProgress
+    @JvmStatic
     val selectedItemId get() = varps.getVar(SELECTED_ITEM_VARP)
+    @JvmStatic
     val maxQuantity get() = varps.getVar(MAX_QUANTITY_VARP)
 
+    @JvmStatic
     fun craftables(): List<Craftable> {
         val grid = interfaces.getComponent(PANEL, GRID) ?: return emptyList()
         return grid.slotChildren
@@ -61,6 +68,7 @@ object MakeX {
             .map { Craftable(it.itemId, Cache.obj(it.itemId)?.name ?: "null", it.slotId - 1) }
     }
 
+    @JvmStatic
     fun activeCategoryOverlay(): CatList? = CATEGORY_OVERLAYS.firstOrNull { interfaces.isOpen(it.iface) }
 }
 

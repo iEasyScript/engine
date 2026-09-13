@@ -35,6 +35,7 @@ enum class Altar(val id: Int, val displayName: String) {
     companion object {
         private val map = entries.associateBy(Altar::id)
 
+        @JvmStatic
         fun fromId(id: Int): Altar? = map[id]
     }
 }

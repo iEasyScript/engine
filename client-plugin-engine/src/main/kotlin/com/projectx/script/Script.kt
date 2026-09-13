@@ -5,9 +5,19 @@ import com.projectx.game.chat.MessageType
 import com.projectx.script.event.Event
 import com.projectx.script.event.impl.Chat
 import com.projectx.script.event.impl.XPDrop
+import com.projectx.script.api.localPlayer
 import com.projectx.util.gaussian
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.selects.onTimeout
+import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.withTimeoutOrNull
+import java.util.concurrent.ThreadLocalRandom
 import java.util.function.Predicate
+import kotlin.math.roundToInt
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.startCoroutine
@@ -16,6 +26,12 @@ abstract class Script {
     companion object {
         /** The pause the engine takes after every [loop] pass, on top of anything the pass waited for. */
         const val LOOP_PASS_MILLIS = 40
+
+        /** How often [shouldInterrupt] is checked while a script waits. */
+        const val INTERRUPT_POLL_MILLIS = 50
+
+        /** One game tick. */
+        const val TICK_MILLIS = 600
     }
 
     private var pendingEventWaitCompleted = false
@@ -43,8 +59,11 @@ abstract class Script {
     private fun startCoroutineLoop() {
         val suspendLambda: suspend () -> Unit = {
             onStart()
+            // A Java script checks shouldInterrupt between its own waits, so only Kotlin scripts that override it pay
+            // for the watch.
+            val interruptible = this !is JavaScript && overridesShouldInterrupt()
             while (!stopped) {
-                loop()
+                if (interruptible) interruptWhen({ shouldInterrupt() }) { loop() } else loop()
                 delay(LOOP_PASS_MILLIS)
             }
             onStop()
@@ -59,6 +78,56 @@ abstract class Script {
     }
 
     abstract suspend fun loop()
+
+    /**
+     * Checked about every [INTERRUPT_POLL_MILLIS] ms while the script waits. Returning true abandons what it is waiting
+     * for and starts the next pass straight away: the way to react to something urgent, such as standing in an attack's
+     * floor marker, in the middle of a long action. In Kotlin the current [loop] pass is cancelled at its next
+     * suspension; in Java the current wait and the sequences and loops around it end, and `onLoop` runs. Keep it cheap,
+     * and make it false again once the script is handling the situation, or every wait is cut short.
+     */
+    protected open fun shouldInterrupt(): Boolean = false
+
+    private fun overridesShouldInterrupt(): Boolean {
+        var type: Class<*>? = javaClass
+        while (type != null && type != Script::class.java) {
+            if (type.declaredMethods.any { it.name == "shouldInterrupt" && it.parameterCount == 0 }) return true
+            type = type.superclass
+        }
+        return false
+    }
+
+    /**
+     * Runs [block], cancelling it once [condition] holds; checked about every [pollMillis] ms. Returns what [block]
+     * returned, or null when it was cancelled. The block stops at its next suspension, so a click already sent is not
+     * undone. Java scripts get the same through `shouldInterrupt`.
+     */
+    @OptIn(ExperimentalCoroutinesApi::class)
+    suspend fun <T> interruptWhen(
+        condition: () -> Boolean,
+        pollMillis: Int = INTERRUPT_POLL_MILLIS,
+        block: suspend () -> T,
+    ): T? = coroutineScope {
+        val work = async(start = CoroutineStart.UNDISPATCHED) { block() }
+        while (work.isActive) {
+            if (runCatching(condition).getOrDefault(false)) {
+                work.cancel()
+                break
+            }
+            select<Unit> {
+                work.onJoin {}
+                onTimeout(pollMillis.toLong()) {}
+            }
+        }
+        if (work.isCancelled && !work.isCompleted) work.join()
+        if (work.isCancelled) {
+            // A block that failed rather than being interrupted rethrows here, as it would outside interruptWhen.
+            work.getCompletionExceptionOrNull()?.takeUnless { it is CancellationException }?.let { throw it }
+            null
+        } else {
+            work.await()
+        }
+    }
 
     fun stop() {
         stopped = true
@@ -155,6 +224,46 @@ abstract class Script {
 
     suspend fun delay(mean: Int, variance: Int) {
         delay(gaussian(mean, variance))
+    }
+
+    /** A pause picked uniformly between [minMillis] and [maxMillis], inclusive. Java: `Wait.between`. */
+    suspend fun delayBetween(minMillis: Int, maxMillis: Int) {
+        delay(ThreadLocalRandom.current().nextInt(minMillis, maxMillis + 1))
+    }
+
+    /** [ticks] game ticks of 600 ms (fractions allowed), plus 0..[jitterMillis] ms picked uniformly. Java: `Wait.ticks`. */
+    suspend fun delayTicks(ticks: Double, jitterMillis: Int = 0) {
+        delayTicks(ticks, 0, jitterMillis)
+    }
+
+    /** [ticks] game ticks of 600 ms, plus [minJitterMillis]..[maxJitterMillis] ms picked uniformly. */
+    suspend fun delayTicks(ticks: Double, minJitterMillis: Int, maxJitterMillis: Int) {
+        delay((ticks * TICK_MILLIS).roundToInt() + ThreadLocalRandom.current().nextInt(minJitterMillis, maxJitterMillis + 1))
+    }
+
+    /**
+     * Waits for the player to stop moving and animating: checked once a tick, finished once [idleChecks] checks in a
+     * row see nothing going on (true), or after [maxTicks] ticks (false). Java: `Wait.untilIdle`.
+     */
+    suspend fun waitUntilIdle(maxTicks: Int, idleChecks: Int): Boolean = waitForStillness(maxTicks, idleChecks, true)
+
+    /**
+     * Waits for the player to stop moving, ignoring animation: checked once a tick, finished once [stillChecks] checks
+     * in a row see no movement (true), or after [maxTicks] ticks (false). Use it after clicking something you walk to
+     * and then keep working at, such as a rock, where [waitUntilIdle] would wait out the whole activity. Java:
+     * `Wait.untilStoppedMoving`.
+     */
+    suspend fun waitUntilStoppedMoving(maxTicks: Int, stillChecks: Int): Boolean = waitForStillness(maxTicks, stillChecks, false)
+
+    private suspend fun waitForStillness(maxTicks: Int, checks: Int, countAnimation: Boolean): Boolean {
+        var still = 0
+        repeat(maxTicks) {
+            delay(TICK_MILLIS)
+            val busy = localPlayer.isMoving || (countAnimation && localPlayer.isAnimating)
+            still = if (busy) 0 else still + 1
+            if (still >= checks) return true
+        }
+        return false
     }
 
     fun pauseOthers(): Boolean = ScriptExecutor.pauseOthers(this)

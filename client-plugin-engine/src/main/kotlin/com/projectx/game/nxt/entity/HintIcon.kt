@@ -44,6 +44,7 @@ class HintIcon(
          * the Client plus a fixed-stride index per slot - cheap enough to call every tick from
          * anywhere, and with no pointer chasing it cannot fault the way a scene-graph walk can.
          */
+        @JvmStatic
         fun all(): List<HintIcon> = runCatching {
             val list = Bootstrap.client.ptr.readLong(OClient.HINTARROW_LIST)
             if (list == 0L) return emptyList()
@@ -54,6 +55,7 @@ class HintIcon(
         }.getOrDefault(emptyList())
 
         /** The tiles the live hints point at. */
+        @JvmStatic
         fun tiles(): List<Tile> = all().map { it.tile }
 
         /** A slot is live exactly when its arrow entity pointer is set; the clear path nulls it. */

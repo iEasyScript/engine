@@ -59,6 +59,7 @@ enum class HitType(val legacy: Int, val legacyCrit: Int, val legacyOther: Int) {
 
     companion object {
         private val BY_ID = entries.associateBy(HitType::legacy) + entries.associateBy(HitType::legacyCrit) + entries.associateBy(HitType::legacyOther)
+        @JvmStatic
         fun byId(id: Int) = BY_ID[id] ?: UNKNOWN
     }
 }

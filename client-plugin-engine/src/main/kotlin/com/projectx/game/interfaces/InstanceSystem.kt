@@ -68,6 +68,7 @@ class InstanceSystem {
         private fun getComponentInt(slot: IFSlot, default: Int = 0): Int =
             getComponentText(slot).toIntOrNull() ?: default
 
+        @JvmStatic
         val instanceDetails: InstanceDetails?
             get() = if (!isOpen()) null else InstanceDetails(
                 name = getComponentText(instanceNameSlot),
