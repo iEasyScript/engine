@@ -21,16 +21,17 @@ class EastlLinkedList(raw: MemorySegment) : Iterable<EastlLinkedListNode> {
 
     override fun iterator(): Iterator<EastlLinkedListNode> {
         return object : Iterator<EastlLinkedListNode> {
+            // The list object is its own sentinel: an empty list points at itself, and the last node points back to it.
             private var currentNode: EastlLinkedListNode? = if (isListEmpty()) null else EastlLinkedListNode(startPtr)
 
-            private fun isListEmpty() = startPtr.address() == startPtr.deref(0x0L, 0x8L).address()
+            private fun isListEmpty() = startPtr.address() == ptr.address()
 
             override fun hasNext() = currentNode != null
 
             override fun next(): EastlLinkedListNode {
                 val node = currentNode ?: throw NoSuchElementException("No more elements")
                 val nextPtr = node.next.ptr
-                currentNode = if (nextPtr.address() == 0L || nextPtr.address() == startPtr.deref(0x0L, 0x8L).address()) null else EastlLinkedListNode(nextPtr)
+                currentNode = if (nextPtr.address() == 0L || nextPtr.address() == ptr.address()) null else EastlLinkedListNode(nextPtr)
                 return node
             }
         }

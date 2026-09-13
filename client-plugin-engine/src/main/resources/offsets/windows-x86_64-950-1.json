@@ -950,9 +950,9 @@
     },
     "OHeadbar": {
       "TYPE_PTR": {
-        "value": "0x18",
+        "value": "0x8",
         "confidence": "HIGH",
-        "note": "AddHeadbar writes node[3] = type1 object word; DrawEntityHeadbars reads node[3]+0x4c.",
+        "note": "Payload-relative: the list node payload starts at node+0x10, as on Linux. AddHeadbar 0x0037c6f0 writes the bar-1 HeadbarType object at node+0x18 (its ref-count block at node+0x10); the merge test reads *(int*)(*(node+0x18)+8).",
         "verified_build": "950-1"
       },
       "TYPE_ID": {
@@ -962,39 +962,39 @@
         "verified_build": "950-1"
       },
       "CLIENTCYCLE_CREATED": {
-        "value": "0x30",
+        "value": "0x20",
         "confidence": "HIGH",
-        "note": "DrawEntityHeadbars compares the current cycle against *(uint*)(node+0x30) and expires on node[0x30]+node[0x44]+type[0x4c].",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 5 at node+0x30; DrawEntityHeadbars expires the node on this cycle plus the duration.",
         "verified_build": "950-1"
       },
       "FROM_FILL": {
-        "value": "0x34",
+        "value": "0x24",
         "confidence": "HIGH",
-        "note": "AddHeadbar node+0x34; bar-1 from-fill.",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 6 at node+0x34; bar-1 from-fill.",
         "verified_build": "950-1"
       },
       "ZERO": {
-        "value": "0x38",
+        "value": "0x28",
         "confidence": "HIGH",
-        "note": "AddHeadbar node+0x38; bar-2 from-fill.",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 8 at node+0x38; bar-2 from-fill.",
         "verified_build": "950-1"
       },
       "TO_FILL": {
-        "value": "0x3c",
+        "value": "0x2c",
         "confidence": "HIGH",
-        "note": "AddHeadbar node+0x3c; bar-1 to-fill.",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 7 at node+0x3c; bar-1 to-fill.",
         "verified_build": "950-1"
       },
       "ZERO2": {
-        "value": "0x40",
+        "value": "0x30",
         "confidence": "HIGH",
-        "note": "AddHeadbar node+0x40; bar-2 to-fill.",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 9 at node+0x40; bar-2 to-fill.",
         "verified_build": "950-1"
       },
       "DURATION_CLIENTCYCLES": {
-        "value": "0x44",
+        "value": "0x34",
         "confidence": "HIGH",
-        "note": "AddHeadbar node+0x44; DrawEntityHeadbars adds it to the created cycle to expire the node.",
+        "note": "Payload-relative. AddHeadbar 0x0037c6f0 writes param 10 at node+0x44; transition cycles.",
         "verified_build": "950-1"
       }
     },

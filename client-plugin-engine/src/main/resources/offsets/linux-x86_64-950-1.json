@@ -2255,6 +2255,12 @@
         "confidence": "HIGH",
         "note": "UNCHANGED, re-read from AddHeadbar @0x004c7870 (slot count computed as (end-begin)/0x1b0; slots indexed as begin + idx*0x36 qwords).",
         "verified_build": "950-1"
+      },
+      "HEADBAR_VECTOR_END": {
+        "value": "0x30",
+        "confidence": "HIGH",
+        "note": "AddHeadbar @0x004c7870 bounds the slot vector with the end pointer at this+0x30 (see HEADBAR_LINKEDLIST_VECTOR_START and HEADBAR_STRIDE).",
+        "verified_build": "950-1"
       }
     },
     "OHit": {

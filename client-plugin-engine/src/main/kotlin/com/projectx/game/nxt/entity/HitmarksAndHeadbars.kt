@@ -15,10 +15,16 @@ import java.lang.foreign.MemorySegment
 
 class HitmarksAndHeadbars(raw: MemorySegment) {
     val ptr: MemorySegment = raw.atLeast(OHitmarksAndHeadbars.extent)
+    // A vector of per-slot lists; AddHeadbar fills slots in order, so the first empty one ends the walk.
     val headbars
         get() = ptr.getOrNull?.let { basePtr ->
-            (0..5).asSequence()
-                .map { i -> EastlLinkedList(basePtr.deref(OHitmarksAndHeadbars.HEADBAR_LINKEDLIST_VECTOR_START, OHitmarksAndHeadbars.HEADBAR_STRIDE * 5).pointerAtOffset(i * OHitmarksAndHeadbars.HEADBAR_STRIDE, OHitmarksAndHeadbars.HEADBAR_STRIDE))  }
+            val begin = basePtr.deref(OHitmarksAndHeadbars.HEADBAR_LINKEDLIST_VECTOR_START, 0)
+            val end = basePtr.deref(OHitmarksAndHeadbars.HEADBAR_VECTOR_END, 0)
+            val slotCount = ((end.address() - begin.address()) / OHitmarksAndHeadbars.HEADBAR_STRIDE).toInt()
+            if (slotCount <= 0) return@let emptyList()
+            val slots = basePtr.deref(OHitmarksAndHeadbars.HEADBAR_LINKEDLIST_VECTOR_START, OHitmarksAndHeadbars.HEADBAR_STRIDE * slotCount)
+            (0 until slotCount).asSequence()
+                .map { i -> EastlLinkedList(slots.pointerAtOffset(i * OHitmarksAndHeadbars.HEADBAR_STRIDE, OHitmarksAndHeadbars.HEADBAR_STRIDE)) }
                 .takeWhile { it.size > 0 }
                 .flatMap { it.map { node -> Headbar(node.value(OHeadbar.extent)) } }
                 .toList()
