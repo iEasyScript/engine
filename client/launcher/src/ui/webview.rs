@@ -45,34 +45,7 @@ pub enum UserEvent {
     OpenLogin,
 }
 
-/// The bundled UI typefaces, as `(family, weight, embedded path)`. They are
-/// inlined as `data:` URIs so the launcher renders identically on a machine with
-/// no fonts installed and with no network access. Both are SIL OFL licensed —
-/// see `ui/fonts/OFL-*.txt`.
-const UI_FONTS: [(&str, u16, &str); 3] = [
-    ("Cinzel", 700, "fonts/cinzel-latin.woff2"),
-    ("Alegreya Sans", 400, "fonts/alegreya-sans-400-latin.woff2"),
-    ("Alegreya Sans", 700, "fonts/alegreya-sans-700-latin.woff2"),
-];
-
-fn font_face_css() -> String {
-    use base64::Engine;
-
-    UI_FONTS
-        .iter()
-        .filter_map(|(family, weight, path)| {
-            let asset = UiAssets::get(path)?;
-            let data = base64::engine::general_purpose::STANDARD.encode(&asset.data);
-            Some(format!(
-                "@font-face{{font-family:'{}';font-style:normal;font-weight:{};font-display:block;\
-                 src:url(data:font/woff2;base64,{}) format('woff2');}}",
-                family, weight, data
-            ))
-        })
-        .collect()
-}
-
-/// Build inline HTML with fonts, CSS and JS embedded
+/// Build inline HTML with CSS and JS embedded
 fn build_inline_html() -> String {
     let html = UiAssets::get("index.html")
         .map(|a| String::from_utf8_lossy(&a.data).to_string())
@@ -88,7 +61,7 @@ fn build_inline_html() -> String {
 
     let html = html.replace(
         r#"<link rel="stylesheet" href="style.css">"#,
-        &format!("<style>{}{}</style>", font_face_css(), css),
+        &format!("<style>{}</style>", css),
     );
 
     html.replace(

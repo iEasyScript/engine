@@ -172,8 +172,8 @@ fn main() -> Result<()> {
     let main_window = WindowBuilder::new()
         .with_title("Project X Launcher")
         .with_window_icon(window_icon())
-        .with_inner_size(LogicalSize::new(560.0, 720.0))
-        .with_min_inner_size(LogicalSize::new(440.0, 560.0))
+        .with_inner_size(LogicalSize::new(940.0, 600.0))
+        .with_min_inner_size(LogicalSize::new(720.0, 460.0))
         .build(&event_loop)
         .context("Failed to create main window")?;
 
