@@ -34,7 +34,8 @@ object UI {
     }
 
     enum class Tab(val displayName: String, val category: Category) {
-        SCRIPTS("Scripts", Category.AUTOMATION),
+        SCRIPTS("Library", Category.AUTOMATION),
+        STORE("Store", Category.AUTOMATION),
         QUEST_HELPER("Quest Helper", Category.AUTOMATION),
         XP_TRACKER("XP Tracker", Category.CHARACTER),
         INVENTORY("Inventory", Category.CHARACTER),
@@ -184,6 +185,7 @@ object UI {
         try {
             when (UIState.selectedTab) {
                 Tab.SCRIPTS -> with(ScriptsTab) { render() }
+                Tab.STORE -> with(StoreTab) { render() }
                 Tab.QUEST_HELPER -> with(QuestHelperTab) { render() }
                 Tab.XP_TRACKER -> with(XpTrackerTab) { render() }
                 Tab.INVENTORY -> with(InventoryTab) { render() }

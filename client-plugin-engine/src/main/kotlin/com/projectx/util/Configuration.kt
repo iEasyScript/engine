@@ -16,6 +16,11 @@ data class PersistentConfig(
     val uiToggleKey: Int = defaultUiToggleKey,
     val favoriteScripts: Set<String> = emptySet(),
     /**
+     * Class names of the scripts added to the library from the Store. Null until the library is first set up,
+     * which is how a config written before the Store existed is told apart from an emptied library.
+     */
+    val libraryScripts: Set<String>? = null,
+    /**
      * Packet logging runs by default, as the old text dump did - a captured session costs a few
      * megabytes now rather than a hundred, so there is nothing to opt out of on space grounds.
      *
@@ -83,6 +88,11 @@ object Configuration {
 
     fun saveFavoriteScripts(favoriteScriptNames: Set<String>) {
         _config = config.copy(favoriteScripts = favoriteScriptNames)
+        saveConfig()
+    }
+
+    fun saveLibraryScripts(libraryScriptNames: Set<String>) {
+        _config = config.copy(libraryScripts = libraryScriptNames)
         saveConfig()
     }
 

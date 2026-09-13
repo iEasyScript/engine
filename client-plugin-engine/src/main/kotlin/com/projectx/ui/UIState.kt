@@ -22,6 +22,8 @@ object UIState {
 
     val scriptSearchText = stringState("", 128)
     val statusFilterIndex = intState(0)
+    val storeSearchText = stringState("", 128)
+    val storeSourceIndex = intState(0)
     val logFilterText = stringState("", 128)
     val logErrorsOnly = boolState(false)
     @Suppress("UNCHECKED_CAST")

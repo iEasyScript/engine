@@ -2,6 +2,8 @@ package com.projectx.ui.tabs
 
 import java.lang.reflect.InvocationTargetException
 import com.projectx.script.*
+import com.projectx.ui.ScriptLibrary
+import com.projectx.ui.UI
 import com.projectx.ui.UIState
 import com.projectx.ui.UiChrome
 import com.projectx.ui.backend.dsl.boolState
@@ -32,9 +34,10 @@ object ScriptsTab {
     private var lastScriptsVersion = 0
     private var lastRunningStates: Map<Class<out Script>, Boolean> = emptyMap()
     private var lastFavorites: Set<Class<out Script>> = emptySet()
+    private var lastLibraryVersion = -1
 
     private fun LayoutScope.scriptCounts() {
-        val total = ScriptExecutor.scripts.size
+        val inLibrary = ScriptLibrary.size()
         val running = ScriptExecutor.scripts.values.count { ScriptExecutor.isScriptRunning(it.scriptClass) }
         val shown = getFilteredScripts().size
 
@@ -43,7 +46,7 @@ object ScriptsTab {
         popStyleColor(1)
         sameLine()
         pushStyleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED)
-        text(if (shown == total) "· $total loaded" else "· $shown of $total shown")
+        text(if (shown == inLibrary) "· $inLibrary in your library" else "· $shown of $inLibrary shown")
         popStyleColor(1)
     }
 
@@ -55,17 +58,21 @@ object ScriptsTab {
             it.scriptClass to ScriptExecutor.isScriptRunning(it.scriptClass)
         }
         val currentFavorites = UIState.favoriteScripts.toSet()
+        val libraryVersion = ScriptLibrary.version
 
         if (cachedFilteredList != null &&
-            query == lastQuery && 
-            filterIdx == lastFilterIdx && 
+            query == lastQuery &&
+            filterIdx == lastFilterIdx &&
             scriptsVersion == lastScriptsVersion &&
             currentRunningStates == lastRunningStates &&
-            currentFavorites == lastFavorites) {
+            currentFavorites == lastFavorites &&
+            libraryVersion == lastLibraryVersion) {
             return cachedFilteredList!!
         }
 
+        // A running script stays listed after it is removed, so it can still be stopped from here.
         val sorted = ScriptExecutor.scripts.values
+            .filter { ScriptLibrary.contains(it) || currentRunningStates[it.scriptClass] == true }
             .sortedWith(
                 compareByDescending<ScriptMetadata> { currentFavorites.contains(it.scriptClass) }
                     .thenByDescending { currentRunningStates[it.scriptClass] ?: false }
@@ -91,6 +98,7 @@ object ScriptsTab {
         lastScriptsVersion = scriptsVersion
         lastRunningStates = currentRunningStates
         lastFavorites = currentFavorites
+        lastLibraryVersion = ScriptLibrary.version
 
         return filtered
     }
@@ -121,6 +129,15 @@ object ScriptsTab {
         spacing()
 
         child("ScriptScrollArea", height = -8f, childFlags = ImGuiChildFlags.Borders) {
+            if (getFilteredScripts().isEmpty()) {
+                styleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED) {
+                    textWrapped(
+                        if (ScriptLibrary.size() == 0) "Your library is empty. Open the Store tab and add the scripts you want to use."
+                        else "No scripts in your library match the search."
+                    )
+                }
+                button("Open the Store") { UIState.selectedTab = UI.Tab.STORE }
+            }
             getFilteredScripts().forEach { meta ->
                 val isRunning = ScriptExecutor.isScriptRunning(meta.scriptClass)
                 val isFavorite = UIState.favoriteScripts.contains(meta.scriptClass)
@@ -196,6 +213,9 @@ object ScriptsTab {
                     indent()
                     styleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED) {
                         textWrapped(meta.description.ifBlank { "No description." })
+                    }
+                    if (ScriptLibrary.contains(meta)) {
+                        smallButton("Remove from library##remove_$id") { ScriptLibrary.remove(meta) }
                     }
                     unindent()
                 }
