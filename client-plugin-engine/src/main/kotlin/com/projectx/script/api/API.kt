@@ -1509,8 +1509,16 @@ enum class Lodestone(val id: Int, val object_id: Int, val object_id_unlocked: In
     }
 }
 
+const val LODESTONE_MAP_INTERFACE = 1092
+
+// The minimap's home teleport button, whose first option opens the lodestone network: one per minimap layout.
+private val HOME_TELEPORT_BUTTONS = listOf(1465 to 34, 1319 to 33)
+
 val isLodestoneUiOpen
-    get() = interfaces.getComponent(1092, 56) != null //check "Lodestone" text
+    get() = interfaces.isOpen(LODESTONE_MAP_INTERFACE)
+
+/** Clicks the minimap's home teleport button to open the lodestone network; false when no minimap shows it. */
+fun openLodestoneMap(): Boolean = HOME_TELEPORT_BUTTONS.any { (interfaceId, componentId) -> interactComponent(1, interfaceId, componentId) }
 
 /**
  * This function allows you to teleport using the lodestone network
@@ -1522,7 +1530,7 @@ val isLodestoneUiOpen
 suspend fun Script.useLodestone(lodestone: Lodestone) {
     if (isLodestoneUiOpen) {
         println("Clicking on lodestone: ${lodestone.name}")
-        interactComponent(1, 1092, lodestone.id)
+        interactComponent(1, LODESTONE_MAP_INTERFACE, lodestone.id)
         waitThenDelayUntil(600, 5000) { !localPlayer.isAnimating }
 
         if (!localPlayer.isAnimating) {
@@ -1536,7 +1544,7 @@ suspend fun Script.useLodestone(lodestone: Lodestone) {
         }
     } else {
         println("Opening lodestone interface")
-        interactComponent(1, 1465, 33)
+        openLodestoneMap()
         waitThenDelayUntil(600, 5000) { isLodestoneUiOpen }
     }
 }

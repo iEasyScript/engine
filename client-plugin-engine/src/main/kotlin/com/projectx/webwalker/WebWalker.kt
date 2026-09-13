@@ -3,11 +3,13 @@ package com.projectx.webwalker
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
+import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.Lodestone
 import com.projectx.script.api.findClosestObject
 import com.projectx.script.api.interactComponent
 import com.projectx.script.api.isLodestoneUiOpen
 import com.projectx.script.api.localPlayer
+import com.projectx.script.api.openLodestoneMap
 import com.projectx.script.api.walkTo
 import com.projectx.util.random
 import world.gregs.voidps.type.Tile
@@ -49,9 +51,6 @@ object WebWalker {
     private const val ARRIVAL_RADIUS = 10
     private const val LODESTONE_MAP_TIMEOUT_MS = 5000L
     private const val TELEPORT_TIMEOUT_MS = 25_000L
-    private const val HOME_TELEPORT_INTERFACE = 1465
-    private const val HOME_TELEPORT_COMPONENT = 33
-    private const val LODESTONE_MAP_INTERFACE = 1092
 
     private val DOOR_OPTIONS = listOf("Open", "Go-through", "Pass-through")
 
@@ -212,7 +211,10 @@ object WebWalker {
     private suspend fun teleport(script: Script, lodestone: Lodestone): Boolean {
         println("[WebWalk] Teleporting to the ${lodestone.name} lodestone")
         if (!isLodestoneUiOpen) {
-            interactComponent(1, HOME_TELEPORT_INTERFACE, HOME_TELEPORT_COMPONENT)
+            if (!openLodestoneMap()) {
+                println("[WebWalk] No home teleport button on the minimap; walking instead")
+                return false
+            }
             script.delayUntil(LODESTONE_MAP_TIMEOUT_MS) { isLodestoneUiOpen }
             if (!isLodestoneUiOpen) {
                 println("[WebWalk] The lodestone map did not open; walking instead")
@@ -220,7 +222,10 @@ object WebWalker {
             }
             script.delay(random(250, 600))
         }
-        interactComponent(1, LODESTONE_MAP_INTERFACE, lodestone.id)
+        if (!interactComponent(1, LODESTONE_MAP_INTERFACE, lodestone.id)) {
+            println("[WebWalk] The ${lodestone.name} button is not on the lodestone map; walking instead")
+            return false
+        }
         script.delayUntil(TELEPORT_TIMEOUT_MS) { localPlayer.tile.withinDistance(lodestone.tile, ARRIVAL_RADIUS) }
         if (!localPlayer.tile.withinDistance(lodestone.tile, ARRIVAL_RADIUS)) {
             println("[WebWalk] The ${lodestone.name} teleport did not arrive; walking instead")
