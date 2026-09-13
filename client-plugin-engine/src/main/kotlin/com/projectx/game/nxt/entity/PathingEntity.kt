@@ -41,6 +41,9 @@ abstract class PathingEntity(raw: MemorySegment) : Entity(raw) {
     val headbars
         get() = hitmarksAndHeadbars?.headbars ?: emptyList()
 
+    /** The current fill of this entity's headbar of [type] (a headbar gameval id), or -1 while that bar is not shown. */
+    fun headbarFill(type: Int): Int = headbars.firstOrNull { it.type == type }?.toFill ?: -1
+
     val hits
         get() = hitmarksAndHeadbars?.hits?.filter { it.typeId > 0 && it.timeLeftMillis > 0 } ?: emptyList()
 

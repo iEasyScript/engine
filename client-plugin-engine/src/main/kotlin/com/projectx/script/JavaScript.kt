@@ -46,7 +46,8 @@ abstract class JavaScript : Script() {
             is Wait.Idle -> {
                 var idleChecks = 0
                 delayUntil(wait.maxTicks.toLong() * TICK_MILLIS, TICK_MILLIS) {
-                    idleChecks = if (localPlayer.isMoving || localPlayer.isAnimating) 0 else idleChecks + 1
+                    val busy = localPlayer.isMoving || (wait.countAnimation && localPlayer.isAnimating)
+                    idleChecks = if (busy) 0 else idleChecks + 1
                     idleChecks >= wait.idleChecks
                 }
             }
@@ -92,7 +93,7 @@ sealed class Wait {
 
     class XpDrop internal constructor(val skill: Skill?, val timeoutMillis: Long) : Wait()
 
-    class Idle internal constructor(val maxTicks: Int, val idleChecks: Int) : Wait()
+    class Idle internal constructor(val maxTicks: Int, val idleChecks: Int, val countAnimation: Boolean) : Wait()
 
     class Sequence internal constructor(val steps: List<Step>) : Wait()
 
@@ -150,7 +151,16 @@ sealed class Wait {
          * [idleChecks] checks in a row see nothing going on, or after [maxTicks] ticks.
          */
         @JvmStatic
-        fun untilIdle(maxTicks: Int, idleChecks: Int): Wait = Idle(maxTicks, idleChecks)
+        fun untilIdle(maxTicks: Int, idleChecks: Int): Wait = Idle(maxTicks, idleChecks, countAnimation = true)
+
+        /**
+         * Wait for the player to stop moving, ignoring animation: checked once a tick, finished once
+         * [stillChecks] checks in a row see no movement, or after [maxTicks] ticks. Use it after clicking
+         * something you walk to and then keep working at, such as a rock or an altar, where [untilIdle]
+         * would wait out the whole activity.
+         */
+        @JvmStatic
+        fun untilStoppedMoving(maxTicks: Int, stillChecks: Int): Wait = Idle(maxTicks, stillChecks, countAnimation = false)
 
         /**
          * Run [steps] one after another, each performing its own wait before the next starts — the
