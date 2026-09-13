@@ -11,15 +11,13 @@ import com.projectx.ui.backend.dsl.ImGuiDsl.setNextWindowPos
 import com.projectx.ui.backend.dsl.ImGuiDsl.setNextWindowSize
 import com.projectx.ui.backend.dsl.ImGuiDsl.window
 import com.projectx.ui.backend.dsl.scopes.*
-import com.projectx.ui.backend.dsl.utils.Corner
+import com.projectx.ui.backend.dsl.utils.ImGuiChildFlags
 import com.projectx.ui.backend.dsl.utils.ImGuiCol
 import com.projectx.ui.backend.dsl.utils.ImGuiColors
+import com.projectx.ui.backend.dsl.utils.ImGuiStyleVar
 import com.projectx.ui.backend.flags.ImGuiCond
 import com.projectx.ui.backend.flags.WindowFlags
 import com.projectx.ui.backend.native.ImGuiTexture
-import com.projectx.ui.backend.native.ImageHelper.getNoiseTexture
-import com.projectx.ui.backend.native.GraphicRotation
-import com.projectx.ui.backend.native.graphicTexture
 import com.projectx.ui.backend.rendering.ImGUIRender
 import com.projectx.ui.highlight.CollisionDebugRenderer
 import com.projectx.ui.highlight.EntityOverlayRenderer
@@ -54,10 +52,10 @@ object UI {
         SETTINGS("Settings", Category.SYSTEM)
     }
 
-    private const val CATEGORY_WIDTH = 104f
-    private val DARK_ON_ACCENT = ImGuiColors.hex("#2A0F04")
-    private const val BRAND_LOGO_SIZE = 46f
-    private const val CONTENT_HEIGHT = -26f
+    private const val SIDEBAR_WIDTH = 168f
+    private const val HEADER_HEIGHT = 38f
+    private const val BRAND_LOGO_SIZE = 16f
+    private val ENGINE_VERSION = Regex("""(\d+\.\d+\.\d+)""")
 
     init {
         EngineLog.install()
@@ -87,17 +85,12 @@ object UI {
                 setNextWindowSize(980f, 640f, ImGuiCond.FirstUseEver)
 
                 window("Project X", WindowFlags.NoTitleBar) {
-                    runCatching {
-                        watermark(graphicTexture(18026, GraphicRotation.R0), Corner.BottomLeft, scale = 1.5f)
-                        watermark(graphicTexture(18026, GraphicRotation.R270), Corner.BottomRight, scale = 1.5f)
-                        applyBackgroundOverlay(getNoiseTexture(), 0.25f)
-                    }
-
-                    navBar()
-                    child("tab-content", width = 0f, height = CONTENT_HEIGHT) {
+                    header()
+                    sidebar()
+                    sameLine()
+                    child("tab-content", childFlags = ImGuiChildFlags.Borders or ImGuiChildFlags.AlwaysUseWindowPadding) {
                         renderTabContent()
                     }
-                    statusBar()
                 }
             }
             refreshDataForVisibleTabs()
@@ -108,85 +101,83 @@ object UI {
         }
     }
 
-    private fun WindowScope.navBar() {
-        brandBlock()
-        sameLine()
-        group {
-            categoryRow()
-            tabRow()
+    private fun WindowScope.header() {
+        child(
+            "header",
+            height = HEADER_HEIGHT,
+            childFlags = ImGuiChildFlags.Borders,
+            windowFlags = (WindowFlags.NoScrollbar + WindowFlags.NoScrollWithMouse).value,
+        ) {
+            val logo = UiChrome.logo ?: ImGuiTexture.fromPath(UiChrome.LOGO_PATH)
+            if (logo != null) {
+                image(logo, BRAND_LOGO_SIZE, BRAND_LOGO_SIZE)
+                sameLine()
+            }
+            styleColor(ImGuiCol.Text, ImGuiColors.TEXT_ACCENT) { text("Project X") }
+            sameLine()
+            mutedText(engineLabel())
+            itemTooltip(fullBuild())
+
+            val running = ScriptExecutor.scripts.values.count { ScriptExecutor.isScriptRunning(it.scriptClass) }
+            sameLine()
+            mutedText("|")
+            sameLine()
+            styleColor(ImGuiCol.Text, if (running > 0) ImGuiColors.ACCENT_SUCCESS else ImGuiColors.TEXT_DISABLED) {
+                text(if (running > 0) "$running running" else "idle")
+            }
+            sameLine()
+            mutedText("|")
+            sameLine()
+            mutedText("${ScriptExecutor.scripts.size} scripts")
         }
-        separator()
     }
 
-    private fun LayoutScope.brandBlock() {
-        val logo = UiChrome.logo ?: ImGuiTexture.fromPath(UiChrome.LOGO_PATH)
-        if (logo != null) image(logo, BRAND_LOGO_SIZE, BRAND_LOGO_SIZE)
-    }
-
-    private fun LayoutScope.categoryRow() {
-        val active = UIState.selectedTab.category
-        Category.entries.forEachIndexed { index, category ->
-            if (index > 0) sameLine()
-            navButton(category.displayName, isActive = category == active, width = CATEGORY_WIDTH) {
-                Tab.entries.first { it.category == category }.let { UIState.selectedTab = it }
+    private fun WindowScope.sidebar() {
+        child("sidebar", width = SIDEBAR_WIDTH, childFlags = ImGuiChildFlags.Borders or ImGuiChildFlags.AlwaysUseWindowPadding) {
+            styleVar(ImGuiStyleVar.ButtonTextAlign, 0f, 0.5f) {
+                styleVar(ImGuiStyleVar.ItemSpacing, 6f, 5f) {
+                    Category.entries.forEachIndexed { index, category ->
+                        if (index > 0) spacing()
+                        mutedText(category.displayName)
+                        Tab.entries.filter { it.category == category }.forEach { tab ->
+                            navButton(tab.displayName, isActive = tab == UIState.selectedTab) {
+                                UIState.selectedTab = tab
+                            }
+                        }
+                    }
+                }
             }
         }
     }
 
-    private fun LayoutScope.tabRow() {
-        val active = UIState.selectedTab
-        Tab.entries.filter { it.category == active.category }.forEachIndexed { index, tab ->
-            if (index > 0) sameLine()
-            navButton(tab.displayName, isActive = tab == active, width = 0f) {
-                UIState.selectedTab = tab
-            }
-        }
-    }
-
-    private fun LayoutScope.navButton(label: String, isActive: Boolean, width: Float, onClick: () -> Unit) {
-        val fill: Int
-        val hovered: Int
-        val pressed: Int
-        val labelColor: Int
+    private fun LayoutScope.navButton(label: String, isActive: Boolean, onClick: () -> Unit) {
         if (isActive) {
-            fill = ImGuiColors.ACCENT_PRIMARY
-            hovered = ImGuiColors.ACCENT_PRIMARY_HOVER
-            pressed = ImGuiColors.ACCENT_PRIMARY_ACTIVE
-            labelColor = DARK_ON_ACCENT
+            pushStyleColor(ImGuiCol.Button, ImGuiColors.ACCENT_PRIMARY)
+            pushStyleColor(ImGuiCol.ButtonHovered, ImGuiColors.ACCENT_PRIMARY_HOVER)
+            pushStyleColor(ImGuiCol.ButtonActive, ImGuiColors.ACCENT_PRIMARY_ACTIVE)
+            pushStyleColor(ImGuiCol.Border, ImGuiColors.ACCENT_PRIMARY_HOVER)
         } else {
-            fill = ImGuiColors.BACKGROUND_TERTIARY
-            hovered = ImGuiColors.BACKGROUND_HOVER
-            pressed = ImGuiColors.BACKGROUND_ACTIVE
-            labelColor = ImGuiColors.TEXT_SECONDARY
+            pushStyleColor(ImGuiCol.Button, ImGuiColors.BACKGROUND_TERTIARY)
+            pushStyleColor(ImGuiCol.ButtonHovered, ImGuiColors.BACKGROUND_HOVER)
+            pushStyleColor(ImGuiCol.ButtonActive, ImGuiColors.BACKGROUND_ACTIVE)
+            pushStyleColor(ImGuiCol.Border, ImGuiColors.BORDER_STRONG)
         }
-        pushStyleColor(ImGuiCol.Button, fill)
-        pushStyleColor(ImGuiCol.ButtonHovered, hovered)
-        pushStyleColor(ImGuiCol.ButtonActive, pressed)
-        button(label, width = width, textColor = labelColor, onClick = onClick)
-        popStyleColor(3)
+        button(label, width = -1f, textColor = if (isActive) ImGuiColors.WHITE else ImGuiColors.TEXT_PRIMARY, onClick = onClick)
+        popStyleColor(4)
     }
 
-    private fun WindowScope.statusBar() {
-        val running = ScriptExecutor.scripts.values.count { ScriptExecutor.isScriptRunning(it.scriptClass) }
-
-        pushStyleColor(ImGuiCol.Text, if (running > 0) ImGuiColors.ACCENT_SUCCESS else ImGuiColors.TEXT_DISABLED)
-        text(if (running > 0) "$running running" else "idle")
-        popStyleColor(1)
-        sameLine()
-        pushStyleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED)
-        text("· ${ScriptExecutor.scripts.size} scripts · ${UIState.selectedTab.displayName}")
-        popStyleColor(1)
-        sameLine()
-        pushStyleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED)
-        text("· build ${shortBuild()}")
-        popStyleColor(1)
-        if (isItemHovered()) setTooltip(fullBuild())
+    private fun LayoutScope.mutedText(value: String) {
+        styleColor(ImGuiCol.Text, ImGuiColors.TEXT_DISABLED) { text(value) }
     }
 
     private fun fullBuild(): String = runCatching { BuildInfo.VERSION }.getOrDefault("unknown")
 
-    /** The timestamp alone; the jar name makes the bar unreadable and rarely differs. */
-    private fun shortBuild(): String = fullBuild().substringAfterLast('@').takeLast(12)
+    /** The engine version from the jar name, or the build timestamp for a jar built without one. */
+    private fun engineLabel(): String {
+        val build = fullBuild()
+        val version = ENGINE_VERSION.find(build.substringBefore('@'))?.value
+        return if (version != null) "Engine v$version" else "Build ${build.substringAfterLast('@').takeLast(12)}"
+    }
 
 
     private fun ChildScope.renderTabContent() {
@@ -281,11 +272,6 @@ object UI {
                         flags = WindowFlags.None,
                         open = windowState
                     ) {
-                        runCatching {
-                            watermark(graphicTexture(18026, GraphicRotation.R0), Corner.BottomLeft, scale = 1.2f)
-                            watermark(graphicTexture(18026, GraphicRotation.R270), Corner.BottomRight, scale = 1.2f)
-                            applyBackgroundOverlay(getNoiseTexture(), 0.25f)
-                        }
                         renderScriptConfig(instance)
 
                         separator()
