@@ -44,6 +44,10 @@ const ENGINE_LINK: &str = "projectx-engine.jar";
 /// that a release published while the launcher is open is still noticed.
 const CATALOG_TTL: Duration = Duration::from_secs(10 * 60);
 
+/// Bounds the release page request used to learn a channel's latest tag, which
+/// is only read for its redirect.
+const RELEASE_PAGE_TIMEOUT: Duration = Duration::from_secs(20);
+
 /// A distributable script module. The id is the contract shared with the CI
 /// manifest and with the persisted install state.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -351,7 +355,104 @@ async fn get_json<T: DeserializeOwned>(
         .with_context(|| format!("GET {} returned a body this launcher cannot read", url))
 }
 
+/// The GitHub web host to read releases from without the REST API, or `None` when
+/// a different API host is configured (a self-hosted or test endpoint), which
+/// has no such web routes.
+///
+/// Unauthenticated API calls are limited to 60 an hour per IP, and every catalog
+/// fetch spends three. A launcher restarted a few times in an hour ran out, and
+/// the failed check left it on the engine it already had. Release pages and asset
+/// downloads are not counted against that limit.
+fn web_host(cfg: &PluginsConfig) -> Option<&'static str> {
+    (api_host(cfg) == DEFAULT_API_HOST).then_some(DEFAULT_WEB_HOST)
+}
+
 async fn fetch_channel_plugin(
+    client: &reqwest::Client,
+    cfg: &PluginsConfig,
+    channel: PluginChannel,
+) -> Result<ManifestPlugin> {
+    if let Some(web) = web_host(cfg) {
+        match fetch_channel_plugin_web(client, cfg, channel, web).await {
+            Ok(plugin) => return Ok(plugin),
+            Err(e) => log::warn!(
+                "{} channel: release download links failed ({}); asking the GitHub API instead",
+                channel.id(),
+                e
+            ),
+        }
+    }
+    fetch_channel_plugin_api(client, cfg, channel).await
+}
+
+/// Resolves a channel from its release page's redirect and the publish job's
+/// fixed asset names: `<repo>-<version>.jar` with a `.sha256` beside it. Fetching
+/// the checksum doubles as the check that the jar really is under that name.
+async fn fetch_channel_plugin_web(
+    client: &reqwest::Client,
+    cfg: &PluginsConfig,
+    channel: PluginChannel,
+    web: &str,
+) -> Result<ManifestPlugin> {
+    let repo = channel.repo(cfg);
+    let tag = latest_release_tag(web, &repo).await?;
+    let version = tag.trim_start_matches('v').to_string();
+    let file = format!("{}-{}.jar", channel.jar_prefix(), version);
+    let base = format!("{}/{}/releases/download/{}", web, repo, tag);
+
+    let checksum = fetch_text(client, &format!("{}/{}.sha256", base, file)).await?;
+    let sha256 = checksum
+        .split_whitespace()
+        .next()
+        .filter(|sha| sha.len() == 64)
+        .ok_or_else(|| anyhow!("{repo}: {file}.sha256 holds no checksum"))?
+        .to_string();
+
+    Ok(ManifestPlugin {
+        id: channel.id().to_string(),
+        name: channel.label().to_string(),
+        description: channel.blurb().to_string(),
+        version,
+        url: format!("{}/{}", base, file),
+        file,
+        sha256,
+        size: 0,
+    })
+}
+
+/// The newest release's tag, read from where `/releases/latest` redirects rather
+/// than from the API. The redirect is not followed: the page behind it is only
+/// wanted for its address.
+async fn latest_release_tag(web: &str, repo: &str) -> Result<String> {
+    let url = format!("{}/{}/releases/latest", web, repo);
+    let client = reqwest::Client::builder()
+        .redirect(reqwest::redirect::Policy::none())
+        .timeout(RELEASE_PAGE_TIMEOUT)
+        .build()
+        .context("Failed to build the release page client")?;
+    let response = client
+        .get(&url)
+        .send()
+        .await
+        .with_context(|| format!("GET {} failed", url))?;
+    let location = response
+        .headers()
+        .get(reqwest::header::LOCATION)
+        .and_then(|value| value.to_str().ok())
+        .ok_or_else(|| anyhow!("GET {} returned {} with no redirect", url, response.status()))?;
+    tag_from_release_location(location)
+        .ok_or_else(|| anyhow!("{} redirected to {}, which names no release tag", url, location))
+}
+
+/// The tag at the end of a `/releases/tag/<tag>` address. `/releases` alone is
+/// where GitHub sends a repository with no release, so it yields nothing.
+fn tag_from_release_location(location: &str) -> Option<String> {
+    let tag = location.split_once("/releases/tag/")?.1;
+    let tag = tag.split(['?', '#']).next()?.trim_end_matches('/');
+    (!tag.is_empty() && !tag.contains('/')).then(|| tag.to_string())
+}
+
+async fn fetch_channel_plugin_api(
     client: &reqwest::Client,
     cfg: &PluginsConfig,
     channel: PluginChannel,
@@ -466,6 +567,68 @@ pub async fn fetch_catalog(client: &reqwest::Client, cfg: &PluginsConfig) -> Res
 }
 
 async fn fetch_engine_catalog(client: &reqwest::Client, cfg: &PluginsConfig) -> Result<Catalog> {
+    if let Some(web) = web_host(cfg) {
+        match fetch_engine_catalog_web(client, cfg, web).await {
+            Ok(catalog) => return Ok(catalog),
+            Err(e) => log::warn!(
+                "release manifest download failed ({}); asking the GitHub API instead",
+                e
+            ),
+        }
+    }
+    fetch_engine_catalog_api(client, cfg).await
+}
+
+/// Reads the newest release's manifest through GitHub's `latest/download` link,
+/// which redirects to the asset without touching the API. The manifest carries
+/// its own version, which is all the release tag is needed for.
+async fn fetch_engine_catalog_web(
+    client: &reqwest::Client,
+    cfg: &PluginsConfig,
+    web: &str,
+) -> Result<Catalog> {
+    let url = format!(
+        "{}/{}/releases/latest/download/{}",
+        web,
+        project_path(cfg),
+        MANIFEST_LINK
+    );
+    let manifest: PluginManifest = get_json(client, &url).await?;
+    let version = manifest.version.trim().trim_start_matches('v');
+    if version.is_empty() {
+        bail!("{} carries no version", url);
+    }
+    let tag = format!("v{}", version);
+    Ok(catalog_from_manifest(cfg, tag, manifest))
+}
+
+fn catalog_from_manifest(cfg: &PluginsConfig, release_tag: String, mut manifest: PluginManifest) -> Catalog {
+    log::info!(
+        "Plugin catalog {} lists {} plugin(s), {} launcher build(s), {} engine, {} supervisor \
+         and {} bootstrap(s)",
+        release_tag,
+        manifest.plugins.len(),
+        manifest.launcher.len(),
+        if manifest.engine.is_some() { "an" } else { "no" },
+        if manifest.supervisor.is_some() { "a" } else { "no" },
+        manifest.bootstrap.len()
+    );
+    for download in &mut manifest.launcher {
+        download.label = platform_label(&download.platform);
+    }
+    Catalog {
+        release_url: format!("{}/releases/tag/{}", source_url(cfg), release_tag),
+        release_tag,
+        plugins: manifest.plugins,
+        launcher: manifest.launcher,
+        engine: manifest.engine,
+        supervisor: manifest.supervisor,
+        bootstrap: manifest.bootstrap,
+        fetched_at: SystemTime::now(),
+    }
+}
+
+async fn fetch_engine_catalog_api(client: &reqwest::Client, cfg: &PluginsConfig) -> Result<Catalog> {
     let base = api_project_base(cfg);
 
     let release: Release = match get_json(client, &format!("{}/releases/latest", base)).await {
@@ -483,28 +646,14 @@ async fn fetch_engine_catalog(client: &reqwest::Client, cfg: &PluginsConfig) -> 
         }
     };
 
-    let release_url = format!("{}/releases/tag/{}", source_url(cfg), release.tag_name);
     let manifest_url = release
         .assets
         .iter()
         .find(|l| l.name == MANIFEST_LINK)
         .map(|l| l.url.clone());
 
-    let mut manifest = match manifest_url {
-        Some(url) => {
-            let manifest: PluginManifest = get_json(client, &url).await?;
-            log::info!(
-                "Plugin catalog {} lists {} plugin(s), {} launcher build(s), {} engine, {} \
-                 supervisor and {} bootstrap(s)",
-                if manifest.version.is_empty() { &release.tag_name } else { &manifest.version },
-                manifest.plugins.len(),
-                manifest.launcher.len(),
-                if manifest.engine.is_some() { "an" } else { "no" },
-                if manifest.supervisor.is_some() { "a" } else { "no" },
-                manifest.bootstrap.len()
-            );
-            manifest
-        }
+    let manifest = match manifest_url {
+        Some(url) => get_json::<PluginManifest>(client, &url).await?,
         // A release with no manifest is hand-cut or predates the asset. Its raw
         // links still name the plugin and engine jars, but nothing names a
         // checksum — and the bootstrap and supervisor install under fixed names,
@@ -518,20 +667,7 @@ async fn fetch_engine_catalog(client: &reqwest::Client, cfg: &PluginsConfig) -> 
         },
     };
 
-    for download in &mut manifest.launcher {
-        download.label = platform_label(&download.platform);
-    }
-
-    Ok(Catalog {
-        release_tag: release.tag_name,
-        release_url,
-        plugins: manifest.plugins,
-        launcher: manifest.launcher,
-        engine: manifest.engine,
-        supervisor: manifest.supervisor,
-        bootstrap: manifest.bootstrap,
-        fetched_at: SystemTime::now(),
-    })
+    Ok(catalog_from_manifest(cfg, release.tag_name, manifest))
 }
 
 /// Derive launcher builds from a release's raw asset links, for a release with
@@ -1218,6 +1354,26 @@ mod tests {
         assert_eq!(catalog.bootstrap_for("linux-x86_64").expect("linux").sha256, "cc");
         assert_eq!(catalog.bootstrap_for("windows-x86_64").expect("windows").sha256, "dd");
         assert!(catalog.bootstrap_for("macos-universal").is_none());
+    }
+
+    #[test]
+    fn the_latest_release_redirect_names_its_tag() {
+        assert_eq!(
+            tag_from_release_location("https://github.com/iEasyScript/community-scripts/releases/tag/v1.2.0"),
+            Some("v1.2.0".to_string())
+        );
+        assert_eq!(tag_from_release_location("/iEasyScript/launcher/releases/tag/v1.0.16/"), Some("v1.0.16".to_string()));
+        assert_eq!(tag_from_release_location("https://github.com/o/r/releases/tag/v2.0.0?x=1"), Some("v2.0.0".to_string()));
+        assert_eq!(tag_from_release_location("https://github.com/iEasyScript/launcher/releases"), None);
+        assert_eq!(tag_from_release_location("https://github.com/o/r/releases/tag/"), None);
+    }
+
+    #[test]
+    fn only_the_default_api_host_reads_releases_from_the_web() {
+        let mut cfg = PluginsConfig::default();
+        assert_eq!(web_host(&cfg), Some(DEFAULT_WEB_HOST));
+        cfg.api_host = Some("http://127.0.0.1:9999".to_string());
+        assert_eq!(web_host(&cfg), None);
     }
 
     #[test]
