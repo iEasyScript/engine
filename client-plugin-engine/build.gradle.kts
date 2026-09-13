@@ -65,9 +65,9 @@ dependencies {
 tasks.withType<Test> {
     useJUnitPlatform()
     jvmArgs("--enable-preview")
-    // Opt-in regeneration of generated fixtures that tests otherwise only compare against. Gradle does not
-    // forward -D to the test JVM, so the few properties that drive it are passed through by name.
-    for (name in listOf("projectx.regenerateSchemaMirror")) {
+    // Opt-in inputs for tests that otherwise skip: fixture regeneration, and a cache copy for route tests. Gradle
+    // does not forward -D to the test JVM, so the few properties that drive them are passed through by name.
+    for (name in listOf("projectx.regenerateSchemaMirror", "projectx.testCache")) {
         providers.systemProperty(name).orNull?.let { systemProperty(name, it) }
     }
 }

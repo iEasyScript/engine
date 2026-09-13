@@ -30,6 +30,8 @@ import com.projectx.pathfinder.*
 import com.projectx.script.Script
 import com.projectx.script.api.Relics.NONE
 import com.projectx.util.gaussian
+import com.projectx.webwalker.WebWalkResult
+import com.projectx.webwalker.WebWalker
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.hypot
@@ -489,6 +491,10 @@ fun walkTo(tile: Tile, minimap: Boolean): Boolean {
 fun walkToTile(x: Int, y: Int, minimap: Boolean = false) = walkTo(Tile.of(x, y, localPlayer.plane), minimap)
 
 fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
+
+/** Walks to [destination] from anywhere on the world map; see [WebWalker]. Java scripts use `Wait.webWalk`. */
+suspend fun Script.webWalk(destination: Tile, arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE): WebWalkResult =
+    WebWalker.walk(this, destination, arriveDistance)
 
 /**
  * Tile geometry and player state

@@ -1,9 +1,13 @@
 package com.projectx.script
 
 import com.projectx.script.api.localPlayer
+import com.projectx.webwalker.WebWalkResult
+import com.projectx.webwalker.WebWalker
 import org.projectx.core.game.skill.Skill
+import world.gregs.voidps.type.Tile
 import java.util.concurrent.ThreadLocalRandom
 import java.util.function.BooleanSupplier
+import java.util.function.Consumer
 import kotlin.math.roundToInt
 
 private const val TICK_MILLIS = 600
@@ -61,6 +65,10 @@ abstract class JavaScript : Script() {
                 val next = wait.step.run() ?: break
                 if (!perform(next)) return false
             }
+            is Wait.WebWalk -> {
+                val result = WebWalker.walk(this, Tile.of(wait.x, wait.y, wait.plane), wait.arriveDistance)
+                wait.onResult?.accept(result)
+            }
         }
         return true
     }
@@ -98,6 +106,14 @@ sealed class Wait {
     class Sequence internal constructor(val steps: List<Step>) : Wait()
 
     class Loop internal constructor(val step: Step) : Wait()
+
+    class WebWalk internal constructor(
+        val x: Int,
+        val y: Int,
+        val plane: Int,
+        val arriveDistance: Int,
+        val onResult: Consumer<WebWalkResult>?,
+    ) : Wait()
 
     object Abort : Wait()
 
@@ -176,6 +192,21 @@ sealed class Wait {
          */
         @JvmStatic
         fun loop(step: Step): Wait = Loop(step)
+
+        /**
+         * Walk to ([x], [y]) on [plane] from anywhere on the world map, planning the route from cache collision and
+         * opening doors on the way; finished within [arriveDistance] tiles. [onResult], when given, receives how it
+         * ended, so a step after this one can tell arriving from failing. See [WebWalker] for what routes cover.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun webWalk(
+            x: Int,
+            y: Int,
+            plane: Int,
+            arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+            onResult: Consumer<WebWalkResult>? = null,
+        ): Wait = WebWalk(x, y, plane, arriveDistance, onResult)
 
         /**
          * Returned from a step: skip every remaining step of the sequences and loops it belongs to, and

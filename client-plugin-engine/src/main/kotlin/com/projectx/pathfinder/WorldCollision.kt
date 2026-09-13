@@ -52,6 +52,16 @@ object WorldCollision {
         }
     }
 
+    /**
+     * Runs [clip] for a square no loader has clipped yet and marks it loaded. A square already loaded may carry
+     * live changes (an opened door unclipped), and clipping it from the cache again would undo them.
+     */
+    fun loadMapSquareOnce(mapSquareId: Int, clip: () -> Unit): Boolean = synchronized(LOCK) {
+        if (!LOADED_MAPSQUARES.add(mapSquareId)) return false
+        clip()
+        true
+    }
+
     @JvmStatic
     fun clearZone(zoneCollisionHash: Int) = map.clearZone(zoneCollisionHash)
 

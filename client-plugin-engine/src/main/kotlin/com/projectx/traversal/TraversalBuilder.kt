@@ -8,6 +8,7 @@ import com.projectx.script.api.Lodestone
 import com.projectx.traversal.nodes.*
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.util.Area
+import com.projectx.webwalker.WebWalker
 
 class TraversalBuilder<T : StateMachineScript<T>> {
     private val nodes = arrayListOf<TraversalNode>()
@@ -57,6 +58,9 @@ class TraversalBuilder<T : StateMachineScript<T>> {
     fun chebychevPath(start: Tile, end: List<Tile>, fallback: (() -> Boolean)? = null, reached: (() -> Boolean)? = null) = nodes.add(ChebychevNode(start, end, fallback, reached))
 
     fun walkExact(tile: Tile, minimap: Boolean = false, reached: () -> Boolean) = nodes.add(TileExactNode(tile, minimap, customReached = reached))
+
+    fun webWalk(destination: Tile, arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE, reached: (() -> Boolean)? = null) =
+        nodes.add(WebWalkNode(destination, arriveDistance, reached))
 
     fun door(doorInfo: DoorInfo, direction: DoorDirection, reached: (() -> Boolean)? = null) = nodes.add(DoorNode(doorInfo, direction, reached))
     fun doorIn(doorInfo: DoorInfo, reached: (() -> Boolean)? = null) = nodes.add(DoorNode(doorInfo, DoorDirection.IN, reached))
