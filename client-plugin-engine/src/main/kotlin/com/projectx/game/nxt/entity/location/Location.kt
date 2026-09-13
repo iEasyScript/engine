@@ -54,12 +54,6 @@ class Location(raw: MemorySegment) : Entity(raw), SceneObject {
     override val defs: LocType
         get() = Cache.loc(id) ?: LocType.EMPTY
 
-    override val sizeX: Int
-        get() = realType?.sizeX ?: 1
-
-    override val sizeY: Int
-        get() = realType?.sizeY ?: 1
-
     private val realType
         get() = ptr.deref(OLocation.ORIGINAL_TYPE, OLocationType.extent).getOrNull?.let { LocationType(it) }
 

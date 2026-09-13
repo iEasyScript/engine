@@ -30,18 +30,25 @@ interface SceneObject {
 
     val exists: Boolean
 
-    /** Footprint width/length in tiles, pre-rotation. Defaults to 1 for implementations
-     *  without a resolvable type; [Location]/[CombinedLocationSection] read the live LocType. */
-    val sizeX: Int get() = 1
-    val sizeY: Int get() = 1
+    // Taken from the definition: the live type pointers are the morph source, null for most locs, and
+    // reading them made every such loc a 1x1.
+    /** Footprint width/length in tiles, pre-rotation. */
+    val sizeX: Int get() = defs.sizeX
+    val sizeY: Int get() = defs.sizeY
+
+    /** Footprint extent along x and y once rotation is applied. */
+    val footprintX: Int get() = (if (isRotated) sizeY else sizeX).coerceIn(1, 16)
+    val footprintY: Int get() = (if (isRotated) sizeX else sizeY).coerceIn(1, 16)
+
+    private val isRotated: Boolean get() = rotation.toInt() == 1 || rotation.toInt() == 3
 
     // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
     val tileX: Int get() = tile.x
     val tileY: Int get() = tile.y
 
     /** Centre of the footprint in tile coordinates; a 3x3 rock centres one tile in from its origin. */
-    val centerX: Double get() = tileX + (sizeX.coerceAtLeast(1) - 1) / 2.0
-    val centerY: Double get() = tileY + (sizeY.coerceAtLeast(1) - 1) / 2.0
+    val centerX: Double get() = tileX + (footprintX - 1) / 2.0
+    val centerY: Double get() = tileY + (footprintY - 1) / 2.0
 
     /** Straight-line distance in tiles from the footprint centre to ([x], [y]). */
     fun distanceTo(x: Double, y: Double) = hypot(centerX - x, centerY - y)
@@ -53,10 +60,8 @@ interface SceneObject {
      */
     fun occupiedTiles(): List<Tile> {
         val base = tile
-        val rotated = rotation.toInt() == 1 || rotation.toInt() == 3
-        // Cap guards against a garbage size from a stale/freed type pointer producing a huge loop.
-        val width = (if (rotated) sizeY else sizeX).coerceIn(1, 16)
-        val length = (if (rotated) sizeX else sizeY).coerceIn(1, 16)
+        val width = footprintX
+        val length = footprintY
         if (width == 1 && length == 1) return listOf(base)
         val plane = base.plane
         val tiles = ArrayList<Tile>(width * length)

@@ -49,12 +49,6 @@ class CombinedLocationSection(raw: MemorySegment) : Entity(raw), SceneObject {
     override val defs: LocType
         get() = Cache.loc(id) ?: LocType.EMPTY
 
-    override val sizeX: Int
-        get() = realType?.sizeX ?: 1
-
-    override val sizeY: Int
-        get() = realType?.sizeY ?: 1
-
     val hidden: Boolean
         get() = ptr.readByte(OCombinedLocationSection.HIDDEN) != 0.toByte()
 

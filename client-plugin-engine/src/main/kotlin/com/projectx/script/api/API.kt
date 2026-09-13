@@ -537,8 +537,8 @@ fun tileBeside(obj: SceneObject): IntArray {
     val py = localPlayer.tileY
     val minX = obj.tileX - 1
     val minY = obj.tileY - 1
-    val maxX = obj.tileX + obj.sizeX.coerceAtLeast(1)
-    val maxY = obj.tileY + obj.sizeY.coerceAtLeast(1)
+    val maxX = obj.tileX + obj.footprintX
+    val maxY = obj.tileY + obj.footprintY
     var best = intArrayOf(minX, minY)
     var bestDistance = Int.MAX_VALUE
     for (x in minX..maxX) {
