@@ -15,7 +15,6 @@ import com.projectx.ui.backend.rendering.CommandRenderer
  * context is available, preventing crashes and undefined behavior.
  */
 object ImGuiDsl {
-    @JvmStatic
     fun <T> persistentState(key: String, factory: () -> ImGuiState<T>): ImGuiState<T> {
         return CommandRenderer.getSharedState(key, factory)
     }
@@ -86,10 +85,8 @@ object ImGuiDsl {
         return commands
     }
 
-    @JvmStatic
     fun framerate(): Float = 60.0f
 
-    @JvmStatic
     fun getDisplaySize(): Pair<Float, Float> {
         return try {
             NativeBridge.getDisplaySize()
@@ -98,13 +95,10 @@ object ImGuiDsl {
         }
     }
     
-    @JvmStatic
     fun displayWidth(): Float = getDisplaySize().first
-    @JvmStatic
     fun displayHeight(): Float = getDisplaySize().second
 
     @JvmOverloads
-    @JvmStatic
     fun centerNextWindow(width: Float = 400f, height: Float = 300f) {
         val (displayWidth, displayHeight) = getDisplaySize()
         val x = (displayWidth - width) * 0.5f
@@ -114,19 +108,16 @@ object ImGuiDsl {
     }
     
     @JvmOverloads
-    @JvmStatic
     fun setNextWindowPosTopLeft(margin: Float = 20f) {
         setNextWindowPos(margin, margin)
     }
     
     @JvmOverloads
-    @JvmStatic
     fun setNextWindowPosTopRight(width: Float = 400f, margin: Float = 20f) {
         val displayWidth = displayWidth()
         setNextWindowPos(displayWidth - width - margin, margin)
     }
     
-    @JvmStatic
     inline fun backgroundDrawList(block: BackgroundDrawListScope.() -> Unit) {
         val scope = BackgroundDrawListScope()
         scope.block()

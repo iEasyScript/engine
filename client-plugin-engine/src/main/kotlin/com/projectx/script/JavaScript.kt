@@ -28,6 +28,14 @@ abstract class JavaScript : Script() {
      */
     protected open fun beforeEachStep() {}
 
+    /**
+     * Checked about every [INTERRUPT_POLL_MILLIS] ms while a wait runs, and before every step. Returning true abandons
+     * the current wait and every sequence and loop around it, and [onLoop] runs straight away. See [Script.shouldInterrupt].
+     *
+     * Redeclared here because scripts compiled against older APIs found it on this class.
+     */
+    override fun shouldInterrupt(): Boolean = false
+
     private var interrupted = false
 
     final override suspend fun loop() {

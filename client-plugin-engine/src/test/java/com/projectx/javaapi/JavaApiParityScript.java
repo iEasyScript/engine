@@ -69,11 +69,11 @@ public class JavaApiParityScript extends JavaScript implements ConfigurableScrip
         int lodestoneX = Lodestone.VARROCK.getTileX() + Lodestone.VARROCK.getPlane();
         if (clear && inside && lodestoneX > 0 && bank.getValue()) return Wait.ms(100);
 
-        // Objects that used to need INSTANCE.
-        boolean makeXOpen = MakeX.isOpen();
+        // Companion members are static; named objects keep INSTANCE, which compiled scripts already link against.
+        boolean makeXOpen = MakeX.INSTANCE.isOpen();
         Bank.doBankAction(Bank.getCLOSE_COMPONENT_ID());
         Equipment.Slot.getItem(Equipment.Slot.HEAD);
-        int white = ImGuiColors.getWHITE();
+        int white = ImGuiColors.INSTANCE.getWHITE();
         WebWalker.findPathAsync(3200, 3200, 3210, 3210, 0);
         if (makeXOpen && white != 0) return Wait.abort();
 
@@ -144,8 +144,8 @@ public class JavaApiParityScript extends JavaScript implements ConfigurableScrip
             collapsingHeader(w, "Details", details -> text(details, "More"));
         });
         backgroundDrawList(draw -> {
-            draw.tile(3200, 3200, 0, ImGuiColors.getGREEN());
-            draw.textOnTile(3200, 3200, 0, ImGuiColors.getWHITE(), "Here");
+            draw.tile(3200, 3200, 0, ImGuiColors.INSTANCE.getGREEN());
+            draw.textOnTile(3200, 3200, 0, ImGuiColors.INSTANCE.getWHITE(), "Here");
         });
     }
 
