@@ -543,6 +543,66 @@ fun nearestSafeTile(markers: List<IntArray>, safeDistance: Int, range: Int): Int
     return best
 }
 
+/**
+ * True when ([x], [y]) lies inside any square zone. Each zone is {centreX, centreY, radius}, counting diagonals as
+ * one: a 3x3 floor marker is radius 1, a 7x7 is radius 3. Add a tile to the radius for clearance.
+ */
+fun isTileInZones(x: Int, y: Int, zones: List<IntArray>): Boolean =
+    zones.any { maxOf(abs(x - it[0]), abs(y - it[1])) <= it[2] }
+
+/**
+ * The tile the player can walk to soonest that lies outside every zone (see [isTileInZones]), as {x, y}, or null
+ * when none is within [range] tiles. Walls and objects are respected, so the tile is really reachable; among tiles
+ * equally few steps away the one nearest ([preferX], [preferY]) wins, so a dodge can land beside the next job.
+ */
+@JvmOverloads
+fun safeTileOutside(
+    zones: List<IntArray>,
+    range: Int = 10,
+    preferX: Int = localPlayer.tileX,
+    preferY: Int = localPlayer.tileY,
+): IntArray? {
+    val startX = localPlayer.tileX
+    val startY = localPlayer.tileY
+    if (!isTileInZones(startX, startY, zones)) return intArrayOf(startX, startY)
+
+    val plane = localPlayer.plane
+    val validator = StepValidator(WorldCollision.allFlags)
+    val side = range * 2 + 1
+    val seen = BooleanArray(side * side)
+    var frontier = listOf(intArrayOf(startX, startY))
+    seen[range * side + range] = true
+
+    repeat(range) {
+        val next = ArrayList<IntArray>()
+        var best: IntArray? = null
+        var bestPreference = Int.MAX_VALUE
+        for (tile in frontier) {
+            for (dx in -1..1) for (dy in -1..1) {
+                if (dx == 0 && dy == 0) continue
+                val x = tile[0] + dx
+                val y = tile[1] + dy
+                val index = (y - startY + range) * side + (x - startX + range)
+                if (abs(x - startX) > range || abs(y - startY) > range || seen[index]) continue
+                if (!validator.canTravel(plane, tile[0], tile[1], dx, dy, extraFlag = 0)) continue
+                seen[index] = true
+                next += intArrayOf(x, y)
+                if (!isTileInZones(x, y, zones)) {
+                    val preference = maxOf(abs(x - preferX), abs(y - preferY))
+                    if (preference < bestPreference) {
+                        best = intArrayOf(x, y)
+                        bestPreference = preference
+                    }
+                }
+            }
+        }
+        if (best != null) return best
+        if (next.isEmpty()) return null
+        frontier = next
+    }
+    return null
+}
+
 /** The tile just outside [obj]'s footprint nearest the player, as {x, y}: where to stand, or land a dive, beside it. */
 fun tileBeside(obj: SceneObject): IntArray {
     val px = localPlayer.tileX

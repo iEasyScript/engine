@@ -1,6 +1,7 @@
 package com.projectx.script
 
 import com.projectx.script.api.localPlayer
+import com.projectx.util.gaussian
 import com.projectx.webwalker.WebWalkResult
 import com.projectx.webwalker.WebWalker
 import org.projectx.core.game.skill.Skill
@@ -34,33 +35,64 @@ abstract class JavaScript : Script() {
      */
     protected open fun beforeEachStep() {}
 
+    /**
+     * Checked about every [INTERRUPT_POLL_MILLIS] while a wait runs, and before every step. Returning true abandons
+     * the current wait and every sequence and loop around it, and [onLoop] runs straight away: the way to react to
+     * something urgent, such as standing in an attack's floor marker, in the middle of a long action. Keep it cheap.
+     */
+    protected open fun shouldInterrupt(): Boolean = false
+
+    private var interrupted = false
+
     final override suspend fun loop() {
+        interrupted = false
         perform(onLoop())
     }
 
-    /** Performs [wait]; false once a [Wait.abort] has ended the steps it was part of. */
+    private fun interruptRequested(): Boolean {
+        if (!interrupted) interrupted = runCatching { shouldInterrupt() }.getOrDefault(false)
+        return interrupted
+    }
+
+    /** Performs [wait]; false once a [Wait.abort] or [shouldInterrupt] has ended the steps it was part of. */
     private suspend fun perform(wait: Wait?): Boolean {
         when (wait) {
             null -> Unit
             Wait.Abort -> return false
-            is Wait.Millis -> delay(wait.mean, wait.variance)
-            is Wait.Until -> delayUntil(wait.timeoutMillis, wait.pollMillis) { wait.predicate.asBoolean }
-            is Wait.While -> delayWhile(wait.timeoutMillis) { wait.predicate.asBoolean }
+            is Wait.Millis -> {
+                val millis = if (wait.variance == 0) wait.mean else gaussian(wait.mean, wait.variance)
+                val until = System.currentTimeMillis() + millis
+                delayUntil(millis.toLong().coerceAtLeast(0), INTERRUPT_POLL_MILLIS) {
+                    System.currentTimeMillis() >= until || interruptRequested()
+                }
+            }
+            is Wait.Until -> delayUntil(wait.timeoutMillis, wait.pollMillis.coerceAtMost(INTERRUPT_POLL_MILLIS)) {
+                wait.predicate.asBoolean || interruptRequested()
+            }
+            is Wait.While -> delayUntil(wait.timeoutMillis, INTERRUPT_POLL_MILLIS) {
+                !wait.predicate.asBoolean || interruptRequested()
+            }
             is Wait.XpDrop -> waitForXPDrop(wait.skill, wait.timeoutMillis)
             is Wait.Idle -> {
                 var idleChecks = 0
-                delayUntil(wait.maxTicks.toLong() * TICK_MILLIS, TICK_MILLIS) {
-                    val busy = localPlayer.isMoving || (wait.countAnimation && localPlayer.isAnimating)
-                    idleChecks = if (busy) 0 else idleChecks + 1
-                    idleChecks >= wait.idleChecks
+                var nextCheck = System.currentTimeMillis() + TICK_MILLIS
+                delayUntil(wait.maxTicks.toLong() * TICK_MILLIS, INTERRUPT_POLL_MILLIS) {
+                    if (System.currentTimeMillis() >= nextCheck) {
+                        nextCheck += TICK_MILLIS
+                        val busy = localPlayer.isMoving || (wait.countAnimation && localPlayer.isAnimating)
+                        idleChecks = if (busy) 0 else idleChecks + 1
+                    }
+                    idleChecks >= wait.idleChecks || interruptRequested()
                 }
             }
             is Wait.Sequence -> for (step in wait.steps) {
                 if (stopped) return true
+                if (interruptRequested()) return false
                 beforeEachStep()
                 if (!perform(step.run())) return false
             }
             is Wait.Loop -> while (!stopped) {
+                if (interruptRequested()) return false
                 beforeEachStep()
                 val next = wait.step.run() ?: break
                 if (!perform(next)) return false
@@ -70,7 +102,11 @@ abstract class JavaScript : Script() {
                 wait.onResult?.accept(result)
             }
         }
-        return true
+        return !interrupted
+    }
+
+    companion object {
+        const val INTERRUPT_POLL_MILLIS = 50
     }
 }
 
