@@ -19,7 +19,6 @@ use sha2::{Digest, Sha256};
 use std::fs;
 use std::io::ErrorKind;
 use std::path::{Path, PathBuf};
-use std::process::Command;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
 use url::Url;
 
@@ -1141,18 +1140,71 @@ pub fn open_scripts_dir() -> Result<()> {
 }
 
 /// Hand a path or URL to whatever the desktop uses to open things.
+///
+/// Windows goes through the shell's own "open" verb rather than `explorer.exe`: Explorer
+/// mis-parses a URL with a query string and opens a File Explorer window instead of the
+/// browser.
+#[cfg(target_os = "windows")]
 fn open_with_desktop(target: &str) -> Result<()> {
-    #[cfg(target_os = "macos")]
-    let program = "open";
-    #[cfg(target_os = "windows")]
-    let program = "explorer";
-    #[cfg(not(any(target_os = "macos", target_os = "windows")))]
-    let program = "xdg-open";
+    use windows_sys::Win32::UI::Shell::ShellExecuteW;
+    use windows_sys::Win32::UI::WindowsAndMessaging::SW_SHOWNORMAL;
 
-    Command::new(program)
+    fn wide(s: &str) -> Vec<u16> {
+        s.encode_utf16().chain(std::iter::once(0)).collect()
+    }
+    let verb = wide("open");
+    let file = wide(target);
+    // SAFETY: both strings are NUL-terminated UTF-16 buffers that outlive the call; the
+    // window handle, parameters and directory are optional and passed as null.
+    let result = unsafe {
+        ShellExecuteW(
+            std::ptr::null_mut(),
+            verb.as_ptr(),
+            file.as_ptr(),
+            std::ptr::null(),
+            std::ptr::null(),
+            SW_SHOWNORMAL,
+        )
+    };
+    // ShellExecuteW reports success as a value greater than 32.
+    if (result as isize) <= 32 {
+        bail!("Windows could not open {} (error {})", target, result as isize);
+    }
+    Ok(())
+}
+
+#[cfg(target_os = "macos")]
+fn open_with_desktop(target: &str) -> Result<()> {
+    run_opener(&["open"], target)
+}
+
+/// `xdg-open` covers nearly every Linux desktop; `gio open` is the fallback for minimal
+/// installs that ship GLib but not xdg-utils.
+#[cfg(not(any(target_os = "macos", target_os = "windows")))]
+fn open_with_desktop(target: &str) -> Result<()> {
+    run_opener(&["xdg-open"], target).or_else(|first| {
+        run_opener(&["gio", "open"], target).map_err(|_| first)
+    })
+}
+
+/// Run an opener and wait for it on a background thread, so it is reaped rather than
+/// left as a zombie. The opener hands off to the browser or file manager and exits
+/// straight away, so this does not keep anything alive.
+#[cfg(not(target_os = "windows"))]
+fn run_opener(command: &[&str], target: &str) -> Result<()> {
+    use std::process::{Command, Stdio};
+
+    let mut child = Command::new(command[0])
+        .args(&command[1..])
         .arg(target)
+        .stdin(Stdio::null())
+        .stdout(Stdio::null())
+        .stderr(Stdio::null())
         .spawn()
-        .with_context(|| format!("Failed to run {} {}", program, target))?;
+        .with_context(|| format!("Failed to run {} {}", command.join(" "), target))?;
+    std::thread::spawn(move || {
+        let _ = child.wait();
+    });
     Ok(())
 }
 
