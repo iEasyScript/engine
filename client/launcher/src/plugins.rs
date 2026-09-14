@@ -787,6 +787,12 @@ impl InstalledPlugins {
 /// process — so this must be the real home, exactly as the Gradle
 /// `copyJarToProjectXScripts` task uses it.
 pub fn scripts_dir() -> Result<PathBuf> {
+    #[cfg(test)]
+    if let Some(home) = tests::HOME_OVERRIDE.lock().unwrap_or_else(|e| e.into_inner()).clone() {
+        let dir = home.join(".projectx").join("scripts");
+        fs::create_dir_all(&dir)?;
+        return Ok(dir);
+    }
     let home = BaseDirs::new()
         .map(|dirs| dirs.home_dir().to_path_buf())
         .context("Could not determine the home directory")?;
@@ -1040,6 +1046,15 @@ pub async fn install(
         .with_context(|| format!("Failed to write {}", temp.display()))?;
     if let Err(e) = fs::rename(&temp, &target) {
         let _ = fs::remove_file(&temp);
+        // Windows refuses to replace a jar another process has open. Engines before the script
+        // loader copied its jars held every scanned jar open for the life of the client.
+        if e.kind() == ErrorKind::PermissionDenied {
+            return Err(anyhow!(
+                "Could not update {}: a running client is still using it. Close the RuneScape clients \
+                 (or update their engine) and try again.",
+                plugin.file
+            ));
+        }
         return Err(anyhow!("Failed to install {}: {}", target.display(), e));
     }
 
@@ -1242,6 +1257,11 @@ mod tests {
     /// that redirects it must not overlap another one doing the same.
     static HOME_REDIRECT: Mutex<()> = Mutex::new(());
 
+    /// Where `scripts_dir` resolves while a test holds [`HOME_REDIRECT`]. Setting `HOME` alone
+    /// is not enough: on Windows the home directory comes from the user profile, so tests
+    /// would install into, and delete from, the developer's real scripts folder.
+    pub(super) static HOME_OVERRIDE: Mutex<Option<PathBuf>> = Mutex::new(None);
+
     /// Point the home directory at a scratch dir for the duration of a test and
     /// hand back that dir plus a config dir inside it.
     fn temp_home(label: &str) -> (MutexGuard<'static, ()>, PathBuf, PathBuf) {
@@ -1251,6 +1271,7 @@ mod tests {
         let config_dir = home.join("config");
         fs::create_dir_all(&config_dir).unwrap();
         std::env::set_var("HOME", &home);
+        *HOME_OVERRIDE.lock().unwrap_or_else(|e| e.into_inner()) = Some(home.clone());
         (guard, home, config_dir)
     }
 

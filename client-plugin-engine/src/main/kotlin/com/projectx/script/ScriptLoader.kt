@@ -58,8 +58,9 @@ class JarDirectoryScanner(
     // resolve. Detecting subclasses by reflection (not ClassGraph's jar-only graph) catches
     // transitive Script subclasses (e.g. StateMachineScript-based). Per-class failures are isolated
     // so one bad script can't drop the whole jar. initialize=false avoids running <clinit> at scan.
-    private fun scanJarFiles(jarPaths: List<String>): List<Class<*>> {
-        if (jarPaths.isEmpty()) return emptyList()
+    private fun scanJarFiles(sourceJarPaths: List<String>): List<Class<*>> {
+        if (sourceJarPaths.isEmpty()) return emptyList()
+        val jarPaths = ScriptJarShadow.copiesOf(sourceJarPaths)
         val urls = jarPaths.map { File(it).toURI().toURL() }.toTypedArray()
         val loader = URLClassLoader(urls, Script::class.java.classLoader)
         val classNames = ClassGraph()
@@ -75,6 +76,48 @@ class JarDirectoryScanner(
                         !Modifier.isAbstract(it.modifiers)
                 }
         }
+    }
+}
+
+/**
+ * Script jars are loaded from private copies, never from the scripts folder itself. A loader keeps its jars open for
+ * as long as its classes live, and Windows will not replace a file another process has open: the launcher could not
+ * update a script channel while any client ran. A jar rewritten underneath a loader that already opened it also reads
+ * back as corrupt ("Truncated class file"). Each copy is keyed by its source's size and modification time, so an
+ * updated jar gets a fresh copy while earlier copies stay untouched for loaders still using them.
+ */
+internal object ScriptJarShadow {
+    private val dir: File
+        get() = File(System.getProperty("user.home"), ".projectx/cache/script-jars")
+
+    fun copiesOf(sourcePaths: List<String>): List<String> {
+        val target = dir
+        target.mkdirs()
+        val copies = sourcePaths.map { copyOf(File(it), target) }
+        removeUnused(target, copies.map { File(it).name }.toSet())
+        return copies
+    }
+
+    private fun copyOf(source: File, target: File): String {
+        val copy = File(target, "${source.nameWithoutExtension}-${source.length()}-${source.lastModified()}.jar")
+        if (copy.isFile && copy.length() == source.length()) return copy.absolutePath
+        return runCatching {
+            val partial = File(target, "${copy.name}.part")
+            source.copyTo(partial, overwrite = true)
+            if (!partial.renameTo(copy)) {
+                partial.delete()
+                error("could not move ${partial.name} into place")
+            }
+            copy.absolutePath
+        }.getOrElse {
+            println("[ScriptLoader] loading ${source.name} in place, could not copy it: ${it.message}")
+            source.absolutePath
+        }
+    }
+
+    /** Copies an earlier engine or scan still has open cannot be deleted yet; they go on a later scan. */
+    private fun removeUnused(target: File, inUse: Set<String>) {
+        target.listFiles()?.filter { it.name !in inUse }?.forEach { it.delete() }
     }
 }
 
