@@ -6,6 +6,8 @@ import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.cs2.CS2Executor
 import com.projectx.game.input.action.ActionInput
 import com.projectx.game.interfaces.IFSlot
+import com.projectx.script.api.KeyTiming
+import com.projectx.script.api.Keystroke
 import com.projectx.script.api.continueDialogueContaining
 import com.projectx.script.api.dialogueOptions
 import com.projectx.script.api.findClosestNPC
@@ -42,10 +44,58 @@ object ActionTools {
         registerClickComponent(server)
         registerContinueDialogue(server)
         registerKeyPress(server)
+        registerTypeText(server)
         registerExecuteCs2Script(server)
         registerWaitForInterfaceOpen(server)
         registerWaitForVarbitChange(server)
-        return 12
+        return 13
+    }
+
+    private fun registerTypeText(server: Server) {
+        server.addTool(
+            name = "type_text",
+            description = """
+                **WRITE OPERATION.** Purpose: Type text into whatever has keyboard focus (a chatbox search, an amount prompt) the way a physical keyboard delivers it: key-down, the translated character, a human hold, key-up, with shift for capitals and typing-speed gaps. Same path as the script API's `typeText`.
+                || Returns: JSON envelope with: ok, typed, strokes, elapsed_ms.
+                || Inputs: `text` (required string - letters, digits, space; `\n` presses Enter).
+                || Use cases: "Type an item name into the Grand Exchange search", "Enter an amount and press Enter".
+                || Pitfalls: Requires LOGGED_IN. Characters outside letters/digits/space/tab/newline/backspace are rejected before anything is pressed.
+            """.trimIndent().replace("\n", " "),
+            inputSchema = ToolSchema(
+                properties = buildJsonObject {
+                    putJsonObject("text") { put("type", "string"); put("description", "Text to type") }
+                },
+                required = listOf("text"),
+            ),
+        ) { request ->
+            safeJsonCallAsync("type_text") { _ ->
+                val text = request.arguments?.get("text")?.jsonPrimitive?.content ?: throw BadRequest("missing 'text'")
+                val strokes = text.map { Keystroke.of(it) ?: throw BadRequest("cannot type '$it'") }
+                val started = System.currentTimeMillis()
+                for ((index, stroke) in strokes.withIndex()) {
+                    if (index > 0) Thread.sleep(KeyTiming.gapMillis().toLong())
+                    if (stroke.shift) {
+                        onGameTick { requireLoggedIn(); ActionInput.keyDown(Keystroke.SHIFT) }
+                        Thread.sleep(KeyTiming.modifierLeadMillis().toLong())
+                    }
+                    onGameTick {
+                        requireLoggedIn()
+                        ActionInput.keyDown(stroke.key)
+                        stroke.char?.let { ActionInput.keyChar(it) }
+                    }
+                    Thread.sleep(KeyTiming.holdMillis().toLong())
+                    onGameTick { ActionInput.keyUp(stroke.key) }
+                    if (stroke.shift) {
+                        Thread.sleep(KeyTiming.modifierTrailMillis().toLong())
+                        onGameTick { ActionInput.keyUp(Keystroke.SHIFT) }
+                    }
+                }
+                put("ok", true)
+                put("typed", text)
+                put("strokes", strokes.size)
+                put("elapsed_ms", System.currentTimeMillis() - started)
+            }
+        }
     }
 
     private fun registerWalkTo(server: Server) {

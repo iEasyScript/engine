@@ -170,6 +170,12 @@
         "confidence": "HIGH",
         "note": "Pre-confirmed anchor for this build; independently re-read from jag::Client::ResetEntityManagers, which fires listener slot +8 on [client+0x198f0], eight bytes below the trail list.",
         "verified_build": "950-1"
+      },
+      "STOCKMARKET": {
+        "value": "0x19990",
+        "confidence": "HIGH",
+        "note": "NEW. The UPDATE_STOCKMARKET_SLOT handler (ServerProt entry for opcode 84 / size 36, bound in the handler registration pass, body at 0x00105b60) loads [client+0x19990] and writes the decoded offer into it; all ten CS2 stockmarket_* opcode handlers (0x0017dcd0..0x0017e000) load the same qword. Confirmed live: the object's +0x8 is the Client back-pointer and a placed buy offer appeared at the slot the packet named.",
+        "verified_build": "950-1"
       }
     },
     "OMainLogicManager": {
@@ -3785,6 +3791,70 @@
         "confidence": "CERTAIN",
         "verified_build": "950-1",
         "note": "object half of the shared_ptr<InterfaceComponent> the hook event was raised from"
+      }
+    },
+    "OStockMarket": {
+      "OFFERS": {
+        "value": "0x10",
+        "confidence": "HIGH",
+        "note": "NEW. Offer records start after the vtable (+0x0) and the Client back-pointer (+0x8): every reader indexes [stockmarket + index*0x28 + field] with fields from +0x10, and the handler's clear path zeroes +0x10..+0x38.",
+        "verified_build": "950-1"
+      },
+      "OFFER_STRIDE": {
+        "value": "0x28",
+        "confidence": "HIGH",
+        "note": "NEW. The handler computes index*0x28 (lea rcx,[rdx+rdx*4] then *8 in the CS2 readers); the decoded record is five qwords copied verbatim.",
+        "verified_build": "950-1"
+      },
+      "SLOTS_PER_GROUP": {
+        "value": "0x8",
+        "confidence": "HIGH",
+        "note": "NEW. Record index = slot + group*8 in both the handler (second packet byte + first byte*8) and the CS2 readers (arg0 + arg1*8). The normal Grand Exchange is group 0: a live buy offer on slot 0 arrived as UPDATE_STOCKMARKET_SLOT 00 00 ... and landed in record 0.",
+        "verified_build": "950-1"
+      }
+    },
+    "OStockMarketOffer": {
+      "STATUS": {
+        "value": "0x0",
+        "confidence": "HIGH",
+        "note": "NEW. Low three bits of the packed state byte (FUN_001536b0). CS2 isofferempty compares it with 0, isofferadding with 1, isofferstable with 2, isofferfinished with 5. Live sequence for a placed then aborted offer: 1, 2, 4, 5, then 0 after collection.",
+        "verified_build": "950-1"
+      },
+      "TYPE": {
+        "value": "0x4",
+        "confidence": "HIGH",
+        "note": "NEW. Bit 3 of the packed state byte; read back by CS2 stockmarket_getoffertype. A live buy offer carried 0.",
+        "verified_build": "950-1"
+      },
+      "ITEM_ID": {
+        "value": "0x8",
+        "confidence": "HIGH",
+        "note": "NEW. u16 (or u24 in the extended encoding) obj id; CS2 stockmarket_getofferitem. Cleared slots hold -1.",
+        "verified_build": "950-1"
+      },
+      "PRICE": {
+        "value": "0x10",
+        "confidence": "HIGH",
+        "note": "NEW. 64-bit price per item; CS2 stockmarket_getofferprice pushes it onto the long stack.",
+        "verified_build": "950-1"
+      },
+      "QUANTITY": {
+        "value": "0x18",
+        "confidence": "HIGH",
+        "note": "NEW. Total quantity offered; CS2 stockmarket_getoffercount.",
+        "verified_build": "950-1"
+      },
+      "COMPLETED_QUANTITY": {
+        "value": "0x1c",
+        "confidence": "HIGH",
+        "note": "NEW. Quantity traded so far; CS2 stockmarket_getoffercompletedcount.",
+        "verified_build": "950-1"
+      },
+      "COMPLETED_GOLD": {
+        "value": "0x20",
+        "confidence": "HIGH",
+        "note": "NEW. 64-bit coins spent or received so far; CS2 stockmarket_getoffercompletedgold pushes it onto the long stack.",
+        "verified_build": "950-1"
       }
     }
   },

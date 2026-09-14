@@ -396,6 +396,62 @@ sealed class Wait {
         @JvmOverloads
         fun smithMake(onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.smithMake() }
 
+        // ---- Keyboard ----
+
+        /** Press [key] the way a physical keyboard does: down, its character, a human hold, up. Kotlin: `pressKey`. */
+        @JvmStatic
+        fun pressKey(key: Key): Wait = call(null) { this.pressKey(key) }
+
+        /** Type [text] one physical keystroke at a time; [onResult] gets false if a character cannot be typed. Kotlin: `typeText`. */
+        @JvmStatic
+        @JvmOverloads
+        fun typeText(text: String, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.typeText(text) }
+
+        // ---- Grand Exchange ----
+
+        /** Open the exchange through the nearest clerk or banker. Kotlin: `geOpen`. */
+        @JvmStatic
+        @JvmOverloads
+        fun geOpen(onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.geOpen() }
+
+        /** Buy [quantity] of [itemId] at [price] each in the first empty slot. Kotlin: `geBuy`. */
+        @JvmStatic
+        @JvmOverloads
+        fun geBuy(itemId: Int, quantity: Int, price: Long, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.geBuy(itemId, quantity, price) }
+
+        /** Buy [quantity] of [itemId] at [price] each in [slot]. Kotlin: `geBuy`. */
+        @JvmStatic
+        fun geBuyInSlot(itemId: Int, quantity: Int, price: Long, slot: Int, onResult: Consumer<Boolean>?): Wait =
+            call(onResult) { this.geBuy(itemId, quantity, price, slot) }
+
+        /** Sell [quantity] of [itemId] from the backpack at [price] each in the first empty slot. Kotlin: `geSell`. */
+        @JvmStatic
+        @JvmOverloads
+        fun geSell(itemId: Int, quantity: Int, price: Long, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.geSell(itemId, quantity, price) }
+
+        /** Sell [quantity] of [itemId] from the backpack at [price] each in [slot]. Kotlin: `geSell`. */
+        @JvmStatic
+        fun geSellInSlot(itemId: Int, quantity: Int, price: Long, slot: Int, onResult: Consumer<Boolean>?): Wait =
+            call(onResult) { this.geSell(itemId, quantity, price, slot) }
+
+        /** Abort the offer in [slot]. Kotlin: `geAbort`. */
+        @JvmStatic
+        @JvmOverloads
+        fun geAbort(slot: Int, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.geAbort(slot) }
+
+        /** Collect everything waiting in every slot. Kotlin: `geCollectAll`. */
+        @JvmStatic
+        @JvmOverloads
+        fun geCollectAll(onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.geCollectAll() }
+
+        /** Refresh the wiki prices and wait for them; [onResult] gets whether prices are loaded. Kotlin: `awaitGrandExchangePrices`. */
+        @JvmStatic
+        @JvmOverloads
+        fun awaitGrandExchangePrices(timeoutMillis: Long = 20_000, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.awaitGrandExchangePrices(timeoutMillis) }
+
         // ---- Summoning ----
 
         /** Withdraw [pouch] from the bank if needed and summon it. Kotlin: `familiarRenewFromBank`. */

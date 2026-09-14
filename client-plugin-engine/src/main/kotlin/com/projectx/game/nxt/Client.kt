@@ -12,6 +12,7 @@ import com.projectx.game.nxt.inventories.Inventories
 import com.projectx.game.nxt.mainlogicmanager.ClientVarDomain
 import com.projectx.game.nxt.mainlogicmanager.MainLogicManager
 import com.projectx.game.nxt.mainlogicmanager.StatTable
+import com.projectx.game.nxt.stockmarket.StockMarket
 import java.lang.foreign.MemorySegment
 
 object MainState {
@@ -72,6 +73,9 @@ class Client(raw: MemorySegment) {
 
     val mainLogicManager: MainLogicManager
         get() = MainLogicManager(ptr.deref(OClient.MAINLOGIC_MANAGER, 0x20000L))
+
+    val stockMarket: StockMarket
+        get() = StockMarket(ptr.deref(OClient.STOCKMARKET, OStockMarket.extent))
 
     val sdlManager: SDLManager
         get() = SDLManager(ptr.deref(OClient.SDL_MANAGER, OSDLManager.extent))

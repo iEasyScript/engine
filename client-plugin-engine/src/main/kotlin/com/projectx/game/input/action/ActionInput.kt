@@ -1,6 +1,7 @@
 package com.projectx.game.input.action
 
 import com.projectx.game.hooks.HookManager
+import com.projectx.game.hooks.impl.OnKeyChar
 import com.projectx.game.hooks.impl.OnKeyDown
 import com.projectx.game.hooks.impl.OnKeyUp
 import com.projectx.game.hooks.impl.OnLeftButtonDown
@@ -21,9 +22,12 @@ import com.projectx.game.nxt.OInput
 import com.projectx.game.nxt.OInputGlobals
 import com.projectx.game.nxt.OInputHandler
 import com.projectx.game.nxt.OInputState
+import com.projectx.game.platform.Platform
 import java.lang.foreign.FunctionDescriptor
+import java.lang.foreign.MemorySegment
 import java.lang.foreign.ValueLayout.JAVA_BYTE
 import java.lang.foreign.ValueLayout.JAVA_FLOAT
+import java.lang.foreign.ValueLayout.JAVA_INT
 import java.lang.foreign.ValueLayout.JAVA_LONG
 import java.lang.invoke.MethodHandle
 
@@ -119,7 +123,11 @@ internal object ActionInput {
     // WrongMethodTypeException on every injected key. It must stay in statement position.
     fun keyDown(key: Int) {
         val input = InputHandle.segmentOrNull() ?: return
+        InputArbiter.recordActionInput()
         try {
+            if (isConsoleKey(input, key)) {
+                HookManager.trampoline(OnKeyDown::onKeyDownHook.name).invokeExact(input, CONSOLE_KEY_SENTINEL)
+            }
             HookManager.trampoline(OnKeyDown::onKeyDownHook.name).invokeExact(input, key)
         } catch (t: Throwable) {
             t.printStackTrace()
@@ -129,11 +137,35 @@ internal object ActionInput {
     fun keyUp(key: Int) {
         val input = InputHandle.segmentOrNull() ?: return
         try {
+            if (isConsoleKey(input, key)) {
+                HookManager.trampoline(OnKeyUp::onKeyUpHook.name).invokeExact(input, CONSOLE_KEY_SENTINEL)
+            }
             HookManager.trampoline(OnKeyUp::onKeyUpHook.name).invokeExact(input, key)
         } catch (t: Throwable) {
             t.printStackTrace()
         }
     }
+
+    /**
+     * The character a key press translates to. A physical keystroke reaches the client as key-down, then the
+     * character the OS translated it into, then key-up; text fields only ever read the character, so a press
+     * without one types nothing.
+     */
+    fun keyChar(charCode: Int) {
+        val input = InputHandle.segmentOrNull() ?: return
+        try {
+            HookManager.trampoline(OnKeyChar::onKeyCharHook.name).invokeExact(input, charCode)
+        } catch (t: Throwable) {
+            t.printStackTrace()
+        }
+    }
+
+    /** The Windows window procedure fires a sentinel ahead of the layout's console key, on both press and release. */
+    private fun isConsoleKey(input: MemorySegment, key: Int): Boolean =
+        Platform.current == Platform.WINDOWS &&
+            runCatching { input.get(JAVA_INT, OInput.CONSOLE_KEY_VK) == key }.getOrDefault(false)
+
+    private const val CONSOLE_KEY_SENTINEL = 0x1ca3
 
     /**
      * Walks the client's key-down tree instead of calling its own lookup: MSVC inlines that lookup at every

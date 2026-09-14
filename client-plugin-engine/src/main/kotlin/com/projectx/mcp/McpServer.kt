@@ -7,6 +7,7 @@ import com.projectx.mcp.tools.ContentTools
 import com.projectx.mcp.tools.Cs2Tools
 import com.projectx.mcp.tools.ExploreTools
 import com.projectx.mcp.tools.GameStateTools
+import com.projectx.mcp.tools.GrandExchangeTools
 import com.projectx.mcp.tools.InterfaceTools
 import com.projectx.mcp.tools.DungeonDebugTools
 import com.projectx.mcp.tools.InventoryTools
@@ -160,6 +161,7 @@ object McpServer {
         count += InterfaceTools.register(server)
         count += VarTools.register(server)
         count += InventoryTools.register(server)
+        count += GrandExchangeTools.register(server)
         count += ContentTools.register(server)
         count += Cs2Tools.register(server)
         count += ActionTools.register(server)

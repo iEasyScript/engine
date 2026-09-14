@@ -2,6 +2,7 @@ package com.projectx.game.nxt
 
 import com.projectx.game.nxt.OffsetTable.count
 import com.projectx.game.nxt.OffsetTable.offset
+import com.projectx.game.nxt.OffsetTable.portPending
 import com.projectx.game.platform.Platform.LINUX
 import com.projectx.game.platform.Platform.WINDOWS
 
@@ -97,6 +98,7 @@ object OClient : OffsetObject {
     val MAIN_STATE by offset()
     val LOGGED_IN_PLAYER by offset()
     val PLAYER_VAR_DOMAIN by offset()
+    val STOCKMARKET by portPending(WINDOWS)
 }
 
 object OInput : OffsetObject {
@@ -105,7 +107,24 @@ object OInput : OffsetObject {
     val LAST_MOUSE_Y by offset()
     val CLIENT by offset()
     val CONSOLE_KEY_HELD by offset()
+    val CONSOLE_KEY_VK by portPending(WINDOWS)
     val SIZE by offset()
+}
+
+object OStockMarket : OffsetObject {
+    val OFFERS by portPending(WINDOWS)
+    val OFFER_STRIDE by portPending(WINDOWS)
+    val SLOTS_PER_GROUP by portPending(WINDOWS)
+}
+
+object OStockMarketOffer : OffsetObject {
+    val STATUS by portPending(WINDOWS)
+    val TYPE by portPending(WINDOWS)
+    val ITEM_ID by portPending(WINDOWS)
+    val PRICE by portPending(WINDOWS)
+    val QUANTITY by portPending(WINDOWS)
+    val COMPLETED_QUANTITY by portPending(WINDOWS)
+    val COMPLETED_GOLD by portPending(WINDOWS)
 }
 
 object OInputState : OffsetObject {
