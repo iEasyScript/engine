@@ -74,6 +74,9 @@
   const launcherUpdate = $("#launcher-update");
   const launcherUpdateDetail = $("#launcher-update-detail");
   const btnLauncherUpdate = $("#btn-launcher-update");
+  const btnDonate = $("#btn-donate");
+
+  const DONATE_URL = "https://www.paypal.com/donate/?business=Leightkenno8%40icloud.com&item_name=Project+X";
 
   const statusLog = $("#status-log");
   const btnClearLogs = $("#btn-clear-logs");
@@ -736,6 +739,7 @@
     const update = state.pluginsSnapshot && state.pluginsSnapshot.launcher_update;
     if (update) send({ type: "open_url", url: update.url });
   });
+  btnDonate.addEventListener("click", () => send({ type: "open_url", url: DONATE_URL }));
 
   btnClearLogs.addEventListener("click", () => {
     statusLog.textContent = "";
