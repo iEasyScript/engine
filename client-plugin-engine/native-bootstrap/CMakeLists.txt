@@ -33,16 +33,32 @@ set(FUNCHOOK_BUILD_STATIC ON CACHE BOOL "Build static library" FORCE)
 
 add_subdirectory(funchook)
 
-# The client is SDL2/EGL on Linux and Win32/WGL on Windows, so the ImGui platform backend and our
-# adapter for it are chosen together.
+# The client is SDL2/EGL on Linux and Win32 on Windows, so the ImGui platform backend and our adapter
+# for it are chosen together. Windows ships the same client build twice, once drawing through WGL and
+# once through Vulkan, so the Windows bootstrap carries both renderers and uses whichever the client
+# presents with.
 if (WIN32)
     set(PROJECTX_INPUT_PROCESSOR "")
     set(IMGUI_PLATFORM_BACKEND imgui/backends/imgui_impl_win32.cpp)
+    set(IMGUI_VULKAN_BACKEND imgui/backends/imgui_impl_vulkan.cpp)
     set(PROJECTX_IMGUI_BACKEND imgui_backend_win32.cpp)
+    set(PROJECTX_VULKAN_RENDERER projectx_vulkan.cpp)
 else()
     set(PROJECTX_INPUT_PROCESSOR projectx_imgui_inputprocessor.cpp)
     set(IMGUI_PLATFORM_BACKEND imgui/backends/imgui_impl_sdl2.cpp)
+    set(IMGUI_VULKAN_BACKEND "")
     set(PROJECTX_IMGUI_BACKEND imgui_backend_sdl2.cpp)
+    set(PROJECTX_VULKAN_RENDERER "")
+endif()
+
+# Headers only, pinned by hash: the Vulkan renderer resolves every call through the client's own
+# vulkan-1.dll at runtime, so no SDK or import library is needed to build it.
+if (WIN32)
+    include(FetchContent)
+    FetchContent_Declare(VulkanHeaders
+        URL https://github.com/KhronosGroup/Vulkan-Headers/archive/refs/tags/vulkan-sdk-1.4.357.0.tar.gz
+        URL_HASH SHA256=e87dce08116151f6b6d7de6b6faf41498e87e6cf848ff16fa3bd5402190ad4a3)
+    FetchContent_MakeAvailable(VulkanHeaders)
 endif()
 
 add_library(imgui-static STATIC
@@ -53,13 +69,15 @@ add_library(imgui-static STATIC
     imgui/imgui_demo.cpp
     imgui/backends/imgui_impl_opengl3.cpp
     ${IMGUI_PLATFORM_BACKEND}
+    ${IMGUI_VULKAN_BACKEND}
 )
 target_include_directories(imgui-static PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/backends
 )
 if (WIN32)
-    target_link_libraries(imgui-static PUBLIC opengl32 gdi32 dwmapi)
+    target_compile_definitions(imgui-static PUBLIC IMGUI_IMPL_VULKAN_NO_PROTOTYPES)
+    target_link_libraries(imgui-static PUBLIC opengl32 gdi32 dwmapi Vulkan::Headers)
 else()
     target_link_libraries(imgui-static PUBLIC EGL OpenGL SDL2::SDL2)
 endif()
@@ -78,7 +96,11 @@ add_library(projectxbootstrap SHARED
     projectx_imgui.cpp
     ${PROJECTX_IMGUI_BACKEND}
     ${PROJECTX_INPUT_PROCESSOR}
+    ${PROJECTX_VULKAN_RENDERER}
 )
+if (WIN32)
+    target_compile_definitions(projectxbootstrap PRIVATE PROJECTX_VULKAN)
+endif()
 
 # MinGW would otherwise emit libprojectxbootstrap.dll, but the injector and the Gradle install task
 # both look for the MSVC-style name.

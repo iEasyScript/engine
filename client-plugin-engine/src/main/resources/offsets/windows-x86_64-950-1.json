@@ -3856,6 +3856,22 @@
         "note": "NEW. 64-bit coins spent or received so far; CS2 stockmarket_getoffercompletedgold pushes it onto the long stack.",
         "verified_build": "950-1"
       }
+    },
+    "OWindowFrame": {
+      "RENDER_VIEW": {
+        "value": "0xe0",
+        "confidence": "HIGH",
+        "note": "jag::ClientProt::FlushPerTick loads [client+WINDOW_FRAME], then [+0xe0] (RenderView), then compares [RenderView+0x20] against GetFocus().",
+        "verified_build": "950-1"
+      }
+    },
+    "ORenderView": {
+      "WINDOW_HANDLE": {
+        "value": "0x20",
+        "confidence": "HIGH",
+        "note": "The HWND FlushPerTick compares against GetFocus(); the render view's native window.",
+        "verified_build": "950-1"
+      }
     }
   },
   "objectNotes": {
@@ -4360,6 +4376,7 @@
   ],
   "platform": "windows-x86_64",
   "build": "950-1",
+  "renderer": "opengl",
   "unresolved": [],
   "retired": {
     "OInterfaceComponent.X_ORIGIN_MODE": {

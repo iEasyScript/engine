@@ -1,7 +1,9 @@
 package com.projectx.game.nxt
 
 import com.google.gson.JsonParser
+import com.projectx.game.memory.NativeAccess
 import com.projectx.game.platform.Platform
+import com.projectx.game.platform.Renderer
 import java.util.concurrent.ConcurrentHashMap
 import kotlin.properties.PropertyDelegateProvider
 import kotlin.properties.ReadOnlyProperty
@@ -17,9 +19,12 @@ data class OffsetDeclaration(
     val platforms: Set<Platform>,
     /** The field exists on the other platforms too; its value has just not been reverse engineered yet. */
     val portPending: Boolean = false,
+    /** The renderer builds whose client has the field at all, e.g. a Vulkan device object. */
+    val renderers: Set<Renderer> = Renderer.entries.toSet(),
 ) {
     val isPlatformScoped: Boolean get() = !portPending && platforms != Platform.entries.toSet()
     fun appliesTo(platform: Platform) = platform in platforms
+    fun appliesTo(platform: Platform, renderer: Renderer) = platform in platforms && renderer in renderers
 }
 
 /**
@@ -41,8 +46,10 @@ object OffsetTable {
     private const val FUNCTIONS_OBJECT = "OFunctions"
 
     internal class Table(
+        val name: String,
         val platform: String,
         val build: String,
+        val renderer: Renderer,
         val values: Map<String, Long>,
         val doActions: Map<String, DoActionEntry>,
     ) {
@@ -54,12 +61,17 @@ object OffsetTable {
 
     val build: String get() = table.build
     val platform: String get() = table.platform
+    val renderer: Renderer get() = table.renderer
+    val tableName: String get() = table.name
 
     fun summary(): String =
-        "offsets ${table.platform}/${table.build}: ${table.values.size} fields, ${table.doActions.size} doActions"
+        "offsets ${table.platform}/${table.build} (${table.renderer.id}): ${table.values.size} fields, ${table.doActions.size} doActions"
 
     /** Module-relative address of a hookable function, or null when this build has no entry. */
     fun function(name: String): Long? = table.values["$FUNCTIONS_OBJECT.$name"]
+
+    /** Value of `Object.FIELD` [key], or null when this build's table has no such entry. */
+    fun valueOrNull(key: String): Long? = table.values[key]
 
     fun doAction(name: String): DoActionEntry? = table.doActions[name]
 
@@ -90,6 +102,10 @@ object OffsetTable {
     fun offset(vararg platforms: Platform): PropertyDelegateProvider<Any, ReadOnlyProperty<Any, Long>> =
         Declaration(platforms, portPending = false) { LongOffset(it) }
 
+    /** Delegate for a field that only exists in the [renderer] build of the client. */
+    fun offset(renderer: Renderer): PropertyDelegateProvider<Any, ReadOnlyProperty<Any, Long>> =
+        Declaration(emptyArray<Platform>(), portPending = false, renderers = setOf(renderer)) { LongOffset(it) }
+
     /** Delegate for an `Int` structural constant such as a buffer capacity or slot count. */
     fun count(vararg platforms: Platform): PropertyDelegateProvider<Any, ReadOnlyProperty<Any, Int>> =
         Declaration(platforms, portPending = false) { IntOffset(it) }
@@ -117,12 +133,13 @@ object OffsetTable {
     private class Declaration<T>(
         platforms: Array<out Platform>,
         private val portPending: Boolean,
+        private val renderers: Set<Renderer> = Renderer.entries.toSet(),
         private val delegate: (OffsetDeclaration) -> ReadOnlyProperty<Any, T>,
     ) : PropertyDelegateProvider<Any, ReadOnlyProperty<Any, T>> {
         private val platforms = if (platforms.isEmpty()) Platform.entries.toSet() else platforms.toSet()
 
         override fun provideDelegate(thisRef: Any, property: KProperty<*>): ReadOnlyProperty<Any, T> {
-            val declared = OffsetDeclaration(keyOf(thisRef, property), platforms, portPending)
+            val declared = OffsetDeclaration(keyOf(thisRef, property), platforms, portPending, renderers)
             declarations[declared.key] = declared
             return delegate(declared)
         }
@@ -154,6 +171,11 @@ object OffsetTable {
             "'${declaration.key}' exists only in the " +
                 declaration.platforms.joinToString("/") { it.id } +
                 " client; this is ${table.platform}. Guard the call site on Platform.current."
+        )
+        if (table.renderer !in declaration.renderers) throw OffsetUnavailableException(
+            "'${declaration.key}' exists only in the " +
+                declaration.renderers.joinToString("/") { it.id } +
+                " client; this is the ${table.renderer.id} build. Guard the call site on OffsetTable.renderer."
         )
         throw OffsetUnavailableException(
             "'${declaration.key}' is missing from the ${table.platform} build ${table.build} offset " +
@@ -189,8 +211,10 @@ object OffsetTable {
         }
 
         return Table(
+            name = name,
             platform = root.get("platform").asString,
             build = root.get("build").asString,
+            renderer = Renderer.ofTableValue(root.get("renderer")?.asString),
             values = values,
             doActions = doActions,
         )
@@ -200,23 +224,23 @@ object OffsetTable {
         val requested = System.getProperty(BUILD_PROPERTY) ?: System.getenv(BUILD_ENV)
         if (requested != null) return "${Platform.key}-$requested"
 
-        val available = availableBuilds()
-        return when (available.size) {
-            1 -> "${Platform.key}-${available.single()}"
-            0 -> error(
-                "No offset table bundled for ${Platform.key}. The engine has not been ported to " +
-                    "this platform, or the offsets resources were not packaged into the jar."
-            )
-            else -> error(
-                "Multiple offset tables bundled for ${Platform.key} (${available.joinToString()}). " +
-                    "Set -D$BUILD_PROPERTY or $BUILD_ENV to pick one."
-            )
-        }
-    }
+        val available = bundledTableNames().filter { it.startsWith("${Platform.key}-") }
+        if (available.size == 1) return available.single()
+        if (available.isEmpty()) error(
+            "No offset table bundled for ${Platform.key}. The engine has not been ported to " +
+                "this platform, or the offsets resources were not packaged into the jar."
+        )
 
-    private fun availableBuilds(): List<String> {
-        val prefix = "${Platform.key}-"
-        return bundledTableNames().filter { it.startsWith(prefix) }.map { it.removePrefix(prefix) }
+        // The same build ships once per renderer, so the running client's own renderer tag decides.
+        // Outside an injected client (unit tests, tools) there is no tag to read; the OpenGL table,
+        // which every platform has, stands in. The engine attaches before touching any offset, so
+        // this never decides the table inside a client.
+        val renderer = if (NativeAccess.isAttached) ClientRenderer.current else Renderer.OPENGL
+        val matching = available.filter { loadTable(it).renderer == renderer }
+        return matching.singleOrNull() ?: error(
+            "${matching.size} offset tables bundled for ${Platform.key} match the running ${renderer.id} client " +
+                "(bundled: ${available.joinToString()}). Set -D$BUILD_PROPERTY or $BUILD_ENV to pick one."
+        )
     }
 
     private fun readResource(path: String): String? =

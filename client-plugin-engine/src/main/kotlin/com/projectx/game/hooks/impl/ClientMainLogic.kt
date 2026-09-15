@@ -40,6 +40,7 @@ object ClientMainLogic {
         }
         synchronized(Bootstrap.lock) {
             try {
+                HookManager.rearmSlotHooks()
                 MainLogicTickQueue.drain()
                 ScriptExecutor.mainLogic()
                 CS2Executor.mainLogicTick()

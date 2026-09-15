@@ -17,6 +17,7 @@ import java.lang.invoke.MethodHandles
 import java.lang.invoke.MethodType
 import java.lang.reflect.Method
 import java.lang.reflect.Modifier
+import java.util.concurrent.ConcurrentHashMap
 
 object HookManager {
     @JvmStatic
@@ -24,13 +25,30 @@ object HookManager {
 
     fun trampoline(key: String): MethodHandle = trampolines[key] ?: throw Exception("No original handle found for $key")
 
+    private val slotHooks = ConcurrentHashMap<String, PointerSlotHook>()
+
+    /** The function a [SlotHook] method replaced; follows the slot if the client rewrote it since. */
+    fun slotOriginal(key: String): MethodHandle =
+        slotHooks[key]?.original ?: throw Exception("No original slot function found for $key")
+
+    /** Re-points every slot the client has rewritten since it was hooked. Call from the game thread. */
+    fun rearmSlotHooks() {
+        for (hook in slotHooks.values) {
+            if (hook.rearm()) println("[HookManager] ${hook.name}: slot was rewritten by the client, hooked again")
+        }
+    }
+
+    fun restoreSlotHooks() {
+        slotHooks.values.forEach { it.restore() }
+    }
+
     fun parseAndApplyHooks(base: MemorySegment) {
         val classesWithHooks = findClassesWithHooks()
         val hookMethods = mutableListOf<Pair<Method, Annotation>>()
 
         for (clazz in classesWithHooks) {
             for (method in clazz.declaredMethods) {
-                val hookAnnotation = method.annotations.firstOrNull { it is Hook || it is SymbolHook } ?: continue
+                val hookAnnotation = method.annotations.firstOrNull { it is Hook || it is SymbolHook || it is SlotHook } ?: continue
                 if (!Modifier.isStatic(method.modifiers)) continue
 
                 val supported = method.getAnnotation(SupportedOn::class.java)
@@ -46,6 +64,7 @@ object HookManager {
             return@sortBy when(it.second) {
                 is Hook -> (it.second as Hook).priority
                 is SymbolHook -> (it.second as SymbolHook).priority
+                is SlotHook -> (it.second as SlotHook).priority
                 else -> error("Unexpected hook annotation: ${it.second.javaClass.name}")
             }
         }
@@ -73,6 +92,17 @@ object HookManager {
                         NativeAccess.addPathLookup(NativeLibraries.path(hookAnnotation.library))
                         hookFunction(NativeAccess.getSymbol(hookAnnotation.symbol), method)
                     }
+                    is SlotHook -> {
+                        val slot = OffsetTable.valueOrNull(hookAnnotation.value)
+                        if (slot == null) {
+                            println(
+                                "[HookManager] Skipping ${method.name}: ${hookAnnotation.value} is not in the " +
+                                    "${OffsetTable.tableName} offset table"
+                            )
+                        } else {
+                            hookSlot(base.asSlice(slot, ADDRESS.byteSize()), method)
+                        }
+                    }
                 }
             } catch (e: Exception) {
                 println("Failed to hook ${method.name}: ${e.message}")
@@ -97,6 +127,14 @@ object HookManager {
         trampolines[hookMethod.name] = trampolineFunctionSegment.toFunctionHandle(hookHandle.type().toDescriptor())
         println("[HookManager] Successfully hooked ${hookMethod.name}")
         println("\t hookAddr: 0x${jptr.address().toString(16)} trampoline: ${trampolineFunctionSegment.address().toString(16)}")
+    }
+
+    private fun hookSlot(slot: MemorySegment, hookMethod: Method) {
+        val hookHandle = getFunctionHandle(hookMethod)
+        val hook = PointerSlotHook(hookMethod.name, slot, hookHandle.toEngineUpcallStub(), hookHandle.type().toDescriptor())
+        slotHooks[hookMethod.name] = hook
+        hook.install()
+        println("[HookManager] Successfully hooked slot ${hookMethod.name} at 0x${slot.address().toString(16)}")
     }
 
     fun getFunctionHandle(method: Method): MethodHandle {
@@ -128,7 +166,10 @@ object HookManager {
                     .allClasses
                     .filter { classInfo ->
                         classInfo.methodInfo
-                            .filter { it.hasAnnotation(Hook::class.java.name) || it.hasAnnotation(SymbolHook::class.java.name) }
+                            .filter {
+                                it.hasAnnotation(Hook::class.java.name) || it.hasAnnotation(SymbolHook::class.java.name) ||
+                                    it.hasAnnotation(SlotHook::class.java.name)
+                            }
                             .any { it.isStatic }
                     }
 

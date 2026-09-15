@@ -11,6 +11,9 @@ object NativeAccess {
 
     lateinit var BASE_ADDR: MemorySegment
 
+    /** False outside an injected client - unit tests and tools - where there is no client image. */
+    val isAttached: Boolean get() = ::BASE_ADDR.isInitialized
+
     private val symbols = mutableMapOf<String, MemorySegment>()
     private val functions = mutableMapOf<String, MethodHandle>()
     private val lookups = mutableMapOf<String, SymbolLookup>()

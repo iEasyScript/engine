@@ -21,6 +21,27 @@ object NativeBridge {
         }
     }
 
+    private val imguiInitVulkan by lazy {
+        NativeAccess.getFunction("ProjectX_ImGui_InitVulkan") {
+            FunctionDescriptor.ofVoid(
+                ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.ADDRESS, ValueLayout.ADDRESS,
+                ValueLayout.JAVA_INT, ValueLayout.JAVA_INT, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG, ValueLayout.JAVA_LONG,
+            )
+        }
+    }
+
+    private val vulkanBeginFrame by lazy {
+        NativeAccess.getFunction("ProjectX_Vulkan_BeginFrame") {
+            FunctionDescriptor.ofVoid(ValueLayout.ADDRESS)
+        }
+    }
+
+    private val vulkanEndFrame by lazy {
+        NativeAccess.getFunction("ProjectX_Vulkan_EndFrame") {
+            FunctionDescriptor.of(ValueLayout.ADDRESS, ValueLayout.ADDRESS)
+        }
+    }
+
     private val imguiShutdown by lazy {
         NativeAccess.getFunction("ProjectX_ImGui_Shutdown") {
             FunctionDescriptor.ofVoid()
@@ -219,6 +240,37 @@ object NativeBridge {
     fun init(sdlWindow: MemorySegment, glContext: MemorySegment) {
         imguiInit.invokeExact(sdlWindow, glContext)
     }
+
+    /**
+     * Binds the overlay to the client's own Vulkan device. The three offsets locate, from the
+     * `VkPresentInfoKHR.pSwapchains` pointer, the surface and the swapchain's width and height.
+     */
+    fun initVulkan(
+        window: MemorySegment,
+        instance: MemorySegment,
+        physicalDevice: MemorySegment,
+        device: MemorySegment,
+        queue: MemorySegment,
+        queueFamily: Int,
+        apiVersion: Int,
+        surfaceFromSwapchain: Long,
+        widthOffset: Long,
+        heightOffset: Long,
+    ) {
+        imguiInitVulkan.invokeExact(
+            window, instance, physicalDevice, device, queue,
+            queueFamily, apiVersion, surfaceFromSwapchain, widthOffset, heightOffset,
+        )
+    }
+
+    /** Records the image this present will show, so the overlay frame that follows draws onto it. */
+    fun vulkanBeginFrame(presentInfo: MemorySegment) {
+        vulkanBeginFrame.invokeExact(presentInfo)
+    }
+
+    /** The present info to hand to the client's vkQueuePresentKHR: waits on the overlay once it drew. */
+    fun vulkanEndFrame(presentInfo: MemorySegment): MemorySegment =
+        vulkanEndFrame.invokeExact(presentInfo) as MemorySegment
 
     fun shutdown() {
         frameArena.get()?.close()

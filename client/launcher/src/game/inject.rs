@@ -39,48 +39,79 @@ pub(crate) mod revision {
         (String::from_utf8_lossy(&data[from..i]).into_owned(), i)
     }
 
+    /// The Vulkan Windows client is tagged with this platform name; the OpenGL build of
+    /// the same revision only carries `NXT-Windows-64`.
+    const VULKAN_TAG: &[u8] = b"NXT-Windows-64-Vulkan";
+    const VULKAN_TABLE_SUFFIX: &str = "-vulkan";
+
+    /// Jagex ships each build once per renderer, and the two binaries share a build id
+    /// while their offsets differ, so a revision is the pair.
+    #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord)]
+    pub struct Revision {
+        pub build: String,
+        pub renderer: &'static str,
+    }
+
+    impl std::fmt::Display for Revision {
+        fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+            write!(f, "{} ({})", self.build, self.renderer)
+        }
+    }
+
     /// Build id the client binary reports (e.g. `949-4`), read from the same
-    /// `RS2Engine-<major>-NXT-<minor>` marker the offset updater keys off.
-    pub fn detect_client_build(exe: &Path) -> Option<String> {
-        let data = std::fs::read(exe).ok()?;
-        let at = find(&data, b"RS2Engine-")?;
-        let (major, next) = digits_at(&data, at + b"RS2Engine-".len());
+    /// `RS2Engine-<major>-NXT-<minor>` marker the offset updater keys off, together with
+    /// the renderer its platform tag names.
+    pub fn detect_client_revision(exe: &Path) -> Option<Revision> {
+        revision_of_binary(&std::fs::read(exe).ok()?)
+    }
+
+    fn revision_of_binary(data: &[u8]) -> Option<Revision> {
+        let at = find(data, b"RS2Engine-")?;
+        let (major, next) = digits_at(data, at + b"RS2Engine-".len());
         if major.is_empty() || !data[next..].starts_with(b"-NXT-") {
             return None;
         }
-        let (minor, _) = digits_at(&data, next + b"-NXT-".len());
+        let (minor, _) = digits_at(data, next + b"-NXT-".len());
         if minor.is_empty() {
             return None;
         }
-        Some(format!("{}-{}", major, minor))
+        let renderer = if find(data, VULKAN_TAG).is_some() { "vulkan" } else { "opengl" };
+        Some(Revision { build: format!("{}-{}", major, minor), renderer })
     }
 
-    /// `linux-x86_64-949-4` -> `949-4`: the build is the trailing two dash groups.
-    fn build_from_table_name(stem: &str) -> Option<String> {
+    /// `linux-x86_64-949-4` -> `949-4` (opengl), `windows-x86_64-950-1-vulkan` -> `950-1`
+    /// (vulkan): the build is the trailing two dash groups once the renderer suffix is off.
+    fn revision_from_table_name(stem: &str) -> Option<Revision> {
+        let (stem, renderer) = match stem.strip_suffix(VULKAN_TABLE_SUFFIX) {
+            Some(rest) => (rest, "vulkan"),
+            None => (stem, "opengl"),
+        };
         let mut parts = stem.rsplitn(3, '-');
         let minor = parts.next()?;
         let major = parts.next()?;
-        if !major.bytes().all(|b| b.is_ascii_digit()) || !minor.bytes().all(|b| b.is_ascii_digit()) {
+        if major.is_empty() || minor.is_empty()
+            || !major.bytes().all(|b| b.is_ascii_digit()) || !minor.bytes().all(|b| b.is_ascii_digit())
+        {
             return None;
         }
-        Some(format!("{}-{}", major, minor))
+        Some(Revision { build: format!("{}-{}", major, minor), renderer })
     }
 
-    /// Builds the engine jar carries offset tables for. Entry names sit in the zip's
+    /// Revisions the engine jar carries offset tables for. Entry names sit in the zip's
     /// local headers uncompressed, so they can be read without a zip dependency.
-    pub fn engine_supported_builds(jar: &Path) -> Vec<String> {
+    pub fn engine_supported_revisions(jar: &Path) -> Vec<Revision> {
         let Ok(data) = std::fs::read(jar) else {
             return Vec::new();
         };
-        let mut out: Vec<String> = Vec::new();
+        let mut out: Vec<Revision> = Vec::new();
         let mut i = 0usize;
         while let Some(rel) = find(&data[i..], b"offsets/") {
             let start = i + rel + b"offsets/".len();
             let window = &data[start..data.len().min(start + 128)];
             if let Some(end) = find(window, b".json") {
                 if let Ok(stem) = std::str::from_utf8(&window[..end]) {
-                    if let Some(build) = build_from_table_name(stem) {
-                        out.push(build);
+                    if let Some(revision) = revision_from_table_name(stem) {
+                        out.push(revision);
                     }
                 }
             }
@@ -95,7 +126,7 @@ pub(crate) mod revision {
     /// determined — an unreadable binary or a jar without tables is not evidence of a
     /// mismatch, and blocking on it would make injection fail for the wrong reason.
     pub fn guard(client_exe: &Path, engine_home: &Path) -> anyhow::Result<()> {
-        let Some(client_build) = detect_client_build(client_exe) else {
+        let Some(client_revision) = detect_client_revision(client_exe) else {
             log::warn!(
                 "Could not read a build marker from {}; skipping the engine revision check.",
                 client_exe.display()
@@ -109,7 +140,7 @@ pub(crate) mod revision {
             );
             return Ok(());
         };
-        let supported = engine_supported_builds(&jar);
+        let supported = engine_supported_revisions(&jar);
         if supported.is_empty() {
             log::warn!(
                 "{} carries no offset tables; skipping the engine revision check.",
@@ -117,10 +148,10 @@ pub(crate) mod revision {
             );
             return Ok(());
         }
-        if supported.iter().any(|b| *b == client_build) {
+        if supported.contains(&client_revision) {
             log::info!(
                 "Engine revision check passed: client build {} is covered.",
-                client_build
+                client_revision
             );
             return Ok(());
         }
@@ -130,10 +161,37 @@ pub(crate) mod revision {
              Injecting it would hook wrong addresses and crash the client. Re-run the offset \
              updater for build {}, then rebuild the engine with\n  \
              ./gradlew :client-plugin-engine:shadowJar",
-            client_build,
-            supported.join(", "),
-            client_build
+            client_revision,
+            supported.iter().map(|r| r.to_string()).collect::<Vec<_>>().join(", "),
+            client_revision
         )
+    }
+
+    #[cfg(test)]
+    mod tests {
+        use super::*;
+
+        #[test]
+        fn a_vulkan_table_name_is_the_same_build_with_the_vulkan_renderer() {
+            assert_eq!(
+                revision_from_table_name("windows-x86_64-950-1-vulkan"),
+                Some(Revision { build: "950-1".into(), renderer: "vulkan" })
+            );
+            assert_eq!(
+                revision_from_table_name("windows-x86_64-950-1"),
+                Some(Revision { build: "950-1".into(), renderer: "opengl" })
+            );
+            assert_eq!(revision_from_table_name("index"), None);
+        }
+
+        #[test]
+        fn the_platform_tag_tells_the_two_builds_of_a_revision_apart() {
+            let opengl = b"...RS2Engine-950-NXT-1\0...NXT-Windows-64\0...".to_vec();
+            let vulkan = b"...RS2Engine-950-NXT-1\0...NXT-Windows-64-Vulkan\0...".to_vec();
+            assert_eq!(revision_of_binary(&opengl).unwrap().renderer, "opengl");
+            assert_eq!(revision_of_binary(&vulkan).unwrap().renderer, "vulkan");
+            assert_eq!(revision_of_binary(&vulkan).unwrap().build, "950-1");
+        }
     }
 }
 

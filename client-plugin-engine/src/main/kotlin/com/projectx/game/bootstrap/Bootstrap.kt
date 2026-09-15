@@ -65,6 +65,11 @@ object Bootstrap {
     @JvmStatic
     fun initialize(baseAddr: Long) {
         synchronized(lock) {
+            // Attach first: the offset table is chosen from the client image, and the first offset
+            // anything reads fixes that choice for the whole engine load.
+            println("Initializing native access at base address 0x${baseAddr.toString(16)}")
+            NativeAccess.init(MemorySegment.ofAddress(baseAddr).reinterpret(0x2000000L))
+
             QuestLibrary.warm()
 
             ScriptExecutor.loadScripts()
@@ -77,8 +82,6 @@ object Bootstrap {
             VarBitType.loadBaseVarMap()
             GamevalCoverage.report()
             OffsetCoverage.reportCurrentPlatform()
-            println("Initializing native access at base address 0x${baseAddr.toString(16)}")
-            NativeAccess.init(MemorySegment.ofAddress(baseAddr).reinterpret(0x2000000L))
 
             client = Client.getClient(NativeAccess.BASE_ADDR.reinterpret(0x2000000L))
             println("Attached to base client address: 0x${client.ptr.address().toString(16)}")
@@ -112,8 +115,10 @@ object Bootstrap {
         stopping = true
         // 1. Let the hot hooks (main-logic + render) become passthrough across a few frames.
         runCatching { Thread.sleep(120) }
-        // 2. Uninstall every funchook hook - the game's functions run unhooked from here on.
+        // 2. Uninstall every funchook hook and put back every swapped function pointer - the game's
+        //    functions run unhooked from here on.
         runCatching { Funchook.uninstall() }
+        runCatching { HookManager.restoreSlotHooks() }
         // 3. Barrier on the lock (drain an in-flight main-logic hook) + let the patch settle.
         synchronized(lock) {}
         runCatching { Thread.sleep(50) }

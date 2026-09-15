@@ -27,7 +27,7 @@ object OffsetCoverage {
     fun gaps(tableName: String): Gaps {
         val table = OffsetTable.bundled(tableName)
         val missing = declarations()
-            .filter { it.appliesTo(table.platformKind) && it.key !in table.values }
+            .filter { it.appliesTo(table.platformKind, table.renderer) && it.key !in table.values }
             .map { it.key }
         return Gaps(tableName, missing)
     }
@@ -42,7 +42,7 @@ object OffsetCoverage {
     fun staleScoping(tableName: String): List<String> {
         val table = OffsetTable.bundled(tableName)
         return declarations()
-            .filter { !it.appliesTo(table.platformKind) && it.key in table.values }
+            .filter { !it.appliesTo(table.platformKind, table.renderer) && it.key in table.values }
             .map { it.key }
     }
 
@@ -52,13 +52,15 @@ object OffsetCoverage {
      */
     fun reportCurrentPlatform(): List<String> {
         val declared = declarations()
-        val scoped = declared.count { !it.appliesTo(Platform.current) }
+        val renderer = OffsetTable.renderer
+        val scoped = declared.count { !it.appliesTo(Platform.current, renderer) }
+        val values = OffsetTable.bundled(OffsetTable.tableName).values
         val missing = declared
-            .filter { it.appliesTo(Platform.current) && it.key !in OffsetTable.bundled(currentTableName()).values }
+            .filter { it.appliesTo(Platform.current, renderer) && it.key !in values }
             .map { it.key }
 
         val pending = declared.filter { it.portPending && !it.appliesTo(Platform.current) }.map { it.key }
-        println("[OffsetCoverage] ${declared.size - scoped} offsets required on ${Platform.current.id}, $scoped scoped to other platforms")
+        println("[OffsetCoverage] table ${OffsetTable.tableName}: ${declared.size - scoped} offsets required on ${Platform.current.id}/${renderer.id}, $scoped scoped to other clients")
         if (pending.isNotEmpty()) {
             println("[OffsetCoverage] ${pending.size} not yet reverse engineered for ${Platform.current.id}: ${pending.joinToString()}")
         }
@@ -68,8 +70,6 @@ object OffsetCoverage {
         }
         return missing
     }
-
-    private fun currentTableName() = "${OffsetTable.platform}-${OffsetTable.build}"
 
     /**
      * Constructing each offset object runs its property delegates, which is what registers the

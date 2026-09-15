@@ -5,6 +5,7 @@ import com.projectx.game.nxt.OffsetTable.offset
 import com.projectx.game.nxt.OffsetTable.portPending
 import com.projectx.game.platform.Platform.LINUX
 import com.projectx.game.platform.Platform.WINDOWS
+import com.projectx.game.platform.Renderer.VULKAN
 
 // Values are not held here — they live per (platform, build) in the `offsets/` jar resources and
 // are resolved through OffsetTable on first access. Field documentation lives alongside the values
@@ -99,6 +100,41 @@ object OClient : OffsetObject {
     val LOGGED_IN_PLAYER by offset()
     val PLAYER_VAR_DOMAIN by offset()
     val STOCKMARKET by portPending(WINDOWS)
+    val WINDOW_FRAME by offset(WINDOWS)
+}
+
+object OWindowFrame : OffsetObject {
+    val RENDER_VIEW by offset(WINDOWS)
+}
+
+object ORenderView : OffsetObject {
+    val WINDOW_HANDLE by offset(WINDOWS)
+}
+
+object OVulkanGlobals : OffsetObject {
+    val RENDER_DEVICE by offset(VULKAN)
+    val QUEUE_PRESENT by offset(VULKAN)
+}
+
+object OVulkanRenderDevice : OffsetObject {
+    val API_VERSION by offset(VULKAN)
+    val INSTANCE by offset(VULKAN)
+    val PHYSICAL_DEVICE by offset(VULKAN)
+    val DEVICE by offset(VULKAN)
+    val QUEUE by offset(VULKAN)
+    val QUEUE_FAMILY by offset(VULKAN)
+}
+
+/** The object a window presents through: its surface, and the swapchain object embedded after it. */
+object OVulkanPresentContext : OffsetObject {
+    val SURFACE by offset(VULKAN)
+    val SWAPCHAIN by offset(VULKAN)
+}
+
+object OVulkanSwapchain : OffsetObject {
+    val HANDLE by offset(VULKAN)
+    val WIDTH by offset(VULKAN)
+    val HEIGHT by offset(VULKAN)
 }
 
 object OInput : OffsetObject {

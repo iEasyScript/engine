@@ -9,9 +9,19 @@
 #include <condition_variable>
 #include <chrono>
 #include <algorithm>
+#include <cstdint>
+#include <cstring>
 #include "imgui.h"
 #include "imgui_impl_opengl3.h"
 #include "imgui_internal.h" // For setting ErrorCallback
+#ifdef PROJECTX_VULKAN
+#include "projectx_vulkan.h"
+#endif
+
+// Which renderer backend the overlay was bound to. The OpenGL client presents through SwapBuffers and
+// the Vulkan client through vkQueuePresentKHR; whichever the running client calls initialises this once.
+enum class OverlayRenderer { None, OpenGL, Vulkan };
+static OverlayRenderer g_renderer = OverlayRenderer::None;
 
 // External log file from bootstrap
 extern FILE *log_file;
@@ -65,11 +75,13 @@ static std::mutex g_gl_queue_mutex;
 static std::condition_variable g_gl_create_cv;
 static std::vector<GLuint> g_pending_tex_deletes;
 
+// A texture requested before the render thread gets to it. The handle's meaning depends on the
+// renderer: a GL texture name for OpenGL, an ImTextureData pointer for Vulkan.
 struct PendingTexCreate {
     const void *pixels;
     int width;
     int height;
-    GLuint result;
+    int64_t result;
     bool done;
 };
 static std::vector<PendingTexCreate *> g_pending_tex_creates;
@@ -96,23 +108,77 @@ static GLuint ProjectX_GL_CreateTextureNow(const void *pixels, int width, int he
     return texture;
 }
 
-// Drains queued texture create/destroy. MUST run on the render thread with the
-// game's GL context current. Everything (including create) runs under the lock
-// so a timed-out creator can detach its request without a use-after-free.
-static void ProjectX_GL_DrainPending() {
+// ==========================================
+// Vulkan user textures.
+//
+// The Vulkan renderer never hands out raw GPU handles: a texture from the JVM becomes an ImGui user
+// texture (ImTextureData), which the backend uploads during the next render and draw calls reference
+// through ImTextureRef. ImGui's texture list is not thread safe, so registration and destruction run
+// on the render thread only - the thread that runs the client's present.
+// ==========================================
+
+static thread_local bool t_is_render_thread = false;
+static std::vector<ImTextureData *> g_pending_user_deletes;
+static std::vector<ImTextureData *> g_destroying_user_textures;
+
+static ImTextureData *ProjectX_UserTexture_CreateNow(const void *pixels, int width, int height) {
+    ImTextureData *tex = IM_NEW(ImTextureData)();
+    tex->Create(ImTextureFormat_RGBA32, width, height);
+    std::memcpy(tex->GetPixels(), pixels, (size_t)width * (size_t)height * 4);
+    ImGui::RegisterUserTexture(tex);
+    return tex;
+}
+
+static int64_t ProjectX_CreateTextureNow(const void *pixels, int width, int height) {
+    if (g_renderer == OverlayRenderer::Vulkan) {
+        return (int64_t)(intptr_t)ProjectX_UserTexture_CreateNow(pixels, width, height);
+    }
+    return (int64_t)ProjectX_GL_CreateTextureNow(pixels, width, height);
+}
+
+// Drains queued texture create/destroy. MUST run on the render thread - with the game's GL context
+// current for OpenGL - before ImGui::NewFrame. Everything (including create) runs under the lock so a
+// timed-out creator can detach its request without a use-after-free.
+static void ProjectX_DrainPendingTextures() {
+    if (g_renderer == OverlayRenderer::Vulkan) {
+        // A texture the backend has finished destroying is no longer referenced by any draw data.
+        for (auto it = g_destroying_user_textures.begin(); it != g_destroying_user_textures.end();) {
+            ImTextureData *tex = *it;
+            if (tex->Status == ImTextureStatus_Destroyed) {
+                ImGui::UnregisterUserTexture(tex);
+                IM_DELETE(tex);
+                it = g_destroying_user_textures.erase(it);
+            } else {
+                ++it;
+            }
+        }
+    }
+
     std::lock_guard<std::mutex> lock(g_gl_queue_mutex);
     if (!g_pending_tex_deletes.empty()) {
         glDeleteTextures((GLsizei)g_pending_tex_deletes.size(), g_pending_tex_deletes.data());
         g_pending_tex_deletes.clear();
     }
+    for (ImTextureData *tex : g_pending_user_deletes) {
+        tex->WantDestroyNextFrame = true;
+        g_destroying_user_textures.push_back(tex);
+    }
+    g_pending_user_deletes.clear();
     if (!g_pending_tex_creates.empty()) {
         for (PendingTexCreate *req : g_pending_tex_creates) {
-            req->result = ProjectX_GL_CreateTextureNow(req->pixels, req->width, req->height);
+            req->result = ProjectX_CreateTextureNow(req->pixels, req->width, req->height);
             req->done = true;
         }
         g_pending_tex_creates.clear();
         g_gl_create_cv.notify_all();
     }
+}
+
+static ImTextureRef ProjectX_TextureRef(int64_t texture) {
+    if (g_renderer == OverlayRenderer::Vulkan) {
+        return ((ImTextureData *)(intptr_t)texture)->GetTexRef();
+    }
+    return ImTextureRef((ImTextureID)texture);
 }
 
 extern "C" {
@@ -173,6 +239,55 @@ extern "C" {
         imgui_log_message("No system font found; falling back to the upscaled built-in font at 18px\n");
     }
 
+    /// The context both renderers share: ini location, error recovery, fonts and style.
+    static void createContext() {
+        IMGUI_CHECKVERSION();
+        ImGui::CreateContext();
+        ImGuiIO& io = ImGui::GetIO();
+
+        // Persist imgui.ini under ~/.projectx alongside the other configs.
+        // ImGui defaults IniFilename to "imgui.ini" relative to the CWD (the
+        // folder the launcher was started from), and it stores this pointer
+        // verbatim without copying — so the buffer must outlive the context.
+        {
+            static char ini_path[1024];
+            const char *home = projectx::platform::home_dir();
+            char projectx_dir[768];
+            std::snprintf(projectx_dir, sizeof(projectx_dir), "%s/.projectx", home);
+            projectx::platform::make_directory(projectx_dir);   // best-effort; ignore EEXIST
+            std::snprintf(ini_path, sizeof(ini_path), "%s/imgui.ini", projectx_dir);
+            io.IniFilename = ini_path;
+            imgui_log_message("imgui.ini path set to %s\n", ini_path);
+        }
+
+        // Configure error recovery according to ImGui best practices
+        io.ConfigErrorRecovery = true;
+        io.ConfigErrorRecoveryEnableAssert = PROJECTX_IMGUI_ENABLE_ASSERTS;
+        io.ConfigErrorRecoveryEnableDebugLog = PROJECTX_IMGUI_ENABLE_DETAILED_LOGGING;
+        io.ConfigErrorRecoveryEnableTooltip = PROJECTX_IMGUI_ENABLE_DETAILED_LOGGING;
+        // Ensure at least one recovery output is enabled to satisfy ImGui sanity checks
+        if (!io.ConfigErrorRecoveryEnableAssert &&
+            !io.ConfigErrorRecoveryEnableDebugLog &&
+            !io.ConfigErrorRecoveryEnableTooltip) {
+            io.ConfigErrorRecoveryEnableDebugLog = true;
+        }
+
+        // Safer window movement/resizing configuration
+        io.ConfigWindowsMoveFromTitleBarOnly = true;
+        io.ConfigWindowsResizeFromEdges = true;
+
+        // Install error callback so issues are logged instead of aborting
+        ImGuiContext* ctx = ImGui::GetCurrentContext();
+        if (ctx) {
+            ctx->ErrorCallback = ProjectX_ImGui_ErrorCallback;
+            ctx->ErrorCallbackUserData = nullptr;
+        }
+        
+        setupFonts();
+
+        ImGui::StyleColorsDark();
+    }
+
     void ProjectX_ImGui_Init(void* sdl_window, void* gl_context) {
         imgui_log_message("Initializing ImGui with SDL window: %p, GL context: %p\n", sdl_window, gl_context);
 
@@ -195,55 +310,11 @@ extern "C" {
         }
         
         try {
-            IMGUI_CHECKVERSION();
-            ImGui::CreateContext();
-            ImGuiIO& io = ImGui::GetIO();
-
-            // Persist imgui.ini under ~/.projectx alongside the other configs.
-            // ImGui defaults IniFilename to "imgui.ini" relative to the CWD (the
-            // folder the launcher was started from), and it stores this pointer
-            // verbatim without copying — so the buffer must outlive the context.
-            {
-                static char ini_path[1024];
-                const char *home = projectx::platform::home_dir();
-                char projectx_dir[768];
-                std::snprintf(projectx_dir, sizeof(projectx_dir), "%s/.projectx", home);
-                projectx::platform::make_directory(projectx_dir);   // best-effort; ignore EEXIST
-                std::snprintf(ini_path, sizeof(ini_path), "%s/imgui.ini", projectx_dir);
-                io.IniFilename = ini_path;
-                imgui_log_message("imgui.ini path set to %s\n", ini_path);
-            }
-
-            // Configure error recovery according to ImGui best practices
-            io.ConfigErrorRecovery = true;
-            io.ConfigErrorRecoveryEnableAssert = PROJECTX_IMGUI_ENABLE_ASSERTS;
-            io.ConfigErrorRecoveryEnableDebugLog = PROJECTX_IMGUI_ENABLE_DETAILED_LOGGING;
-            io.ConfigErrorRecoveryEnableTooltip = PROJECTX_IMGUI_ENABLE_DETAILED_LOGGING;
-            // Ensure at least one recovery output is enabled to satisfy ImGui sanity checks
-            if (!io.ConfigErrorRecoveryEnableAssert &&
-                !io.ConfigErrorRecoveryEnableDebugLog &&
-                !io.ConfigErrorRecoveryEnableTooltip) {
-                io.ConfigErrorRecoveryEnableDebugLog = true;
-            }
-
-            // Safer window movement/resizing configuration
-            io.ConfigWindowsMoveFromTitleBarOnly = true;
-            io.ConfigWindowsResizeFromEdges = true;
-
-            // Install error callback so issues are logged instead of aborting
-            ImGuiContext* ctx = ImGui::GetCurrentContext();
-            if (ctx) {
-                ctx->ErrorCallback = ProjectX_ImGui_ErrorCallback;
-                ctx->ErrorCallbackUserData = nullptr;
-            }
-            
-            setupFonts();
-            
-            ImGui::StyleColorsDark();
+            createContext();
             projectx::imgui_backend::init(sdl_window, gl_context);
             ImGui_ImplOpenGL3_Init("#version 130");
-            
-            
+            g_renderer = OverlayRenderer::OpenGL;
+
             imgui_log_message("ImGui initialization completed successfully\n");
         } catch (const std::exception& e) {
             imgui_log_error("ProjectX_ImGui_Init", e.what());
@@ -252,12 +323,78 @@ extern "C" {
         }
     }
 
+    void ProjectX_ImGui_InitVulkan(void* window, void* instance, void* physical_device, void* device, void* queue,
+                                   int queue_family, int api_version, int64_t surface_from_swapchain,
+                                   int64_t width_offset, int64_t height_offset) {
+        imgui_log_message("Initializing ImGui for Vulkan with window: %p, device: %p\n", window, device);
+
+        // Idempotent for hot-reload, exactly like the OpenGL path: the device and swapchain are unchanged
+        // across a reload, so the existing context and Vulkan backend are reused.
+        if (ImGui::GetCurrentContext()) {
+            imgui_log_message("ProjectX_ImGui_InitVulkan: context already exists; reusing (hot-reload).\n");
+            return;
+        }
+#ifdef PROJECTX_VULKAN
+        if (!window) {
+            imgui_log_error("ProjectX_ImGui_InitVulkan", "Invalid window handle");
+            return;
+        }
+        try {
+            createContext();
+            projectx::imgui_backend::init(window, nullptr);
+            if (!projectx::vulkan::init(instance, physical_device, device, queue, (uint32_t)queue_family,
+                                        (uint32_t)api_version, surface_from_swapchain, width_offset, height_offset)) {
+                // Leave no context behind, so every later frame stays a no-op instead of driving a
+                // renderer that does not exist.
+                projectx::imgui_backend::shutdown();
+                ImGui::DestroyContext();
+                imgui_log_error("ProjectX_ImGui_InitVulkan", "Vulkan renderer could not bind to the client");
+                return;
+            }
+            g_renderer = OverlayRenderer::Vulkan;
+            imgui_log_message("ImGui Vulkan initialization completed successfully\n");
+        } catch (const std::exception& e) {
+            imgui_log_error("ProjectX_ImGui_InitVulkan", e.what());
+        } catch (...) {
+            imgui_log_error("ProjectX_ImGui_InitVulkan", "Unknown exception during initialization");
+        }
+#else
+        (void)window; (void)instance; (void)physical_device; (void)device; (void)queue; (void)queue_family;
+        (void)api_version; (void)surface_from_swapchain; (void)width_offset; (void)height_offset;
+        imgui_log_error("ProjectX_ImGui_InitVulkan", "This bootstrap was built without the Vulkan renderer");
+#endif
+    }
+
+    void ProjectX_Vulkan_BeginFrame(void* present_info) {
+#ifdef PROJECTX_VULKAN
+        projectx::vulkan::begin_frame(present_info);
+#else
+        (void)present_info;
+#endif
+    }
+
+    void* ProjectX_Vulkan_EndFrame(void* present_info) {
+#ifdef PROJECTX_VULKAN
+        return projectx::vulkan::end_frame(present_info);
+#else
+        return present_info;
+#endif
+    }
+
     void ProjectX_ImGui_Shutdown() {
         imgui_log_message("Shutting down ImGui\n");
         try {
-            ImGui_ImplOpenGL3_Shutdown();
+            if (g_renderer == OverlayRenderer::OpenGL) {
+                ImGui_ImplOpenGL3_Shutdown();
+            }
+#ifdef PROJECTX_VULKAN
+            if (g_renderer == OverlayRenderer::Vulkan) {
+                projectx::vulkan::shutdown();
+            }
+#endif
             projectx::imgui_backend::shutdown();
             ImGui::DestroyContext();
+            g_renderer = OverlayRenderer::None;
             imgui_log_message("ImGui shutdown completed successfully\n");
         } catch (const std::exception& e) {
             imgui_log_error("ProjectX_ImGui_Shutdown", e.what());
@@ -266,9 +403,21 @@ extern "C" {
         }
     }
 
+    // A renderer that failed to bind leaves no context, and the frame driver keeps calling in every
+    // frame; say so once rather than twice per frame.
+    static bool g_reported_missing_context = false;
+
+    static bool ProjectX_HasContext(const char* function_name) {
+        if (ImGui::GetCurrentContext()) return true;
+        if (!g_reported_missing_context) {
+            imgui_log_error(function_name, "No ImGui context available (further frames are skipped silently)");
+            g_reported_missing_context = true;
+        }
+        return false;
+    }
+
     void ProjectX_ImGui_NewFrame() {
-        if (!ImGui::GetCurrentContext()) {
-            imgui_log_error("ProjectX_ImGui_NewFrame", "No ImGui context available");
+        if (!ProjectX_HasContext("ProjectX_ImGui_NewFrame")) {
             return;
         }
         
@@ -288,12 +437,27 @@ extern "C" {
             
             // Mark frame as in progress (events will be queued until Render())
             g_imgui_frame_in_progress = true;
-            
-            // Render thread, game GL context current: safe point for queued texture ops.
-            ProjectX_GL_DrainPending();
+            t_is_render_thread = true;
 
-            ImGui_ImplOpenGL3_NewFrame();
+            // Render thread (game GL context current on OpenGL): safe point for queued texture ops.
+            ProjectX_DrainPendingTextures();
+
+#ifdef PROJECTX_VULKAN
+            if (g_renderer == OverlayRenderer::Vulkan) {
+                projectx::vulkan::new_frame();
+            } else
+#endif
+            {
+                ImGui_ImplOpenGL3_NewFrame();
+            }
             projectx::imgui_backend::new_frame();
+#ifdef PROJECTX_VULKAN
+            // Draw in swapchain pixels: the render pass covers exactly the image being presented.
+            uint32_t width = 0, height = 0;
+            if (g_renderer == OverlayRenderer::Vulkan && projectx::vulkan::frame_extent(&width, &height)) {
+                ImGui::GetIO().DisplaySize = ImVec2((float)width, (float)height);
+            }
+#endif
             ImGui::NewFrame();
         } catch (const std::exception& e) {
             imgui_log_error("ProjectX_ImGui_NewFrame", e.what());
@@ -307,8 +471,7 @@ extern "C" {
     }
 
     void ProjectX_ImGui_Render() {
-        if (!ImGui::GetCurrentContext()) {
-            imgui_log_error("ProjectX_ImGui_Render", "No ImGui context available");
+        if (!ProjectX_HasContext("ProjectX_ImGui_Render")) {
             return;
         }
         
@@ -319,8 +482,15 @@ extern "C" {
                 imgui_log_error("ProjectX_ImGui_Render", "ImGui draw data is null");
                 return;
             }
-            ImGui_ImplOpenGL3_RenderDrawData(draw_data);
-            
+#ifdef PROJECTX_VULKAN
+            if (g_renderer == OverlayRenderer::Vulkan) {
+                projectx::vulkan::render(draw_data);
+            } else
+#endif
+            {
+                ImGui_ImplOpenGL3_RenderDrawData(draw_data);
+            }
+
             // Frame is complete, safe to process events again
             g_imgui_frame_in_progress = false;
         } catch (const std::exception& e) {
@@ -1145,14 +1315,14 @@ extern "C" {
         }
     }
 
-    void ProjectX_ImGui_DrawList_AddImage(void* draw_list, long texture_id, float x1, float y1, float x2, float y2, unsigned int col) {
+    void ProjectX_ImGui_DrawList_AddImage(void* draw_list, int64_t texture_id, float x1, float y1, float x2, float y2, unsigned int col) {
         if (!draw_list) {
             imgui_log_error("ProjectX_ImGui_DrawList_AddImage", "DrawList pointer is null");
             return;
         }
 
         try {
-            ((ImDrawList*)draw_list)->AddImage((ImTextureID)texture_id, ImVec2(x1, y1), ImVec2(x2, y2), ImVec2(0, 0), ImVec2(1, 1), col);
+            ((ImDrawList*)draw_list)->AddImage(ProjectX_TextureRef(texture_id), ImVec2(x1, y1), ImVec2(x2, y2), ImVec2(0, 0), ImVec2(1, 1), col);
         } catch (const std::exception& e) {
             imgui_log_error("ProjectX_ImGui_DrawList_AddImage", e.what());
         } catch (...) {
@@ -1564,33 +1734,38 @@ extern "C" {
         return ImGui::TabItemButton(label, flags);
     }
 
-    void ProjectX_ImGui_Image(void* texture_id, float size_x, float size_y, float uv0_x, float uv0_y, float uv1_x, float uv1_y, unsigned int tint_col, unsigned int border_col) {
+    void ProjectX_ImGui_Image(int64_t texture_id, float size_x, float size_y, float uv0_x, float uv0_y, float uv1_x, float uv1_y, unsigned int tint_col, unsigned int border_col) {
         ImVec2 size(size_x, size_y);
         ImVec2 uv0(uv0_x, uv0_y);
         ImVec2 uv1(uv1_x, uv1_y);
-        ImGui::Image(texture_id, size, uv0, uv1, ImColor(tint_col), ImColor(border_col));
+        ImGui::Image(ProjectX_TextureRef(texture_id), size, uv0, uv1, ImColor(tint_col), ImColor(border_col));
     }
 
-    bool ProjectX_ImGui_ImageButton(void* texture_id, float size_x, float size_y, float uv0_x, float uv0_y, float uv1_x, float uv1_y, int frame_padding, unsigned int bg_col, unsigned int tint_col) {
+    bool ProjectX_ImGui_ImageButton(int64_t texture_id, float size_x, float size_y, float uv0_x, float uv0_y, float uv1_x, float uv1_y, int frame_padding, unsigned int bg_col, unsigned int tint_col) {
         ImVec2 size(size_x, size_y);
         ImVec2 uv0(uv0_x, uv0_y);
         ImVec2 uv1(uv1_x, uv1_y);
         ImVec4 bg_color = ImColor(bg_col);
         ImVec4 tint_color = ImColor(tint_col);
-        return ImGui::ImageButton("", (ImTextureID)texture_id, size, uv0, uv1, bg_color, tint_color);
+        return ImGui::ImageButton("", ProjectX_TextureRef(texture_id), size, uv0, uv1, bg_color, tint_color);
     }
 
-    // Create an OpenGL texture from tightly packed RGBA8 pixel data provided by the JVM.
+    // Create a texture from tightly packed RGBA8 pixel data provided by the JVM.
     // Pixels must be width*height*4 bytes in RGBA order, row-major, with no padding.
-    long ProjectX_ImGui_CreateTextureFromRGBA(const void* pixels, int width, int height) {
+    // Handles are 64-bit: a GL texture name on OpenGL, an ImTextureData pointer on Vulkan.
+    int64_t ProjectX_ImGui_CreateTextureFromRGBA(const void* pixels, int width, int height) {
         if (!pixels || width <= 0 || height <= 0) {
             imgui_log_error("ProjectX_ImGui_CreateTextureFromRGBA", "Invalid arguments");
             return 0;
         }
 
-        // On the render thread the game's GL context is already current: upload inline.
-        if (projectx::imgui_backend::has_current_gl_context()) {
-            return (long)ProjectX_GL_CreateTextureNow(pixels, width, height);
+        // On the render thread the renderer can take it inline: the game's GL context is already
+        // current on OpenGL, and ImGui's texture list belongs to this thread on Vulkan.
+        if (g_renderer == OverlayRenderer::Vulkan && t_is_render_thread) {
+            return ProjectX_CreateTextureNow(pixels, width, height);
+        }
+        if (g_renderer != OverlayRenderer::Vulkan && projectx::imgui_backend::has_current_gl_context()) {
+            return (int64_t)ProjectX_GL_CreateTextureNow(pixels, width, height);
         }
 
         // Off the render thread (e.g. eager UI init): defer to the next frame and
@@ -1607,16 +1782,19 @@ extern "C" {
                             "Timed out waiting for render thread to upload texture");
             return 0;
         }
-        return (long)req.result;
+        return req.result;
     }
 
-    void ProjectX_ImGui_DestroyTexture(long texture_id) {
-        GLuint tex = (GLuint)texture_id;
-        if (tex == 0) return;
+    void ProjectX_ImGui_DestroyTexture(int64_t texture_id) {
+        if (texture_id == 0) return;
         // Called from any thread (notably the JVM Cleaner during texture GC).
-        // Never touch EGL/GL here: defer the delete to the render thread.
+        // Never touch the renderer here: defer the delete to the render thread.
         std::lock_guard<std::mutex> lock(g_gl_queue_mutex);
-        g_pending_tex_deletes.push_back(tex);
+        if (g_renderer == OverlayRenderer::Vulkan) {
+            g_pending_user_deletes.push_back((ImTextureData*)(intptr_t)texture_id);
+        } else {
+            g_pending_tex_deletes.push_back((GLuint)texture_id);
+        }
     }
 
     bool ProjectX_ImGui_DragFloat(const char* label, float* v, float v_speed, float v_min, float v_max, const char* format, int flags) {
