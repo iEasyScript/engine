@@ -63,7 +63,9 @@ object ScriptExecutor {
                     }
                 }
             }
-            if (!playerListBuilt) {
+            // The local player's slot can be empty for a tick while the client still reports LOGGED_IN; any script
+            // reading localPlayer then would dereference a null entity.
+            if (!playerListBuilt || !Bootstrap.client.loggedInPlayer.isSelfLoaded) {
                 return
             }
         }

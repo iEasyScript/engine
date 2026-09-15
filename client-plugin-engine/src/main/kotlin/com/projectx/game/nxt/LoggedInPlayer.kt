@@ -27,6 +27,9 @@ class LoggedInPlayer(raw: MemorySegment, val client: Client = Client.getClient(N
     val self: Player
         get() = Player(client.playerManager[serverIndex])
 
+    val isSelfLoaded: Boolean
+        get() = client.playerManager[serverIndex].address() != 0L
+
     fun getPlayerName(): String? {
         if (ptr.address() == 0L)
             return null
