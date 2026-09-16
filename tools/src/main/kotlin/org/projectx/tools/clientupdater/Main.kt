@@ -200,7 +200,7 @@ private fun printHelp() {
 
         Flags:
           --dir <path>   Client root to check/update          (default ./data/client)
-          --os a,b,c     Subset of {linux,windows,macos}      (default: all three)
+          --os a,b,c     Subset of {linux,windows,windows-vulkan,macos}  (default: all four)
           --check        Dry run: report status only, no downloads or writes
           --update       Replace OUTDATED existing binaries (MISSING are always filled)
           --force        Re-download every selected target even if up to date
@@ -208,9 +208,10 @@ private fun printHelp() {
 
         Per-OS layout under the client root (game client downloaded; rs3* launcher + patcher seeded
         by the cross-platform launcher):
-          linux   -> linux/rs2client       linux/rs3linux        linux/libprojectx_patcher.so
-          windows -> windows/rs2client.exe windows/rs3windows.exe windows/projectx_patcher.dll
-          macos   -> macos/rs2client       macos/rs3mac          macos/libprojectx_patcher.dylib
+          linux          -> linux/rs2client       linux/rs3linux        linux/libprojectx_patcher.so
+          windows        -> windows/rs2client.exe windows/rs3windows.exe windows/projectx_patcher.dll
+          windows-vulkan -> windows-vulkan/rs2client.exe  (Vulkan build; shares the windows launcher)
+          macos          -> macos/rs2client       macos/rs3mac          macos/libprojectx_patcher.dylib
         """.trimIndent(),
     )
 }

@@ -22,6 +22,11 @@ import org.projectx.core.LzmaAlone
  *
  * The 32-bit Windows build (binaryType 1) is intentionally omitted: it is an ~80 KB i386 stub, not a
  * real client. The working Windows client is 64-bit (binaryType 2).
+ *
+ * Windows ships twice: binaryType 2 is the OpenGL client (tagged `NXT-Windows-64`) and binaryType 10
+ * the Vulkan-only one (`NXT-Windows-64-Vulkan`). Both are named `rs2client.exe` and report the same
+ * `server_version`, and they differ in `download_crc_0` and in every code and data address — hence
+ * the separate `windows-vulkan` folder, and the per-renderer offset tables in the engine.
  */
 enum class OsTarget(
     val key: String,            // folder name under the client root AND the --os CLI key
@@ -36,6 +41,7 @@ enum class OsTarget(
 ) {
     LINUX("linux", 4, "Linux x86-64", "rs2client", "rs3linux", "ELF", byteArrayOf(0x7F, 0x45, 0x4C, 0x46), true),
     WINDOWS("windows", 2, "Windows 64-bit", "rs2client.exe", "rs3windows.exe", "PE/MZ", byteArrayOf(0x4D, 0x5A), false),
+    WINDOWS_VULKAN("windows-vulkan", 10, "Windows 64-bit (Vulkan)", "rs2client.exe", "rs3windows.exe", "PE/MZ", byteArrayOf(0x4D, 0x5A), false),
     MACOS("macos", 3, "macOS x86-64", "rs2client", "rs3mac", "Mach-O", byteArrayOf(0xCF.toByte(), 0xFA.toByte(), 0xED.toByte(), 0xFE.toByte()), true);
 
     /** Game-client path relative to the client root, e.g. `linux/rs2client`. */

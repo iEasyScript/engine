@@ -1,4 +1,5 @@
 use crate::config::ServerMode;
+use crate::game::renderer::Renderer;
 use anyhow::{Context, Result};
 use std::path::Path;
 use std::process::{Command, Stdio};
@@ -384,9 +385,17 @@ pub fn host_os_dir() -> &'static str {
 /// The NXT `binaryType` identifying this host's client build. It is the query
 /// parameter a config server keys its per-OS client descriptor on, and the
 /// counterpart of [`host_os_dir`] on the wire.
-pub fn host_binary_type() -> u8 {
+///
+/// Windows has one value per renderer — 2 is the OpenGL client, 10 the Vulkan
+/// one — so the caller resolves a [`Renderer`] first (see
+/// [`crate::game::renderer::resolve`]). Linux and macOS ship one build each and
+/// ignore the renderer.
+pub fn host_binary_type(renderer: Renderer) -> u8 {
     if cfg!(target_os = "windows") {
-        2
+        match renderer {
+            Renderer::Vulkan => 10,
+            Renderer::OpenGl => 2,
+        }
     } else if cfg!(target_os = "macos") {
         3
     } else {

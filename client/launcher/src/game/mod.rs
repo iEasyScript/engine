@@ -7,4 +7,6 @@ pub mod inject;
 #[cfg(target_os = "linux")]
 pub mod nativedeps;
 pub mod process;
+/// Which renderer build of the client to launch (Vulkan vs OpenGL).
+pub mod renderer;
 pub mod rs3;

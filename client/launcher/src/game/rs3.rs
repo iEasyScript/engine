@@ -4,6 +4,7 @@ use std::path::Path;
 use url::Url;
 
 use crate::game::process::host_binary_type;
+use crate::game::renderer::Renderer;
 
 // The Debian `.deb` flow below installs the Linux launcher only. Windows and
 // macOS take theirs from `launcher_acq`, so every item in the flow is inert off
@@ -20,7 +21,11 @@ pub const DEFAULT_CONFIG_URI: &str = "https://www.runescape.com/k=5/l=0/jav_conf
 /// or macOS launch that omits it therefore hands the Jagex launcher an ELF to
 /// verify, which it rejects with "Error saving file" rather than anything that
 /// names the real mismatch. An explicit value in a user-supplied URI wins.
-pub fn with_host_binary_type(config_uri: &str) -> String {
+///
+/// On Windows the value also picks the renderer: 2 is the OpenGL client and 10
+/// the Vulkan one, so `renderer` is what decides which of the two the Jagex
+/// launcher downloads.
+pub fn with_host_binary_type(config_uri: &str, renderer: Renderer) -> String {
     let Ok(mut url) = Url::parse(config_uri) else {
         return config_uri.to_string();
     };
@@ -28,7 +33,7 @@ pub fn with_host_binary_type(config_uri: &str) -> String {
         return config_uri.to_string();
     }
     url.query_pairs_mut()
-        .append_pair("binaryType", &host_binary_type().to_string());
+        .append_pair("binaryType", &host_binary_type(renderer).to_string());
     url.into()
 }
 

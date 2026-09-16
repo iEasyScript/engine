@@ -54,6 +54,9 @@ version = "0.61"
 features = [
     "Win32_Foundation",
     "Win32_System_Diagnostics_ToolHelp",
+    # LoadLibraryW/GetProcAddress, for probing the Vulkan loader before choosing a
+    # renderer build (see game::renderer).
+    "Win32_System_LibraryLoader",
     "Win32_System_ProcessStatus",
     "Win32_System_Threading",
     "Win32_UI_Shell",

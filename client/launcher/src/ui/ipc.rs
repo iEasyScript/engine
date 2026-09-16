@@ -979,11 +979,18 @@ impl IpcState {
         let custom_cmd = config.custom_launch_command.clone();
         let auto_inject = config.auto_inject_projectx;
         let plugins_cfg = config.plugins.clone();
+        let renderer = crate::game::renderer::resolve_for(
+            config.renderer,
+            crate::engine::resolved_home().as_deref(),
+            auto_inject,
+        );
+        log::info!("Launching the {} client (binaryType selects the build).", renderer);
         let config_uri = with_host_binary_type(
             &config
                 .custom_config_uri
                 .clone()
                 .unwrap_or_else(|| crate::game::rs3::DEFAULT_CONFIG_URI.to_string()),
+            renderer,
         );
 
         tokio::spawn(async move {
@@ -1074,11 +1081,18 @@ impl IpcState {
         let plugins_cfg = config.plugins.clone();
 
         let host = config.custom_server_host.as_deref().unwrap_or("localhost");
+        let renderer = crate::game::renderer::resolve_for(
+            config.renderer,
+            crate::engine::resolved_home().as_deref(),
+            auto_inject,
+        );
+        log::info!("Launching the {} client (binaryType selects the build).", renderer);
         let config_uri = with_host_binary_type(
             &config
                 .custom_config_uri
                 .clone()
                 .unwrap_or_else(|| format!("http://{}:8829/jav_config.ws", host)),
+            renderer,
         );
 
         // Custom/private-server mode gets its OWN data dir (a `custom/` subdir of

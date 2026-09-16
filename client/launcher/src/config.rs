@@ -7,6 +7,7 @@ use std::io::Write;
 use std::path::{Path, PathBuf};
 
 use crate::game::process::launcher_binary_name;
+use crate::game::renderer::RendererPref;
 
 #[derive(Debug, Clone, Serialize)]
 pub enum ServerMode {
@@ -70,6 +71,12 @@ pub struct Config {
     /// during normal use and detail only when something is being diagnosed. `RUST_LOG` still wins.
     #[serde(default)]
     pub debug_logging: bool,
+    /// Which renderer build of the client to launch. `Auto` (the default) prefers
+    /// the Vulkan client and falls back to OpenGL when the host has no Vulkan
+    /// loader or the installed engine carries no Vulkan offset table. Pin it to
+    /// `"Vulkan"` or `"OpenGl"` to force one while diagnosing a renderer problem.
+    #[serde(default)]
+    pub renderer: RendererPref,
     /// Managed script-jar channels. Every channel starts opted out: building the
     /// scripts yourself is the default workflow, and the launcher must never put
     /// a jar the user did not ask for into the engine's scan path.
@@ -111,6 +118,7 @@ impl Default for Config {
             custom_rsa_modulus: None,
             auto_inject_projectx: false,
             debug_logging: false,
+            renderer: RendererPref::default(),
             plugins: PluginsConfig::default(),
         }
     }

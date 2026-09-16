@@ -44,6 +44,18 @@ pub fn home_dir() -> Result<PathBuf> {
     Ok(Paths::new()?.data_dir.join("engine"))
 }
 
+/// The engine home an injection would actually use, or `None` when no engine is
+/// installed.
+///
+/// The bootstrap makes the directory it was loaded from the home the supervisor
+/// resolves the jar in, so this mirrors what the injectors do — take the parent
+/// of the bootstrap [`find_bootstrap`] picked — rather than assuming
+/// [`home_dir`]. A source tree or `PROJECTX_HOME_DIR` therefore reads the same
+/// way before a launch as it does at injection time.
+pub fn resolved_home() -> Option<PathBuf> {
+    find_bootstrap().and_then(|so| so.parent().map(|p| p.to_path_buf()))
+}
+
 /// The bootstrap library to inject, or `None` when the engine is not installed.
 ///
 /// `PROJECTX_HOME_DIR` wins so a developer can point the launcher at any build.

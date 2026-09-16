@@ -122,6 +122,24 @@ pub(crate) mod revision {
         out
     }
 
+    /// Whether the installed engine carries any offset table for `renderer`.
+    ///
+    /// Checked before a launch, where the build is not known yet — the client has not
+    /// been downloaded — so this asks only whether the renderer is covered at all.
+    /// A table for the wrong build still gets caught by [`guard`] at injection time.
+    ///
+    /// An engine that cannot be read is reported as covering the renderer: the same
+    /// reasoning as [`guard`]'s, in that missing evidence is not evidence of a
+    /// mismatch, and letting it through leaves the clear message from `guard` to be
+    /// the one the user sees.
+    pub fn engine_has_renderer(engine_home: &Path, renderer: &str) -> bool {
+        let Some(jar) = crate::engine::installed_engine_jar(engine_home) else {
+            return true;
+        };
+        let supported = engine_supported_revisions(&jar);
+        supported.is_empty() || supported.iter().any(|r| r.renderer == renderer)
+    }
+
     /// `Ok(())` when the engine covers this client, or when either side cannot be
     /// determined — an unreadable binary or a jar without tables is not evidence of a
     /// mismatch, and blocking on it would make injection fail for the wrong reason.
