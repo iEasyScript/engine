@@ -4,7 +4,6 @@ import com.projectx.game.target
 
 import org.projectx.core.game.skill.Skill
 import world.gregs.voidps.type.Tile
-import world.gregs.voidps.gameval.Gameval
 import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.input.action.ActionInput
 import com.projectx.game.interfaces.Bank
@@ -833,59 +832,49 @@ val bankOpen
 val bankWithdrawNotes
     get() = varps.getVar(160) == 1
 
-private val knownBankOptions = arrayOf("Bank", "Use", "Open")
+private const val LOAD_LAST_PRESET = "Load Last Preset from"
 
-@JvmOverloads
-fun openClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean {
-    findClosestObjectToTile(localPlayer.tile, range, checkReachable) {
-        it.name().contains("Bank") || it.hasOption("Bank")
-    }?.let { bankObj ->
-        for (op in knownBankOptions) {
-            if (bankObj.hasOption(op))
-                return bankObj.interact(op)
-        }
-        println("Bank object had unsupported action: ${bankObj.name()} ${bankObj.typeId} (${Gameval.locLabel(bankObj.typeId)})")
+/**
+ * The option that opens a bank: booths, counters and bankers say "Bank", bank chests "Use". Deposit boxes, bank
+ * signs and other "Bank" scenery have neither, so they are never picked.
+ */
+private val bankOption: (hasOption: (String) -> Boolean, name: String) -> String? = { hasOption, name ->
+    when {
+        hasOption("Bank") -> "Bank"
+        hasOption("Use") && (name.contains("bank", ignoreCase = true) || hasOption(LOAD_LAST_PRESET)) -> "Use"
+        else -> null
     }
-
-    findClosestNPC(range, checkReachable) { it.name().contains("Bank") || it.hasOption("Bank") }?.let { bankNpc ->
-        for (op in knownBankOptions) {
-            if (bankNpc.hasOption(op))
-                return bankNpc.interact(op)
-        }
-        println(
-            "Bank npc had unsupported action: ${bankNpc.name} ${bankNpc.typeId} (${Gameval.npcLabel(bankNpc.typeId)}), might be too far away ${
-                bankNpc.tile.getDistance(
-                    localPlayer.tile
-                )
-            }"
-        )
-    }
-    return false
 }
 
-@JvmOverloads
-fun loadLastPresetClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean {
-    findClosestObjectToTile(localPlayer.tile, range, checkReachable) {
-        it.name().contains("Bank") || it.hasOption("Bank")
-    }?.let { bankObj ->
-        if (bankObj.hasOption("Load Last Preset from"))
-            return bankObj.interact("Load Last Preset from")
-        println("Bank object had unsupported action: ${bankObj.name()} ${bankObj.typeId} (${Gameval.locLabel(bankObj.typeId)})")
-    }
-
-    findClosestNPC(range, checkReachable) { it.name().contains("Bank") || it.hasOption("Bank") }?.let { bankNpc ->
-        if (bankNpc.hasOption("Load Last Preset from"))
-            return bankNpc.interact("Load Last Preset from")
-        println(
-            "Bank npc had unsupported action: ${bankNpc.name} ${bankNpc.typeId} (${Gameval.npcLabel(bankNpc.typeId)}), might be too far away ${
-                bankNpc.tile.getDistance(
-                    localPlayer.tile
-                )
-            }"
-        )
-    }
-    return false
+private val presetOption: (hasOption: (String) -> Boolean, name: String) -> String? = { hasOption, _ ->
+    LOAD_LAST_PRESET.takeIf(hasOption)
 }
+
+/** Interacts with whichever bank object or NPC is nearest, using the option [optionFor] picks for it. */
+private fun interactClosestBank(
+    checkReachable: Boolean,
+    range: Int,
+    optionFor: (hasOption: (String) -> Boolean, name: String) -> String?,
+): Boolean {
+    val here = localPlayer.tile
+    val obj = findClosestObjectToTile(here, range, checkReachable) { optionFor(it::hasOption, it.name()) != null }
+    val npc = findClosestNPC(range, checkReachable) { optionFor(it::hasOption, it.name()) != null }
+    return when {
+        obj != null && (npc == null || here.getDistance(obj.tile) <= here.getDistance(npc.tile)) ->
+            optionFor(obj::hasOption, obj.name())?.let(obj::interact) == true
+        npc != null -> optionFor(npc::hasOption, npc.name())?.let(npc::interact) == true
+        else -> false
+    }
+}
+
+/** Opens the nearest bank booth, counter, chest or banker. */
+@JvmOverloads
+fun openClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean =
+    interactClosestBank(checkReachable, range, bankOption)
+
+@JvmOverloads
+fun loadLastPresetClosestBank(checkReachable: Boolean = false, range: Int = 20): Boolean =
+    interactClosestBank(checkReachable, range, presetOption)
 
 fun closeBank() = doBankAction(Bank.CLOSE_COMPONENT_ID)
 fun equipFromBank(name: String) = doBankItemsAction(name, 9)
