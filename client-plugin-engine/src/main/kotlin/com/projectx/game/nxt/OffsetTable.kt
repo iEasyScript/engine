@@ -22,6 +22,12 @@ data class OffsetDeclaration(
     /** The renderer builds whose client has the field at all, e.g. a Vulkan device object. */
     val renderers: Set<Renderer> = Renderer.entries.toSet(),
 ) {
+    /** The signatures from before [renderers] existed, kept so jars built against them still link. */
+    constructor(key: String, platforms: Set<Platform>, portPending: Boolean) :
+        this(key, platforms, portPending, Renderer.entries.toSet())
+
+    fun copy(key: String, platforms: Set<Platform>, portPending: Boolean) = copy(key, platforms, portPending, renderers)
+
     val isPlatformScoped: Boolean get() = !portPending && platforms != Platform.entries.toSet()
     fun appliesTo(platform: Platform) = platform in platforms
     fun appliesTo(platform: Platform, renderer: Renderer) = platform in platforms && renderer in renderers
