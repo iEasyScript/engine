@@ -256,6 +256,15 @@ sealed class Wait {
         @JvmStatic
         fun checkPorter(): Wait = call(null) { this.checkPorter() }
 
+        /**
+         * Capture the nearest Seren spirit within [range] tiles; [onResult] gets whether one was captured.
+         * Kotlin: `captureSerenSpirit`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun captureSerenSpirit(range: Int = 15, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.captureSerenSpirit(range) }
+
         /** Turn [prayer] on or off, then wait for the change. Kotlin: `togglePrayer`. */
         @JvmStatic
         fun togglePrayer(prayer: Prayer, shouldBeActive: Boolean): Wait = call(null) { this.togglePrayer(prayer, shouldBeActive) }
