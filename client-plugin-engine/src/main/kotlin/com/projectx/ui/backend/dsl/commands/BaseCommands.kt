@@ -47,28 +47,51 @@ data class SetBoolStateFromRefCommand(
 }
 
 internal object ImGuiExecState {
+    enum class Scope {
+        OPEN,
+        /** Closed, and ImGui wants no end call: a table, tab bar, menu, popup or tree node that did not open. */
+        CLOSED,
+        /** Closed, but ImGui still requires the end call: a collapsed or clipped window or child window. */
+        CLOSED_NEEDS_END,
+        /** Never begun natively, because an enclosing scope was already closed. */
+        SKIPPED,
+    }
+
     private var skipDepth: Int = 0
-    private val openStack = ArrayDeque<Boolean>()
+    private val openStack = ArrayDeque<Scope>()
 
     fun isSkipping(): Boolean = skipDepth > 0
 
-    fun begin(open: Boolean) {
-        openStack.addLast(open)
-        if (!open) skipDepth++
-    }
+    fun begin(open: Boolean) = push(if (open) Scope.OPEN else Scope.CLOSED)
 
-    fun beginSkipped() {
-        openStack.addLast(false)
-        skipDepth++
+    /**
+     * For Begin()/BeginChild(), which must always be paired with End()/EndChild() whatever they
+     * returned. Their contents are still skipped when they report closed.
+     */
+    fun beginAlwaysEnded(open: Boolean) = push(if (open) Scope.OPEN else Scope.CLOSED_NEEDS_END)
+
+    fun beginSkipped() = push(Scope.SKIPPED)
+
+    private fun push(scope: Scope) {
+        openStack.addLast(scope)
+        if (scope != Scope.OPEN) skipDepth++
     }
 
     inline fun end(onOpenEnd: () -> Unit) {
         if (openStack.isEmpty()) return
-        val open = openStack.removeLast()
-        if (open) {
-            onOpenEnd()
-        } else {
-            skipDepth--
+        when (popScope()) {
+            Scope.OPEN -> onOpenEnd()
+            Scope.CLOSED_NEEDS_END -> {
+                closeSkipped()
+                onOpenEnd()
+            }
+            Scope.CLOSED, Scope.SKIPPED -> closeSkipped()
         }
+    }
+
+    fun popScope(): Scope = openStack.removeLast()
+
+    fun closeSkipped() {
+        skipDepth--
     }
 }

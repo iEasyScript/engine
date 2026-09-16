@@ -200,7 +200,7 @@ data class BeginChildCommand(
             return
         }
         val open = NativeBridge.beginChild(safeId, width, height, childFlags, windowFlags)
-        ImGuiExecState.begin(open)
+        ImGuiExecState.beginAlwaysEnded(open)
         result.set(open)
     }
 }

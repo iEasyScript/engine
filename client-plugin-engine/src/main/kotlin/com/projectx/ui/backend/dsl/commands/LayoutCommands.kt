@@ -19,12 +19,12 @@ data class BeginWindowCommand(
             val openThisFrame = try {
                 NativeBridge.begin(safeTitle, open.buffer, flags)
             } catch (_: Throwable) { true }
-            ImGuiExecState.begin(openThisFrame)
+            ImGuiExecState.beginAlwaysEnded(openThisFrame)
         } else {
             val openThisFrame = try {
                 NativeBridge.begin(safeTitle, null, flags)
             } catch (_: Throwable) { true }
-            ImGuiExecState.begin(openThisFrame)
+            ImGuiExecState.beginAlwaysEnded(openThisFrame)
         }
     }
 }
@@ -53,7 +53,7 @@ data class BeginWindowActionValueCommand(
                 openNow
             }
         } catch (_: Throwable) { true }
-        ImGuiExecState.begin(openThisFrame)
+        ImGuiExecState.beginAlwaysEnded(openThisFrame)
     }
 }
 
