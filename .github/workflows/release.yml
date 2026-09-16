@@ -92,10 +92,13 @@ jobs:
           cp client-plugin-engine/build/libs/*-all.jar "dist/projectx-engine-$v.jar"
           cp client-plugin-engine/build/libs/projectx-supervisor.jar "dist/projectx-supervisor-$v.jar"
           cd dist && sha256sum "projectx-engine-$v.jar" "projectx-supervisor-$v.jar" > "engine-$v.sha256"
+      # Artifacts only carry files between jobs; the release keeps the real copies,
+      # so a short retention keeps the account under its Actions storage quota.
       - uses: actions/upload-artifact@v4
         with:
           name: engine-jar
           path: dist/
+          retention-days: 3
 
   bootstrap-linux:
     needs: version
@@ -130,6 +133,7 @@ jobs:
         with:
           name: bootstrap-linux
           path: dist/
+          retention-days: 3
 
   bootstrap-windows:
     needs: version
@@ -183,6 +187,7 @@ jobs:
         with:
           name: bootstrap-windows
           path: dist/
+          retention-days: 3
 
   launcher:
     needs: version
@@ -253,6 +258,7 @@ jobs:
         with:
           name: launcher-${{ matrix.name }}
           path: stage/
+          retention-days: 3
 
   # Per-platform bundles: everything needed for a working install, in the search
   # slots the launcher already uses. The ~160 MB engine jar is deliberately left
@@ -313,6 +319,7 @@ jobs:
         with:
           name: bundle-${{ matrix.name }}
           path: dist/
+          retention-days: 3
 
   release:
     needs: [version, engine-jar, bootstrap-linux, bootstrap-windows, launcher, bundle]
