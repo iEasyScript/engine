@@ -241,21 +241,54 @@ fn do_launch_live(
     auto_inject: bool,
     close_after: bool,
 ) {
-    match crate::game::process::launch_rs3(
-        binary,
-        config_uri,
-        Some(params),
-        data_dir,
-        deps_dir,
-        custom_cmd,
-        patch,
-        None, // no working_dir for live mode
-        &ServerMode::Live,
-    ) {
-        Ok(pid) => finish_launch(reporter, pid, auto_inject, close_after),
-        Err(e) => reporter.error(format!("Failed to launch: {}", e)),
+    let mut attempt = 1;
+    loop {
+        let pid = match crate::game::process::launch_rs3(
+            binary,
+            config_uri,
+            Some(params),
+            data_dir,
+            deps_dir,
+            custom_cmd,
+            patch,
+            None, // no working_dir for live mode
+            &ServerMode::Live,
+        ) {
+            Ok(pid) => pid,
+            Err(e) => return reporter.error(format!("Failed to launch: {}", e)),
+        };
+
+        #[cfg(windows)]
+        if custom_cmd.is_none() && attempt < LAUNCHER_ATTEMPTS {
+            use crate::game::inject::windows::{watch_launcher_start, LauncherStart};
+            let outcome =
+                tokio::task::block_in_place(|| watch_launcher_start(pid, LAUNCHER_START_TIMEOUT));
+            if let LauncherStart::Crashed(code) = outcome {
+                log::warn!(
+                    "The Jagex launcher (pid {}) crashed with 0x{:08X} before starting the client; retrying",
+                    pid,
+                    code
+                );
+                reporter.status("The RuneScape launcher crashed while updating the client; trying again...");
+                attempt += 1;
+                continue;
+            }
+        }
+        #[cfg(not(windows))]
+        let _ = attempt;
+
+        return finish_launch(reporter, pid, auto_inject, close_after);
     }
 }
+
+/// How many times a live launch starts the Jagex launcher when it keeps crashing
+/// while it updates the client.
+#[cfg(windows)]
+const LAUNCHER_ATTEMPTS: u32 = 3;
+
+/// Long enough for the Jagex launcher to download a full client on a slow line.
+#[cfg(windows)]
+const LAUNCHER_START_TIMEOUT: std::time::Duration = std::time::Duration::from_secs(180);
 
 /// Common tail of a successful spawn: announce completion, optionally inject the
 /// Project X engine, optionally close the launcher.
@@ -979,19 +1012,11 @@ impl IpcState {
         let custom_cmd = config.custom_launch_command.clone();
         let auto_inject = config.auto_inject_projectx;
         let plugins_cfg = config.plugins.clone();
-        let renderer = crate::game::renderer::resolve_for(
-            config.renderer,
-            crate::engine::resolved_home().as_deref(),
-            auto_inject,
-        );
-        log::info!("Launching the {} client (binaryType selects the build).", renderer);
-        let config_uri = with_host_binary_type(
-            &config
-                .custom_config_uri
-                .clone()
-                .unwrap_or_else(|| crate::game::rs3::DEFAULT_CONFIG_URI.to_string()),
-            renderer,
-        );
+        let renderer_pref = config.renderer;
+        let base_config_uri = config
+            .custom_config_uri
+            .clone()
+            .unwrap_or_else(|| crate::game::rs3::DEFAULT_CONFIG_URI.to_string());
 
         tokio::spawn(async move {
             // Held for the whole task; clears the launch flag on drop (all paths).
@@ -1037,6 +1062,16 @@ impl IpcState {
                 reporter.status("Checking the engine...");
                 ensure_engine_installed(&reporter, &plugins_cfg).await;
             }
+
+            // Chosen only now, against the engine that will be injected: the update
+            // above can add a Vulkan offset table the engine did not have before.
+            let renderer = crate::game::renderer::resolve_for(
+                renderer_pref,
+                crate::engine::resolved_home().as_deref(),
+                auto_inject,
+            );
+            log::info!("Launching the {} client (binaryType selects the build).", renderer);
+            let config_uri = with_host_binary_type(&base_config_uri, renderer);
 
             reporter.status("Launching game...");
             let params = LaunchParams {

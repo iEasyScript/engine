@@ -677,9 +677,9 @@ pub(crate) mod windows {
     };
     use windows_sys::Win32::System::ProcessStatus::{EnumProcessModules, GetModuleFileNameExW};
     use windows_sys::Win32::System::Threading::{
-        GetProcessTimes, OpenProcess, QueryFullProcessImageNameW, PROCESS_ACCESS_RIGHTS,
-        PROCESS_NAME_WIN32, PROCESS_QUERY_INFORMATION, PROCESS_QUERY_LIMITED_INFORMATION,
-        PROCESS_VM_READ,
+        GetExitCodeProcess, GetProcessTimes, OpenProcess, QueryFullProcessImageNameW,
+        PROCESS_ACCESS_RIGHTS, PROCESS_NAME_WIN32, PROCESS_QUERY_INFORMATION,
+        PROCESS_QUERY_LIMITED_INFORMATION, PROCESS_VM_READ,
     };
 
     use crate::game::process::find_deploy_artifact;
@@ -970,6 +970,57 @@ pub(crate) mod windows {
         }
 
         best_descendant.or(best).map(|(pid, _)| pid)
+    }
+
+    /// How a freshly spawned Jagex launcher got on while bringing up the client.
+    #[derive(Debug, PartialEq, Eq)]
+    pub(crate) enum LauncherStart {
+        /// An `rs2client` descended from it is running.
+        ClientStarted,
+        /// It died on an exception before starting the client, with this NTSTATUS.
+        Crashed(u32),
+        /// It exited normally, or was still busy when the watch timed out.
+        Unknown,
+    }
+
+    /// Watches `launcher_pid` until it starts an `rs2client`, exits, or `timeout`
+    /// passes.
+    ///
+    /// `rs3windows.exe` downloads the client itself before starting it, and that
+    /// download sometimes dies with "Download: integer divide by zero" and an
+    /// access violation (seen with launcher version 224 fetching the Vulkan build),
+    /// while a second attempt succeeds. This tells the caller when that happened so
+    /// it can try again.
+    pub(crate) fn watch_launcher_start(launcher_pid: u32, timeout: Duration) -> LauncherStart {
+        const STILL_ACTIVE: u32 = 259;
+        const EXCEPTION_SEVERITY: u32 = 0xC000_0000;
+
+        let Some(process) = open_process(launcher_pid, PROCESS_QUERY_LIMITED_INFORMATION) else {
+            return LauncherStart::Unknown;
+        };
+        let deadline = std::time::Instant::now() + timeout;
+        while std::time::Instant::now() < deadline {
+            let processes = snapshot_processes();
+            let started = processes.iter().any(|e| {
+                e.name.eq_ignore_ascii_case(TARGET_PROCESS_NAME)
+                    && is_descendant_of(&processes, e.pid, launcher_pid)
+            });
+            if started {
+                return LauncherStart::ClientStarted;
+            }
+
+            let mut code: u32 = STILL_ACTIVE;
+            let ok = unsafe { GetExitCodeProcess(process.raw(), &mut code) };
+            if ok != FALSE && code != STILL_ACTIVE {
+                return if code & EXCEPTION_SEVERITY == EXCEPTION_SEVERITY {
+                    LauncherStart::Crashed(code)
+                } else {
+                    LauncherStart::Unknown
+                };
+            }
+            std::thread::sleep(Duration::from_millis(500));
+        }
+        LauncherStart::Unknown
     }
 
     /// Every live `rs2client.exe` pid, for the Clients panel's discovery scan.
