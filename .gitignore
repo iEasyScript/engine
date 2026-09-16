@@ -12,6 +12,10 @@ build
 # Build output only. Not src/bin, which is where Cargo keeps binary sources.
 /bin/
 /bin/**
+# The same output under a Gradle subproject (core/bin, tools/bin, packetlog/bin,
+# client-plugin-engine-supervisor/bin), which the root-anchored rules above miss.
+*/bin/
+*/bin/**
 tmp/**
 tmp/**/*
 *.tmp
