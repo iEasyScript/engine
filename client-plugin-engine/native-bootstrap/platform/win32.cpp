@@ -78,20 +78,10 @@ void jvm_library_path(char *out, size_t out_size, const char *java_home) {
     std::snprintf(out, out_size, "%s\\bin\\server\\jvm.dll", java_home);
 }
 
-static bool holds_jvm(const char *java_home) {
-    char probe[MAX_PATH];
-    jvm_library_path(probe, sizeof(probe), java_home);
-    return GetFileAttributesA(probe) != INVALID_FILE_ATTRIBUTES;
-}
-
-/// First digit run in a JDK directory name — "jdk-25.0.1" and "jdk-21" score 25 and 21, so the
-/// newest install wins a root that holds several. Legacy "jre1.8.0_401" scores 1 and loses.
-static int version_score(const char *name) {
-    for (const char *c = name; *c; ++c)
-        if (*c >= '0' && *c <= '9') return std::atoi(c);
-    return 0;
-}
-
+/// Keep the highest usable JDK found so far. Ordering is by the version the JDK itself reports
+/// rather than by its directory name, so a "jdk-latest" or a vendor-renamed directory is ranked on
+/// what it actually is — and an install root full of old JREs yields nothing instead of the newest
+/// of them.
 static void consider_java_root(const char *root, char *best, size_t best_size, int *best_score) {
     char pattern[MAX_PATH];
     std::snprintf(pattern, sizeof(pattern), "%s\\*", root);
@@ -103,8 +93,11 @@ static void consider_java_root(const char *root, char *best, size_t best_size, i
         if (entry.cFileName[0] == '.') continue;
         char candidate[MAX_PATH];
         std::snprintf(candidate, sizeof(candidate), "%s\\%s", root, entry.cFileName);
-        int score = version_score(entry.cFileName);
-        if (score <= *best_score || !holds_jvm(candidate)) continue;
+        // A scan is the least deliberate of the sources, so it holds out for a JDK that states a
+        // new enough version: the unreadable-version leniency elsewhere would here mean picking up
+        // a pre-9 JRE, which has no `release` file and cannot run the engine.
+        int score = jdk_feature_version(candidate);
+        if (score < MIN_JDK_FEATURE_VERSION || score <= *best_score) continue;
         std::snprintf(best, best_size, "%s", candidate);
         *best_score = score;
     } while (FindNextFileA(find, &entry));
@@ -117,12 +110,6 @@ const char *discover_java_home() {
     if (searched) return resolved[0] ? resolved : nullptr;
     searched = true;
 
-    const char *jdk_home = std::getenv("JDK_HOME");
-    if (jdk_home && jdk_home[0] && holds_jvm(jdk_home)) {
-        std::snprintf(resolved, sizeof(resolved), "%s", jdk_home);
-        return resolved;
-    }
-
     // The JDK the user actually runs outranks anything a version scan picks, so take java.exe off
     // PATH first and walk up out of bin\.
     char launcher[MAX_PATH];
@@ -131,16 +118,35 @@ const char *discover_java_home() {
         char *home = bin ? (*bin = 0, std::strrchr(launcher, '\\')) : nullptr;
         if (home) {
             *home = 0;
-            if (holds_jvm(launcher)) {
+            if (jdk_is_usable(launcher)) {
                 std::snprintf(resolved, sizeof(resolved), "%s", launcher);
                 return resolved;
             }
         }
     }
 
-    static const char *bases[] = {"ProgramFiles", "ProgramW6432", "LOCALAPPDATA"};
-    static const char *vendors[] = {"Java", "Eclipse Adoptium", "Microsoft", "Zulu", "Amazon Corretto",
-                                    "Programs\\Eclipse Adoptium"};
+    // Kept in step with the launcher's own `install_roots` (client/launcher/src/java.rs), which is
+    // the list that decides whether a JDK is reported as present at all. A vendor the launcher
+    // knows and this scan does not is the worst combination available: the launcher clears the
+    // injection and the client then finds nothing to run on.
+    //
+    // The cross product asks after directories that mostly cannot exist (`%ProgramFiles%\.jdks`).
+    // A miss is an opendir that fails, so the list stays flat rather than pairing each root with
+    // the bases it belongs under.
+    static const char *bases[] = {"ProgramFiles", "ProgramW6432", "LOCALAPPDATA", "USERPROFILE"};
+    static const char *vendors[] = {"Java",
+                                    "Eclipse Adoptium",
+                                    "Microsoft",
+                                    "Zulu",
+                                    "Amazon Corretto",
+                                    "BellSoft",
+                                    "SapMachine",
+                                    "Semeru",
+                                    "Programs\\Eclipse Adoptium",
+                                    // Version managers and IDE-managed toolchains, under the profile.
+                                    ".jdks",
+                                    ".gradle\\jdks",
+                                    ".sdkman\\candidates\\java"};
     int best_score = 0;
     for (const char *base : bases) {
         const char *prefix = std::getenv(base);

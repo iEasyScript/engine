@@ -76,20 +76,9 @@ void jvm_library_path(char *out, size_t out_size, const char *java_home) {
     std::snprintf(out, out_size, "%s/lib/server/libjvm.so", java_home);
 }
 
-static bool holds_jvm(const char *java_home) {
-    char probe[512];
-    jvm_library_path(probe, sizeof(probe), java_home);
-    return access(probe, R_OK) == 0;
-}
-
-/// First digit run in a JDK directory name — "java-25-openjdk" and "jdk-21.0.2" score 25 and 21, so
-/// the newest install wins a root that holds several. Legacy "java-1.8.0-*" scores 1 and loses.
-static int version_score(const char *name) {
-    for (const char *c = name; *c; ++c)
-        if (*c >= '0' && *c <= '9') return std::atoi(c);
-    return 0;
-}
-
+/// Keep the highest usable JDK found so far. Ordering is by the version the JDK itself reports
+/// rather than by its directory name, so a symlink like `default-java` is ranked on what it
+/// actually is — and a root holding only old JDKs yields nothing instead of the newest of them.
 static void consider_java_root(const char *root, char *best, size_t best_size, int *best_score) {
     DIR *dir = opendir(root);
     if (!dir) return;
@@ -97,8 +86,11 @@ static void consider_java_root(const char *root, char *best, size_t best_size, i
         if (entry->d_name[0] == '.') continue;
         char candidate[512];
         std::snprintf(candidate, sizeof(candidate), "%s/%s", root, entry->d_name);
-        int score = version_score(entry->d_name);
-        if (score <= *best_score || !holds_jvm(candidate)) continue;
+        // A scan is the least deliberate of the sources, so it holds out for a JDK that states a
+        // new enough version: the unreadable-version leniency elsewhere would here mean picking up
+        // a pre-9 JRE, which has no `release` file and cannot run the engine.
+        int score = jdk_feature_version(candidate);
+        if (score < MIN_JDK_FEATURE_VERSION || score <= *best_score) continue;
         std::snprintf(best, best_size, "%s", candidate);
         *best_score = score;
     }
@@ -111,12 +103,6 @@ const char *discover_java_home() {
     if (searched) return resolved[0] ? resolved : nullptr;
     searched = true;
 
-    const char *jdk_home = std::getenv("JDK_HOME");
-    if (jdk_home && jdk_home[0] && holds_jvm(jdk_home)) {
-        std::snprintf(resolved, sizeof(resolved), "%s", jdk_home);
-        return resolved;
-    }
-
     // The JDK the user actually runs outranks anything a version scan picks, so resolve `java` on
     // PATH through its symlinks first and walk up out of bin/.
     char launcher[PATH_MAX];
@@ -125,15 +111,19 @@ const char *discover_java_home() {
         char *home = bin ? (*bin = 0, std::strrchr(launcher, '/')) : nullptr;
         if (home) {
             *home = 0;
-            if (holds_jvm(launcher)) {
+            if (jdk_is_usable(launcher)) {
                 std::snprintf(resolved, sizeof(resolved), "%s", launcher);
                 return resolved;
             }
         }
     }
 
-    static const char *roots[] = {"/usr/lib/jvm", "/usr/lib64/jvm", "/opt/java",
-                                  "/Library/Java/JavaVirtualMachines"};
+    // Kept in step with the launcher's own `install_roots` (client/launcher/src/java.rs), which is
+    // the list that decides whether a JDK is reported as present at all. A root the launcher knows
+    // and this scan does not is the worst combination available: the launcher clears the injection
+    // and the client then finds nothing to run on.
+    static const char *roots[] = {"/usr/lib/jvm", "/usr/lib64/jvm", "/usr/java", "/opt/java",
+                                  "/opt/jdk", "/Library/Java/JavaVirtualMachines"};
     int best_score = 0;
     for (const char *root : roots) consider_java_root(root, resolved, sizeof(resolved), &best_score);
     return resolved[0] ? resolved : nullptr;

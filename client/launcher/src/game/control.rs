@@ -47,6 +47,9 @@ pub struct ClientStatus {
     pub state: String,
     pub version: Option<String>,
     pub reloads: u32,
+    /// Why a client is stuck, for the states where the supervisor never answered and so has
+    /// nothing to say for itself. Read from the bootstrap's own log — see [`bootstrap_complaint`].
+    pub detail: Option<String>,
 }
 
 /// Per-pid control-socket path, matching the engine supervisor's
@@ -214,6 +217,7 @@ fn classify(pid: u32) -> ClientStatus {
             state: "not-injected".to_string(),
             version: None,
             reloads: 0,
+            detail: None,
         };
     }
 
@@ -229,14 +233,71 @@ fn classify(pid: u32) -> ClientStatus {
                 mapped_since.elapsed(),
                 e
             );
+            // The supervisor is the only thing that answers the socket, so a client that never
+            // binds one can only be explained by the bootstrap that would have started it.
+            let detail = if starting { None } else { bootstrap_complaint(pid) };
             ClientStatus {
                 pid,
                 state: if starting { "starting" } else { "error" }.to_string(),
                 version: None,
                 reloads: 0,
+                detail,
             }
         }
     }
+}
+
+/// Log the bootstrap left behind in the temp dir, written by the copy of itself loaded into `pid`
+/// (`projectx_bootstrap.cpp`'s `projectx_bootstrap_start`).
+///
+/// Everything the bootstrap says about starting the JVM goes there and nowhere else, which is why a
+/// client that maps the library and then fails to come up reaches the user as an unexplained
+/// "Error" — the launcher log is silent because the launcher's part went fine.
+#[cfg(any(all(unix, not(target_os = "macos")), windows))]
+fn bootstrap_log_path(pid: u32) -> PathBuf {
+    jvm_temp_dir().join(format!("projectx_log_{}.txt", pid))
+}
+
+/// How many trailing lines of the bootstrap log to put in the launcher log.
+#[cfg(any(all(unix, not(target_os = "macos")), windows))]
+const BOOTSTRAP_LOG_TAIL_LINES: usize = 20;
+
+/// The bootstrap's account of why this client never came up: its last line for the UI, and the tail
+/// around it into the launcher log for whoever has to read it afterwards.
+///
+/// Only called once a pid has already gone to "error", so re-reading the file per poll is bounded
+/// by how long the user leaves a dead client on screen.
+#[cfg(any(all(unix, not(target_os = "macos")), windows))]
+fn bootstrap_complaint(pid: u32) -> Option<String> {
+    let path = bootstrap_log_path(pid);
+    let text = match std::fs::read_to_string(&path) {
+        Ok(text) => text,
+        Err(e) => {
+            log::warn!(
+                "pid {} has the engine mapped but never bound its control socket, and its \
+                 bootstrap log {} could not be read: {}",
+                pid,
+                path.display(),
+                e
+            );
+            return None;
+        }
+    };
+
+    let lines: Vec<&str> = text.lines().map(str::trim_end).filter(|l| !l.is_empty()).collect();
+    if lines.is_empty() {
+        return None;
+    }
+
+    let from = lines.len().saturating_sub(BOOTSTRAP_LOG_TAIL_LINES);
+    log::warn!(
+        "pid {} has the engine mapped but never bound its control socket. Last {} lines of {}:\n{}",
+        pid,
+        lines.len() - from,
+        path.display(),
+        lines[from..].join("\n")
+    );
+    lines.last().map(|line| (*line).to_string())
 }
 
 #[cfg(all(unix, not(target_os = "macos")))]
@@ -303,6 +364,9 @@ fn parse_status(pid: u32, resp: &str) -> ClientStatus {
             state: "error".to_string(),
             version: None,
             reloads: 0,
+            // The supervisor answered, so it is the authority on its own failure — not a log
+            // written before it existed.
+            detail: Some(resp.trim().to_string()),
         };
     }
 
@@ -334,5 +398,6 @@ fn parse_status(pid: u32, resp: &str) -> ClientStatus {
         state,
         version,
         reloads,
+        detail: None,
     }
 }

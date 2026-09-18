@@ -696,12 +696,19 @@ pub(crate) mod windows {
     const CREATE_NO_WINDOW: u32 = 0x0800_0000;
 
     /// Resolved injection inputs: the absolute bootstrap DLL and the injector that
-    /// loads it. Unlike Linux there is no JDK home or `PROJECTX_HOME_DIR` to plant
-    /// — the bootstrap derives its home from its own loaded module path.
+    /// loads it. Unlike Linux there is no `PROJECTX_HOME_DIR` to plant — the
+    /// bootstrap derives its home from its own loaded module path — and the JDK is
+    /// handed over through [`JAVA_HOME_HINT`] rather than an environment variable.
     struct InjectEnv {
         engine_dll: PathBuf,
         injector: PathBuf,
     }
+
+    /// File beside the bootstrap that names the JDK it should start its JVM from.
+    ///
+    /// Windows offers no counterpart to the gdb `setenv` the Linux injector uses, so a JDK cannot
+    /// be planted in a client we attach to rather than spawn. The bootstrap reads this instead.
+    const JAVA_HOME_HINT: &str = "java-home.txt";
 
     fn resolve_inject_env() -> anyhow::Result<InjectEnv> {
         use anyhow::anyhow;
@@ -722,10 +729,41 @@ pub(crate) mod windows {
                 )
             })?;
 
+        // Resolved here, where a miss is still reportable. Left to the bootstrap alone, a machine
+        // with no usable JDK injects cleanly and then stalls: the DLL is mapped, so the Clients
+        // panel calls the client "Injecting" until its grace window expires and then "Error", with
+        // the actual reason only ever written to a log in the temp directory.
+        let java_home = crate::java::resolve_home().ok_or_else(|| {
+            anyhow!(
+                "no JDK 25+ install could be found, and the engine needs one to start inside the \
+                 client. Searched {}. Install a JDK 25 (or newer) or set JAVA_HOME to its home \
+                 directory.",
+                crate::java::searched_locations()
+            )
+        })?;
+        write_java_home_hint(&engine_dll, &java_home);
+
         Ok(InjectEnv {
             engine_dll,
             injector,
         })
+    }
+
+    /// Record the resolved JDK next to the bootstrap, for it to read once loaded.
+    ///
+    /// The launcher's search is the better one — it covers sdkman, asdf, `~/.jdks` and a
+    /// shell-exported `JAVA_HOME` that a desktop session never sees, and it version-checks every
+    /// hit — so this is how that result reaches the client. Best-effort: the bootstrap still runs
+    /// its own scan, so a read-only engine home costs discovery quality, not the injection.
+    fn write_java_home_hint(engine_dll: &Path, java_home: &Path) {
+        let Some(home) = engine_dll.parent() else {
+            return;
+        };
+        let hint = home.join(JAVA_HOME_HINT);
+        match std::fs::write(&hint, format!("{}\n", java_home.display())) {
+            Ok(()) => log::debug!("Recorded JDK {} in {}", java_home.display(), hint.display()),
+            Err(e) => log::warn!("Could not write {}: {}", hint.display(), e),
+        }
     }
 
     pub fn inject(launcher_pid: u32) {

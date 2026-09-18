@@ -335,8 +335,43 @@ mod tests {
     fn parses_modern_versions() {
         assert_eq!(parse_feature_version("25"), Some(25));
         assert_eq!(parse_feature_version("25.0.2"), Some(25));
+        assert_eq!(parse_feature_version("27.0.1"), Some(27));
         assert_eq!(parse_feature_version("21.0.5+11"), Some(21));
         assert_eq!(parse_feature_version("17-ea"), Some(17));
+        assert_eq!(parse_feature_version("27-ea"), Some(27));
+    }
+
+    /// Build a stand-in for a JDK home: the launcher the probe looks for, and a `release` file.
+    fn fake_jdk(name: &str, java_version: Option<&str>) -> PathBuf {
+        let dir = std::env::temp_dir().join(name);
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(dir.join("bin")).unwrap();
+        std::fs::write(dir.join("bin").join(java_exe_name()), b"stub").unwrap();
+        if let Some(version) = java_version {
+            std::fs::write(dir.join("release"), format!("JAVA_VERSION=\"{}\"\n", version)).unwrap();
+        }
+        dir
+    }
+
+    /// [`MIN_FEATURE_VERSION`] is a floor, not a pin. The machine that prompted this had no JDK 25
+    /// on it and a JDK 27 that every stage has to keep accepting.
+    #[test]
+    fn accepts_a_jdk_newer_than_the_minimum() {
+        for version in ["25.0.4", "26.0.1", "27.0.1", "27-ea"] {
+            let dir = fake_jdk("projectx-java-probe-newer", Some(version));
+            assert_eq!(validated(dir.clone()), Some(dir.clone()), "rejected JDK {}", version);
+            let _ = std::fs::remove_dir_all(&dir);
+        }
+    }
+
+    /// The other half of the same rule: a JRE 8 left on the machine is not a fallback, because the
+    /// engine's class files will not load on it.
+    #[test]
+    fn rejects_a_jdk_older_than_the_minimum() {
+        let dir = fake_jdk("projectx-java-probe-old", Some("1.8.0_402"));
+        assert_eq!(feature_version(&dir), Some(8));
+        assert_eq!(validated(dir.clone()), None);
+        let _ = std::fs::remove_dir_all(&dir);
     }
 
     #[test]

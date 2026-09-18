@@ -466,7 +466,14 @@
     // Polls arrive every few seconds; rebuilding identical rows would steal focus
     // from a button and restart the badge animation, so redraw only on change.
     const signature = JSON.stringify(
-      clients.map((c) => [c.pid, c.state, c.version, c.reloads, isBusy(state.busyPids, c.pid)])
+      clients.map((c) => [
+        c.pid,
+        c.state,
+        c.version,
+        c.reloads,
+        c.detail,
+        isBusy(state.busyPids, c.pid),
+      ])
     );
     if (signature === state.renderedClients) return;
     state.renderedClients = signature;
@@ -491,6 +498,9 @@
         parts.push(plural(c.reloads, "reload"));
       }
       if (parts.length) main.appendChild(el("div", "row-sub", parts.join(" · ")));
+      // A client that never answers its control socket has no version or reload count to show, and
+      // the badge alone gives the user nothing to act on — so show what the bootstrap said instead.
+      if (c.detail) main.appendChild(el("div", "row-sub row-sub-error", c.detail));
       row.appendChild(main);
 
       const actions = el("div", "row-actions");

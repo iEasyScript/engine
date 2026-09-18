@@ -139,6 +139,150 @@ static void register_forensics_natives(JNIEnv *env) {
     projectx::forensics::log("[FORENSICS] breadcrumb JNI registered.\n");
 }
 
+// ============================================================================
+// JDK resolution.
+//
+// The engine runs on a JVM started inside the game client, so the client — not the launcher — is
+// where a missing or too-old JDK actually bites, and it bites quietly: the bootstrap is mapped by
+// then, so every outside observer sees an injected client whose control socket simply never comes
+// up. Everything below therefore validates a candidate before committing to it, and records in
+// this log why each rejected one was rejected.
+// ============================================================================
+
+namespace projectx::platform {
+
+/// `"25.0.1"` / `"25"` -> 25, `"1.8.0_402"` -> 8. A leading quote and spaces are tolerated so the
+/// value can be handed straight over from a `release` line.
+static int parse_feature_version(const char *raw) {
+    while (*raw == ' ' || *raw == '"') ++raw;
+    int major = std::atoi(raw);
+    if (major != 1) return major;
+    // Legacy 1.x scheme: the feature version is the second component.
+    const char *dot = std::strchr(raw, '.');
+    return dot ? std::atoi(dot + 1) : 1;
+}
+
+int jdk_feature_version(const char *java_home) {
+    if (java_home == nullptr || java_home[0] == '\0') return -1;
+
+    char probe[512];
+    jvm_library_path(probe, sizeof(probe), java_home);
+    if (std::FILE *jvm_lib = std::fopen(probe, "rb")) {
+        std::fclose(jvm_lib);
+    } else {
+        return -1;
+    }
+
+    char release_path[512];
+    std::snprintf(release_path, sizeof(release_path), "%s/release", java_home);
+    std::FILE *release = std::fopen(release_path, "r");
+    if (release == nullptr) return 0;
+
+    static const char KEY[] = "JAVA_VERSION=";
+    char line[256];
+    int version = 0;
+    while (std::fgets(line, sizeof(line), release)) {
+        if (std::strncmp(line, KEY, sizeof(KEY) - 1) == 0) {
+            version = parse_feature_version(line + sizeof(KEY) - 1);
+            break;
+        }
+    }
+    std::fclose(release);
+    return version;
+}
+
+bool jdk_is_usable(const char *java_home) {
+    int version = jdk_feature_version(java_home);
+    return version == 0 || version >= MIN_JDK_FEATURE_VERSION;
+}
+
+} // namespace projectx::platform
+
+/// A JDK home the launcher resolved, left in a file beside this library.
+///
+/// The launcher looks in more places than an in-process scan reasonably can — sdkman, asdf,
+/// ~/.jdks, a JAVA_HOME exported from a shell rc file that a desktop session never sources — and on
+/// Windows it has no way to plant an environment variable in a client it attaches to rather than
+/// spawns. Writing the answer next to the library it is about to inject is how it hands that
+/// resolution over.
+static const char *java_home_hint() {
+    using projectx::forensics::log;
+    static char resolved[512] = {0};
+    static bool read_once = false;
+    if (read_once) return resolved[0] ? resolved : nullptr;
+    read_once = true;
+
+    const char *dir = module_directory();
+    if (dir == nullptr || dir[0] == '\0') return nullptr;
+
+    char hint_path[512];
+    std::snprintf(hint_path, sizeof(hint_path), "%s/java-home.txt", dir);
+    std::FILE *hint = std::fopen(hint_path, "r");
+    if (hint == nullptr) return nullptr;
+
+    char line[512] = {0};
+    bool got = std::fgets(line, sizeof(line), hint) != nullptr;
+    std::fclose(hint);
+    if (!got) return nullptr;
+
+    size_t len = std::strlen(line);
+    while (len > 0 && (line[len - 1] == '\n' || line[len - 1] == '\r' || line[len - 1] == ' ' ||
+                       line[len - 1] == '\t')) {
+        line[--len] = '\0';
+    }
+    if (len == 0) return nullptr;
+
+    log("Read a JDK hint from %s: %s\n", hint_path, line);
+    std::snprintf(resolved, sizeof(resolved), "%s", line);
+    return resolved;
+}
+
+/// Say why `java_home` was passed over, so this log names the JDK that is in the way rather than
+/// only the fact that no JDK was used.
+static void log_rejected_jdk(const char *source, const char *java_home) {
+    using projectx::forensics::log;
+    int version = jdk_feature_version(java_home);
+    if (version < 0) {
+        log("Ignoring %s (%s): no JVM library there.\n", source, java_home);
+    } else {
+        log("Ignoring %s (%s): it is Java %d and the engine needs %d or newer.\n", source, java_home,
+            version, MIN_JDK_FEATURE_VERSION);
+    }
+}
+
+/// The JDK the engine will run on, in descending order of how deliberate the choice is: an explicit
+/// JAVA_HOME, an explicit JDK_HOME, the launcher's hint, then whatever the platform scan turns up.
+///
+/// Each source is validated rather than trusted. A JAVA_HOME left pointing at a JRE 8 or at a JDK
+/// that has since been uninstalled used to end start-up right here — no fallback, and no trace of
+/// it anywhere outside this file.
+static const char *resolve_java_home() {
+    using projectx::forensics::log;
+
+    static const char *const ENV_VARS[] = {"JAVA_HOME", "JDK_HOME"};
+    for (const char *name : ENV_VARS) {
+        const char *value = std::getenv(name);
+        if (value == nullptr || value[0] == '\0') continue;
+        if (jdk_is_usable(value)) {
+            log("Using the JDK from %s: %s\n", name, value);
+            return value;
+        }
+        log_rejected_jdk(name, value);
+    }
+
+    if (const char *hinted = java_home_hint()) {
+        if (jdk_is_usable(hinted)) return hinted;
+        log_rejected_jdk("the launcher's java-home.txt", hinted);
+    }
+
+    if (const char *discovered = discover_java_home()) {
+        log("Using the JDK discovered at %s\n", discovered);
+        return discovered;
+    }
+
+    return nullptr;
+}
+
 void *initialize_projectx(void *base_address) {
     using projectx::forensics::log;
 
@@ -163,14 +307,12 @@ void *initialize_projectx(void *base_address) {
         return nullptr;
     }
 
-    const char *java_home = std::getenv("JAVA_HOME");
-    if (java_home == nullptr || java_home[0] == '\0') {
-        java_home = discover_java_home();
-        if (java_home == nullptr) {
-            log("JAVA_HOME is unset and no JDK could be located on this machine.\n");
-            return nullptr;
-        }
-        log("JAVA_HOME unset; using the JDK discovered at %s\n", java_home);
+    const char *java_home = resolve_java_home();
+    if (java_home == nullptr) {
+        log("No JDK %d or newer could be located on this machine, so the engine cannot start. "
+            "Install one and set JAVA_HOME to its home directory.\n",
+            MIN_JDK_FEATURE_VERSION);
+        return nullptr;
     }
 
     char libjvm[512];

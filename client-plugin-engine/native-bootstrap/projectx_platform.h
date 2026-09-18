@@ -36,10 +36,27 @@ uint64_t current_thread_id();
 /// Absolute path of the JVM shared library inside a JDK home.
 void jvm_library_path(char *out, size_t out_size, const char *java_home);
 
-/// Highest-versioned JDK home on the machine that actually contains a JVM library, or nullptr.
-/// The Windows injector attaches to an already-running client and so cannot plant JAVA_HOME in it
-/// the way the POSIX injector does through a gdb `setenv` call — the bootstrap has to find a JDK
-/// itself. Only ever consulted when JAVA_HOME is unset, so an explicit setting always wins.
+/// Lowest JDK feature version that can run the engine's class files. An older JVM loads fine and
+/// then throws UnsupportedClassVersionError on the first supervisor class, which from outside the
+/// process is indistinguishable from a hang: the bootstrap is mapped, so the client looks injected,
+/// and the control socket it would have bound never appears.
+constexpr int MIN_JDK_FEATURE_VERSION = 25;
+
+/// Feature version of the JDK at `java_home`, from the `release` file every JDK 9+ ships:
+///   -1  no JVM library there — not a JDK home at all
+///    0  a JVM library, but no readable version
+///   >0  the feature version (25 for "25.0.1", 8 for the legacy "1.8.0_402")
+/// Platform-neutral, so it lives in projectx_bootstrap.cpp next to the rest of the JVM start-up.
+int jdk_feature_version(const char *java_home);
+
+/// Whether the JDK at `java_home` can run the engine. An unreadable version passes: missing
+/// evidence is not evidence of a mismatch, and rejecting on it would break repackaged JDKs that
+/// drop the `release` file.
+bool jdk_is_usable(const char *java_home);
+
+/// Highest-versioned usable JDK home found by scanning this platform's install roots, or nullptr.
+/// Consulted last, after JAVA_HOME, JDK_HOME and the launcher's hint file — see
+/// `resolve_java_home` in projectx_bootstrap.cpp for the full order.
 const char *discover_java_home();
 
 /// Loads a shared library into the current process. Returns nullptr on failure.
