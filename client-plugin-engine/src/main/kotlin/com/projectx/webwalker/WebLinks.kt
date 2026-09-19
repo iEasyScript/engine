@@ -76,6 +76,12 @@ object WebLinks {
             return known.size
         }
 
+    /** True when the walker knows any link at all, so a caller can tell an empty set from a missing one. */
+    fun hasLinks(): Boolean {
+        ensureLoaded()
+        return known.isNotEmpty()
+    }
+
     /** The links that can be taken standing on this tile, or an empty list. */
     fun from(x: Int, y: Int, plane: Int): List<WebLink> {
         ensureLoaded()
