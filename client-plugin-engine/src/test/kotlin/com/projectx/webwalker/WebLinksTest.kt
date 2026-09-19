@@ -55,6 +55,41 @@ class WebLinksTest {
     }
 
     @Test
+    fun `a script can teach the walker a link it found`() {
+        // Somewhere the shipped set has nothing, so the test cannot collide with real data.
+        val x = 12_345
+        val y = 11_111
+        assertTrue(WebLinks.from(x, y, 0).isEmpty(), "the shipped set already has a link at $x,$y")
+
+        assertTrue(WebLinks.registerObjectLink(x, y, 0, x, y + 4, 1, objectId = 4711, action = "Climb-up"))
+
+        val learned = WebLinks.from(x, y, 0)
+        assertEquals(1, learned.size)
+        assertEquals(4711, learned[0].objectId)
+        assertEquals("Climb-up", learned[0].action)
+        assertEquals(1, learned[0].to.plane, "the link should reach the floor above")
+
+        // Registering the same thing twice must not double it up.
+        assertTrue(!WebLinks.registerObjectLink(x, y, 0, x, y + 4, 1, objectId = 4711, action = "Climb-up"))
+        assertEquals(1, WebLinks.from(x, y, 0).size)
+    }
+
+    @Test
+    fun `an inverted link is refused`() {
+        val bad = WebLink(
+            kind = WebLinkKind.OBJECT,
+            from = WebArea(100, 90, 100, 100, 0),
+            to = WebArea(200, 200, 200, 200, 0),
+            cost = 1000,
+            action = "Climb-up",
+            objectId = 1,
+            searchRadius = 8,
+            requirements = emptyList(),
+        )
+        assertTrue(!WebLinks.register(bad), "an inverted origin should be refused")
+    }
+
+    @Test
     fun `tile keys survive a round trip at the edges of the world`() {
         for (plane in 0..3) {
             for ((x, y) in listOf(0 to 0, 3222 to 3218, 16383 to 16383, 6400 to 12000)) {

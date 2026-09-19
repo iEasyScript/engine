@@ -12,7 +12,7 @@ enum class WebLinkKind {
 }
 
 /** A rectangle of tiles on one plane. Link endpoints are areas because a staircase lands you anywhere in a room. */
-class WebArea(
+data class WebArea(
     val minX: Int,
     val maxX: Int,
     val minY: Int,
@@ -43,7 +43,7 @@ class WebArea(
  * anything this engine cannot evaluate is treated as met, so an unrecognised gate costs a re-plan rather than
  * making a destination unreachable. See [WebLinkPermissions].
  */
-class WebRequirement(
+data class WebRequirement(
     val about: String?,
     val key: String,
     val value: String,
@@ -62,7 +62,7 @@ class WebRequirement(
  * [from] is where the player must stand and [to] is where they end up; the two may be on different planes, which
  * is the point. [cost] is in the pathfinder's own units, so it compares directly with walked tiles.
  */
-class WebLink(
+data class WebLink(
     val kind: WebLinkKind,
     val from: WebArea,
     val to: WebArea,
