@@ -2,7 +2,6 @@
 
 #include <windows.h>
 
-#include <algorithm>
 #include <cstring>
 #include <vector>
 
@@ -65,6 +64,23 @@ bool g_offsets_known = false;
 bool g_ready = false;
 
 VkCommandPool g_command_pool = VK_NULL_HANDLE;
+
+/// How many overlay frames may be in flight at once.
+///
+/// Deliberately fixed, and deliberately NOT the client's swapchain image count. The overlay owns its own
+/// command buffers, fences and semaphores, and builds one framebuffer per swapchain image separately, so
+/// nothing here has to agree with the client. What must agree is the slot ring and the ImGui backend's
+/// vertex/index buffer ring, and keeping both at this constant makes them equal by construction.
+///
+/// Sizing them from the swapchain instead is what went wrong before: both were fixed at init from
+/// whichever count the first present happened to show, and the client recreates its swapchain (2 images
+/// then 3, on a resize) without the backend's ImageCount ever following - which cannot be changed after
+/// ImGui_ImplVulkan_Init in any case.
+///
+/// The fence for a slot is waited on before that slot records again, so a submission this many frames old
+/// has completed. That is exactly the guarantee the backend's texture-free heuristic needs, since it frees
+/// a texture once UnusedFrames reaches ImageCount.
+constexpr uint32_t OVERLAY_FRAMES_IN_FLIGHT = 3;
 
 // One slot per ImGui vertex/index buffer set. The backend rotates through ImageCount buffer sets, one
 // per drawn frame, so each slot's fence is waited on before the buffers it recorded against are reused.
@@ -326,8 +342,7 @@ bool init(void *instance, void *physical_device, void *device, void *queue, uint
         return false;
     }
 
-    uint32_t image_count = std::max<uint32_t>(2, (uint32_t)g_target.framebuffers.size());
-    if (!create_slots(image_count)) return false;
+    if (!create_slots(OVERLAY_FRAMES_IN_FLIGHT)) return false;
 
     if (!ImGui_ImplVulkan_LoadFunctions(api_version, load_for_imgui)) {
         imgui_log_message("[Vulkan] ImGui_ImplVulkan_LoadFunctions failed\n");
@@ -342,8 +357,8 @@ bool init(void *instance, void *physical_device, void *device, void *queue, uint
     info.QueueFamily = g_queue_family;
     info.Queue = g_queue;
     info.DescriptorPoolSize = 1024;
-    info.MinImageCount = image_count;
-    info.ImageCount = image_count;
+    info.MinImageCount = OVERLAY_FRAMES_IN_FLIGHT;
+    info.ImageCount = OVERLAY_FRAMES_IN_FLIGHT;
     info.PipelineInfoMain.RenderPass = g_target.render_pass;
     info.CheckVkResultFn = imgui_check;
     if (!ImGui_ImplVulkan_Init(&info)) {
