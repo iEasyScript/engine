@@ -580,14 +580,39 @@ fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
 fun diveToTile(x: Int, y: Int, plane: Int) = dive(Tile.of(x, y, plane))
 
 /**
- * Walks to [destination] from anywhere on the world map, teleporting to an unlocked lodestone first when that is
- * quicker and [useLodestones] allows it; see [WebWalker]. Java scripts use `Wait.webWalk`.
+ * Walks to [destination] from anywhere on the world map, taking staircases, ladders and shortcuts as needed so a
+ * destination on another floor is reachable, and teleporting to an unlocked lodestone first when that is quicker
+ * and [useLodestones] allows it; see [WebWalker]. Java scripts use `Wait.webWalk`.
  */
 suspend fun Script.webWalk(
     destination: Tile,
     arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
     useLodestones: Boolean = true,
 ): WebWalkResult = WebWalker.walk(this, destination, arriveDistance, useLodestones)
+
+/** [webWalk] to ([x], [y]) on [plane], for callers that have coordinates rather than a [Tile]. */
+suspend fun Script.webWalkTo(
+    x: Int,
+    y: Int,
+    plane: Int = localPlayer.plane,
+    arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+    useLodestones: Boolean = true,
+): WebWalkResult = webWalk(Tile.of(x, y, plane), arriveDistance, useLodestones)
+
+/**
+ * Plans a route to [destination] without walking it, so a script can check a place is reachable, count the tiles
+ * or read the staircases and shortcuts the route would take. Suspends while the search runs off the game thread.
+ */
+suspend fun Script.findWebPath(
+    destination: Tile,
+    arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+): WebWalkResult = WebWalker.findPath(this, localPlayer.tile, destination, arriveDistance)
+
+/** True when a route to [destination] exists from where the player is standing. */
+suspend fun Script.canWebWalkTo(
+    destination: Tile,
+    arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
+): Boolean = findWebPath(destination, arriveDistance).isSuccess
 
 /**
  * Tile geometry and player state

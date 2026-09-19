@@ -17,13 +17,17 @@ import java.util.concurrent.CompletableFuture
 import java.util.concurrent.Executors
 import kotlin.math.abs
 import kotlin.math.max
+import kotlin.math.min
 
 /**
  * Walks to any tile on the world map, planning the route from cache collision.
  *
- * Routes stay on one plane and cross doors, opening them when they are shut. A long walk may start with a teleport
- * to an unlocked lodestone; stairs, ladders, shortcuts and other teleports are not part of a route yet, so a
- * destination that needs one reports [WebWalkStatus.NO_PATH].
+ * Routes cross doors, opening them when they are shut, and take [WebLink]s - staircases, ladders, shortcuts and
+ * curated doors - so a destination on another floor is reachable. A long walk may still start with a teleport to
+ * an unlocked lodestone when that gets there sooner.
+ *
+ * A link the account cannot use is left out of the search; see [WebLinkPermissions]. Teleports other than
+ * lodestones are not part of a route yet, so a destination that needs one reports [WebWalkStatus.NO_PATH].
  *
  * Planning runs on a background thread: script bodies run on the game thread, and a long search there would
  * freeze the client.
@@ -38,6 +42,10 @@ object WebWalker {
     private const val MAX_PLANS = 8
     private const val MAX_STALLS = 3
     private const val MAX_DOOR_ATTEMPTS = 3
+    private const val MAX_LINK_ATTEMPTS = 3
+
+    // A staircase or shortcut runs an animation and may load a new area, so it is given longer than a door.
+    private const val LINK_TIMEOUT_MS = 12_000L
     private const val DOOR_SEARCH_RANGE = 6
     private const val ARRIVAL_SLACK = 3
     private const val STEP_TIMEOUT_MS = 700L
@@ -68,7 +76,10 @@ object WebWalker {
         destY: Int,
         plane: Int,
         arriveDistance: Int = 0,
-    ): CompletableFuture<WebWalkResult> = CompletableFuture.supplyAsync({ plan(startX, startY, destX, destY, plane, plane, arriveDistance) }, planner)
+    ): CompletableFuture<WebWalkResult> = CompletableFuture.supplyAsync(
+        { plan(startX, startY, destX, destY, plane, plane, arriveDistance, WebLinkPermissions.UNRESTRICTED) },
+        planner,
+    )
 
     /**
      * Plans a route and blocks until it is ready. Never call it from a script body, which runs on the game thread;
@@ -81,11 +92,11 @@ object WebWalker {
 
     /** Plans a route from [from] to [destination], suspending the script rather than blocking the game thread. */
     suspend fun findPath(script: Script, from: Tile, destination: Tile, arriveDistance: Int = 0): WebWalkResult {
-        if (from.plane != destination.plane) {
-            return WebWalkResult(WebWalkStatus.OTHER_FLOOR, "The destination is on plane ${destination.plane}, the start on ${from.plane}")
-        }
+        // Requirements read varbits, levels and the money pouch, which may only be touched here on the game
+        // thread; the planner runs on its own thread and consults the snapshot instead.
+        val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
         val future = CompletableFuture.supplyAsync(
-            { plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance) },
+            { plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions) },
             planner,
         )
         script.delayUntil(SEARCH_TIMEOUT_MS, SEARCH_POLL_MS) { future.isDone || script.stopped }
@@ -112,6 +123,7 @@ object WebWalker {
         var plans = 0
         var stalls = 0
         var doorAttempts = 0
+        var linkAttempts = 0
 
         if (useLodestones && !arrived(destination, arrive)) {
             val choice = chooseLodestone(script, destination, arrive)
@@ -128,7 +140,7 @@ object WebWalker {
                 return WebWalkResult(WebWalkStatus.ARRIVED, "Arrived at ${destination.x},${destination.y}", path, lodestone)
             }
 
-            if (path == null || path.distance(path.nearestIndex(me.x, me.y), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
+            if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
                 val planned = findPath(script, me, destination, arrive)
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
@@ -137,9 +149,27 @@ object WebWalker {
             }
             val route = path
 
-            val here = route.nearestIndex(me.x, me.y)
+            val here = route.nearestIndex(me.x, me.y, me.plane)
             val door = route.nextDoor(here + 1)
-            if (door != -1 && route.distance(door - 1, me.x, me.y) <= 1) {
+            val link = route.nextLink(here + 1)
+
+            // Both are things the route walks up to and then performs, so the walk stops at whichever comes first.
+            val barrier = when {
+                door == -1 -> link
+                link == -1 -> door
+                else -> min(door, link)
+            }
+
+            if (link != -1 && link == barrier && route.distance(link - 1, me.x, me.y) <= 1) {
+                if (++linkAttempts > MAX_LINK_ATTEMPTS) {
+                    val step = route.linkAt(link)
+                    return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
+                }
+                if (passLink(script, route, link)) linkAttempts = 0
+                continue
+            }
+
+            if (door != -1 && door == barrier && route.distance(door - 1, me.x, me.y) <= 1) {
                 if (++doorAttempts > MAX_DOOR_ATTEMPTS) {
                     return WebWalkResult(WebWalkStatus.STUCK, "Could not get through the door at ${route.getX(door)},${route.getY(door)}", route, lodestone)
                 }
@@ -149,13 +179,13 @@ object WebWalker {
 
             val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
             var target = (here + lookahead).coerceAtMost(route.lastIndex)
-            if (door != -1) target = target.coerceAtMost(door - 1)
-            if (target <= here) target = if (door != -1) door - 1 else (here + 1).coerceAtMost(route.lastIndex)
+            if (barrier != -1) target = target.coerceAtMost(barrier - 1)
+            if (target <= here) target = if (barrier != -1) barrier - 1 else (here + 1).coerceAtMost(route.lastIndex)
 
-            // A stop tile (before a door, or the end) must be reached closely: with the usual slack the wait would
-            // already be satisfied and the loop would click again every pass.
+            // A stop tile (before a door or a link, or the end) must be reached closely: with the usual slack the
+            // wait would already be satisfied and the loop would click again every pass.
             val slack = when {
-                door != -1 && target == door - 1 -> 1
+                barrier != -1 && target == barrier - 1 -> 1
                 target == route.lastIndex -> arrive.coerceAtMost(ARRIVAL_SLACK)
                 else -> ARRIVAL_SLACK
             }
@@ -240,15 +270,21 @@ object WebWalker {
         return me.plane == destination.plane && chebyshev(me.x, me.y, destination.x, destination.y) <= arrive
     }
 
-    private fun plan(startX: Int, startY: Int, destX: Int, destY: Int, plane: Int, destPlane: Int, arriveDistance: Int): WebWalkResult {
+    private fun plan(
+        startX: Int,
+        startY: Int,
+        destX: Int,
+        destY: Int,
+        plane: Int,
+        destPlane: Int,
+        arriveDistance: Int,
+        permissions: WebLinkPermissions,
+    ): WebWalkResult {
         if (startX >= INSTANCE_MIN_X || destX >= INSTANCE_MIN_X) {
             return WebWalkResult(WebWalkStatus.NOT_IN_WORLD, "Web walking does not work inside instances")
         }
-        if (plane != destPlane) {
-            return WebWalkResult(WebWalkStatus.OTHER_FLOOR, "The destination is on plane $destPlane, the start on $plane")
-        }
         return try {
-            WebPathfinder().find(startX, startY, plane, destX, destY, arriveDistance)
+            WebPathfinder().find(startX, startY, plane, destX, destY, destPlane, arriveDistance, permissions)
         } catch (t: Throwable) {
             WebWalkResult(WebWalkStatus.NO_PATH, "Route planning failed: ${t.javaClass.simpleName}: ${t.message}")
         }
@@ -272,6 +308,40 @@ object WebWalker {
                 (System.currentTimeMillis() - clickedAt > STALL_GRACE_MS && !localPlayer.isMoving)
         }
         return true
+    }
+
+    /**
+     * Walks onto the tile the link starts from, clicks its object, and waits to arrive on the other side.
+     *
+     * Arrival is judged against the link's whole destination area rather than the one tile the route aimed at: a
+     * staircase drops the player anywhere in the room at the top, and the route only picked a representative tile.
+     */
+    private suspend fun passLink(script: Script, path: WebPath, index: Int): Boolean {
+        val link = path.linkAt(index) ?: return false
+        val approach = path.tile(index - 1)
+        val me = localPlayer.tile
+        if (me != approach && me.plane == approach.plane && !localPlayer.isMoving) {
+            walkTo(approach, false)
+            script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == approach }
+        }
+
+        val target = findClosestObject(link.searchRadius) { obj ->
+            (obj.id == link.objectId || obj.visibleTypeId == link.objectId) && obj.hasOption(link.action)
+        } ?: findClosestObject(link.searchRadius) { it.hasOption(link.action) }
+
+        if (target == null) {
+            println("[WebWalk] No '${link.action}' object ${link.objectId} in range for $link")
+            return false
+        }
+        if (!target.interact(link.action)) return false
+
+        script.delayUntil(LINK_TIMEOUT_MS) {
+            val tile = localPlayer.tile
+            link.to.contains(tile.x, tile.y, tile.plane)
+        }
+        val arrived = localPlayer.tile.let { link.to.contains(it.x, it.y, it.plane) }
+        if (arrived) script.delayUntil(STALL_GRACE_MS) { !localPlayer.isMoving }
+        return arrived
     }
 
     /** Opens the door crossed on the way to step [door] if it is shut, then steps through. True once past it. */

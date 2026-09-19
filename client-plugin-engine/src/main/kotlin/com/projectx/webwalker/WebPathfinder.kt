@@ -3,34 +3,52 @@ package com.projectx.webwalker
 import com.projectx.pathfinder.StepValidator
 import com.projectx.pathfinder.WorldCollision
 import world.gregs.voidps.collision.CollisionFlag
+import world.gregs.voidps.type.Tile
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
 
 /**
- * A* over cache collision on one plane, loading map squares as the search reaches them.
+ * A* over cache collision, across planes, loading map squares as the search reaches them.
  *
  * Steps cost the same in every direction, as they do in game; diagonals carry a token extra cost only so that,
- * among equally short routes, the straighter one wins. A closed door is a passable edge with a surcharge, so
- * routes prefer open ground but still use a door when it is the way through.
+ * among equally short routes, the straighter one wins. A closed door found in the cache is a passable edge with a
+ * surcharge, so routes prefer open ground but still use a door when it is the way through.
+ *
+ * On top of walking the search may take a [WebLink] - a staircase, ladder, shortcut or curated door - and those
+ * are the only edges that change plane, so they are what lets a route leave the floor it started on.
+ *
+ * The heuristic is Chebyshev distance over x and y. That bounds walking from below but not a link, which can
+ * cover a lot of ground for its price, so a route through links is not guaranteed to be the cheapest that exists.
+ * It is a real route either way, and links are priced in walked tiles so the search does not take absurd ones.
  */
 internal class WebPathfinder(
     private val maxExpansions: Int = MAX_EXPANSIONS,
     private val maxSquares: Int = MAX_SQUARES,
 ) {
-    fun find(startX: Int, startY: Int, plane: Int, destX: Int, destY: Int, arriveDistance: Int): WebWalkResult {
+    fun find(
+        startX: Int,
+        startY: Int,
+        startPlane: Int,
+        destX: Int,
+        destY: Int,
+        destPlane: Int,
+        arriveDistance: Int,
+        permissions: WebLinkPermissions = WebLinkPermissions.UNRESTRICTED,
+    ): WebWalkResult {
         val tolerance = arriveDistance.coerceAtLeast(0)
-        if (!squareExists(startX, startY, plane)) {
+        if (!squareExists(startX, startY, startPlane)) {
             return WebWalkResult(WebWalkStatus.NOT_IN_WORLD, "The start tile $startX,$startY is not on the world map")
         }
-        if (!squareExists(destX, destY, plane)) {
+        if (!squareExists(destX, destY, destPlane)) {
             return WebWalkResult(WebWalkStatus.NO_PATH, "The destination $destX,$destY is not on the world map")
         }
 
         val validator = StepValidator(WorldCollision.allFlags)
         val best = IntIntMap()
         val open = LongHeap()
-        val startKey = key(startX, startY)
+        val linkFrom = HashMap<Int, LinkStep>()
+        val startKey = key(startX, startY, startPlane)
         best.put(startKey, START_MARKER)
         open.push(heuristic(startX, startY, destX, destY, tolerance), startKey)
 
@@ -38,12 +56,15 @@ internal class WebPathfinder(
         while (open.isNotEmpty()) {
             val entry = open.pop()
             val current = (entry and 0xFFFFFFFFL).toInt()
-            val x = current shr 15
-            val y = current and 0x7FFF
+            val x = tileX(current)
+            val y = tileY(current)
+            val plane = tilePlane(current)
             val g = best.get(current) ushr G_SHIFT
             if ((entry ushr 32).toInt() != g + heuristic(x, y, destX, destY, tolerance)) continue
 
-            if (max(abs(x - destX), abs(y - destY)) <= tolerance) return WebWalkResult(WebWalkStatus.PATH_FOUND, "Route found", rebuild(best, current, plane))
+            if (plane == destPlane && max(abs(x - destX), abs(y - destY)) <= tolerance) {
+                return WebWalkResult(WebWalkStatus.PATH_FOUND, "Route found", rebuild(best, linkFrom, current))
+            }
             if (++expansions > maxExpansions || squaresTouched > maxSquares) {
                 return WebWalkResult(WebWalkStatus.TOO_FAR, "Gave up after $expansions tiles and $squaresTouched map squares")
             }
@@ -60,29 +81,74 @@ internal class WebPathfinder(
                 }
 
                 val cost = g + (if (dir < CARDINALS) STEP_COST else DIAGONAL_COST) + (if (door) DOOR_COST else 0)
-                val next = key(nx, ny)
-                val known = best.get(next)
-                if (known != IntIntMap.MISSING && (known ushr G_SHIFT) <= cost) continue
-                best.put(next, (cost shl G_SHIFT) or ((if (door) 1 else 0) shl DOOR_BIT) or dir)
-                open.push(cost + heuristic(nx, ny, destX, destY, tolerance), next)
+                val marker = ((if (door) 1 else 0) shl DOOR_BIT) or dir
+                relax(best, open, key(nx, ny, plane), cost, marker, destX, destY, tolerance)
+            }
+
+            for (link in WebLinks.from(x, y, plane)) {
+                if (!permissions.allows(link)) continue
+                val destination = destinationOf(link) ?: continue
+                val next = key(destination.x, destination.y, destination.plane)
+                if (relax(best, open, next, g + link.cost, LINK_MARKER, destX, destY, tolerance)) {
+                    linkFrom[next] = LinkStep(current, link)
+                }
             }
         }
-        return WebWalkResult(WebWalkStatus.NO_PATH, "No walkable route on plane $plane after $expansions tiles")
+        return WebWalkResult(WebWalkStatus.NO_PATH, "No route after $expansions tiles across $squaresTouched map squares")
+    }
+
+    private class LinkStep(val from: Int, val link: WebLink)
+
+    /** Records a cheaper way to reach [next]; true when this improved on what was already known. */
+    private fun relax(
+        best: IntIntMap,
+        open: LongHeap,
+        next: Int,
+        cost: Int,
+        marker: Int,
+        destX: Int,
+        destY: Int,
+        tolerance: Int,
+    ): Boolean {
+        val known = best.get(next)
+        if (known != IntIntMap.MISSING && (known ushr G_SHIFT) <= cost) return false
+        best.put(next, (cost shl G_SHIFT) or marker)
+        open.push(cost + heuristic(tileX(next), tileY(next), destX, destY, tolerance), next)
+        return true
+    }
+
+    /** Links land in a rectangle, so a route aims at the tile nearest its middle that is actually walkable. */
+    private val destinations = HashMap<WebLink, Tile>()
+
+    private fun destinationOf(link: WebLink): Tile? {
+        destinations[link]?.let { return it }
+        val tile = link.to.tilesFromCentre().firstOrNull { walkable(it.x, it.y, it.plane) } ?: return null
+        destinations[link] = tile
+        return tile
+    }
+
+    private fun walkable(x: Int, y: Int, plane: Int): Boolean {
+        if (!squareExists(x, y, plane)) return false
+        val flags = WorldCollision.getFlags(x, y, plane)
+        return flags != -1 && flags and BLOCKS_TILE == 0
     }
 
     private var squaresTouched = 0
-    private val squareState = ByteArray(256 * 256)
+
+    // Keyed by square and plane together: a square exists on every plane or none, but its zones are allocated per
+    // plane, and a cross-plane search reaches the same square on more than one of them.
+    private val squareState = ByteArray(256 * 256 * 4)
 
     private fun squareExists(x: Int, y: Int, plane: Int): Boolean {
-        if (x < 0 || y < 0 || x >= MAX_COORD || y >= MAX_COORD) return false
-        val square = WebCollision.squareId(x, y)
-        return when (squareState[square].toInt()) {
+        if (x < 0 || y < 0 || x >= MAX_COORD || y >= MAX_COORD || plane < 0 || plane > 3) return false
+        val slot = (WebCollision.squareId(x, y) shl 2) or plane
+        return when (squareState[slot].toInt()) {
             LOADED -> true
             MISSING -> false
             else -> {
                 squaresTouched++
-                val exists = WebCollision.ensure(square, plane)
-                squareState[square] = (if (exists) LOADED else MISSING).toByte()
+                val exists = WebCollision.ensure(WebCollision.squareId(x, y), plane)
+                squareState[slot] = (if (exists) LOADED else MISSING).toByte()
                 exists
             }
         }
@@ -97,29 +163,42 @@ internal class WebPathfinder(
         return flags != -1 && flags and BLOCKS_TILE == 0
     }
 
-    private fun rebuild(best: IntIntMap, goal: Int, plane: Int): WebPath {
+    private fun rebuild(best: IntIntMap, linkFrom: Map<Int, LinkStep>, goal: Int): WebPath {
         val xs = ArrayList<Int>()
         val ys = ArrayList<Int>()
+        val planes = ArrayList<Int>()
         val doors = ArrayList<Boolean>()
+        val links = ArrayList<WebLink?>()
         var current = goal
         while (true) {
             val value = best.get(current)
-            val x = current shr 15
-            val y = current and 0x7FFF
-            xs += x
-            ys += y
+            xs += tileX(current)
+            ys += tileY(current)
+            planes += tilePlane(current)
             if (value == START_MARKER) {
                 doors += false
+                links += null
                 break
             }
-            doors += (value shr DOOR_BIT) and 1 == 1
             val dir = value and DIR_MASK
-            current = key(x - DX[dir], y - DY[dir])
+            if (dir == LINK_MARKER) {
+                val step = linkFrom[current]
+                doors += false
+                links += step?.link
+                if (step == null) break
+                current = step.from
+            } else {
+                doors += (value shr DOOR_BIT) and 1 == 1
+                links += null
+                current = key(tileX(current) - DX[dir], tileY(current) - DY[dir], tilePlane(current))
+            }
         }
         xs.reverse()
         ys.reverse()
+        planes.reverse()
         doors.reverse()
-        return WebPath(plane, xs.toIntArray(), ys.toIntArray(), doors.toBooleanArray())
+        links.reverse()
+        return WebPath(xs.toIntArray(), ys.toIntArray(), planes.toIntArray(), doors.toBooleanArray(), links.toTypedArray())
     }
 
     private fun heuristic(x: Int, y: Int, destX: Int, destY: Int, tolerance: Int): Int {
@@ -128,9 +207,7 @@ internal class WebPathfinder(
         return STEP_COST * max(dx, dy) + (DIAGONAL_COST - STEP_COST) * min(dx, dy)
     }
 
-    private fun key(x: Int, y: Int): Int = (x shl 15) or y
-
-    private companion object {
+    companion object {
         const val MAX_EXPANSIONS = 1_500_000
         const val MAX_SQUARES = 900
         const val MAX_COORD = 256 * 64
@@ -143,6 +220,9 @@ internal class WebPathfinder(
         const val G_SHIFT = 5
         const val DOOR_BIT = 4
         const val DIR_MASK = 0xF
+
+        /** Reached by a [WebLink] rather than a step; the link itself is kept beside the path. */
+        const val LINK_MARKER = 0xE
         const val START_MARKER = 0xF
 
         const val LOADED = 1
@@ -153,6 +233,15 @@ internal class WebPathfinder(
         // West, north, east, south first: their index doubles as the wall side a door occupies.
         val DX = intArrayOf(-1, 0, 1, 0, -1, 1, 1, -1)
         val DY = intArrayOf(0, 1, 0, -1, 1, 1, -1, -1)
+
+        // x and y each fit in 14 bits at MAX_COORD, leaving room for the plane; the key stays a positive Int.
+        fun key(x: Int, y: Int, plane: Int): Int = (plane shl 28) or (x shl 14) or y
+
+        fun tileX(key: Int): Int = (key shr 14) and 0x3FFF
+
+        fun tileY(key: Int): Int = key and 0x3FFF
+
+        fun tilePlane(key: Int): Int = (key ushr 28) and 0x3
     }
 }
 

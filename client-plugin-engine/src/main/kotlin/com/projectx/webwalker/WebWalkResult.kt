@@ -9,7 +9,7 @@ enum class WebWalkStatus {
     /** A route was found (from [WebWalker.findPath]; walking has not started). */
     PATH_FOUND,
 
-    /** No walkable route exists on this plane: the destination is walled off, or needs stairs, a ladder or a teleport. */
+    /** No route exists: the destination is walled off, or needs a teleport the walker does not know. */
     NO_PATH,
 
     /** The search gave up before reaching the destination; it is further than one walk can plan, or unreachable. */
