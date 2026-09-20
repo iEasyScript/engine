@@ -104,6 +104,27 @@ class WebLinksTest {
     }
 
     @Test
+    fun `a link can carry the interface clicks that finish it`() {
+        val base = WebLinks.all.first()
+        val plain = WebLink(
+            kind = base.kind, from = base.from, to = base.to, cost = base.cost,
+            action = base.action, objectId = base.objectId,
+            searchRadius = base.searchRadius, requirements = base.requirements,
+        )
+        assertEquals(emptyList<WebInterfaceStep>(), plain.steps, "a link has no interface clicks unless given some")
+
+        val viaPanel = plain.clicking(
+            WebInterfaceStep(1500, 20),
+            WebInterfaceStep(1500, 22, slot = 3, option = 2),
+        )
+        assertEquals(2, viaPanel.steps.size)
+        assertEquals(WebInterfaceStep(1500, 20, slot = -1, option = 1), viaPanel.steps.first())
+        // The order is the order they happen in, so it must survive.
+        assertEquals(3, viaPanel.steps[1].slot)
+        assertEquals(2, viaPanel.steps[1].option)
+    }
+
+    @Test
     fun `a link with no choice leaves it unset`() {
         val plain = WebLinks.all.first { it.objectId != 116920 }
         assertEquals(null, plain.choice)

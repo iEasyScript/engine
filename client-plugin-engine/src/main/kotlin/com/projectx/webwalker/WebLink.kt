@@ -53,6 +53,26 @@ data class WebRequirement(
 }
 
 /**
+ * One click on an interface, as part of getting through a link.
+ *
+ * Some ways through are not a click and a wait: the dig sites map opens a panel of destinations and goes
+ * nowhere until one is picked, and which one decides where you come out. A dialogue's answer is text, so
+ * [WebLink.choosing] can carry it, but a panel's is a component - an icon in a grid - and only its numbers
+ * identify it. So those are carried literally.
+ */
+data class WebInterfaceStep(
+    val interfaceId: Int,
+    val componentId: Int,
+    /** The slot within the component, or -1 when the component is clicked whole. */
+    val slot: Int = -1,
+    /** Which of the component's options to fire, counting from one. */
+    val option: Int = 1,
+) {
+    override fun toString(): String =
+        "if($interfaceId,$componentId" + (if (slot >= 0) ",$slot" else "") + (if (option != 1) " op$option" else "") + ")"
+}
+
+/**
  * A step a route can take that walking cannot: up a staircase, down a ladder, through a shortcut or a door.
  *
  * Walk edges come from collision, so the pathfinder discovers them itself. A link cannot be derived that way -
@@ -90,6 +110,22 @@ data class WebLink(
     /** This link, answering its object's "where to?" with the option whose text contains [destination]. */
     fun choosing(destination: String): WebLink = also { it.choice = destination }
 
+    /**
+     * The interface clicks that finish this link, in order, or empty when there are none.
+     *
+     * A panel of destinations is picked from by component rather than by text, so the clicks are kept
+     * literally. They run after the object has been used and after any [choice], which is the order they
+     * happen in: the thing is clicked, it puts something up, and that is answered.
+     *
+     * A builder for the same reason [choosing] is one - every existing `WebLink(...)` keeps compiling.
+     */
+    var steps: List<WebInterfaceStep> = emptyList()
+        private set
+
+    /** This link, finished by clicking [steps] in order once its object has been used. */
+    fun clicking(vararg steps: WebInterfaceStep): WebLink = also { it.steps = steps.toList() }
+
     override fun toString(): String =
-        "$kind($action $objectId: $from -> $to" + (choice?.let { ", \"$it\"" } ?: "") + ")"
+        "$kind($action $objectId: $from -> $to" + (choice?.let { ", \"$it\"" } ?: "") +
+            (if (steps.isEmpty()) "" else ", " + steps.joinToString(" then ")) + ")"
 }

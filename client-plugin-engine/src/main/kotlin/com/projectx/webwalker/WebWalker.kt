@@ -2,6 +2,7 @@ package com.projectx.webwalker
 
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.profiling.PlayerProfiles
+import com.projectx.game.interfaces.IFSlot
 import com.projectx.script.Script
 import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.Lodestone
@@ -10,6 +11,7 @@ import com.projectx.script.api.findClosestObject
 import com.projectx.script.api.isDialogOpen
 import com.projectx.script.api.interactComponent
 import com.projectx.script.api.isLodestoneUiOpen
+import com.projectx.script.api.interfaces
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.openLodestoneMap
 import com.projectx.script.api.walkTo
@@ -348,6 +350,20 @@ object WebWalker {
                 println("[WebWalk] $link offered no \"$choice\" to pick")
                 return false
             }
+        }
+
+        // A panel of destinations goes nowhere until one is picked, and which one decides where we come out.
+        for (step in link.steps) {
+            script.delayUntil(CHOICE_TIMEOUT_MS) { interfaces.isOpen(step.interfaceId) }
+            if (!interfaces.isOpen(step.interfaceId)) {
+                println("[WebWalk] $link expected interface ${step.interfaceId} and it never opened")
+                return false
+            }
+            if (!IFSlot(step.interfaceId, step.componentId, step.slot).click(step.option)) {
+                println("[WebWalk] $link could not click $step")
+                return false
+            }
+            script.delay(600, 250)
         }
 
         script.delayUntil(LINK_TIMEOUT_MS) {
