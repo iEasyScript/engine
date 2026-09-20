@@ -43,3 +43,13 @@ fun timeSpriteElsewhere(digging: Tile, range: Int = DEFAULT_RANGE, samePatch: In
     val sprite = timeSpriteTile(range) ?: return false
     return !sprite.withinDistance(digging, samePatch)
 }
+
+/**
+ * [timeSpriteElsewhere] for callers holding coordinates rather than a [Tile].
+ *
+ * Tile is an inline value class, so taking one mangles the JVM name and Java cannot call it at all; this is the
+ * form a Java script uses, the same way [walkToTile] stands in for `walkTo`.
+ */
+@JvmOverloads
+fun timeSpriteElsewhereThan(x: Int, y: Int, plane: Int, range: Int = DEFAULT_RANGE, samePatch: Int = 2): Boolean =
+    timeSpriteElsewhere(Tile.of(x, y, plane), range, samePatch)
