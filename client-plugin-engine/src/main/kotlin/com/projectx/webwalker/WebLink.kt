@@ -74,5 +74,22 @@ data class WebLink(
     val searchRadius: Int,
     val requirements: List<WebRequirement>,
 ) {
-    override fun toString(): String = "$kind($action $objectId: $from -> $to)"
+    /**
+     * The destination to pick when using this link puts up a choice of where to go, or null when it does not.
+     *
+     * Kharid-et's fort entrance is the reason: clicking it opens "Choose destination." and the player stays
+     * outside until that is answered, so a link through it has to carry the answer as well as the click.
+     *
+     * Set through [choosing] rather than the constructor so every existing call site keeps working, the same
+     * reason `withAction` exists for config items. Two links that differ only by their answer also differ by
+     * where they come out, which is what equality is built on.
+     */
+    var choice: String? = null
+        private set
+
+    /** This link, answering its object's "where to?" with the option whose text contains [destination]. */
+    fun choosing(destination: String): WebLink = also { it.choice = destination }
+
+    override fun toString(): String =
+        "$kind($action $objectId: $from -> $to" + (choice?.let { ", \"$it\"" } ?: "") + ")"
 }

@@ -53,6 +53,9 @@ object WebLinks {
 
         @SerializedName("requirements")
         val requirementIds: List<Int>? = null
+
+        /** The destination to pick when this link's object asks where to go. */
+        val choice: String? = null
     }
 
     // Buckets are replaced rather than mutated, so the planner thread always reads a whole list while a script
@@ -180,7 +183,7 @@ object WebLinks {
                 objectId = raw.objectId,
                 searchRadius = raw.searchRadius.coerceIn(1, 64),
                 requirements = raw.requirementIds.orEmpty().mapNotNull(requirements::get),
-            )
+            ).let { if (raw.choice.isNullOrBlank()) it else it.choosing(raw.choice) }
             if (link.from.maxX < link.from.minX || link.from.maxY < link.from.minY ||
                 link.to.maxX < link.to.minX || link.to.maxY < link.to.minY
             ) {

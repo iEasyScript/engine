@@ -90,6 +90,26 @@ class WebLinksTest {
     }
 
     @Test
+    fun `a link whose object asks where to go carries the answer`() {
+        // Kharid-et's fort entrance is the one that does this, and it offers two places.
+        val entrance = WebLinks.all.filter { it.objectId == 116920 }
+        assertEquals(2, entrance.size, "expected both fort entrance destinations")
+        assertTrue(entrance.all { it.action == "Enter" })
+        assertEquals(
+            setOf("Main fortress", "Prison block"),
+            entrance.mapNotNull { it.choice }.toSet(),
+        )
+        // The two answers must lead somewhere different, or one of them is pointless.
+        assertEquals(2, entrance.map { it.to }.distinct().size)
+    }
+
+    @Test
+    fun `a link with no choice leaves it unset`() {
+        val plain = WebLinks.all.first { it.objectId != 116920 }
+        assertEquals(null, plain.choice)
+    }
+
+    @Test
     fun `tile keys survive a round trip at the edges of the world`() {
         for (plane in 0..3) {
             for ((x, y) in listOf(0 to 0, 3222 to 3218, 16383 to 16383, 6400 to 12000)) {

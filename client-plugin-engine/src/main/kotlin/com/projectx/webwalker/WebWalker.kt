@@ -5,7 +5,9 @@ import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
 import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.Lodestone
+import com.projectx.script.api.continueDialogueContaining
 import com.projectx.script.api.findClosestObject
+import com.projectx.script.api.isDialogOpen
 import com.projectx.script.api.interactComponent
 import com.projectx.script.api.isLodestoneUiOpen
 import com.projectx.script.api.localPlayer
@@ -46,6 +48,9 @@ object WebWalker {
 
     // A staircase or shortcut runs an animation and may load a new area, so it is given longer than a door.
     private const val LINK_TIMEOUT_MS = 12_000L
+
+    /** How long a link's "where to?" is given to appear before the answer is attempted anyway. */
+    private const val CHOICE_TIMEOUT_MS = 4_000L
     private const val DOOR_SEARCH_RANGE = 6
     private const val ARRIVAL_SLACK = 3
     private const val STEP_TIMEOUT_MS = 700L
@@ -334,6 +339,16 @@ object WebWalker {
             return false
         }
         if (!target.interact(link.action)) return false
+
+        // Some ways through ask where to go and leave the player standing outside until that is answered.
+        val choice = link.choice
+        if (choice != null) {
+            script.delayUntil(CHOICE_TIMEOUT_MS) { isDialogOpen() }
+            if (!continueDialogueContaining(choice)) {
+                println("[WebWalk] $link offered no \"$choice\" to pick")
+                return false
+            }
+        }
 
         script.delayUntil(LINK_TIMEOUT_MS) {
             val tile = localPlayer.tile
