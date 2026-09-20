@@ -294,7 +294,7 @@ fun findClosestObjectToTile(fromTile: Tile, name: String, range: Int = 20) =
     findClosestObjectToTile(fromTile, range) { it.name() == name }
 
 fun findClosestObjectToTile(fromTile: Tile, id: Int, range: Int = 20) =
-    findClosestObjectToTile(fromTile, range) { it.id == id }
+    findClosestObjectToTile(fromTile, range) { it.isType(id) }
 
 fun findClosestObjectToTileWithOption(fromTile: Tile, option: String, range: Int = 20) =
     findClosestObjectToTile(fromTile, range) { it.hasOption(option) }
@@ -311,7 +311,7 @@ fun interactClosestReachableObject(option: String, range: Int = 20): Boolean {
 
 @JvmOverloads
 fun interactClosestReachableObject(objectId: Int, option: String, range: Int = 20): Boolean {
-    val target = findClosestReachableObject(range) { it.id == objectId && it.hasOption(option) } ?: return false
+    val target = findClosestReachableObject(range) { it.isType(objectId) && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
@@ -335,7 +335,7 @@ fun interactClosestReachableObjectToTile(tile: Tile, option: String, range: Int 
 
 fun interactClosestReachableObjectToTile(tile: Tile, objectId: Int, option: String, range: Int = 20): Boolean {
     val target =
-        findClosestReachableObjectToTile(tile, range) { it.id == objectId && it.hasOption(option) } ?: return false
+        findClosestReachableObjectToTile(tile, range) { it.isType(objectId) && it.hasOption(option) } ?: return false
     return target.interact(option)
 }
 
@@ -399,7 +399,7 @@ fun interactClosestReachableObjectToTile(x: Int, y: Int, plane: Int, objectName:
 @JvmOverloads
 fun findClosestReachableObject(name: String, range: Int = 20) = findClosestReachableObject(range) { it.name() == name }
 @JvmOverloads
-fun findClosestReachableObject(id: Int, range: Int = 20) = findClosestReachableObject(range) { it.id == id }
+fun findClosestReachableObject(id: Int, range: Int = 20) = findClosestReachableObject(range) { it.isType(id) }
 @JvmOverloads
 fun findClosestReachableObjectWithOption(option: String, range: Int = 20) =
     findClosestReachableObject(range) { it.hasOption(option) }
@@ -412,7 +412,7 @@ fun interactClosestObject(option: String, range: Int = 20): Boolean {
 
 @JvmOverloads
 fun interactClosestObject(objectId: Int, option: String, range: Int = 20): Boolean {
-    val target = findClosestObjectToTile(localPlayer.tile, range) { it.id == objectId && it.hasOption(option) }
+    val target = findClosestObjectToTile(localPlayer.tile, range) { it.isType(objectId) && it.hasOption(option) }
         ?: return false
     return target.interact(option)
 }
@@ -426,10 +426,20 @@ fun interactClosestObject(objectName: String, option: String, range: Int = 20): 
 
 @JvmOverloads
 fun interactClosestObjectFromIds(vararg objectIds: Int, option: String, range: Int = 20): Boolean {
-    val target = getAllObjectsWithinRange(range).filter { it.id in objectIds && it.hasOption(option) }
+    val target = getAllObjectsWithinRange(range).filter { obj -> objectIds.any { obj.isType(it) } && obj.hasOption(option) }
         .minByOrNull { it.tile.getDistance(localPlayer.tile) } ?: return false
     return target.interact(option)
 }
+
+/**
+ * True when this scenery is [objectId], whether the cache places it directly or reaches it through a multi-loc.
+ *
+ * A transforming loc is placed as an unnamed shell, and the shell's id appears in no data anyone reads: the id
+ * that names the object and carries its options is the one it resolves to. Comparing only the raw id therefore
+ * misses every object built that way, and misses it silently, because the option check passes while the id check
+ * does not. Kharid-et's fort entrance is 116926 to look up and 116920 where it stands.
+ */
+fun SceneObject.isType(objectId: Int): Boolean = id == objectId || visibleTypeId == objectId
 
 @JvmOverloads
 fun findClosestObject(range: Int = 20, predicate: (SceneObject) -> Boolean) =
@@ -442,7 +452,7 @@ fun findClosestObject(name: String, range: Int = 20, predicate: (SceneObject) ->
     findClosestObject(range) { it.name() == name && predicate.invoke(it) }
 
 @JvmOverloads
-fun findClosestObject(id: Int, range: Int = 20) = findClosestObject(range) { it.id == id }
+fun findClosestObject(id: Int, range: Int = 20) = findClosestObject(range) { it.isType(id) }
 @JvmOverloads
 fun findClosestObjectWithOption(option: String, range: Int = 20) = findClosestObject(range) { it.hasOption(option) }
 
