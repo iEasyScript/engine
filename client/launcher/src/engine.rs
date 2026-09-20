@@ -235,7 +235,33 @@ fn bundle_dirs() -> Vec<PathBuf> {
 /// what makes "the launcher installed it" and "the supervisor will load it" the
 /// same statement.
 pub fn installed_engine_jar(dir: &Path) -> Option<PathBuf> {
-    engine_jars(dir).into_iter().next()
+    // Newest wins, not whatever the directory happens to list first. A leftover
+    // jar is supposed to be removed once its replacement lands, but a Windows
+    // file lock on the copy an injected client still has open defeats that - and
+    // then read_dir order alone decided which engine ran, which is how an old
+    // jar quietly outlived its replacement.
+    engine_jars(dir)
+        .into_iter()
+        .max_by(|a, b| jar_version(a).cmp(&jar_version(b)))
+}
+
+/// The version in `projectx-engine-<version>.jar`, as numbers so 1.0.34 beats
+/// 1.0.9. A name that carries none sorts lowest, which keeps a published jar
+/// ahead of anything hand-dropped beside it.
+fn jar_version(path: &Path) -> Vec<u64> {
+    let Some(name) = path.file_name().map(|n| n.to_string_lossy().to_string()) else {
+        return Vec::new();
+    };
+    let stem = name.trim_end_matches(".jar");
+    let Some(version) = stem.rsplit_once('-').map(|(_, v)| v) else {
+        return Vec::new();
+    };
+    let parts: Vec<u64> = version.split('.').map(|p| p.parse().unwrap_or(0)).collect();
+    if version.split('.').all(|p| p.parse::<u64>().is_ok()) && !parts.is_empty() {
+        parts
+    } else {
+        Vec::new()
+    }
 }
 
 fn engine_jars(dir: &Path) -> Vec<PathBuf> {
@@ -545,6 +571,47 @@ mod tests {
         let found = installed_engine_jar(&dir).expect("engine jar");
         assert_eq!(found.file_name().unwrap(), "projectx-engine-1.2.3.jar");
         assert_eq!(engine_jars(&dir).len(), 1);
+
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    /// A superseded jar the launcher could not delete - Windows holds it open
+    /// while a client is injected - must not outrank the one that replaced it,
+    /// whichever order the directory happens to list them in.
+    #[test]
+    fn picks_the_newest_engine_jar_beside_a_leftover() {
+        let dir = std::env::temp_dir().join("projectx-engine-jar-newest");
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        std::fs::write(dir.join(SUPERVISOR_JAR), b"supervisor").unwrap();
+
+        // The older one is deliberately the larger, which is what size-based
+        // picking got wrong.
+        std::fs::write(dir.join("projectx-engine-1.0.31.jar"), vec![b'x'; 4096]).unwrap();
+        std::fs::write(dir.join("projectx-engine-1.0.34.jar"), b"small").unwrap();
+
+        let found = installed_engine_jar(&dir).expect("engine jar");
+        assert_eq!(found.file_name().unwrap(), "projectx-engine-1.0.34.jar");
+
+        // Numbers, not text: 1.0.9 must lose to 1.0.34.
+        std::fs::write(dir.join("projectx-engine-1.0.9.jar"), b"older").unwrap();
+        let found = installed_engine_jar(&dir).expect("engine jar");
+        assert_eq!(found.file_name().unwrap(), "projectx-engine-1.0.34.jar");
+
+        let _ = std::fs::remove_dir_all(&dir);
+    }
+
+    #[test]
+    fn a_versionless_jar_never_outranks_a_published_one() {
+        let dir = std::env::temp_dir().join("projectx-engine-jar-versionless");
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+
+        std::fs::write(dir.join("engine.jar"), vec![b'x'; 8192]).unwrap();
+        std::fs::write(dir.join("projectx-engine-1.0.1.jar"), b"tiny").unwrap();
+
+        let found = installed_engine_jar(&dir).expect("engine jar");
+        assert_eq!(found.file_name().unwrap(), "projectx-engine-1.0.1.jar");
 
         let _ = std::fs::remove_dir_all(&dir);
     }

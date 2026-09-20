@@ -871,22 +871,37 @@ impl IpcState {
             // provision it, but the Clients panel can inject into a client this
             // launcher never spawned, which is how a home with no engine jar
             // reaches the injector.
-            let first_injection = matches!(action, ClientAction::Inject)
-                && !crate::game::control::is_injected(pid);
-            if first_injection {
+            //
+            // Every inject, not only the first. An inject into a client that is
+            // already injected used to skip this, so a client started before a
+            // release and re-injected after it kept running the old engine while
+            // the launcher sat on the new one - and scripts built against the new
+            // API then failed on methods the running engine did not have. The
+            // check costs one catalog fetch and downloads nothing when the
+            // installed files already match.
+            let injecting = matches!(action, ClientAction::Inject);
+            let already_injected = injecting && crate::game::control::is_injected(pid);
+            if injecting {
                 let progress = |message: String| log::info!("{}", message);
                 if let Err(e) =
                     crate::engine::ensure(&crate::http_client(), &plugins_cfg, &progress).await
                 {
-                    send_webview_event(
-                        &cmd_tx,
-                        &IpcEvent::ClientControlResult {
-                            pid,
-                            ok: false,
-                            message: format!("The engine is not installed: {}", e),
-                        },
-                    );
-                    return;
+                    // A re-inject has a working home by definition, so a release
+                    // that cannot be reached must not stop it; only a first
+                    // injection genuinely needs the download to have succeeded.
+                    if already_injected {
+                        log::warn!("Engine update check failed ({}); injecting what is installed", e);
+                    } else {
+                        send_webview_event(
+                            &cmd_tx,
+                            &IpcEvent::ClientControlResult {
+                                pid,
+                                ok: false,
+                                message: format!("The engine is not installed: {}", e),
+                            },
+                        );
+                        return;
+                    }
                 }
             }
 

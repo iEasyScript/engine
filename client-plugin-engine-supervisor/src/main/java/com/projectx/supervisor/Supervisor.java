@@ -147,13 +147,49 @@ public final class Supervisor {
         File[] jars = new File(dir).listFiles(f ->
             f.getName().endsWith(".jar") && !f.getName().startsWith("projectx-supervisor"));
         if (jars == null || jars.length == 0) return null;
-        // Prefer the shadow (`-all.jar`) artifact; otherwise the largest jar.
+        // Prefer the shadow (`-all.jar`) artifact, then the highest version in the filename.
+        //
+        // Size used to be the tie-break, which is only coincidentally the newest: the launcher removes a
+        // superseded jar, but on Windows it cannot while an injected client still holds it open, so two
+        // versions sit here and the older one must not win. Size falls back in for names with no version.
         File best = null;
         for (File f : jars) {
             if (f.getName().endsWith("-all.jar")) return f.getAbsolutePath();
-            if (best == null || f.length() > best.length()) best = f;
+            if (best == null) {
+                best = f;
+                continue;
+            }
+            int byVersion = compareVersions(jarVersion(f.getName()), jarVersion(best.getName()));
+            if (byVersion > 0 || (byVersion == 0 && f.length() > best.length())) best = f;
         }
         return best.getAbsolutePath();
+    }
+
+    /** The numbers out of `projectx-engine-<version>.jar`, or empty when the name carries none. */
+    private static int[] jarVersion(String name) {
+        int dash = name.lastIndexOf('-');
+        int dot = name.lastIndexOf(".jar");
+        if (dash < 0 || dot <= dash) return new int[0];
+        String[] parts = name.substring(dash + 1, dot).split("[.]");
+        int[] numbers = new int[parts.length];
+        for (int i = 0; i < parts.length; i++) {
+            try {
+                numbers[i] = Integer.parseInt(parts[i]);
+            } catch (NumberFormatException e) {
+                return new int[0];
+            }
+        }
+        return numbers;
+    }
+
+    /** Component-wise, so 1.0.34 beats 1.0.9 and a versionless name loses to any version. */
+    private static int compareVersions(int[] a, int[] b) {
+        for (int i = 0; i < Math.max(a.length, b.length); i++) {
+            int left = i < a.length ? a[i] : 0;
+            int right = i < b.length ? b[i] : 0;
+            if (left != right) return Integer.compare(left, right);
+        }
+        return Integer.compare(a.length, b.length);
     }
 
     private static String safeVersion() {
