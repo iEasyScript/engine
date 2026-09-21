@@ -359,7 +359,9 @@ object WebWalker {
                 println("[WebWalk] $link expected interface ${step.interfaceId} and it never opened")
                 return false
             }
-            if (!IFSlot(step.interfaceId, step.componentId, step.slot).click(step.option)) {
+            val slot = IFSlot(step.interfaceId, step.componentId, step.slot)
+            val clicked = if (step.option <= 0) slot.dialogueContinue() else slot.click(step.option)
+            if (!clicked) {
                 println("[WebWalk] $link could not click $step")
                 return false
             }

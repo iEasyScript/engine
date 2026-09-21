@@ -65,7 +65,13 @@ data class WebInterfaceStep(
     val componentId: Int,
     /** The slot within the component, or -1 when the component is clicked whole. */
     val slot: Int = -1,
-    /** Which of the component's options to fire, counting from one. */
+    /**
+     * Which of the component's options to fire, counting from one - or zero to continue a dialogue.
+     *
+     * The distinction is real rather than cosmetic: most of these steps land on a conversation, which is
+     * advanced by its own opcode and not by picking an option off a component. Upstream records that as
+     * click id zero, and firing it as option zero instead would click nothing.
+     */
     val option: Int = 1,
 ) {
     override fun toString(): String =

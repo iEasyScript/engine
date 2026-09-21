@@ -56,6 +56,15 @@ object WebLinks {
 
         /** The destination to pick when this link's object asks where to go. */
         val choice: String? = null
+
+        /**
+         * Interface clicks that finish this link, each `[interfaceId, componentId, slot, option]`.
+         *
+         * Upstream models these as separate nodes chained off the object, but only the object carries a
+         * destination - the chain is the clicking that has to happen on the way, usually a conversation.
+         * Flattened here, because a link already knows where it ends up.
+         */
+        val steps: List<List<Int>>? = null
     }
 
     // Buckets are replaced rather than mutated, so the planner thread always reads a whole list while a script
@@ -184,6 +193,13 @@ object WebLinks {
                 searchRadius = raw.searchRadius.coerceIn(1, 64),
                 requirements = raw.requirementIds.orEmpty().mapNotNull(requirements::get),
             ).let { if (raw.choice.isNullOrBlank()) it else it.choosing(raw.choice) }
+                .let { link ->
+                    val steps = raw.steps.orEmpty().mapNotNull { step ->
+                        if (step.size < 2) null
+                        else WebInterfaceStep(step[0], step[1], step.getOrElse(2) { -1 }, step.getOrElse(3) { 1 })
+                    }
+                    if (steps.isEmpty()) link else link.clicking(*steps.toTypedArray())
+                }
             if (link.from.maxX < link.from.minX || link.from.maxY < link.from.minY ||
                 link.to.maxX < link.to.minX || link.to.maxY < link.to.minY
             ) {
