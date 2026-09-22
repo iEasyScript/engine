@@ -1,5 +1,6 @@
 package com.projectx.script
 
+import com.projectx.game.input.InputArbiter
 import com.projectx.game.nxt.OffsetTable
 import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.nxt.MainState
@@ -14,15 +15,26 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.ConcurrentLinkedDeque
 import java.util.concurrent.CopyOnWriteArrayList
 
+/**
+ * Keeps the client from being returned to the lobby for sitting still.
+ *
+ * Only the quiet stretches need it. A script that is clicking has already told the client someone is
+ * there, and a keypress laid on top of that is a signal for nothing - so the last thing the engine did is
+ * what decides, rather than a clock running regardless.
+ */
 private object StayloggedInTask: Script() {
-    private var nextAfkKeypress = 0L
+    private var nextCheck = 0L
 
     override suspend fun loop() {
-        if (System.currentTimeMillis() >= nextAfkKeypress) {
-            println("Refreshing AFK")
-            nextAfkKeypress = System.currentTimeMillis() + random(PlayerProfiles.get().afkLogoutMinMillis, PlayerProfiles.get().afkLogoutMaxMillis)
-            clickKey(PlayerProfiles.get().afkLogoutRefreshKey)
-        }
+        val now = System.currentTimeMillis()
+        if (now < nextCheck) return
+        nextCheck = now + random(PlayerProfiles.get().afkLogoutMinMillis, PlayerProfiles.get().afkLogoutMaxMillis)
+
+        // Anything the engine did counts, so a run that is doing its job never presses a key at all.
+        if (InputArbiter.millisSinceActionInput < PlayerProfiles.get().afkLogoutMinMillis) return
+
+        println("Refreshing AFK")
+        clickKey(PlayerProfiles.get().afkLogoutRefreshKey)
     }
 }
 

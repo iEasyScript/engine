@@ -70,7 +70,7 @@ class PlayerProfiles {
 }
 
 class PlayerProfile {
-    var afkLogoutRefreshSeconds = random(400, 425)
+    var afkLogoutRefreshSeconds = random(210, 250)
     var afkLogoutRefreshVariance = random(15, 23)
     var afkLogoutRefreshKey = setOf(Key.LALT, Key.LCTRL, Key.PAGEDOWN, Key.PAGEUP).random()
     var gaussVariance = 0.4
@@ -103,6 +103,35 @@ class PlayerProfile {
         }
     }
 
-    val afkLogoutMinMillis get() = (PlayerProfiles.get().afkLogoutRefreshSeconds * 1000L) - PlayerProfiles.get().afkLogoutRefreshVariance * 1000L
-    val afkLogoutMaxMillis get() = (PlayerProfiles.get().afkLogoutRefreshSeconds * 1000L) + PlayerProfiles.get().afkLogoutRefreshVariance * 1000L
+    val afkLogoutMinMillis get() = refreshWindowMillis().first
+    val afkLogoutMaxMillis get() = refreshWindowMillis().second
+
+    /**
+     * When to next remind the client someone is here, as a window to pick from.
+     *
+     * Clamped rather than trusted, because the interval is persisted per player and the value this used to
+     * generate - 400 to 425 seconds - is longer than the game's own five minute idle logout. A keepalive
+     * slower than the thing it is meant to prevent never prevents it: it arrives a minute or two after the
+     * client has already gone back to the lobby. Profiles written before that was noticed still hold the
+     * old number, so the ceiling is applied on the way out and no migration is needed.
+     */
+    private fun refreshWindowMillis(): Pair<Long, Long> {
+        val profile = PlayerProfiles.get()
+        val seconds = profile.afkLogoutRefreshSeconds.coerceIn(MIN_REFRESH_SECONDS, MAX_REFRESH_SECONDS)
+        val variance = profile.afkLogoutRefreshVariance.coerceIn(0, MAX_REFRESH_VARIANCE_SECONDS)
+        return (seconds - variance) * 1000L to (seconds + variance) * 1000L
+    }
+
+    private companion object {
+        /** The game returns a client to the lobby after five minutes without input. */
+        const val IDLE_LOGOUT_SECONDS = 300
+
+        const val MAX_REFRESH_VARIANCE_SECONDS = 25
+
+        /** Far enough inside the logout that a slow tick or a long action cannot overrun it. */
+        const val MAX_REFRESH_SECONDS = IDLE_LOGOUT_SECONDS - MAX_REFRESH_VARIANCE_SECONDS - 25
+
+        /** Below this it is pressing keys for no reason. */
+        const val MIN_REFRESH_SECONDS = 120
+    }
 }

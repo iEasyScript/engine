@@ -16,11 +16,18 @@ object InputArbiter {
 
     @Volatile private var actionCycle: Int = NO_CYCLE
 
+    @Volatile private var lastActionMillis: Long = 0L
+
+    /** How long since the engine last gave the client something to treat as input. */
+    val millisSinceActionInput: Long
+        get() = lastActionMillis.let { if (it == 0L) Long.MAX_VALUE else System.currentTimeMillis() - it }
+
     @Volatile var wireSendsDeniedByAction: Long = 0L
         private set
 
     fun recordActionInput() {
         actionCycle = currentCycleOrNull() ?: NO_CYCLE
+        lastActionMillis = System.currentTimeMillis()
     }
 
     fun mayWireSend(): Boolean {
