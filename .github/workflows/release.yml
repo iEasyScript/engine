@@ -385,6 +385,9 @@ jobs:
         with:
           distribution: temurin
           java-version: '21'
+      # This repository's own releases, not the public distribution one: the jar is
+      # the same artifact and the default token already reaches it, so no
+      # cross-repository credential is needed just to read what we published.
       - name: Fetch this release's engine jar and the one before it
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -392,13 +395,15 @@ jobs:
         run: |
           set -eu
           mkdir -p apidiff
-          gh release download "v$VERSION" -R iEasyScript/launcher             -p "projectx-engine-$VERSION.jar" -D apidiff
-          # The tag before this one, by release order rather than by name, so 1.0.9
-          # does not come after 1.0.10.
-          PREV=$(gh release list -R iEasyScript/launcher --limit 30 --json tagName                  --jq '[.[].tagName] | map(select(test("^v[0-9]"))) | .[]'                  | grep -v "^v$VERSION$" | head -1 || true)
+          gh release download "v$VERSION" -p "projectx-engine-$VERSION.jar" -D apidiff
+          # The release before this one, in release order rather than by name, so
+          # 1.0.9 does not sort after 1.0.10.
+          PREV=$(gh release list --limit 30 --json tagName                  --jq '[.[].tagName] | map(select(test("^v[0-9]"))) | .[]'                  | grep -v "^v$VERSION$" | head -1 || true)
           if [ -n "$PREV" ]; then
             echo "previous release: $PREV"
-            gh release download "$PREV" -R iEasyScript/launcher               -p "projectx-engine-${PREV#v}.jar" -D apidiff || true
+            gh release download "$PREV" -p "projectx-engine-${PREV#v}.jar" -D apidiff || true
+          else
+            echo "no earlier release; reporting a baseline"
           fi
           ls -la apidiff
       - name: Describe what changed in the API
