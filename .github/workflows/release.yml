@@ -364,6 +364,65 @@ jobs:
             dist/*
             plugins-manifest.json
 
+  # The engine is closed source but its script API is not a secret: the same
+  # signatures ship to script authors in every script-api release. So announcing
+  # what moved tells people what they already hold, sooner - and nothing else,
+  # because only public members of public types in the packages scripts import
+  # are ever read out of the jar.
+  #
+  # Skipped silently when no webhook is configured, so a fork does not fail here.
+  announce-api:
+    needs: [version, release]
+    if: needs.version.outputs.is_release == 'true'
+    runs-on: ubuntu-latest
+    # At job level so the posting step's `if` can see whether one is configured;
+    # a step cannot read its own env there.
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Fetch this release's engine jar and the one before it
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          set -eu
+          mkdir -p apidiff
+          gh release download "v$VERSION" -R iEasyScript/launcher             -p "projectx-engine-$VERSION.jar" -D apidiff
+          # The tag before this one, by release order rather than by name, so 1.0.9
+          # does not come after 1.0.10.
+          PREV=$(gh release list -R iEasyScript/launcher --limit 30 --json tagName                  --jq '[.[].tagName] | map(select(test("^v[0-9]"))) | .[]'                  | grep -v "^v$VERSION$" | head -1 || true)
+          if [ -n "$PREV" ]; then
+            echo "previous release: $PREV"
+            gh release download "$PREV" -R iEasyScript/launcher               -p "projectx-engine-${PREV#v}.jar" -D apidiff || true
+          fi
+          ls -la apidiff
+      - name: Describe what changed in the API
+        env:
+          VERSION: ${{ needs.version.outputs.version }}
+        run: |
+          set -eu
+          NEW="apidiff/projectx-engine-$VERSION.jar"
+          OLD=$(ls apidiff/projectx-engine-*.jar | grep -v "$VERSION" | head -1 || true)
+          python3 .github/scripts/api_changelog.py             ${OLD:+--old "$OLD"} --new "$NEW" --version "$VERSION" --out api-changes.md
+      - name: Post it to Discord
+        if: env.DISCORD_WEBHOOK_URL != ''
+        run: |
+          set -eu
+          # Discord refuses anything over 2000 characters, and the report is capped
+          # well under that, but a truncation is better than a dropped announcement.
+          BODY=$(head -c 1900 api-changes.md)
+          jq -n --arg c "$BODY" '{content: $c, allowed_mentions: {parse: []}}'             | curl -sS -X POST -H 'Content-Type: application/json' -d @- "$DISCORD_WEBHOOK_URL"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-changes
+          path: api-changes.md
+          retention-days: 30
+
   # Launcher downloads have to be publicly reachable, and release assets on a
   # private repository are not. So the bundles are published to a public
   # distribution repository that holds no source, giving users permanent
