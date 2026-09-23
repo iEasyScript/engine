@@ -19,6 +19,7 @@ import com.projectx.quest.data.QuestLibrary
 import com.projectx.quest.solver.registerExampleSolvers
 import com.projectx.script.ScriptExecutor
 import com.projectx.ui.backend.native.StringAllocator
+import com.projectx.ui.compose.OverlayHost
 import com.projectx.util.EngineLog
 import world.gregs.voidps.cache.Cache
 import world.gregs.voidps.cache.type.data.VarBitType
@@ -138,6 +139,7 @@ object Bootstrap {
         runCatching { McpServer.stop() }
         runCatching { StringAllocator.shutdown() }
         runCatching { TileMarkerStore.stopFlusher() }
+        runCatching { OverlayHost.dispose() }
         runCatching { ScriptExecutor.stopAll() }
         runCatching { ScriptExecutor.stopInternalTasks() }
         runCatching { PacketLogger.close() }

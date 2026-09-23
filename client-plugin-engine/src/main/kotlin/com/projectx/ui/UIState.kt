@@ -1,31 +1,24 @@
 package com.projectx.ui
 
+import com.projectx.ui.backend.dsl.ImGuiState
 import org.projectx.core.game.skill.Skill
 import com.projectx.game.hooks.impl.defaultUiToggleKey
 import com.projectx.game.hooks.impl.isForeignKeycode
 import com.projectx.script.Script
-import com.projectx.script.ScriptMetadata
-import com.projectx.ui.backend.dsl.*
 import com.projectx.util.Configuration
 
 object UIState {
-    var selectedTab = UI.Tab.SCRIPTS
-    val showMainWindow = boolState(true)
-    val uiToggleKey = intState(
+    val showMainWindow: ImGuiState<Boolean> = setting(true)
+    val uiToggleKey: ImGuiState<Int> = setting(
         Configuration.config.uiToggleKey
             .takeIf { it != 0 && !isForeignKeycode(it) }
             ?: defaultUiToggleKey
     )
 
-    val openConfigWindows = mutableMapOf<ScriptMetadata, ImGuiState<Boolean>>()
-    val configSaveConfirmations = mutableMapOf<ScriptMetadata, Long>()
 
-    val scriptSearchText = stringState("", 128)
-    val statusFilterIndex = intState(0)
-    val storeSearchText = stringState("", 128)
-    val storeSourceIndex = intState(0)
-    val logFilterText = stringState("", 128)
-    val logErrorsOnly = boolState(false)
+    val storeSearchText: ImGuiState<String> = setting("")
+    val logFilterText: ImGuiState<String> = setting("")
+    val logErrorsOnly: ImGuiState<Boolean> = setting(false)
     @Suppress("UNCHECKED_CAST")
     val favoriteScripts = mutableSetOf<Class<out Script>>().apply {
         val savedFavorites = Configuration.config.favoriteScripts
@@ -37,17 +30,16 @@ object UIState {
             }
         }
     }
-    val varcSearchText = stringState("", 128)
-    val inventorySearchText = stringState("", 128)
-    val inventoryNameSearch = stringState("", 128)
-    val buffsDebuffsSearchText = stringState("", 128)
-    val entitySearchText = stringState("", 128)
-    val questHelperFilter = stringState("", 128)
+    val inventorySearchText: ImGuiState<String> = setting("")
+    val inventoryNameSearch: ImGuiState<String> = setting("")
+    val buffsDebuffsSearchText: ImGuiState<String> = setting("")
+    val entitySearchText: ImGuiState<String> = setting("")
+    val questHelperFilter: ImGuiState<String> = setting("")
 
-    val interfaceDebugInterfaceId = intState(0)
-    val interfaceDebugComponentId = intState(0)
-    val interfaceDebugTextFilter = stringState("", 128)
-    val interfaceDebugShowHidden = boolState(true)
+    val interfaceDebugInterfaceId: ImGuiState<Int> = setting(0)
+    val interfaceDebugComponentId: ImGuiState<Int> = setting(0)
+    val interfaceDebugTextFilter: ImGuiState<String> = setting("")
+    val interfaceDebugShowHidden: ImGuiState<Boolean> = setting(true)
     val interfaceDebugExpanded = mutableSetOf<Int>()
 
     /** Expanded component layers, keyed as `(interfaceId shl 32) or componentId`. */
@@ -59,18 +51,18 @@ object UIState {
      * Slot children share their template's component id, so an index is the only thing that distinguishes
      * one from its siblings.
      */
-    val interfaceDebugSlotIndex = intState(-1)
+    val interfaceDebugSlotIndex: ImGuiState<Int> = setting(-1)
 
-    val varDebugDomainIndex = intState(0)
-    val varDebugReadModeIndex = intState(0)
-    val varDebugId = intState(0)
-    val varDebugLive = boolState(true)
-    val varDebugCachedValue = intState(0)
+    val varDebugDomainIndex: ImGuiState<Int> = setting(0)
+    val varDebugReadModeIndex: ImGuiState<Int> = setting(0)
+    val varDebugId: ImGuiState<Int> = setting(0)
+    val varDebugLive: ImGuiState<Boolean> = setting(true)
+    val varDebugCachedValue: ImGuiState<Int> = setting(0)
 
-    val cs2TraceEnabled = boolState(false)
-    val cs2TraceFilterId = intState(-1)
-    val cs2TraceSearch = stringState("", 64)
-    val cs2TraceShowArgs = boolState(true)
+    val cs2TraceEnabled: ImGuiState<Boolean> = setting(false)
+    val cs2TraceFilterId: ImGuiState<Int> = setting(-1)
+    val cs2TraceSearch: ImGuiState<String> = setting("")
+    val cs2TraceShowArgs: ImGuiState<Boolean> = setting(true)
 
     data class VarDebugWatch(
         var domainIndex: Int,
@@ -82,90 +74,83 @@ object UIState {
 
     val varDebugWatches = mutableListOf<VarDebugWatch>()
 
-    val varChangeTrackingEnabled = boolState(false)
-    val varChangeSearchText = stringState("", 128)
-    val varChangeTrackVarp = boolState(true)
-    val varChangeTrackVarpbit = boolState(true)
-    val varChangeTrackVarc = boolState(true)
-    val varChangeTrackVarcbit = boolState(true)
+    val varChangeSearchText: ImGuiState<String> = setting("")
+    val varChangeTrackVarp: ImGuiState<Boolean> = setting(true)
+    val varChangeTrackVarpbit: ImGuiState<Boolean> = setting(true)
+    val varChangeTrackVarc: ImGuiState<Boolean> = setting(true)
+    val varChangeTrackVarcbit: ImGuiState<Boolean> = setting(true)
 
-    val mcpEnabled = boolState(false)
-    val varpDebugEnabled = boolState(false)
-    val varcDebugEnabled = boolState(false)
-    val discordEnabled = boolState(Configuration.config.discordEnabled)
-    val inventoryEnabled = boolState(false)
-    val buffsDebuffsEnabled = boolState(false)
-    val rawLoginDumpEnabled = boolState(false)
-    val packetLogEnabled = boolState(Configuration.config.packetLogEnabled)
-    val packetLogUploadEnabled = boolState(Configuration.config.packetLogUploadEnabled)
-    val packetLogKeepLocalAfterUpload = boolState(Configuration.config.packetLogKeepLocalAfterUpload)
-    val packetLogTextDumpEnabled = boolState(Configuration.config.packetLogTextDumpEnabled)
-    val showTrainingEventFeed = boolState(true)
-    val trainingEventFeedMotion = boolState(false)
-    val showSceneObjects = boolState(false)
-    val showNpcs = boolState(false)
-    val showPlayers = boolState(false)
-    val showSpotAnims = boolState(false)
-    val showProjectiles = boolState(false)
-    val showGroundItems = boolState(false)
-    val showClickboxes = boolState(false)
-    val questHelperEnabled = boolState(true)
-    val questHelperShowOverlay = boolState(true)
-    val questHelperAutoAdvance = boolState(true)
-    val questHelperShowLocked = boolState(false)
-    val questHelperShowCompleted = boolState(false)
-    val inventionDiscoverySolver = boolState(true)
-    val inventionXpTrackerEnabled = boolState(false)
-    val inventionComponentTrackerEnabled = boolState(false)
-    val farmingTrackerEnabled = boolState(true)
-    val farmingNotificationsEnabled = boolState(true)
-    val farmingShowSecondary = boolState(false)
+    val mcpEnabled: ImGuiState<Boolean> = setting(false)
+    val varpDebugEnabled: ImGuiState<Boolean> = setting(false)
+    val varcDebugEnabled: ImGuiState<Boolean> = setting(false)
+    val discordEnabled: ImGuiState<Boolean> = setting(Configuration.config.discordEnabled)
+    val rawLoginDumpEnabled: ImGuiState<Boolean> = setting(false)
+    val packetLogEnabled: ImGuiState<Boolean> = setting(Configuration.config.packetLogEnabled)
+    val packetLogUploadEnabled: ImGuiState<Boolean> = setting(Configuration.config.packetLogUploadEnabled)
+    val packetLogKeepLocalAfterUpload: ImGuiState<Boolean> = setting(Configuration.config.packetLogKeepLocalAfterUpload)
+    val packetLogTextDumpEnabled: ImGuiState<Boolean> = setting(Configuration.config.packetLogTextDumpEnabled)
+    val showTrainingEventFeed: ImGuiState<Boolean> = setting(true)
+    val trainingEventFeedMotion: ImGuiState<Boolean> = setting(false)
+    val showSceneObjects: ImGuiState<Boolean> = setting(false)
+    val showNpcs: ImGuiState<Boolean> = setting(false)
+    val showPlayers: ImGuiState<Boolean> = setting(false)
+    val showSpotAnims: ImGuiState<Boolean> = setting(false)
+    val showProjectiles: ImGuiState<Boolean> = setting(false)
+    val showGroundItems: ImGuiState<Boolean> = setting(false)
+    val showClickboxes: ImGuiState<Boolean> = setting(false)
+    val questHelperEnabled: ImGuiState<Boolean> = setting(true)
+    val questHelperShowOverlay: ImGuiState<Boolean> = setting(true)
+    val questHelperAutoAdvance: ImGuiState<Boolean> = setting(true)
+    val questHelperShowLocked: ImGuiState<Boolean> = setting(false)
+    val questHelperShowCompleted: ImGuiState<Boolean> = setting(false)
+    val inventionDiscoverySolver: ImGuiState<Boolean> = setting(true)
+    val inventionXpTrackerEnabled: ImGuiState<Boolean> = setting(false)
+    val inventionComponentTrackerEnabled: ImGuiState<Boolean> = setting(false)
+    val farmingTrackerEnabled: ImGuiState<Boolean> = setting(true)
+    val farmingNotificationsEnabled: ImGuiState<Boolean> = setting(true)
+    val farmingShowSecondary: ImGuiState<Boolean> = setting(false)
 
-    val collisionOverlayEnabled = boolState(false)
-    val collisionOverlayRadius = intState(20)
-    val collisionShowWalls = boolState(true)
-    val collisionShowBlockWalk = boolState(true)
-    val collisionShowFloorDecoration = boolState(false)
-    val collisionShowProjectile = boolState(false)
-    val collisionShowRouteBlocker = boolState(false)
-    val collisionShowBlockNpc = boolState(false)
-    val collisionShowBlockPlayer = boolState(false)
-    val collisionShowRoof = boolState(false)
-    val collisionShowWater = boolState(false)
-    val renderShowClipped = boolState(false)
-    val renderShowLowerObjects = boolState(false)
-    val renderShowUnderRoof = boolState(false)
-    val renderShowForceBottom = boolState(false)
-    val renderShowRoof = boolState(false)
-    val renderShowFlag20 = boolState(false)
-    val renderShowFlag40 = boolState(false)
-    val renderShowFlag80 = boolState(false)
+    val collisionOverlayEnabled: ImGuiState<Boolean> = setting(false)
+    val collisionOverlayRadius: ImGuiState<Int> = setting(20)
+    val collisionShowWalls: ImGuiState<Boolean> = setting(true)
+    val collisionShowBlockWalk: ImGuiState<Boolean> = setting(true)
+    val collisionShowFloorDecoration: ImGuiState<Boolean> = setting(false)
+    val collisionShowProjectile: ImGuiState<Boolean> = setting(false)
+    val collisionShowRouteBlocker: ImGuiState<Boolean> = setting(false)
+    val collisionShowBlockNpc: ImGuiState<Boolean> = setting(false)
+    val collisionShowBlockPlayer: ImGuiState<Boolean> = setting(false)
+    val collisionShowRoof: ImGuiState<Boolean> = setting(false)
+    val collisionShowWater: ImGuiState<Boolean> = setting(false)
+    val renderShowClipped: ImGuiState<Boolean> = setting(false)
+    val renderShowLowerObjects: ImGuiState<Boolean> = setting(false)
+    val renderShowUnderRoof: ImGuiState<Boolean> = setting(false)
+    val renderShowForceBottom: ImGuiState<Boolean> = setting(false)
+    val renderShowRoof: ImGuiState<Boolean> = setting(false)
+    val renderShowFlag20: ImGuiState<Boolean> = setting(false)
+    val renderShowFlag40: ImGuiState<Boolean> = setting(false)
+    val renderShowFlag80: ImGuiState<Boolean> = setting(false)
 
-    val discordWebhookUrl = stringState(Configuration.config.discordWebhookUrl, 256)
-    val discordUsername = stringState(Configuration.config.discordUsername, 64)
-    val inventoryId = intState(InventoryType.BACKPACK.id)
+    val discordWebhookUrl: ImGuiState<String> = setting(Configuration.config.discordWebhookUrl)
+    val discordUsername: ImGuiState<String> = setting(Configuration.config.discordUsername)
+    val inventoryId: ImGuiState<Int> = setting(InventoryType.BACKPACK.id)
 
-    val entityRange = intState(20)
+    val entityRange: ImGuiState<Int> = setting(20)
     val maxVarcEntries = 100
 
-    val entityTextColorR = floatState(1.0f)
-    val entityTextColorG = floatState(1.0f)
-    val entityTextColorB = floatState(1.0f)
-    val entityTextColorA = floatState(0.8f)
+    val entityTextColorR: ImGuiState<Float> = setting(1.0f)
+    val entityTextColorG: ImGuiState<Float> = setting(1.0f)
+    val entityTextColorB: ImGuiState<Float> = setting(1.0f)
+    val entityTextColorA: ImGuiState<Float> = setting(0.8f)
 
-    val clickboxColorR = floatState(0.0f)
-    val clickboxColorG = floatState(1.0f)
-    val clickboxColorB = floatState(1.0f)
-    val clickboxOutlineMode = intState(2)
-    val clickboxIntensity = intState(8)
+    val clickboxColorR: ImGuiState<Float> = setting(0.0f)
+    val clickboxColorG: ImGuiState<Float> = setting(1.0f)
+    val clickboxColorB: ImGuiState<Float> = setting(1.0f)
+    val clickboxOutlineMode: ImGuiState<Int> = setting(2)
+    val clickboxIntensity: ImGuiState<Int> = setting(8)
 
-    var lastRefreshTime = 0L
-    val refreshInterval = 100L
 
     val xpData = mutableMapOf<Skill, Pair<Long, Int>>()
     val varTableData = mutableListOf<VarcEntry>()
-    val inventoryData = mutableListOf<InventoryEntry>()
-    val buffsDebuffsData = mutableListOf<BuffDebuffEntry>()
 
     fun saveFavorites() {
         val favoriteClassNames = favoriteScripts.map { it.name }.toSet()

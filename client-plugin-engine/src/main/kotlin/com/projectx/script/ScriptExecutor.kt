@@ -124,6 +124,9 @@ object ScriptExecutor {
 
     fun isScriptRunning(scriptClass: Class<*>): Boolean { return _activeScripts.containsKey(scriptClass.name) }
 
+    /** When the running instance of [scriptClass] was started, in epoch millis, or null when it is not running. */
+    fun startedAt(scriptClass: Class<*>): Long? = scriptStartTimes[scriptClass.name]
+
     // Name-based check for scripts the engine can't reference at compile time (e.g. ones living in a
     // hot-reloaded jar under ~/.projectx/scripts). Matches the simple or fully-qualified class name.
     fun isScriptRunningByName(name: String): Boolean =

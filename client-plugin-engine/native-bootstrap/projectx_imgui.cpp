@@ -516,6 +516,12 @@ extern "C" {
         return ImGui::GetIO().WantCaptureMouse;
     }
 
+    // This frame's vertical wheel movement, positive away from the user. The overlay's window procedure keeps
+    // the wheel from the game while the mouse is over an overlay window, so this is the only place to read it.
+    float ProjectX_ImGui_GetMouseWheel() {
+        return ImGui::GetIO().MouseWheel;
+    }
+
     bool ProjectX_ImGui_WantCaptureKeyboard() {
         if (!ImGui::GetCurrentContext()) {
             return false; // ImGui not initialized yet
@@ -1783,6 +1789,46 @@ extern "C" {
             return 0;
         }
         return req.result;
+    }
+
+    // Replace every pixel of a texture made by ProjectX_ImGui_CreateTextureFromRGBA, keeping its handle.
+    // Render thread only: the GL path needs the game's context current, and the Vulkan path writes into
+    // ImGui's texture list. The size must match the texture's; a mismatch is refused rather than resized.
+    bool ProjectX_ImGui_UpdateTextureRGBA(int64_t texture_id, const void* pixels, int width, int height) {
+        if (texture_id == 0 || !pixels || width <= 0 || height <= 0) {
+            imgui_log_error("ProjectX_ImGui_UpdateTextureRGBA", "Invalid arguments");
+            return false;
+        }
+        if (g_renderer == OverlayRenderer::Vulkan) {
+            if (!t_is_render_thread) {
+                imgui_log_error("ProjectX_ImGui_UpdateTextureRGBA", "Called off the render thread");
+                return false;
+            }
+            ImTextureData* tex = (ImTextureData*)(intptr_t)texture_id;
+            if (tex->Width != width || tex->Height != height || tex->WantDestroyNextFrame ||
+                tex->Status == ImTextureStatus_WantDestroy || tex->Status == ImTextureStatus_Destroyed) {
+                return false;
+            }
+            std::memcpy(tex->GetPixels(), pixels, (size_t)width * (size_t)height * 4);
+            ImTextureDataQueueUpload(tex, 0, 0, width, height);
+            return true;
+        }
+        if (!projectx::imgui_backend::has_current_gl_context()) {
+            imgui_log_error("ProjectX_ImGui_UpdateTextureRGBA", "No GL context current");
+            return false;
+        }
+        GLint prev_active_tex = 0, prev_tex_binding = 0, prev_unpack_align = 0;
+        glGetIntegerv(GL_ACTIVE_TEXTURE, &prev_active_tex);
+        glGetIntegerv(GL_TEXTURE_BINDING_2D, &prev_tex_binding);
+        glGetIntegerv(GL_UNPACK_ALIGNMENT, &prev_unpack_align);
+        projectx::imgui_backend::active_texture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, (GLuint)texture_id);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, width, height, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+        glPixelStorei(GL_UNPACK_ALIGNMENT, prev_unpack_align);
+        glBindTexture(GL_TEXTURE_2D, (GLuint)prev_tex_binding);
+        projectx::imgui_backend::active_texture((GLenum)prev_active_tex);
+        return true;
     }
 
     void ProjectX_ImGui_DestroyTexture(int64_t texture_id) {

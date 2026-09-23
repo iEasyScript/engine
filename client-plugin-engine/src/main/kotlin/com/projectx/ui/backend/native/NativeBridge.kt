@@ -4,6 +4,9 @@ import com.projectx.game.memory.NativeAccess
 import com.projectx.ui.backend.dsl.utils.ImGuiCol
 import com.projectx.ui.backend.dsl.utils.ImGuiStyleVar
 import com.projectx.ui.backend.native.StringAllocator.allocateString
+import com.projectx.ui.compose.hud.DrawRecorder
+import com.projectx.ui.compose.hud.Shape
+import com.projectx.ui.compose.hud.TexturePixels
 import java.lang.foreign.Arena
 import java.lang.foreign.FunctionDescriptor
 import java.lang.foreign.MemorySegment
@@ -995,6 +998,15 @@ object NativeBridge {
         }
     }
 
+    /** Absent from bootstraps built before it existed, so callers fall back to replacing the texture. */
+    private val imguiUpdateTextureRGBA by lazy {
+        runCatching {
+            NativeAccess.getFunction("ProjectX_ImGui_UpdateTextureRGBA") {
+                FunctionDescriptor.of(ValueLayout.JAVA_BOOLEAN, ValueLayout.JAVA_LONG, ValueLayout.ADDRESS, ValueLayout.JAVA_INT, ValueLayout.JAVA_INT)
+            }
+        }.getOrNull()
+    }
+
     private val imguiDestroyTexture by lazy {
         NativeAccess.getFunction("ProjectX_ImGui_DestroyTexture") {
             FunctionDescriptor.ofVoid(ValueLayout.JAVA_LONG)
@@ -1473,36 +1485,44 @@ object NativeBridge {
     }
     
     fun drawListAddLine(drawList: MemorySegment, x1: Float, y1: Float, x2: Float, y2: Float, col: Int, thickness: Float = 1f) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Line(x1, y1, x2, y2, col, thickness))
         imguiDrawListAddLine.invokeExact(drawList, x1, y1, x2, y2, col, thickness)
     }
     
     fun drawListAddRect(drawList: MemorySegment, x1: Float, y1: Float, x2: Float, y2: Float, col: Int, rounding: Float = 0f, flags: Int = 0, thickness: Float = 1f) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Rect(x1, y1, x2, y2, col, rounding, thickness, filled = false))
         imguiDrawListAddRect.invokeExact(drawList, x1, y1, x2, y2, col, rounding, flags, thickness)
     }
     
     fun drawListAddRectFilled(drawList: MemorySegment, x1: Float, y1: Float, x2: Float, y2: Float, col: Int, rounding: Float = 0f, flags: Int = 0) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Rect(x1, y1, x2, y2, col, rounding, 0f, filled = true))
         imguiDrawListAddRectFilled.invokeExact(drawList, x1, y1, x2, y2, col, rounding, flags)
     }
     
     fun drawListAddCircle(drawList: MemorySegment, centerX: Float, centerY: Float, radius: Float, col: Int, numSegments: Int = 0, thickness: Float = 1f) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Circle(centerX, centerY, radius, col, thickness, filled = false))
         imguiDrawListAddCircle.invokeExact(drawList, centerX, centerY, radius, col, numSegments, thickness)
     }
     
     fun drawListAddCircleFilled(drawList: MemorySegment, centerX: Float, centerY: Float, radius: Float, col: Int, numSegments: Int = 0) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Circle(centerX, centerY, radius, col, 0f, filled = true))
         imguiDrawListAddCircleFilled.invokeExact(drawList, centerX, centerY, radius, col, numSegments)
     }
 
     fun drawListAddText(drawList: MemorySegment, x: Float, y: Float, col: Int, text: String) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Text(x, y, col, text))
         val textSegment = allocateString(text)
         imguiDrawListAddText.invokeExact(drawList, x, y, col, textSegment)
     }
 
     fun drawListAddImage(drawList: MemorySegment, texture: ImGuiTexture, x1: Float, y1: Float, x2: Float, y2: Float, col: Int = -1) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Image(texture, x1, y1, x2, y2, col))
         val id = texture.id
         if (id != 0L) imguiDrawListAddImage.invokeExact(drawList, id, x1, y1, x2, y2, col)
     }
 
     fun drawListAddConvexPolyFilled(drawList: MemorySegment, points: FloatArray, col: Int) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Poly(points.toList(), col, 0f, filled = true, closed = true))
         Arena.ofConfined().use { arena ->
             val pointsBuffer = arena.allocate(ValueLayout.JAVA_FLOAT, points.size.toLong())
             for (i in points.indices) {
@@ -1514,6 +1534,7 @@ object NativeBridge {
     }
 
     fun drawListAddPolyline(drawList: MemorySegment, points: FloatArray, col: Int, flags: Int, thickness: Float) {
+        if (DrawRecorder.isMarker(drawList)) return DrawRecorder.add(Shape.Poly(points.toList(), col, thickness, filled = false, closed = flags and 1 != 0))
         Arena.ofConfined().use { arena ->
             val pointsBuffer = arena.allocate(ValueLayout.JAVA_FLOAT, points.size.toLong())
             for (i in points.indices) {
@@ -1734,7 +1755,11 @@ object NativeBridge {
 
     fun loadTexture(pathOrResource: String): ImGuiTexture? = ImageHelper.loadTexture(pathOrResource)
 
-    fun createTextureFromRGBA(pixels: ByteArray, width: Int, height: Int): ImGuiTexture? {
+    fun createTextureFromRGBA(pixels: ByteArray, width: Int, height: Int): ImGuiTexture? =
+        createTransientTextureFromRGBA(pixels, width, height)?.also { TexturePixels.keep(it, pixels, width, height) }
+
+    /** A texture only ImGui will draw, so its pixels are not kept for Compose - for the panels' own surfaces. */
+    fun createTransientTextureFromRGBA(pixels: ByteArray, width: Int, height: Int): ImGuiTexture? {
         val id = createTextureFromRGBA_Raw(pixels, width, height)
         if (id == 0L) return null
         return ImGuiTexture(id, width, height)
@@ -1749,6 +1774,17 @@ object NativeBridge {
             seg.asByteBuffer().put(pixels, 0, expectedSize)
             return imguiCreateTextureFromRGBA.invokeExact(seg, width, height) as Long
         }
+    }
+
+    val canUpdateTextures: Boolean get() = imguiUpdateTextureRGBA != null
+
+    /**
+     * Overwrites every pixel of [texture] with the tightly packed RGBA at [pixels], keeping its handle. Render thread
+     * only. False when the bootstrap cannot update in place or refused the update.
+     */
+    fun updateTextureFromRGBA(texture: ImGuiTexture, pixels: MemorySegment): Boolean {
+        val update = imguiUpdateTextureRGBA ?: return false
+        return update.invokeExact(texture.id, pixels, texture.width, texture.height) as Boolean
     }
 
     fun destroyTexture(texture: ImGuiTexture?) {

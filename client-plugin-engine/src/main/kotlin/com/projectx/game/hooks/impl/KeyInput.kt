@@ -13,6 +13,7 @@ import com.projectx.game.nxt.interfaces.InterfacePick
 import com.projectx.game.platform.NativeLibraries
 import com.projectx.game.platform.Platform
 import com.projectx.ui.UIState
+import com.projectx.ui.compose.OverlayKeyboard
 import java.lang.foreign.MemorySegment
 
 /**
@@ -52,6 +53,8 @@ object OnKeyDown {
                 InterfacePick.cancel()
                 return
             }
+
+            if (OverlayKeyboard.onKeyDown(keyCode)) return
         } catch (e: Throwable) {
             e.printStackTrace()
         }
@@ -71,6 +74,7 @@ object OnKeyUp {
                 pressed = false
             )
             if (InputRecorder.isRecording) InputRecorder.record(event)
+            if (OverlayKeyboard.onKeyUp()) return
         } catch(e: Throwable) {
             e.printStackTrace()
         }
@@ -100,6 +104,7 @@ object OnKeyChar {
                     )
                 )
             }
+            if (OverlayKeyboard.onChar(charCode)) return
         } catch (e: Throwable) {
             e.printStackTrace()
         }

@@ -44,6 +44,8 @@ data class PersistentConfig(
     /** Where opted-in captures are pushed. Overridable for a self-hosted or a test ingest server. */
     val packetLogEndpoint: String = PacketUploader.DEFAULT_ENDPOINT,
     val packetLogTextDumpEnabled: Boolean = false,
+    /** Where the overlay panel was left, as x, y, width, height. Null until it is first moved or resized. */
+    val overlayBounds: List<Int>? = null,
 )
 
 object Configuration {

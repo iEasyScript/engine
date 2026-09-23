@@ -5,6 +5,7 @@ plugins {
     // and the Kotlin version comes from the shared version catalog (2.3.20). Only the
     // engine-specific plugins are declared here.
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.compose)
     id("com.gradleup.shadow") version "9.3.1"
 }
 
@@ -24,7 +25,14 @@ application {
     applicationDefaultJvmArgs = listOf("--enable-preview")
 }
 
+// The engine ships as the shadow jar, never as an application archive. Compose also has two artifacts that share
+// the file name runtime-saveable-desktop-1.12.1.jar (androidx and org.jetbrains), and those can't both go in one lib/.
+tasks.named("distZip") { enabled = false }
+tasks.named("distTar") { enabled = false }
+
 // repositories are declared centrally by the root `allprojects {}` block (mavenLocal + mavenCentral).
+// Compose's androidx dependencies are published only to Google's repository.
+repositories { google() }
 
 dependencies {
     // Shared networking protocol (packet opcodes/sizes/names + structured codecs + Isaac) lives in
@@ -56,6 +64,11 @@ dependencies {
     // The input recorder owns its own database. :core declares the same driver as `implementation`, so it is
     // only on the runtime classpath here.
     implementation(libs.sqlite.jdbc)
+
+    // The overlay's panels are Compose, rendered offscreen by Skia and drawn through the ImGui hook as a texture.
+    implementation(libs.compose.desktop)
+    runtimeOnly(libs.skiko.runtime.windows.x64)
+    runtimeOnly(libs.skiko.runtime.linux.x64)
 
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")

@@ -9,8 +9,10 @@ import com.projectx.game.nxt.interfaces.InspectedComponent
 import com.projectx.game.nxt.interfaces.InterfaceInspector
 import com.projectx.game.nxt.interfaces.InterfacePick
 import com.projectx.game.nxt.interfaces.ScreenRect
-import com.projectx.ui.UI
 import com.projectx.ui.UIState
+import com.projectx.ui.compose.ComposeOverlay
+import com.projectx.ui.compose.OverlayNavigation
+import com.projectx.ui.compose.Page
 import com.projectx.ui.backend.dsl.ImGuiDsl.backgroundDrawList
 import com.projectx.ui.backend.dsl.scopes.BackgroundDrawListScope
 import com.projectx.ui.backend.native.NativeBridge
@@ -35,7 +37,7 @@ object InterfaceDebugHighlightRenderer {
     @JvmStatic
     @ImGUIRender(priority = Priority.LOW)
     fun render() {
-        if (!UIState.showMainWindow.value || UIState.selectedTab != UI.Tab.INTERFACE_DEBUG) {
+        if (!ComposeOverlay.visible || OverlayNavigation.page != Page.Interfaces) {
             InterfacePick.cancel()
             return
         }

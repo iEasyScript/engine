@@ -1,5 +1,6 @@
 package com.projectx.ui.backend.rendering
 
+import com.projectx.script.LiveValues
 import com.projectx.script.ScriptExecutor
 
 /**
@@ -34,6 +35,7 @@ object UiFrameProducer {
         try {
             ScriptExecutor.activeScripts.forEach { script ->
                 try {
+                    LiveValues.refresh(script)
                     CommandRenderer.withCapture(target) { script.render() }
                 } catch (t: Throwable) {
                     println("Error in script render ${script.javaClass.simpleName}: ${t.message}")

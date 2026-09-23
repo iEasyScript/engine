@@ -12,6 +12,8 @@ fastutil = "8.5.18"
 classgraph = "4.8.184"
 sqlite-jdbc = "3.53.2.0"
 commons-compress = "1.27.1"
+compose-multiplatform = "1.12.1"
+skiko = "0.150.1"
 
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
@@ -38,7 +40,11 @@ fastutil = { module = "it.unimi.dsi:fastutil", version.ref = "fastutil" }
 classgraph = { module = "io.github.classgraph:classgraph", version.ref = "classgraph" }
 sqlite-jdbc = { module = "org.xerial:sqlite-jdbc", version.ref = "sqlite-jdbc" }
 commons-compress = { module = "org.apache.commons:commons-compress", version.ref = "commons-compress" }
+compose-desktop = { module = "org.jetbrains.compose.desktop:desktop", version.ref = "compose-multiplatform" }
+skiko-runtime-windows-x64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-windows-x64", version.ref = "skiko" }
+skiko-runtime-linux-x64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-linux-x64", version.ref = "skiko" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

@@ -1,5 +1,6 @@
 package com.projectx.quest.editor
 
+import com.projectx.ui.backend.dsl.ImGuiState
 import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.math.Vector2f
 import com.projectx.game.math.Vector3f
@@ -19,10 +20,8 @@ import com.projectx.script.event.Event
 import com.projectx.script.event.impl.ManualDoAction
 import com.projectx.script.event.impl.ManualGroundItem
 import com.projectx.script.event.impl.ManualItemTarget
-import com.projectx.ui.backend.dsl.boolState
-import com.projectx.ui.backend.dsl.intState
-import com.projectx.ui.backend.dsl.stringState
 import com.projectx.ui.backend.native.NativeBridge
+import com.projectx.ui.setting
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -33,22 +32,22 @@ import java.util.concurrent.atomic.AtomicBoolean
  * clicks Save (which calls [QuestLibrary.saveQuest] and reloads).
  */
 object QuestEditorState {
-    val windowOpen = boolState(false)
+    val windowOpen: ImGuiState<Boolean> = setting(false)
 
     @Volatile var draft: MutableQuest? = null
         private set
 
-    val selectedStepIndex = intState(0)
+    val selectedStepIndex: ImGuiState<Int> = setting(0)
 
     /** True while any entity/tile pick is armed; drives the pick overlay and prompts. */
-    val pickMode = boolState(false)
-    val pickPrompt = stringState("", 64)
+    val pickMode: ImGuiState<Boolean> = setting(false)
+    val pickPrompt: ImGuiState<String> = setting("")
 
     /** Kinds the active pick accepts; read by [TilePickOverlay] to decide whether to draw. */
     @Volatile var pendingAccepts: Set<PickKind> = emptySet()
         private set
 
-    val saveStatus = stringState("", 256)
+    val saveStatus: ImGuiState<String> = setting("")
 
     @Volatile var lastSavedFile: File? = null
         private set

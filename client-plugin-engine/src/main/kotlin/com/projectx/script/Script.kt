@@ -1,5 +1,6 @@
 package com.projectx.script
 
+import androidx.compose.runtime.State
 import org.projectx.core.game.skill.Skill
 import com.projectx.game.chat.MessageType
 import com.projectx.script.event.Event
@@ -155,6 +156,15 @@ abstract class Script {
     open fun onEvent(event: Event) {}
 
     open fun render() {}
+
+    /**
+     * A value read from the game on the game thread every [everyMillis] while this script runs, for a
+     * [ComposePanel] to display. A panel draws on the render thread and must never read the game itself:
+     * `val xp by live(0) { getXp(Skill.MINING) }` reads on the right thread and updates the panel when it changes.
+     */
+    @JvmOverloads
+    fun <T> live(initial: T, everyMillis: Long = 250, read: () -> T): State<T> =
+        LiveValues.register(this, initial, everyMillis, read)
 
     fun _processEvent(event: Event) {
         onEvent(event)
