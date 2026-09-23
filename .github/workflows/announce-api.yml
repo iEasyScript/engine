@@ -1,0 +1,118 @@
+# Announces a release on Discord: its highlights, and what changed in the script API.
+#
+# The engine is closed source but its script API is not a secret: the same
+# signatures ship to script authors in every script-api release. So announcing
+# what moved tells people what they already hold, sooner - and nothing else,
+# because only public members of public types in the packages scripts import
+# are ever read out of the jar.
+#
+# The release workflow calls this after publishing. It can also be run by hand
+# for a release that was already out, to announce it again or with better
+# highlights than its tag message; the highlights otherwise come from the tag.
+#
+# Skipped silently when no webhook is configured, so a fork does not fail here.
+name: announce-api
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release to announce, without the v (e.g. 1.0.45)"
+        required: true
+        type: string
+      notes:
+        description: "Highlights in Markdown, instead of the tag message"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  announce:
+    runs-on: ubuntu-latest
+    # At job level so the posting step's `if` can see whether one is configured;
+    # a step cannot read its own env there.
+    env:
+      DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+      VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      # This repository's own releases, not the public distribution one: the jar is
+      # the same artifact and the default token already reaches it, so no
+      # cross-repository credential is needed just to read what we published.
+      - name: Fetch this release's engine jar and the one before it
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -eu
+          mkdir -p apidiff
+          gh release download "v$VERSION" -p "projectx-engine-$VERSION.jar" -D apidiff
+          # The release before this one, in release order rather than by name, so
+          # 1.0.9 does not sort after 1.0.10 - and so announcing an older release
+          # again compares it with its own predecessor, not with the newest.
+          PREV=$(gh release list --limit 100 --json tagName \
+                   | jq -r --arg v "v$VERSION" \
+                       '[.[].tagName | select(test("^v[0-9]"))] | (index($v) // -1) as $i
+                        | if $i >= 0 then (.[$i + 1] // "") else "" end')
+          if [ -n "$PREV" ]; then
+            echo "previous release: $PREV"
+            gh release download "$PREV" -p "projectx-engine-${PREV#v}.jar" -D apidiff || true
+            echo "PREV=${PREV#v}" >> "$GITHUB_ENV"
+          else
+            echo "no earlier release; reporting a baseline"
+          fi
+          ls -la apidiff
+      - name: Read the highlights
+        env:
+          NOTES: ${{ inputs.notes }}
+        run: |
+          set -eu
+          if [ -n "${NOTES:-}" ]; then
+            printf '%s\n' "$NOTES" > notes.md
+          else
+            # The checkout may hold the tag without its message, so fetch the tag object itself.
+            git fetch --depth=1 --force origin "refs/tags/v$VERSION:refs/tags/v$VERSION"
+            git tag -l --format='%(contents:body)' "v$VERSION" > notes.md
+          fi
+          cat notes.md
+      - name: Write the announcement
+        run: |
+          set -eu
+          OLD="apidiff/projectx-engine-${PREV:-none}.jar"
+          python3 .github/scripts/api_changelog.py \
+            ${PREV:+--old "$OLD" --old-version "$PREV"} \
+            --new "apidiff/projectx-engine-$VERSION.jar" --version "$VERSION" \
+            --notes notes.md --link "https://github.com/iEasyScript/launcher/releases/tag/v$VERSION" \
+            --out api-changes.md --discord discord.json
+      - name: Post it to Discord
+        if: env.DISCORD_WEBHOOK_URL != ''
+        run: |
+          set -eu
+          # wait=true makes Discord answer with the message or the reason it was refused,
+          # so a rejected announcement fails the run instead of vanishing.
+          code=$(curl -sS -o response.json -w '%{http_code}' -X POST \
+                   -H 'Content-Type: application/json' --data-binary @discord.json \
+                   "$DISCORD_WEBHOOK_URL?wait=true")
+          if [ "$code" -ge 300 ]; then
+            echo "Discord refused the announcement (HTTP $code):"
+            cat response.json
+            exit 1
+          fi
+          echo "posted (HTTP $code)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: api-changes
+          path: |
+            api-changes.md
+            discord.json
+          retention-days: 30
