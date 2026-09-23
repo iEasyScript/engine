@@ -6,7 +6,20 @@ server, a Rust launcher + runtime patcher, and a C++/Kotlin injection engine.
 This document is **setup only** — how to get from a fresh machine to a running stack. For
 architecture, the agent roster, and the reverse-engineering workflow, see [`CLAUDE.md`](CLAUDE.md).
 
-> **Discord:** https://discord.gg/xZnszEdHdp
+> **Discord:** https://discord.gg/UUwfkXFcub
+
+## Licence and provenance
+
+Project X is derived from [project-undercut/engine](https://gitlab.com/project-undercut/engine) and is
+licensed under the **GNU General Public License, version 3** — the full text is in
+[`LICENSE`](LICENSE). It is the same licence the work it derives from carries, and it carries forward to
+anything built from this repository.
+
+This repository, together with its `re-resources` submodule
+([iEasyScript/reclass-data](https://github.com/iEasyScript/reclass-data)), is the Corresponding Source
+for every binary distributed through the Project X launcher — the engine jar, the supervisor, the native
+bootstrap and the launcher itself. Both are required to build: the release pipeline asserts the submodule
+is populated before it will produce a jar.
 
 ---
 
