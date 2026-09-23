@@ -10,6 +10,10 @@
 # for a release that was already out, to announce it again or with better
 # highlights than its tag message; the highlights otherwise come from the tag.
 #
+# Run by hand with no version, it announces an update that has no engine
+# release - a script, a script-api release, the docs - from a title and notes
+# alone, in the same style.
+#
 # Skipped silently when no webhook is configured, so a fork does not fail here.
 name: announce-api
 
@@ -22,8 +26,16 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Release to announce, without the v (e.g. 1.0.45)"
-        required: true
+        description: "Engine release to announce, without the v (e.g. 1.0.45); empty for an update without one"
+        required: false
+        type: string
+      title:
+        description: "Title, instead of Project X <version>; needed when there is no version"
+        required: false
+        type: string
+      link:
+        description: "Where the update can be found, when there is no version"
+        required: false
         type: string
       notes:
         description: "Highlights in Markdown, instead of the tag message"
@@ -43,7 +55,8 @@ jobs:
       VERSION: ${{ inputs.version }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - if: env.VERSION != ''
+        uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '21'
@@ -51,6 +64,7 @@ jobs:
       # the same artifact and the default token already reaches it, so no
       # cross-repository credential is needed just to read what we published.
       - name: Fetch this release's engine jar and the one before it
+        if: env.VERSION != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -77,7 +91,7 @@ jobs:
           NOTES: ${{ inputs.notes }}
         run: |
           set -eu
-          if [ -n "${NOTES:-}" ]; then
+          if [ -n "${NOTES:-}" ] || [ -z "$VERSION" ]; then
             printf '%s\n' "$NOTES" > notes.md
           else
             # The checkout may hold the tag without its message, so fetch the tag object itself.
@@ -86,8 +100,16 @@ jobs:
           fi
           cat notes.md
       - name: Write the announcement
+        env:
+          TITLE: ${{ inputs.title }}
+          LINK: ${{ inputs.link }}
         run: |
           set -eu
+          if [ -z "$VERSION" ]; then
+            python3 .github/scripts/api_changelog.py --title "$TITLE" --notes notes.md \
+              ${LINK:+--link "$LINK"} --out api-changes.md --discord discord.json
+            exit 0
+          fi
           OLD="apidiff/projectx-engine-${PREV:-none}.jar"
           python3 .github/scripts/api_changelog.py \
             ${PREV:+--old "$OLD" --old-version "$PREV"} \

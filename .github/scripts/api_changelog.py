@@ -291,9 +291,10 @@ def listing(items: list[str], limit: int = 1000, sep: str = " · ") -> str:
     return text
 
 
-def announcement(version: str, previous: str | None, notes: str, changes, link: str | None) -> dict:
+def announcement(version: str, previous: str | None, notes: str, changes, link: str | None,
+                 title: str | None = None) -> dict:
     highlights = {
-        "title": f"Project X {version}",
+        "title": title or f"Project X {version}",
         "description": (unwrap(notes) or "A new engine build is out.")[:3800],
         "color": AMBER,
     }
@@ -372,21 +373,30 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--old", type=Path, help="previous engine jar; omitted means a first release")
     ap.add_argument("--old-version", help="the previous release's version, for the footer")
-    ap.add_argument("--new", type=Path, required=True)
-    ap.add_argument("--version", required=True)
+    ap.add_argument("--new", type=Path, help="this release's engine jar; omitted posts the highlights alone")
+    ap.add_argument("--version", help="the engine release; omitted posts the highlights alone")
+    ap.add_argument("--title", help="the announcement's title, instead of Project X <version>")
     ap.add_argument("--notes", type=Path, help="the release's highlights, usually the tag message")
     ap.add_argument("--link", help="where the release can be downloaded")
     ap.add_argument("--out", type=Path, help="write the announcement as Markdown here")
     ap.add_argument("--discord", type=Path, help="write the Discord webhook payload here")
     args = ap.parse_args()
 
-    new_sigs = signatures(args.new, api_classes(args.new))
-    has_old = bool(args.old and args.old.exists())
-    old_sigs = signatures(args.old, api_classes(args.old)) if has_old else {}
     notes = args.notes.read_text(encoding="utf-8") if args.notes and args.notes.exists() else ""
-    previous = (args.old_version or "the previous release") if has_old else None
-
-    payload = announcement(args.version, previous, notes, describe(old_sigs, new_sigs), args.link)
+    if not (args.new and args.version):
+        # An update without an engine release - a script, the launcher, a script-api doc - has no API
+        # to compare, so it is announced with its highlights alone, in the same style.
+        if not (args.title and notes.strip()):
+            ap.error("without --new and --version, both --title and --notes are needed")
+        payload = {"embeds": [{"title": args.title, "description": unwrap(notes)[:3800], "color": AMBER}]}
+        if args.link:
+            payload["embeds"][0]["url"] = args.link
+    else:
+        new_sigs = signatures(args.new, api_classes(args.new))
+        has_old = bool(args.old and args.old.exists())
+        old_sigs = signatures(args.old, api_classes(args.old)) if has_old else {}
+        previous = (args.old_version or "the previous release") if has_old else None
+        payload = announcement(args.version, previous, notes, describe(old_sigs, new_sigs), args.link, args.title)
     payload["allowed_mentions"] = {"parse": []}
 
     text = markdown(payload)
