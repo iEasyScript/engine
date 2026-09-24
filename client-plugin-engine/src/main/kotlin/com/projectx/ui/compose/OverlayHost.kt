@@ -13,6 +13,7 @@ object OverlayHost {
     private var wasDown = false
 
     fun drawFrame(commands: List<ImGuiCommand>) {
+        OverlayModels.prepare()
         HudHost.update(commands)
         Snapshot.sendApplyNotifications()
         OverlayClock.tick()

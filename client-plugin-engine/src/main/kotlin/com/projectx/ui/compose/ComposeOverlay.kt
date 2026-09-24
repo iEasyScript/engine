@@ -34,6 +34,8 @@ object ComposeOverlay {
     private var height = DEFAULT_HEIGHT
     private var boundsLoaded = false
 
+    private var failures = 0
+
     private var dragAnchor: Offset? = null
     private var resizeAnchor: Offset? = null
 
@@ -48,8 +50,29 @@ object ComposeOverlay {
         followDrag()
         followResize()
         val (mx, my) = NativeBridge.getMousePos()
-        surface.render(width, height, Offset(mx - x, my - y), NativeBridge.isMouseDown(PRIMARY), wheel)
+        try {
+            surface.render(width, height, Offset(mx - x, my - y), NativeBridge.isMouseDown(PRIMARY), wheel)
+        } catch (t: Throwable) {
+            rebuildAfter(t)
+            return
+        }
         present()
+    }
+
+    /**
+     * Drawing the panel threw. Compose cancels a scene's recomposer when composition throws, so the scene would keep
+     * showing its last frame and never react again; it is thrown away instead and the next frame builds a fresh one.
+     * The first failure is logged in full, repeats in one line, so a panel that keeps failing cannot flood the log.
+     */
+    private fun rebuildAfter(t: Throwable) {
+        surface.dispose()
+        failures++
+        if (failures == 1) {
+            println("[Overlay] The panel threw while drawing and was rebuilt: ${t::class.simpleName}: ${t.message}")
+            t.printStackTrace()
+        } else {
+            println("[Overlay] The panel threw again ($failures times) and was rebuilt: ${t::class.simpleName}: ${t.message}")
+        }
     }
 
     /** Starts moving the panel with the mouse; called by the header when it is pressed. */

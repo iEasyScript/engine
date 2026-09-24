@@ -3,6 +3,9 @@ package com.projectx.ui.compose
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.projectx.markers.TileMarkerState
+import com.projectx.quest.editor.QuestEditorState
+import com.projectx.ui.UIState
 import com.projectx.ui.compose.library.LibraryModel
 import com.projectx.ui.compose.screens.Cs2Model
 import com.projectx.ui.compose.screens.EffectsModel
@@ -78,9 +81,34 @@ class Feed<T>(private val intervalMs: Long, private val produce: () -> T) {
 
 /** Runs on the main-logic thread each frame: queued panel work, settings upkeep, and the showing screen's data. */
 object OverlayModels {
+    /** Whether the render thread has created the screens' state yet; see [prepare]. */
+    @Volatile private var prepared = false
+
+    /**
+     * Creates every screen's state on the render thread, before anything composes. Render thread only.
+     *
+     * A Compose state is only readable from snapshots taken after it was created. Were a screen's state created on the
+     * game thread - its model first touched by [refresh] - while the render thread was mid-recomposition, that
+     * recomposition would read a state newer than its snapshot and throw, and the panel would stop responding. So the
+     * models are created here, and the game thread leaves them alone until they have been.
+     */
+    fun prepare() {
+        if (prepared) return
+        listOf(
+            UIState, TileMarkerState, QuestEditorState, OverlayNavigation, OverlayKeyboard, OverlayClock, LibraryModel,
+            StoreModel, QuestsModel, XpModel, InventoryModel, EffectsModel, InventionModel, FarmingModel, EntitiesModel,
+            TileMarkersModel, LogsModel, PacketLogModel, InputRecordingModel, VariablesModel, InterfacesModel, Cs2Model,
+            SettingsModel, QuestEditorModel,
+        )
+        prepared = true
+    }
+
     fun refresh() {
-        GameThread.drain()
+        // Settings upkeep (MCP, the packet recorder) has to run whether or not the overlay is drawn. The Settings page
+        // is the only reader of SettingsModel, and nothing can open it before the render thread's first frame.
         SettingsModel.reconcile()
+        if (!prepared) return
+        GameThread.drain()
         QuestEditorModel.refresh()
         if (!ComposeOverlay.visible) return
         LibraryModel.refresh()

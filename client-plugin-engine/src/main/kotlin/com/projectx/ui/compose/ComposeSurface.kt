@@ -78,6 +78,10 @@ class ComposeSurface(private val name: String, private val content: @Composable 
     fun dispose() {
         scene?.close()
         scene = null
+        // A new scene has seen no press or hover yet; carried over, the first frame would send it a stray release.
+        pressed = false
+        inside = false
+        lastPointer = Offset.Unspecified
         texture?.destroy()
         texture = null
         pixels?.close()
