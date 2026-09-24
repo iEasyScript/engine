@@ -1618,9 +1618,9 @@
         "verified_build": "950-1-vulkan"
       },
       "GRAPHIC_ID": {
-        "value": "0x1cc",
-        "confidence": "HIGH",
-        "note": "Same as the OpenGL 950-1 client: 31 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
+        "value": "0x188",
+        "confidence": "CERTAIN",
+        "note": "Sprite id of the graphic-class component, a dword the engine reads as an unsigned short (0xffff = no graphic). Live-validated on 950-1 Windows (Vulkan): on every graphic-class component (vtable ...76330) of the dungeon map 942, static and cc_create children alike, +0x188 (mirrored at +0x190) held a real sprite whose gameval name matched what is drawn - 2831 rand_map_room_special_0 (start room), 2794/2802 rand_map_rooms_off_7/15, 35884/35885 rand_map_rooms_unknown_1/2, 18263 rs3_icon_slot_6 - while +0x1cc held -1 on all of them and non-sprite values (655624, 327685) on the rect class. Was 0x1cc, which read -1 for every sprite and left every graphicId consumer blind. Only meaningful on the graphic class.",
         "verified_build": "950-1-vulkan"
       },
       "STATIC_CHILDREN": {

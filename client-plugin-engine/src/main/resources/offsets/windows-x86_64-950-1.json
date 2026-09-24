@@ -1618,9 +1618,9 @@
         "verified_build": "950-1"
       },
       "GRAPHIC_ID": {
-        "value": "0x1cc",
-        "confidence": "HIGH",
-        "note": "Sprite/Graphic subclass sprite id, read as a dword. The graphic draw FUN_0028b980 (vtable slot +0x38 of the type-3 vtable) takes [comp+0x1cc] only when itemId 0x1b8 is -1, treats -1 here as no-graphic, and otherwise resolves a sprite by that numeric id. Reading it as an unsigned short keeps the 0xffff sentinel. UNION: overlaps the model subclass MODEL_OBJECT at 0x1c8. Was 0x150.",
+        "value": "0x188",
+        "confidence": "CERTAIN",
+        "note": "Sprite id of the graphic-class component, a dword the engine reads as an unsigned short (0xffff = no graphic). Live-validated on 950-1 Windows (Vulkan): on every graphic-class component (vtable ...76330) of the dungeon map 942, static and cc_create children alike, +0x188 (mirrored at +0x190) held a real sprite whose gameval name matched what is drawn - 2831 rand_map_room_special_0 (start room), 2794/2802 rand_map_rooms_off_7/15, 35884/35885 rand_map_rooms_unknown_1/2, 18263 rs3_icon_slot_6 - while +0x1cc held -1 on all of them and non-sprite values (655624, 327685) on the rect class. Was 0x1cc, which read -1 for every sprite and left every graphicId consumer blind. Only meaningful on the graphic class.",
         "verified_build": "950-1"
       },
       "STATIC_CHILDREN": {
