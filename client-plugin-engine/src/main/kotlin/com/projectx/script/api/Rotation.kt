@@ -1,6 +1,8 @@
 package com.projectx.script.api
 
 import com.projectx.game.input.Key
+import org.projectx.core.game.combat.AbilityType
+import org.projectx.core.game.combat.Effect
 import java.util.function.BooleanSupplier
 
 enum class CombatStyle { NECROMANCY, MELEE, RANGED, MAGIC }
@@ -298,8 +300,24 @@ class RotationManager @JvmOverloads constructor(
  */
 fun abilityUsable(name: String): Boolean {
     val ability = actionBarAbility(name) ?: return false
-    return ability.cooldownTicksIgnoreGCD() <= 1.0 && adrenaline >= ability.adrenalineReq
+    return ability.cooldownTicksIgnoreGCD() <= 1.0 && adrenaline >= adrenalineCost(ability)
 }
+
+/**
+ * The adrenaline, in percent, [ability] costs right now. The cache stores costs in tenths of a percent, and
+ * Finger of Death is 10% cheaper for each necrosis stack it will consume.
+ */
+private fun adrenalineCost(ability: AbilityType): Double {
+    val cost = ability.adrenalineReq / ADRENALINE_UNITS_PER_PERCENT
+    if (ability.structId != FINGER_OF_DEATH_STRUCT) return cost
+    val discount = Effect.NECROSIS.stacks.coerceAtMost(FINGER_MAX_NECROSIS) * ADRENALINE_PER_NECROSIS
+    return (cost - discount).coerceAtLeast(0.0)
+}
+
+private const val ADRENALINE_UNITS_PER_PERCENT = 10.0
+private const val FINGER_OF_DEATH_STRUCT = 48297
+private const val FINGER_MAX_NECROSIS = 6
+private const val ADRENALINE_PER_NECROSIS = 10.0
 
 /** Equips the inventory item named [name] with whichever of Wield, Wear or Equip it offers. */
 fun equipFromInventory(name: String): Boolean {
