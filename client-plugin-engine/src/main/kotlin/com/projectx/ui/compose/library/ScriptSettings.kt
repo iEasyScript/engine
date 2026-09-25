@@ -7,8 +7,11 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateMapOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -29,15 +32,20 @@ import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
 import com.projectx.script.StringConfigItem
 import com.projectx.ui.compose.OverlayClock
+import com.projectx.ui.compose.OverlayKeyboard
 import com.projectx.ui.compose.OverlayText
 import com.projectx.ui.compose.components.ActionButton
 import com.projectx.ui.compose.components.Divider
 import com.projectx.ui.compose.components.Dropdown
+import com.projectx.ui.compose.components.Glyph
+import com.projectx.ui.compose.components.GlyphIcon
 import com.projectx.ui.compose.components.Hint
 import com.projectx.ui.compose.components.NumberInput
 import com.projectx.ui.compose.components.SettingRow
 import com.projectx.ui.compose.components.TextInput
 import com.projectx.ui.compose.components.Toggle
+import com.projectx.ui.compose.components.press
+import com.projectx.ui.compose.components.rememberHover
 import com.projectx.ui.compose.theme.LocalType
 import com.projectx.ui.compose.theme.Palette
 
@@ -112,19 +120,20 @@ fun ScriptSettingsView(meta: ScriptMetadata) {
     OverlayClock.nowSeconds
 
     val items = ScriptSettings.items(script)
-    val type = LocalType.current
+    val collapsed = remember(meta.scriptClass.name) { mutableStateMapOf<String, Boolean>() }
     Column(verticalArrangement = Arrangement.spacedBy(14.dp)) {
         if (items.none { it.second !is ConfigSection }) Hint("This script has nothing to set.")
+        var sectionOpen = true
         items.forEach { (name, item) ->
+            if (item !is ConfigSection && !sectionOpen) return@forEach
             when (item) {
                 is ConfigSection -> {
-                    Column(Modifier.padding(top = 6.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
-                        BasicText(item.name.uppercase(), style = type.eyebrow)
-                        Divider()
-                    }
+                    sectionOpen = !(collapsed[item.name] ?: !item.defaultOpen)
+                    val open = sectionOpen
+                    SectionHeader(item.name, open) { collapsed[item.name] = open }
                 }
                 is InfoDisplayConfigItem -> SettingRow(item.name, item.description) {
-                    BasicText(item.value.ifEmpty { "-" }, style = type.data.copy(color = Palette.text))
+                    InfoValue(item)
                     ItemAction(script, item)
                 }
                 else -> SettingRow(item.name, item.description) {
@@ -144,6 +153,9 @@ fun ScriptSettingsView(meta: ScriptMetadata) {
 @Suppress("UNCHECKED_CAST")
 @Composable
 private fun ItemControl(script: ConfigurableScript, fieldName: String, item: ConfigItem<*>) {
+    // The same script and item arrive on every redraw, so Compose would skip this; reading the revision here is
+    // what makes an edit (a step button, a toggle, a reset) show up.
+    ScriptSettings.revision
     fun set(value: Any?) {
         (item as ConfigItem<Any?>).value = value
         ScriptSettings.changed(script)
@@ -152,8 +164,18 @@ private fun ItemControl(script: ConfigurableScript, fieldName: String, item: Con
         is BooleanConfigItem -> Toggle(item.value) { set(it) }
         is IntConfigItem -> NumberInput(item.value, { set(it) }, item.min..item.max, width = 150.dp)
         is StringConfigItem -> {
+            // The setting is a plain field Compose cannot watch, so the field shows a state copy that typing updates.
+            var shown by remember(script, fieldName) { mutableStateOf(item.value) }
             val field = remember(script, fieldName) {
-                OverlayText(read = { item.value }, write = { item.value = it }, maxLength = 256, onDone = { ScriptSettings.changed(script) })
+                OverlayText(
+                    read = { shown },
+                    write = { shown = it; item.value = it },
+                    maxLength = 256,
+                    onDone = { ScriptSettings.changed(script) },
+                )
+            }
+            LaunchedEffect(ScriptSettings.revision) {
+                if (OverlayKeyboard.focused !== field) shown = item.value
             }
             TextInput(field, "", 220.dp)
         }
@@ -173,4 +195,23 @@ private fun ItemAction(script: ConfigurableScript, item: ConfigItem<*>) {
             ScriptSettings.changed(script)
         }
     }, height = 32.dp)
+}
+
+@Composable
+private fun SectionHeader(name: String, open: Boolean, onToggle: () -> Unit) {
+    val hover = rememberHover()
+    Column(Modifier.padding(top = 6.dp).press(hover, onToggle), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            GlyphIcon(if (open) Glyph.ChevronDown else Glyph.ChevronRight, if (hover.hovered) Palette.text else Palette.muted, 10.dp)
+            BasicText(name.uppercase(), style = LocalType.current.eyebrow)
+        }
+        Divider()
+    }
+}
+
+@Composable
+private fun InfoValue(item: InfoDisplayConfigItem) {
+    ScriptSettings.revision
+    OverlayClock.nowSeconds
+    BasicText(item.value.ifEmpty { "-" }, style = LocalType.current.data.copy(color = Palette.text))
 }
