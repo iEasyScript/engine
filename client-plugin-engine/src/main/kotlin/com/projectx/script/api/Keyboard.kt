@@ -49,9 +49,8 @@ private suspend fun Script.strike(stroke: Keystroke) {
 
 internal class Keystroke(val key: Int, val char: Int?, val shift: Boolean) {
     companion object {
-        /** Windows reports either shift key as the generic `VK_SHIFT` in the key message, not the side-specific code. */
         val SHIFT: Int
-            get() = if (Platform.current == Platform.WINDOWS) 0x10 else Key.LSHIFT.native
+            get() = Key.LSHIFT.native
 
         fun of(char: Char): Keystroke? {
             val key = Key.forChar(char) ?: return null

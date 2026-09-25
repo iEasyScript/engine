@@ -115,13 +115,15 @@ enum class Key(private val sdl: Int, private val virtualKey: Int) {
     SELECT(0x40000077, 0x29),
     CLEAR(0x4000009C, 0xC),
     CANCEL(0x4000009B, 0x3),
-    LCTRL(0x400000E0, 0xA2),
-    LSHIFT(0x400000E1, 0xA0),
-    LALT(0x400000E2, 0xA4),
+    // The WndProc forwards wParam untouched, and Windows only ever puts the side-neutral VK_CONTROL,
+    // VK_SHIFT or VK_MENU there: the side-specific codes never reach the client, which drops them.
+    LCTRL(0x400000E0, 0x11),
+    LSHIFT(0x400000E1, 0x10),
+    LALT(0x400000E2, 0x12),
     LGUI(0x400000E3, 0x5B),
-    RCTRL(0x400000E4, 0xA3),
-    RSHIFT(0x400000E5, 0xA1),
-    RALT(0x400000E6, 0xA5),
+    RCTRL(0x400000E4, 0x11),
+    RSHIFT(0x400000E5, 0x10),
+    RALT(0x400000E6, 0x12),
     RGUI(0x400000E7, 0x5C),
     MUTE(0x4000007F, 0xAD),
     VOLUMEUP(0x40000080, 0xAF),
@@ -132,7 +134,8 @@ enum class Key(private val sdl: Int, private val virtualKey: Int) {
     val native: Int get() = if (Platform.current == Platform.WINDOWS) virtualKey else sdl
 
     companion object {
-        private val byNative: Map<Int, Key> by lazy { entries.associateBy { it.native } }
+        /** Left and right modifiers share one Windows code; the left key, declared first, names it. */
+        private val byNative: Map<Int, Key> by lazy { entries.distinctBy { it.native }.associateBy { it.native } }
 
         @JvmStatic
         fun fromNative(code: Int): Key? = byNative[code]
