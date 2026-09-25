@@ -30,16 +30,8 @@ class Bank {
 
         @JvmStatic
         fun fetchBankArray(componentId: Int): ArrayList<InterfaceComponent> {
-            val bankItems = interfaces.getComponent(BANK_INTERFACE_ID, componentId)
-            val bankChildren = bankItems?.slotChildren
-            val res = ArrayList<InterfaceComponent>()
-            if (bankChildren?.size!! > 0) {
-                for (c in bankChildren) {
-                    if (c.itemId > 0 && c.stackSize > 0)
-                        res.add(c)
-                }
-            }
-            return res
+            val children = interfaces.getComponent(BANK_INTERFACE_ID, componentId)?.slotChildren.orEmpty()
+            return children.filterTo(ArrayList()) { it.itemId > 0 && it.stackSize > 0 }
         }
 
         @JvmStatic
