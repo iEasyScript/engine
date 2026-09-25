@@ -31,6 +31,24 @@ fun abilityNamed(name: String): AbilityType? = actionBarAbility(name) ?: Ability
 /** The buff or debuff named [name], or null when the game has none by that name. */
 fun effectNamed(name: String): EffectType? = EffectRegistry.all.firstOrNull { matches(it.name, name) }
 
+/**
+ * Ticks until the ability named [name] can be used again, counting the global cooldown unless [ignoreGCD]; 0 when
+ * it is ready or the game has no ability by that name. Fractions are part-ticks, so 0.5 is 300 ms.
+ */
+@JvmOverloads
+fun abilityCooldownTicks(name: String, ignoreGCD: Boolean = false): Double {
+    val ability = abilityNamed(name) ?: return 0.0
+    return if (ignoreGCD) ability.cooldownTicksIgnoreGCD() else ability.cooldownTicks()
+}
+
+/** Milliseconds until the ability named [name] can be used again; see [abilityCooldownTicks]. */
+@JvmOverloads
+fun abilityCooldownMillis(name: String, ignoreGCD: Boolean = false): Long =
+    (abilityCooldownTicks(name, ignoreGCD) * AbilityType.MS_PER_TICK).toLong()
+
+/** Whether the ability named [name] is cooling down. Only its own cooldown counts, not the global one. */
+fun abilityOnCooldown(name: String): Boolean = abilityCooldownTicks(name, ignoreGCD = true) > AbilityType.OFF_CD_THRESHOLD
+
 /** Clicks [ability] on the action bar. False when it is not on a bar or the click did not go through. */
 fun castAbility(ability: AbilityType): Boolean = actionbarAbilities[ability]?.click(1) == true
 

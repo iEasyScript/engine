@@ -1,8 +1,19 @@
 package org.projectx.core.game.combat
 
+import world.gregs.voidps.gameval.Gameval
+import java.util.concurrent.ConcurrentHashMap
+
+/**
+ * The client var holding the cycle each ability's cooldown ends on. The game names these
+ * `combatv2_cooldown_<skill>_<ability>_end_client`, so abilities missing from the table are matched to one by name;
+ * the table holds the ones whose var is named differently (Dive shares Bladed Dive's) and pins the rest.
+ */
 object AbilityCooldownVarcs {
     private val endVarcByStruct: Map<Int, Int> = mapOf(
         1488 to 6038,
+        47129 to 6038,
+        14726 to 2194,
+        14665 to 2172,
         14663 to 2168,
         14664 to 2170,
         14666 to 2174,
@@ -87,7 +98,38 @@ object AbilityCooldownVarcs {
         52799 to 8391,
     )
 
-    fun endVarc(structId: Int): Int = endVarcByStruct[structId] ?: -1
+    /** The client var [structId]'s cooldown end cycle is kept in, or -1 when the game keeps none for it. */
+    fun endVarc(structId: Int): Int = endVarcByStruct[structId] ?: endVarcNamed(structId)
+
+    private val namedEndVarcs = ConcurrentHashMap<Int, Int>()
+
+    private val endVarcByAbility: Map<String, Int> by lazy {
+        val found = HashMap<String, MutableList<Int>>()
+        for ((varc, name) in Gameval.entries(Gameval.VAR_CLIENT)) {
+            val ability = COOLDOWN_END.matchEntire(name)?.groupValues?.get(1) ?: continue
+            found.getOrPut(ability) { mutableListOf() } += varc
+        }
+        found.filterValues { it.size == 1 }.mapValues { it.value.single() }
+    }
+
+    private fun endVarcNamed(structId: Int): Int {
+        namedEndVarcs[structId]?.let { return it }
+        val name = AbilityType(structId).name
+        if (name.isBlank()) return -1
+        val varc = slugs(name).firstNotNullOfOrNull { endVarcByAbility[it] } ?: -1
+        namedEndVarcs[structId] = varc
+        return varc
+    }
+
+    private fun slugs(name: String): List<String> {
+        val plain = name.replace("<nbsp>", " ").lowercase()
+        return listOf(plain.replace("'", ""), plain.replace("'s", ""))
+            .map { it.replace(NON_WORD, "_").trim('_') }
+            .distinct()
+    }
+
+    private val COOLDOWN_END = Regex("combatv2_cooldown_[a-z]+_(.+)_end_client")
+    private val NON_WORD = Regex("[^a-z0-9]+")
 
     val structByEndVarc: Map<Int, Int> by lazy {
         endVarcByStruct.entries.associate { (struct, varc) -> varc to struct }
