@@ -1,5 +1,17 @@
 package com.projectx.script
 
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.booleanOrNull
+import kotlinx.serialization.json.contentOrNull
+import kotlinx.serialization.json.intOrNull
+import kotlinx.serialization.json.jsonObject
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+import java.util.concurrent.ConcurrentHashMap
+
 interface ConfigItem<T> {
     val name: String
     val description: String
@@ -99,52 +111,87 @@ class ConfigSection @JvmOverloads constructor(
     override var value: Unit = Unit
 }
 
+/**
+ * Every script's settings, kept between runs and between client sessions. Each change is written to
+ * `~/.projectx/script-settings/<script class>.json`, and a script's first run after the client starts reads them
+ * back, so settings only ever need setting once. Values are stored by field name and read back by each item's own
+ * type: a setting the script has since removed, renamed or retyped is skipped and keeps the script's default.
+ */
 object ScriptConfigStore {
-    private val configCache = mutableMapOf<String, Map<String, Any?>>()
+    private val configCache = ConcurrentHashMap<String, Map<String, JsonPrimitive>>()
+    private val json = Json { prettyPrint = true }
+
+    internal var directory: File = File(System.getProperty("user.home"), ".projectx/script-settings")
 
     fun save(script: Any) {
-        val values = mutableMapOf<String, Any?>()
-        script.javaClass.declaredFields.forEach { field ->
-            field.isAccessible = true
-            val configItem = field.get(script)
-            if (configItem is ConfigItem<*> && configItem !is InfoDisplayConfigItem && configItem !is ConfigSection) {
-                values[field.name] = configItem.value
-            }
-        }
+        val values = LinkedHashMap<String, JsonPrimitive>()
+        storedItems(script).forEach { (name, item) -> encode(item.value)?.let { values[name] = it } }
         configCache[script.javaClass.name] = values
+        write(script.javaClass.name, values)
     }
 
     fun applyTo(script: Any) {
-        val saved = configCache[script.javaClass.name] ?: return
-        script.javaClass.declaredFields.forEach { field ->
-            field.isAccessible = true
-            val configItem = field.get(script)
-            if (configItem is ConfigItem<*> && configItem !is InfoDisplayConfigItem && configItem !is ConfigSection) {
-                val savedValue = saved[field.name]?.let { configItem.rebind(it) }
-                if (savedValue != null) {
-                    try {
-                        @Suppress("UNCHECKED_CAST")
-                        (configItem as ConfigItem<Any?>).value = savedValue
-                    } catch (e: Exception) {
-                        println("[x] Failed to restore config value for ${field.name}: $e")
-                    }
-                }
+        val saved = configCache.getOrPut(script.javaClass.name) { read(script.javaClass.name) }
+        storedItems(script).forEach { (name, item) ->
+            val value = saved[name]?.let { item.decode(it) } ?: return@forEach
+            try {
+                @Suppress("UNCHECKED_CAST")
+                (item as ConfigItem<Any?>).value = value
+            } catch (e: Exception) {
+                println("[x] Failed to restore config value for $name: $e")
             }
         }
     }
 
-    /**
-     * A hot-reloaded script loads its classes from a fresh classloader, so a cached enum constant is
-     * a different class than the one the reloaded script reads back - restoring it as-is throws a
-     * ClassCastException at the script's first read. Match by name against the item's own choices.
-     */
-    private fun ConfigItem<*>.rebind(saved: Any): Any? {
-        if (saved !is Enum<*>) return saved
-        val choices = when (this) {
-            is EnumConfigItem<*> -> enumValues
-            is OptionsConfigItem<*> -> options
-            else -> return null
+    private fun storedItems(script: Any): List<Pair<String, ConfigItem<*>>> =
+        script.javaClass.declaredFields.mapNotNull { field ->
+            field.isAccessible = true
+            val item = field.get(script)
+            if (item is ConfigItem<*> && item !is InfoDisplayConfigItem && item !is ConfigSection) field.name to item else null
         }
-        return choices.firstOrNull { (it as? Enum<*>)?.name == saved.name }
+
+    private fun encode(value: Any?): JsonPrimitive? = when (value) {
+        null -> null
+        is Boolean -> JsonPrimitive(value)
+        is Number -> JsonPrimitive(value)
+        is Enum<*> -> JsonPrimitive(value.name)
+        else -> JsonPrimitive(value.toString())
+    }
+
+    /**
+     * Enum and option choices are matched by name against the item's own choices: a hot-reloaded script loads its
+     * classes from a fresh classloader, so the constants stored earlier are not the ones it reads back.
+     */
+    private fun ConfigItem<*>.decode(saved: JsonPrimitive): Any? = when (this) {
+        is BooleanConfigItem -> saved.booleanOrNull
+        is IntConfigItem -> saved.intOrNull?.coerceIn(min, max)
+        is StringConfigItem -> saved.contentOrNull
+        is EnumConfigItem<*> -> enumValues.firstOrNull { it.name == saved.contentOrNull }
+        is OptionsConfigItem<*> -> options.firstOrNull { choiceName(it) == saved.contentOrNull }
+        else -> null
+    }
+
+    private fun choiceName(choice: Any?): String? = (choice as? Enum<*>)?.name ?: choice?.toString()
+
+    private fun fileFor(scriptClass: String) = File(directory, "$scriptClass.json")
+
+    private fun read(scriptClass: String): Map<String, JsonPrimitive> {
+        val file = fileFor(scriptClass)
+        if (!file.isFile) return emptyMap()
+        return runCatching {
+            json.parseToJsonElement(file.readText()).jsonObject.mapNotNull { (name, value) ->
+                (value as? JsonPrimitive)?.let { name to it }
+            }.toMap()
+        }.onFailure { println("[x] Could not read saved settings ${file.name}: ${it.message}") }.getOrDefault(emptyMap())
+    }
+
+    private fun write(scriptClass: String, values: Map<String, JsonPrimitive>) {
+        runCatching {
+            directory.mkdirs()
+            val target = fileFor(scriptClass).toPath()
+            val staged = Files.createTempFile(directory.toPath(), scriptClass, ".tmp")
+            Files.writeString(staged, json.encodeToString(JsonObject.serializer(), JsonObject(values)))
+            Files.move(staged, target, StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE)
+        }.onFailure { println("[x] Could not save settings for $scriptClass: ${it.message}") }
     }
 }
