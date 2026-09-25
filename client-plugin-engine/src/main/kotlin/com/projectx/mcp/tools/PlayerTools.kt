@@ -2,6 +2,9 @@ package com.projectx.mcp.tools
 
 import org.projectx.core.game.skill.Skill
 import com.projectx.game.bootstrap.Bootstrap
+import com.projectx.script.api.healthCurrent
+import com.projectx.script.api.healthMax
+import com.projectx.script.api.prayerPoints
 import com.projectx.util.FeatureIds
 import world.gregs.voidps.gameval.Gameval
 import io.modelcontextprotocol.kotlin.sdk.server.Server
@@ -93,10 +96,9 @@ object PlayerTools {
                 }
 
                 runCatching {
-                    val varps = client.playerVarDomain
-                    put("prayer_points", kotlin.math.ceil(varps.getVarBit(16736).toDouble() / 10.0).toInt())
-                    put("health_current", varps.getVarBit(1668))
-                    put("health_max", varps.getVarBit(24595))
+                    put("prayer_points", prayerPoints)
+                    put("health_current", healthCurrent)
+                    put("health_max", healthMax)
                 }.onFailure { warnings.add("varbit read failed: ${it.message}") }
 
                 if (verbose) {

@@ -1,5 +1,6 @@
 package com.projectx.mcp.tools
 
+import com.projectx.script.api.Equipment
 import io.modelcontextprotocol.kotlin.sdk.server.Server
 import io.modelcontextprotocol.kotlin.sdk.types.ToolSchema
 import kotlinx.serialization.json.JsonNull
@@ -22,24 +23,7 @@ object InventoryTools {
         937 to "woodbox",
     )
 
-    private val EQUIPMENT_SLOT_NAMES = listOf(
-        "Head",       // 0
-        "Cape",       // 1
-        "Neck",       // 2
-        "Quiver",     // 3 (arrow/ammo)
-        "Weapon",     // 4
-        "Body",       // 5
-        "Shield",     // 6 (off-hand)
-        "(reserved)", // 7
-        "Legs",       // 8
-        "(reserved)", // 9
-        "Gloves",     // 10
-        "Boots",      // 11
-        "(reserved)", // 12
-        "Ring",       // 13
-        "Aura",       // 14
-        "Pocket",     // 15
-    )
+    private val EQUIPMENT_SLOT_NAMES: Map<Int, String> = Equipment.Slot.entries.associate { it.index to it.name }
 
     fun register(server: Server): Int {
         registerListInventories(server)
@@ -188,11 +172,11 @@ object InventoryTools {
             name = "get_equipment",
             description = """
                 Purpose: Convenience wrapper over inventory id 94 (equipment) with each slot labeled by name (Head/Cape/Neck/Quiver/Weapon/Body/Shield/Legs/Gloves/Boots/Ring/Aura/Pocket).
-                || Returns: JSON envelope with: addr (Inventory), size, items[]. Each item: slot, slot_name, item_id, amount, name, has_obj_var_domain, obj_var_domain_addr. Empty slots are emitted with item_id=-1 so the agent can see all 16 positions.
+                || Returns: JSON envelope with: addr (Inventory), size, items[]. Each item: slot, slot_name, item_id, amount, name, has_obj_var_domain, obj_var_domain_addr. Empty slots are emitted with item_id=-1 so the agent can see every position.
                 || Inputs: none.
                 || Use cases: "What am I wearing?", "Is my weapon a Drygore longsword?", "Check if I have a Quiver-slot ammo".
                 || Related tools: get_inventory (raw), use_item (action layer to swap), get_content_type kind=item (cache definition).
-                || Pitfalls: Requires LOGGED_IN. The slot order is the engine's; the names are derived from the conventional NXT equipment layout. Some slots are reserved/unused and show as "(reserved)".
+                || Pitfalls: Requires LOGGED_IN. Slot names come from the script API's Equipment.Slot; slots it does not name show as "slot_N".
             """.trimIndent().replace("\n", " "),
             inputSchema = ToolSchema(properties = buildJsonObject {}),
         ) { _ ->
@@ -208,7 +192,7 @@ object InventoryTools {
                     for (slot in 0 until size) {
                         runCatching {
                             val item = inv[slot]
-                            val slotName = EQUIPMENT_SLOT_NAMES.getOrNull(slot) ?: "slot_$slot"
+                            val slotName = EQUIPMENT_SLOT_NAMES[slot] ?: "slot_$slot"
                             add(buildJsonObject {
                                 put("slot", slot)
                                 put("slot_name", slotName)
