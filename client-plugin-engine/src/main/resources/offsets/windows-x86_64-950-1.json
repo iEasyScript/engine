@@ -1706,6 +1706,24 @@
         "note": "movzx eax,byte ptr [rcx+0x3a1] in both paged accessors and in the scroll-clamp helper.",
         "verified_build": "950-1"
       },
+      "KIND_GETTER": {
+        "value": "0x8",
+        "confidence": "HIGH",
+        "note": "Read from the 950-1 PE: every interface component class answers its kind from vtable slot 1 (+0x8), a one-instruction getter (mov al,imm; ret). Graphic returns 3 (vtable 0xb593c8), Model 2 (0xb594f0).",
+        "verified_build": "950-1"
+      },
+      "LAYER_KIND": {
+        "value": "0x14",
+        "confidence": "HIGH",
+        "note": "The kind seven layer vtables return (0xb59af8, 0xb59cd0, 0xb59ea8, 0xb5a080, 0xb5b2a0, 0xb5b478, 0xb5b828). Live on 950-1: the bank item grid 517:201, bank inventory 517:15, 1477:735 and 1519:3 all answer 20. Only layers own the static/dynamic child-slot vectors; any other kind uses those bytes for its own fields.",
+        "verified_build": "950-1"
+      },
+      "PAGED_LAYER_KIND": {
+        "value": "0x17",
+        "confidence": "HIGH",
+        "note": "The paged carousel class (vtable 0xb6c4b8) returns 23; its vtable holds the carousel input handler and the page scroll clamp, the methods that read the page vector at PAGES.",
+        "verified_build": "950-1"
+      },
       "STATIC_PAGE_COUNT": {
         "value": "0x3a0",
         "confidence": "HIGH",

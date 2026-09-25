@@ -315,6 +315,9 @@ object OInterfaceComponent : OffsetObject {
     val PAGES_END by offset()
     val PAGE_STRIDE by offset()
     val ACTIVE_PAGE by offset()
+    val KIND_GETTER by offset(WINDOWS)
+    val LAYER_KIND by count(WINDOWS)
+    val PAGED_LAYER_KIND by count(WINDOWS)
 }
 
 object OLoggedInPlayer : OffsetObject {

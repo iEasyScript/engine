@@ -1706,6 +1706,24 @@
         "note": "Same as the OpenGL 950-1 client: 124 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
         "verified_build": "950-1-vulkan"
       },
+      "KIND_GETTER": {
+        "value": "0x8",
+        "confidence": "HIGH",
+        "note": "Vtable slot 1 (+0x8) type getter, as in the OpenGL client. Live on the Vulkan client: the layer vtable 0xc684a8 answers 20 through getter 0xb9740 (mov al,0x14; ret) and the graphic vtable 0xc66330 answers 3 through 0xb9ae0.",
+        "verified_build": "950-1-vulkan"
+      },
+      "LAYER_KIND": {
+        "value": "0x14",
+        "confidence": "HIGH",
+        "note": "Live on the Vulkan client: 517:201, 517:15, 517:0, 1477:735 and 1519:3 all use layer vtable 0xc684a8, whose kind getter returns 20.",
+        "verified_build": "950-1-vulkan"
+      },
+      "PAGED_LAYER_KIND": {
+        "value": "0x17",
+        "confidence": "PROBABLE",
+        "note": "Carried from the OpenGL client, where the paged carousel class returns 23; not read independently on the Vulkan build.",
+        "verified_build": "950-1-vulkan"
+      },
       "STATIC_PAGE_COUNT": {
         "value": "0x3a0",
         "confidence": "HIGH",

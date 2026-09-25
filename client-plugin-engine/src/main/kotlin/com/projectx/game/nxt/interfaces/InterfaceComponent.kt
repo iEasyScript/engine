@@ -23,7 +23,13 @@ import com.projectx.game.nxt.OInterfaceComponent.SCREEN_HEIGHT
 import com.projectx.game.nxt.OInterfaceComponent.SCREEN_WIDTH
 import com.projectx.game.nxt.OInterfaceComponent.STACK_SIZE
 import com.projectx.game.nxt.types.Vector
+import com.projectx.game.platform.Platform
+import java.lang.foreign.FunctionDescriptor
+import java.lang.foreign.Linker
 import java.lang.foreign.MemorySegment
+import java.lang.foreign.ValueLayout.ADDRESS
+import java.lang.foreign.ValueLayout.JAVA_BYTE
+import java.lang.invoke.MethodHandle
 
 class InterfaceComponent(raw: MemorySegment) {
     val ptr: MemorySegment = raw.atLeast(OInterfaceComponent.extent)
@@ -82,6 +88,18 @@ class InterfaceComponent(raw: MemorySegment) {
         get() = ptr.readInt(ITEM_ID)
     val stackSize
         get() = ptr.readInt(STACK_SIZE)
+    /** The client's own kind for this component, answered by its class. Windows client only. */
+    val kind: Int
+        get() = ComponentKind.of(ptr)
+
+    /**
+     * Whether this component is a layer, the only kind that owns child slots. Every other kind keeps its own fields in
+     * those bytes, so reading children off one walks garbage pointers.
+     */
+    val isLayer: Boolean
+        get() = Platform.current != Platform.WINDOWS ||
+            kind.let { it == OInterfaceComponent.LAYER_KIND || it == OInterfaceComponent.PAGED_LAYER_KIND }
+
     /**
      * Static children come from the interface file, dynamic ones from `cc_create` at runtime, and a
      * paged layer redirects both to its active page. The client's own draw and layout paths walk them
@@ -89,6 +107,7 @@ class InterfaceComponent(raw: MemorySegment) {
      */
     val slotChildren: List<InterfaceComponent>
         get() {
+            if (!isLayer) return emptyList()
             val pages = ptr.readLong(OInterfaceComponent.PAGES)
             val pagesEnd = ptr.readLong(OInterfaceComponent.PAGES_END)
             val base = if (pages == 0L || pagesEnd <= pages) {
@@ -128,3 +147,16 @@ class InterfaceComponent(raw: MemorySegment) {
 
 /** An inline eastl::string: 23 short-string bytes plus the size byte. */
 private const val EASTL_STRING_SIZE = 0x18L
+
+private object ComponentKind {
+    private val getterCall: MethodHandle by lazy {
+        Linker.nativeLinker().downcallHandle(FunctionDescriptor.of(JAVA_BYTE, ADDRESS))
+    }
+
+    fun of(component: MemorySegment): Int {
+        val vtable = component.readLong(0L)
+        val getter = vtable.toMemorySegment(OInterfaceComponent.KIND_GETTER + 8).readLong(OInterfaceComponent.KIND_GETTER)
+        val kind = getterCall.invokeExact(MemorySegment.ofAddress(getter), component) as Byte
+        return kind.toInt() and 0xFF
+    }
+}
