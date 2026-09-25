@@ -47,6 +47,7 @@ AREA_ORDER = ("Overlay UI", "Overlay DSL", "Scripts", "Web walker", "Interfaces"
 # here instead. Only needed for internal types that live in one of the packages above.
 INTERNAL_TYPES = {
     "com.projectx.script.LiveValues",
+    "com.projectx.script.api.NecromancyImprovise",
 }
 
 # Members that are an implementation detail of how Kotlin and the Compose compiler build a class, not
