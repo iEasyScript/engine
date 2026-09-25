@@ -582,6 +582,20 @@
         "verified_build": "950-1-vulkan"
       }
     },
+    "OInputListener": {
+      "CALLABLE": {
+        "value": "0x38",
+        "confidence": "HIGH",
+        "note": "MSVC std::function keeps its _Func_base* in the last word of its 0x40-byte storage. Every InputHandler slot walker (the WndProc WM_MBUTTONDOWN path, OnRightButtonDown/Up, OnMiddleButtonUp) loads [listener+0x38] and throws bad_function_call when it is null.",
+        "verified_build": "950-1-vulkan"
+      },
+      "VTABLE_INVOKE": {
+        "value": "0x10",
+        "confidence": "HIGH",
+        "note": "_Func_base::_Do_call, slot 2 of the callable vtable: (*(*callable + 0x10))(callable, float* x, float* y) -> bool, x first. A true result stops the walk.",
+        "verified_build": "950-1-vulkan"
+      }
+    },
     "OInputState": {
       "KEY_NODE_VK": {
         "value": "0x20",
@@ -1565,8 +1579,8 @@
       },
       "FLAGS": {
         "value": "0x41",
-        "confidence": "HYPOTHESIS",
-        "note": "Same as the OpenGL 950-1 client: 331 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
+        "confidence": "HIGH",
+        "note": "Read out of a Windows instruction on 950-1: the paged-carousel input handler tests (component+0x41 & 1) as visible and (component+0x41 & 0x20) as hidden before doing anything, on the same object whose +0x80/+0x84 are SCREEN_WIDTH/SCREEN_HEIGHT.",
         "verified_build": "950-1-vulkan"
       },
       "X_ORIGIN_OFFSET": {
@@ -1661,22 +1675,22 @@
       },
       "PAGES": {
         "value": "0x1d8",
-        "confidence": "NEEDS_REVERIFICATION",
-        "note": "Same as the OpenGL 950-1 client: 406 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
+        "confidence": "HIGH",
+        "note": "Re-derived on 950-1 from three paged-layer methods (the page selector, the page scroll clamp and the carousel input handler): each reads the page vector as component[0x3b]/[0x3c] (+0x1d8/+0x1e0), divides by PAGE_STRIDE and indexes it with ACTIVE_PAGE. The overlap with DYNAMIC_CHILDREN is two subclass layouts, not a wrong value: a paged layer keeps its children per page, so it reuses these bytes for the page vector, while a plain layer holds its dynamic-children vector at +0x1e0 and zero at +0x1d8 (live-checked on 38 plain components). A non-zero PAGES therefore identifies a paged layer.",
         "verified_build": "950-1-vulkan",
         "needs_reverification": true
       },
       "PAGES_END": {
         "value": "0x1e0",
-        "confidence": "NEEDS_REVERIFICATION",
-        "note": "Same as the OpenGL 950-1 client: 582 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
+        "confidence": "HIGH",
+        "note": "End word of the page vector, read at +0x1e0 by the same three paged-layer methods as PAGES and turned into a page count by dividing (end - begin) by PAGE_STRIDE. See PAGES for why it shares bytes with DYNAMIC_CHILDREN.",
         "verified_build": "950-1-vulkan",
         "needs_reverification": true
       },
       "PAGES_CAPACITY": {
         "value": "0x1e8",
-        "confidence": "NEEDS_REVERIFICATION",
-        "note": "Same as the OpenGL 950-1 client: 391 instruction-identical function pairs in the Vulkan build use this displacement unchanged, and none moved it.",
+        "confidence": "HIGH",
+        "note": "Third word of the page vector whose begin (+0x1d8) and end (+0x1e0) are confirmed; not read by the paths inspected.",
         "verified_build": "950-1-vulkan",
         "needs_reverification": true
       },
@@ -3536,10 +3550,34 @@
         "note": "Byte signature and the updater's signature match agree. Instruction-identical to the OpenGL function.",
         "verified_build": "950-1-vulkan"
       },
-      "EVENTLISTENERS_CALLLISTENERS_FF": {
-        "value": "0x0087e9f0",
-        "confidence": "CERTAIN",
-        "note": "Byte signature and the updater's signature match agree. Instruction-identical to the OpenGL function.",
+      "INPUT_INPUT_ONRIGHTBUTTONDOWN": {
+        "value": "0x00880ed0",
+        "confidence": "HIGH",
+        "note": "jag::input::Input::OnRightButtonDown(Input*, float x, float y). The WndProc (0x0087f7b0) calls it for WM_RBUTTONDOWN with x/y in XMM1/XMM2; it writes RIGHT_BUTTON_STATE=1 and MOUSE_X/Y, then walks InputHandler slot RMOUSE_DOWN under its SLOT_MUTEX. The Windows equivalent of the Linux CallListeners_ff(pack(x,y), handler+RMOUSE_DOWN) sequence.",
+        "verified_build": "950-1-vulkan"
+      },
+      "INPUT_INPUT_ONRIGHTBUTTONUP": {
+        "value": "0x00880fa0",
+        "confidence": "HIGH",
+        "note": "jag::input::Input::OnRightButtonUp(Input*, float x, float y). WndProc WM_RBUTTONUP target; writes RIGHT_BUTTON_STATE=0 and MOUSE_X/Y, then walks slot RMOUSE_UP under its mutex. Same shape as OnRightButtonDown.",
+        "verified_build": "950-1-vulkan"
+      },
+      "INPUT_INPUT_ONMIDDLEBUTTONUP": {
+        "value": "0x00880e00",
+        "confidence": "HIGH",
+        "note": "jag::input::Input::OnMiddleButtonUp(Input*, float x, float y). WndProc WM_MBUTTONUP target; writes MIDDLE_BUTTON_STATE=0 and MOUSE_X/Y, then walks slot MMOUSE_UP under its mutex. There is NO OnMiddleButtonDown: WM_MBUTTONDOWN is open-coded in the WndProc (the same walk over slot MMOUSE_DOWN).",
+        "verified_build": "950-1-vulkan"
+      },
+      "STD_MTX_LOCK": {
+        "value": "0x008a56a0",
+        "confidence": "HIGH",
+        "note": "Statically linked MSVC STL _Mtx_lock(_Mtx_t) -> int: forwards to mtx_do_lock(mtx, nullptr). Every InputHandler slot walker calls it on slot+SLOT_MUTEX and aborts the process on a non-zero result.",
+        "verified_build": "950-1-vulkan"
+      },
+      "STD_MTX_UNLOCK": {
+        "value": "0x008a5700",
+        "confidence": "HIGH",
+        "note": "Statically linked MSVC STL _Mtx_unlock(_Mtx_t). Paired with STD_MTX_LOCK on every exit path of the InputHandler slot walkers.",
         "verified_build": "950-1-vulkan"
       },
       "TCPCONNECTIONMESSAGE_INIT": {
@@ -4466,6 +4504,11 @@
   "renderer": "vulkan",
   "unresolved": [],
   "retired": {
+    "OFunctions.EVENTLISTENERS_CALLLISTENERS_FF": {
+      "removed_in": "950-1-vulkan",
+      "reason": "Misidentified by the updater signature match. The Windows function at 0x0087e9f0 is the MOUSE_MOVE-slot instantiation, (InputHandler* handler, float x, float y) with the slot and its mutex hard-coded, not the Linux generic (uint64 packedXY, EventListeners* slot). Calling it with the Linux arguments passes the packed floats as the handler pointer and crashes the client on the first mutex lock. MSVC emits one walker per slot, so Windows has no generic slot walker.",
+      "replaced_by": ["OFunctions.INPUT_INPUT_ONRIGHTBUTTONDOWN", "OFunctions.INPUT_INPUT_ONRIGHTBUTTONUP", "OFunctions.INPUT_INPUT_ONMIDDLEBUTTONUP", "OFunctions.STD_MTX_LOCK", "OFunctions.STD_MTX_UNLOCK", "OInputListener.CALLABLE", "OInputListener.VTABLE_INVOKE"]
+    },
     "OInterfaceComponent.X_ORIGIN_MODE": {
       "removed_in": "950-1",
       "reason": "The layout system no longer stores mode bytes: InterfaceComponent::Decode resolves them into placement floats and the origin-mode dispatcher no longer exists in the binary.",

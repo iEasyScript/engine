@@ -58,7 +58,12 @@ object OFunctions : OffsetObject {
     val INPUT_INPUT_ONLEFTBUTTONUP by offset()
     val INPUT_INPUT_ONSCROLLWHEEL by offset()
     val INPUT_INPUT_ONKEYCHARINNER by offset()
-    val EVENTLISTENERS_CALLLISTENERS_FF by offset()
+    val EVENTLISTENERS_CALLLISTENERS_FF by offset(LINUX)
+    val INPUT_INPUT_ONRIGHTBUTTONDOWN by offset(WINDOWS)
+    val INPUT_INPUT_ONRIGHTBUTTONUP by offset(WINDOWS)
+    val INPUT_INPUT_ONMIDDLEBUTTONUP by offset(WINDOWS)
+    val STD_MTX_LOCK by offset(WINDOWS)
+    val STD_MTX_UNLOCK by offset(WINDOWS)
     val EVENTLISTENERS_DISPATCHMOUSEEVENTWITHSOURCE by offset(WINDOWS)
     val TCPCONNECTIONMESSAGE_INIT by offset()
     val TCPCONNECTIONMESSAGE_INIT_INCOMING by offset()
@@ -184,6 +189,15 @@ object OInputHandler : OffsetObject {
     val KEY_UP by offset()
     val KEY_CHAR by offset()
     val SIZE by offset()
+    val SLOT_BEGIN by offset(WINDOWS)
+    val SLOT_END by offset(WINDOWS)
+    val SLOT_MUTEX by offset(WINDOWS)
+}
+
+/** An `InputHandler` slot entry: MSVC `std::function`, invoked through its callable's vtable. */
+object OInputListener : OffsetObject {
+    val CALLABLE by offset(WINDOWS)
+    val VTABLE_INVOKE by offset(WINDOWS)
 }
 
 object OSDLManager : OffsetObject {

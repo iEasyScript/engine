@@ -21,9 +21,12 @@ import com.projectx.game.nxt.OFunctions
 import com.projectx.game.nxt.OInput
 import com.projectx.game.nxt.OInputGlobals
 import com.projectx.game.nxt.OInputHandler
+import com.projectx.game.nxt.OInputListener
 import com.projectx.game.nxt.OInputState
 import com.projectx.game.platform.Platform
+import java.lang.foreign.Arena
 import java.lang.foreign.FunctionDescriptor
+import java.lang.foreign.Linker
 import java.lang.foreign.MemorySegment
 import java.lang.foreign.ValueLayout.JAVA_BYTE
 import java.lang.foreign.ValueLayout.JAVA_FLOAT
@@ -46,10 +49,34 @@ import java.lang.invoke.MethodHandle
 internal object ActionInput {
     private const val KEY_NODE_SIZE = 0x28L
 
+    private val isWindows = Platform.current == Platform.WINDOWS
+
     private val callListenersFn: MethodHandle by lazy {
         NativeAccess.BASE_ADDR.asSlice(OFunctions.EVENTLISTENERS_CALLLISTENERS_FF, 8)
             .toFunctionHandle(FunctionDescriptor.of(JAVA_BYTE, JAVA_LONG, JAVA_LONG))
     }
+
+    private val onRightButtonDown: MethodHandle by lazy { buttonEntry(OFunctions.INPUT_INPUT_ONRIGHTBUTTONDOWN) }
+    private val onRightButtonUp: MethodHandle by lazy { buttonEntry(OFunctions.INPUT_INPUT_ONRIGHTBUTTONUP) }
+    private val onMiddleButtonUp: MethodHandle by lazy { buttonEntry(OFunctions.INPUT_INPUT_ONMIDDLEBUTTONUP) }
+
+    private val mutexLock: MethodHandle by lazy {
+        NativeAccess.BASE_ADDR.asSlice(OFunctions.STD_MTX_LOCK, 8)
+            .toFunctionHandle(FunctionDescriptor.of(JAVA_INT, JAVA_LONG))
+    }
+
+    private val mutexUnlock: MethodHandle by lazy {
+        NativeAccess.BASE_ADDR.asSlice(OFunctions.STD_MTX_UNLOCK, 8)
+            .toFunctionHandle(FunctionDescriptor.ofVoid(JAVA_LONG))
+    }
+
+    private val listenerInvoke: MethodHandle by lazy {
+        Linker.nativeLinker().downcallHandle(FunctionDescriptor.of(JAVA_BYTE, JAVA_LONG, JAVA_LONG, JAVA_LONG))
+    }
+
+    private fun buttonEntry(offset: Long): MethodHandle =
+        NativeAccess.BASE_ADDR.asSlice(offset, 8)
+            .toFunctionHandle(FunctionDescriptor.ofVoid(JAVA_LONG, JAVA_FLOAT, JAVA_FLOAT))
 
     fun moveMouse(x: Int, y: Int) {
         val input = InputHandle.addressOrZero()
@@ -96,10 +123,12 @@ internal object ActionInput {
     }
 
     fun rightClickDown(x: Int, y: Int) =
-        dispatchButton(OInputHandler.RMOUSE_DOWN, OInputGlobals.RIGHT_BUTTON_STATE, true, x, y, InputSourceReport.WM_RBUTTONDOWN)
+        if (isWindows) callButtonEntry({ onRightButtonDown }, OInputGlobals.RIGHT_BUTTON_STATE, x, y, InputSourceReport.WM_RBUTTONDOWN)
+        else dispatchButton(OInputHandler.RMOUSE_DOWN, OInputGlobals.RIGHT_BUTTON_STATE, true, x, y, InputSourceReport.WM_RBUTTONDOWN)
 
     fun rightClickUp(x: Int, y: Int) =
-        dispatchButton(OInputHandler.RMOUSE_UP, OInputGlobals.RIGHT_BUTTON_STATE, false, x, y, InputSourceReport.WM_RBUTTONUP)
+        if (isWindows) callButtonEntry({ onRightButtonUp }, OInputGlobals.RIGHT_BUTTON_STATE, x, y, InputSourceReport.WM_RBUTTONUP)
+        else dispatchButton(OInputHandler.RMOUSE_UP, OInputGlobals.RIGHT_BUTTON_STATE, false, x, y, InputSourceReport.WM_RBUTTONUP)
 
     fun rightClick(x: Int, y: Int) {
         rightClickDown(x, y)
@@ -107,10 +136,12 @@ internal object ActionInput {
     }
 
     fun middleClickDown(x: Int, y: Int) =
-        dispatchButton(OInputHandler.MMOUSE_DOWN, OInputGlobals.MIDDLE_BUTTON_STATE, true, x, y, InputSourceReport.WM_MBUTTONDOWN)
+        if (isWindows) walkButtonSlot(OInputHandler.MMOUSE_DOWN, OInputGlobals.MIDDLE_BUTTON_STATE, x, y, InputSourceReport.WM_MBUTTONDOWN)
+        else dispatchButton(OInputHandler.MMOUSE_DOWN, OInputGlobals.MIDDLE_BUTTON_STATE, true, x, y, InputSourceReport.WM_MBUTTONDOWN)
 
     fun middleClickUp(x: Int, y: Int) =
-        dispatchButton(OInputHandler.MMOUSE_UP, OInputGlobals.MIDDLE_BUTTON_STATE, false, x, y, InputSourceReport.WM_MBUTTONUP)
+        if (isWindows) callButtonEntry({ onMiddleButtonUp }, OInputGlobals.MIDDLE_BUTTON_STATE, x, y, InputSourceReport.WM_MBUTTONUP)
+        else dispatchButton(OInputHandler.MMOUSE_UP, OInputGlobals.MIDDLE_BUTTON_STATE, false, x, y, InputSourceReport.WM_MBUTTONUP)
 
     fun middleClick(x: Int, y: Int) {
         middleClickDown(x, y)
@@ -189,21 +220,88 @@ internal object ActionInput {
         found.readInt(OInputState.KEY_NODE_VK) == key && found.readByte(OInputState.KEY_NODE_PRESSED) != 0.toByte()
     }.getOrDefault(false)
 
+    /** Windows has an Input entry point for every button edge except middle-down; each writes its own state. */
+    private inline fun callButtonEntry(entry: () -> MethodHandle, stateOffset: Long, x: Int, y: Int, message: Int) {
+        try {
+            val input = InputHandle.addressOrZero()
+            if (input == 0L) return
+            InputArbiter.recordActionInput()
+            SyntheticButtonState.markWritten(stateOffset)
+            entry().invokeExact(input, x.toFloat(), y.toFloat())
+            InputSourceReport.report(message, x, y)
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
+    }
+
     /**
-     * Middle and right buttons have no Input entry point of their own. This reproduces exactly what the
-     * platform event pump does: write the button-state byte and the cursor position into InputState, then
-     * run the matching listener slot on the global handler.
+     * Windows middle-down has no function: the window procedure open-codes it, and MSVC stamps out one
+     * walker per slot, so there is no generic slot walker to call either. Reproduce the inlined walk under
+     * the slot's own mutex, invoking each `std::function` as `(callable, &x, &y)`.
+     */
+    private fun walkButtonSlot(slot: Long, stateOffset: Long, x: Int, y: Int, message: Int) {
+        try {
+            val handler = InputHandle.segmentOrNull()?.get(JAVA_LONG, OInput.GLOBAL_HANDLER) ?: return
+            if (handler == 0L) return
+            InputArbiter.recordActionInput()
+            writeButtonState(stateOffset, true, x, y)
+            callSlotListeners(handler + slot, x, y)
+            InputSourceReport.report(message, x, y)
+        } catch (e: Throwable) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun callSlotListeners(slot: Long, x: Int, y: Int) {
+        val mutex = slot + OInputHandler.SLOT_MUTEX
+        val lockResult = mutexLock.invokeExact(mutex) as Int
+        if (lockResult != 0) return
+        try {
+            Arena.ofConfined().use { arena ->
+                val xArg = arena.allocateFrom(JAVA_FLOAT, x.toFloat()).address()
+                val yArg = arena.allocateFrom(JAVA_FLOAT, y.toFloat()).address()
+                val listeners = slot.toMemorySegment(OInputHandler.SLOT_END + 8)
+                val end = listeners.readLong(OInputHandler.SLOT_END)
+                var cursor = listeners.readLong(OInputHandler.SLOT_BEGIN)
+                while (cursor != end) {
+                    if (invokeListener(cursor.toMemorySegment(8).readLong(), xArg, yArg)) break
+                    cursor += 8
+                }
+            }
+        } finally {
+            mutexUnlock.invokeExact(mutex)
+        }
+    }
+
+    private fun invokeListener(listener: Long, xArg: Long, yArg: Long): Boolean {
+        if (listener == 0L) return false
+        val callable = listener.toMemorySegment(OInputListener.CALLABLE + 8).readLong(OInputListener.CALLABLE)
+        if (callable == 0L) return false
+        val invoke = callable.toMemorySegment(8).readLong()
+            .toMemorySegment(OInputListener.VTABLE_INVOKE + 8).readLong(OInputListener.VTABLE_INVOKE)
+        val consumed = listenerInvoke.invokeExact(MemorySegment.ofAddress(invoke), callable, xArg, yArg) as Byte
+        return consumed != 0.toByte()
+    }
+
+    private fun writeButtonState(stateOffset: Long, pressed: Boolean, x: Int, y: Int) {
+        val base = NativeAccess.BASE_ADDR
+        SyntheticButtonState.markWritten(stateOffset)
+        base.set(JAVA_BYTE, stateOffset, if (pressed) 1 else 0)
+        base.set(JAVA_FLOAT, OInputGlobals.MOUSE_X, x.toFloat())
+        base.set(JAVA_FLOAT, OInputGlobals.MOUSE_Y, y.toFloat())
+    }
+
+    /**
+     * Linux: middle and right buttons have no Input entry point of their own. This reproduces exactly what
+     * the platform event pump does: write the button-state byte and the cursor position into InputState,
+     * then run the matching listener slot on the global handler.
      */
     private fun dispatchButton(slot: Long, stateOffset: Long, pressed: Boolean, x: Int, y: Int, message: Int) {
         try {
             val handler = InputHandle.segmentOrNull()?.get(JAVA_LONG, OInput.GLOBAL_HANDLER) ?: return
             if (handler == 0L) return
             InputArbiter.recordActionInput()
-            val base = NativeAccess.BASE_ADDR
-            SyntheticButtonState.markWritten(stateOffset)
-            base.set(JAVA_BYTE, stateOffset, if (pressed) 1 else 0)
-            base.set(JAVA_FLOAT, OInputGlobals.MOUSE_X, x.toFloat())
-            base.set(JAVA_FLOAT, OInputGlobals.MOUSE_Y, y.toFloat())
+            writeButtonState(stateOffset, pressed, x, y)
             callListenersFn.invoke(packXY(x, y), handler + slot)
             InputSourceReport.report(message, x, y)
         } catch (e: Throwable) {
