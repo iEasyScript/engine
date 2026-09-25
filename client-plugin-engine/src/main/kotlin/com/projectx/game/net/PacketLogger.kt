@@ -1,6 +1,7 @@
 package com.projectx.game.net
 
 import com.projectx.game.net.packetlog.PacketRecorder
+import com.projectx.script.api.ServerTick
 import com.projectx.util.Configuration
 import kotlinx.coroutines.runBlocking
 import kotlinx.io.Buffer
@@ -59,7 +60,12 @@ object PacketLogger {
         writer = null
     }
 
+    private val serverTickEndOpcode: Int? by lazy {
+        codec.serverProtInfo.entries.firstOrNull { it.value.name == "SERVER_TICK_END" }?.key
+    }
+
     fun logServerPacket(opcode: Int, size: Int, payload: ByteArray) {
+        if (opcode == serverTickEndOpcode) ServerTick.onTickEnd()
         for (listener in serverPacketListeners) runCatching { listener(opcode, payload) }
         PacketRecorder.recordServer(opcode, payload)
         emit('S', codec.serverProtName(opcode), opcode, size, payload, decoded = decodeServer(opcode, payload))

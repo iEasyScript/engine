@@ -100,6 +100,24 @@ sealed class Wait {
                 0,
             )
 
+        /**
+         * Until the next server tick ends; [onResult] gets false if none arrived within [timeoutMillis].
+         * Kotlin: `awaitServerTick`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun awaitServerTick(onResult: Consumer<Boolean>? = null, timeoutMillis: Long = 1800): Wait =
+            call(onResult) { this.awaitServerTick(timeoutMillis) }
+
+        /**
+         * Until [ticks] more server ticks end; [onResult] gets false if they did not all arrive within
+         * [timeoutMillis]. Kotlin: `awaitServerTicks`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun awaitServerTicks(ticks: Int, onResult: Consumer<Boolean>? = null, timeoutMillis: Long = ticks * 600L + 1200L): Wait =
+            call(onResult) { this.awaitServerTicks(ticks, timeoutMillis) }
+
         // ---- Conditions and events ----
 
         /** Wait until [predicate] holds, giving up after [timeoutMillis]. */
@@ -347,6 +365,20 @@ sealed class Wait {
         ): Wait = call(onResult) {
             this.castWithEffectStacks(ability, effect, minStacks, waitCondition?.let { { it.asBoolean } }, timeoutMillis)
         }
+
+        /**
+         * Run [trip]'s War's Retreat stops and enter its boss portal; [onResult] gets whether the trip completed.
+         * Kotlin: `runWarsRetreatTrip`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun runWarsRetreatTrip(trip: WarsRetreatTrip, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.runWarsRetreatTrip(trip) }
+
+        /** Enter [pin] on the bank PIN screen; [onResult] gets whether the screen closed. Kotlin: `enterBankPin`. */
+        @JvmStatic
+        @JvmOverloads
+        fun enterBankPin(pin: String, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.enterBankPin(pin) }
 
         // ---- Make-X and smithing ----
 
