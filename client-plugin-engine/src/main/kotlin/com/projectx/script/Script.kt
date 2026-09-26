@@ -17,6 +17,8 @@ import kotlinx.coroutines.selects.onTimeout
 import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.concurrent.ThreadLocalRandom
+import com.projectx.script.api.awaitServerTick
+import com.projectx.util.Logger
 import java.util.function.Predicate
 import kotlin.math.roundToInt
 import kotlin.coroutines.Continuation
@@ -34,6 +36,10 @@ abstract class Script {
         /** One game tick. */
         const val TICK_MILLIS = 600
     }
+
+    private var loopPaceMillis = LOOP_PASS_MILLIS
+    private var loopOnServerTick = false
+    private var lastLogged: String? = null
 
     private var pendingEventWaitCompleted = false
     private var pendingEventPredicate: Predicate<Event>? = null
@@ -65,7 +71,7 @@ abstract class Script {
             val interruptible = this !is JavaScript && overridesShouldInterrupt()
             while (!stopped) {
                 if (interruptible) interruptWhen({ shouldInterrupt() }) { loop() } else loop()
-                delay(LOOP_PASS_MILLIS)
+                if (loopOnServerTick) awaitServerTick() else delay(loopPaceMillis)
             }
             onStop()
             stopParallelScripts()
@@ -79,6 +85,43 @@ abstract class Script {
     }
 
     abstract suspend fun loop()
+
+    /**
+     * Sets the pause between [loop] passes, in milliseconds; [LOOP_PASS_MILLIS] by default. Call it from [onStart].
+     *
+     * A slower pace costs reaction time: whatever the script watches for is noticed up to this long after it happens,
+     * so anything that has to react - a floor marker landing, a boss's animation - either keeps the default or uses
+     * [shouldInterrupt], which is polled while the script waits. For a script that only needs to act once a game
+     * tick, [setLoopOnServerTick] is the accurate way to ask for it: a fixed 600 ms pause drifts off the tick within
+     * a few passes, because the pass's own work is added to it.
+     */
+    fun setLoop(millis: Int) {
+        loopPaceMillis = millis.coerceAtLeast(0)
+        loopOnServerTick = false
+    }
+
+    /**
+     * Runs one [loop] pass per server tick, starting each as soon as the tick lands rather than on a local timer, so
+     * the pass reads what the tick just changed. See [ServerTick]; the pass waits at most one tick's timeout when the
+     * connection is idle, which stands still in the lobby.
+     */
+    fun setLoopOnServerTick() {
+        loopOnServerTick = true
+    }
+
+    /**
+     * Prints [message] to the console and the engine log, prefixed with the script's name. A message identical to the
+     * one before it is dropped, so a line in a loop that runs many times a second reports a change instead of a wall
+     * of the same text.
+     */
+    fun log(message: String) {
+        if (message == lastLogged) return
+        lastLogged = message
+        Logger.log(scriptName(), message)
+    }
+
+    private fun scriptName(): String =
+        javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: javaClass.simpleName
 
     /**
      * Checked about every [INTERRUPT_POLL_MILLIS] ms while the script waits. Returning true abandons what it is waiting

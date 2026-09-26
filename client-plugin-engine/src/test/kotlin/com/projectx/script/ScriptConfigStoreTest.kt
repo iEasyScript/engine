@@ -27,6 +27,21 @@ class ScriptConfigStoreTest {
         val mode = EnumConfigItem("Mode", "", Mode.entries.toTypedArray(), Mode.SAFE)
     }
 
+    class Held : ConfigHolder {
+        val section = ConfigSection("Held")
+        val enabled = BooleanConfigItem("Enabled", "", false)
+        val count = IntConfigItem("Count", "", 5, 0, 10)
+    }
+
+    class Holding : ConfigurableScript {
+        val own = BooleanConfigItem("Own", "", false)
+        val settings = Held()
+    }
+
+    class Moved : ConfigurableScript {
+        val settings = Held()
+    }
+
     private lateinit var dir: File
     private lateinit var previous: File
 
@@ -77,5 +92,38 @@ class ScriptConfigStoreTest {
         assertEquals(true, script.enabled.value)
         assertEquals(10, script.count.value)
         assertEquals(Mode.SAFE, script.mode.value)
+    }
+
+    @Test
+    fun `a holder's items are found, in declaration order, under its field name`() {
+        val fields = configItems(Holding())
+        assertEquals(listOf("own", "settings.section", "settings.enabled", "settings.count"), fields.map { it.key })
+    }
+
+    @Test
+    fun `a holder's items are saved and restored`() {
+        val script = Holding()
+        script.settings.enabled.value = true
+        script.settings.count.value = 9
+        ScriptConfigStore.save(script)
+
+        val text = File(dir, "${Holding::class.java.name}.json").readText()
+        assertTrue("\"settings.count\": 9" in text, text)
+
+        val restored = Holding()
+        ScriptConfigStore.applyTo(restored)
+        assertEquals(true, restored.settings.enabled.value)
+        assertEquals(9, restored.settings.count.value)
+    }
+
+    @Test
+    fun `settings saved before the items moved into a holder are still read back`() {
+        File(dir, "${Moved::class.java.name}.json").writeText("""{ "enabled": true, "count": 7 }""")
+
+        val script = Moved()
+        ScriptConfigStore.applyTo(script)
+
+        assertEquals(true, script.settings.enabled.value)
+        assertEquals(7, script.settings.count.value)
     }
 }

@@ -26,6 +26,7 @@ import com.projectx.script.ConfigurableScript
 import com.projectx.script.EnumConfigItem
 import com.projectx.script.InfoDisplayConfigItem
 import com.projectx.script.IntConfigItem
+import com.projectx.script.configItems
 import com.projectx.script.OptionsConfigItem
 import com.projectx.script.ScriptConfigStore
 import com.projectx.script.ScriptExecutor
@@ -74,12 +75,8 @@ object ScriptSettings {
 
     fun items(script: ConfigurableScript): List<Pair<String, ConfigItem<*>>> {
         val visibility = script as? ConfigVisibilityProvider
-        return script.javaClass.declaredFields
-            .filter { ConfigItem::class.java.isAssignableFrom(it.type) }
-            .mapNotNull { field ->
-                field.isAccessible = true
-                (field.get(script) as? ConfigItem<*>)?.let { field.name to it }
-            }
+        return configItems(script)
+            .map { it.legacyKey to it.item }
             .filter { (name, item) -> visibility?.isConfigItemVisible(name, item) ?: true }
     }
 
@@ -93,15 +90,13 @@ object ScriptSettings {
     /** Back to what the script itself declares, read off a fresh instance rather than guessed per type. */
     fun resetToDefaults(script: ConfigurableScript) {
         val fresh = runCatching { script.javaClass.getDeclaredConstructor().apply { isAccessible = true }.newInstance() }.getOrNull() ?: return
-        script.javaClass.declaredFields
-            .filter { ConfigItem::class.java.isAssignableFrom(it.type) }
-            .forEach { field ->
-                field.isAccessible = true
-                @Suppress("UNCHECKED_CAST")
-                val target = field.get(script) as? ConfigItem<Any?> ?: return@forEach
-                val source = field.get(fresh) as? ConfigItem<*> ?: return@forEach
-                if (target !is ConfigSection && target !is InfoDisplayConfigItem) target.value = source.value
-            }
+        val defaults = configItems(fresh).associateBy { it.key }
+        configItems(script).forEach { field ->
+            @Suppress("UNCHECKED_CAST")
+            val target = field.item as? ConfigItem<Any?> ?: return@forEach
+            val source = defaults[field.key]?.item ?: return@forEach
+            if (target !is ConfigSection && target !is InfoDisplayConfigItem) target.value = source.value
+        }
         changed(script)
     }
 

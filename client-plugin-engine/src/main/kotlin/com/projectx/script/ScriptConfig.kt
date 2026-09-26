@@ -20,6 +20,49 @@ interface ConfigItem<T> {
 
 interface ConfigurableScript
 
+/**
+ * Holds a script's [ConfigItem]s outside the script class, so a script with many settings keeps them in one place
+ * of their own instead of opening with fifty fields. Declare the holder as a field of the script and the engine
+ * finds its items, in declaration order, exactly as if they were the script's own:
+ *
+ * ```kotlin
+ * class MinerSettings : ConfigHolder {
+ *     val ore = ConfigSection("Ore", "What to mine.")
+ *     val bankOre = BooleanConfigItem("Bank the ore", "Off drops it.", true)
+ * }
+ *
+ * class Miner : Script(), ConfigurableScript {
+ *     private val settings = MinerSettings()
+ * }
+ * ```
+ *
+ * A holder may hold further holders. Its items are stored under `<holder field>.<item field>`, so two holders can
+ * use the same field name; settings saved before a script moved its items into a holder are still read back.
+ */
+interface ConfigHolder
+
+/**
+ * Every [ConfigItem] on [owner], in declaration order, paired with the key it is stored under: the field's own name,
+ * or `<holder field>.<item field>` for one inside a [ConfigHolder]. [legacyKey] is the bare field name, which is
+ * where a script that has since moved its items into a holder finds what it saved before.
+ */
+fun configItems(owner: Any): List<ConfigField> = configItems(owner, "", java.util.Collections.newSetFromMap(java.util.IdentityHashMap()))
+
+/** A [ConfigItem] found on a script or a [ConfigHolder]; see [configItems]. */
+class ConfigField(val key: String, val legacyKey: String, val item: ConfigItem<*>)
+
+private fun configItems(owner: Any, prefix: String, seen: MutableSet<Any>): List<ConfigField> {
+    if (!seen.add(owner)) return emptyList()
+    return owner.javaClass.declaredFields.flatMap { field ->
+        field.isAccessible = true
+        when (val value = runCatching { field.get(owner) }.getOrNull()) {
+            is ConfigItem<*> -> listOf(ConfigField(prefix + field.name, field.name, value))
+            is ConfigHolder -> configItems(value, "${prefix}${field.name}.", seen)
+            else -> emptyList()
+        }
+    }
+}
+
 interface ConfigVisibilityProvider {
     fun isConfigItemVisible(fieldName: String, item: ConfigItem<*>): Boolean
 }
@@ -125,30 +168,27 @@ object ScriptConfigStore {
 
     fun save(script: Any) {
         val values = LinkedHashMap<String, JsonPrimitive>()
-        storedItems(script).forEach { (name, item) -> encode(item.value)?.let { values[name] = it } }
+        storedItems(script).forEach { field -> encode(field.item.value)?.let { values[field.key] = it } }
         configCache[script.javaClass.name] = values
         write(script.javaClass.name, values)
     }
 
     fun applyTo(script: Any) {
         val saved = configCache.getOrPut(script.javaClass.name) { read(script.javaClass.name) }
-        storedItems(script).forEach { (name, item) ->
-            val value = saved[name]?.let { item.decode(it) } ?: return@forEach
+        storedItems(script).forEach { field ->
+            val stored = saved[field.key] ?: saved[field.legacyKey] ?: return@forEach
+            val value = field.item.decode(stored) ?: return@forEach
             try {
                 @Suppress("UNCHECKED_CAST")
-                (item as ConfigItem<Any?>).value = value
+                (field.item as ConfigItem<Any?>).value = value
             } catch (e: Exception) {
-                println("[x] Failed to restore config value for $name: $e")
+                println("[x] Failed to restore config value for ${field.key}: $e")
             }
         }
     }
 
-    private fun storedItems(script: Any): List<Pair<String, ConfigItem<*>>> =
-        script.javaClass.declaredFields.mapNotNull { field ->
-            field.isAccessible = true
-            val item = field.get(script)
-            if (item is ConfigItem<*> && item !is InfoDisplayConfigItem && item !is ConfigSection) field.name to item else null
-        }
+    private fun storedItems(script: Any): List<ConfigField> =
+        configItems(script).filter { it.item !is InfoDisplayConfigItem && it.item !is ConfigSection }
 
     private fun encode(value: Any?): JsonPrimitive? = when (value) {
         null -> null
