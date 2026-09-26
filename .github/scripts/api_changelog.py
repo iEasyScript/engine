@@ -29,6 +29,9 @@ from pathlib import Path
 
 # The surface a script compiles against, and what each part is called in the announcement. Everything
 # else in the jar is the engine's own business. The first matching prefix wins.
+#
+# An area names a part of the API, never a script: "Added - Script calls" is new functions a script can
+# call, not a script that was released.
 AREAS = (
     ("com/projectx/ui/compose/components/", "Overlay UI"),
     ("com/projectx/ui/compose/theme/", "Overlay UI"),
@@ -36,12 +39,12 @@ AREAS = (
     ("com/projectx/ui/Setting", "Overlay UI"),
     ("com/projectx/script/ComposePanel", "Overlay UI"),
     ("com/projectx/ui/backend/dsl/", "Overlay DSL"),
-    ("com/projectx/script/", "Scripts"),
+    ("com/projectx/script/", "Script calls"),
     ("com/projectx/webwalker/", "Web walker"),
     ("com/projectx/game/interfaces/", "Interfaces"),
     ("com/projectx/game/nxt/entity/", "Entities"),
 )
-AREA_ORDER = ("Overlay UI", "Overlay DSL", "Scripts", "Web walker", "Interfaces", "Entities")
+AREA_ORDER = ("Overlay UI", "Overlay DSL", "Script calls", "Web walker", "Interfaces", "Entities")
 
 # Kotlin `internal` types compile to public classes, so javap cannot tell them from API; they are named
 # here instead. Only needed for internal types that live in one of the packages above.
@@ -167,7 +170,7 @@ def describe(old: dict[str, set[str]], new: dict[str, set[str]]) -> dict[str, di
             out[area][kind].append(text)
 
     def area(cls: str) -> str:
-        return area_of(cls.replace(".", "/")) or "Scripts"
+        return area_of(cls.replace(".", "/")) or "Script calls"
 
     for t in sorted(set(new) - set(old)):
         if t.endswith("Kt"):
