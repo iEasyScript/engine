@@ -160,7 +160,7 @@ fun InventoryScreen() {
 
 // ---------- Effects ----------
 
-data class EffectRow(val name: String, val debuff: Boolean, val timeRemainingMs: Long, val stacks: Int)
+data class EffectRow(val structId: Int, val name: String, val debuff: Boolean, val timeRemainingMs: Long, val stacks: Int)
 
 object EffectsModel {
     val feed = Feed(500) {
@@ -168,6 +168,7 @@ object EffectsModel {
             runCatching {
                 if (!effect.active()) return@runCatching null
                 EffectRow(
+                    structId = effect.structId,
                     name = effect.name.ifBlank { "struct ${effect.structId}" }.replace('_', ' ').lowercase().split(' ')
                         .joinToString(" ") { it.replaceFirstChar { c -> c.uppercaseChar() } },
                     debuff = effect.isDebuff,
@@ -182,15 +183,21 @@ object EffectsModel {
 @Composable
 fun EffectsScreen() {
     val query = UIState.buffsDebuffsSearchText.value
-    val rows = EffectsModel.feed.value.orEmpty().filter { query.isBlank() || it.name.contains(query, ignoreCase = true) }
+    val rows = EffectsModel.feed.value.orEmpty()
+        .filter { query.isBlank() || it.name.contains(query, ignoreCase = true) || it.structId.toString().contains(query) }
     ScreenScroll {
-        Section("Active effects", note = "Buffs and debuffs on your character right now.", actions = { SearchField(UIState.buffsDebuffsSearchText, "Filter effects", 200.dp) }) {
+        Section(
+            "Active effects",
+            note = "Buffs and debuffs on your character right now. Scripts read these with effectActive(\"name\") or the struct id.",
+            actions = { SearchField(UIState.buffsDebuffsSearchText, "Filter by name or id", 200.dp) },
+        ) {
             DataTable(
-                listOf(TableColumn("Effect", 2f), TableColumn("Kind"), TableColumn("Time left", mono = true), TableColumn("Stacks", mono = true)),
+                listOf(TableColumn("Effect", 2f), TableColumn("Id", width = 90.dp, mono = true), TableColumn("Kind"), TableColumn("Time left", mono = true), TableColumn("Stacks", mono = true)),
                 rows,
                 emptyText = "No buffs or debuffs are active.",
             ) { row ->
                 text(row.name)
+                text(row.structId.toString())
                 cell { Pill(if (row.debuff) "Debuff" else "Buff", if (row.debuff) Palette.stop else Palette.running) }
                 text(timeLeft(row.timeRemainingMs))
                 text(if (row.stacks > 0) row.stacks.toString() else "-")
