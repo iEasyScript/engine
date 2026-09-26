@@ -18,7 +18,6 @@ import kotlinx.coroutines.selects.select
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.concurrent.ThreadLocalRandom
 import com.projectx.script.api.awaitServerTick
-import com.projectx.util.Logger
 import java.util.function.Predicate
 import kotlin.math.roundToInt
 import kotlin.coroutines.Continuation
@@ -39,7 +38,7 @@ abstract class Script {
 
     private var loopPaceMillis = LOOP_PASS_MILLIS
     private var loopOnServerTick = false
-    private var lastLogged: String? = null
+    internal var lastLoggedMessage: String? = null
 
     private var pendingEventWaitCompleted = false
     private var pendingEventPredicate: Predicate<Event>? = null
@@ -109,18 +108,8 @@ abstract class Script {
         loopOnServerTick = true
     }
 
-    /**
-     * Prints [message] to the console and the engine log, prefixed with the script's name. A message identical to the
-     * one before it is dropped, so a line in a loop that runs many times a second reports a change instead of a wall
-     * of the same text.
-     */
-    fun log(message: String) {
-        if (message == lastLogged) return
-        lastLogged = message
-        Logger.log(scriptName(), message)
-    }
-
-    private fun scriptName(): String =
+    /** The name [log] prints under: what the script calls itself, falling back to its class. */
+    internal fun scriptName(): String =
         javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: javaClass.simpleName
 
     /**
