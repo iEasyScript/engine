@@ -38,7 +38,6 @@ abstract class Script {
 
     private var loopPaceMillis = LOOP_PASS_MILLIS
     private var loopOnServerTick = false
-    internal var lastLoggedMessage: String? = null
 
     private var pendingEventWaitCompleted = false
     private var pendingEventPredicate: Predicate<Event>? = null
@@ -107,10 +106,6 @@ abstract class Script {
     fun setLoopOnServerTick() {
         loopOnServerTick = true
     }
-
-    /** The name [log] prints under: what the script calls itself, falling back to its class. */
-    internal fun scriptName(): String =
-        javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: javaClass.simpleName
 
     /**
      * Checked about every [INTERRUPT_POLL_MILLIS] ms while the script waits. Returning true abandons what it is waiting

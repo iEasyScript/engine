@@ -1,7 +1,12 @@
 package com.projectx.script.api
 
 import com.projectx.script.Script
+import com.projectx.script.ScriptDescription
 import com.projectx.util.Logger
+import java.util.WeakHashMap
+import java.util.Collections
+
+private val lastLogged: MutableMap<Script, String> = Collections.synchronizedMap(WeakHashMap())
 
 /**
  * Prints [message] to the console and the engine log, under the script's own name. A message identical to the one
@@ -12,7 +17,6 @@ import com.projectx.util.Logger
  * keep compiling: its own wins, and nothing it wrote has to change.
  */
 fun Script.log(message: String) {
-    if (message == lastLoggedMessage) return
-    lastLoggedMessage = message
-    Logger.log(scriptName(), message)
+    if (lastLogged.put(this, message) == message) return
+    Logger.log(javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: javaClass.simpleName, message)
 }
