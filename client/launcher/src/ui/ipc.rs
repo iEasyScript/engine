@@ -4,7 +4,9 @@ use std::collections::HashMap;
 use std::path::{Path, PathBuf};
 use std::sync::atomic::{AtomicBool, Ordering};
 use std::sync::{Arc, Mutex};
+use std::time::Duration;
 use tokio::sync::mpsc;
+use tokio::time::sleep;
 
 use crate::auth::session::create_session;
 use crate::auth::types::{Account, Session};
@@ -51,6 +53,20 @@ pub enum IpcMessage {
     /// Reinject (unload + reload the rebuilt jar) via the control socket.
     #[serde(rename = "reinject_client")]
     ReinjectClient { pid: u32 },
+    /// Avatar and hiscore data for one saved character, answered by [`IpcEvent::CharacterInfo`].
+    #[serde(rename = "character_info")]
+    CharacterInfo { account_id: String, display_name: String },
+    /// Launch a list of accounts one after another, with a gap between each.
+    #[serde(rename = "scheduler_start")]
+    SchedulerStart {
+        accounts: Vec<ScheduledAccount>,
+        delay_seconds: u64,
+        #[serde(default)]
+        repeat: bool,
+    },
+    /// Stop the run after the launch in flight; nothing already started is killed.
+    #[serde(rename = "scheduler_stop")]
+    SchedulerStop,
     /// Persist the character last selected under a Jagex account (no response).
     #[serde(rename = "select_character")]
     SelectCharacter { user_id: String, account_id: String },
@@ -108,6 +124,30 @@ pub enum IpcEvent {
     LaunchError { message: String },
     #[serde(rename = "config_saved")]
     ConfigSaved,
+    /// What RuneScape knows about a character. Every field is optional: a character with no avatar
+    /// and no hiscore entry is normal, not an error.
+    #[serde(rename = "character_info")]
+    CharacterInfo {
+        account_id: String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        avatar: Option<String>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        total: Option<u64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        rank: Option<u64>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        xp: Option<u64>,
+    },
+    /// Where a scheduler run has got to. `running` false means it has finished or been stopped.
+    #[serde(rename = "scheduler_status")]
+    SchedulerStatus {
+        running: bool,
+        message: String,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        index: Option<usize>,
+        #[serde(skip_serializing_if = "Option::is_none")]
+        total: Option<usize>,
+    },
     /// The current list of discovered rs2client processes + their engine state.
     #[serde(rename = "clients_list")]
     ClientsList { clients: Vec<ClientStatus> },
@@ -618,6 +658,15 @@ pub struct IpcState {
     /// Channel ids with an install or removal in flight, so a double-click
     /// cannot run two downloads over the same jar.
     plugin_busy: Mutex<Vec<String>>,
+    /// True while a scheduler run is working through its accounts. Cleared to stop it.
+    scheduler_running: Arc<AtomicBool>,
+}
+
+/// One account in a scheduler run.
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct ScheduledAccount {
+    pub account_id: String,
+    pub display_name: String,
 }
 
 impl IpcState {
@@ -639,6 +688,7 @@ impl IpcState {
             consent_cancel: Arc::new(AtomicBool::new(false)),
             plugin_catalog: Mutex::new(None),
             plugin_busy: Mutex::new(Vec::new()),
+            scheduler_running: Arc::new(AtomicBool::new(false)),
         }
     }
 
@@ -713,6 +763,28 @@ impl IpcState {
             }
             IpcMessage::ReinjectClient { pid } => {
                 self.handle_client_control(pid, ClientAction::Reinject);
+            }
+            IpcMessage::CharacterInfo {
+                ref account_id,
+                ref display_name,
+            } => {
+                self.handle_character_info(account_id.clone(), display_name.clone());
+            }
+            IpcMessage::SchedulerStart {
+                ref accounts,
+                delay_seconds,
+                repeat,
+            } => {
+                self.handle_scheduler_start(accounts.clone(), delay_seconds, repeat);
+            }
+            IpcMessage::SchedulerStop => {
+                self.scheduler_running.store(false, Ordering::SeqCst);
+                self.send_event(&IpcEvent::SchedulerStatus {
+                    running: false,
+                    message: "Stopping after the launch in flight.".to_string(),
+                    index: None,
+                    total: None,
+                });
             }
             IpcMessage::SelectCharacter {
                 ref user_id,
@@ -981,6 +1053,128 @@ impl IpcState {
         self.send_event(&event);
     }
 
+    /// Looks a character up and answers when it has something; cached on disk, so a second paint
+    /// of the Accounts list costs nothing.
+    fn handle_character_info(self: &Arc<Self>, account_id: String, display_name: String) {
+        let state = self.clone();
+        tokio::spawn(async move {
+            let found = crate::characters::load(
+                &crate::http_client(),
+                &state.paths.data_dir,
+                &display_name,
+            )
+            .await;
+            state.send_event(&IpcEvent::CharacterInfo {
+                account_id,
+                avatar: found.avatar,
+                total: found.total,
+                rank: found.rank,
+                xp: found.xp,
+            });
+        });
+    }
+
+    /// Launches each account in turn, waiting for one to finish before starting the next and
+    /// pausing between them.
+    ///
+    /// It drives [`Self::handle_launch`] rather than repeating it: a launch downloads, patches and
+    /// spawns, and only one may be in flight, which is exactly the serialisation a run needs. The
+    /// launch slot is therefore the progress signal - taken while a client is coming up, free once
+    /// it is.
+    fn handle_scheduler_start(
+        self: &Arc<Self>,
+        accounts: Vec<ScheduledAccount>,
+        delay_seconds: u64,
+        repeat: bool,
+    ) {
+        if accounts.is_empty() {
+            self.send_event(&IpcEvent::SchedulerStatus {
+                running: false,
+                message: "Add an account before starting.".to_string(),
+                index: None,
+                total: None,
+            });
+            return;
+        }
+        if self.scheduler_running.swap(true, Ordering::SeqCst) {
+            self.send_event(&IpcEvent::SchedulerStatus {
+                running: true,
+                message: "A run is already going.".to_string(),
+                index: None,
+                total: None,
+            });
+            return;
+        }
+
+        let state = self.clone();
+        tokio::spawn(async move {
+            let total = accounts.len();
+            'run: loop {
+                for (index, account) in accounts.iter().enumerate() {
+                    if !state.scheduler_running.load(Ordering::SeqCst) {
+                        break 'run;
+                    }
+                    state.progress(
+                        format!("Waiting for the previous launch to finish"),
+                        index,
+                        total,
+                    );
+                    state.await_launch_slot().await;
+                    if !state.scheduler_running.load(Ordering::SeqCst) {
+                        break 'run;
+                    }
+
+                    state.progress(format!("Launching {}", account.display_name), index, total);
+                    state.handle_launch(&account.account_id, &account.display_name);
+
+                    // The launch claims the slot from its own task, so let it take hold before
+                    // treating a free slot as "finished".
+                    sleep(Duration::from_secs(2)).await;
+                    state.await_launch_slot().await;
+                    state.progress(format!("{} is up", account.display_name), index, total);
+
+                    let last = index + 1 == total;
+                    if !last || repeat {
+                        for remaining in (1..=delay_seconds).rev() {
+                            if !state.scheduler_running.load(Ordering::SeqCst) {
+                                break 'run;
+                            }
+                            state.progress(format!("Next in {}s", remaining), index, total);
+                            sleep(Duration::from_secs(1)).await;
+                        }
+                    }
+                }
+                if !repeat {
+                    break;
+                }
+            }
+
+            let stopped = !state.scheduler_running.swap(false, Ordering::SeqCst);
+            state.send_event(&IpcEvent::SchedulerStatus {
+                running: false,
+                message: if stopped { "Stopped.".to_string() } else { "Run finished.".to_string() },
+                index: None,
+                total: None,
+            });
+        });
+    }
+
+    fn progress(&self, message: String, index: usize, total: usize) {
+        self.send_event(&IpcEvent::SchedulerStatus {
+            running: true,
+            message,
+            index: Some(index),
+            total: Some(total),
+        });
+    }
+
+    /// Resolves once no launch is in flight.
+    async fn await_launch_slot(&self) {
+        while self.launching.load(Ordering::SeqCst) {
+            sleep(Duration::from_millis(500)).await;
+        }
+    }
+
     fn handle_launch(&self, account_id: &str, display_name: &str) {
         let (stored_session_id, consent_id_token) = {
             let sessions = self.sessions.lock().unwrap();
@@ -1023,9 +1217,12 @@ impl IpcState {
         let reporter = LaunchReporter {
             cmd_tx: self.cmd_tx.clone(),
         };
-        let close_after = config.close_after_launch;
+        // A scheduled run injects whatever the toggle says - that is the point of it - and must not
+        // close the window it is being driven from.
+        let scheduled = self.scheduler_running.load(Ordering::SeqCst);
+        let close_after = config.close_after_launch && !scheduled;
         let custom_cmd = config.custom_launch_command.clone();
-        let auto_inject = config.auto_inject_projectx;
+        let auto_inject = config.auto_inject_projectx || scheduled;
         let plugins_cfg = config.plugins.clone();
         let renderer_pref = config.renderer;
         let base_config_uri = config

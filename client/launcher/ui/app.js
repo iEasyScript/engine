@@ -22,6 +22,8 @@
   const state = {
     config: null,
     sessions: [], // [{user_id, display_name, accounts, session_id, last_account_id}]
+    // accountId -> character_info event, null while one is in flight.
+    characters: {},
     launchingAccountId: null,
     view: "accounts",
     expanded: loadExpanded(),
@@ -41,6 +43,7 @@
   const views = {
     accounts: $("#accounts-view"),
     clients: $("#clients-view"),
+    scheduler: $("#scheduler-view"),
     plugins: $("#plugins-view"),
     logs: $("#logs-view"),
     settings: $("#settings-view"),
@@ -132,6 +135,15 @@
         saveExpanded();
         renderAccounts();
         logStatus("Logged out");
+        break;
+
+      case "character_info":
+        state.characters[event.account_id] = event;
+        paintKnownFaces(event);
+        break;
+
+      case "scheduler_status":
+        onSchedulerStatus(event);
         break;
 
       case "launch_status":
@@ -253,6 +265,110 @@
     }
   }
 
+  /** The chathead when RuneScape has one, otherwise the character's initial. */
+  function paintFace(portrait, displayName, known) {
+    portrait.innerHTML = "";
+    if (known && known.avatar) {
+      const img = document.createElement("img");
+      img.src = known.avatar;
+      img.alt = "";
+      portrait.appendChild(img);
+      portrait.classList.remove("is-blank");
+      return;
+    }
+    portrait.textContent = (displayName || "?").charAt(0).toUpperCase();
+    portrait.classList.add("is-blank");
+  }
+
+  function paintKnownFaces(event) {
+    $$('.char-face[data-account-id="' + event.account_id + '"]').forEach((portrait) => {
+      const row = portrait.parentElement;
+      const name = row && row.querySelector(".char-name");
+      paintFace(portrait, name && name.textContent, event);
+      if (event.total && row && !row.querySelector(".char-stat")) {
+        const stat = el("span", "char-stat", "Total " + event.total.toLocaleString("en-GB"));
+        row.insertBefore(stat, row.querySelector(".char-name").nextSibling);
+      }
+    });
+  }
+
+  // ---- Scheduler ----
+
+  const schedulerChosen = new Set();
+  let schedulerRunning = false;
+
+  function everyCharacter() {
+    return state.sessions.flatMap((session) =>
+      session.accounts
+        .filter((account) => account.displayName)
+        .map((account) => ({
+          account_id: account.accountId,
+          display_name: account.displayName,
+          session_name: session.display_name,
+        })),
+    );
+  }
+
+  function renderScheduler() {
+    const list = $("#scheduler-list");
+    const empty = $("#scheduler-empty");
+    const characters = everyCharacter();
+    list.innerHTML = "";
+    empty.hidden = characters.length > 0;
+
+    characters.forEach((character) => {
+      const row = document.createElement("label");
+      row.className = "setting sched-row";
+      const text = document.createElement("span");
+      text.className = "setting-text";
+      const name = document.createElement("span");
+      name.textContent = character.display_name;
+      const under = document.createElement("small");
+      under.className = "muted";
+      under.textContent = character.session_name || "";
+      text.append(name, under);
+      const tick = document.createElement("input");
+      tick.type = "checkbox";
+      tick.className = "switch";
+      tick.checked = schedulerChosen.has(character.account_id);
+      tick.disabled = schedulerRunning;
+      tick.addEventListener("change", () => {
+        if (tick.checked) schedulerChosen.add(character.account_id);
+        else schedulerChosen.delete(character.account_id);
+      });
+      row.append(text, tick);
+      list.appendChild(row);
+    });
+  }
+
+  function onSchedulerStatus(event) {
+    schedulerRunning = event.running;
+    const box = $("#scheduler-status");
+    const position =
+      event.index === undefined || event.index === null ? "" : ` (${event.index + 1}/${event.total})`;
+    box.hidden = false;
+    box.textContent = event.message + position;
+    box.classList.toggle("notice-warn", event.running);
+    $("#btn-scheduler-start").disabled = event.running;
+    $("#btn-scheduler-stop").disabled = !event.running;
+    if (!event.running) renderScheduler();
+    logStatus("Scheduler: " + event.message);
+  }
+
+  function startScheduler() {
+    const chosen = everyCharacter().filter((c) => schedulerChosen.has(c.account_id));
+    if (!chosen.length) {
+      logStatus("Scheduler: tick at least one character first", "error");
+      return;
+    }
+    send({
+      type: "scheduler_start",
+      accounts: chosen.map((c) => ({ account_id: c.account_id, display_name: c.display_name })),
+      delay_seconds: Math.max(0, Number($("#sched-delay").value) || 0),
+      repeat: $("#sched-repeat").checked,
+    });
+  }
+
   // ---- Frame ----
 
   function showView(name) {
@@ -262,6 +378,7 @@
     });
     navItems.forEach((item) => item.classList.toggle("is-active", item.dataset.view === name));
 
+    if (name === "scheduler") renderScheduler();
     if (name === "clients") requestClients(true);
     if (name === "plugins") requestPlugins(false);
     if (name === "settings") restoreConfigToUI();
@@ -368,7 +485,19 @@
 
     session.accounts.forEach((account) => {
       const row = el("div", "char");
+      const portrait = el("span", "char-face");
+      portrait.dataset.accountId = account.accountId;
+      const known = state.characters[account.accountId];
+      paintFace(portrait, account.displayName, known);
+      row.appendChild(portrait);
       row.appendChild(el("span", "char-name", account.displayName || "Unnamed character"));
+      if (known && known.total) {
+        row.appendChild(el("span", "char-stat", "Total " + known.total.toLocaleString("en-GB")));
+      }
+      if (account.displayName && known === undefined) {
+        state.characters[account.accountId] = null;
+        send({ type: "character_info", account_id: account.accountId, display_name: account.displayName });
+      }
       if (session.last_account_id === account.accountId) {
         row.appendChild(badge("Last played", "last"));
       }
@@ -725,6 +854,8 @@
   // ---- Wiring ----
 
   navItems.forEach((item) => item.addEventListener("click", () => showView(item.dataset.view)));
+  $("#btn-scheduler-start").addEventListener("click", startScheduler);
+  $("#btn-scheduler-stop").addEventListener("click", () => send({ type: "scheduler_stop" }));
 
   btnLogin.addEventListener("click", () => send({ type: "login" }));
   btnExpandAll.addEventListener("click", () => {

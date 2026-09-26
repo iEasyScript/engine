@@ -80,6 +80,10 @@
             <span>Clients</span>
             <span id="nav-clients-count" class="nav-badge" hidden></span>
           </button>
+          <button class="nav-item" type="button" data-view="scheduler">
+            <svg class="nav-icon"><use href="#i-play"/></svg>
+            <span>Scheduler</span>
+          </button>
           <button class="nav-item" type="button" data-view="plugins">
             <svg class="nav-icon"><use href="#i-plugin"/></svg>
             <span>Plugins</span>
@@ -133,6 +137,46 @@
           <div id="clients-empty" class="empty">
             <p>No running clients found.</p>
             <p class="muted">Start a character from Accounts and it appears here.</p>
+          </div>
+        </section>
+
+        <section id="scheduler-view" class="view" hidden>
+          <div class="toolbar">
+            <h1 class="view-title">Scheduler</h1>
+            <div class="toolbar-actions">
+              <button id="btn-scheduler-start" class="btn btn-accent" type="button">
+                <svg class="btn-icon"><use href="#i-play"/></svg>
+                Start
+              </button>
+              <button id="btn-scheduler-stop" class="btn" type="button" disabled>Stop</button>
+            </div>
+          </div>
+          <p class="hint">
+            Starts each character in turn and injects the engine, waiting between them. The next one
+            begins only once the previous client is up.
+          </p>
+          <div id="scheduler-status" class="notice" hidden></div>
+          <div class="settings">
+            <label class="setting setting-stack">
+              <span class="setting-text">
+                <span>Wait between characters</span>
+                <small class="muted">Seconds to leave between one client coming up and the next starting.</small>
+              </span>
+              <input id="sched-delay" class="input" type="number" min="0" max="3600" step="5" value="60">
+            </label>
+            <label class="setting">
+              <span class="setting-text">
+                <span>Loop the run</span>
+                <small class="muted">Starts again from the top once the list finishes.</small>
+              </span>
+              <input type="checkbox" id="sched-repeat" class="switch">
+            </label>
+          </div>
+          <h2 class="view-subtitle">Characters in the run</h2>
+          <div id="scheduler-list" class="list"></div>
+          <div id="scheduler-empty" class="empty">
+            <p>No characters yet.</p>
+            <p class="muted">Log in under Accounts and your characters appear here.</p>
           </div>
         </section>
 

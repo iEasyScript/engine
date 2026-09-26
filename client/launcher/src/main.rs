@@ -1,4 +1,5 @@
 mod auth;
+mod characters;
 mod config;
 mod engine;
 mod game;
