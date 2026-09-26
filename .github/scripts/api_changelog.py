@@ -139,8 +139,13 @@ def short(cls: str) -> str:
     return cls.rsplit(".", 1)[-1].replace("$", ".")
 
 
-def display(cls: str, sig: str) -> str:
-    """How a member reads to a script author: `Script.live()`, `Palette.ground`, or `Stat()` for a top-level function."""
+def display(cls: str, sig: str, members: set[str] | None = None) -> str:
+    """How a member reads to a script author: `Script.live()`, `Palette.ground`, or `Stat()` for a top-level function.
+
+    A setter only reads as a property when the class has the matching getter. A lone `setLoop(int)` is a function a
+    script calls, and calling it `loop` would name something the script cannot assign - and, there, something else
+    entirely.
+    """
     name = member_name(sig)
     params = member_params(sig)
     top_level = cls.endswith("Kt") and " static " in f" {sig} "
@@ -152,13 +157,21 @@ def display(cls: str, sig: str) -> str:
         prop = re.sub(r"^(get|is)", "", name)
         # Compose names its CompositionLocals with a capital (LocalType), so those keep theirs.
         target = prop if "CompositionLocal" in sig.split(name)[0] else prop[0].lower() + prop[1:]
-    elif re.fullmatch(r"set[A-Z]\w*", name) and params and "," not in params:
+    elif re.fullmatch(r"set[A-Z]\w*", name) and params and "," not in params and has_getter(name, members):
         target = name[3].lower() + name[4:]
     else:
         target = f"{name}()"
     if top_level or target.endswith(f"{short(cls)}()"):
         return f"`{target}`"
     return f"`{short(cls)}.{target}`"
+
+
+def has_getter(setter: str, members: set[str] | None) -> bool:
+    """Whether the class also exposes get<X>/is<X> with no parameters, which is what makes <X> a property."""
+    if members is None:
+        return True
+    stem = setter[3:]
+    return any(member_name(m) in (f"get{stem}", f"is{stem}") and not member_params(m) for m in members)
 
 
 def describe(old: dict[str, set[str]], new: dict[str, set[str]]) -> dict[str, dict[str, list[str]]]:
@@ -176,7 +189,7 @@ def describe(old: dict[str, set[str]], new: dict[str, set[str]]) -> dict[str, di
         if t.endswith("Kt"):
             # A Kotlin file's top-level functions: what a script calls is the functions, not the file.
             for f in sorted(new[t]):
-                put(area(t), "added", display(t, f))
+                put(area(t), "added", display(t, f, new[t]))
         else:
             put(area(t), "added", f"`{short(t)}` (new)")
     for t in sorted(set(old) - set(new)):
@@ -197,7 +210,7 @@ def describe(old: dict[str, set[str]], new: dict[str, set[str]]) -> dict[str, di
                     continue
                 if member_name(g) != member_name(f) and member_params(g) == member_params(f) \
                         and g.split()[:-1] == f.split()[:-1]:
-                    put(a, "renamed", f"{display(cls, g)} is now {display(cls, f)}")
+                    put(a, "renamed", f"{display(cls, g, old[cls])} is now {display(cls, f, new[cls])}")
                     matched_gone.add(g); matched_fresh.add(f)
                     break
 
@@ -207,17 +220,17 @@ def describe(old: dict[str, set[str]], new: dict[str, set[str]]) -> dict[str, di
         for g in sorted(gone - matched_gone):
             for f in sorted(fresh - matched_fresh):
                 if member_name(g) == member_name(f):
-                    put(a, "changed", f"{display(cls, g)} takes `({simple_params(f)})`")
+                    put(a, "changed", f"{display(cls, g, old[cls])} takes `({simple_params(f)})`")
                     matched_gone.add(g); matched_fresh.add(f)
                     break
 
         for f in sorted(fresh - matched_fresh):
-            put(a, "added", display(cls, f))
+            put(a, "added", display(cls, f, new[cls]))
         for g in sorted(gone - matched_gone):
             if member_name(g) not in still_there:
-                put(a, "removed", display(cls, g))
+                put(a, "removed", display(cls, g, old[cls]))
             else:
-                put(a, "changed", f"{display(cls, g)} lost an overload `({simple_params(g)})`")
+                put(a, "changed", f"{display(cls, g, old[cls])} lost an overload `({simple_params(g)})`")
 
     return out
 
