@@ -1,6 +1,7 @@
 package world.gregs.voidps.cache.type.decoder
 
 import world.gregs.voidps.buffer.read.Reader
+import world.gregs.voidps.cache.Cache
 import world.gregs.voidps.cache.TypeDecoder
 import world.gregs.voidps.cache.type.data.StylesheetProperty
 import world.gregs.voidps.cache.type.data.StylesheetType
@@ -8,6 +9,11 @@ import world.gregs.voidps.cache.type.data.StylesheetType
 class StylesheetDecoder : TypeDecoder<StylesheetType>(INDEX) {
 
     override fun create(size: Int) = Array(size) { StylesheetType(it) }
+
+    /** One entity per archive, single file, archives numbered from 1 - not the 128-file config layout. */
+    override fun size(cache: Cache) = cache.lastArchiveId(index)
+
+    override fun getFile(id: Int) = 0
 
     override fun readLoop(definition: StylesheetType, buffer: Reader) {
         recordDecode(definition.id, buffer) {
