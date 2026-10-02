@@ -18,4 +18,15 @@ public interface EngineHandle {
 
     /** Identifies the loaded engine build; changes every rebuild (verification signal). */
     String version();
+
+    /**
+     * Runs one control-socket line the supervisor itself does not handle - starting a script,
+     * stopping one, hopping a world - and returns the single response line.
+     *
+     * <p>Default so that a supervisor paired with an engine built before this existed answers
+     * instead of failing to link: the two jars ship together, but a hot-swapped engine need not.
+     */
+    default String command(String line) {
+        return "ERR this engine build has no command channel";
+    }
 }

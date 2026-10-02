@@ -1521,8 +1521,17 @@ fun isPlayerLoading() = !isLoggedIn()
  */
 suspend fun Script.randomizedWorldHop(membersOnly: Boolean = true) {
     val currentWorld = getCurrentWorld()
+    val pool = if (membersOnly) MEMBER_WORLDS_NON_PK_OR_REQUIREMENTS else FREE_WORLDS_NON_PK_OR_REQUIREMENTS
+    hopToWorld(pool.filter { it != currentWorld }.random())
+}
 
-    println("[WORLD HOPPER] Option menu opened (CURRENT WORLD IS $currentWorld)")
+/**
+ * Hops to [world] through the world switcher, where the slot in the world list is the world's own
+ * number. False when the switcher never opened, so a caller can try again rather than assume it
+ * moved. Takes several ticks: the wait ends when the client is logged in on the other side.
+ */
+suspend fun Script.hopToWorld(world: Int): Boolean {
+    println("[WORLD HOPPER] Option menu opened (CURRENT WORLD IS ${getCurrentWorld()})")
     IFSlot(1477, 97, 1).click(1)
     waitThenDelayUntil(2000, 5555) { !interfaces.isOpen(1433) }
 
@@ -1532,18 +1541,16 @@ suspend fun Script.randomizedWorldHop(membersOnly: Boolean = true) {
         waitThenDelayUntil(2000, 5555) { !interfaces.isOpen(1587) }
     }
 
-    if (interfaces.isOpen(1587)) {
-        var worldToUse = FREE_WORLDS_NON_PK_OR_REQUIREMENTS.filter { it != currentWorld }.random()
-
-        if (membersOnly)
-            worldToUse = MEMBER_WORLDS_NON_PK_OR_REQUIREMENTS.filter { it != currentWorld }.random()
-
-        println("[WORLD HOPPER] Changing Worlds to $worldToUse")
-        IFSlot(1587, 8, worldToUse).click(2)
-
-        waitThenDelayUntil(2000, 30000) { isLoggedIn() }
-        println("[WORLD HOPPER] Finished Loading World.")
+    if (!interfaces.isOpen(1587)) {
+        println("[WORLD HOPPER] World list never opened")
+        return false
     }
+
+    println("[WORLD HOPPER] Changing Worlds to $world")
+    IFSlot(1587, 8, world).click(2)
+    waitThenDelayUntil(2000, 30000) { isLoggedIn() }
+    println("[WORLD HOPPER] Finished Loading World.")
+    return true
 }
 
 

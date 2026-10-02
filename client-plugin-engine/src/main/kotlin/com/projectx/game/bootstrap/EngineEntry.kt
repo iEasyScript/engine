@@ -17,4 +17,6 @@ class EngineEntry : EngineHandle {
     override fun stop() = Bootstrap.shutdown()
 
     override fun version(): String = BuildInfo.VERSION
+
+    override fun command(line: String): String = EngineCommands.run(line)
 }

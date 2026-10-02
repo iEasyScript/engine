@@ -132,7 +132,9 @@ public final class Supervisor {
                         reload();
                         return "OK active version=" + safeVersion();
                     default:
-                        return "ERR unknown command: " + sanitize(raw);
+                        // Anything else is the engine's own business, and only it can answer.
+                        if (engine == null) return "ERR engine not loaded";
+                        return engine.command(raw.trim());
                 }
             } catch (Throwable t) {
                 lastError = String.valueOf(t);
