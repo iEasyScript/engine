@@ -62,6 +62,18 @@ class WarsRetreatTrip @JvmOverloads constructor(
 
     var lastAction: String = ""
         internal set
+
+    internal val done = mutableSetOf<WarsRetreatTask>()
+    internal var finished = false
+
+    /** The stops this visit has already finished, which [runWarsRetreatTrip] does not run again. */
+    val completed: Set<WarsRetreatTask> get() = done
+
+    /** Forgets what the visit has finished, so the next run starts from the first stop again. */
+    fun reset() {
+        done.clear()
+        finished = false
+    }
 }
 
 /**
@@ -72,23 +84,29 @@ class WarsRetreatTrip @JvmOverloads constructor(
  */
 suspend fun Script.runWarsRetreatTrip(trip: WarsRetreatTrip): Boolean {
     if (!WarsRetreat.isHere) {
+        trip.reset()
         trip.lastAction = "Teleporting to War's Retreat"
         if (!WarsRetreat.teleport()) return false
         delayUntil(gaussian(9000L, 1800L), POLL_MILLIS) { WarsRetreat.isHere && !localPlayer.isMoving }
         if (!WarsRetreat.isHere) return false
         settle()
+    } else if (trip.finished) {
+        trip.reset()
     }
     for (task in trip.order) {
+        if (task in trip.done) continue
         val done = when (task) {
             WarsRetreatTask.BANK -> !trip.loadPreset || loadPreset(trip)
             WarsRetreatTask.ALTAR -> !trip.prayAtAltar || restorePrayer(trip)
             WarsRetreatTask.CRYSTAL -> !trip.useAdrenalineCrystal || fillAdrenaline(trip)
-            WarsRetreatTask.CONJURES -> !trip.summonConjures || summonConjures(trip)
+            WarsRetreatTask.CONJURES -> !trip.summonConjures || conjureArmy(trip)
             WarsRetreatTask.PREBUILD -> trip.prebuild == null || prebuild(trip)
             WarsRetreatTask.PORTAL -> trip.portalName == null || enterPortal(trip)
         }
         if (!done) return false
+        trip.done += task
     }
+    trip.finished = true
     return true
 }
 
@@ -149,18 +167,13 @@ private suspend fun Script.fillAdrenaline(trip: WarsRetreatTrip): Boolean {
     return true
 }
 
-private suspend fun Script.summonConjures(trip: WarsRetreatTrip): Boolean {
-    val summoned = { conjuresUp() }
-    if (summoned()) return true
+private suspend fun Script.conjureArmy(trip: WarsRetreatTrip): Boolean {
+    if (conjuresUp) return true
     trip.lastAction = "Conjuring the undead army"
-    if (!(abilityUsable(CONJURE_ARMY) && castAbility(CONJURE_ARMY))) return true
-    delayUntil(gaussian(6000L, 1200L), POLL_MILLIS) { summoned() }
+    summonConjures()
     settle()
     return true
 }
-
-private fun conjuresUp(): Boolean =
-    listOf("Skeleton Warrior", "Vengeful Ghost", "Putrid Zombie").all { effectNamed(it)?.active() == true }
 
 private suspend fun Script.prebuild(trip: WarsRetreatTrip): Boolean {
     val steps = trip.prebuild ?: return true
@@ -209,7 +222,7 @@ private suspend fun Script.diveToBank(trip: WarsRetreatTrip) {
  * or Dive on cooldown, it leaves the walk to the station's own interaction.
  */
 private suspend fun Script.moveNorth(trip: WarsRetreatTrip, target: Pair<Int, Int>) {
-    if (localPlayer.tileY >= NORTH_OF_BANK || !near(BANK_STAND_X, BANK_STAND_Y, 8)) return
+    if (localPlayer.tileY >= NORTH_OF_BANK || !near(BANK_STAND_X, BANK_STAND_Y, BANK_SHORTCUT_REACH)) return
     if (!Ability.SURGE.offCdIgnoreGCD || !isDiveReady() || !takeShortcut(trip)) return
     trip.lastAction = "Surge and dive north"
     if (!near(BANK_STAND_X, BANK_STAND_Y, 0)) {
@@ -239,8 +252,8 @@ private fun portalApproach(portal: SceneObject): Pair<Int, Int> =
     if (portal.tileX >= EAST_PORTAL_X) PORTAL_EAST else PORTAL_WEST
 
 private const val FULL_ADRENALINE = 100.0
-private const val CONJURE_ARMY = "Conjure Undead Army"
 private const val CHEST_REACH = 2.5
+private const val BANK_SHORTCUT_REACH = 3
 private const val ARRIVAL_X = 3294
 private const val ARRIVAL_Y = 10127
 private const val BANK_STAND_X = 3299
