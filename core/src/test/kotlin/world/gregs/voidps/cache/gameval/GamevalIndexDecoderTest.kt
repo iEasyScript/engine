@@ -77,10 +77,10 @@ class GamevalIndexDecoderTest {
         // var-part keeps the original archive ids; varbit-part is rebased (id - offset) with the
         // leading `_` stripped — see GamevalIndexDecoder.splitVarDomain.
         assertEquals("lastcastspell", all["var_player"]?.get(0), "var_player 0")
-        assertEquals(10627, all["var_player"]?.size, "var_player var-part size")
+        assertEquals(10804, all["var_player"]?.size, "var_player var-part size")
         assertEquals("zaros_spellbook", all["varbit_player"]?.get(0), "varbit_player 0")
         assertEquals("popup_kerapac_dnd_shown", all["varbit_player"]?.get(1), "varbit_player 1")
-        assertEquals(50690, all["varbit_player"]?.size, "varbit_player varbit-part size")
+        assertEquals(51157, all["varbit_player"]?.size, "varbit_player varbit-part size")
         // Other domains: both halves appear (npc has both; counts from the real beta data).
         assertEquals(167, all["var_npc"]?.size, "var_npc var-part size")
         assertEquals(938, all["varbit_npc"]?.size, "varbit_npc varbit-part size")
@@ -95,8 +95,8 @@ class GamevalIndexDecoderTest {
         assertEquals(all["varbit_player"], decoder.decode(cache, "varbit_player"))
         assertEquals(all["var_npc"], decoder.decodeVar(cache, "npc"))
         assertEquals(all["varbit_npc"], decoder.decodeVarbit(cache, "npc"))
-        // The raw archive accessor returns the UN-split combined map (10627 + 50690).
-        assertEquals(61317, decoder.decodeArchive(cache, GamevalIndex.archiveId("var_player")!!)?.size, "raw var_player archive is combined")
+        // The raw archive accessor returns the UN-split combined map (10804 + 51157).
+        assertEquals(61961, decoder.decodeArchive(cache, GamevalIndex.archiveId("var_player")!!)?.size, "raw var_player archive is combined")
         // varbit_<domain> resolves to the same combined archive as var_<domain>.
         assertEquals(61, GamevalIndex.archiveId("varbit_player"), "varbit_player -> archive 61")
 
