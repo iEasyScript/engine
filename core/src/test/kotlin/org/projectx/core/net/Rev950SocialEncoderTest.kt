@@ -47,7 +47,7 @@ class Rev950SocialEncoderTest {
     @Test fun clanChannelFull() {
         val packet = ClanChannelFull(
             main = true,
-            clanName = "Project X",
+            clanName = "ProjectX",
             clanHash = 0x0000019f485adabaL,
             updateNum = 0x000000000006060aL,
             kickRank = 0,
@@ -55,7 +55,7 @@ class Rev950SocialEncoderTest {
             chatters = arrayOf(ClanChannelFull.ClanChannelChatter(displayName = "Yehp", rank = 126, worldId = 1104)),
         )
         assertEquals(
-            "00 02 00 00 00 00 00 06 06 0a 00 00 01 9f 48 5a da ba 44 61 72 6b 61 6e 00 01 04 00 00 01 59 65 68 70 00 7e 04 50",
+            "00 02 00 00 00 00 00 06 06 0a 00 00 01 9f 48 5a da ba 50 72 6f 6a 65 63 74 58 00 01 04 00 00 01 59 65 68 70 00 7e 04 50",
             encode(packet),
         )
     }

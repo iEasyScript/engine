@@ -432,8 +432,8 @@ async fn refresh_saved_sessions(
 
 /// One-time rebrand migration onto the current ProjectDirs application name.
 ///
-/// The name has changed twice (`bolt-rs3`, then `darkan-launcher`), and each
-/// change moves the data dir (e.g. on Linux
+/// The name has changed since `bolt-rs3`, and the change moves the data dir
+/// (e.g. on Linux
 /// `~/.local/share/bolt-rs3/` → `~/.local/share/project-x-launcher/`). That dir
 /// holds live state — `creds.json` (OAuth login), the downloaded `Jagex/`
 /// client, `libprojectx_patcher.so`, webview storage — so without migrating it the
@@ -446,8 +446,7 @@ async fn refresh_saved_sessions(
 fn migrate_data_dir() {
     use directories::ProjectDirs;
 
-    // Newest legacy name first, so the most recent data wins if several survive.
-    const LEGACY_APP_NAMES: [&str; 2] = ["darkan-launcher", "bolt-rs3"];
+    const LEGACY_APP_NAMES: [&str; 1] = ["bolt-rs3"];
 
     let new_dirs = match ProjectDirs::from("", "", "project-x-launcher") {
         Some(d) => d,
