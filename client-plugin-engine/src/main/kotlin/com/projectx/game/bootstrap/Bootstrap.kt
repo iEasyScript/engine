@@ -25,6 +25,7 @@ import world.gregs.voidps.cache.Cache
 import world.gregs.voidps.cache.type.data.VarBitType
 import java.lang.foreign.MemorySegment
 import java.nio.file.Files
+import world.gregs.voidps.cache.ClientCacheDirs
 import java.nio.file.Path
 import java.nio.file.Paths
 
@@ -48,17 +49,8 @@ object Bootstrap {
             println("[Cache] cache dir = $it (RS_CACHE_DIR)")
             return Paths.get(it)
         }
-        val home = System.getProperty("user.home")
-        val candidates = buildList {
-            // The Windows client caches under the machine-wide ProgramData root, and no HOME
-            // redirect reaches it - the launcher only rewrites HOME on unix.
-            System.getenv("PROGRAMDATA")?.let { add("$it/Jagex/RuneScape") }
-            add("$home/Jagex/RuneScape")
-            add("$home/.local/share/project-x-launcher/Jagex/RuneScape")
-        }
-        val chosen = candidates.firstOrNull { dir ->
-            Files.isDirectory(Paths.get(dir)) && (0..255).any { Files.exists(Paths.get(dir, "js5-$it.jcache")) }
-        } ?: candidates.first()
+        val candidates = ClientCacheDirs.candidates()
+        val chosen = candidates.firstOrNull { ClientCacheDirs.holdsCache(Paths.get(it)) } ?: candidates.first()
         println("[Cache] cache dir = $chosen (probed; RS_CACHE_DIR unset)")
         return Paths.get(chosen)
     }

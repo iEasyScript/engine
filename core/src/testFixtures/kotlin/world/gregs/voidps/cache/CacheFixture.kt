@@ -27,12 +27,7 @@ object CacheFixture {
      */
     fun resolveClientCacheDir(): Path? {
         System.getenv("RS_CACHE_DIR")?.let { Path.of(it) }?.takeIf { it.hasCache() }?.let { return it }
-        val home = System.getProperty("user.home")
-        for (candidate in listOf("$home/Jagex/RuneScape", "$home/.local/share/project-x-launcher/Jagex/RuneScape")) {
-            val p = Path.of(candidate)
-            if (p.hasCache()) return p
-        }
-        return null
+        return ClientCacheDirs.resolve()
     }
 
     fun load(dir: Path): Cache = SQLiteCache.load(dir, readOnly = true)

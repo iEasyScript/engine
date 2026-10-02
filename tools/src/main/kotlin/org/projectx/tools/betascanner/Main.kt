@@ -2,6 +2,7 @@ package org.projectx.tools.betascanner
 
 import kotlinx.coroutines.runBlocking
 import org.projectx.tools.betascanner.IsolationGuard.ForbiddenOutputException
+import world.gregs.voidps.cache.ClientCacheDirs
 import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
@@ -73,19 +74,12 @@ private fun parseArgs(args: Array<String>): Map<String, String> {
     return result
 }
 
-/** Engine-style live cache resolution: RS_CACHE_DIR -> $HOME/Jagex/RuneScape -> launcher dir. */
+/** Engine-style live cache resolution: RS_CACHE_DIR, then [ClientCacheDirs]. */
 private fun resolveLiveDir(override: String?): Path {
     if (override != null) return Paths.get(override).toAbsolutePath().normalize()
     System.getenv("RS_CACHE_DIR")?.let { return Paths.get(it).toAbsolutePath().normalize() }
-    val home = System.getProperty("user.home")
-    val candidates = listOf(
-        "$home/Jagex/RuneScape",
-        "$home/.local/share/project-x-launcher/Jagex/RuneScape",
-    )
-    val chosen = candidates.firstOrNull { dir ->
-        val p = Paths.get(dir)
-        Files.isDirectory(p) && (0..255).any { Files.exists(p.resolve("js5-$it.jcache")) }
-    } ?: candidates.first()
+    val candidates = ClientCacheDirs.candidates()
+    val chosen = candidates.firstOrNull { ClientCacheDirs.holdsCache(Paths.get(it)) } ?: candidates.first()
     return Paths.get(chosen).toAbsolutePath().normalize()
 }
 
