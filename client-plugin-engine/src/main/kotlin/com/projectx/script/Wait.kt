@@ -235,6 +235,18 @@ sealed class Wait {
         @JvmOverloads
         fun randomizedWorldHop(membersOnly: Boolean = true): Wait = call(null) { this.randomizedWorldHop(membersOnly) }
 
+        /** Hop to [world]; [onResult] gets whether the switcher actually moved. Kotlin: `hopToWorld`. */
+        @JvmStatic
+        @JvmOverloads
+        fun hopToWorld(world: Int, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.hopToWorld(world) }
+
+        /** Raise the undead army, waiting for all three; [onResult] gets whether they stood. Kotlin: `summonConjures`. */
+        @JvmStatic
+        @JvmOverloads
+        fun summonConjures(onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.summonConjures() }
+
         /** Hop to the least populated world not used in the last [cooldownMinutes]. Kotlin: `randomizedWorldHopQuick`. */
         @JvmStatic
         @JvmOverloads
