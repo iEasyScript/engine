@@ -59,6 +59,9 @@ NOISE = re.compile(
     r"\b(access\$|\$\$|lambda\$|<clinit>|component\d+\(|\$default\(|"
     r"getDefaultImpls|DefaultImpls|DefaultConstructorMarker|\$annotations\(|\$lambda|synthetic)"
     r"|\$stable\b|\sINSTANCE$|\$Companion Companion$|\bgetEntries\(\)|\bvalues\(\)|\bvalueOf\(java\.lang\.String\)"
+    # An `internal` member compiles to a public one with the module name mangled onto it. No
+    # Kotlin source name can contain a dollar, so a lowercase mangled suffix is the compiler's.
+    r"|\$[a-z][a-z0-9_]*\("
 )
 
 # Types the compilers generate: interface default bodies, `when` tables, Compose's cached lambdas.
