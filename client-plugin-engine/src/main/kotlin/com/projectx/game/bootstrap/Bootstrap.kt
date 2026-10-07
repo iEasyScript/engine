@@ -15,6 +15,7 @@ import com.projectx.game.nxt.GamevalCoverage
 import com.projectx.game.nxt.OffsetCoverage
 import com.projectx.markers.TileMarkerStore
 import com.projectx.mcp.McpServer
+import com.projectx.store.Entitlements
 import com.projectx.quest.data.QuestLibrary
 import com.projectx.quest.solver.registerExampleSolvers
 import com.projectx.script.ScriptExecutor
@@ -65,6 +66,7 @@ object Bootstrap {
 
             QuestLibrary.warm()
 
+            Entitlements.start()
             ScriptExecutor.loadScripts()
             println("[ok] loadScripts() completed. Found: ${ScriptExecutor.scripts.size} scripts")
 

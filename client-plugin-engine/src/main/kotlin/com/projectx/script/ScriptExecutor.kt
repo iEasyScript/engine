@@ -1,5 +1,6 @@
 package com.projectx.script
 
+import com.projectx.store.Entitlements
 import com.projectx.game.input.InputArbiter
 import com.projectx.game.nxt.OffsetTable
 import com.projectx.game.bootstrap.Bootstrap
@@ -111,7 +112,9 @@ object ScriptExecutor {
 
     fun pushEvent(event: Event) = eventBus.addLast(event)
 
+    // Stays Unit: the signature is shipped script API, so a refusal is simply not registering it.
     fun activate(script: Script) {
+        if (!Entitlements.mayStart(script)) return
         _activeScripts[script.javaClass.name] = script
         scriptStartTimes[script.javaClass.name] = System.currentTimeMillis()
     }
