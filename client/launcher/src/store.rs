@@ -392,8 +392,8 @@ fn stale_jars(dir: &std::path::Path, plugin: &StorePlugin, keep: &str) -> Vec<St
         .collect()
 }
 
-// Only replaces what the player installed, and leaves scripts whose access has lapsed.
-pub async fn update_installed(client: &reqwest::Client) -> Result<Vec<(String, Result<String>)>> {
+// Everything the account owns, at its current build; scripts whose access has lapsed are left alone.
+pub async fn sync_owned(client: &reqwest::Client) -> Result<Vec<(String, Result<String>)>> {
     if read_token().is_none() {
         return Ok(Vec::new());
     }
@@ -405,15 +405,16 @@ pub async fn update_installed(client: &reqwest::Client) -> Result<Vec<(String, R
         .collect();
 
     let mut moved = Vec::new();
-    for plugin in catalogue
-        .iter()
-        .filter(|p| p.paid && owned.contains(&p.internal_name))
-        .filter(|p| install_state(p) == InstallState::Outdated)
-    {
+    for plugin in catalogue.iter().filter(|p| p.paid && owned.contains(&p.internal_name)) {
+        let verb = match install_state(plugin) {
+            InstallState::Current => continue,
+            InstallState::Missing => "Installed",
+            InstallState::Outdated => "Updated",
+        };
         let label = plugin.name.clone().unwrap_or_else(|| plugin.internal_name.clone());
         let outcome = install(client, plugin)
             .await
-            .map(|_| format!("Updated {} to {}", label, plugin.version));
+            .map(|_| format!("{} {} {}", verb, label, plugin.version));
         moved.push((plugin.internal_name.clone(), outcome));
     }
     Ok(moved)
@@ -841,27 +842,55 @@ mod tests {
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old build").unwrap();
 
-        let moved = update_installed(&client()).await.unwrap();
+        let moved = sync_owned(&client()).await.unwrap();
 
         assert_eq!(moved.len(), 1);
-        assert_eq!(moved[0].1.as_ref().unwrap(), "Updated Gates of Elidinis to 3.6.2");
+        assert_eq!(moved[0].1.as_ref().unwrap(), "Updated Gates of Elidinis 3.6.2");
         assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.jar")).unwrap(), jar);
         assert!(!dir.join("GatesOfElidinis-3.6.1.jar").exists());
         let _ = fs::remove_dir_all(home);
     }
 
-    /// Nothing the player never installed appears on its own, owned or not.
+    /// Buying a script is enough: it arrives without the player pressing Install.
     #[tokio::test]
-    async fn an_owned_script_that_was_never_installed_is_left_alone() {
+    async fn a_bought_script_that_was_never_installed_is_installed() {
+        let jar = b"PK\x03\x04 version 3.6.2".to_vec();
+        let sha = crate::plugins::hex_digest(&jar);
+        let server = FakeStore::start_with(|port| {
+            let catalogue = format!(
+                r#"[{{"internalName":"GatesOfElidinis","name":"Gates of Elidinis","version":"3.6.2",
+                    "paid":true,"sha256":"{sha}","downloadUrl":"http://127.0.0.1:{port}/jar"}}]"#
+            );
+            vec![
+                Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.into_bytes() },
+                json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
+                bytes(jar.clone()),
+            ]
+        });
+        let (_g, home) = scratch("bought", server.port);
+        write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
+
+        let moved = sync_owned(&client()).await.unwrap();
+
+        assert_eq!(moved.len(), 1);
+        assert_eq!(moved[0].1.as_ref().unwrap(), "Installed Gates of Elidinis 3.6.2");
+        let dir = crate::plugins::scripts_dir().unwrap();
+        assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.jar")).unwrap(), jar);
+        let _ = fs::remove_dir_all(home);
+    }
+
+    /// A script the account does not own never appears, listed or not.
+    #[tokio::test]
+    async fn a_script_that_is_not_owned_is_not_installed() {
         let catalogue = r#"[{"internalName":"GatesOfElidinis","version":"3.6.2","paid":true}]"#;
         let server = FakeStore::start(vec![
             Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.as_bytes().to_vec() },
-            json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
+            json("200 OK", r#"{"entitlements":[]}"#),
         ]);
-        let (_g, home) = scratch("never-installed", server.port);
+        let (_g, home) = scratch("not-owned", server.port);
         write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
 
-        assert!(update_installed(&client()).await.unwrap().is_empty());
+        assert!(sync_owned(&client()).await.unwrap().is_empty());
         assert_eq!(install_state(&gates(server.port, None)), InstallState::Missing);
         let _ = fs::remove_dir_all(home);
     }
@@ -880,7 +909,7 @@ mod tests {
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old build").unwrap();
 
-        assert!(update_installed(&client()).await.unwrap().is_empty());
+        assert!(sync_owned(&client()).await.unwrap().is_empty());
         assert!(dir.join("GatesOfElidinis-3.6.1.jar").exists());
         let _ = fs::remove_dir_all(home);
     }
@@ -889,7 +918,7 @@ mod tests {
     async fn signed_out_there_is_nothing_to_update() {
         let server = FakeStore::start(vec![]);
         let (_g, home) = scratch("signed-out", server.port);
-        assert!(update_installed(&client()).await.unwrap().is_empty());
+        assert!(sync_owned(&client()).await.unwrap().is_empty());
         let _ = fs::remove_dir_all(home);
     }
 }

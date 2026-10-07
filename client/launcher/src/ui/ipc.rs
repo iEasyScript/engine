@@ -795,6 +795,7 @@ impl IpcState {
                 self.send_event(&IpcEvent::Init { config, sessions });
                 self.spawn_startup_account_refresh();
                 self.spawn_startup_update_check();
+                self.emit_store_status(None, None);
             }
             IpcMessage::Login => {
                 self.cmd_tx.send(AppCommand::OpenLoginWindow)?;
@@ -1626,7 +1627,10 @@ impl IpcState {
             .await;
             pairing.store(false, Ordering::SeqCst);
             match result {
-                Ok(_) => state.emit_store_status(None, None),
+                Ok(_) => {
+                    state.emit_store_status(None, None);
+                    state.handle_store_scripts();
+                }
                 Err(e) => state.emit_store_status(None, Some(format!("{}", e))),
             }
         });
@@ -1682,7 +1686,7 @@ impl IpcState {
 
     /// An unreachable store is not news on every launch, so it only reaches the log file.
     async fn report_store_updates(&self, client: &reqwest::Client) {
-        match store::update_installed(client).await {
+        match store::sync_owned(client).await {
             Ok(moved) => {
                 for (internal_name, outcome) in moved {
                     let (ok, message) = match outcome {

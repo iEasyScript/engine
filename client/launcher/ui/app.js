@@ -892,7 +892,7 @@
       storePairingLink.dataset.url = pairing.url;
     }
     btnStoreSignIn.disabled = !!pairing;
-    btnStoreSignIn.textContent = pairing ? "Waiting for approval…" : "Sign in";
+    $("#store-sign-in-label").textContent = pairing ? "Waiting for approval…" : "Sign in with Discord";
 
     storeError.hidden = !state.storeError;
     if (state.storeError) storeError.textContent = state.storeError;
