@@ -1881,6 +1881,11 @@ impl IpcState {
     /// never looks is a launcher that can never notice it has fallen behind the
     /// engine and plugins it installs.
     fn spawn_startup_update_check(self: &Arc<Self>) {
+        match plugins::retire_official_scripts(&self.paths.config_dir) {
+            Ok(Some(file)) => log::info!("Removed {}: the official scripts are on the store now", file),
+            Ok(None) => {}
+            Err(e) => log::warn!("Could not remove the old official scripts jar yet: {}", e),
+        }
         let cfg = self.plugins_config();
         let channels: Vec<PluginChannel> = CHANNELS
             .into_iter()

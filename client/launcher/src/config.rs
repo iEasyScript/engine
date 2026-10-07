@@ -90,8 +90,6 @@ pub struct Config {
 #[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct PluginsConfig {
     #[serde(default)]
-    pub official_auto_update: bool,
-    #[serde(default)]
     pub community_auto_update: bool,
     /// Alias kept so a config written before the move to GitHub still loads.
     #[serde(default, alias = "gitlab_host")]
@@ -100,8 +98,6 @@ pub struct PluginsConfig {
     pub project_path: Option<String>,
     /// Per-channel overrides. Each channel's jar comes from its own public
     /// repository, so these are what point the launcher somewhere else.
-    #[serde(default)]
-    pub official_repo: Option<String>,
     #[serde(default)]
     pub community_repo: Option<String>,
 }

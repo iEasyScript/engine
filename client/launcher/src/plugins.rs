@@ -51,16 +51,14 @@ const RELEASE_PAGE_TIMEOUT: Duration = Duration::from_secs(20);
 /// manifest and with the persisted install state.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum PluginChannel {
-    Official,
     Community,
 }
 
-pub const CHANNELS: [PluginChannel; 2] = [PluginChannel::Official, PluginChannel::Community];
+pub const CHANNELS: [PluginChannel; 1] = [PluginChannel::Community];
 
 impl PluginChannel {
     pub fn id(self) -> &'static str {
         match self {
-            PluginChannel::Official => "official",
             PluginChannel::Community => "community",
         }
     }
@@ -72,16 +70,12 @@ impl PluginChannel {
     /// Fallback identity for a release that predates the manifest asset.
     fn label(self) -> &'static str {
         match self {
-            PluginChannel::Official => "Official Scripts",
             PluginChannel::Community => "Community Scripts",
         }
     }
 
     fn blurb(self) -> &'static str {
         match self {
-            PluginChannel::Official => {
-                "First-party scripts maintained by the Project X team."
-            }
             PluginChannel::Community => {
                 "Community-contributed scripts, built from the opt-in community module."
             }
@@ -92,7 +86,6 @@ impl PluginChannel {
     /// of every jar — built locally or downloaded — that belongs to the channel.
     fn jar_prefix(self) -> &'static str {
         match self {
-            PluginChannel::Official => "official-scripts",
             PluginChannel::Community => "community-scripts",
         }
     }
@@ -100,7 +93,6 @@ impl PluginChannel {
     /// The Release asset link name used when a release carries no manifest.
     fn jar_link(self) -> &'static str {
         match self {
-            PluginChannel::Official => "official-scripts.jar",
             PluginChannel::Community => "community-scripts.jar",
         }
     }
@@ -110,14 +102,12 @@ impl PluginChannel {
     /// people install are public.
     fn default_repo(self) -> &'static str {
         match self {
-            PluginChannel::Official => "iEasyScript/official-scripts",
             PluginChannel::Community => "iEasyScript/community-scripts",
         }
     }
 
     fn repo(self, cfg: &PluginsConfig) -> String {
         let configured = match self {
-            PluginChannel::Official => cfg.official_repo.as_deref(),
             PluginChannel::Community => cfg.community_repo.as_deref(),
         };
         configured
@@ -895,14 +885,12 @@ fn unix_seconds(time: SystemTime) -> u64 {
 
 pub fn auto_update_enabled(cfg: &PluginsConfig, channel: PluginChannel) -> bool {
     match channel {
-        PluginChannel::Official => cfg.official_auto_update,
         PluginChannel::Community => cfg.community_auto_update,
     }
 }
 
 pub fn set_auto_update(cfg: &mut PluginsConfig, channel: PluginChannel, enabled: bool) {
     match channel {
-        PluginChannel::Official => cfg.official_auto_update = enabled,
         PluginChannel::Community => cfg.community_auto_update = enabled,
     }
 }
@@ -1087,6 +1075,27 @@ pub async fn install(
 
 /// Delete the managed jar for `channel` and forget it. A jar the user built is
 /// left alone — the launcher only removes what it installed.
+/// The official scripts are sold on the store now, so the jar this launcher once installed for them is
+/// deleted: it would otherwise keep running copies of scripts people now buy. Only the file the launcher
+/// recorded is touched, never a jar someone built themselves. A jar the engine still has open stays put
+/// and goes on the next start.
+pub fn retire_official_scripts(config_dir: &Path) -> Result<Option<String>> {
+    const RETIRED: &str = "official";
+    let mut state = load_state(config_dir);
+    let Some(entry) = state.entries.iter().find(|e| e.id == RETIRED).cloned() else {
+        return Ok(None);
+    };
+    let path = scripts_dir()?.join(&entry.file);
+    match fs::remove_file(&path) {
+        Ok(()) => {}
+        Err(e) if e.kind() == ErrorKind::NotFound => {}
+        Err(e) => bail!("Failed to remove {}: {}", path.display(), e),
+    }
+    state.entries.retain(|e| e.id != RETIRED);
+    save_state(config_dir, &state)?;
+    Ok(Some(entry.file))
+}
+
 pub fn remove(config_dir: &Path, channel: PluginChannel) -> Result<String> {
     let mut state = load_state(config_dir);
     let entry = state
@@ -1301,8 +1310,8 @@ pub(crate) mod tests {
     fn manifest_for(jar: &[u8], sha: &str) -> String {
         format!(
             r#"{{"schema":1,"version":"1.2.3","plugins":[
-                {{"id":"official","name":"Official Scripts","description":"first party",
-                  "version":"1.2.3","file":"official-scripts-1.2.3.jar",
+                {{"id":"community","name":"Community Scripts","description":"community",
+                  "version":"1.2.3","file":"community-scripts-1.2.3.jar",
                   "url":"http://127.0.0.1:{{PORT}}/jar","sha256":"{sha}","size":{size}}}
             ]}}"#,
             size = jar.len()
@@ -1337,40 +1346,40 @@ pub(crate) mod tests {
         let sha = hex_digest(&jar);
         let (_home_guard, _home, config_dir) = temp_home("install");
 
-        // Two channel probes, then the engine release lookup, its manifest and
+        // The channel probe, then the engine release lookup, its manifest and
         // the jar download.
-        let server = FakeForge::start(&manifest_for(&jar, &sha), jar.clone(), 5);
+        let server = FakeForge::start(&manifest_for(&jar, &sha), jar.clone(), 4);
         let cfg = server.config();
 
         let client = reqwest::Client::new();
         let catalog = fetch_catalog(&client, &cfg).await.expect("catalog");
         assert_eq!(catalog.release_tag, "v1.2.3");
 
-        let plugin = catalog.plugin(PluginChannel::Official).expect("official entry");
+        let plugin = catalog.plugin(PluginChannel::Community).expect("community entry");
         assert_eq!(plugin.version, "1.2.3");
 
         // A jar the user built earlier must not survive the install: two jars for
         // one channel put every script class on the scan path twice.
         let scripts = scripts_dir().unwrap();
-        fs::write(scripts.join("official-scripts-0.9.0.jar"), b"stale").unwrap();
+        fs::write(scripts.join("community-scripts-0.9.0.jar"), b"stale").unwrap();
 
-        let entry = install(&client, &config_dir, PluginChannel::Official, plugin)
+        let entry = install(&client, &config_dir, PluginChannel::Community, plugin)
             .await
             .expect("install");
         assert_eq!(entry.version, "1.2.3");
-        assert!(scripts.join("official-scripts-1.2.3.jar").is_file());
-        assert!(!scripts.join("official-scripts-0.9.0.jar").exists());
+        assert!(scripts.join("community-scripts-1.2.3.jar").is_file());
+        assert!(!scripts.join("community-scripts-0.9.0.jar").exists());
 
         let snapshot = snapshot(&config_dir, &cfg, Some(&catalog), None);
-        let official = snapshot.plugins.iter().find(|p| p.id == "official").unwrap();
-        assert_eq!(official.installed_version.as_deref(), Some("1.2.3"));
-        assert!(!official.update_available);
-        assert_eq!(official.local_jar, None);
-        assert!(!needs_install(&config_dir, PluginChannel::Official, plugin));
+        let community = snapshot.plugins.iter().find(|p| p.id == "community").unwrap();
+        assert_eq!(community.installed_version.as_deref(), Some("1.2.3"));
+        assert!(!community.update_available);
+        assert_eq!(community.local_jar, None);
+        assert!(!needs_install(&config_dir, PluginChannel::Community, plugin));
 
-        remove(&config_dir, PluginChannel::Official).expect("remove");
-        assert!(!scripts.join("official-scripts-1.2.3.jar").exists());
-        assert!(needs_install(&config_dir, PluginChannel::Official, plugin));
+        remove(&config_dir, PluginChannel::Community).expect("remove");
+        assert!(!scripts.join("community-scripts-1.2.3.jar").exists());
+        assert!(needs_install(&config_dir, PluginChannel::Community, plugin));
     }
 
     #[tokio::test]
@@ -1380,21 +1389,46 @@ pub(crate) mod tests {
 
         let server = FakeForge::start("", jar.clone(), 3);
         let plugin = ManifestPlugin {
-            id: "official".into(),
-            name: "Official Scripts".into(),
+            id: "community".into(),
+            name: "Community Scripts".into(),
             description: String::new(),
             version: "1.2.3".into(),
-            file: "official-scripts-1.2.3.jar".into(),
+            file: "community-scripts-1.2.3.jar".into(),
             url: format!("http://127.0.0.1:{}/jar", server.port),
             sha256: "00".repeat(32),
             size: jar.len() as u64,
         };
 
-        let error = install(&reqwest::Client::new(), &config_dir, PluginChannel::Official, &plugin)
+        let error = install(&reqwest::Client::new(), &config_dir, PluginChannel::Community, &plugin)
             .await
             .expect_err("checksum mismatch must fail the install");
         assert!(format!("{}", error).contains("Checksum mismatch"));
         assert!(!scripts_dir().unwrap().join(&plugin.file).exists());
+    }
+
+    #[test]
+    fn retiring_the_official_channel_deletes_only_the_jar_it_installed() {
+        let (_home_guard, _home, config_dir) = temp_home("retire-official");
+        let scripts = scripts_dir().unwrap();
+        fs::write(scripts.join("official-scripts-1.12.1.jar"), b"installed").unwrap();
+        fs::write(scripts.join("official-scripts-1.0.0.jar"), b"built by hand").unwrap();
+        fs::write(
+            state_file(&config_dir),
+            r#"{"entries":[
+                {"id":"official","version":"1.12.1","file":"official-scripts-1.12.1.jar"},
+                {"id":"community","version":"1.5.0","file":"community-scripts-1.5.0.jar"}
+            ]}"#,
+        )
+        .unwrap();
+
+        let retired = retire_official_scripts(&config_dir).expect("retire");
+        assert_eq!(retired.as_deref(), Some("official-scripts-1.12.1.jar"));
+        assert!(!scripts.join("official-scripts-1.12.1.jar").exists());
+        assert!(scripts.join("official-scripts-1.0.0.jar").is_file());
+        let ids: Vec<String> = load_state(&config_dir).entries.into_iter().map(|e| e.id).collect();
+        assert_eq!(ids, vec!["community".to_string()]);
+
+        assert_eq!(retire_official_scripts(&config_dir).expect("second run"), None);
     }
 
     /// The engine home's three artifacts move as one release, so the manifest
