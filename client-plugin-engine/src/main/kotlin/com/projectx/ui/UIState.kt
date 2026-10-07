@@ -109,6 +109,7 @@ object UIState {
     val farmingTrackerEnabled: ImGuiState<Boolean> = setting(true)
     val farmingNotificationsEnabled: ImGuiState<Boolean> = setting(true)
     val farmingShowSecondary: ImGuiState<Boolean> = setting(false)
+    val xpOverlayEnabled: ImGuiState<Boolean> = setting(true)
 
     val collisionOverlayEnabled: ImGuiState<Boolean> = setting(false)
     val collisionOverlayRadius: ImGuiState<Int> = setting(20)

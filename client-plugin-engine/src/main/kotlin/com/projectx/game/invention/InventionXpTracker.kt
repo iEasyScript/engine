@@ -107,7 +107,7 @@ object InventionXpTracker {
     }
 
     fun tick() {
-        if (!UIState.inventionXpTrackerEnabled.value) return
+        if (!UIState.inventionXpTrackerEnabled.value && !UIState.xpOverlayEnabled.value) return
         try {
             val client = runCatching { Bootstrap.client }.getOrNull() ?: return
             if (runCatching { client.mainState }.getOrNull() != MainState.LOGGED_IN) return

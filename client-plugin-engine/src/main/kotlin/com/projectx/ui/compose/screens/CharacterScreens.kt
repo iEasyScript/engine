@@ -57,6 +57,9 @@ object XpModel {
 fun XpScreen() {
     val rows = XpModel.feed.value.orEmpty()
     ScreenScroll {
+        Section("In-game card", note = "Shows the session's experience and rates over the game, with what the augmented gear is earning.") {
+            ToggleRow("Show experience over the game", UIState.xpOverlayEnabled)
+        }
         Section("Experience this session", note = "Every skill that has gained experience since the engine loaded.") {
             if (rows.isEmpty()) {
                 EmptyState("No experience yet", "Skills show up here as soon as they gain experience.")
