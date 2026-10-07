@@ -45,11 +45,31 @@ class EntitlementsTest {
     }
 
     @Test
+    fun `a trial outlasts the five minutes between refreshes`() {
+        assertTrue(
+            entitled(
+                trialEndNanos = nowNanos + 3600 * second,
+                lastAnsweredNanos = nowNanos - 305 * second,
+            ),
+        )
+    }
+
+    @Test
+    fun `a trial outlasts one dropped refresh`() {
+        assertTrue(
+            entitled(
+                trialEndNanos = nowNanos + 3600 * second,
+                lastAnsweredNanos = nowNanos - 605 * second,
+            ),
+        )
+    }
+
+    @Test
     fun `a trial ends once the store stops answering, so blocking us cannot extend it`() {
         assertFalse(
             entitled(
                 trialEndNanos = nowNanos + 3600 * second,
-                lastAnsweredNanos = nowNanos - 200 * second,
+                lastAnsweredNanos = nowNanos - 900 * second,
             ),
         )
     }

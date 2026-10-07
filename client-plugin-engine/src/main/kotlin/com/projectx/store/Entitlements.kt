@@ -24,8 +24,8 @@ object Entitlements {
     private const val REFRESH_SECONDS = 5L * 60L
     private const val GAME = "rs3"
 
-    // Two missed refreshes and some slack, so one dropped request does not end a trial.
-    private val TRIAL_GRACE_NANOS = TimeUnit.SECONDS.toNanos(150)
+    // Two refresh intervals and some slack, so one dropped request does not end a trial.
+    private val TRIAL_GRACE_NANOS = TimeUnit.SECONDS.toNanos(2 * REFRESH_SECONDS + 30)
 
     enum class Check { ANSWERED, REJECTED, UNREACHABLE }
 
