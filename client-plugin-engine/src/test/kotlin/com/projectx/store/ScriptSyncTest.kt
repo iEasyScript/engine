@@ -87,6 +87,25 @@ class ScriptSyncTest {
     }
 
     @Test
+    fun `a build the launcher installed while the game ran gets the list rescanned`() {
+        val onDisk = ScriptSync.ownedOnDisk(
+            owned = setOf("GatesOfElidinis"),
+            catalogue = listOf(gates()),
+            present = setOf("GatesOfElidinis-3.6.2.jar"),
+        )
+        assertEquals(setOf("GatesOfElidinis"), onDisk)
+        assertTrue(ScriptSync.needsRescan(onDisk, registered = setOf("Rasial")))
+        assertFalse(ScriptSync.needsRescan(onDisk, registered = setOf("GatesOfElidinis", "Rasial")))
+    }
+
+    @Test
+    fun `a download that failed does not rescan every five minutes for nothing`() {
+        val onDisk = ScriptSync.ownedOnDisk(setOf("GatesOfElidinis"), listOf(gates()), present = emptySet())
+        assertTrue(onDisk.isEmpty())
+        assertFalse(ScriptSync.needsRescan(onDisk, registered = emptySet()))
+    }
+
+    @Test
     fun `a bought script arrives in the folder and the older build goes`() {
         served = "PK pretend jar 3.6.2".toByteArray()
         Files.writeString(dir.resolve("GatesOfElidinis-3.6.1.jar"), "old")

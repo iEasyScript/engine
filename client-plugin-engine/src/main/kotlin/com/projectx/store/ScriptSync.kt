@@ -49,12 +49,28 @@ internal object ScriptSync {
         dir: Path,
     ): List<StoreJar> {
         Files.createDirectories(dir)
-        val present = Files.list(dir).use { files -> files.map { it.fileName.toString() }.toList().toSet() }
+        val present = listed(dir)
         val installed = missing(owned, catalogue, present).filter { install(it, token, http, dir, present) }
-        // A rescan only rebuilds the list of available scripts; running ones are untouched.
-        if (installed.isNotEmpty()) GameThread.post { ScriptExecutor.loadScripts() }
+
+        // Also catches a build the launcher installed: on disk, owned, but not yet in the script list.
+        val onDisk = ownedOnDisk(owned, catalogue, listed(dir))
+        GameThread.post {
+            val registered = ScriptExecutor.scripts.values.mapTo(HashSet()) { it.scriptClass.simpleName }
+            // A rescan only rebuilds the list of available scripts; running ones are untouched.
+            if (needsRescan(onDisk, registered)) ScriptExecutor.loadScripts()
+        }
         return installed
     }
+
+    fun ownedOnDisk(owned: Set<String>, catalogue: List<StoreJar>, present: Set<String>): Set<String> =
+        catalogue
+            .filter { it.internalName in owned && jarName(it.internalName, it.version) in present }
+            .mapTo(HashSet()) { it.internalName }
+
+    fun needsRescan(ownedOnDisk: Set<String>, registered: Set<String>): Boolean = !registered.containsAll(ownedOnDisk)
+
+    private fun listed(dir: Path): Set<String> =
+        Files.list(dir).use { files -> files.map { it.fileName.toString() }.toList().toSet() }
 
     private fun install(jar: StoreJar, token: String, http: HttpClient, dir: Path, present: Set<String>): Boolean =
         runCatching {
