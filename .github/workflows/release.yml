@@ -115,8 +115,8 @@ jobs:
           java-version: "25"
       - name: Install toolchain
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends cmake clang lld make libsdl2-dev libopengl-dev libegl-dev
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends cmake clang lld make libsdl2-dev libopengl-dev libegl-dev
       - name: Build
         run: |
           set -eu
@@ -146,8 +146,8 @@ jobs:
         run: git submodule update --init --depth 1 client-plugin-engine/native-bootstrap/funchook client-plugin-engine/native-bootstrap/imgui
       - name: Install toolchain
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends cmake mingw-w64 make curl unzip
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends cmake mingw-w64 make curl unzip
       # A Windows JDK, not the host one: find_package(JNI) would otherwise resolve
       # a jni_md.h that defines jint/jlong for LP64 rather than the LLP64 the DLL
       # needs. Headers only; the JVM is loaded at runtime via LoadLibraryW.
@@ -214,8 +214,8 @@ jobs:
       - name: Linux webview deps
         if: matrix.runner == 'ubuntu-latest'
         run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends libwebkit2gtk-4.1-dev libgtk-3-dev librsvg2-dev
       - name: Build the launcher
         env:
           PROJECTX_VERSION: ${{ needs.version.outputs.version }}
@@ -345,8 +345,8 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -eu
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends jq
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends jq
           chmod +x .github/ci/build-manifest.sh
           ./.github/ci/build-manifest.sh dist plugins-manifest.json
       - name: Publish release
@@ -419,8 +419,8 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -eu
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends jq
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update
+          sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends jq
           chmod +x .github/ci/build-manifest.sh
           ./.github/ci/build-manifest.sh dist plugins-manifest.json
           cp plugins-manifest.json dist/
