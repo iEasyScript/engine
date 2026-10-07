@@ -786,19 +786,22 @@ impl InstalledPlugins {
 /// process — so this must be the real home, exactly as the Gradle
 /// `copyJarToProjectXScripts` task uses it.
 pub fn scripts_dir() -> Result<PathBuf> {
-    #[cfg(test)]
-    if let Some(home) = tests::HOME_OVERRIDE.lock().unwrap_or_else(|e| e.into_inner()).clone() {
-        let dir = home.join(".projectx").join("scripts");
-        fs::create_dir_all(&dir)?;
-        return Ok(dir);
-    }
-    let home = BaseDirs::new()
-        .map(|dirs| dirs.home_dir().to_path_buf())
-        .context("Could not determine the home directory")?;
-    let dir = home.join(".projectx").join("scripts");
+    let dir = home_dir()?.join(".projectx").join("scripts");
     fs::create_dir_all(&dir)
         .with_context(|| format!("Failed to create {}", dir.display()))?;
     Ok(dir)
+}
+
+/// Shared with the store token, so a test redirecting one never touches the developer's real sign-in.
+pub(crate) fn home_dir() -> Result<PathBuf> {
+    #[cfg(test)]
+    if let Some(home) = tests::HOME_OVERRIDE.lock().unwrap_or_else(|e| e.into_inner()).clone() {
+        fs::create_dir_all(&home)?;
+        return Ok(home);
+    }
+    BaseDirs::new()
+        .map(|dirs| dirs.home_dir().to_path_buf())
+        .context("Could not determine the home directory")
 }
 
 pub fn state_file(config_dir: &Path) -> PathBuf {
@@ -981,7 +984,7 @@ pub fn snapshot(
 // Install / remove
 // ---------------------------------------------------------------------------
 
-fn hex_digest(bytes: &[u8]) -> String {
+pub fn hex_digest(bytes: &[u8]) -> String {
     let mut hasher = Sha256::new();
     hasher.update(bytes);
     hasher
@@ -1212,7 +1215,8 @@ fn run_opener(command: &[&str], target: &str) -> Result<()> {
 // The home-redirect guard is deliberately held across the awaits in a test: it is
 // what stops two tests from racing on the process-wide home directory.
 #[allow(clippy::await_holding_lock)]
-mod tests {
+// The store's tests redirect the same home, so they take the same lock.
+pub(crate) mod tests {
     use super::*;
     use std::io::{BufRead, BufReader, Write};
     use std::net::{TcpListener, TcpStream};
@@ -1307,12 +1311,12 @@ mod tests {
 
     /// `scripts_dir` resolves against the process-wide home directory, so a test
     /// that redirects it must not overlap another one doing the same.
-    static HOME_REDIRECT: Mutex<()> = Mutex::new(());
+    pub(crate) static HOME_REDIRECT: Mutex<()> = Mutex::new(());
 
     /// Where `scripts_dir` resolves while a test holds [`HOME_REDIRECT`]. Setting `HOME` alone
     /// is not enough: on Windows the home directory comes from the user profile, so tests
     /// would install into, and delete from, the developer's real scripts folder.
-    pub(super) static HOME_OVERRIDE: Mutex<Option<PathBuf>> = Mutex::new(None);
+    pub(crate) static HOME_OVERRIDE: Mutex<Option<PathBuf>> = Mutex::new(None);
 
     /// Point the home directory at a scratch dir for the duration of a test and
     /// hand back that dir plus a config dir inside it.

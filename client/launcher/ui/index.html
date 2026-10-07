@@ -44,6 +44,9 @@
     <symbol id="i-download" viewBox="0 0 24 24">
       <path d="M12 4v11M7 10.5l5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
     </symbol>
+    <symbol id="i-store" viewBox="0 0 24 24">
+      <path d="M4 9h16l-1.2 10.2A1.5 1.5 0 0 1 17.3 20.5H6.7a1.5 1.5 0 0 1-1.5-1.3L4 9Zm4 0V6.8a4 4 0 0 1 8 0V9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
     <symbol id="i-paypal" viewBox="0 0 24 24">
       <path d="M9.6 22 11.9 7.5h4.6a4.3 4.3 0 0 1 0 8.6h-2.9L12.7 22Z" fill="#7fd3f7"/>
       <path d="M5.6 19 8.2 2.5h5.3a4.6 4.6 0 0 1 0 9.2H10.1L8.9 19Z" fill="#169bd7"/>
@@ -87,6 +90,10 @@
           <button class="nav-item" type="button" data-view="plugins">
             <svg class="nav-icon"><use href="#i-plugin"/></svg>
             <span>Plugins</span>
+          </button>
+          <button class="nav-item" type="button" data-view="store">
+            <svg class="nav-icon"><use href="#i-store"/></svg>
+            <span>Store</span>
           </button>
           <button class="nav-item" type="button" data-view="logs">
             <svg class="nav-icon"><use href="#i-logs"/></svg>
@@ -210,6 +217,35 @@
             </div>
             <div id="downloads-list" class="list"></div>
           </div>
+        </section>
+
+        <section id="store-view" class="view" hidden>
+          <div class="toolbar">
+            <h1 class="view-title">Store</h1>
+            <div class="toolbar-actions">
+              <button id="btn-store-page" class="btn" type="button">Open the store</button>
+              <button id="btn-store-refresh" class="btn" type="button">
+                <svg class="btn-icon"><use href="#i-refresh"/></svg>
+                Refresh
+              </button>
+            </div>
+          </div>
+          <div class="info-grid">
+            <span class="muted">Account</span><span id="store-account">Not signed in</span>
+            <span class="muted">Store</span><span id="store-origin">…</span>
+          </div>
+          <div class="toolbar toolbar-sub">
+            <div class="toolbar-actions">
+              <button id="btn-store-sign-in" class="btn btn-accent" type="button">Sign in</button>
+              <button id="btn-store-sign-out" class="btn" type="button" hidden>Sign out</button>
+            </div>
+          </div>
+          <div id="store-pairing" class="notice" hidden>
+            Enter <code id="store-code">…</code> at <a id="store-pairing-link" href="#">the pairing page</a> to finish signing in. This window updates on its own.
+          </div>
+          <div id="store-error" class="notice notice-error" hidden></div>
+          <div id="store-list" class="list"></div>
+          <p id="store-empty" class="muted" hidden>Nothing here needs buying — every script the launcher installs is free.</p>
         </section>
 
         <section id="logs-view" class="view" hidden>

@@ -35,6 +35,10 @@
     renderedClients: null,
     pluginsSnapshot: null,
     busyPlugins: {}, // channel id -> timestamp of the action in flight
+    store: null, // last store_status event
+    storeScripts: null, // null until the first listing answers
+    storeError: null,
+    busyStore: {}, // internalName -> timestamp of the install in flight
   };
 
   const $ = (s) => document.querySelector(s);
@@ -45,6 +49,7 @@
     clients: $("#clients-view"),
     scheduler: $("#scheduler-view"),
     plugins: $("#plugins-view"),
+    store: $("#store-view"),
     logs: $("#logs-view"),
     settings: $("#settings-view"),
   };
@@ -80,6 +85,19 @@
   const btnDonate = $("#btn-donate");
 
   const DONATE_URL = "https://www.paypal.com/donate/?business=Leightkenno8%40icloud.com&item_name=Project+X";
+
+  const storeAccount = $("#store-account");
+  const storeOrigin = $("#store-origin");
+  const storePairing = $("#store-pairing");
+  const storeCode = $("#store-code");
+  const storePairingLink = $("#store-pairing-link");
+  const storeError = $("#store-error");
+  const storeList = $("#store-list");
+  const storeEmpty = $("#store-empty");
+  const btnStoreSignIn = $("#btn-store-sign-in");
+  const btnStoreSignOut = $("#btn-store-sign-out");
+  const btnStoreRefresh = $("#btn-store-refresh");
+  const btnStorePage = $("#btn-store-page");
 
   const statusLog = $("#status-log");
   const btnClearLogs = $("#btn-clear-logs");
@@ -186,6 +204,24 @@
         delete state.busyPlugins[event.id];
         logStatus(event.message, event.ok ? "success" : "error");
         renderPlugins();
+        break;
+
+      case "store_status":
+        state.store = event;
+        if (event.error) logStatus(event.error, "error");
+        renderStore();
+        break;
+
+      case "store_scripts":
+        state.storeScripts = event.scripts || [];
+        state.storeError = event.error || null;
+        renderStore();
+        break;
+
+      case "store_result":
+        delete state.busyStore[event.internal_name];
+        logStatus(event.message, event.ok ? "success" : "error");
+        renderStore();
         break;
 
       case "client_control_result":
@@ -381,6 +417,7 @@
     if (name === "scheduler") renderScheduler();
     if (name === "clients") requestClients(true);
     if (name === "plugins") requestPlugins(false);
+    if (name === "store") requestStore();
     if (name === "settings") restoreConfigToUI();
     if (name === "logs") statusLog.scrollTop = statusLog.scrollHeight;
     startClientsPolling();
@@ -832,6 +869,94 @@
     renderLauncherUpdate(snap);
   }
 
+  // ---- Store ----
+
+  function requestStore() {
+    send({ type: "store_status" });
+    send({ type: "store_scripts" });
+  }
+
+  function renderStore() {
+    const status = state.store;
+    const signedIn = !!(status && status.signed_in);
+
+    storeAccount.textContent = signedIn ? status.name || "Signed in" : "Not signed in";
+    storeOrigin.textContent = status ? status.store.replace(/^https?:\/\//, "") : "…";
+    btnStoreSignIn.hidden = signedIn;
+    btnStoreSignOut.hidden = !signedIn;
+
+    const pairing = status && status.pairing;
+    storePairing.hidden = !pairing;
+    if (pairing) {
+      storeCode.textContent = pairing.code;
+      storePairingLink.dataset.url = pairing.url;
+    }
+    btnStoreSignIn.disabled = !!pairing;
+    btnStoreSignIn.textContent = pairing ? "Waiting for approval…" : "Sign in";
+
+    storeError.hidden = !state.storeError;
+    if (state.storeError) storeError.textContent = state.storeError;
+
+    storeList.textContent = "";
+    const scripts = state.storeScripts || [];
+    scripts.forEach((s) => storeList.appendChild(renderStoreRow(s)));
+    // An empty list only means "nothing to buy" once the store has answered.
+    storeEmpty.hidden = !(state.storeScripts && scripts.length === 0 && !state.storeError);
+  }
+
+  function renderStoreRow(s) {
+    const busy = isBusy(state.busyStore, s.internal_name);
+    const installed = s.install_state === "current";
+    const outdated = s.install_state === "outdated";
+    const row = el("div", "plugin");
+
+    const title = el("div", "row-title");
+    title.appendChild(el("span", "row-name", s.name));
+    if (s.pending) title.appendChild(badge("Trial ready", "ok"));
+    else if (s.owned) title.appendChild(badge(s.trial ? "Trial" : "Owned", "ok"));
+    else title.appendChild(badge("Not owned", "warn"));
+    if (installed) title.appendChild(badge("Installed", "ok"));
+    if (outdated) title.appendChild(badge("Update available", "warn"));
+    row.appendChild(title);
+
+    const metaLine = el("div", "plugin-meta");
+    metaLine.appendChild(metaItem("version", "v" + s.version));
+    if (s.owned && s.expires_at && !s.pending) {
+      metaLine.appendChild(metaItem(s.trial ? "trial ends" : "until", formatClock(new Date(s.expires_at))));
+    }
+    row.appendChild(metaLine);
+
+    // The point of installing before the game: the hour has not started yet.
+    if (s.pending) {
+      row.appendChild(
+        el(
+          "p",
+          "plugin-desc",
+          "Your trial hour starts when you launch the game with Project X loaded, not now. Install it first."
+        )
+      );
+    }
+
+    const actions = el("div", "row-actions");
+    if (s.owned) {
+      const label = busy ? "…" : outdated ? "Update" : installed ? "Reinstall" : "Install";
+      actions.appendChild(
+        button(label, "btn-accent", busy, () => {
+          state.busyStore[s.internal_name] = Date.now();
+          send({ type: "store_install", internal_name: s.internal_name });
+          renderStore();
+        })
+      );
+    }
+    if (s.store_url) {
+      actions.appendChild(button(s.owned ? "View" : "Buy", "", false, () => send({ type: "open_url", url: s.store_url })));
+    }
+    const foot = el("div", "plugin-foot");
+    foot.appendChild(actions);
+    row.appendChild(foot);
+    return row;
+  }
+
   // ---- Settings ----
 
   function restoreConfigToUI() {
@@ -869,6 +994,18 @@
   });
 
   btnRefreshClients.addEventListener("click", () => requestClients(true));
+
+  btnStoreSignIn.addEventListener("click", () => send({ type: "store_sign_in" }));
+  btnStoreSignOut.addEventListener("click", () => send({ type: "store_sign_out" }));
+  btnStoreRefresh.addEventListener("click", requestStore);
+  btnStorePage.addEventListener("click", () => {
+    const base = state.store && state.store.store;
+    if (base) send({ type: "open_url", url: base + "/rs3/store" });
+  });
+  storePairingLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (storePairingLink.dataset.url) send({ type: "open_url", url: storePairingLink.dataset.url });
+  });
 
   btnRefreshPlugins.addEventListener("click", () => requestPlugins(true));
   btnOpenScripts.addEventListener("click", () => send({ type: "plugins_open_dir" }));

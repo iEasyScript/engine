@@ -5,6 +5,7 @@ mod engine;
 mod game;
 mod java;
 mod plugins;
+mod store;
 mod ui;
 
 use anyhow::{Context, Result};

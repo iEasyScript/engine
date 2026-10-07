@@ -16,6 +16,7 @@ use crate::game::control::ClientStatus;
 use crate::game::process::{host_os_dir, launcher_binary_name, LaunchParams, PatchEnv};
 use crate::game::rs3::{with_host_binary_type, JS5_RSA_PARAM, LOGIN_RSA_PARAM};
 use crate::plugins::{self, Catalog, PluginChannel, PluginsSnapshot, CHANNELS};
+use crate::store;
 use url::Url;
 
 /// Messages from JS to Rust
@@ -93,6 +94,21 @@ pub enum IpcMessage {
     /// Open a release or download link from the Plugins tab in the browser.
     #[serde(rename = "open_url")]
     OpenUrl { url: String },
+    /// Who, if anyone, this launcher is signed in to the store as.
+    #[serde(rename = "store_status")]
+    StoreStatus,
+    /// Begin a pairing: answers with the code to show, then polls until it is approved.
+    #[serde(rename = "store_sign_in")]
+    StoreSignIn,
+    /// Forget the token on this machine.
+    #[serde(rename = "store_sign_out")]
+    StoreSignOut,
+    /// The paid scripts the store lists, and which of them this account holds.
+    #[serde(rename = "store_scripts")]
+    StoreScripts,
+    /// Download one bought script into the folder the engine scans.
+    #[serde(rename = "store_install")]
+    StoreInstall { internal_name: String },
 }
 
 /// Events from Rust to JS
@@ -169,6 +185,52 @@ pub enum IpcEvent {
         ok: bool,
         message: String,
     },
+    /// The store's paid catalogue for this account.
+    #[serde(rename = "store_scripts")]
+    StoreScripts {
+        scripts: Vec<StoreScriptRow>,
+        error: Option<String>,
+    },
+    /// Outcome of installing one bought script.
+    #[serde(rename = "store_result")]
+    StoreResult {
+        internal_name: String,
+        ok: bool,
+        message: String,
+    },
+    /// Whether this launcher is paired to the store, and as whom.
+    #[serde(rename = "store_status")]
+    StoreStatus {
+        signed_in: bool,
+        name: Option<String>,
+        store: String,
+        /// A pairing waiting to be approved, if one is in flight.
+        pairing: Option<StorePairing>,
+        error: Option<String>,
+    },
+}
+
+/// The code to read out and the page that accepts it.
+#[derive(Debug, Clone, Serialize)]
+pub struct StorePairing {
+    pub code: String,
+    pub url: String,
+}
+
+/// One row of the Store panel: a paid script, and this account's standing with it.
+#[derive(Debug, Clone, Serialize)]
+pub struct StoreScriptRow {
+    pub internal_name: String,
+    pub name: String,
+    pub version: String,
+    pub owned: bool,
+    /// When access ends, for a script this account holds.
+    pub expires_at: Option<String>,
+    pub trial: bool,
+    /// A requested trial whose hour has not started; installable now.
+    pub pending: bool,
+    pub store_url: Option<String>,
+    pub install_state: store::InstallState,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -660,6 +722,8 @@ pub struct IpcState {
     plugin_busy: Mutex<Vec<String>>,
     /// True while a scheduler run is working through its accounts. Cleared to stop it.
     scheduler_running: Arc<AtomicBool>,
+    /// Set while a pairing awaits approval, so a second press cannot invalidate the code on screen.
+    store_pairing: Arc<AtomicBool>,
 }
 
 /// One account in a scheduler run.
@@ -689,6 +753,7 @@ impl IpcState {
             plugin_catalog: Mutex::new(None),
             plugin_busy: Mutex::new(Vec::new()),
             scheduler_running: Arc::new(AtomicBool::new(false)),
+            store_pairing: Arc::new(AtomicBool::new(false)),
         }
     }
 
@@ -813,6 +878,23 @@ impl IpcState {
                 if let Err(e) = plugins::open_url(url) {
                     log::warn!("Could not open {}: {}", url, e);
                 }
+            }
+            IpcMessage::StoreStatus => {
+                self.emit_store_status(None, None);
+            }
+            IpcMessage::StoreSignIn => {
+                self.handle_store_sign_in();
+            }
+            IpcMessage::StoreSignOut => {
+                let error = store::sign_out().err().map(|e| format!("{}", e));
+                self.emit_store_status(None, error);
+                self.handle_store_scripts();
+            }
+            IpcMessage::StoreScripts => {
+                self.handle_store_scripts();
+            }
+            IpcMessage::StoreInstall { internal_name } => {
+                self.handle_store_install(internal_name);
             }
         }
 
@@ -1511,6 +1593,152 @@ impl IpcState {
         self.config.lock().unwrap().plugins.clone()
     }
 
+    fn emit_store_status(&self, pairing: Option<StorePairing>, error: Option<String>) {
+        let stored = store::read_token();
+        self.send_event(&IpcEvent::StoreStatus {
+            signed_in: stored.is_some(),
+            name: stored.and_then(|t| t.name),
+            store: store::store_base(),
+            pairing,
+            error,
+        });
+    }
+
+    fn handle_store_sign_in(self: &Arc<Self>) {
+        if self.store_pairing.swap(true, Ordering::SeqCst) {
+            return;
+        }
+        let state = Arc::clone(self);
+        tokio::spawn(async move {
+            let pairing = state.store_pairing.clone();
+            let shown = Mutex::new(None);
+            let result = store::pair(&crate::http_client(), &store::device_label(), |start| {
+                let pairing = StorePairing {
+                    code: start.user_code.clone(),
+                    url: start.url(),
+                };
+                *shown.lock().unwrap() = Some(pairing.clone());
+                state.emit_store_status(Some(pairing), None);
+                if let Err(e) = plugins::open_url(&start.url()) {
+                    log::warn!("Could not open the pairing page: {}", e);
+                }
+            })
+            .await;
+            pairing.store(false, Ordering::SeqCst);
+            match result {
+                Ok(_) => state.emit_store_status(None, None),
+                Err(e) => state.emit_store_status(None, Some(format!("{}", e))),
+            }
+        });
+    }
+
+    /// Signed out still lists what exists, unowned.
+    fn handle_store_scripts(self: &Arc<Self>) {
+        let state = Arc::clone(self);
+        tokio::spawn(async move {
+            let client = crate::http_client();
+            state.report_store_updates(&client).await;
+            let (scripts, error) = match store::catalogue(&client).await {
+                Ok(catalogue) => {
+                    let owned = match store::entitlements(&client).await {
+                        Ok(list) => list,
+                        Err(e) => {
+                            state.send_event(&IpcEvent::StoreScripts {
+                                scripts: Vec::new(),
+                                error: Some(format!("{}", e)),
+                            });
+                            return;
+                        }
+                    };
+                    let held: HashMap<&str, &store::Entitlement> = owned
+                        .iter()
+                        .map(|e| (e.internal_name.as_str(), e))
+                        .collect();
+                    let rows = catalogue
+                        .iter()
+                        .filter(|p| p.paid)
+                        .map(|p| {
+                            let access = held.get(p.internal_name.as_str());
+                            StoreScriptRow {
+                                internal_name: p.internal_name.clone(),
+                                name: p.name.clone().unwrap_or_else(|| p.internal_name.clone()),
+                                version: p.version.clone(),
+                                owned: access.is_some(),
+                                expires_at: access.and_then(|a| a.expires_at.clone()),
+                                trial: access.map(|a| a.trial).unwrap_or(false),
+                                pending: access.map(|a| a.pending).unwrap_or(false),
+                                store_url: p.store_url.clone(),
+                                install_state: store::install_state(p),
+                            }
+                        })
+                        .collect();
+                    (rows, None)
+                }
+                Err(e) => (Vec::new(), Some(format!("{}", e))),
+            };
+            state.send_event(&IpcEvent::StoreScripts { scripts, error });
+        });
+    }
+
+    /// An unreachable store is not news on every launch, so it only reaches the log file.
+    async fn report_store_updates(&self, client: &reqwest::Client) {
+        match store::update_installed(client).await {
+            Ok(moved) => {
+                for (internal_name, outcome) in moved {
+                    let (ok, message) = match outcome {
+                        Ok(message) => (true, message),
+                        Err(e) => (false, format!("Could not update {}: {}", internal_name, e)),
+                    };
+                    self.send_event(&IpcEvent::StoreResult {
+                        internal_name,
+                        ok,
+                        message,
+                    });
+                }
+            }
+            Err(e) => log::info!("Store update check skipped: {}", e),
+        }
+    }
+
+    fn handle_store_install(self: &Arc<Self>, internal_name: String) {
+        let Some(guard) = self.try_claim_plugin(&internal_name) else {
+            self.send_event(&IpcEvent::StoreResult {
+                internal_name,
+                ok: false,
+                message: "Already working on this script".to_string(),
+            });
+            return;
+        };
+
+        let state = Arc::clone(self);
+        tokio::spawn(async move {
+            let _guard = guard;
+            let client = crate::http_client();
+            let result = match store::catalogue(&client).await {
+                Ok(catalogue) => match catalogue
+                    .into_iter()
+                    .find(|p| p.internal_name == internal_name)
+                {
+                    Some(plugin) => store::install(&client, &plugin)
+                        .await
+                        .map(|path| format!("Installed {}", path.display())),
+                    None => Err(anyhow!("The store no longer lists {}", internal_name)),
+                },
+                Err(e) => Err(e),
+            };
+            let (ok, message) = match result {
+                Ok(message) => (true, message),
+                Err(e) => (false, format!("{}", e)),
+            };
+            state.send_event(&IpcEvent::StoreResult {
+                internal_name,
+                ok,
+                message,
+            });
+            state.handle_store_scripts();
+        });
+    }
+
     fn emit_plugins_status(&self, error: Option<String>) {
         let cfg = self.plugins_config();
         let catalog = {
@@ -1658,6 +1886,7 @@ impl IpcState {
         let state = Arc::clone(self);
         tokio::spawn(async move {
             state.run_startup_update_check(channels).await;
+            state.report_store_updates(&crate::http_client()).await;
         });
     }
 
