@@ -24,7 +24,7 @@ object ScriptTools {
     fun register(server: Server): Int {
         registerListScripts(server)
         registerReloadScripts(server)
-        registerControl(server, "start_script", "Instantiate a discovered script by name, apply its saved config, and activate it. No-op if already running.") { start(it) }
+        registerControl(server, "start_script", "Instantiate a discovered script by name, apply its saved config, and activate it. No-op if already running; \"refused\" when the store denies a paid script (see the log).") { start(it) }
         registerControl(server, "stop_script", "Stop a running script by name (also stops its parallel/child scripts).") { stop(it) }
         registerControl(server, "restart_script", "Stop then immediately re-start a script by name - the way to recover a stuck script and pick up fresh config without reinjecting.") { restart(it) }
         return 5
@@ -43,7 +43,7 @@ object ScriptTools {
         val instance = meta.scriptClass.getDeclaredConstructor().newInstance()
         if (instance is ConfigurableScript) ScriptConfigStore.applyTo(instance)
         ScriptExecutor.activate(instance)
-        return "started"
+        return if (ScriptExecutor.isScriptRunning(meta.scriptClass)) "started" else "refused"
     }
 
     private fun stop(meta: ScriptMetadata): String {
@@ -57,7 +57,7 @@ object ScriptTools {
         val instance = meta.scriptClass.getDeclaredConstructor().newInstance()
         if (instance is ConfigurableScript) ScriptConfigStore.applyTo(instance)
         ScriptExecutor.activate(instance)
-        return "restarted"
+        return if (ScriptExecutor.isScriptRunning(meta.scriptClass)) "restarted" else "refused"
     }
 
     private fun registerListScripts(server: Server) {
