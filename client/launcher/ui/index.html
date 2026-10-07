@@ -309,6 +309,30 @@
     </div>
   </div>
 
+  <dialog id="sign-in-dialog" class="sign-in-dialog" aria-labelledby="sign-in-title">
+    <div class="sign-in-card">
+      <svg class="sign-in-mark"><use href="#i-discord"/></svg>
+      <h2 id="sign-in-title" class="sign-in-title">Sign in to Project X</h2>
+      <p id="sign-in-lede" class="sign-in-lede">
+        Link this launcher to your xclient.dev account. Anything you buy on the RS3 store then installs
+        here and in your game by itself.
+      </p>
+      <div id="sign-in-waiting" class="sign-in-waiting" hidden>
+        Your browser is open at xclient.dev. Sign in with Discord there if it asks, check the code is
+        <code id="sign-in-code">…</code>, and press Approve.
+        <a id="sign-in-reopen" href="#">Open it again</a>
+      </div>
+      <div id="sign-in-error" class="notice notice-error" hidden></div>
+      <div class="sign-in-actions">
+        <button id="sign-in-go" class="btn btn-accent" type="button">
+          <svg class="btn-icon"><use href="#i-discord"/></svg>
+          <span id="sign-in-go-label">Sign in with Discord</span>
+        </button>
+        <button id="sign-in-later" class="btn" type="button">Not now</button>
+      </div>
+      <p class="sign-in-foot muted">Free community scripts work without signing in.</p>
+    </div>
+  </dialog>
   <script src="app.js"></script>
 </body>
 </html>

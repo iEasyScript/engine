@@ -39,6 +39,7 @@
     storeScripts: null, // null until the first listing answers
     storeError: null,
     busyStore: {}, // internalName -> timestamp of the install in flight
+    signInDismissed: false, // "Not now" lasts for this run of the launcher only
   };
 
   const $ = (s) => document.querySelector(s);
@@ -98,6 +99,11 @@
   const btnStoreSignOut = $("#btn-store-sign-out");
   const btnStoreRefresh = $("#btn-store-refresh");
   const btnStorePage = $("#btn-store-page");
+
+  const signInDialog = $("#sign-in-dialog");
+  const signInGo = $("#sign-in-go");
+  const signInWaiting = $("#sign-in-waiting");
+  const signInError = $("#sign-in-error");
 
   const statusLog = $("#status-log");
   const btnClearLogs = $("#btn-clear-logs");
@@ -207,9 +213,13 @@
         break;
 
       case "store_status":
+        if (event.signed_in && state.store && !state.store.signed_in) {
+          logStatus("Signed in to the store as " + (event.name || "your account"), "success");
+        }
         state.store = event;
         if (event.error) logStatus(event.error, "error");
         renderStore();
+        renderSignInDialog();
         break;
 
       case "store_scripts":
@@ -957,6 +967,37 @@
     return row;
   }
 
+  // Asked on every launch while signed out: linking the account is what makes bought scripts arrive.
+  function renderSignInDialog() {
+    const status = state.store;
+    if (!status) return;
+
+    if (status.signed_in) {
+      if (signInDialog.open) signInDialog.close();
+      return;
+    }
+    if (state.signInDismissed) return;
+
+    const pairing = status.pairing;
+    signInWaiting.hidden = !pairing;
+    if (pairing) {
+      $("#sign-in-code").textContent = pairing.code;
+      $("#sign-in-reopen").dataset.url = pairing.url;
+    }
+    signInGo.disabled = !!pairing;
+    $("#sign-in-go-label").textContent = pairing ? "Waiting for approval…" : "Sign in with Discord";
+
+    signInError.hidden = !status.error;
+    if (status.error) signInError.textContent = status.error;
+
+    if (!signInDialog.open) signInDialog.showModal();
+  }
+
+  function dismissSignIn() {
+    state.signInDismissed = true;
+    if (signInDialog.open) signInDialog.close();
+  }
+
   // ---- Settings ----
 
   function restoreConfigToUI() {
@@ -996,7 +1037,22 @@
   btnRefreshClients.addEventListener("click", () => requestClients(true));
 
   btnStoreSignIn.addEventListener("click", () => send({ type: "store_sign_in" }));
-  btnStoreSignOut.addEventListener("click", () => send({ type: "store_sign_out" }));
+  signInGo.addEventListener("click", () => send({ type: "store_sign_in" }));
+  $("#sign-in-later").addEventListener("click", dismissSignIn);
+  signInDialog.addEventListener("cancel", (e) => {
+    e.preventDefault();
+    dismissSignIn();
+  });
+  $("#sign-in-reopen").addEventListener("click", (e) => {
+    e.preventDefault();
+    const url = e.currentTarget.dataset.url;
+    if (url) send({ type: "open_url", url: url });
+  });
+  btnStoreSignOut.addEventListener("click", () => {
+    // Signing out on purpose is an answer; the prompt waits for the next launch.
+    state.signInDismissed = true;
+    send({ type: "store_sign_out" });
+  });
   btnStoreRefresh.addEventListener("click", requestStore);
   btnStorePage.addEventListener("click", () => {
     const base = state.store && state.store.store;

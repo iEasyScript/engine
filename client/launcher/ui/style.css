@@ -1432,3 +1432,67 @@ progress,
   color: var(--text-faint);
   letter-spacing: 0.02em;
 }
+
+.sign-in-dialog {
+  padding: 0;
+  border: 1px solid var(--border-accent);
+  border-radius: 14px;
+  background: var(--surface-solid);
+  color: var(--text);
+  width: min(440px, calc(100vw - 48px));
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--border);
+}
+.sign-in-dialog::backdrop {
+  background: rgba(5, 6, 9, 0.72);
+  backdrop-filter: blur(6px);
+}
+.sign-in-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 30px 28px 24px;
+  text-align: center;
+}
+.sign-in-mark {
+  width: 42px;
+  height: 42px;
+  color: #8b95f7;
+}
+.sign-in-title {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+}
+.sign-in-lede,
+.sign-in-waiting {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-dim);
+}
+.sign-in-waiting code {
+  color: var(--accent-hover);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.sign-in-waiting a {
+  display: block;
+  margin-top: 6px;
+  color: var(--accent);
+}
+.sign-in-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-top: 4px;
+}
+.sign-in-actions .btn {
+  width: 100%;
+  justify-content: center;
+}
+.sign-in-foot {
+  margin: 0;
+  font-size: 11px;
+}
