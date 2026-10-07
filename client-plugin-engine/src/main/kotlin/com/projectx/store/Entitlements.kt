@@ -1,6 +1,7 @@
 package com.projectx.store
 
 import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.projectx.script.Script
 import com.projectx.script.ScriptExecutor
@@ -133,7 +134,8 @@ object Entitlements {
                         "[store] $name could not start: the store could not be reached to check your access."
                     )
                     else -> println(
-                        "[store] $name needs active access to run. ${storeUrls[name] ?: storeBase()}"
+                        if (token() == null) "[store] $name is a paid script: sign in with Discord in the launcher's Store tab to run it."
+                        else "[store] $name needs active access to run. ${storeUrls[name] ?: storeBase()}"
                     )
                 }
             }
@@ -153,14 +155,19 @@ object Entitlements {
 
     fun refresh(): Check {
         val catalogue = catalogueFor(GAME) ?: return Check.UNREACHABLE
+        val jars = ArrayList<StoreJar>()
         runCatching {
             val fresh = HashSet<String>()
             JsonParser.parseString(catalogue).asJsonArray.forEach { entry ->
                 val obj = entry.asJsonObject
                 val name = obj.get("internalName")?.asString ?: return@forEach
-                if (obj.get("paid")?.asBoolean == true) {
-                    fresh.add(name)
-                    obj.get("storeUrl")?.takeUnless { it.isJsonNull }?.asString?.let { storeUrls[name] = it }
+                if (obj.get("paid")?.asBoolean != true) return@forEach
+                fresh.add(name)
+                obj.text("storeUrl")?.let { storeUrls[name] = it }
+                val version = obj.text("version")
+                val url = obj.text("downloadUrl")
+                if (version != null && url != null) {
+                    jars += StoreJar(name, version, url, obj.text("sha256"), obj.text("fileName"))
                 }
             }
             paid.retainAll(fresh)
@@ -193,9 +200,12 @@ object Entitlements {
                 }
             }
             lastAnsweredNanos = System.nanoTime()
+            runCatching { ScriptSync.sync(expiries.keys.toSet(), jars, token, http, home().resolve("scripts")) }
             Check.ANSWERED
         }.getOrDefault(Check.REJECTED)
     }
+
+    private fun JsonObject.text(key: String): String? = get(key)?.takeUnless { it.isJsonNull }?.asString
 
     // A store older than the game split ignores ?game= and sends the OSRS list, so an unlabelled answer
     // counts as no answer and nothing is gated.
