@@ -1,12 +1,19 @@
 package com.projectx.pathfinder
 
 import java.util.concurrent.ConcurrentHashMap
+import org.projectx.core.net.prot.ProtRevisions
 
-// Decodes the REBUILD_REGION (op93) instance zone map: each packet describes one virtual mapsquare
+// Decodes the REBUILD_REGION instance zone map: each packet describes one virtual mapsquare
 // (WxH zones) as either void or a rotated copy of a source cache zone. Instance floor collision is
 // rebuilt from the source zones' cache tile-flags; the client itself keeps no walk-collision grid.
 object RebuildRegionMap {
-    const val REBUILD_REGION_OPCODE = 93
+    @Deprecated("Shipped API kept for binary compatibility; the decoder looks the packet up by name.")
+    const val REBUILD_REGION_OPCODE = 5
+
+    // Looked up by name from the newest protocol the engine speaks, so a game update cannot leave it on a stale opcode.
+    private val rebuildRegion: Int? by lazy {
+        ProtRevisions.currentCodec().serverProtInfo.entries.firstOrNull { it.value.name == "REBUILD_REGION" }?.key
+    }
 
     sealed interface ZoneEntry
     data object Void : ZoneEntry
@@ -22,7 +29,7 @@ object RebuildRegionMap {
     private val entries = ConcurrentHashMap<Int, ZoneEntry>()
 
     fun observe(opcode: Int, body: ByteArray) {
-        if (opcode == REBUILD_REGION_OPCODE) decode(body)
+        if (opcode == rebuildRegion) decode(body)
     }
 
     fun entryOf(zoneX: Int, zoneY: Int, plane: Int): ZoneEntry? = entries[key(zoneX, zoneY, plane)]
@@ -31,13 +38,14 @@ object RebuildRegionMap {
 
     private fun decode(body: ByteArray) {
         if (body.size < HEADER_SIZE) return
-        if ((body[2].toInt() and 0xFF) != VALIDITY_MAGIC) return
 
         val baseZoneX = u16be(body, 8)
         val baseZoneY = u16be(body, 10)
         val width = body[12].toInt() and 0xFF
         val height = body[13].toInt() and 0xFF
         if (width !in 1..MAX_REGION_ZONES || height !in 1..MAX_REGION_ZONES) return
+        // The zone grid takes at least a bit per zone; a body too short to hold it is not this packet.
+        if ((body.size - HEADER_SIZE) * 8 < 4 * width * height) return
 
         val bits = BitReader(body, HEADER_SIZE)
         val decoded = HashMap<Int, ZoneEntry>(width * height * 4)
@@ -68,6 +76,7 @@ object RebuildRegionMap {
         }
         entries.putAll(decoded)
         DynamicMapSquareCollision.markDirty()
+        println("[pathfinder] instance layout: ${width}x$height zones from zone ($baseZoneX, $baseZoneY)")
     }
 
     private fun key(zoneX: Int, zoneY: Int, plane: Int) = (zoneX shl 11) or zoneY or (plane shl 22)
@@ -99,10 +108,7 @@ object RebuildRegionMap {
     }
 
     private const val HEADER_SIZE = 14
-    private const val VALIDITY_MAGIC = 5
 
-    // op93 encodes the region width/height as single unsigned bytes, so 255 zones per axis is the full
-    // protocol maximum. The bounds-safe BitReader aborts on any truncated/garbage packet, so no smaller
-    // sanity cap is needed. (Quest-zone instances reach 24×24; the old 16 cap silently dropped them.)
+    // Width and height are single unsigned bytes; quest instances reach 24x24, so no smaller cap.
     private const val MAX_REGION_ZONES = 255
 }
