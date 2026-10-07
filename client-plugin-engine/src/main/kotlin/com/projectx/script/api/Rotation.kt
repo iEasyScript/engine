@@ -212,8 +212,10 @@ class RotationManager @JvmOverloads constructor(
         }
 
         if (conditionMet) {
-            record(step, step.label, conditionMet = true, succeeded = attempt(step.label) { perform(step) })
+            val fired = attempt(step.label) { perform(step) }
+            record(step, step.label, conditionMet = true, succeeded = fired)
             startWait(step, useReplacementWait = false)
+            if (!fired) retrySoon(step)
             return true
         }
 
@@ -263,6 +265,14 @@ class RotationManager @JvmOverloads constructor(
 
     private fun waitElapsed(): Boolean =
         if (cooldownInTicks) currentTick() - lastTick >= cooldown else currentMillis() - lastMillis >= cooldown
+
+    // A cast that did not go off is retried next pass rather than charged a full global cooldown;
+    // an improvise waits one tick for the game state to change.
+    private fun retrySoon(step: RotationStep) {
+        if (step.type != RotationStep.Type.ABILITY && step.type != RotationStep.Type.IMPROVISE) return
+        cooldown = if (step.type == RotationStep.Type.IMPROVISE) 1 else 0
+        cooldownInTicks = true
+    }
 
     private fun startWait(step: RotationStep, useReplacementWait: Boolean) {
         val repeats = step.type == RotationStep.Type.IMPROVISE && !step.continueAfterImprovise

@@ -52,6 +52,20 @@ class RotationManagerTest {
     }
 
     @Test
+    fun `an ability that cast nothing is not charged its wait, so cooling abilities do not stall the fight`() {
+        val rotation = manager()
+        rotation.load(listOf(RotationStep.ability("Not ready").waitTicks(3), step("next")))
+
+        assertTrue(rotation.execute())
+        assertFalse(rotation.recentSteps.first().succeeded)
+
+        // No tick passes: an ability that fired nothing hands straight on, so a run of cooling abilities
+        // is walked through inside one tick rather than costing a global cooldown each.
+        assertTrue(rotation.execute())
+        assertEquals(listOf("next"), fired)
+    }
+
+    @Test
     fun `an unmet condition with no replacement skips the step without waiting`() {
         val rotation = manager()
         rotation.load(listOf(step("guarded").onlyIf { false }, step("next")))
