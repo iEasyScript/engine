@@ -47,8 +47,10 @@ class WebPathfinderCacheTest {
 
     @Test
     fun `gives up on an island in bounded time`() {
+        // Karamja is an island to a walker: with its boats and fairy rings set aside, it has to be given up on.
+        val boats = WebLinks.all.filter { it.kind == WebLinkKind.NPC || it.kind == WebLinkKind.FAIRY_RING }.toSet()
         val started = System.nanoTime()
-        val result = WebPathfinder().find(3222, 3218, 0, 2918, 3175, 0, 2)
+        val result = WebPathfinder().find(3222, 3218, 0, 2918, 3175, 0, 2, WebLinkPermissions.UNRESTRICTED, false, boats)
         val millis = (System.nanoTime() - started) / 1_000_000
         println("[WebWalk] Lumbridge -> Karamja: $result, ${millis}ms, ${WebCollision.loadedSquareCount()} squares")
         assertTrue(result.status == WebWalkStatus.NO_PATH || result.status == WebWalkStatus.TOO_FAR, result.toString())
@@ -96,6 +98,33 @@ class WebPathfinderCacheTest {
     fun `reports a destination off the world map`() {
         val result = WebPathfinder().find(3222, 3218, 0, 20, 20, 0, 2)
         assertEquals(WebWalkStatus.NO_PATH, result.status)
+    }
+
+    @Test
+    fun `sails to an island with a boat`() {
+        val result = WebPathfinder().find(3222, 3218, 0, 2918, 3175, 0, 2)
+        assertEquals(WebWalkStatus.PATH_FOUND, result.status, result.message)
+        val path = assertNotNull(result.path)
+        val crossings = (0..path.lastIndex).mapNotNull { path.linkAt(it) }
+        println("[WebWalk] Lumbridge -> Karamja by ${crossings.joinToString()}")
+        assertTrue(crossings.any { it.kind == WebLinkKind.NPC || it.kind == WebLinkKind.FAIRY_RING }, "reached Karamja without a boat")
+    }
+
+    @Test
+    fun `a long route starts with a teleport when teleports are allowed`() {
+        val result = WebPathfinder().find(3222, 3218, 0, 2725, 3493, 0, 2, WebLinkPermissions.UNRESTRICTED, true, emptySet())
+        assertEquals(WebWalkStatus.PATH_FOUND, result.status, result.message)
+        val first = assertNotNull(result.path).linkAt(1)
+        println("[WebWalk] Lumbridge -> Seers' Village starts with $first")
+        assertTrue(first != null && first.isGlobal, "the route did not start with a teleport")
+    }
+
+    @Test
+    fun `no teleport is taken when teleports are not allowed`() {
+        val result = WebPathfinder().find(3222, 3218, 0, 2725, 3493, 0, 2)
+        assertEquals(WebWalkStatus.PATH_FOUND, result.status, result.message)
+        val path = assertNotNull(result.path)
+        assertTrue((0..path.lastIndex).none { path.linkAt(it)?.isGlobal == true }, "a teleport was taken")
     }
 
     private fun assertRoute(startX: Int, startY: Int, destX: Int, destY: Int) {

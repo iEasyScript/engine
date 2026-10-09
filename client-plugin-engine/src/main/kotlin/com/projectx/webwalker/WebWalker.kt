@@ -2,19 +2,17 @@ package com.projectx.webwalker
 
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.profiling.PlayerProfiles
-import com.projectx.game.interfaces.IFSlot
 import com.projectx.script.Script
-import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.Lodestone
 import com.projectx.script.api.continueDialogueContaining
+import com.projectx.script.api.dive
 import com.projectx.script.api.findClosestObject
 import com.projectx.script.api.isDialogOpen
-import com.projectx.script.api.interactComponent
-import com.projectx.script.api.isLodestoneUiOpen
-import com.projectx.script.api.interfaces
+import com.projectx.script.api.isDiveReady
 import com.projectx.script.api.localPlayer
-import com.projectx.script.api.openLodestoneMap
+import com.projectx.script.api.surge
 import com.projectx.script.api.walkTo
+import org.projectx.core.game.combat.Ability
 import com.projectx.util.random
 import world.gregs.voidps.type.Tile
 import java.util.concurrent.CompletableFuture
@@ -26,12 +24,14 @@ import kotlin.math.min
 /**
  * Walks to any tile on the world map, planning the route from cache collision.
  *
- * Routes cross doors, opening them when they are shut, and take [WebLink]s - staircases, ladders, shortcuts and
- * curated doors - so a destination on another floor is reachable. A long walk may still start with a teleport to
- * an unlocked lodestone when that gets there sooner.
+ * Routes cross doors, opening them when they are shut, and take [WebLink]s - staircases, ladders, shortcuts, doors,
+ * NPCs such as ferrymen and charter crews, and fairy rings - so a destination on another floor or across the sea is
+ * reachable. A route may begin with a teleport when that gets there sooner: a lodestone, a carried teleport item, a
+ * spell or the Passage of the Abyss.
  *
- * A link the account cannot use is left out of the search; see [WebLinkPermissions]. Teleports other than
- * lodestones are not part of a route yet, so a destination that needs one reports [WebWalkStatus.NO_PATH].
+ * A link the account cannot use is left out of the search; see [WebLinkPermissions]. One that fails anyway - a flag
+ * the engine could not check, a worn item it could not reach - is set aside for the rest of the walk and the route
+ * is planned around it.
  *
  * Planning runs on a background thread: script bodies run on the game thread, and a long search there would
  * freeze the client.
@@ -47,9 +47,17 @@ object WebWalker {
     private const val MAX_STALLS = 3
     private const val MAX_DOOR_ATTEMPTS = 3
     private const val MAX_LINK_ATTEMPTS = 3
+    private const val MAX_SET_ASIDE = 6
 
-    // A staircase or shortcut runs an animation and may load a new area, so it is given longer than a door.
+    // A staircase or shortcut runs an animation and may load a new area, so it is given longer than a door; a
+    // teleport longer still, and a voyage the longest, since some sail through a cutscene.
     private const val LINK_TIMEOUT_MS = 12_000L
+    private const val TELEPORT_TIMEOUT_MS = 25_000L
+    private const val VOYAGE_TIMEOUT_MS = 40_000L
+
+    // Teleports land near a point rather than on it, a lodestone furthest out.
+    private const val TELEPORT_SLACK = 4
+    private const val LODESTONE_SLACK = 10
 
     /** How long a link's "where to?" is given to appear before the answer is attempted anyway. */
     private const val CHOICE_TIMEOUT_MS = 4_000L
@@ -58,16 +66,29 @@ object WebWalker {
     private const val STEP_TIMEOUT_MS = 700L
     private const val STALL_GRACE_MS = 1200L
 
-    // A lodestone teleport takes about ten seconds, the time of roughly thirty tiles walked; closer than
-    // MIN_TELEPORT_DISTANCE it never pays.
-    private const val TELEPORT_COST_TILES = 30
-    private const val MIN_TELEPORT_DISTANCE = 40
-    private const val LODESTONE_CANDIDATES = 3
-    private const val ARRIVAL_RADIUS = 10
-    private const val LODESTONE_MAP_TIMEOUT_MS = 5000L
-    private const val TELEPORT_TIMEOUT_MS = 25_000L
-
     private val DOOR_OPTIONS = listOf("Open", "Go-through", "Pass-through")
+
+    /**
+     * Whether routes may spend teleport items and the Passage of the Abyss. On by default; turn it off in a script
+     * that carries teleports for its own use, so the walker never spends a charge or a tab it was keeping.
+     */
+    @Volatile
+    var useItemTeleports: Boolean = true
+
+    /**
+     * Whether walking may Dive and Surge along straight stretches of the route, as navpathService plans them. On by
+     * default; turn it off in a script that saves those cooldowns for something else.
+     */
+    @Volatile
+    var useMovementAbilities: Boolean = true
+
+    // A movement ability hops at most ten tiles; Surge only ever goes its full distance, so it needs a straight run
+    // that long, and the character must already face that way, which three steps walked in it settle.
+    private const val ABILITY_REACH = 10
+    private const val MIN_DIVE_TILES = 4
+    private const val WALK_BEFORE_SURGE = 3
+    private const val ABILITY_BARRIER_GAP = 2
+    private const val ABILITY_LANDING_MS = 1_800L
 
     private val planner = Executors.newSingleThreadExecutor { runnable ->
         Thread(runnable, "projectx-webwalker").apply { isDaemon = true }
@@ -98,12 +119,24 @@ object WebWalker {
         findPathAsync(startX, startY, destX, destY, plane, arriveDistance).join()
 
     /** Plans a route from [from] to [destination], suspending the script rather than blocking the game thread. */
-    suspend fun findPath(script: Script, from: Tile, destination: Tile, arriveDistance: Int = 0): WebWalkResult {
-        // Requirements read varbits, levels and the money pouch, which may only be touched here on the game
-        // thread; the planner runs on its own thread and consults the snapshot instead.
+    suspend fun findPath(script: Script, from: Tile, destination: Tile, arriveDistance: Int = 0): WebWalkResult =
+        findPath(script, from, destination, arriveDistance, teleports = false, excluded = emptySet())
+
+    private suspend fun findPath(
+        script: Script,
+        from: Tile,
+        destination: Tile,
+        arriveDistance: Int,
+        teleports: Boolean,
+        excluded: Set<WebLink>,
+    ): WebWalkResult {
+        // Requirements read varbits, levels, the money pouch and what is carried, which may only be touched here on
+        // the game thread; the planner runs on its own thread and consults the snapshot instead.
         val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
         val future = CompletableFuture.supplyAsync(
-            { plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions) },
+            {
+                plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded)
+            },
             planner,
         )
         script.delayUntil(SEARCH_TIMEOUT_MS, SEARCH_POLL_MS) { future.isDone || script.stopped }
@@ -116,7 +149,8 @@ object WebWalker {
 
     /**
      * Walks the player to within [arriveDistance] tiles of [destination], counting diagonals as one. With
-     * [useLodestones], a long walk first teleports to an unlocked lodestone when that gets there sooner.
+     * [useLodestones], a route may begin with a teleport when that gets there sooner: a lodestone, a spell, or - with
+     * [useItemTeleports] - a carried teleport item or the Passage of the Abyss.
      */
     suspend fun walk(
         script: Script,
@@ -125,21 +159,15 @@ object WebWalker {
         useLodestones: Boolean = true,
     ): WebWalkResult {
         val arrive = arriveDistance.coerceAtLeast(0)
+        val setAside = HashSet<WebLink>()
+        if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA }
+        val keptBack = setAside.size
         var path: WebPath? = null
         var lodestone: Lodestone? = null
         var plans = 0
         var stalls = 0
         var doorAttempts = 0
         var linkAttempts = 0
-
-        if (useLodestones && !arrived(destination, arrive)) {
-            val choice = chooseLodestone(script, destination, arrive)
-            path = choice.walkPath
-            if (choice.lodestone != null && teleport(script, choice.lodestone)) {
-                lodestone = choice.lodestone
-                path = null
-            }
-        }
 
         while (!script.stopped) {
             val me = localPlayer.tile
@@ -149,7 +177,7 @@ object WebWalker {
 
             if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
-                val planned = findPath(script, me, destination, arrive)
+                val planned = findPath(script, me, destination, arrive, useLodestones, setAside)
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
                 path = planned.path!!
                 stalls = 0
@@ -168,11 +196,21 @@ object WebWalker {
             }
 
             if (link != -1 && link == barrier && route.distance(link - 1, me.x, me.y) <= 1) {
+                val step = route.linkAt(link)
                 if (++linkAttempts > MAX_LINK_ATTEMPTS) {
-                    val step = route.linkAt(link)
-                    return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
+                    if (step == null || setAside.size - keptBack >= MAX_SET_ASIDE) {
+                        return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
+                    }
+                    println("[WebWalk] Could not take $step; planning around it")
+                    setAside += step
+                    linkAttempts = 0
+                    path = null
+                    continue
                 }
-                if (passLink(script, route, link)) linkAttempts = 0
+                if (passLink(script, route, link)) {
+                    linkAttempts = 0
+                    if (step?.kind == WebLinkKind.LODESTONE) lodestone = step.lodestone
+                }
                 continue
             }
 
@@ -183,6 +221,8 @@ object WebWalker {
                 if (passDoor(script, route, door)) doorAttempts = 0
                 continue
             }
+
+            if (useMovementAbilities && hopAhead(script, route, here, barrier)) continue
 
             val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
             var target = (here + lookahead).coerceAtMost(route.lastIndex)
@@ -206,70 +246,57 @@ object WebWalker {
         return WebWalkResult(WebWalkStatus.STOPPED, "The script stopped while walking", path, lodestone)
     }
 
-    private class LodestoneChoice(val lodestone: Lodestone?, val walkPath: WebPath?)
-
     /**
-     * Picks the unlocked lodestone whose teleport plus walk beats walking the whole way, or none. Walking is only
-     * planned when its straight-line distance could still beat the best lodestone, so a far destination never pays
-     * for a walking search that cannot win; a walking route that was planned is handed back for reuse.
+     * Dives, or failing that Surges, along the stretch of route ahead when it is straight enough and the ability is
+     * ready; true when one was cast. Never within a couple of steps of a door or link, which have to be walked up to.
      */
-    private suspend fun chooseLodestone(script: Script, destination: Tile, arrive: Int): LodestoneChoice {
+    private suspend fun hopAhead(script: Script, route: WebPath, here: Int, barrier: Int): Boolean {
         val me = localPlayer.tile
-        val onPlane = me.plane == destination.plane && me.x < INSTANCE_MIN_X
-        val direct = if (onPlane) chebyshev(me.x, me.y, destination.x, destination.y) else Int.MAX_VALUE
-        if (direct <= MIN_TELEPORT_DISTANCE) return LodestoneChoice(null, null)
+        val last = (if (barrier == -1) route.lastIndex else barrier - 1 - ABILITY_BARRIER_GAP).coerceAtMost(here + ABILITY_REACH)
+        if (last - here < MIN_DIVE_TILES) return false
 
-        val candidates = Lodestone.entries
-            .filter { it.tile.plane == destination.plane && runCatching { it.isUnlocked() }.getOrDefault(false) }
-            .map { it to chebyshev(it.tile.x, it.tile.y, destination.x, destination.y) }
-            .filter { (_, distance) -> distance + TELEPORT_COST_TILES < direct }
-            .sortedBy { it.second }
-            .take(LODESTONE_CANDIDATES)
-
-        var best: Lodestone? = null
-        var bestCost = Int.MAX_VALUE
-        for ((candidate, _) in candidates) {
-            if (script.stopped) break
-            val route = findPath(script, candidate.tile, destination, arrive)
-            val cost = (route.path?.size ?: continue) + TELEPORT_COST_TILES
-            if (route.status == WebWalkStatus.PATH_FOUND && cost < bestCost) {
-                best = candidate
-                bestCost = cost
+        if (isDiveReady()) {
+            val landing = (last downTo here + MIN_DIVE_TILES).firstOrNull { reachable(route, here, it, me) }
+            if (landing != null) {
+                val target = route.tile(landing)
+                if (dive(target)) {
+                    script.delayUntil(ABILITY_LANDING_MS) { chebyshev(localPlayer.tile.x, localPlayer.tile.y, target.x, target.y) <= 1 }
+                    return true
+                }
             }
         }
-        if (best == null || !onPlane || direct >= bestCost) return LodestoneChoice(best, null)
 
-        val walking = findPath(script, me, destination, arrive)
-        val walkPath = walking.path?.takeIf { walking.status == WebWalkStatus.PATH_FOUND }
-        return if (walkPath != null && walkPath.size <= bestCost) LodestoneChoice(null, walkPath) else LodestoneChoice(best, walkPath)
+        if (Ability.SURGE.offCdIgnoreGCD && localPlayer.isMoving && here + ABILITY_REACH <= last &&
+            straightRun(route, here - WALK_BEFORE_SURGE, here + ABILITY_REACH)
+        ) {
+            val target = route.tile(here + ABILITY_REACH)
+            if (surge()) {
+                script.delayUntil(ABILITY_LANDING_MS) { chebyshev(localPlayer.tile.x, localPlayer.tile.y, target.x, target.y) <= 2 }
+                return true
+            }
+        }
+        return false
     }
 
-    /** Opens the lodestone map if needed and teleports to [lodestone]; true once the player has arrived there. */
-    private suspend fun teleport(script: Script, lodestone: Lodestone): Boolean {
-        println("[WebWalk] Teleporting to the ${lodestone.name} lodestone")
-        if (!isLodestoneUiOpen) {
-            if (!openLodestoneMap()) {
-                println("[WebWalk] No home teleport button on the minimap; walking instead")
-                return false
-            }
-            script.delayUntil(LODESTONE_MAP_TIMEOUT_MS) { isLodestoneUiOpen }
-            if (!isLodestoneUiOpen) {
-                println("[WebWalk] The lodestone map did not open; walking instead")
-                return false
-            }
-            script.delay(random(250, 600))
+    /** A dive from [me] can reach step [to] when it is in range and the route there runs nearly straight. */
+    private fun reachable(route: WebPath, from: Int, to: Int, me: Tile): Boolean {
+        val target = route.tile(to)
+        if (target.plane != me.plane || (from + 1..to).any { route.getPlane(it) != me.plane }) return false
+        val dx = (target.x - me.x).toDouble()
+        val dy = (target.y - me.y).toDouble()
+        val distance = Math.sqrt(dx * dx + dy * dy)
+        return distance <= ABILITY_REACH + 0.5 && (to - from) <= distance + 2.0
+    }
+
+    /** Every step from [from] to [to] goes the same way on one plane, so a hop along it lands where walking would. */
+    private fun straightRun(route: WebPath, from: Int, to: Int): Boolean {
+        if (from < 0 || to > route.lastIndex) return false
+        val stepX = route.getX(from + 1) - route.getX(from)
+        val stepY = route.getY(from + 1) - route.getY(from)
+        return (from + 1..to).all {
+            route.getX(it) - route.getX(it - 1) == stepX && route.getY(it) - route.getY(it - 1) == stepY &&
+                route.getPlane(it) == route.getPlane(from) && route.linkAt(it) == null && !route.crossesDoor(it)
         }
-        if (!interactComponent(1, LODESTONE_MAP_INTERFACE, lodestone.id)) {
-            println("[WebWalk] The ${lodestone.name} button is not on the lodestone map; walking instead")
-            return false
-        }
-        script.delayUntil(TELEPORT_TIMEOUT_MS) { localPlayer.tile.withinDistance(lodestone.tile, ARRIVAL_RADIUS) }
-        if (!localPlayer.tile.withinDistance(lodestone.tile, ARRIVAL_RADIUS)) {
-            println("[WebWalk] The ${lodestone.name} teleport did not arrive; walking instead")
-            return false
-        }
-        script.delayUntil(STALL_GRACE_MS * 4) { !localPlayer.isAnimating }
-        return true
     }
 
     private fun arrived(destination: Tile, arrive: Int): Boolean {
@@ -286,12 +313,14 @@ object WebWalker {
         destPlane: Int,
         arriveDistance: Int,
         permissions: WebLinkPermissions,
+        teleports: Boolean = false,
+        excluded: Set<WebLink> = emptySet(),
     ): WebWalkResult {
         if (startX >= INSTANCE_MIN_X || destX >= INSTANCE_MIN_X) {
             return WebWalkResult(WebWalkStatus.NOT_IN_WORLD, "Web walking does not work inside instances")
         }
         return try {
-            WebPathfinder().find(startX, startY, plane, destX, destY, destPlane, arriveDistance, permissions)
+            WebPathfinder().find(startX, startY, plane, destX, destY, destPlane, arriveDistance, permissions, teleports, excluded)
         } catch (t: Throwable) {
             WebWalkResult(WebWalkStatus.NO_PATH, "Route planning failed: ${t.javaClass.simpleName}: ${t.message}")
         }
@@ -318,29 +347,24 @@ object WebWalker {
     }
 
     /**
-     * Walks onto the tile the link starts from, clicks its object, and waits to arrive on the other side.
+     * Takes the link at step [index]: walks onto the tile it starts from (a teleport starts wherever the player is),
+     * does its first action, answers whatever it asks, and waits to arrive on the other side.
      *
      * Arrival is judged against the link's whole destination area rather than the one tile the route aimed at: a
      * staircase drops the player anywhere in the room at the top, and the route only picked a representative tile.
      */
     private suspend fun passLink(script: Script, path: WebPath, index: Int): Boolean {
         val link = path.linkAt(index) ?: return false
-        val approach = path.tile(index - 1)
-        val me = localPlayer.tile
-        if (me != approach && me.plane == approach.plane && !localPlayer.isMoving) {
-            walkTo(approach, false)
-            script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == approach }
+        if (!link.isGlobal) {
+            val approach = path.tile(index - 1)
+            val me = localPlayer.tile
+            if (me != approach && me.plane == approach.plane && !localPlayer.isMoving) {
+                walkTo(approach, false)
+                script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == approach }
+            }
         }
 
-        val target = findClosestObject(link.searchRadius) { obj ->
-            (obj.id == link.objectId || obj.visibleTypeId == link.objectId) && obj.hasOption(link.action)
-        } ?: findClosestObject(link.searchRadius) { it.hasOption(link.action) }
-
-        if (target == null) {
-            println("[WebWalk] No '${link.action}' object ${link.objectId} in range for $link")
-            return false
-        }
-        if (!target.interact(link.action)) return false
+        if (!WebLinkActions.start(script, link)) return false
 
         // Some ways through ask where to go and leave the player standing outside until that is answered.
         val choice = link.choice
@@ -352,29 +376,36 @@ object WebWalker {
             }
         }
 
-        // A panel of destinations goes nowhere until one is picked, and which one decides where we come out.
-        for (step in link.steps) {
-            script.delayUntil(CHOICE_TIMEOUT_MS) { interfaces.isOpen(step.interfaceId) }
-            if (!interfaces.isOpen(step.interfaceId)) {
-                println("[WebWalk] $link expected interface ${step.interfaceId} and it never opened")
-                return false
-            }
-            val slot = IFSlot(step.interfaceId, step.componentId, step.slot)
-            val clicked = if (step.option <= 0) slot.dialogueContinue() else slot.click(step.option)
-            if (!clicked) {
-                println("[WebWalk] $link could not click $step")
-                return false
-            }
-            script.delay(600, 250)
+        // A panel of destinations goes nowhere until one is picked, and a picked trapdoor still has to be climbed.
+        for (step in link.chain) {
+            if (!WebLinkActions.perform(script, link, step)) return false
         }
 
-        script.delayUntil(LINK_TIMEOUT_MS) {
-            val tile = localPlayer.tile
-            link.to.contains(tile.x, tile.y, tile.plane)
+        val slack = arrivalSlack(link)
+        script.delayUntil(arrivalTimeout(link)) { arrivedVia(link, slack) }
+        val arrived = arrivedVia(link, slack)
+        if (arrived) {
+            script.delayUntil(STALL_GRACE_MS * if (link.isGlobal) 4 else 1) { !localPlayer.isMoving && !localPlayer.isAnimating }
         }
-        val arrived = localPlayer.tile.let { link.to.contains(it.x, it.y, it.plane) }
-        if (arrived) script.delayUntil(STALL_GRACE_MS) { !localPlayer.isMoving }
         return arrived
+    }
+
+    private fun arrivedVia(link: WebLink, slack: Int): Boolean {
+        val tile = localPlayer.tile
+        val to = link.to
+        return tile.plane == to.plane && tile.x in to.minX - slack..to.maxX + slack && tile.y in to.minY - slack..to.maxY + slack
+    }
+
+    private fun arrivalSlack(link: WebLink): Int = when (link.kind) {
+        WebLinkKind.OBJECT, WebLinkKind.DOOR -> 0
+        WebLinkKind.LODESTONE -> LODESTONE_SLACK
+        else -> TELEPORT_SLACK
+    }
+
+    private fun arrivalTimeout(link: WebLink): Long = when {
+        link.kind == WebLinkKind.NPC -> VOYAGE_TIMEOUT_MS
+        link.isGlobal || link.kind == WebLinkKind.FAIRY_RING -> TELEPORT_TIMEOUT_MS
+        else -> LINK_TIMEOUT_MS
     }
 
     /** Opens the door crossed on the way to step [door] if it is shut, then steps through. True once past it. */

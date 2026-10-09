@@ -15,8 +15,10 @@ import kotlin.math.min
  * among equally short routes, the straighter one wins. A closed door found in the cache is a passable edge with a
  * surcharge, so routes prefer open ground but still use a door when it is the way through.
  *
- * On top of walking the search may take a [WebLink] - a staircase, ladder, shortcut or curated door - and those
- * are the only edges that change plane, so they are what lets a route leave the floor it started on.
+ * On top of walking the search may take a [WebLink] - a staircase, ladder, shortcut, door, NPC or fairy ring - and
+ * those are the only edges that change plane, so they are what lets a route leave the floor it started on. With
+ * teleports allowed, the global links - lodestones, teleport items, spells - are edges out of the start alone, as
+ * navpathService has them: a teleport is something a route begins with, not something it detours into.
  *
  * The heuristic is Chebyshev distance over x and y. That bounds walking from below but not a link, which can
  * cover a lot of ground for its price, so a route through links is not guaranteed to be the cheapest that exists.
@@ -35,6 +37,19 @@ internal class WebPathfinder(
         destPlane: Int,
         arriveDistance: Int,
         permissions: WebLinkPermissions = WebLinkPermissions.UNRESTRICTED,
+    ): WebWalkResult = find(startX, startY, startPlane, destX, destY, destPlane, arriveDistance, permissions, false, emptySet())
+
+    fun find(
+        startX: Int,
+        startY: Int,
+        startPlane: Int,
+        destX: Int,
+        destY: Int,
+        destPlane: Int,
+        arriveDistance: Int,
+        permissions: WebLinkPermissions,
+        teleports: Boolean,
+        excluded: Set<WebLink>,
     ): WebWalkResult {
         val tolerance = arriveDistance.coerceAtLeast(0)
         if (!squareExists(startX, startY, startPlane)) {
@@ -51,6 +66,15 @@ internal class WebPathfinder(
         val startKey = key(startX, startY, startPlane)
         best.put(startKey, START_MARKER)
         open.push(heuristic(startX, startY, destX, destY, tolerance), startKey)
+        if (teleports) {
+            for (link in teleportsWorthTrying(destX, destY, tolerance, permissions, excluded)) {
+                val destination = destinationOf(link) ?: continue
+                val next = key(destination.x, destination.y, destination.plane)
+                if (relax(best, open, next, link.cost, LINK_MARKER, destX, destY, tolerance)) {
+                    linkFrom[next] = LinkStep(startKey, link)
+                }
+            }
+        }
 
         var expansions = 0
         while (open.isNotEmpty()) {
@@ -86,7 +110,7 @@ internal class WebPathfinder(
             }
 
             for (link in WebLinks.from(x, y, plane)) {
-                if (!permissions.allows(link)) continue
+                if (link in excluded || !permissions.allows(link)) continue
                 val destination = destinationOf(link) ?: continue
                 val next = key(destination.x, destination.y, destination.plane)
                 if (relax(best, open, next, g + link.cost, LINK_MARKER, destX, destY, tolerance)) {
@@ -98,6 +122,21 @@ internal class WebPathfinder(
     }
 
     private class LinkStep(val from: Int, val link: WebLink)
+
+    /**
+     * The teleports most likely to help, cheapest landing first by teleport cost plus distance on to the goal. Each
+     * one considered loads its landing's map square, so only a handful are, rather than every teleport known.
+     */
+    private fun teleportsWorthTrying(
+        destX: Int,
+        destY: Int,
+        tolerance: Int,
+        permissions: WebLinkPermissions,
+        excluded: Set<WebLink>,
+    ): List<WebLink> = WebLinks.globals
+        .filter { it !in excluded && permissions.allows(it) }
+        .sortedBy { it.cost + heuristic(it.to.centreX, it.to.centreY, destX, destY, tolerance) }
+        .take(TELEPORTS_CONSIDERED)
 
     /** Records a cheaper way to reach [next]; true when this improved on what was already known. */
     private fun relax(
@@ -209,6 +248,7 @@ internal class WebPathfinder(
 
     companion object {
         const val MAX_EXPANSIONS = 1_500_000
+        const val TELEPORTS_CONSIDERED = 16
         const val MAX_SQUARES = 900
         const val MAX_COORD = 256 * 64
 

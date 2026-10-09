@@ -1,5 +1,6 @@
 package com.projectx.webwalker
 
+import com.projectx.script.api.Lodestone
 import world.gregs.voidps.type.Tile
 
 /** What a route has to do to cross a [WebLink], which is what tells the walker how to perform it. */
@@ -9,6 +10,31 @@ enum class WebLinkKind {
 
     /** Open a door and step through it. */
     DOOR,
+
+    /** Use an NPC: a ferryman, a charter crew, a carpet seller. */
+    NPC,
+
+    /** Use an item from the backpack on a scene object. */
+    USE_ON,
+
+    /** An item's own teleport, from the backpack or worn. Usable from anywhere. */
+    ITEM,
+
+    /** A button on an interface, such as a spell. Usable from anywhere. */
+    INTERFACE,
+
+    /** The Passage of the Abyss: its teleport, then the jewellery, then the place. Usable from anywhere. */
+    POA,
+
+    /** A lodestone teleport. Usable from anywhere. */
+    LODESTONE,
+
+    /** At a fairy ring, dial another ring's code. */
+    FAIRY_RING,
+    ;
+
+    /** True for the kinds a route can take from wherever it starts, rather than from a place in the world. */
+    val isGlobal: Boolean get() = this == ITEM || this == INTERFACE || this == POA || this == LODESTONE
 }
 
 /** A rectangle of tiles on one plane. Link endpoints are areas because a staircase lands you anywhere in a room. */
@@ -52,6 +78,9 @@ data class WebRequirement(
     override fun toString(): String = "$key $comparison $value" + (about?.let { " ($it)" } ?: "")
 }
 
+/** Something done partway through a link, after its first action: a click on an interface, or another object. */
+sealed interface WebStep
+
 /**
  * One click on an interface, as part of getting through a link.
  *
@@ -73,9 +102,22 @@ data class WebInterfaceStep(
      * click id zero, and firing it as option zero instead would click nothing.
      */
     val option: Int = 1,
-) {
+) : WebStep {
     override fun toString(): String =
         "if($interfaceId,$componentId" + (if (slot >= 0) ",$slot" else "") + (if (option != 1) " op$option" else "") + ")"
+}
+
+/** Using another scene object partway through a link, as a trapdoor climbed down once it has been picked open. */
+data class WebObjectStep(val objectId: Int, val action: String, val searchRadius: Int) : WebStep {
+    override fun toString(): String = "$action $objectId"
+}
+
+/** The NPC or item a link uses: matched by [id], or when [id] is -1 by a name starting with [name], ignoring case. */
+data class WebTarget(val id: Int, val name: String? = null) {
+    fun matches(id: Int, name: String?): Boolean =
+        if (this.id >= 0) id == this.id else this.name != null && name != null && name.startsWith(this.name, ignoreCase = true)
+
+    override fun toString(): String = if (id >= 0) "$id" else "\"$name\""
 }
 
 /**
@@ -129,9 +171,67 @@ data class WebLink(
         private set
 
     /** This link, finished by clicking [steps] in order once its object has been used. */
-    fun clicking(vararg steps: WebInterfaceStep): WebLink = also { it.steps = steps.toList() }
+    fun clicking(vararg steps: WebInterfaceStep): WebLink = then(*steps)
 
-    override fun toString(): String =
-        "$kind($action $objectId: $from -> $to" + (choice?.let { ", \"$it\"" } ?: "") +
-            (if (steps.isEmpty()) "" else ", " + steps.joinToString(" then ")) + ")"
+    /**
+     * Everything done after the link's first action, in order: interface clicks and other objects alike. A
+     * trapdoor is picked and then climbed down; a dialogue is answered and then a vine chopped. [steps] is the
+     * interface clicks alone, for callers that only know about those.
+     */
+    var chain: List<WebStep> = emptyList()
+        private set
+
+    /** This link, finished by [chain] in order once its first action has been done. */
+    fun then(vararg chain: WebStep): WebLink = also {
+        it.chain = chain.toList()
+        it.steps = chain.filterIsInstance<WebInterfaceStep>()
+    }
+
+    /** The NPC an [WebLinkKind.NPC] link talks to, or the item an item-based link uses; null for objects. */
+    var target: WebTarget? = null
+        private set
+
+    fun using(target: WebTarget): WebLink = also { it.target = target }
+
+    /** The Passage of the Abyss menu to pick through after its teleport: the jewellery, then the place. */
+    var menu: List<String> = emptyList()
+        private set
+
+    fun picking(vararg menu: String): WebLink = also { it.menu = menu.toList() }
+
+    /** The lodestone a [WebLinkKind.LODESTONE] link teleports to. */
+    var lodestone: Lodestone? = null
+        private set
+
+    fun toLodestone(lodestone: Lodestone): WebLink = also { it.lodestone = lodestone }
+
+    /** The code a [WebLinkKind.FAIRY_RING] link dials, e.g. "ckr". */
+    var fairyCode: String? = null
+        private set
+
+    fun dialling(code: String): WebLink = also { it.fairyCode = code.lowercase() }
+
+    val isGlobal: Boolean get() = kind.isGlobal
+
+    private val identity: List<Any?>
+        get() = listOf(kind, from, to, cost, action, objectId, searchRadius, requirements, choice, chain, target, menu, lodestone, fairyCode)
+
+    override fun equals(other: Any?): Boolean = this === other || other is WebLink && identity == other.identity
+
+    override fun hashCode(): Int = identity.hashCode()
+
+    override fun toString(): String {
+        val what = when (kind) {
+            WebLinkKind.LODESTONE -> "${lodestone?.name}"
+            WebLinkKind.FAIRY_RING -> "$action $objectId to ${fairyCode?.uppercase()}"
+            WebLinkKind.NPC, WebLinkKind.ITEM -> "$action $target"
+            WebLinkKind.POA -> "$action $target, ${menu.joinToString(" > ")}"
+            WebLinkKind.USE_ON -> "$target on $objectId"
+            WebLinkKind.INTERFACE -> "interface"
+            else -> "$action $objectId"
+        }
+        val place = if (isGlobal) "-> $to" else "$from -> $to"
+        return "$kind($what: $place" + (choice?.let { ", \"$it\"" } ?: "") +
+            (if (chain.isEmpty()) "" else ", " + chain.joinToString(" then ")) + ")"
+    }
 }

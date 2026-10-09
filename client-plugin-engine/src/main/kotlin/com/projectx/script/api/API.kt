@@ -1726,7 +1726,8 @@ enum class Lodestone(val id: Int, val object_id: Int, val object_id_unlocked: In
     UM(35, 127267, 127268, Tile.of(1084, 1768, 1), -1),
     VARROCK(21, 69868, 69869, Tile.of(3214, 3376, 0), 39),
     WILDERNESS(32, 84767, 84768, Tile.of(3143, 3635, 0), 18529),
-    YANILLE(25, 69870, 69871, Tile.of(2529, 3094, 0), 40);
+    YANILLE(25, 69870, 69871, Tile.of(2529, 3094, 0), 40),
+    WENDLEWICK(41, -1, -1, Tile.of(3462, 1520, 0), 60739);
 
     // Tile is an inline value class, so its accessors are name-mangled and unreachable from Java.
     val tileX: Int get() = tile.x

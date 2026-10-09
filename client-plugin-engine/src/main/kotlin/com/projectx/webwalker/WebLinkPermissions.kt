@@ -1,7 +1,10 @@
 package com.projectx.webwalker
 
+import com.projectx.game.items.Item
 import com.projectx.script.api.coinPouch
+import com.projectx.script.api.equipment
 import com.projectx.script.api.getRealLevel
+import com.projectx.script.api.inventory
 import com.projectx.script.api.varps
 import org.projectx.core.game.skill.Skill
 
@@ -15,14 +18,22 @@ import org.projectx.core.game.skill.Skill
  * A requirement this engine does not understand counts as met. The alternative, treating it as unmet, would hide
  * whole regions behind one unrecognised flag; being optimistic costs at most a re-plan when the walker reaches
  * the object and cannot use it.
+ *
+ * A link that uses an item - a teleport item, the Passage of the Abyss, an item used on an object - is also only
+ * allowed while the item is carried: in the backpack, or worn for a teleport.
  */
-class WebLinkPermissions private constructor(private val blocked: Set<WebRequirement>) {
+class WebLinkPermissions private constructor(
+    private val blocked: Set<WebRequirement>,
+    private val missingItems: Set<WebLink> = emptySet(),
+) {
 
-    fun allows(link: WebLink): Boolean = link.requirements.none { it in blocked }
+    fun allows(link: WebLink): Boolean = link.requirements.none { it in blocked } && link !in missingItems
 
     companion object {
         /** Nothing is blocked; for tests and for planning when game state is not available. */
         val UNRESTRICTED = WebLinkPermissions(emptySet())
+
+        private val ITEM_KINDS = setOf(WebLinkKind.ITEM, WebLinkKind.POA, WebLinkKind.USE_ON)
 
         private val SKILLS = mapOf(
             "agilityLevel" to Skill.AGILITY,
@@ -38,6 +49,7 @@ class WebLinkPermissions private constructor(private val blocked: Set<WebRequire
             "woodcuttingLevel" to Skill.WOODCUTTING,
             "firemakingLevel" to Skill.FIREMAKING,
             "rangedLevel" to Skill.RANGED,
+            "rangeLevel" to Skill.RANGED,
             "magicLevel" to Skill.MAGIC,
             "strengthLevel" to Skill.STRENGTH,
         )
@@ -61,8 +73,18 @@ class WebLinkPermissions private constructor(private val blocked: Set<WebRequire
                 }
                 if (!met) blocked += requirement
             }
-            return WebLinkPermissions(blocked)
+            val backpack = runCatching { inventory.toList() }.getOrDefault(emptyList())
+            val worn = runCatching { equipment.toList() }.getOrDefault(emptyList())
+            val missing = WebLinks.all.filterTo(HashSet()) { link ->
+                val target = link.target
+                link.kind in ITEM_KINDS && target != null &&
+                    !carries(backpack, target) && (link.kind == WebLinkKind.USE_ON || !carries(worn, target))
+            }
+            return WebLinkPermissions(blocked, missing)
         }
+
+        private fun carries(items: List<Item>, target: WebTarget): Boolean =
+            items.any { item -> target.matches(item.id, runCatching { item.name }.getOrNull()) }
 
         /** The account's current value for a requirement key, or null when this engine cannot evaluate it. */
         private fun valueOf(key: String): Int? = runCatching {

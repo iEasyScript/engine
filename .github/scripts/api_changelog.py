@@ -51,6 +51,7 @@ AREA_ORDER = ("Overlay UI", "Overlay DSL", "Script calls", "Web walker", "Interf
 INTERNAL_TYPES = {
     "com.projectx.script.LiveValues",
     "com.projectx.script.api.NecromancyImprovise",
+    "com.projectx.webwalker.WebLinkActions",
 }
 
 # Members that are an implementation detail of how Kotlin and the Compose compiler build a class, not

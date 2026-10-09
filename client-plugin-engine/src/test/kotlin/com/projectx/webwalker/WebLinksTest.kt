@@ -1,7 +1,9 @@
 package com.projectx.webwalker
 
+import com.projectx.script.api.Lodestone
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNotEquals
 import kotlin.test.assertTrue
 
 /**
@@ -20,14 +22,85 @@ class WebLinksTest {
     @Test
     fun `every link is usable`() {
         for (link in WebLinks.all) {
-            assertTrue(link.objectId >= 0, "$link has no object id")
-            assertTrue(link.action.isNotBlank(), "$link has no action")
             assertTrue(link.cost > 0, "$link is free")
             assertTrue(link.searchRadius in 1..64, "$link has an absurd search radius")
-            assertTrue(link.from.maxX >= link.from.minX && link.from.maxY >= link.from.minY, "$link has an inverted origin")
             assertTrue(link.to.maxX >= link.to.minX && link.to.maxY >= link.to.minY, "$link has an inverted destination")
-            assertTrue(link.from.plane in 0..3 && link.to.plane in 0..3, "$link leaves the four planes")
+            assertTrue(link.to.plane in 0..3, "$link lands off the four planes")
+            if (!link.isGlobal) {
+                assertTrue(link.from.maxX >= link.from.minX && link.from.maxY >= link.from.minY, "$link has an inverted origin")
+                assertTrue(link.from.plane in 0..3, "$link starts off the four planes")
+            }
+            when (link.kind) {
+                WebLinkKind.OBJECT, WebLinkKind.DOOR, WebLinkKind.FAIRY_RING -> {
+                    assertTrue(link.objectId >= 0, "$link has no object id")
+                    assertTrue(link.action.isNotBlank(), "$link has no action")
+                }
+                WebLinkKind.USE_ON -> {
+                    assertTrue(link.objectId >= 0, "$link has no object to use the item on")
+                    assertTrue(link.target != null, "$link has no item")
+                }
+                WebLinkKind.NPC, WebLinkKind.ITEM, WebLinkKind.POA -> {
+                    val target = link.target
+                    assertTrue(target != null && (target.id >= 0 || !target.name.isNullOrBlank()), "$link does not say what it uses")
+                    assertTrue(link.action.isNotBlank(), "$link has no action")
+                }
+                WebLinkKind.INTERFACE -> assertTrue(link.chain.firstOrNull() is WebInterfaceStep, "$link has no button to click")
+                WebLinkKind.LODESTONE -> assertTrue(link.lodestone != null, "$link names no lodestone")
+            }
         }
+    }
+
+    @Test
+    fun `teleports are kept apart from the places links start`() {
+        val teleports = WebLinks.globals
+        assertTrue(teleports.isNotEmpty(), "no teleports loaded")
+        assertTrue(teleports.all { it.isGlobal }, "a place-bound link was filed as a teleport")
+        val local = WebLinks.all.filterNot { it.isGlobal }
+        assertTrue(local.none { it in teleports }, "a teleport was also filed by place")
+        assertEquals(WebLinks.all.size, local.size + teleports.size)
+    }
+
+    @Test
+    fun `every lodestone is a teleport, Burthorpe and Wendlewick included`() {
+        val reached = WebLinks.globals.filter { it.kind == WebLinkKind.LODESTONE }.mapNotNull { it.lodestone }.toSet()
+        assertEquals(Lodestone.entries.toSet(), reached)
+    }
+
+    @Test
+    fun `a fairy ring reaches every other ring`() {
+        val rings = WebLinks.all.filter { it.kind == WebLinkKind.FAIRY_RING }
+        assertTrue(rings.isNotEmpty(), "no fairy rings loaded")
+        val codes = rings.mapNotNull { it.fairyCode }.toSet()
+        val fromOne = rings.filter { it.from == rings.first().from }
+        assertEquals(codes.size - 1, fromOne.size, "a ring does not reach every other")
+        assertTrue(codes.all { it.length == 3 }, "a fairy ring code is not three letters")
+    }
+
+    @Test
+    fun `a chain can use another object after its first`() {
+        val trapdoor = WebLinks.all.first { it.kind == WebLinkKind.DOOR && it.action == "Lockpick" && it.chain.isNotEmpty() }
+        assertEquals(WebObjectStep(5492, "Climb down", 20), trapdoor.chain.single())
+        assertTrue(trapdoor.steps.isEmpty(), "an object step was listed among the interface clicks")
+        assertTrue(trapdoor.to.minY > 9000, "the trapdoor should lead underground")
+    }
+
+    @Test
+    fun `NPC and item links say what they use`() {
+        val boat = WebLinks.all.first { it.kind == WebLinkKind.NPC && it.target?.name == "Captain Tobias" }
+        assertTrue(boat.target!!.matches(-1, "captain tobias"), "an NPC is not matched by name, ignoring case")
+        val passage = WebLinks.globals.first { it.kind == WebLinkKind.POA }
+        assertEquals(2, passage.menu.size, "the Passage of the Abyss should pick a jewellery and then a place")
+        val necklace = WebLinks.globals.first { it.kind == WebLinkKind.ITEM && it.target?.name?.startsWith("Games") == true }
+        assertTrue(necklace.target!!.matches(3853, "Games necklace (8)"), "an item is not matched by the start of its name")
+    }
+
+    @Test
+    fun `two teleports that differ only by what they use are different links`() {
+        val base = WebLink(WebLinkKind.ITEM, WebArea(0, 0, 0, 0, -1), WebArea(1, 1, 1, 1, 0), 1000, "Rub", -1, 1, emptyList())
+        val a = base.copy().using(WebTarget(1))
+        val b = base.copy().using(WebTarget(2))
+        assertNotEquals(a, b)
+        assertEquals(WebLink(WebLinkKind.ITEM, WebArea(0, 0, 0, 0, -1), WebArea(1, 1, 1, 1, 0), 1000, "Rub", -1, 1, emptyList()).using(WebTarget(1)), a)
     }
 
     @Test
