@@ -97,6 +97,7 @@ struct Target {
     VkExtent2D extent{};
     VkFormat format = VK_FORMAT_UNDEFINED;
     VkRenderPass render_pass = VK_NULL_HANDLE;
+    std::vector<VkImage> images;
     std::vector<VkImageView> views;
     std::vector<VkFramebuffer> framebuffers;
 };
@@ -167,6 +168,19 @@ void destroy_framebuffers() {
     for (VkImageView view : g_target.views) vk.vkDestroyImageView(g_device, view, nullptr);
     g_target.framebuffers.clear();
     g_target.views.clear();
+    g_target.images.clear();
+}
+
+/// The images the presented swapchain holds right now. A recreated swapchain can come back with the same
+/// handle value, so these, not the handle, say whether the framebuffers still point at live images.
+bool swapchain_images(std::vector<VkImage> *images) {
+    uint32_t count = 0;
+    if (!check(vk.vkGetSwapchainImagesKHR(g_device, g_frame.swapchain, &count, nullptr), "vkGetSwapchainImagesKHR")) return false;
+    images->resize(count);
+    VkResult result = vk.vkGetSwapchainImagesKHR(g_device, g_frame.swapchain, &count, images->data());
+    if (result != VK_SUCCESS && result != VK_INCOMPLETE) return check(result, "vkGetSwapchainImagesKHR");
+    images->resize(count);
+    return true;
 }
 
 void wait_for_slots() {
@@ -214,12 +228,8 @@ bool create_render_pass(VkFormat format) {
     return check(vk.vkCreateRenderPass(g_device, &info, nullptr, &g_target.render_pass), "vkCreateRenderPass");
 }
 
-bool create_framebuffers() {
-    uint32_t count = 0;
-    if (!check(vk.vkGetSwapchainImagesKHR(g_device, g_frame.swapchain, &count, nullptr), "vkGetSwapchainImagesKHR")) return false;
-    std::vector<VkImage> images(count);
-    if (!check(vk.vkGetSwapchainImagesKHR(g_device, g_frame.swapchain, &count, images.data()), "vkGetSwapchainImagesKHR")) return false;
-
+bool create_framebuffers(const std::vector<VkImage> &images) {
+    g_target.images = images;
     for (VkImage image : images) {
         VkImageViewCreateInfo view_info{VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO};
         view_info.image = image;
@@ -248,8 +258,10 @@ bool create_framebuffers() {
 /// has created a new one or resized it.
 bool ensure_target() {
     if (!g_frame.recorded) return false;
+    std::vector<VkImage> images;
+    if (!swapchain_images(&images)) return false;
     if (g_target.swapchain == g_frame.swapchain && g_target.extent.width == g_frame.extent.width &&
-        g_target.extent.height == g_frame.extent.height && !g_target.framebuffers.empty()) {
+        g_target.extent.height == g_frame.extent.height && g_target.images == images && !g_target.framebuffers.empty()) {
         return g_frame.image < g_target.framebuffers.size();
     }
 
@@ -272,7 +284,7 @@ bool ensure_target() {
     }
 
     g_target.extent = g_frame.extent;
-    if (!create_framebuffers()) {
+    if (!create_framebuffers(images)) {
         destroy_framebuffers();
         return false;
     }
@@ -392,7 +404,19 @@ bool frame_extent(uint32_t *width, uint32_t *height) {
 void new_frame() { ImGui_ImplVulkan_NewFrame(); }
 
 void render(ImDrawData *draw_data) {
-    if (!g_ready || !draw_data || !ensure_target()) return;
+    if (!g_ready || !draw_data) return;
+    // Reported once per run of skipped frames: a target that cannot be built hides the whole overlay.
+    static bool skipping = false;
+    if (!ensure_target()) {
+        if (!skipping) {
+            imgui_log_message("[Vulkan] Not drawing: no render target for this present (recorded %d, image %u of %u)\n",
+                              (int)g_frame.recorded, g_frame.image, (unsigned)g_target.framebuffers.size());
+        }
+        skipping = true;
+        return;
+    }
+    if (skipping) imgui_log_message("[Vulkan] Drawing again\n");
+    skipping = false;
     if (draw_data->DisplaySize.x * draw_data->FramebufferScale.x <= 0.5f ||
         draw_data->DisplaySize.y * draw_data->FramebufferScale.y <= 0.5f) {
         return;
