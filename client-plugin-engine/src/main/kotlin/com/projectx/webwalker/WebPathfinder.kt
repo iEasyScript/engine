@@ -20,8 +20,10 @@ import kotlin.math.min
  * teleports allowed, the global links - lodestones, teleport items, spells - are edges out of the start alone, as
  * navpathService has them: a teleport is something a route begins with, not something it detours into.
  *
- * The heuristic is Chebyshev distance over x and y. That bounds walking from below but not a link, which can
- * cover a lot of ground for its price, so a route through links is not guaranteed to be the cheapest that exists.
+ * The heuristic is Chebyshev distance over x and y, or less where a gateway gets closer: walking to a link that
+ * lands near the goal, then on from where it lands. Without gateways a goal reached only through a far-off entrance,
+ * such as a region drawn elsewhere on the map, pulls the search towards its coordinates and floods the world.
+ * Neither bounds every link from below, so a route through links is not guaranteed to be the cheapest that exists.
  * It is a real route either way, and links are priced in walked tiles so the search does not take absurd ones.
  */
 internal class WebPathfinder(
@@ -59,6 +61,7 @@ internal class WebPathfinder(
             return WebWalkResult(WebWalkStatus.NO_PATH, "The destination $destX,$destY is not on the world map")
         }
 
+        gateways = gatewaysTowards(destX, destY, tolerance, permissions, excluded)
         val validator = StepValidator(WorldCollision.allFlags)
         val best = IntIntMap()
         val open = LongHeap()
@@ -122,6 +125,26 @@ internal class WebPathfinder(
     }
 
     private class LinkStep(val from: Int, val link: WebLink)
+
+    /** Flattened (from x, from y, cost from there to the goal) for each gateway, read by [heuristic]. */
+    private var gateways = IntArray(0)
+
+    /** The links that jump furthest towards the goal for their price, nearest landing first. */
+    private fun gatewaysTowards(
+        destX: Int,
+        destY: Int,
+        tolerance: Int,
+        permissions: WebLinkPermissions,
+        excluded: Set<WebLink>,
+    ): IntArray = WebLinks.all.asSequence()
+        .filter { !it.isGlobal && it !in excluded && permissions.allows(it) }
+        .map { it to distance(it.to.centreX, it.to.centreY, destX, destY, tolerance) }
+        .filter { (link, onward) -> onward + GATEWAY_GAIN < distance(link.from.centreX, link.from.centreY, destX, destY, tolerance) }
+        .sortedBy { (link, onward) -> link.cost + onward }
+        .take(GATEWAYS_CONSIDERED)
+        .flatMap { (link, onward) -> sequenceOf(link.from.centreX, link.from.centreY, link.cost + onward) }
+        .toList()
+        .toIntArray()
 
     /**
      * The teleports most likely to help, cheapest landing first by teleport cost plus distance on to the goal. Each
@@ -241,6 +264,15 @@ internal class WebPathfinder(
     }
 
     private fun heuristic(x: Int, y: Int, destX: Int, destY: Int, tolerance: Int): Int {
+        var estimate = distance(x, y, destX, destY, tolerance)
+        for (i in gateways.indices step 3) {
+            if (gateways[i + 2] >= estimate) continue
+            estimate = min(estimate, distance(x, y, gateways[i], gateways[i + 1], 0) + gateways[i + 2])
+        }
+        return estimate
+    }
+
+    private fun distance(x: Int, y: Int, destX: Int, destY: Int, tolerance: Int): Int {
         val dx = (abs(x - destX) - tolerance).coerceAtLeast(0)
         val dy = (abs(y - destY) - tolerance).coerceAtLeast(0)
         return STEP_COST * max(dx, dy) + (DIAGONAL_COST - STEP_COST) * min(dx, dy)
@@ -249,10 +281,12 @@ internal class WebPathfinder(
     companion object {
         const val MAX_EXPANSIONS = 1_500_000
         const val TELEPORTS_CONSIDERED = 16
+        const val GATEWAYS_CONSIDERED = 24
         const val MAX_SQUARES = 900
         const val MAX_COORD = 256 * 64
 
         const val STEP_COST = 1000
+        private const val GATEWAY_GAIN = 64 * STEP_COST
         const val DIAGONAL_COST = 1001
         const val DOOR_COST = 4000
 

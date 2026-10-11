@@ -127,6 +127,16 @@ class WebPathfinderCacheTest {
         assertTrue((0..path.lastIndex).none { path.linkAt(it)?.isGlobal == true }, "a teleport was taken")
     }
 
+    @Test
+    fun `walks into a region drawn elsewhere on the map through its entrance`() {
+        val result = WebPathfinder().find(3222, 3218, 0, 2447, 7617, 0, 2)
+        assertEquals(WebWalkStatus.PATH_FOUND, result.status, result.message)
+        val path = assertNotNull(result.path)
+        val crossings = (0..path.lastIndex).mapNotNull { path.linkAt(it) }
+        println("[WebWalk] Lumbridge -> Kharid-et by ${crossings.joinToString()}")
+        assertTrue(crossings.any { it.objectId == KHARID_ET_ENTRANCE }, "reached the fort without its entrance")
+    }
+
     private fun assertRoute(startX: Int, startY: Int, destX: Int, destY: Int) {
         val started = System.nanoTime()
         val result = WebPathfinder().find(startX, startY, 0, destX, destY, 0, 2)
@@ -147,3 +157,5 @@ class WebPathfinderCacheTest {
         }
     }
 }
+
+private const val KHARID_ET_ENTRANCE = 116920
