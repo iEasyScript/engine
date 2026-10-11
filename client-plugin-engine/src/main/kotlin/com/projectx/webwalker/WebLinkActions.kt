@@ -56,6 +56,8 @@ internal object WebLinkActions {
     }
 
     /** Does one chained step: clicks an interface once it is up, or uses the next object. */
+    suspend fun perform(script: Script, link: WebLink, step: WebStep): Boolean = perform(script, link, step) { false }
+
     suspend fun perform(script: Script, link: WebLink, step: WebStep, arrived: () -> Boolean): Boolean = when (step) {
         is WebInterfaceStep -> {
             script.delayUntil(PROMPT_TIMEOUT_MS) { interfaces.isOpen(step.interfaceId) || arrived() }
