@@ -15,6 +15,7 @@ import com.projectx.script.api.isDialogOpen
 import com.projectx.script.api.isLodestoneUiOpen
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.openLodestoneMap
+import com.projectx.script.api.varps
 
 /**
  * How the walker starts each kind of link: the first thing it does, before any answer or chained step. Each returns
@@ -29,8 +30,16 @@ internal object WebLinkActions {
     private const val FAIRY_RING_TELEPORT = 23
     private const val FAIRY_RING_TURNS = 4
 
-    /** Each dial's top letter and its clockwise button, left to right; the code's letters are read in that order. */
-    private val FAIRY_RING_DIALS = listOf(10 to 8, 19 to 17, 28 to 26)
+    /** A dial's varbit counts clockwise turns, so its letters are listed in the order clockwise turns bring them up. */
+    private class FairyDial(val varbit: Int, val letters: String, val anticlockwise: Int, val clockwise: Int) {
+        val position get() = varps.getVarBit(varbit) and 3
+    }
+
+    private val FAIRY_RING_DIALS = listOf(
+        FairyDial(12072, "adcb", 7, 8),
+        FairyDial(12073, "ilkj", 16, 17),
+        FairyDial(12074, "psrq", 25, 26),
+    )
 
     /** Worn items' options only fire while the worn equipment tab is open. */
     private const val WORN_EQUIPMENT_INTERFACE = 1464
@@ -47,10 +56,12 @@ internal object WebLinkActions {
     }
 
     /** Does one chained step: clicks an interface once it is up, or uses the next object. */
-    suspend fun perform(script: Script, link: WebLink, step: WebStep): Boolean = when (step) {
+    suspend fun perform(script: Script, link: WebLink, step: WebStep, arrived: () -> Boolean): Boolean = when (step) {
         is WebInterfaceStep -> {
-            script.delayUntil(PROMPT_TIMEOUT_MS) { interfaces.isOpen(step.interfaceId) }
-            if (!interfaces.isOpen(step.interfaceId)) {
+            script.delayUntil(PROMPT_TIMEOUT_MS) { interfaces.isOpen(step.interfaceId) || arrived() }
+            if (arrived()) {
+                true
+            } else if (!interfaces.isOpen(step.interfaceId)) {
                 println("[WebWalk] $link expected interface ${step.interfaceId} and it never opened")
                 false
             } else {
@@ -159,25 +170,24 @@ internal object WebLinkActions {
             return false
         }
         for ((index, dial) in FAIRY_RING_DIALS.withIndex()) {
-            val (letter, clockwise) = dial
-            val wanted = code.getOrNull(index)?.toString() ?: return false
+            val letter = code.getOrNull(index)?.lowercaseChar() ?: return false
+            val wanted = dial.letters.indexOf(letter).takeIf { it >= 0 } ?: return false
             var turns = 0
-            while (!dialShows(letter, wanted)) {
-                if (++turns > FAIRY_RING_TURNS) {
-                    println("[WebWalk] The fairy ring's dial ${index + 1} never showed '$wanted'")
+            while (dial.position != wanted) {
+                if (++turns > FAIRY_RING_TURNS || !interfaces.isOpen(FAIRY_RING_INTERFACE)) {
+                    println("[WebWalk] The fairy ring's dial ${index + 1} never showed '$letter'")
                     return false
                 }
-                if (!IFSlot(FAIRY_RING_INTERFACE, clockwise, -1).click(1)) return false
-                delayUntil(PROMPT_TIMEOUT_MS) { dialShows(letter, wanted) || !interfaces.isOpen(FAIRY_RING_INTERFACE) }
+                val before = dial.position
+                val button = if (Math.floorMod(wanted - before, 4) == 3) dial.anticlockwise else dial.clockwise
+                if (!IFSlot(FAIRY_RING_INTERFACE, button, -1).click(1)) return false
+                delayUntil(PROMPT_TIMEOUT_MS) { dial.position != before || !interfaces.isOpen(FAIRY_RING_INTERFACE) }
                 delay(250, 120)
             }
         }
         println("[WebWalk] Dialled ${code.uppercase()}")
         return IFSlot(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT, -1).click(1)
     }
-
-    private fun dialShows(component: Int, letter: String): Boolean =
-        interfaces.getComponent(FAIRY_RING_INTERFACE, component)?.text?.trim()?.equals(letter, ignoreCase = true) == true
 
     private fun carried(items: List<Item>, target: WebTarget): Item? =
         items.firstOrNull { item -> target.matches(item.id, runCatching { item.name }.getOrNull()) }

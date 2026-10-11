@@ -59,6 +59,10 @@ object WebWalker {
     private const val TELEPORT_SLACK = 4
     private const val LODESTONE_SLACK = 10
 
+    // A lodestone moves the player a few ticks before its landing animation plays, and ignores input until it ends.
+    private const val LANDING_START_MS = 3_000L
+    private const val LANDING_MS = 2_400L
+
     /** How long a link's "where to?" is given to appear before the answer is attempted anyway. */
     private const val CHOICE_TIMEOUT_MS = 4_000L
     private const val DOOR_SEARCH_RANGE = 6
@@ -89,6 +93,10 @@ object WebWalker {
     private const val WALK_BEFORE_SURGE = 3
     private const val ABILITY_BARRIER_GAP = 2
     private const val ABILITY_LANDING_MS = 1_800L
+    private const val HOP_RETRY_MIN_MS = 3_000L
+    private const val HOP_RETRY_MAX_MS = 6_000L
+
+    private enum class Hop { NONE, LANDED, REFUSED }
 
     private val planner = Executors.newSingleThreadExecutor { runnable ->
         Thread(runnable, "projectx-webwalker").apply { isDaemon = true }
@@ -168,6 +176,7 @@ object WebWalker {
         var stalls = 0
         var doorAttempts = 0
         var linkAttempts = 0
+        var hopsResumeAt = 0L
 
         while (!script.stopped) {
             val me = localPlayer.tile
@@ -222,7 +231,13 @@ object WebWalker {
                 continue
             }
 
-            if (useMovementAbilities && hopAhead(script, route, here, barrier)) continue
+            if (useMovementAbilities && System.currentTimeMillis() >= hopsResumeAt) {
+                when (hopAhead(script, route, here, barrier)) {
+                    Hop.LANDED -> continue
+                    Hop.REFUSED -> hopsResumeAt = System.currentTimeMillis() + random(HOP_RETRY_MIN_MS, HOP_RETRY_MAX_MS)
+                    Hop.NONE -> {}
+                }
+            }
 
             val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
             var target = (here + lookahead).coerceAtMost(route.lastIndex)
@@ -248,20 +263,21 @@ object WebWalker {
 
     /**
      * Dives, or failing that Surges, along the stretch of route ahead when it is straight enough and the ability is
-     * ready; true when one was cast. Never within a couple of steps of a door or link, which have to be walked up to.
+     * ready. Never within a couple of steps of a door or link, which have to be walked up to. A hop the game ignored,
+     * such as one clicked while the player is still landing from a voyage, is reported so walking takes over for a while.
      */
-    private suspend fun hopAhead(script: Script, route: WebPath, here: Int, barrier: Int): Boolean {
+    private suspend fun hopAhead(script: Script, route: WebPath, here: Int, barrier: Int): Hop {
         val me = localPlayer.tile
         val last = (if (barrier == -1) route.lastIndex else barrier - 1 - ABILITY_BARRIER_GAP).coerceAtMost(here + ABILITY_REACH)
-        if (last - here < MIN_DIVE_TILES) return false
+        if (last - here < MIN_DIVE_TILES) return Hop.NONE
 
         if (isDiveReady()) {
             val landing = (last downTo here + MIN_DIVE_TILES).firstOrNull { reachable(route, here, it, me) }
             if (landing != null) {
                 val target = route.tile(landing)
                 if (dive(target)) {
-                    script.delayUntil(ABILITY_LANDING_MS) { chebyshev(localPlayer.tile.x, localPlayer.tile.y, target.x, target.y) <= 1 }
-                    return true
+                    script.delayUntil(ABILITY_LANDING_MS) { near(target, 1) }
+                    return if (near(target, 1) || !isDiveReady()) Hop.LANDED else Hop.REFUSED
                 }
             }
         }
@@ -271,12 +287,15 @@ object WebWalker {
         ) {
             val target = route.tile(here + ABILITY_REACH)
             if (surge()) {
-                script.delayUntil(ABILITY_LANDING_MS) { chebyshev(localPlayer.tile.x, localPlayer.tile.y, target.x, target.y) <= 2 }
-                return true
+                script.delayUntil(ABILITY_LANDING_MS) { near(target, 2) }
+                return if (near(target, 2) || !Ability.SURGE.offCdIgnoreGCD) Hop.LANDED else Hop.REFUSED
             }
         }
-        return false
+        return Hop.NONE
     }
+
+    private fun near(target: Tile, distance: Int): Boolean =
+        localPlayer.tile.let { it.plane == target.plane && chebyshev(it.x, it.y, target.x, target.y) <= distance }
 
     /** A dive from [me] can reach step [to] when it is in range and the route there runs nearly straight. */
     private fun reachable(route: WebPath, from: Int, to: Int, me: Tile): Boolean {
@@ -376,16 +395,23 @@ object WebWalker {
             }
         }
 
-        // A panel of destinations goes nowhere until one is picked, and a picked trapdoor still has to be climbed.
+        // A panel of destinations goes nowhere until one is picked, and a picked trapdoor still has to be climbed. Some
+        // ways through only sometimes ask, so arriving makes the rest of the chain unnecessary.
+        val slack = arrivalSlack(link)
         for (step in link.chain) {
-            if (!WebLinkActions.perform(script, link, step)) return false
+            if (arrivedVia(link, slack)) break
+            if (!WebLinkActions.perform(script, link, step) { arrivedVia(link, slack) } && !arrivedVia(link, slack)) return false
         }
 
-        val slack = arrivalSlack(link)
         script.delayUntil(arrivalTimeout(link)) { arrivedVia(link, slack) }
         val arrived = arrivedVia(link, slack)
         if (arrived) {
-            script.delayUntil(STALL_GRACE_MS * if (link.isGlobal) 4 else 1) { !localPlayer.isMoving && !localPlayer.isAnimating }
+            if (link.kind == WebLinkKind.LODESTONE) {
+                script.delayUntil(LANDING_START_MS) { localPlayer.isAnimating }
+                script.delayUntil(LANDING_MS) { !localPlayer.isAnimating }
+            } else {
+                script.delayUntil(STALL_GRACE_MS * if (link.isGlobal) 4 else 1) { !localPlayer.isMoving && !localPlayer.isAnimating }
+            }
         }
         return arrived
     }
