@@ -43,7 +43,7 @@ object OnKeyDown {
             if (InputRecorder.isRecording) InputRecorder.record(event)
 
             if (keyCode == UIState.uiToggleKey.value) {
-                UIState.showMainWindow.value = !UIState.showMainWindow.value
+                if (UiToggleKey.pressed()) UIState.showMainWindow.value = !UIState.showMainWindow.value
                 return
             }
 
@@ -74,6 +74,7 @@ object OnKeyUp {
                 pressed = false
             )
             if (InputRecorder.isRecording) InputRecorder.record(event)
+            if (keyCode == UIState.uiToggleKey.value) UiToggleKey.released()
             if (OverlayKeyboard.onKeyUp()) return
         } catch(e: Throwable) {
             e.printStackTrace()
@@ -111,6 +112,41 @@ object OnKeyChar {
         HookManager.trampoline(::onKeyCharHook.name).invokeExact(input, charCode)
     }
 }
+
+/**
+ * Turns the toggle key's key-downs into presses. The client repeats a held key's key-down, and keeps repeating one
+ * whose key-up it missed - focus moving away mid-press - so toggling on each would flash the panel until the key was
+ * pressed again. A key-down only counts once the key has been released, or once it has been quiet long enough that
+ * the release must have been lost.
+ */
+internal class KeyPresses(private val clock: () -> Long = System::nanoTime) {
+    private var down = false
+    private var lastKeyDown = 0L
+    private var reportedRepeat = false
+
+    fun pressed(): Boolean {
+        val now = clock()
+        val repeat = down && now - lastKeyDown < LOST_RELEASE_NANOS
+        lastKeyDown = now
+        down = true
+        if (repeat && !reportedRepeat) {
+            reportedRepeat = true
+            println("[Overlay] The toggle key is repeating; ignoring it until it is released")
+        }
+        return !repeat
+    }
+
+    fun released() {
+        down = false
+        reportedRepeat = false
+    }
+
+    companion object {
+        const val LOST_RELEASE_NANOS = 1_000_000_000L
+    }
+}
+
+private val UiToggleKey = KeyPresses()
 
 /** F12 in whichever keycode namespace this host's client actually delivers. */
 val defaultUiToggleKey: Int get() = Key.F12.native
