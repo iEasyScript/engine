@@ -140,4 +140,23 @@ class EntitlementsTest {
         assertFalse(gated("""{"internalName":"SomePlugin","paid":false}"""))
         assertFalse(gated("""{"internalName":"SomePlugin","paid":false,"requiresSubscription":null}"""))
     }
+
+    private fun prices(entry: String) = Entitlements.pricesOf(JsonParser.parseString(entry).asJsonObject)
+
+    @Test
+    fun `prices are read as the store quotes them, sale included`() {
+        val quoted = prices("""{"prices":{"week":90,"fortnight":160,"month":300},"salePercent":25}""")
+        assertEquals(StorePrices(90, 160, 300, 25), quoted)
+        assertEquals("From 90 X Tokens (25% off)", quoted!!.summary(free = false))
+    }
+
+    @Test
+    fun `a free script is quoted as free whatever its tiers say`() {
+        assertEquals("Free", prices("""{"prices":{"week":0,"fortnight":0,"month":0}}""")!!.summary(free = true))
+    }
+
+    @Test
+    fun `a store that sends no prices quotes none rather than zero`() {
+        assertEquals(null, prices("""{"internalName":"Old"}"""))
+    }
 }

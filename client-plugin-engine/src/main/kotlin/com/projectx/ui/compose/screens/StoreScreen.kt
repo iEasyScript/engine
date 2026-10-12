@@ -20,6 +20,7 @@ import com.projectx.script.ScriptCategory
 import com.projectx.script.ScriptDescription
 import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
+import com.projectx.store.Entitlements
 import com.projectx.ui.ScriptLibrary
 import com.projectx.ui.ScriptSource
 import com.projectx.ui.UIState
@@ -39,6 +40,9 @@ import com.projectx.ui.compose.components.ScreenScroll
 import com.projectx.ui.compose.components.SearchField
 import com.projectx.ui.compose.library.LibraryModel
 import com.projectx.ui.compose.theme.LocalType
+import com.projectx.ui.compose.theme.Palette
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import com.projectx.ui.compose.theme.tint
 
 data class StoreEntry(val meta: ScriptMetadata, val source: ScriptSource, val category: ScriptCategory, val inLibrary: Boolean)
@@ -84,7 +88,7 @@ fun StoreScreen() {
             SearchField(UIState.storeSearchText, "Search every script", 260.dp)
             Dropdown(StoreModel.source, listOf(null) + ScriptSource.entries, { StoreModel.source = it }, width = 170.dp) { it?.label ?: "All sources" }
             Spacer(Modifier.weight(1f))
-            Hint("${shown.size} of ${all.size} scripts · every script is free")
+            Hint("${shown.size} of ${all.size} scripts · store scripts run once you have them on xclient.dev")
         }
         ScreenScroll {
             if (shown.isEmpty()) EmptyState(if (all.isEmpty()) "No scripts are loaded" else "Nothing matches", "Scripts in ~/.projectx/scripts show up here.")
@@ -127,8 +131,18 @@ private fun StoreCard(entry: StoreEntry, modifier: Modifier) {
                 ActionButton("Add to library", { StoreModel.toggle(entry) }, tone = ButtonTone.Primary, icon = Glyph.Plus, height = 30.dp)
             }
             Spacer(Modifier.weight(1f))
+            // Read straight from the store's answer, which is the client's own state rather than the game's.
+            Entitlements.accessOf(entry.meta.scriptClass.simpleName)?.let { access ->
+                val line = when {
+                    access.entitled -> access.until?.let { "Yours until ${UNTIL.format(it)}" } ?: "Yours"
+                    else -> access.prices?.summary(access.free) ?: if (access.free) "Free" else "On the store"
+                }
+                BasicText(line, style = type.dataSmall.copy(color = if (access.entitled) Palette.running else Palette.amber))
+            }
             BasicText(entry.category.readableName, style = type.dataSmall.copy(color = entry.category.tint()))
         }
     }
 }
+
+private val UNTIL = DateTimeFormatter.ofPattern("d MMM").withZone(ZoneId.systemDefault())
 

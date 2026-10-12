@@ -4,6 +4,7 @@ import com.google.gson.JsonArray
 import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.projectx.script.Script
+import com.projectx.script.ScriptDescription
 import com.projectx.script.ScriptExecutor
 import java.net.URI
 import java.net.http.HttpClient
@@ -27,7 +28,17 @@ data class StoreAccess(
     val entitled: Boolean,
     val until: Instant?,
     val signedIn: Boolean,
+    val prices: StorePrices?,
 )
+
+/** What each tier costs in X Tokens, sale included, as the store quotes it; [salePercent] is zero with no sale on. */
+data class StorePrices(val week: Int, val fortnight: Int, val month: Int, val salePercent: Int) {
+    /** The store card's line: the cheapest way in. */
+    fun summary(free: Boolean): String =
+        if (free) "Free" else "From ${minOf(week, fortnight, month)} X Tokens" + if (salePercent > 0) " ($salePercent% off)" else ""
+
+    fun tiers(): String = "$week X a week, $fortnight X a fortnight, $month X a month"
+}
 
 /**
  * Decides whether a store script may run. Every script the store lists needs the player subscribed to it, free
@@ -48,6 +59,7 @@ object Entitlements {
     private val trialDeadlines = ConcurrentHashMap<String, Long>()
     private val paid = ConcurrentHashMap.newKeySet<String>()
     private val free = ConcurrentHashMap.newKeySet<String>()
+    private val prices = ConcurrentHashMap<String, StorePrices>()
     private val storeUrls = ConcurrentHashMap<String, String>()
     private val warned = ConcurrentHashMap.newKeySet<String>()
 
@@ -117,6 +129,7 @@ object Entitlements {
             entitled = isEntitled(name),
             until = expiries[name],
             signedIn = signedIn,
+            prices = prices[name],
         )
     }
 
@@ -151,12 +164,21 @@ object Entitlements {
         val name = nameOf(script)
         if (!isPaid(name) || isEntitled(name)) return true
 
+        val title = script.javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: name
+        StoreNotices.refused(title, accessOf(name), StartRefusal.Reason.CHECKING)
         worker.submit {
             val check = runCatching { refresh() }.getOrDefault(Check.UNREACHABLE)
             if (isEntitled(name)) {
                 println("[store] access to $name confirmed; start it again.")
+                StoreNotices.refused(title, accessOf(name), StartRefusal.Reason.CONFIRMED)
                 return@submit
             }
+            val reason = when {
+                check == Check.UNREACHABLE -> StartRefusal.Reason.UNREACHABLE
+                token() == null -> StartRefusal.Reason.SIGNED_OUT
+                else -> StartRefusal.Reason.NOT_OWNED
+            }
+            StoreNotices.refused(title, accessOf(name), reason)
             if (warned.add(name)) println(refusal(name, check))
         }
         return false
@@ -193,12 +215,14 @@ object Entitlements {
         runCatching {
             val fresh = HashSet<String>()
             val freshFree = HashSet<String>()
+            val freshPrices = HashMap<String, StorePrices>()
             JsonParser.parseString(catalogue).asJsonArray.forEach { entry ->
                 val obj = entry.asJsonObject
                 val name = obj.get("internalName")?.asString ?: return@forEach
                 if (!requiresSubscription(obj)) return@forEach
                 fresh.add(name)
                 if (obj.flag("free")) freshFree.add(name)
+                pricesOf(obj)?.let { freshPrices[name] = it }
                 obj.text("storeUrl")?.let { storeUrls[name] = it }
                 val version = obj.text("version")
                 val url = obj.text("downloadUrl")
@@ -210,6 +234,8 @@ object Entitlements {
             paid.addAll(fresh)
             free.retainAll(freshFree)
             free.addAll(freshFree)
+            prices.keys.retainAll(freshPrices.keys)
+            prices.putAll(freshPrices)
             rememberPaid()
         }
 
@@ -248,6 +274,16 @@ object Entitlements {
     private fun JsonObject.text(key: String): String? = get(key)?.takeUnless { it.isJsonNull }?.asString
 
     private fun JsonObject.flag(key: String): Boolean = get(key)?.takeUnless { it.isJsonNull }?.asBoolean == true
+
+    internal fun pricesOf(entry: JsonObject): StorePrices? = runCatching {
+        val tiers = entry.getAsJsonObject("prices") ?: return null
+        StorePrices(
+            week = tiers.get("week").asInt,
+            fortnight = tiers.get("fortnight").asInt,
+            month = tiers.get("month").asInt,
+            salePercent = entry.get("salePercent")?.takeUnless { it.isJsonNull }?.asInt ?: 0,
+        )
+    }.getOrNull()
 
     // A store older than free subscriptions marks only what it sells, as `paid`.
     internal fun requiresSubscription(entry: JsonObject): Boolean = entry.flag("paid") || entry.flag("requiresSubscription")

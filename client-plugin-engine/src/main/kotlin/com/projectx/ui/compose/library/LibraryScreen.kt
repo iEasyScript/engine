@@ -184,7 +184,10 @@ private fun ScriptDetail(entry: LibraryEntry) {
             Pill(entry.category.readableName, entry.category.tint())
             Pill(entry.source.label, Palette.muted)
             if (entry.running) Pill("Running", Palette.running, dot = true)
-            LibraryModel.access[entry.id]?.takeIf { it.entitled }?.until?.let { Pill("Yours until ${UNTIL.format(it)}", Palette.muted) }
+            LibraryModel.access[entry.id]?.let { access ->
+                if (access.entitled) access.until?.let { Pill("Yours until ${UNTIL.format(it)}", Palette.running) }
+                else Pill(access.prices?.summary(access.free) ?: if (access.free) "Free" else "On the store", Palette.amber)
+            }
         }
         Spacer(Modifier.height(18.dp))
         val configurable = ScriptActions.isConfigurable(meta)
@@ -254,7 +257,7 @@ private fun StoreNotice(access: StoreAccess) {
         !access.signedIn -> "This is a store script. Sign in with Discord in the launcher's Store tab, then " +
             (if (access.free) "get it free on the store." else "subscribe to it on the store.")
         access.free -> "This script is free, but it only runs once you get it on the store. It lasts 30 days and renews for free."
-        else -> "This script needs a subscription from the store to run."
+        else -> "This script needs a subscription from the store to run: " + (access.prices?.tiers() ?: "see the store for prices") + "."
     }
     Row(
         Modifier.fillMaxWidth().clip(RoundedCornerShape(8.dp)).background(Palette.raised)
@@ -264,7 +267,7 @@ private fun StoreNotice(access: StoreAccess) {
     ) {
         BasicText(message, style = type.body, modifier = Modifier.weight(1f))
         ActionButton(
-            if (access.free) "Get it free" else "Open the store",
+            if (access.free) "Get it free" else "Get it from the store",
             { Browser.open(access.storeUrl) },
             height = 34.dp,
         )

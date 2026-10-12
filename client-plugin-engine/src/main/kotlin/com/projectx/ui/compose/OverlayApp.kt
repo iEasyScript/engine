@@ -32,6 +32,7 @@ import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
 import com.projectx.BuildInfo
+import com.projectx.store.StoreNotices
 import com.projectx.ui.compose.components.Divider
 import com.projectx.ui.compose.components.Glyph
 import com.projectx.ui.compose.components.GlyphIcon
@@ -87,6 +88,7 @@ fun OverlayApp() {
             Column(Modifier.fillMaxSize()) {
                 Header()
                 Divider()
+                StoreNotices.refusal?.let { StoreRefusalBanner(it) }
                 val section = OverlayNavigation.section
                 if (section.pages.size > 1) {
                     Box(Modifier.padding(start = 20.dp, end = 20.dp, top = 14.dp, bottom = 4.dp)) {
