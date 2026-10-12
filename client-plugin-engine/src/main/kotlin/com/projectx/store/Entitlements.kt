@@ -17,7 +17,22 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-/** Decides whether a paid store script may run; free and locally built scripts are never gated. */
+/**
+ * What the store says about one of its scripts, for the overlay to show beside it. [until] is when access ends,
+ * or null when there is none.
+ */
+data class StoreAccess(
+    val free: Boolean,
+    val storeUrl: String,
+    val entitled: Boolean,
+    val until: Instant?,
+    val signedIn: Boolean,
+)
+
+/**
+ * Decides whether a store script may run. Every script the store lists needs the player subscribed to it, free
+ * ones included; a script the store does not list - one the player built or was given - is never gated.
+ */
 object Entitlements {
 
     private const val ENFORCE_SECONDS = 60L
@@ -32,10 +47,12 @@ object Entitlements {
     private val expiries = ConcurrentHashMap<String, Instant>()
     private val trialDeadlines = ConcurrentHashMap<String, Long>()
     private val paid = ConcurrentHashMap.newKeySet<String>()
+    private val free = ConcurrentHashMap.newKeySet<String>()
     private val storeUrls = ConcurrentHashMap<String, String>()
     private val warned = ConcurrentHashMap.newKeySet<String>()
 
     @Volatile private var lastAnsweredNanos = Long.MIN_VALUE / 2
+    @Volatile private var signedIn = false
     @Volatile private var started = false
 
     private val http: HttpClient by lazy {
@@ -88,7 +105,20 @@ object Entitlements {
         worker.scheduleWithFixedDelay({ runCatching { enforce() } }, ENFORCE_SECONDS, ENFORCE_SECONDS, TimeUnit.SECONDS)
     }
 
+    /** True for every script the store lists, free or paid: the ones that need a subscription to run. */
     fun isPaid(name: String): Boolean = paid.contains(name)
+
+    /** Null for a script the store does not list. */
+    fun accessOf(name: String): StoreAccess? {
+        if (!isPaid(name)) return null
+        return StoreAccess(
+            free = name in free,
+            storeUrl = storeUrls[name] ?: storeBase(),
+            entitled = isEntitled(name),
+            until = expiries[name],
+            signedIn = signedIn,
+        )
+    }
 
     fun isEntitled(name: String): Boolean = entitled(
         expiry = expiries[name],
@@ -127,27 +157,31 @@ object Entitlements {
                 println("[store] access to $name confirmed; start it again.")
                 return@submit
             }
-            if (warned.add(name)) {
-                when (check) {
-                    // Do not send somebody to buy what they may already own.
-                    Check.UNREACHABLE -> println(
-                        "[store] $name could not start: the store could not be reached to check your access."
-                    )
-                    else -> println(
-                        if (token() == null) "[store] $name is a paid script: sign in with Discord in the launcher's Store tab to run it."
-                        else "[store] $name needs active access to run. ${storeUrls[name] ?: storeBase()}"
-                    )
-                }
-            }
+            if (warned.add(name)) println(refusal(name, check))
         }
         return false
+    }
+
+    internal fun refusal(name: String, check: Check): String {
+        val url = storeUrls[name] ?: storeBase()
+        return when {
+            // Do not send somebody to the store for what they may already have.
+            check == Check.UNREACHABLE -> "[store] $name could not start: the store could not be reached to check your access."
+            token() == null -> "[store] $name is a store script: sign in with Discord in the launcher's Store tab, then " +
+                (if (name in free) "get it free on the store. $url" else "subscribe on the store. $url")
+            name in free -> "[store] $name is free, but you need to get it on the store to run it. $url"
+            else -> "[store] $name needs an active subscription to run. $url"
+        }
     }
 
     private fun enforce() {
         for (script in ScriptExecutor.activeScripts.toList()) {
             val name = nameOf(script)
             if (isPaid(name) && !isEntitled(name)) {
-                println("[store] access to $name has ended; stopping it.")
+                println(
+                    if (name in free) "[store] your free access to $name has run out; renew it free on the store. ${storeUrls[name] ?: storeBase()}"
+                    else "[store] access to $name has ended; stopping it."
+                )
                 runCatching { script.stop() }
             }
         }
@@ -158,11 +192,13 @@ object Entitlements {
         val jars = ArrayList<StoreJar>()
         runCatching {
             val fresh = HashSet<String>()
+            val freshFree = HashSet<String>()
             JsonParser.parseString(catalogue).asJsonArray.forEach { entry ->
                 val obj = entry.asJsonObject
                 val name = obj.get("internalName")?.asString ?: return@forEach
-                if (obj.get("paid")?.asBoolean != true) return@forEach
+                if (!requiresSubscription(obj)) return@forEach
                 fresh.add(name)
+                if (obj.flag("free")) freshFree.add(name)
                 obj.text("storeUrl")?.let { storeUrls[name] = it }
                 val version = obj.text("version")
                 val url = obj.text("downloadUrl")
@@ -172,10 +208,14 @@ object Entitlements {
             }
             paid.retainAll(fresh)
             paid.addAll(fresh)
+            free.retainAll(freshFree)
+            free.addAll(freshFree)
             rememberPaid()
         }
 
-        val token = token() ?: run {
+        val token = token()
+        signedIn = token != null
+        if (token == null) {
             // Signed out is an answer: nothing is owned.
             expiries.clear()
             trialDeadlines.clear()
@@ -206,6 +246,11 @@ object Entitlements {
     }
 
     private fun JsonObject.text(key: String): String? = get(key)?.takeUnless { it.isJsonNull }?.asString
+
+    private fun JsonObject.flag(key: String): Boolean = get(key)?.takeUnless { it.isJsonNull }?.asBoolean == true
+
+    // A store older than free subscriptions marks only what it sells, as `paid`.
+    internal fun requiresSubscription(entry: JsonObject): Boolean = entry.flag("paid") || entry.flag("requiresSubscription")
 
     // A store older than the game split ignores ?game= and sends the OSRS list, so an unlabelled answer
     // counts as no answer and nothing is gated.

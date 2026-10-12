@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.projectx.store.StoreAccess
 import com.projectx.ui.ScriptActions
 import com.projectx.ui.compose.OverlayClock
 import com.projectx.ui.compose.OverlayNavigation
@@ -50,6 +51,9 @@ import com.projectx.ui.compose.components.overlayScrollbarStyle
 import com.projectx.ui.compose.components.press
 import com.projectx.ui.compose.components.rememberHover
 import com.projectx.ui.compose.theme.LocalType
+import com.projectx.util.Browser
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import com.projectx.ui.compose.theme.Palette
 import com.projectx.ui.compose.theme.tint
 
@@ -180,6 +184,7 @@ private fun ScriptDetail(entry: LibraryEntry) {
             Pill(entry.category.readableName, entry.category.tint())
             Pill(entry.source.label, Palette.muted)
             if (entry.running) Pill("Running", Palette.running, dot = true)
+            LibraryModel.access[entry.id]?.takeIf { it.entitled }?.until?.let { Pill("Yours until ${UNTIL.format(it)}", Palette.muted) }
         }
         Spacer(Modifier.height(18.dp))
         val configurable = ScriptActions.isConfigurable(meta)
@@ -215,6 +220,10 @@ private fun DetailActions(entry: LibraryEntry) {
     val meta = entry.meta
     Box(Modifier.fillMaxWidth().height(1.dp).background(Palette.line))
     Spacer(Modifier.height(18.dp))
+    LibraryModel.access[entry.id]?.takeIf { !it.entitled && !entry.running }?.let { access ->
+        StoreNotice(access)
+        Spacer(Modifier.height(14.dp))
+    }
     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
         if (entry.running) {
             Column(Modifier.padding(end = 6.dp)) {
@@ -232,6 +241,33 @@ private fun DetailActions(entry: LibraryEntry) {
                 LibraryModel.selectedId = null
             }
         }
+    }
+}
+
+private val UNTIL = DateTimeFormatter.ofPattern("d MMM").withZone(ZoneId.systemDefault())
+
+/** A store script the player has no access to: where to get it, and the way there. */
+@Composable
+private fun StoreNotice(access: StoreAccess) {
+    val type = LocalType.current
+    val message = when {
+        !access.signedIn -> "This is a store script. Sign in with Discord in the launcher's Store tab, then " +
+            (if (access.free) "get it free on the store." else "subscribe to it on the store.")
+        access.free -> "This script is free, but it only runs once you get it on the store. It lasts 30 days and renews for free."
+        else -> "This script needs a subscription from the store to run."
+    }
+    Row(
+        Modifier.fillMaxWidth().clip(RoundedCornerShape(8.dp)).background(Palette.raised)
+            .border(1.dp, Palette.amber.copy(alpha = 0.45f), RoundedCornerShape(8.dp)).padding(12.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        BasicText(message, style = type.body, modifier = Modifier.weight(1f))
+        ActionButton(
+            if (access.free) "Get it free" else "Open the store",
+            { Browser.open(access.storeUrl) },
+            height = 34.dp,
+        )
     }
 }
 

@@ -1,5 +1,6 @@
 package com.projectx.store
 
+import com.google.gson.JsonParser
 import java.time.Instant
 import java.util.concurrent.TimeUnit
 import kotlin.test.Test
@@ -120,5 +121,23 @@ class EntitlementsTest {
     @Test
     fun `nothing paid is remembered as nothing, not as one nameless script`() {
         assertEquals(emptySet(), Entitlements.decodePaid(Entitlements.encodePaid(emptySet())))
+    }
+
+    private fun gated(entry: String) = Entitlements.requiresSubscription(JsonParser.parseString(entry).asJsonObject)
+
+    @Test
+    fun `a free store script needs a subscription like a paid one`() {
+        assertTrue(gated("""{"internalName":"HarvestHollow","paid":false,"free":true,"requiresSubscription":true}"""))
+    }
+
+    @Test
+    fun `a store that only marks what it sells still has those gated`() {
+        assertTrue(gated("""{"internalName":"GatesOfElidinis","paid":true}"""))
+    }
+
+    @Test
+    fun `a script the store does not ask a subscription for runs freely`() {
+        assertFalse(gated("""{"internalName":"SomePlugin","paid":false}"""))
+        assertFalse(gated("""{"internalName":"SomePlugin","paid":false,"requiresSubscription":null}"""))
     }
 }

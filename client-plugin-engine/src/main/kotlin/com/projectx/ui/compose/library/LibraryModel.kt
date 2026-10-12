@@ -7,6 +7,8 @@ import com.projectx.script.ScriptCategory
 import com.projectx.script.ScriptDescription
 import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
+import com.projectx.store.Entitlements
+import com.projectx.store.StoreAccess
 import com.projectx.ui.ScriptLibrary
 import com.projectx.ui.ScriptSource
 import com.projectx.ui.UIState
@@ -37,6 +39,10 @@ object LibraryModel {
     var entries by mutableStateOf(emptyList<LibraryEntry>())
         internal set
 
+    /** What the store says about each listed script in the library, keyed like [LibraryEntry.id]. */
+    var access by mutableStateOf(emptyMap<String, StoreAccess>())
+        internal set
+
     var selectedId by mutableStateOf<String?>(null)
     var filter by mutableStateOf(LibraryFilter.All)
     var detailTab by mutableStateOf(DetailTab.Overview)
@@ -62,6 +68,8 @@ object LibraryModel {
             }
             .sortedWith(compareByDescending<LibraryEntry> { it.running }.thenByDescending { it.favorite }.thenBy { it.meta.name.lowercase() })
         if (next != entries) entries = next
+        val nextAccess = next.mapNotNull { entry -> Entitlements.accessOf(entry.meta.scriptClass.simpleName)?.let { entry.id to it } }.toMap()
+        if (nextAccess != access) access = nextAccess
     }
 
     fun visible(entries: List<LibraryEntry>, query: String, filter: LibraryFilter): List<LibraryEntry> {
