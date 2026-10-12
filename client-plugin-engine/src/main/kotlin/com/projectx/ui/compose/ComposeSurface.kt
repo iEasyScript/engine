@@ -76,7 +76,8 @@ class ComposeSurface(private val name: String, private val content: @Composable 
     }
 
     fun dispose() {
-        scene?.close()
+        // Let go of the scene before closing it: a close that throws must not leave a dead scene to be drawn every frame.
+        val closing = scene
         scene = null
         // A new scene has seen no press or hover yet; carried over, the first frame would send it a stray release.
         pressed = false
@@ -86,6 +87,7 @@ class ComposeSurface(private val name: String, private val content: @Composable 
         texture = null
         pixels?.close()
         pixels = null
+        runCatching { closing?.close() }.onFailure { println("[Overlay] The old $name scene did not close cleanly: ${it.message}") }
     }
 
     private fun sceneFor(display: Pair<Float, Float>): ImageComposeScene {

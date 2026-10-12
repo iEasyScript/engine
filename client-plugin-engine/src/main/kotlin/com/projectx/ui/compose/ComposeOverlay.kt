@@ -65,14 +65,15 @@ object ComposeOverlay {
      * The first failure is logged in full, repeats in one line, so a panel that keeps failing cannot flood the log.
      */
     private fun rebuildAfter(t: Throwable) {
-        surface.dispose()
         failures++
+        // Reported before the teardown, which can fail on a scene the failure left half laid out.
         if (failures == 1) {
             println("[Overlay] The panel threw while drawing and was rebuilt: ${t::class.simpleName}: ${t.message}")
             t.printStackTrace()
         } else {
             println("[Overlay] The panel threw again ($failures times) and was rebuilt: ${t::class.simpleName}: ${t.message}")
         }
+        surface.dispose()
     }
 
     /** Starts moving the panel with the mouse; called by the header when it is pressed. */
