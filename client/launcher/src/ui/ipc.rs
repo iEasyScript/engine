@@ -231,6 +231,11 @@ pub struct StoreScriptRow {
     pub pending: bool,
     pub store_url: Option<String>,
     pub install_state: store::InstallState,
+    pub free: bool,
+    /// Downloaded from the store; a free community script arrives with the Community Scripts channel instead.
+    pub installable: bool,
+    pub prices: Option<store::StorePrices>,
+    pub sale_percent: Option<u32>,
 }
 
 #[derive(Debug, Clone, Serialize)]
@@ -1660,7 +1665,7 @@ impl IpcState {
                         .collect();
                     let rows = catalogue
                         .iter()
-                        .filter(|p| p.paid)
+                        .filter(|p| p.on_store())
                         .map(|p| {
                             let access = held.get(p.internal_name.as_str());
                             StoreScriptRow {
@@ -1673,6 +1678,10 @@ impl IpcState {
                                 pending: access.map(|a| a.pending).unwrap_or(false),
                                 store_url: p.store_url.clone(),
                                 install_state: store::install_state(p),
+                                free: p.free,
+                                installable: p.paid,
+                                prices: p.prices.clone(),
+                                sale_percent: p.sale_percent,
                             }
                         })
                         .collect();

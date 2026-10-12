@@ -922,19 +922,35 @@
 
     const title = el("div", "row-title");
     title.appendChild(el("span", "row-name", s.name));
+    if (s.free) title.appendChild(badge("Free", "ok"));
     if (s.pending) title.appendChild(badge("Trial ready", "ok"));
-    else if (s.owned) title.appendChild(badge(s.trial ? "Trial" : "Owned", "ok"));
-    else title.appendChild(badge("Not owned", "warn"));
-    if (installed) title.appendChild(badge("Installed", "ok"));
-    if (outdated) title.appendChild(badge("Update available", "warn"));
+    else if (s.owned) title.appendChild(badge(s.trial ? "Trial" : s.free ? "Claimed" : "Owned", "ok"));
+    else title.appendChild(badge(s.free ? "Not claimed" : "Not owned", "warn"));
+    if (s.sale_percent && !s.free) title.appendChild(badge(s.sale_percent + "% off", "ok"));
+    if (s.installable && installed) title.appendChild(badge("Installed", "ok"));
+    if (s.installable && outdated) title.appendChild(badge("Update available", "warn"));
     row.appendChild(title);
 
     const metaLine = el("div", "plugin-meta");
-    metaLine.appendChild(metaItem("version", "v" + s.version));
+    metaLine.appendChild(metaItem("price", priceLine(s)));
+    if (s.installable) metaLine.appendChild(metaItem("version", "v" + s.version));
     if (s.owned && s.expires_at && !s.pending) {
       metaLine.appendChild(metaItem(s.trial ? "trial ends" : "until", formatClock(new Date(s.expires_at))));
     }
     row.appendChild(metaLine);
+
+    // Free community scripts arrive with the Community Scripts channel; what the store adds is the claim.
+    if (!s.installable) {
+      row.appendChild(
+        el(
+          "p",
+          "plugin-desc",
+          s.owned
+            ? "Comes with Community Scripts. Renew it free on the store before it runs out."
+            : "Comes with Community Scripts, but only runs once you get it free on the store. It lasts 30 days and renews for free."
+        )
+      );
+    }
 
     // The point of installing before the game: the hour has not started yet.
     if (s.pending) {
@@ -948,7 +964,7 @@
     }
 
     const actions = el("div", "row-actions");
-    if (s.owned) {
+    if (s.owned && s.installable) {
       const label = busy ? "…" : outdated ? "Update" : installed ? "Reinstall" : "Install";
       actions.appendChild(
         button(label, "btn-accent", busy, () => {
@@ -959,12 +975,21 @@
       );
     }
     if (s.store_url) {
-      actions.appendChild(button(s.owned ? "View" : "Buy", "", false, () => send({ type: "open_url", url: s.store_url })));
+      const label = s.owned ? (s.free ? "Renew free" : "View") : s.free ? "Get it free" : "Buy";
+      actions.appendChild(button(label, s.owned ? "" : "btn-accent", false, () => send({ type: "open_url", url: s.store_url })));
     }
     const foot = el("div", "plugin-foot");
     foot.appendChild(actions);
     row.appendChild(foot);
     return row;
+  }
+
+  // Quoted the way the store page quotes it: free, or the price of each tier in X Tokens.
+  function priceLine(s) {
+    if (s.free) return "Free · 30 days, renews free";
+    const p = s.prices;
+    if (!p) return "See the store";
+    return p.week + " X a week · " + p.fortnight + " X a fortnight · " + p.month + " X a month";
   }
 
   // Asked on every launch while signed out: linking the account is what makes bought scripts arrive.

@@ -189,6 +189,31 @@ pub struct StorePlugin {
     pub store_url: Option<String>,
     #[serde(default)]
     pub sha256: Option<String>,
+    /// Costs nothing; still claimed on the store before the client runs it.
+    #[serde(default)]
+    pub free: bool,
+    /// The client only runs it for a player subscribed to it. A store older than free claims marks only `paid`.
+    #[serde(default, rename = "requiresSubscription")]
+    pub requires_subscription: bool,
+    #[serde(default)]
+    pub prices: Option<StorePrices>,
+    #[serde(default, rename = "salePercent")]
+    pub sale_percent: Option<u32>,
+}
+
+/// What each tier costs right now in X Tokens, sale included, as the store page quotes it.
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub struct StorePrices {
+    pub week: u32,
+    pub fortnight: u32,
+    pub month: u32,
+}
+
+impl StorePlugin {
+    /// Listed in the Store tab: everything the client needs a subscription for.
+    pub fn on_store(&self) -> bool {
+        self.paid || self.requires_subscription
+    }
 }
 
 pub async fn catalogue(client: &reqwest::Client) -> Result<Vec<StorePlugin>> {
@@ -543,6 +568,10 @@ mod tests {
             file_name: None,
             store_url: None,
             sha256: sha,
+            free: false,
+            requires_subscription: true,
+            prices: None,
+            sale_percent: None,
         }
     }
 
@@ -880,6 +909,44 @@ mod tests {
     }
 
     /// A script the account does not own never appears, listed or not.
+    #[tokio::test]
+    async fn a_claimed_free_community_script_is_listed_but_never_downloaded() {
+        let catalogue = r#"[{"internalName":"HarvestHollow","version":"bundled","paid":false,"free":true,"requiresSubscription":true,"prices":{"week":0,"fortnight":0,"month":0},"storeUrl":"https://xclient.dev/rs3/store/harvest-hollow"}]"#;
+        let server = FakeStore::start(vec![
+            Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.as_bytes().to_vec() },
+            json("200 OK", r#"{"entitlements":[{"internalName":"HarvestHollow","expiresAt":"2099-01-01T00:00:00Z","trial":false}]}"#),
+        ]);
+        let (_g, home) = scratch("claimed-free", server.port);
+        write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
+
+        assert!(sync_owned(&client()).await.unwrap().is_empty());
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[tokio::test]
+    async fn free_and_priced_store_scripts_are_both_on_the_store() {
+        let listing = r#"[
+            {"internalName":"HarvestHollow","version":"bundled","paid":false,"free":true,"requiresSubscription":true,"prices":{"week":0,"fortnight":0,"month":0}},
+            {"internalName":"GatesOfElidinis","version":"3.6.2","paid":true,"requiresSubscription":true,"prices":{"week":90,"fortnight":160,"month":300},"salePercent":25},
+            {"internalName":"OldPaid","version":"1.0.0","paid":true},
+            {"internalName":"FreePlugin","version":"1.0.0","paid":false}
+        ]"#;
+        let server = FakeStore::start(vec![Reply {
+            status: "200 OK",
+            game_header: Some("rs3"),
+            body: listing.as_bytes().to_vec(),
+        }]);
+        let (_g, home) = scratch("on-store", server.port);
+
+        let list = catalogue(&client()).await.unwrap();
+        let listed: Vec<&str> = list.iter().filter(|p| p.on_store()).map(|p| p.internal_name.as_str()).collect();
+        assert_eq!(listed, vec!["HarvestHollow", "GatesOfElidinis", "OldPaid"]);
+        let gates = list.iter().find(|p| p.internal_name == "GatesOfElidinis").unwrap();
+        assert_eq!(gates.prices.as_ref().map(|p| (p.week, p.fortnight, p.month)), Some((90, 160, 300)));
+        assert_eq!(gates.sale_percent, Some(25));
+        let _ = fs::remove_dir_all(home);
+    }
+
     #[tokio::test]
     async fn a_script_that_is_not_owned_is_not_installed() {
         let catalogue = r#"[{"internalName":"GatesOfElidinis","version":"3.6.2","paid":true}]"#;
