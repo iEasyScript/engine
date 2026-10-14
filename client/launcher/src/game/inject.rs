@@ -682,7 +682,7 @@ pub(crate) mod windows {
         PROCESS_QUERY_LIMITED_INFORMATION, PROCESS_VM_READ,
     };
 
-    use crate::game::process::find_deploy_artifact;
+    use crate::game::process::{find_deploy_artifact, missing_artifact_message};
 
     pub(crate) const ENGINE_DLL_NAME: &str = crate::engine::BOOTSTRAP_NAME;
     const INJECTOR_EXE_NAME: &str = "projectx_engine_injector.exe";
@@ -722,12 +722,7 @@ pub(crate) mod windows {
         let engine_dll = std::fs::canonicalize(&engine_dll).unwrap_or(engine_dll);
 
         let injector = find_deploy_artifact(INJECTOR_EXE_NAME)
-            .ok_or_else(|| {
-                anyhow!(
-                    "{} not found. Build it with `cd client/launcher/patcher-win && cargo build --release`.",
-                    INJECTOR_EXE_NAME
-                )
-            })?;
+            .ok_or_else(|| anyhow!(missing_artifact_message(INJECTOR_EXE_NAME)))?;
 
         // Resolved here, where a miss is still reportable. Left to the bootstrap alone, a machine
         // with no usable JDK injects cleanly and then stalls: the DLL is mapped, so the Clients
@@ -770,7 +765,7 @@ pub(crate) mod windows {
         let env = match resolve_inject_env() {
             Ok(e) => e,
             Err(e) => {
-                log::warn!("Auto-inject enabled but {}. Skipping injection.", e);
+                log::warn!("Auto-inject skipped: {}", e);
                 return;
             }
         };
@@ -877,15 +872,17 @@ pub(crate) mod windows {
             .spawn(move || {
                 let Some(dll) = find_deploy_artifact(PATCHER_DLL_NAME) else {
                     log::warn!(
-                        "{} not found; the client will run with Jagex's RSA keys and cannot reach \
-                         a custom server. Build it with `cd client/launcher/patcher-win && cargo \
-                         build --release`.",
-                        PATCHER_DLL_NAME
+                        "{} The client will run with Jagex's RSA keys and cannot reach a custom \
+                         server.",
+                        missing_artifact_message(PATCHER_DLL_NAME)
                     );
                     return;
                 };
                 let Some(injector) = find_deploy_artifact(INJECTOR_EXE_NAME) else {
-                    log::warn!("{} not found; cannot patch the client.", INJECTOR_EXE_NAME);
+                    log::warn!(
+                        "{} The client cannot be patched.",
+                        missing_artifact_message(INJECTOR_EXE_NAME)
+                    );
                     return;
                 };
 

@@ -352,9 +352,8 @@ fn build_windows_command(
             return cmd;
         } else {
             log::warn!(
-                "Patcher needed but projectx_injector.exe not found in any known \
-                 location. Launching un-patched. Build it with: \
-                 cd client/launcher/patcher-win && cargo build --release"
+                "Patcher needed but {} Launching un-patched.",
+                missing_artifact_message("projectx_injector.exe")
             );
         }
     }
@@ -600,6 +599,34 @@ pub(crate) fn find_deploy_artifact(name: &str) -> Option<std::path::PathBuf> {
     injector_search_slots(name).into_iter().find(|c| c.is_file())
 }
 
+/// Why a bundled artifact is missing, worded for a player rather than a developer.
+///
+/// The injectors and the patcher are unsigned and load code into another process, so
+/// antivirus quarantining them is by far the usual cause on a customer's machine.
+#[cfg(windows)]
+pub(crate) fn missing_artifact_message(name: &str) -> String {
+    let folder = std::env::current_exe()
+        .ok()
+        .and_then(|exe| exe.parent().map(|dir| dir.display().to_string()))
+        .unwrap_or_else(|| "the launcher folder".to_string());
+    let mut message = format!(
+        "{name} is missing from {folder}. Antivirus software often removes it because it loads \
+         Project X into the game client. Restore it from your antivirus quarantine (Windows \
+         Security > Virus & threat protection > Protection history) or extract the whole \
+         launcher zip again, then add {folder} as an antivirus exclusion so it is not removed \
+         again."
+    );
+    if dev_artifacts_enabled() {
+        message.push_str(" Build it with `cd client/launcher/patcher-win && cargo build --release`.");
+    }
+    message
+}
+
+#[cfg(windows)]
+fn dev_artifacts_enabled() -> bool {
+    cfg!(debug_assertions) || std::env::var_os("PROJECTX_DEV").is_some()
+}
+
 /// Build the canonical Windows search list for an artifact name. Used for both
 /// the injector exe and the patcher DLL — they ship side by side in every
 /// deploy slot, so they share a lookup.
@@ -649,8 +676,7 @@ fn injector_search_slots(name: &str) -> Vec<std::path::PathBuf> {
     // 6. Dev convenience: walk up from the launcher exe into the source tree
     // and check the patcher-win release artifacts directory. Gated so release
     // deployments don't even try (avoids spurious paths in the failure log).
-    let dev_enabled = cfg!(debug_assertions) || std::env::var_os("PROJECTX_DEV").is_some();
-    if dev_enabled {
+    if dev_artifacts_enabled() {
         if let Ok(exe) = std::env::current_exe() {
             if let Some(parent) = exe.parent() {
                 // Typical dev layout: <repo>\client\launcher\target\<profile>\project-x-launcher.exe
