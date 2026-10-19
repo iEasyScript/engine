@@ -29,7 +29,8 @@ object OInputGlobals : OffsetObject {
 object OFunctions : OffsetObject {
     val CONNECTIONMANAGER_TCPIN by offset()
     val SERVERCONNECTION_FLUSHCLIENTMESSAGES by offset()
-    val CLIENT_SETMAINSTATE by offset()
+    /** Inlined into every caller in the 951 Windows clients. */
+    val CLIENT_SETMAINSTATE by offset(LINUX)
     val STATTABLE_UPDATESTAT by offset()
     val CLIENT_MAINLOGIC by offset()
     val SERVERPROT_DECODE_UPDATE_INV_PARTIAL by offset()

@@ -15,10 +15,24 @@ import world.gregs.voidps.cache.type.data.VarBitType
 import world.gregs.voidps.cache.type.data.VarDomain
 import java.lang.foreign.MemorySegment
 
+/** 951 added a fourth int to both setters; taking and passing it through is harmless where the client ignores it. */
 object SetVarPlayer {
+    private const val FROM_SERVER_HOOK = "setVarValueFromServerHook"
+    private const val SET_HOOK = "setVarValueHook"
+
+    @Deprecated("The client calls the four-argument form.")
+    @JvmStatic
+    fun setVarValueFromServerHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment): MemorySegment =
+        setVarValueFromServerHook(varManager, varInfo, valuePtr, -1)
+
+    @Deprecated("The client calls the four-argument form.")
+    @JvmStatic
+    fun setVarValueHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment): MemorySegment =
+        setVarValueHook(varManager, varInfo, valuePtr, -1)
+
     @JvmStatic
     @Hook("PLAYERVARDOMAIN_SETVARVALUEFROMSERVER")
-    fun setVarValueFromServerHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment): MemorySegment {
+    fun setVarValueFromServerHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment, extra: Int): MemorySegment {
         synchronized(Bootstrap.lock) {
             try {
                 val varId = varInfo.reinterpret(0x10L).deref(OVarInfo.TYPE_PTR, 0x10L).getInt(OVarInfo.VAR_ID)
@@ -46,13 +60,13 @@ object SetVarPlayer {
                 e.printStackTrace()
             }
         }
-        return HookManager.trampoline(::setVarValueFromServerHook.name)
-            .invokeExact(varManager, varInfo, valuePtr) as MemorySegment
+        return HookManager.trampoline(FROM_SERVER_HOOK)
+            .invokeExact(varManager, varInfo, valuePtr, extra) as MemorySegment
     }
 
     @JvmStatic
     @Hook("PLAYERVARDOMAIN_SETVARVALUE")
-    fun setVarValueHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment): MemorySegment {
+    fun setVarValueHook(varManager: MemorySegment, varInfo: MemorySegment, valuePtr: MemorySegment, extra: Int): MemorySegment {
         synchronized(Bootstrap.lock) {
             try {
                 val varId = varInfo.reinterpret(0x10L).deref(OVarInfo.TYPE_PTR, 0x10L).getInt(OVarInfo.VAR_ID)
@@ -80,7 +94,7 @@ object SetVarPlayer {
                 e.printStackTrace()
             }
         }
-        return HookManager.trampoline(::setVarValueHook.name)
-            .invokeExact(varManager, varInfo, valuePtr) as MemorySegment
+        return HookManager.trampoline(SET_HOOK)
+            .invokeExact(varManager, varInfo, valuePtr, extra) as MemorySegment
     }
 }

@@ -2,6 +2,7 @@ package com.projectx.game.hooks.impl
 
 import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.bootstrap.GameThread
+import com.projectx.game.bootstrap.MainStateWatch
 import com.projectx.game.cs2.CS2Executor
 import com.projectx.game.highlight.HighlightTick
 import com.projectx.game.farming.FarmingTracker
@@ -42,6 +43,7 @@ object ClientMainLogic {
             try {
                 HookManager.rearmSlotHooks()
                 MainLogicTickQueue.drain()
+                MainStateWatch.tick()
                 ScriptExecutor.mainLogic()
                 CS2Executor.mainLogicTick()
                 InputRecorder.tickFlush()
