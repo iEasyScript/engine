@@ -35,7 +35,7 @@ class NpcDecoder(val members: Boolean = true) : TypeDecoder<NpcType>(NPCS) {
             40 -> readColours(buffer)
             41 -> readTextures(buffer)
             42 -> readColourPalette(buffer)
-            44, 45 -> keep(opcode, buffer.capture { readShort() })
+            26, 27, 44, 45 -> keep(opcode, buffer.capture { readShort() })
             60 -> dialogueModels = IntArray(buffer.readUnsignedByte()) { buffer.readBigSmart() }
             93 -> drawMinimapDot = false
             95 -> combat = buffer.readUnsignedShort()
