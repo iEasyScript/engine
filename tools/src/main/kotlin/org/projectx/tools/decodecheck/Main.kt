@@ -3,6 +3,7 @@ package org.projectx.tools.decodecheck
 import org.projectx.tools.util.DecoderRegistry
 import world.gregs.voidps.cache.Cache
 import world.gregs.voidps.cache.DecodeReport
+import world.gregs.voidps.cache.TypeDecoder
 import world.gregs.voidps.cache.sqlite.SQLiteCache
 import world.gregs.voidps.cache.type.decoder.MapDecoder
 import java.nio.file.Paths
@@ -14,12 +15,24 @@ Decode check — how much of the cache do our decoders actually understand?
 
   --cache <dir>   cache to read, opened READ-ONLY   (default ./data/cache)
   --verbose       list every offending definition id
+  --dump <Decoder>:<id>[,<id>...]
+                  print those definitions' raw bytes and exit, to read a desync by eye
   --help
 
 Trailing bytes prove a record was not fully consumed. Unknown opcodes are exact where a decoder
 has an explicit unknown arm. Zero-advance is a heuristic that localises a desync and over-reports,
 because zero-payload flag opcodes are legal.
 """
+
+private fun dumpDefinitions(cache: Cache, decoders: List<TypeDecoder<*>>, spec: String) {
+    val (name, ids) = spec.split(":", limit = 2)
+    val decoder = decoders.firstOrNull { it::class.simpleName == name }
+        ?: return System.err.println("No decoder named $name")
+    for (id in ids.split(",").map { it.trim().toInt() }) {
+        val data = cache.data(decoder.index, decoder.getArchive(id), decoder.getFile(id))
+        println("$name $id (${data?.size ?: 0} bytes): " + (data?.joinToString(" ") { "%02x".format(it) } ?: "absent"))
+    }
+}
 
 private fun decodeMapSquares(cache: Cache, report: DecodeReport) {
     val decoder = MapDecoder()
@@ -38,11 +51,13 @@ fun main(args: Array<String>) {
     }
     var cacheDir = "./data/cache"
     var verbose = false
+    var dump: String? = null
     var i = 0
     while (i < args.size) {
         when (val a = args[i]) {
             "--cache" -> cacheDir = args[++i]
             "--verbose" -> verbose = true
+            "--dump" -> dump = args[++i]
             else -> {
                 System.err.println("Unknown arg: $a")
                 exitProcess(64)
@@ -64,6 +79,7 @@ fun main(args: Array<String>) {
     println("======================================================")
 
     val cache: Cache = SQLiteCache.load(path, readOnly = true)
+    dump?.let { return dumpDefinitions(cache, scan.decoders, it) }
     val report = DecodeReport()
     val aborted = LinkedHashMap<String, String>()
 
