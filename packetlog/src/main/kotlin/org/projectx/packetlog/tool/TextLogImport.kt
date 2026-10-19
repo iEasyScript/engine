@@ -25,16 +25,16 @@ object TextLogImport {
     /**
      * [keepInputEvents] is off by default: a historical dump has no training session attached, so its
      * mouse and keyboard bodies have no consumer. The events are still imported, in sequence, with
-     * empty bodies.
+     * empty bodies. [revision] is the protocol the dump was taken under; its opcodes mean nothing in any other.
      */
     fun import(
         source: File,
         target: File,
         profile: PacketSchema.ServerProfile,
         keepInputEvents: Boolean = false,
+        revision: Int = ProtRevisions.current,
     ): Report {
-        val revision = ProtRevisions.current
-        val codec = ProtRevisions.currentCodec()
+        val codec = ProtRevisions.codec(revision) ?: error("no codec registered for revision $revision")
         val protTable = ProtTable.snapshot(revision, codec)
         val metadata = SessionMetadata(
             player = null,
@@ -150,7 +150,7 @@ object TextLogImport {
 
 fun main(args: Array<String>) {
     if (args.size < 2) {
-        println("usage: textLogImport <source.log> <target.db> [live|local|unknown] [--keep-input-events]")
+        println("usage: textLogImport <source.log> <target.db> [live|local|unknown] [--keep-input-events] [--revision <n>]")
         return
     }
     val profile = PacketSchema.ServerProfile.entries
@@ -162,6 +162,8 @@ fun main(args: Array<String>) {
         File(args[1]),
         profile,
         keepInputEvents = args.contains("--keep-input-events"),
+        revision = args.indexOf("--revision").takeIf { it >= 0 }?.let { args.getOrNull(it + 1)?.toIntOrNull() }
+            ?: ProtRevisions.current,
     )
     println(
         "imported %d packets (%.2f MB of bodies) from %.2f MB of text into %.2f MB of database (%.1fx smaller)"

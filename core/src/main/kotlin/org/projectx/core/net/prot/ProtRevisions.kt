@@ -2,6 +2,7 @@ package org.projectx.core.net.prot
 
 import org.projectx.core.net.prot.revision.rev949.register949
 import org.projectx.core.net.prot.revision.rev950.register950
+import org.projectx.core.net.prot.revision.rev951.register951
 
 /**
  * Every protocol revision this build can speak.
@@ -22,6 +23,7 @@ object ProtRevisions {
     private val registrars: Map<Int, () -> Codec> = mapOf(
         949 to ::register949,
         950 to ::register950,
+        951 to ::register951,
     )
 
     init {

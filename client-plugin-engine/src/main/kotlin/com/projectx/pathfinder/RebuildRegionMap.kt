@@ -1,5 +1,6 @@
 package com.projectx.pathfinder
 
+import com.projectx.game.net.ClientProtocol
 import java.util.concurrent.ConcurrentHashMap
 import org.projectx.core.net.prot.ProtRevisions
 
@@ -10,9 +11,16 @@ object RebuildRegionMap {
     @Deprecated("Shipped API kept for binary compatibility; the decoder looks the packet up by name.")
     const val REBUILD_REGION_OPCODE = 5
 
-    // Looked up by name from the newest protocol the engine speaks, so a game update cannot leave it on a stale opcode.
-    private val rebuildRegion: Int? by lazy {
-        ProtRevisions.currentCodec().serverProtInfo.entries.firstOrNull { it.value.name == "REBUILD_REGION" }?.key
+    // A major update re-scrambles the field order inside every packet, so the layout below is only trusted on the
+    // revisions it has been checked against; elsewhere the instance map stays empty rather than filling with garbage.
+    private val LAYOUT_VERIFIED = setOf(950)
+
+    // Looked up by name in the client's own protocol, so a game update cannot leave it on a stale opcode.
+    private val rebuildRegion: Int? by lazy { opcodeFor(ClientProtocol.revision) }
+
+    internal fun opcodeFor(revision: Int?): Int? {
+        if (revision == null || revision !in LAYOUT_VERIFIED) return null
+        return ProtRevisions.codec(revision)?.serverProtInfo?.entries?.firstOrNull { it.value.name == "REBUILD_REGION" }?.key
     }
 
     sealed interface ZoneEntry
@@ -36,7 +44,7 @@ object RebuildRegionMap {
 
     fun clear() = entries.clear()
 
-    private fun decode(body: ByteArray) {
+    internal fun decode(body: ByteArray) {
         if (body.size < HEADER_SIZE) return
 
         val baseZoneX = u16be(body, 8)

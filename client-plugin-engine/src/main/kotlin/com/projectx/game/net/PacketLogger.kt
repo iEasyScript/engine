@@ -7,7 +7,6 @@ import kotlinx.coroutines.runBlocking
 import kotlinx.io.Buffer
 import kotlinx.io.write
 import org.projectx.core.net.prot.Codec
-import org.projectx.core.net.prot.ProtRevisions
 import java.io.BufferedWriter
 import java.io.File
 import java.time.LocalDateTime
@@ -17,14 +16,14 @@ import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * Packet dump pipeline. Opcode names, sizes and decoders all come from the shared `:core` protocol -
- * the engine carries no opcode tables of its own, and no revision number either: which one this
- * build speaks is [ProtRevisions]' business, so a new revision needs no change here.
+ * the engine carries no opcode tables of its own, and no revision number either: the codec is whichever one
+ * matches the attached client's build ([ClientProtocol]), and with none every packet is logged as raw hex.
  *
  * Both directions fall back to raw hex where a prot has no decoder yet. The login/RSA handshake is
  * dumped byte-for-byte via [logRaw].
  */
 object PacketLogger {
-    private val codec: Codec = ProtRevisions.currentCodec()
+    private val codec: Codec? get() = ClientProtocol.codec
     private var writer: BufferedWriter? = null
     private val timeFmt = DateTimeFormatter.ofPattern("HH:mm:ss.SSS")
     private val fileFmt = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss")
@@ -61,14 +60,18 @@ object PacketLogger {
     }
 
     private val serverTickEndOpcode: Int? by lazy {
-        codec.serverProtInfo.entries.firstOrNull { it.value.name == "SERVER_TICK_END" }?.key
+        codec?.serverProtInfo?.entries?.firstOrNull { it.value.name == "SERVER_TICK_END" }?.key.also {
+            if (it == null && codec != null) println(
+                "[protocol] SERVER_TICK_END is not identified for revision ${ClientProtocol.revision}; ServerTick and awaitServerTicks are off"
+            )
+        }
     }
 
     fun logServerPacket(opcode: Int, size: Int, payload: ByteArray) {
         if (opcode == serverTickEndOpcode) ServerTick.onTickEnd()
         for (listener in serverPacketListeners) runCatching { listener(opcode, payload) }
         PacketRecorder.recordServer(opcode, payload)
-        emit('S', codec.serverProtName(opcode), opcode, size, payload, decoded = decodeServer(opcode, payload))
+        emit('S', serverName(opcode), opcode, size, payload, decoded = decodeServer(opcode, payload))
     }
 
     /**
@@ -78,7 +81,7 @@ object PacketLogger {
      */
     fun logServerPacketDesync(opcode: Int, size: Int, detail: String) {
         PacketRecorder.recordServerDesync(opcode)
-        val name = runCatching { codec.serverProtName(opcode) }.getOrDefault("UNKNOWN")
+        val name = runCatching { serverName(opcode) }.getOrDefault("UNKNOWN")
         val time = LocalTime.now().format(timeFmt)
         writeLine("[$time] S> [DESYNC] $name (op=$opcode, claimed ${size}B) payload withheld - $detail")
     }
@@ -97,15 +100,19 @@ object PacketLogger {
 
     fun logClientPacket(opcode: Int, size: Int, payload: ByteArray) {
         PacketRecorder.recordClient(opcode, payload)
-        emit('C', codec.clientProtName(opcode), opcode, size, payload, decoded = decodeClient(opcode, payload))
+        emit('C', clientName(opcode), opcode, size, payload, decoded = decodeClient(opcode, payload))
     }
 
     /** Raw on-the-wire bytes (login/RSA handshake, before prots/ISAAC carry meaning). */
     fun logRaw(direction: Char, bytes: ByteArray) =
         emit(direction, "RAW", opcode = -1, size = bytes.size, payload = bytes, decoded = null)
 
+    private fun serverName(opcode: Int): String = codec?.serverProtName(opcode) ?: "UNKNOWN_$opcode"
+
+    private fun clientName(opcode: Int): String = codec?.clientProtName(opcode) ?: "UNKNOWN_$opcode"
+
     private fun decodeClient(opcode: Int, payload: ByteArray): String? {
-        val decoder = codec.clientProtsByOpcode[opcode]?.decoder ?: return null
+        val decoder = codec?.clientProtsByOpcode?.get(opcode)?.decoder ?: return null
         return runCatching {
             val source = Buffer().apply { write(payload) }
             runBlocking { decoder.invoke(source, payload.size) }.toString()
@@ -113,7 +120,7 @@ object PacketLogger {
     }
 
     private fun decodeServer(opcode: Int, payload: ByteArray): String? {
-        val decoder = codec.serverDecodersByOpcode[opcode] ?: return null
+        val decoder = codec?.serverDecodersByOpcode?.get(opcode) ?: return null
         return runCatching {
             val source = Buffer().apply { write(payload) }
             runBlocking { decoder.invoke(source, payload.size) }

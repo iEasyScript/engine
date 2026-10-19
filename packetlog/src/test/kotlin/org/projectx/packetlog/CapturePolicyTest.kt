@@ -13,6 +13,9 @@ import org.junit.jupiter.api.Test
 
 class CapturePolicyTest {
 
+    /** The sample's opcodes are 950's; read under any other revision they name different prots. */
+    private val SAMPLE_REVISION = 950
+
     /** A dump exercising one telemetry prot, one input prot, and one prot that must be untouched. */
     private fun sampleLog(): File {
         val file = File(Files.createTempDirectory("packetlog-policy").toFile(), "sample.log")
@@ -54,7 +57,7 @@ class CapturePolicyTest {
 
     private fun import(keepInput: Boolean): Map<Pair<Int, Int>, ByteArray> {
         val db = File(Files.createTempDirectory("packetlog-policy-db").toFile(), "archive.db")
-        val report = TextLogImport.import(sampleLog(), db, PacketSchema.ServerProfile.LOCAL, keepInput)
+        val report = TextLogImport.import(sampleLog(), db, PacketSchema.ServerProfile.LOCAL, keepInput, SAMPLE_REVISION)
         assertEquals(5, report.packets, "every event is recorded whatever the policy says")
         return bodiesByOpcode(db)
     }
@@ -89,7 +92,7 @@ class CapturePolicyTest {
     @Test
     fun `dropping bodies never drops events`() {
         val db = File(Files.createTempDirectory("packetlog-density").toFile(), "archive.db")
-        TextLogImport.import(sampleLog(), db, PacketSchema.ServerProfile.LOCAL)
+        TextLogImport.import(sampleLog(), db, PacketSchema.ServerProfile.LOCAL, revision = SAMPLE_REVISION)
         SqliteDriver.register()
         DriverManager.getConnection("jdbc:sqlite:file:${db.absolutePath}?mode=ro").use { connection ->
             connection.createStatement().use { statement ->

@@ -3,13 +3,13 @@ package com.projectx.game.net.packetlog
 import com.projectx.BuildInfo
 import com.projectx.game.bootstrap.Bootstrap
 import com.projectx.game.input.InputRecorder
+import com.projectx.game.net.ClientProtocol
 import com.projectx.game.nxt.OffsetTable
 import com.projectx.game.platform.Platform
 import com.projectx.util.Configuration
 import java.io.File
 import java.util.concurrent.ConcurrentLinkedDeque
 import java.util.concurrent.atomic.AtomicLong
-import org.projectx.core.net.prot.ProtRevisions
 import org.projectx.packetlog.chunk.ChunkEvent
 import org.projectx.packetlog.store.CapturePolicy
 import org.projectx.packetlog.store.PacketRecovery
@@ -283,8 +283,9 @@ object PacketRecorder {
         sessionLock = owned
         val file = owned.file
 
-        val revision = ProtRevisions.current
-        val codec = ProtRevisions.currentCodec()
+        val revision = ClientProtocol.revision ?: return failStart("the client's build is unknown")
+        val codec = ClientProtocol.codec
+            ?: return failStart("no protocol codec for client revision $revision; a capture labelled with another revision would be misread")
         val protTable = ProtTable.snapshot(revision, codec)
         inputEventOpcodes = codec.clientProtInfo
             .filter { it.value.name in CapturePolicy.INPUT_EVENT_PROTS }

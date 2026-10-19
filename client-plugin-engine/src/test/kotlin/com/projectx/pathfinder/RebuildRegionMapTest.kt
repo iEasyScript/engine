@@ -1,6 +1,5 @@
 package com.projectx.pathfinder
 
-import org.projectx.core.net.prot.ProtRevisions
 import java.util.HexFormat
 import kotlin.test.AfterTest
 import kotlin.test.Test
@@ -14,21 +13,23 @@ class RebuildRegionMapTest {
         javaClass.getResource("/packets/instance-layout-950.txt")!!.readText().trim()
     )
 
-    private val rebuildRegion: Int =
-        ProtRevisions.currentCodec().serverProtInfo.entries.first { it.value.name == "REBUILD_REGION" }.key
-
     @AfterTest
     fun reset() = RebuildRegionMap.clear()
 
     @Test
     fun `the packet is matched by name, and on build 950 that name is opcode 5`() {
-        assertEquals(950, ProtRevisions.current)
-        assertEquals(5, rebuildRegion)
+        assertEquals(5, RebuildRegionMap.opcodeFor(950))
+    }
+
+    @Test
+    fun `a revision whose layout has not been checked decodes nothing`() {
+        assertNull(RebuildRegionMap.opcodeFor(949))
+        assertNull(RebuildRegionMap.opcodeFor(null))
     }
 
     @Test
     fun `a captured 950 instance layout decodes`() {
-        RebuildRegionMap.observe(rebuildRegion, captured)
+        RebuildRegionMap.decode(captured)
 
         val corner = assertIs<RebuildRegionMap.Source>(RebuildRegionMap.entryOf(1736, 312, 0))
         assertEquals(RebuildRegionMap.Source(84, 29, 0, 0, level = 0, rotation = 0), corner)
@@ -36,7 +37,7 @@ class RebuildRegionMapTest {
 
     @Test
     fun `every zone of the 24 by 24 layout is recorded on all four planes`() {
-        RebuildRegionMap.observe(rebuildRegion, captured)
+        RebuildRegionMap.decode(captured)
 
         var copied = 0
         var void = 0
@@ -59,7 +60,7 @@ class RebuildRegionMapTest {
 
     @Test
     fun `a body too short to hold its zone grid is not decoded`() {
-        RebuildRegionMap.observe(rebuildRegion, captured.copyOf(200))
+        RebuildRegionMap.decode(captured.copyOf(200))
         assertNull(RebuildRegionMap.entryOf(1736, 312, 0))
     }
 }
