@@ -9,12 +9,12 @@ use memchr::memmem::Finder;
 /// Login RSA modulus the client encrypts the login block with, stored as a
 /// lowercase hex ASCII string. Only the leading run is matched; the whole string
 /// is then overwritten with ours.
-pub const LOGIN_MODULUS_PREFIX: &[u8] = b"b2c61c4772bf8882cab71c2b07ccac16";
+pub const LOGIN_MODULUS_PREFIX: &[u8] = b"bcad372d2c2fce088ca63b660f50d59f";
 pub const LOGIN_MODULUS_HEX_LEN: usize = 256;
 
 /// JS5 master-index signature verification key, same storage form as the login
 /// modulus but a much longer key.
-pub const JS5_MODULUS_PREFIX: &[u8] = b"9230a2ba97fd70ad04b41d730dd4fb93";
+pub const JS5_MODULUS_PREFIX: &[u8] = b"c491cb5c2a831fda3002ebe8385fdbc4";
 pub const JS5_MODULUS_HEX_LEN: usize = 1024;
 
 /// Download-verification key carried by the Jagex `rs3*` launchers. Byte-identical
@@ -50,14 +50,15 @@ pub fn relaxed_codebase_regex() -> Vec<u8> {
 // different register and operand width, and every one of those encodings occurs
 // dozens of times across the image. What actually identifies the site is its
 // neighbourhood — the two world-port bases are the other arms of the same
-// select, and appear within a few instructions of the literal. Anchoring on them
+// select, and appear near the literal - within a few instructions, or a couple
+// of hundred bytes once a build moves the live arm out of line. Anchoring on them
 // rather than on surrounding opcode bytes survives a recompile that changes the
 // branch shape, the register allocation, or whether the function got inlined.
 
 const LIVE_HTTP_PORT_IMM: u8 = 80;
 const WORLD_PORT_BASE: u16 = 7000;
 const WORLD_PORT_BASE_ALT: u16 = 12000;
-const ANCHOR_WINDOW: usize = 64;
+const ANCHOR_WINDOW: usize = 256;
 
 struct PortEncoding {
     bytes: &'static [u8],
