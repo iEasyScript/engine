@@ -20,6 +20,7 @@ permissions:
 jobs:
   version:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     outputs:
       version: ${{ steps.pick.outputs.version }}
       tag: ${{ steps.pick.outputs.tag }}
@@ -45,6 +46,7 @@ jobs:
   engine-jar:
     needs: version
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -103,6 +105,7 @@ jobs:
   bootstrap-linux:
     needs: version
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -137,6 +140,7 @@ jobs:
   bootstrap-windows:
     needs: version
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
         with:
@@ -203,6 +207,7 @@ jobs:
             runner: macos-latest
             archive: bare
     runs-on: ${{ matrix.runner }}
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -269,6 +274,7 @@ jobs:
   bundle:
     needs: [version, launcher, engine-jar, bootstrap-linux, bootstrap-windows]
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -322,6 +328,7 @@ jobs:
     needs: [version, engine-jar, bootstrap-linux, bootstrap-windows, launcher, bundle]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
@@ -378,6 +385,7 @@ jobs:
     needs: [version, bundle, engine-jar, bootstrap-linux, bootstrap-windows]
     if: needs.version.outputs.is_release == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v4

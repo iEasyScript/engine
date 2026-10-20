@@ -17,8 +17,12 @@ if [ -f /etc/apt/apt-mirrors.txt ]; then
         https://security.ubuntu.com/ubuntu/ 4 | sudo tee /etc/apt/apt-mirrors.txt >/dev/null
 fi
 
+# A mirror that stops mid-transfer, or a dpkg lock that is never released, would otherwise hold the
+# job until the six-hour cap; ten minutes is several times a normal install.
 apt() {
-    sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 "$@"
+    opts="-o Acquire::Retries=3 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 -o DPkg::Lock::Timeout=120"
+    # shellcheck disable=SC2086
+    timeout 600 sudo apt-get $opts "$@"
 }
 apt update
 apt install -y --no-install-recommends "$@"
