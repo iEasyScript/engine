@@ -137,6 +137,17 @@ object HookManager {
         println("[HookManager] Successfully hooked slot ${hookMethod.name} at 0x${slot.address().toString(16)}")
     }
 
+    /** Points every slot at one shared [hookMethod]; the original behind each is [slotOriginal] of its key. */
+    fun hookSlots(hookMethod: Method, slots: Map<String, MemorySegment>) {
+        val hookHandle = getFunctionHandle(hookMethod)
+        val stub = hookHandle.toEngineUpcallStub()
+        val descriptor = hookHandle.type().toDescriptor()
+        for ((key, slot) in slots) {
+            PointerSlotHook(key, slot, stub, descriptor).also { slotHooks[key] = it }.install()
+        }
+        println("[HookManager] Successfully hooked ${slots.size} slots with ${hookMethod.name}")
+    }
+
     fun getFunctionHandle(method: Method): MethodHandle {
         val methodType = if (method.parameterTypes.isEmpty())
             MethodType.methodType(method.returnType)

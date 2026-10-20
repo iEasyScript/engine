@@ -3,6 +3,7 @@ package com.projectx.game.bootstrap
 import com.projectx.BuildInfo
 import com.projectx.game.combat.CombatBridge
 import com.projectx.game.hooks.HookManager
+import com.projectx.game.hooks.impl.ServerProtDispatchCapture
 import com.projectx.game.input.InputRecorder
 import com.projectx.game.memory.Funchook
 import com.projectx.game.memory.NativeAccess
@@ -92,6 +93,7 @@ object Bootstrap {
 
             println("Parsing and applying hooks...")
             HookManager.parseAndApplyHooks(NativeAccess.BASE_ADDR)
+            ServerProtDispatchCapture.install()
 
             registerExampleSolvers()
 

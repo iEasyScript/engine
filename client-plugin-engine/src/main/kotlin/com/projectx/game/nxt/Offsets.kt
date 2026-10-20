@@ -16,6 +16,15 @@ object OGlobal : OffsetObject {
 
     /** The clock the client stamps input samples with; the prot senders delta-encode against it. */
     val MONOTONIC_CLOCK_MS by offset()
+
+    /** Pointer to the server prot descriptors TcpIn dispatches through, indexed by opcode. */
+    val SERVERPROT_TABLE by offset(LINUX)
+}
+
+object OServerProtDescriptor : OffsetObject {
+    val OPCODE by offset(LINUX)
+    val HANDLER by offset(LINUX)
+    val HANDLER_INVOKER by offset(LINUX)
 }
 
 object OInputGlobals : OffsetObject {

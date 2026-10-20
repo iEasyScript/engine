@@ -3106,6 +3106,12 @@
         "confidence": "HIGH",
         "note": "Third-party 951-1 table (GS_GLOBAL_CLIENT), which matched our 950-1 table; a function entry in this build whose code reads the expected 951 struct offsets.",
         "verified_build": "951-1"
+      },
+      "SERVERPROT_TABLE": {
+        "value": "0x1eb1ba0",
+        "confidence": "HIGH",
+        "verified_build": "951-1",
+        "note": "Third-party 951-1 table (GS_GLOBAL_SERVERPROT_TABLE); ConnectionManager::TcpIn loads the descriptor array from here and indexes it by opcode, bounded by the last server prot."
       }
     },
     "OInputGlobals": {
@@ -3217,6 +3223,26 @@
         "note": "Unchanged from 950-1: Windows 951 did not move it and the third-party table moves nothing next to it.",
         "verified_build": "951-1"
       }
+    },
+    "OServerProtDescriptor": {
+      "OPCODE": {
+        "value": "0x0",
+        "confidence": "HIGH",
+        "verified_build": "951-1",
+        "note": "Third-party 951-1 table (GS_SERVERPROT_DESC_OPCODE): equals the descriptor's index in the table."
+      },
+      "HANDLER": {
+        "value": "0x10",
+        "confidence": "HIGH",
+        "verified_build": "951-1",
+        "note": "Third-party 951-1 table (GS_SERVERPROT_DESC_FN): the handler std::function; TcpIn passes its address as the invoker's first argument."
+      },
+      "HANDLER_INVOKER": {
+        "value": "0x28",
+        "confidence": "HIGH",
+        "verified_build": "951-1",
+        "note": "Third-party 951-1 table (GS_SERVERPROT_DESC_HANDLER): TcpIn calls through this slot once per incoming packet with the handler, the connection's packet, the size and the ISAAC pointer."
+      }
     }
   },
   "objectNotes": {
@@ -3241,7 +3267,8 @@
     "OVarInfo": "varInfo -> VarType (TYPE_PTR) -> var id (VAR_ID), read in PlayerVarDomain/ClientVarDomain set hooks.",
     "ONPC": "CURRENT_HP/MAX_HP hold a 0-100 health RATIO, not absolute hitpoints — the NXT client is only told the headbar proportion. Verified live on 949-1: Man, Cow, Skoblin and Guard all read 100/100 at full health, with every neighbouring dword zero, so the values are deliberate rather than garbage. A displacement scan of .text finds no direct dword access at either offset; the write goes through the update-mask handler's computed pointer. Do not 'correct' these to absolute HP on that scan alone — still unconfirmed is whether they track damage, which needs an NPC observed at partial health.",
     "OInterfaceComponent": "950-1: the struct was REORGANIZED, not shifted - measured deltas across directly-read field pairs are non-monotonic, so no field may be predicted from another. ITEM_ID/STACK_SIZE and MODEL_ID/MODEL_OBJECT belong to DIFFERENT component subclasses and now overlap: reading a model field off an obj-class component returns the obj field's bytes. Discriminate on the component's vtable type call before reading any of the four. COMPONENT_TYPE remains a deliberate negative - the CS2 type tag is consumed by the component factory to pick the C++ subclass and is never written back onto the object.",
-    "OScriptHookEvent": "jag::ScriptHookEvent, the record queued for a clientscript hook and drained by the hook dispatcher. Not an InterfaceComponent: two 949-5 windows entries filed it there by mistake."
+    "OScriptHookEvent": "jag::ScriptHookEvent, the record queued for a clientscript hook and drained by the hook dispatcher. Not an InterfaceComponent: two 949-5 windows entries filed it there by mistake.",
+    "OServerProtDescriptor": "One per server prot, reached through OGlobal.SERVERPROT_TABLE."
   },
   "doActions": [
     {
