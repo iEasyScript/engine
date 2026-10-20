@@ -143,7 +143,7 @@ internal fun Codec.registerRev951ServerProtStubs() {
     s(136, "UNKNOWN_136", 4)
     s(137, "UNKNOWN_137", 1)
     s(138, "UNKNOWN_138", 14)
-    s(139, "UNKNOWN_139", 0)
+    s(139, "SERVER_TICK_END", 0)
     s(140, "UNKNOWN_140", 3)
     s(141, "UNKNOWN_141", 14)
     s(142, "UNKNOWN_142", 15)
