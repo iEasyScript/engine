@@ -66,8 +66,9 @@ object OFunctions : OffsetObject {
     val STD_MTX_LOCK by offset(WINDOWS)
     val STD_MTX_UNLOCK by offset(WINDOWS)
     val EVENTLISTENERS_DISPATCHMOUSEEVENTWITHSOURCE by offset(WINDOWS)
-    val TCPCONNECTIONMESSAGE_INIT by offset()
-    val TCPCONNECTIONMESSAGE_INIT_INCOMING by offset()
+    /** Inlined into ConnectionManager::TcpIn in the 951 Linux client. */
+    val TCPCONNECTIONMESSAGE_INIT by offset(WINDOWS)
+    val TCPCONNECTIONMESSAGE_INIT_INCOMING by offset(WINDOWS)
     val SENDCLIENTMESSAGE by offset(LINUX)
     val REBUILD_NORMAL_HANDLER by offset()
     val BUILD_AREA_INIT by offset()
