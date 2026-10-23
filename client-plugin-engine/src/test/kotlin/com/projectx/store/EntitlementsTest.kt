@@ -159,4 +159,24 @@ class EntitlementsTest {
     fun `a store that sends no prices quotes none rather than zero`() {
         assertEquals(null, prices("""{"internalName":"Old"}"""))
     }
+
+    @Test
+    fun `a refused sign-in is reported as one, not as the store being down`() {
+        assertEquals(Entitlements.Check.SIGN_IN_REJECTED, Entitlements.checkFor(401))
+        assertEquals(Entitlements.Check.SIGN_IN_REJECTED, Entitlements.checkFor(403))
+    }
+
+    @Test
+    fun `a store that answers badly is still treated as unreachable`() {
+        assertEquals(Entitlements.Check.UNREACHABLE, Entitlements.checkFor(502))
+        assertEquals(Entitlements.Check.UNREACHABLE, Entitlements.checkFor(429))
+        assertEquals(Entitlements.Check.ANSWERED, Entitlements.checkFor(200))
+    }
+
+    @Test
+    fun `a refused sign-in tells the player to sign in again rather than to wait`() {
+        val message = Entitlements.refusal("GatesOfElidinis", Entitlements.Check.SIGN_IN_REJECTED)
+        assertTrue("sign out and back in" in message.lowercase())
+        assertFalse("could not be reached" in message)
+    }
 }

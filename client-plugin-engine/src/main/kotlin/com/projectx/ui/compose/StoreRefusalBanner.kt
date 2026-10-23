@@ -59,6 +59,7 @@ private fun explanation(refusal: StartRefusal): String {
     return when (refusal.reason) {
         Reason.CONFIRMED -> "You have it now. Press Start again."
         Reason.UNREACHABLE -> "The store couldn't be reached to check whether you have it. Try again in a moment."
+        Reason.SIGN_IN_EXPIRED -> "Your store sign-in is no longer valid. Sign out and back in on the launcher's Store tab, then press Start again."
         Reason.SIGNED_OUT -> "It's a store script. Sign in with Discord in the launcher's Store tab, then " +
             (if (free) "get it free on the store." else "subscribe to it on the store.")
         Reason.CHECKING, Reason.NOT_OWNED ->

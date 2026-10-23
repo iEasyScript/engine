@@ -53,7 +53,11 @@ object Entitlements {
     // Two refresh intervals and some slack, so one dropped request does not end a trial.
     private val TRIAL_GRACE_NANOS = TimeUnit.SECONDS.toNanos(2 * REFRESH_SECONDS + 30)
 
-    enum class Check { ANSWERED, REJECTED, UNREACHABLE }
+    enum class Check { ANSWERED, REJECTED, UNREACHABLE, SIGN_IN_REJECTED }
+
+    // A store that cannot be reached is asked again before a start is refused, so one dropped request does not
+    // turn away a script the player owns.
+    private val START_RETRY_SECONDS = longArrayOf(0, 2, 5)
 
     private val expiries = ConcurrentHashMap<String, Instant>()
     private val trialDeadlines = ConcurrentHashMap<String, Long>()
@@ -167,7 +171,7 @@ object Entitlements {
         val title = script.javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: name
         StoreNotices.refused(title, accessOf(name), StartRefusal.Reason.CHECKING)
         worker.submit {
-            val check = runCatching { refresh() }.getOrDefault(Check.UNREACHABLE)
+            val check = checkPatiently()
             if (isEntitled(name)) {
                 println("[store] access to $name confirmed; start it again.")
                 StoreNotices.refused(title, accessOf(name), StartRefusal.Reason.CONFIRMED)
@@ -175,6 +179,7 @@ object Entitlements {
             }
             val reason = when {
                 check == Check.UNREACHABLE -> StartRefusal.Reason.UNREACHABLE
+                check == Check.SIGN_IN_REJECTED -> StartRefusal.Reason.SIGN_IN_EXPIRED
                 token() == null -> StartRefusal.Reason.SIGNED_OUT
                 else -> StartRefusal.Reason.NOT_OWNED
             }
@@ -184,11 +189,23 @@ object Entitlements {
         return false
     }
 
+    private fun checkPatiently(): Check {
+        var check = Check.UNREACHABLE
+        for (wait in START_RETRY_SECONDS) {
+            if (wait > 0) Thread.sleep(TimeUnit.SECONDS.toMillis(wait))
+            check = runCatching { refresh() }.getOrDefault(Check.UNREACHABLE)
+            if (check != Check.UNREACHABLE) break
+        }
+        return check
+    }
+
     internal fun refusal(name: String, check: Check): String {
         val url = storeUrls[name] ?: storeBase()
         return when {
             // Do not send somebody to the store for what they may already have.
             check == Check.UNREACHABLE -> "[store] $name could not start: the store could not be reached to check your access."
+            check == Check.SIGN_IN_REJECTED -> "[store] $name could not start: the store no longer accepts this launcher's sign-in. " +
+                "Sign out and back in on the launcher's Store tab, then start it again."
             token() == null -> "[store] $name is a store script: sign in with Discord in the launcher's Store tab, then " +
                 (if (name in free) "get it free on the store. $url" else "subscribe on the store. $url")
             name in free -> "[store] $name is free, but you need to get it on the store to run it. $url"
@@ -249,7 +266,15 @@ object Entitlements {
             return Check.ANSWERED
         }
 
-        val body = get("${storeBase()}/api/v1/entitlements?game=$GAME", token) ?: return Check.UNREACHABLE
+        val reply = get("${storeBase()}/api/v1/entitlements?game=$GAME", token) ?: return Check.UNREACHABLE
+        val check = checkFor(reply.status)
+        if (check == Check.SIGN_IN_REJECTED) {
+            signInRejected()
+            return check
+        }
+        if (check != Check.ANSWERED) return check
+        val body = reply.body
+        warned.remove(SIGN_IN_WARNING)
         return runCatching {
             expiries.clear()
             trialDeadlines.clear()
@@ -270,6 +295,28 @@ object Entitlements {
             Check.ANSWERED
         }.getOrDefault(Check.REJECTED)
     }
+
+    /** What an entitlements answer with [status] means; a refused token is a sign-in to redo, not an outage. */
+    internal fun checkFor(status: Int): Check = when (status) {
+        in 200..299 -> Check.ANSWERED
+        401, 403 -> Check.SIGN_IN_REJECTED
+        else -> Check.UNREACHABLE
+    }
+
+    private const val SIGN_IN_WARNING = "sign-in"
+
+    // The token is dead, so nothing it vouched for is owned any more.
+    private fun signInRejected() {
+        signedIn = false
+        expiries.clear()
+        trialDeadlines.clear()
+        lastAnsweredNanos = System.nanoTime()
+        if (warned.add(SIGN_IN_WARNING)) {
+            println("[store] the store no longer accepts this launcher's sign-in; sign out and back in on the launcher's Store tab.")
+        }
+    }
+
+    private class Reply(val status: Int, val body: String)
 
     private fun JsonObject.text(key: String): String? = get(key)?.takeUnless { it.isJsonNull }?.asString
 
@@ -305,11 +352,10 @@ object Entitlements {
         response.body()
     }.getOrNull()
 
-    private fun get(url: String, token: String? = null): String? = runCatching {
+    private fun get(url: String, token: String? = null): Reply? = runCatching {
         val builder = HttpRequest.newBuilder(URI.create(url)).timeout(Duration.ofSeconds(15)).GET()
         if (token != null) builder.header("Authorization", "Bearer $token")
         val response = http.send(builder.build(), HttpResponse.BodyHandlers.ofString())
-        if (response.statusCode() !in 200..299) return null
-        response.body()
+        Reply(response.statusCode(), response.body())
     }.getOrNull()
 }
