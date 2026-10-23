@@ -15,6 +15,7 @@ class InventoryEncoder : OpcodeEncoder<InvType>() {
         if (definition.ids != null) {
             opcodes.add(21)
         }
+        opcodes.addUnused(definition)
         return opcodes.toIntArray()
     }
 
@@ -37,7 +38,7 @@ class InventoryEncoder : OpcodeEncoder<InvType>() {
                     writeShort(amounts[index])
                 }
             }
-            else -> error("Unhandled inv opcode $opcode in ${definition.id}")
+            else -> writeUnused(definition, opcode, occurrence)
         }
     }
 }

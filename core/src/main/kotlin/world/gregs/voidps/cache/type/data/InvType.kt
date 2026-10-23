@@ -2,7 +2,7 @@ package world.gregs.voidps.cache.type.data
 
 import world.gregs.voidps.cache.CacheType
 import world.gregs.voidps.cache.type.Extra
-import world.gregs.voidps.cache.type.OpcodeOrdered
+import world.gregs.voidps.cache.type.UnusedRecords
 
 data class InvType(
     override var id: Int = -1,
@@ -11,8 +11,9 @@ data class InvType(
     var amounts: IntArray? = null,
     override var stringId: String = "",
     override var extras: Map<String, Any>? = null
-) : CacheType, Extra, OpcodeOrdered {
+) : CacheType, Extra, UnusedRecords {
     override var opcodeOrder: IntArray? = null
+    override var unusedRecords: Map<Int, List<ByteArray>>? = null
     override var shadowedPayloads: Array<ByteArray?>? = null
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

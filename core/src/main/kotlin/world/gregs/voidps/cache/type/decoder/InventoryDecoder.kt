@@ -35,6 +35,7 @@ class InventoryDecoder : ConfigDecoder<InvType>(INVENTORIES) {
                     amounts!![i] = buffer.readUnsignedShort()
                 }
             }
+            24 -> keep(opcode, buffer.capture { })
             else -> unknown(opcode, buffer)
         }
     }
