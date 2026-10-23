@@ -186,9 +186,9 @@
         "verified_build": "951-1"
       },
       "CLICK_BUFFER_BASE": {
-        "value": "0x46f0",
-        "confidence": "MEDIUM",
-        "note": "Same as 951-1-vulkan (OpenGL and Vulkan share every struct layout; this build's own 950 -> 951 evidence agrees on 513 of 513 fields). Unchanged from 950-1: stable across paired functions (0x46f0:1).",
+        "value": "0x43c0",
+        "confidence": "HIGH",
+        "note": "Moved from 0x46f0: the click sender indexes samples from manager+0x43c0 at a 0x28 stride, and the read cursor wraps at 50 just before the write cursor, so the ring ends where the cursors begin.",
         "verified_build": "951-1"
       },
       "CLICK_ENTRY_SIZE": {
@@ -2238,15 +2238,15 @@
         "verified_build": "951-1"
       },
       "TARGET_INDEX": {
-        "value": "0x98",
-        "confidence": "MEDIUM",
-        "note": "Same as 951-1-vulkan (OpenGL and Vulkan share every struct layout; this build's own 950 -> 951 evidence agrees on 513 of 513 fields). Unchanged from 949-4: majority across paired functions (0x98:934 0xa0:2).",
+        "value": "0xa0",
+        "confidence": "HIGH",
+        "note": "Moved from 0x98 with the 951 LoggedInPlayer layout, as the third-party 951-1 Linux table shows; the old offset read a non-index value on the live 951 client.",
         "verified_build": "951-1"
       },
       "TARGET_TYPE": {
-        "value": "0x9a",
+        "value": "0xa2",
         "confidence": "HIGH",
-        "note": "Same as 951-1-vulkan (OpenGL and Vulkan share every struct layout; this build's own 950 -> 951 evidence agrees on 513 of 513 fields). Unchanged from 949-4: stable across paired functions (0x9a:9).",
+        "note": "Moved from 0x9a with TARGET_INDEX.",
         "verified_build": "951-1"
       }
     },
