@@ -351,6 +351,11 @@ object EffectVarTables {
             50069 -> ctx.varps.getVarBit(55727) != 0
             50068 -> ctx.varps.getVarBit(55728) != 0
             50696 -> ctx.varps.getVarBit(56288) != 0
+            1626 -> ctx.varps.getVarBit(36378) != 0
+            53443 -> ctx.varps.getVar(13699) != 0
+            53504 -> ctx.varps.getVar(13720) != 0
+            53530 -> ctx.varps.getVar(13746) != 0
+            53542 -> ctx.varps.getVar(13739) != 0
             else -> false
         }
     }
@@ -802,6 +807,21 @@ object EffectVarTables {
             53077 -> ctx.varcs.getVar(8407)
             53078 -> ctx.varcs.getVar(8408)
             2907 -> ctx.varcs.getVar(8410)
+            3595 -> ctx.varcs.getVar(8480)
+            3596 -> ctx.varcs.getVar(8481)
+            3636 -> ctx.varcs.getVar(5965)
+            21215 -> ctx.varcs.getVar(5152)
+            33383 -> ctx.varcs.getVar(5189)
+            33384 -> ctx.varcs.getVar(5190)
+            34189 -> ctx.varcs.getVar(5869)
+            53441 -> ctx.varcs.getVar(8489)
+            53442 -> ctx.varcs.getVar(8490)
+            53443 -> ctx.varcs.getVar(8491)
+            53505 -> ctx.varcs.getVar(8492)
+            53506 -> ctx.varcs.getVar(8493)
+            53537 -> ctx.varcs.getVar(8498)
+            53538 -> ctx.varcs.getVar(8494)
+            53542 -> ctx.varcs.getVar(8495)
             else -> 0
         }
     }
@@ -1156,6 +1176,11 @@ object EffectVarTables {
             52791 -> ctx.varps.getVar(12655)
             53000 -> ctx.varps.getVarBit(60830)
             53001 -> ctx.varps.getVarBit(60831)
+            53441 -> ctx.varps.getVar(13702)
+            53506 -> ctx.varps.getVar(13721)
+            53507 -> ctx.varps.getVar(13722)
+            53508 -> ctx.varps.getVar(13723)
+            53509 -> ctx.varps.getVar(13724)
             else -> 0
         }
     }
