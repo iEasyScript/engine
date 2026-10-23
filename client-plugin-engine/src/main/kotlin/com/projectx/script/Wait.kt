@@ -392,6 +392,15 @@ sealed class Wait {
         @JvmOverloads
         fun enterBankPin(pin: String, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.enterBankPin(pin) }
 
+        /**
+         * Open the bank in reach, or walk to the nearest in [Banks] and open that, typing [bankPin] if asked;
+         * [onResult] gets whether the bank opened. Kotlin: `openNearestBank`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun openNearestBank(bankPin: String? = null, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.openNearestBank(bankPin) }
+
         // ---- Make-X and smithing ----
 
         /** The pause a player takes before reacting to the Make-X window. Kotlin: `makeXReaction`. */
