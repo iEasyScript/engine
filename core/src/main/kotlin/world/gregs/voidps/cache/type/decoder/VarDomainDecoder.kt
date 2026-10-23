@@ -17,6 +17,7 @@ abstract class VarDomainDecoder<T : VarDomainType>(archive: Int) : ConfigDecoder
             4 -> lifetime = buffer.readUnsignedByte()
             5 -> transmit = buffer.readUnsignedByte()
             7, 8 -> { }
+            9 -> keep(opcode, buffer.capture { })
             110 -> keep(opcode, buffer.capture { readShort() })
             else -> unknown(opcode, buffer)
         }
