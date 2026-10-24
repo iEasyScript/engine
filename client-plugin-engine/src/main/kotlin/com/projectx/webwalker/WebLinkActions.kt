@@ -2,6 +2,7 @@ package com.projectx.webwalker
 
 import com.projectx.game.interfaces.IFSlot
 import com.projectx.game.items.Item
+import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
 import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.continueDialogueContaining
@@ -43,6 +44,10 @@ internal object WebLinkActions {
 
     /** Worn items' options only fire while the worn equipment tab is open. */
     private const val WORN_EQUIPMENT_INTERFACE = 1464
+
+    private const val PORTABLE_RING_OPTION = "Teleport"
+    private const val ACTIVATE_OPTION = "Activate"
+    private const val ACTIVATE_REFUSED = "already have an active version"
 
     suspend fun start(script: Script, link: WebLink): Boolean = when (link.kind) {
         WebLinkKind.OBJECT, WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, link.searchRadius)
@@ -165,7 +170,8 @@ internal object WebLinkActions {
     /** Opens the ring, turns each dial until its top letter is the code's, and teleports. */
     private suspend fun Script.dialFairyRing(link: WebLink): Boolean {
         val code = link.fairyCode ?: return false
-        if (!useObject(link.objectId, link.action, link.searchRadius)) return false
+        val opened = if (link.portable) openPortableRing() else useObject(link.objectId, link.action, link.searchRadius)
+        if (!opened) return false
         delayUntil(PROMPT_TIMEOUT_MS) { interfaces.isOpen(FAIRY_RING_INTERFACE) }
         if (!interfaces.isOpen(FAIRY_RING_INTERFACE)) {
             println("[WebWalk] The fairy ring did not open for $link")
@@ -189,6 +195,38 @@ internal object WebLinkActions {
         }
         println("[WebWalk] Dialled ${code.uppercase()}")
         return IFSlot(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT, -1).click(1)
+    }
+
+    /**
+     * Opens the ring's dial from the portable fairy ring: the backpack copy first, then the worn one. With only an
+     * inactive ring, it is activated first; the game refuses that while an active one exists anywhere, the bank
+     * included, and after that refusal routes leave the portable ring out.
+     */
+    private suspend fun Script.openPortableRing(): Boolean {
+        val (active, inactive) = WebLinkPermissions.portableRingIds.get() ?: return false
+        inventory.firstOrNull { it.id == active }?.let { return it.click(PORTABLE_RING_OPTION) }
+        equipment.firstOrNull { it.id == active }?.let { worn ->
+            if (!interfaces.isOpen(WORN_EQUIPMENT_INTERFACE)) {
+                println("[WebWalk] The portable fairy ring is worn and the equipment tab is closed")
+                return false
+            }
+            return worn.click(PORTABLE_RING_OPTION)
+        }
+        if (WebLinkPermissions.activeRingOutOfReach) return false
+        val spare = inventory.firstOrNull { it.id == inactive } ?: return false
+        val clickedAt = System.currentTimeMillis()
+        if (!spare.click(ACTIVATE_OPTION)) return false
+        delayUntil(PROMPT_TIMEOUT_MS) { inventory.any { it.id == active } || RecentChat.containsSince(ACTIVATE_REFUSED, clickedAt) }
+        val ring = inventory.firstOrNull { it.id == active }
+        if (ring == null) {
+            if (RecentChat.containsSince(ACTIVATE_REFUSED, clickedAt)) {
+                println("[WebWalk] The active portable fairy ring is out of reach; routes leave it out")
+                WebLinkPermissions.activeRingOutOfReach = true
+            }
+            return false
+        }
+        delay(400, 150)
+        return ring.click(PORTABLE_RING_OPTION)
     }
 
     private fun carried(items: List<Item>, target: WebTarget): Item? =

@@ -10,12 +10,16 @@ import com.projectx.script.Script
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.walkTo
 import com.projectx.traversal.TraversalNode
+import com.projectx.traversal.WalkEquivalent
+import com.projectx.traversal.walk.LiveRouteWalker
+import com.projectx.traversal.walk.NodeWalker
 import com.projectx.util.gaussian
 import com.projectx.util.random
 
-class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = null) : TraversalNode() {
+class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = null) : TraversalNode(), WalkEquivalent {
     private var route: Route
     private var nextClick: Long = 0
+    private val walker = NodeWalker("PathNode")
 
     init {
         this.route = routeToTile(start, end)
@@ -27,6 +31,13 @@ class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = n
             println("Recalculating path: ${this.route.success} ${this.route.alternative} ${this.route.distance}")
             script.delay(250, 250)
             return true
+        }
+        val stepLimit = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax)
+        when (walker.step(this, script, routeTiles(), stepLimit) { reached(script) || traversalStopRequested() }) {
+            LiveRouteWalker.Step.CONTINUE -> return true
+            LiveRouteWalker.Step.ADVANCE -> return false
+            LiveRouteWalker.Step.STUCK -> if (requestTraversalRepath()) return true
+            LiveRouteWalker.Step.FALLBACK -> {}
         }
         if (System.currentTimeMillis() > nextClick) {
             val clickTile = getNextClickPoint() ?: return true
@@ -66,6 +77,10 @@ class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = n
     }
 
     override fun reached(script: Script): Boolean = reached?.invoke() == true || Bootstrap.client.loggedInPlayer.self.tile.getDistance(end) <= 5
+
+    override fun routeTiles(): List<Tile> = if (route.success) route.toTiles(end.plane) else emptyList()
+
+    override fun passableNow(): Boolean = true
 
     override fun copy(): TraversalNode = PathNode(start, end).also { it.route = this.route }
 }

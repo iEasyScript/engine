@@ -587,6 +587,15 @@ fun walkToTile(x: Int, y: Int, plane: Int, minimap: Boolean = false) = walkTo(Ti
 
 fun diveToTile(x: Int, y: Int) = dive(Tile.of(x, y, localPlayer.plane))
 
+/**
+ * Steps a walk from the player to ([x], [y]) on [plane] takes on the live collision map, doors as they stand now: -1
+ * when no walk within [maxSteps] gets there, -2 when the map cannot tell (another plane, an instance, an area not
+ * loaded, or just after a teleport). A tile across a wall can be near in a straight line and far by walking.
+ */
+@JvmOverloads
+fun walkingDistanceTo(x: Int, y: Int, plane: Int = localPlayer.plane, maxSteps: Int = 96): Int =
+    LiveWalkMap.distance(localPlayer.tile, Tile.of(x, y, plane), maxSteps)
+
 fun diveToTile(x: Int, y: Int, plane: Int) = dive(Tile.of(x, y, plane))
 
 /**

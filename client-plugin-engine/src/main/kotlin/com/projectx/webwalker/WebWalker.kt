@@ -1,7 +1,9 @@
 package com.projectx.webwalker
 
 import com.projectx.game.nxt.entity.location.SceneObject
+import com.projectx.pathfinder.LiveWalkMap
 import com.projectx.profiling.PlayerProfiles
+import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
 import com.projectx.script.api.Lodestone
 import com.projectx.script.api.continueDialogueContaining
@@ -12,6 +14,7 @@ import com.projectx.script.api.isDiveReady
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.surge
 import com.projectx.script.api.walkTo
+import com.projectx.traversal.walk.LiveRouteWalker
 import org.projectx.core.game.combat.Ability
 import com.projectx.util.random
 import world.gregs.voidps.type.Tile
@@ -71,6 +74,11 @@ object WebWalker {
     private const val STALL_GRACE_MS = 1200L
 
     private val DOOR_OPTIONS = listOf("Open", "Go-through", "Pass-through")
+    private const val DOOR_PASSAGE_STEPS = 3
+    private const val DOOR_EARLY_STEPS = 5
+    private const val DOOR_OPEN_TIMEOUT_MS = 8_000L
+    private const val NO_MOVEMENT_MS = 15_000L
+    private const val LOCKED_MESSAGE = "locked"
 
     /**
      * Whether routes may spend teleport items and the Passage of the Abyss. On by default; turn it off in a script
@@ -85,6 +93,13 @@ object WebWalker {
      */
     @Volatile
     var useMovementAbilities: Boolean = true
+
+    /**
+     * Whether walking may drink a Powerburst of acceleration from the backpack where a run of Dives and Surges along
+     * the route saves several seconds. On by default and inert without the potion; turn it off to keep the doses.
+     */
+    @Volatile
+    var useAccelerationPotion: Boolean = true
 
     // A movement ability hops at most ten tiles; Surge only ever goes its full distance, so it needs a straight run
     // that long, and the character must already face that way, which three steps walked in it settle.
@@ -137,13 +152,14 @@ object WebWalker {
         arriveDistance: Int,
         teleports: Boolean,
         excluded: Set<WebLink>,
+        lockedDoors: Set<Long> = emptySet(),
     ): WebWalkResult {
         // Requirements read varbits, levels, the money pouch and what is carried, which may only be touched here on
         // the game thread; the planner runs on its own thread and consults the snapshot instead.
         val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
         val future = CompletableFuture.supplyAsync(
             {
-                plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded)
+                plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded, lockedDoors)
             },
             planner,
         )
@@ -168,33 +184,52 @@ object WebWalker {
     ): WebWalkResult {
         val arrive = arriveDistance.coerceAtLeast(0)
         val setAside = HashSet<WebLink>()
-        if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA }
+        if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA || it.portable }
         val keptBack = setAside.size
+        val lockedDoors = HashSet<Long>()
+        val walker = LiveRouteWalker("WebWalk").apply {
+            surgeEnabled = useMovementAbilities
+            diveEnabled = useMovementAbilities
+            accelerationPotion = useAccelerationPotion
+        }
         var path: WebPath? = null
         var lodestone: Lodestone? = null
         var plans = 0
         var stalls = 0
         var doorAttempts = 0
         var linkAttempts = 0
+        var linkStartedAt = Long.MAX_VALUE
         var hopsResumeAt = 0L
+        var lastTile = localPlayer.tile
+        var lastMovedAt = System.currentTimeMillis()
 
         while (!script.stopped) {
             val me = localPlayer.tile
+            LiveWalkMap.observe(me)
+            val now = System.currentTimeMillis()
+            if (me != lastTile) {
+                lastTile = me
+                lastMovedAt = now
+            } else if (now - lastMovedAt > NO_MOVEMENT_MS) {
+                lastMovedAt = now
+                stalls = MAX_STALLS
+            }
             if (arrived(destination, arrive)) {
                 return WebWalkResult(WebWalkStatus.ARRIVED, "Arrived at ${destination.x},${destination.y}", path, lodestone)
             }
 
             if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
-                val planned = findPath(script, me, destination, arrive, useLodestones, setAside)
+                val planned = findPath(script, me, destination, arrive, useLodestones, setAside, lockedDoors)
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
                 path = planned.path!!
                 stalls = 0
+                walker.reset()
             }
             val route = path
 
             val here = route.nearestIndex(me.x, me.y, me.plane)
-            val door = route.nextDoor(here + 1)
+            val door = nextClosedDoor(route, here + 1)
             val link = route.nextLink(here + 1)
 
             // Both are things the route walks up to and then performs, so the walk stops at whichever comes first.
@@ -206,29 +241,57 @@ object WebWalker {
 
             if (link != -1 && link == barrier && route.distance(link - 1, me.x, me.y) <= 1) {
                 val step = route.linkAt(link)
-                if (++linkAttempts > MAX_LINK_ATTEMPTS) {
+                val locked = step?.kind == WebLinkKind.DOOR && lockedSince(linkStartedAt)
+                if (++linkAttempts > MAX_LINK_ATTEMPTS || locked) {
                     if (step == null || setAside.size - keptBack >= MAX_SET_ASIDE) {
                         return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
                     }
-                    println("[WebWalk] Could not take $step; planning around it")
+                    println("[WebWalk] Could not take $step${if (locked) " (locked)" else ""}; planning around it")
                     setAside += step
                     linkAttempts = 0
+                    linkStartedAt = Long.MAX_VALUE
                     path = null
                     continue
                 }
+                walker.forgetWalk()
+                linkStartedAt = System.currentTimeMillis()
                 if (passLink(script, route, link)) {
                     linkAttempts = 0
+                    linkStartedAt = Long.MAX_VALUE
                     if (step?.kind == WebLinkKind.LODESTONE) lodestone = step.lodestone
                 }
                 continue
             }
 
-            if (door != -1 && door == barrier && route.distance(door - 1, me.x, me.y) <= 1) {
+            if (door != -1 && door == barrier && (route.distance(door - 1, me.x, me.y) <= 1 || closeEnoughToOpen(route, door))) {
                 if (++doorAttempts > MAX_DOOR_ATTEMPTS) {
                     return WebWalkResult(WebWalkStatus.STUCK, "Could not get through the door at ${route.getX(door)},${route.getY(door)}", route, lodestone)
                 }
-                if (passDoor(script, route, door)) doorAttempts = 0
+                walker.forgetWalk()
+                when (passDoor(script, route, door)) {
+                    DoorOutcome.PASSED -> doorAttempts = 0
+                    DoorOutcome.LOCKED -> {
+                        println("[WebWalk] The door at ${route.getX(door)},${route.getY(door)} is locked; planning around it")
+                        lockedDoors += lockedEdge(route, door)
+                        doorAttempts = 0
+                        path = null
+                    }
+                    DoorOutcome.FAILED -> {}
+                }
                 continue
+            }
+
+            val segmentEnd = if (barrier != -1) barrier - 1 else route.lastIndex
+            val segment = (here..segmentEnd).map(route::tile)
+            val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
+            when (walker.step(script, segment, lookahead) { arrived(destination, arrive) }) {
+                LiveRouteWalker.Step.CONTINUE -> continue
+                LiveRouteWalker.Step.STUCK -> {
+                    stalls = MAX_STALLS
+                    continue
+                }
+                LiveRouteWalker.Step.ADVANCE -> if (barrier != -1) continue
+                LiveRouteWalker.Step.FALLBACK -> {}
             }
 
             if (useMovementAbilities && System.currentTimeMillis() >= hopsResumeAt) {
@@ -239,7 +302,6 @@ object WebWalker {
                 }
             }
 
-            val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
             var target = (here + lookahead).coerceAtMost(route.lastIndex)
             if (barrier != -1) target = target.coerceAtMost(barrier - 1)
             if (target <= here) target = if (barrier != -1) barrier - 1 else (here + 1).coerceAtMost(route.lastIndex)
@@ -259,6 +321,30 @@ object WebWalker {
             stalls = if (localPlayer.tile == before) stalls + 1 else 0
         }
         return WebWalkResult(WebWalkStatus.STOPPED, "The script stopped while walking", path, lodestone)
+    }
+
+    private fun lockedSince(since: Long): Boolean = RecentChat.containsSince(LOCKED_MESSAGE, since)
+
+    /** The first cache door at or after [fromIndex] that the live map does not show standing open, or -1. */
+    private fun nextClosedDoor(route: WebPath, fromIndex: Int): Int {
+        var door = route.nextDoor(fromIndex)
+        while (door != -1 && LiveWalkMap.passage(route.tile(door - 1), route.tile(door), DOOR_PASSAGE_STEPS) == true) {
+            door = route.nextDoor(door + 1)
+        }
+        return door
+    }
+
+    /** A shut door's "Open" may be clicked from a few steps away; the server walks the player there. */
+    private fun closeEnoughToOpen(route: WebPath, door: Int): Boolean =
+        LiveWalkMap.distance(localPlayer.tile, route.tile(door - 1), DOOR_EARLY_STEPS) in 0..DOOR_EARLY_STEPS
+
+    private fun lockedEdge(route: WebPath, door: Int): Long {
+        val near = route.tile(door - 1)
+        val far = route.tile(door)
+        val dir = (0 until WebPathfinder.CARDINALS).first {
+            near.x + WebPathfinder.DX[it] == far.x && near.y + WebPathfinder.DY[it] == far.y
+        }
+        return WebPathfinder.doorEdge(near.x, near.y, near.plane, dir)
     }
 
     /**
@@ -334,12 +420,13 @@ object WebWalker {
         permissions: WebLinkPermissions,
         teleports: Boolean = false,
         excluded: Set<WebLink> = emptySet(),
+        lockedDoors: Set<Long> = emptySet(),
     ): WebWalkResult {
         if (startX >= INSTANCE_MIN_X || destX >= INSTANCE_MIN_X) {
             return WebWalkResult(WebWalkStatus.NOT_IN_WORLD, "Web walking does not work inside instances")
         }
         return try {
-            WebPathfinder().find(startX, startY, plane, destX, destY, destPlane, arriveDistance, permissions, teleports, excluded)
+            WebPathfinder().find(startX, startY, plane, destX, destY, destPlane, arriveDistance, permissions, teleports, excluded, lockedDoors)
         } catch (t: Throwable) {
             WebWalkResult(WebWalkStatus.NO_PATH, "Route planning failed: ${t.javaClass.simpleName}: ${t.message}")
         }
@@ -434,29 +521,47 @@ object WebWalker {
         else -> LINK_TIMEOUT_MS
     }
 
-    /** Opens the door crossed on the way to step [door] if it is shut, then steps through. True once past it. */
-    private suspend fun passDoor(script: Script, path: WebPath, door: Int): Boolean {
+    private enum class DoorOutcome { PASSED, LOCKED, FAILED }
+
+    /**
+     * Opens the door crossed on the way to step [door] if it is shut, then steps through. A shut door's "Open" is
+     * clicked from up to a few steps away and the server walks the player there; open or shut is read off the live
+     * collision edge where it is trusted, which is right for doors whose leaf shows open while the edge stays solid.
+     */
+    private suspend fun passDoor(script: Script, path: WebPath, door: Int): DoorOutcome {
         val near = path.tile(door - 1)
         val far = path.tile(door)
-        if (localPlayer.tile != near && !localPlayer.isMoving) {
-            walkTo(near, false)
-            script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == near }
-        }
-
-        val closed = closedDoor(near, far)
-        if (closed != null) {
-            val option = DOOR_OPTIONS.first { closed.hasOption(it) }
-            closed.interact(option)
-            script.delayUntil(STALL_GRACE_MS * 3) { closedDoor(near, far) == null || localPlayer.tile == far }
+        if (doorOpen(near, far) != true) {
+            var shut = closedDoor(near, far)
+            if (shut == null && localPlayer.tile != near && !localPlayer.isMoving) {
+                walkTo(near, false)
+                script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == near }
+                shut = closedDoor(near, far)
+            }
+            if (shut != null) {
+                val option = DOOR_OPTIONS.first { shut.hasOption(it) }
+                val picksLock = option.contains("pick", ignoreCase = true)
+                val clickedAt = System.currentTimeMillis()
+                if (shut.interact(option)) {
+                    script.delayUntil(DOOR_OPEN_TIMEOUT_MS) {
+                        doorOpen(near, far) == true || closedDoor(near, far) == null || localPlayer.tile == far ||
+                            !picksLock && lockedSince(clickedAt)
+                    }
+                    if (!picksLock && lockedSince(clickedAt)) return DoorOutcome.LOCKED
+                }
+            }
         }
         if (localPlayer.tile != far) {
             walkTo(far, false)
             script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 2) { localPlayer.tile == far }
         }
-        return localPlayer.tile == far
+        return if (localPlayer.tile == far) DoorOutcome.PASSED else DoorOutcome.FAILED
     }
 
-    private fun closedDoor(near: Tile, far: Tile): SceneObject? = findClosestObject(DOOR_SEARCH_RANGE) { obj ->
+    /** True when the door's two sides join by a short walk on the live map, null when it cannot tell. */
+    private fun doorOpen(near: Tile, far: Tile): Boolean? = LiveWalkMap.passage(near, far, DOOR_PASSAGE_STEPS)
+
+    private fun closedDoor(near: Tile, far: Tile): SceneObject? = findClosestObject(DOOR_SEARCH_RANGE + DOOR_EARLY_STEPS) { obj ->
         (obj.tile == near || obj.tile == far) && obj.shape.slot == 0 && DOOR_OPTIONS.any { obj.hasOption(it) }
     }
 

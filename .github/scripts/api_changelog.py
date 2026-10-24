@@ -52,6 +52,7 @@ INTERNAL_TYPES = {
     "com.projectx.script.LiveValues",
     "com.projectx.script.api.NecromancyImprovise",
     "com.projectx.webwalker.WebLinkActions",
+    "com.projectx.webwalker.WebPathfinder",
 }
 
 # Members that are an implementation detail of how Kotlin and the Compose compiler build a class, not

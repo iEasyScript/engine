@@ -23,6 +23,8 @@ object WebLinks {
     private const val RESOURCE = "/webwalker/links.json"
     private const val FAIRY_RING_REACH = 2
     private const val FAIRY_RING_SEARCH = 8
+    private const val PORTABLE_RING_EXTRA_TILES = 7
+    private const val PORTABLE_RING_ACTION = "Teleport"
 
     // Upstream spells it out; the enum kept an older spelling that scripts already use.
     private val LODESTONE_ALIASES = mapOf("BURTHORPE" to Lodestone.BURTHOPE)
@@ -216,6 +218,7 @@ object WebLinks {
             if (link == null || !add(link)) skipped++
         }
         for (link in fairyRingLinks(document.fairyRings, requirements)) if (!add(link)) skipped++
+        for (link in portableRingLinks(document.fairyRings, requirements)) if (!add(link)) skipped++
 
         println(
             "[WebLinks] ${known.size} links (${teleports.size} teleports) over ${byTile.size} origin tiles" +
@@ -304,6 +307,24 @@ object WebLinks {
             }
         }
     }
+
+    /**
+     * A link from anywhere to every ring, dialled from the portable fairy ring. It lands where the ring's own link does,
+     * so no new destination is involved; opening the dial and the charge it spends cost a little more than a real ring.
+     */
+    private fun portableRingLinks(rings: List<RawRing>, requirements: Map<Int, WebRequirement>): List<WebLink> =
+        rings.filter { it.objectId >= 0 && !it.code.isNullOrBlank() }.distinctBy { it.code }.map { ring ->
+            WebLink(
+                kind = WebLinkKind.FAIRY_RING,
+                from = NOWHERE,
+                to = WebArea(ring.x - FAIRY_RING_REACH, ring.x + FAIRY_RING_REACH, ring.y - FAIRY_RING_REACH, ring.y + FAIRY_RING_REACH, ring.plane),
+                cost = (ring.costTiles.coerceAtLeast(1) + PORTABLE_RING_EXTRA_TILES) * WebPathfinder.STEP_COST,
+                action = PORTABLE_RING_ACTION,
+                objectId = ring.objectId,
+                searchRadius = FAIRY_RING_SEARCH,
+                requirements = ring.requirementIds.orEmpty().mapNotNull(requirements::get),
+            ).dialling(ring.code!!).fromPortableRing()
+        }
 
     /** Where a teleport is taken from: nowhere in particular, so it is never indexed by tile. */
     private val NOWHERE = WebArea(0, 0, 0, 0, -1)

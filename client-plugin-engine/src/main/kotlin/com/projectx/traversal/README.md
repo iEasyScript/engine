@@ -306,15 +306,28 @@ val state = Traversal.traversal(next = Banking(), finishedCondition = { localPla
 The `Traversal` is itself a `State<T>`. Control flow in `Traversal.kt` and `TraversalProcessor.kt` is:
 
 - `Traversal.checkNext()` returns `next` when `processor.process(script)` returns `false` (traversal finished). Otherwise it returns `null` to keep running current traversal.
-- `TraversalProcessor.process(script): Boolean` advances according to this exact logic:
-  - If `script.finishedCondition()` is `true` → return `false` (immediate transition to `next`).
-  - Else if `curr.reached(script)` is `true`:
-    - If `curr.next != null` → set `curr = curr.next!!`, return `true` (continue).
-    - Else → return `false` (no more nodes → transition).
-  - Else if `curr.process(script)` returns `true` → return `true` (stay on same node).
-  - Else (node signaled it cannot progress right now):
-    - If `curr.next != null` → set `curr = curr.next!!`, return `true` (early-advance to next node).
-    - Else → return `false` (no next node → transition).
+- `TraversalProcessor.process(script): Boolean` advances according to this logic:
+  - The finished condition fired → `false`, outcome `FINISHED`. The interrupt condition fired (see
+    `Traversal.interruptWhen`) → `false`, outcome `INTERRUPTED`.
+  - A node called `failTraversal(reason)` → `false`, outcome `FAILED`. A node called `requestTraversalRepath()` on a
+    traversal given `repathWith { ... }` → the rest of the list is replaced by the supplier's fresh one (at most 3 times).
+  - Built with a no-movement timeout and the player stood still that long on one node → `false`, outcome `TIMED_OUT`.
+  - When the player already stands on a later `WalkEquivalent` node's tiles and every node between is passable, the
+    traversal jumps to it.
+  - Up to 8 reached nodes are passed in one call; the last one reached → `false`, outcome `COMPLETED`.
+  - Else `curr.process(script)` returning `true` stays on the node; `false` moves on to `curr.next`, or ends with
+    outcome `STALLED` when there is none.
+- `Traversal.outcome` says which of these ended it. While a node blocks in a long wait it can end that wait early on
+  `traversalStopRequested()`, which polls the conditions every few hundred milliseconds.
+
+### Walking on the live map
+
+`PathNode` and `ChebychevNode` walk on the live collision map when it can be trusted: each click is the furthest
+route tile whose walking distance matches the route, never a blocked tile or one across a wall; they aim on through
+open doors and other passable `WalkEquivalent` nodes after them, hand over early to an `EarlyStart` node (a door can
+be opened from up to 5 steps), and notice within a couple of seconds when the way ahead cannot be walked. Elsewhere
+they click as before. `DoorNode` reads open or shut off the collision edge and fails the traversal on a locked door.
+`fairyRing(code)` and `portableFairyRing(code)` dial a ring from the web walker's measured ring list.
 
 Implications:
 - Node authors have two levers: `reached(script)` to mark completion, and `process(script)` to drive work. Returning `false` from `process` can be used to request an early hop to the next node even if `reached` is still `false`.
@@ -353,7 +366,7 @@ Tune these to globally alter click pacing and path smoothness without changing n
 ### Gotchas and best practices
 
 - `ObjectNode` and `IFSlotNode` default to not being "reached" unless you supply a `destination: Area` or a custom `reached`. Without that, they rely on the traversal’s `finishedCondition` or an early hop.
-- `DoorNode` considers arrival reached when the player stands exactly on the target tile (`distance == 0`). Provide a `reached` override if you want a tolerance.
+- `DoorNode` considers arrival reached on the target tile, or beside it and nearer it than the near side. Provide a `reached` override if you want a tolerance.
 - `TileExactNode` requires a `reached` predicate; it never completes by distance automatically.
 - `TraversalBuilder.build(...)` throws if no nodes were added.
 

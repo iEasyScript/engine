@@ -79,6 +79,17 @@ class TraversalBuilder<T : StateMachineScript<T>> {
     fun useItemOnObj(itemName: String, objectId: Int, searchRadius: Int = 20, reached: (() -> Boolean)? = null) = nodes.add(ItemOnObjectNode(itemName, objectId, objectSearchRadius = searchRadius, customReached = reached))
     fun useItemOnObj(itemId: Int, objectId: Int, searchRadius: Int = 20, reached: (() -> Boolean)? = null) = nodes.add(ItemOnObjectNode(itemId, objectId, objectSearchRadius = searchRadius, customReached = reached))
 
+    fun fairyRing(code: String, reached: (() -> Boolean)? = null) = nodes.add(FairyRingNode(code, false, reached))
+    fun portableFairyRing(code: String, reached: (() -> Boolean)? = null) = nodes.add(FairyRingNode(code, true, reached))
+
+    /** A traversal that also ends as [TraversalOutcome.TIMED_OUT] once the player stands still that long on one node. */
+    fun build(next: State<T>, finishedCondition: T.() -> Boolean, noMovementTimeoutMillis: Long): Traversal<T> {
+        require(nodes.isNotEmpty()) { "Traversal must contain at least one node" }
+        val nodeList = TraversalNodeList(nodes.first())
+        nodes.drop(1).forEach { nodeList.add(it) }
+        return Traversal(next, finishedCondition, nodeList, noMovementTimeoutMillis)
+    }
+
     fun build(next: State<T>, finishedCondition: T.() -> Boolean): Traversal<T> {
         require(nodes.isNotEmpty()) { "Traversal must contain at least one node" }
 

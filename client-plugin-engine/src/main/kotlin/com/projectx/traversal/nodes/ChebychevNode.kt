@@ -7,6 +7,9 @@ import com.projectx.script.Script
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.walkTo
 import com.projectx.traversal.TraversalNode
+import com.projectx.traversal.WalkEquivalent
+import com.projectx.traversal.walk.LiveRouteWalker
+import com.projectx.traversal.walk.NodeWalker
 import com.projectx.util.gaussian
 import com.projectx.util.random
 import kotlin.math.abs
@@ -19,10 +22,11 @@ class ChebychevNode(
     val end: List<Tile>,
     val fallBack: (() -> Boolean)? = null,
     val reached: (() -> Boolean)? = null
-) : TraversalNode() {
+) : TraversalNode(), WalkEquivalent {
     private var route: List<Tile>
     private var nextClick: Long = 0
     private var maxDistanceUsed: Int
+    private val walker = NodeWalker("ChebychevNode")
 
     init {
         this.maxDistanceUsed = random(
@@ -92,6 +96,13 @@ class ChebychevNode(
             return false
         }
 
+        when (walker.step(this, script, routeTiles(), maxDistanceUsed * 2) { reached(script) || traversalStopRequested() }) {
+            LiveRouteWalker.Step.CONTINUE -> return true
+            LiveRouteWalker.Step.ADVANCE -> return false
+            LiveRouteWalker.Step.STUCK -> if (requestTraversalRepath()) return true
+            LiveRouteWalker.Step.FALLBACK -> {}
+        }
+
         if (System.currentTimeMillis() > nextClick) {
             val clickTile = getNextClickPoint()
             if (clickTile == null) {
@@ -102,7 +113,7 @@ class ChebychevNode(
             nextClick = System.currentTimeMillis() + gaussian(
                 PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2
             )
-            script.delayUntil(8000) { clickTile.getDistance(localPlayer.tile) < 6 }
+            script.delayUntil(8000) { traversalStopRequested() || clickTile.getDistance(localPlayer.tile) < 6 }
         }
         return true
     }
@@ -126,6 +137,10 @@ class ChebychevNode(
 
     override fun reached(script: Script): Boolean =
         reached?.invoke() == true || Bootstrap.client.loggedInPlayer.self.tile.getDistance(end.last()) <= 5
+
+    override fun routeTiles(): List<Tile> = NodeWalker.densify(route)
+
+    override fun passableNow(): Boolean = true
 
     override fun copy(): TraversalNode = ChebychevNode(start, end).also {
         it.maxDistanceUsed = this.maxDistanceUsed

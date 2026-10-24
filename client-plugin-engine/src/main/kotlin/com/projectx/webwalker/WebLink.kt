@@ -211,10 +211,16 @@ data class WebLink(
 
     fun dialling(code: String): WebLink = also { it.fairyCode = code.lowercase() }
 
-    val isGlobal: Boolean get() = kind.isGlobal
+    /** A [WebLinkKind.FAIRY_RING] link dialled from the portable fairy ring, so taken from anywhere. */
+    var portable: Boolean = false
+        private set
+
+    fun fromPortableRing(): WebLink = also { it.portable = true }
+
+    val isGlobal: Boolean get() = kind.isGlobal || portable
 
     private val identity: List<Any?>
-        get() = listOf(kind, from, to, cost, action, objectId, searchRadius, requirements, choice, chain, target, menu, lodestone, fairyCode)
+        get() = listOf(kind, from, to, cost, action, objectId, searchRadius, requirements, choice, chain, target, menu, lodestone, fairyCode, portable)
 
     override fun equals(other: Any?): Boolean = this === other || other is WebLink && identity == other.identity
 
@@ -223,7 +229,7 @@ data class WebLink(
     override fun toString(): String {
         val what = when (kind) {
             WebLinkKind.LODESTONE -> "${lodestone?.name}"
-            WebLinkKind.FAIRY_RING -> "$action $objectId to ${fairyCode?.uppercase()}"
+            WebLinkKind.FAIRY_RING -> if (portable) "portable ring to ${fairyCode?.uppercase()}" else "$action $objectId to ${fairyCode?.uppercase()}"
             WebLinkKind.NPC, WebLinkKind.ITEM -> "$action $target"
             WebLinkKind.POA -> "$action $target, ${menu.joinToString(" > ")}"
             WebLinkKind.USE_ON -> "$target on $objectId"

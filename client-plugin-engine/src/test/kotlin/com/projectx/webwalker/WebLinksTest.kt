@@ -215,4 +215,21 @@ class WebLinksTest {
             }
         }
     }
+
+    @Test
+    fun `every fairy ring can be dialled from the portable ring, landing where the ring itself does`() {
+        val portable = WebLinks.globals.filter { it.portable }
+        assertTrue(portable.isNotEmpty(), "no portable fairy ring links")
+        val ringLandings = WebLinks.all.filter { it.kind == WebLinkKind.FAIRY_RING && !it.portable }.map { it.to to it.fairyCode }.toSet()
+        for (link in portable) {
+            assertTrue(link.isGlobal, "$link is not a teleport")
+            assertTrue(link.to to link.fairyCode in ringLandings, "$link lands somewhere no ring does")
+        }
+    }
+
+    @Test
+    fun `a locked door is the same edge from either side`() {
+        assertEquals(WebPathfinder.doorEdge(3200, 3200, 0, 2), WebPathfinder.doorEdge(3201, 3200, 0, 0))
+        assertNotEquals(WebPathfinder.doorEdge(3200, 3200, 0, 2), WebPathfinder.doorEdge(3200, 3200, 0, 1))
+    }
 }

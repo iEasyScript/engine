@@ -52,6 +52,20 @@ internal class WebPathfinder(
         permissions: WebLinkPermissions,
         teleports: Boolean,
         excluded: Set<WebLink>,
+    ): WebWalkResult = find(startX, startY, startPlane, destX, destY, destPlane, arriveDistance, permissions, teleports, excluded, emptySet())
+
+    fun find(
+        startX: Int,
+        startY: Int,
+        startPlane: Int,
+        destX: Int,
+        destY: Int,
+        destPlane: Int,
+        arriveDistance: Int,
+        permissions: WebLinkPermissions,
+        teleports: Boolean,
+        excluded: Set<WebLink>,
+        lockedDoors: Set<Long>,
     ): WebWalkResult {
         val tolerance = arriveDistance.coerceAtLeast(0)
         if (!squareExists(startX, startY, startPlane)) {
@@ -104,6 +118,7 @@ internal class WebPathfinder(
                 var door = false
                 if (!validator.canTravel(plane, x, y, DX[dir], DY[dir], extraFlag = 0)) {
                     if (dir >= CARDINALS || !doorBetween(x, y, nx, ny, plane, dir)) continue
+                    if (lockedDoors.isNotEmpty() && doorEdge(x, y, plane, dir) in lockedDoors) continue
                     door = true
                 }
 
@@ -316,6 +331,15 @@ internal class WebPathfinder(
         fun tileY(key: Int): Int = key and 0x3FFF
 
         fun tilePlane(key: Int): Int = (key ushr 28) and 0x3
+
+        /** The wall side between ([x], [y]) and its neighbour in cardinal [dir], the same from either tile. */
+        fun doorEdge(x: Int, y: Int, plane: Int, dir: Int): Long {
+            val nx = x + DX[dir]
+            val ny = y + DY[dir]
+            val a = key(x, y, plane).toLong()
+            val b = key(nx, ny, plane).toLong()
+            return if (a < b) (a shl 32) or b else (b shl 32) or a
+        }
     }
 }
 
