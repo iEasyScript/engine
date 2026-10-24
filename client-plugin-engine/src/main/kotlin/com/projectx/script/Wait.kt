@@ -401,6 +401,11 @@ sealed class Wait {
         fun openNearestBank(bankPin: String? = null, onResult: Consumer<Boolean>? = null): Wait =
             call(onResult) { this.openNearestBank(bankPin) }
 
+        /** Fill the ore box from the backpack; [onResult] gets whether any ore moved. Kotlin: `fillOreBox`. */
+        @JvmStatic
+        @JvmOverloads
+        fun fillOreBox(onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.fillOreBox() }
+
         // ---- Make-X and smithing ----
 
         /** The pause a player takes before reacting to the Make-X window. Kotlin: `makeXReaction`. */
