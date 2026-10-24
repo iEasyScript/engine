@@ -83,10 +83,10 @@ object Entitlements {
 
     private fun home(): Path = Path.of(System.getProperty("user.home"), ".projectx")
 
-    private fun storeBase(): String =
+    internal fun storeBase(): String =
         System.getenv("PROJECTX_STORE_URL")?.takeIf { it.isNotBlank() } ?: "https://xclient.dev"
 
-    private fun token(): String? = runCatching {
+    internal fun token(): String? = runCatching {
         val file = home().resolve("store-token.json")
         if (!Files.exists(file)) return null
         JsonParser.parseString(Files.readString(file)).asJsonObject.get("token")?.asString

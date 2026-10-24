@@ -2,6 +2,10 @@ package com.projectx.webwalker
 
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.pathfinder.LiveWalkMap
+import com.projectx.pathfinder.navpath.HostedPlanner
+import com.projectx.pathfinder.navpath.NavProfile
+import com.projectx.pathfinder.navpath.NavRequest
+import com.projectx.pathfinder.navpath.Navpath
 import com.projectx.profiling.PlayerProfiles
 import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
@@ -101,6 +105,14 @@ object WebWalker {
     @Volatile
     var useAccelerationPotion: Boolean = true
 
+    /**
+     * Whether routes are planned on the hosted planner first, with the local planner as the fallback whenever it is
+     * unreachable, refuses the store token or answers with something this walker cannot take. On by default; off with
+     * `-Dprojectx.navpath=local`, or set false here to plan locally only.
+     */
+    @Volatile
+    var useHostedPlanner: Boolean = System.getProperty("projectx.navpath") != "local"
+
     // A movement ability hops at most ten tiles; Surge only ever goes its full distance, so it needs a straight run
     // that long, and the character must already face that way, which three steps walked in it settle.
     private const val ABILITY_REACH = 10
@@ -153,13 +165,20 @@ object WebWalker {
         teleports: Boolean,
         excluded: Set<WebLink>,
         lockedDoors: Set<Long> = emptySet(),
+        hostedAllowed: Boolean = true,
     ): WebWalkResult {
         // Requirements read varbits, levels, the money pouch and what is carried, which may only be touched here on
         // the game thread; the planner runs on its own thread and consults the snapshot instead.
         val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
+        val request = if (hostedAllowed && useHostedPlanner && !Navpath.planner.resting() && from.x < INSTANCE_MIN_X && destination.x < INSTANCE_MIN_X) {
+            runCatching { NavProfile.request(from, destination, teleports, useItemTeleports, useMovementAbilities) }.getOrNull()
+        } else {
+            null
+        }
         val future = CompletableFuture.supplyAsync(
             {
-                plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded, lockedDoors)
+                hosted(request, teleports)
+                    ?: plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded, lockedDoors)
             },
             planner,
         )
@@ -220,7 +239,8 @@ object WebWalker {
 
             if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
-                val planned = findPath(script, me, destination, arrive, useLodestones, setAside, lockedDoors)
+                // A link set aside or a locked door is something only the local planner can route around.
+                val planned = findPath(script, me, destination, arrive, useLodestones, setAside, lockedDoors, setAside.size == keptBack && lockedDoors.isEmpty())
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
                 path = planned.path!!
                 stalls = 0
@@ -409,6 +429,15 @@ object WebWalker {
         return me.plane == destination.plane && chebyshev(me.x, me.y, destination.x, destination.y) <= arrive
     }
 
+    /** The hosted planner's route, or null when the local planner should plan instead. */
+    private fun hosted(request: NavRequest?, teleports: Boolean): WebWalkResult? {
+        request ?: return null
+        return when (val outcome = runCatching { Navpath.planner.plan(request, teleports) }.getOrNull()) {
+            is HostedPlanner.Outcome.Planned -> WebWalkResult(WebWalkStatus.PATH_FOUND, "Route found by the hosted planner", outcome.path)
+            else -> null
+        }
+    }
+
     private fun plan(
         startX: Int,
         startY: Int,
@@ -467,6 +496,16 @@ object WebWalker {
             if (me != approach && me.plane == approach.plane && !localPlayer.isMoving) {
                 walkTo(approach, false)
                 script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { localPlayer.tile == approach }
+            }
+        }
+
+        if (link.kind == WebLinkKind.DOOR && !link.isGlobal) {
+            val approach = path.tile(index - 1)
+            val landing = path.tile(index)
+            if (LiveWalkMap.passage(approach, landing, DOOR_PASSAGE_STEPS) == true) {
+                walkTo(landing, false)
+                script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { arrivedVia(link, 0) }
+                return arrivedVia(link, 0)
             }
         }
 

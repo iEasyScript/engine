@@ -284,7 +284,7 @@ object WebLinks {
         else -> null
     }
 
-    private fun lodestoneNamed(name: String?): Lodestone? {
+    internal fun lodestoneNamed(name: String?): Lodestone? {
         val key = name?.trim()?.uppercase() ?: return null
         return LODESTONE_ALIASES[key] ?: Lodestone.entries.firstOrNull { it.name == key }
     }

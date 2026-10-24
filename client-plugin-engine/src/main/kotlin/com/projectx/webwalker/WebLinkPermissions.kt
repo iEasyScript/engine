@@ -162,6 +162,17 @@ class WebLinkPermissions private constructor(
 
         private val carriedIds = ConcurrentHashMap<String, Set<Int>>()
 
+        internal val skillFlags: Set<String> get() = SKILLS.keys
+
+        internal fun skillLevel(key: String): Int? = runCatching { SKILLS[key]?.let(::getRealLevel) }.getOrNull()
+
+        /** Every opaque item flag this engine can evaluate. */
+        internal val itemFlags: Set<String> get() = CARRIED.keys + BY_NAME.keys + BY_NAME_PREFIX.keys
+
+        /** The value of an opaque item flag for what is carried, or null when it is not one. */
+        internal fun itemFlag(key: String, backpack: List<Item>, worn: List<Item>): Int? =
+            runCatching { carriedValue(key, backpack, worn) ?: namedValue(key, backpack) }.getOrNull()
+
         private fun carriedValue(key: String, backpack: List<Item>, worn: List<Item>): Int? {
             val carried = CARRIED[key] ?: return null
             val ids = carriedIds.getOrPut(key) {
