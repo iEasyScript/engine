@@ -27,16 +27,23 @@ object XpOverlay {
     @ImGUIRender(priority = Priority.LOW)
     fun render() {
         try {
-            if (!UIState.xpOverlayEnabled.value || Bootstrap.client.mainState != MainState.LOGGED_IN) return
+            val shown = UIState.xpOverlayEnabled.value
+            if (shown == XpOverlayPreference.hidden) XpOverlayPreference.save(!shown)
+            if (!shown || Bootstrap.client.mainState != MainState.LOGGED_IN) return
             val rows = UIState.xpData
                 .filterValues { it.second > 0 }
                 .map { (skill, data) -> Row(skill, data.first, data.second) }
                 .sortedByDescending { it.gained }
-            ImGuiDsl.window(TITLE, WindowFlags.AlwaysAutoResize) { draw(rows) }
+            ImGuiDsl.window(TITLE, WindowFlags.AlwaysAutoResize, open = true, onOpenChange = { if (!it) close() }) { draw(rows) }
         } catch (t: Throwable) {
             println("Error in XP overlay: ${t.message}")
             t.printStackTrace()
         }
+    }
+
+    // "Show experience over the game" on the Experience screen brings it back.
+    private fun close() {
+        UIState.xpOverlayEnabled.value = false
     }
 
     private class Row(val skill: Skill, val startMillis: Long, val gained: Int)
