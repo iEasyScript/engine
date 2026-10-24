@@ -65,17 +65,20 @@ suspend fun Script.openNearestBank(bankPin: String? = null): Boolean {
     if (bankOpen) return true
     if (openBankInReach(bankPin)) return true
     val site = findNearestBank() ?: return false
-    if (!webWalk(site.tile, BANK_ARRIVE_DISTANCE).isSuccess) return false
-    return openBankInReach(bankPin)
+    val walk = webWalk(site.tile, BANK_ARRIVE_DISTANCE)
+    // A walk that stops a few tiles short usually still has the bank in reach.
+    if (openBankInReach(bankPin)) return true
+    if (!walk.isSuccess) println("[Banks] Could not reach $site: $walk")
+    return false
 }
 
 private suspend fun Script.openBankInReach(bankPin: String?): Boolean {
     if (!openClosestBank(checkReachable = true, range = BANK_REACH)) return false
-    delayUntil(gaussian(6000L, 1200L)) { bankOpen || BankPin.isOpen }
+    delayUntil(gaussian(6000L, 1_440_000L)) { bankOpen || BankPin.isOpen }
     if (BankPin.isOpen) {
-        if (bankPin == null) delayUntil(gaussian(90_000L, 10_000L)) { !BankPin.isOpen }
+        if (bankPin == null) delayUntil(gaussian(90_000L, 100_000_000L)) { !BankPin.isOpen }
         else if (!enterBankPin(bankPin)) return false
-        delayUntil(gaussian(3000L, 700L)) { bankOpen }
+        delayUntil(gaussian(3000L, 490_000L)) { bankOpen }
     }
     return bankOpen
 }
