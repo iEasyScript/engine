@@ -1,7 +1,9 @@
 package com.projectx.script.api
 
+import com.projectx.game.interfaces.Bank.Companion.doBankInventoryAction
 import com.projectx.script.Script
 import com.projectx.util.gaussian
+import world.gregs.voidps.cache.Cache
 import world.gregs.voidps.type.Tile
 import kotlin.math.abs
 import kotlin.math.max
@@ -45,6 +47,11 @@ object Banks {
 private const val ROUTES_COMPARED = 3
 private const val BANK_ARRIVE_DISTANCE = 4
 private const val BANK_REACH = 15
+private const val ACROSS_COUNTER = 4
+private const val FIRST_BANK_SIDE_OP = 8
+
+/** The params holding an item's own bank-side options, in the order the bank's backpack offers them. */
+private val BANK_SIDE_OPTION_PARAMS = intArrayOf(1264, 1265)
 
 /**
  * The bank in [Banks] the shortest walk away, comparing routes to the few nearest as the crow flies, or null when
@@ -73,7 +80,8 @@ suspend fun Script.openNearestBank(bankPin: String? = null): Boolean {
 }
 
 private suspend fun Script.openBankInReach(bankPin: String?): Boolean {
-    if (!openClosestBank(checkReachable = true, range = BANK_REACH)) return false
+    // Bankers behind a counter, as at the Grand Exchange, can't be walked up to but are banked with across it.
+    if (!openClosestBank(checkReachable = true, range = BANK_REACH) && !openClosestBank(range = ACROSS_COUNTER)) return false
     delayUntil(gaussian(6000L, 1_440_000L)) { bankOpen || BankPin.isOpen }
     if (BankPin.isOpen) {
         if (bankPin == null) delayUntil(gaussian(90_000L, 100_000_000L)) { !BankPin.isOpen }
@@ -81,4 +89,15 @@ private suspend fun Script.openBankInReach(bankPin: String?): Boolean {
         delayUntil(gaussian(3000L, 490_000L)) { bankOpen }
     }
     return bankOpen
+}
+
+/**
+ * Clicks one of [itemId]'s own bank-side options, such as an essence pouch's "Fill" or an ore box's "Empty - ore", in
+ * the open bank's backpack. False when the bank isn't open, the item isn't in the backpack or it has no such option.
+ */
+fun bankInventoryOption(itemId: Int, option: String): Boolean {
+    if (!bankOpen) return false
+    val params = Cache.obj(itemId)?.params ?: return false
+    val index = BANK_SIDE_OPTION_PARAMS.indexOfFirst { params[it] == option }
+    return index >= 0 && doBankInventoryAction(itemId, FIRST_BANK_SIDE_OP + index)
 }
