@@ -6,7 +6,7 @@ import org.projectx.core.net.prot.ProtSize
 internal fun Codec.registerRev951ServerProtStubs() {
     s(0, "UNKNOWN_0", 4)
     s(1, "UNKNOWN_1", 10)
-    s(2, "UNKNOWN_2", -2)
+    s(2, "REBUILD_REGION", -2)
     s(3, "UNKNOWN_3", -2)
     s(4, "UNKNOWN_4", 3)
     s(5, "UNKNOWN_5", -2)

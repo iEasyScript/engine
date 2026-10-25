@@ -13,7 +13,7 @@ object RebuildRegionMap {
 
     // A major update re-scrambles the field order inside every packet, so the layout below is only trusted on the
     // revisions it has been checked against; elsewhere the instance map stays empty rather than filling with garbage.
-    private val LAYOUT_VERIFIED = setOf(950)
+    private val LAYOUT_VERIFIED = setOf(950, 951)
 
     // Looked up by name in the client's own protocol, so a game update cannot leave it on a stale opcode.
     private val rebuildRegion: Int? by lazy { opcodeFor(ClientProtocol.revision) }
