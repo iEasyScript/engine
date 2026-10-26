@@ -1,4 +1,6 @@
 use crate::config::ServerMode;
+#[cfg(target_os = "linux")]
+use crate::game::gpu;
 use crate::game::renderer::Renderer;
 use anyhow::{Context, Result};
 use std::path::Path;
@@ -142,6 +144,9 @@ pub fn launch_rs3(
                 cmd.env("LD_LIBRARY_PATH", value);
             }
         }
+
+        #[cfg(target_os = "linux")]
+        gpu::apply_launch_env(&mut cmd);
     }
     #[cfg(not(unix))]
     let _ = data_dir_str;
