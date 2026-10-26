@@ -1211,7 +1211,12 @@ fun drinkAdrenPot() = !Effect.ADRENALINE_POTION_PREVENTION.active && inventory.c
 )
 
 fun drinkPrayerPot() = inventory.clickItem(Regex(".*prayer potion.*", RegexOption.IGNORE_CASE), 1)
-fun eatFood() = castAbility(Ability.EAT_FOOD)
+/** Pieces of food in the backpack: everything with an Eat option, which is what the action bar's Eat Food eats. */
+val foodInBackpack: Int
+    get() = inventory.filter { it.getDef().containsOption("Eat") }.sumOf { it.amount }
+
+/** Eats with the action bar's Eat Food; false, without pressing it, when the backpack has no food left. */
+fun eatFood() = foodInBackpack > 0 && castAbility(Ability.EAT_FOOD)
 
 /**
  * Instance wrapper
