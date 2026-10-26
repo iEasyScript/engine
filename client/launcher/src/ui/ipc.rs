@@ -14,6 +14,7 @@ use crate::auth::user::get_accounts;
 use crate::config::{Config, Credentials, Paths, PluginsConfig, SavedSession, ServerMode};
 use crate::game::control::ClientStatus;
 use crate::game::process::{host_os_dir, launcher_binary_name, LaunchParams, PatchEnv};
+use crate::game::renderer::{note_vulkan_launch_crash, Renderer, RendererPref};
 use crate::game::rs3::{with_host_binary_type, JS5_RSA_PARAM, LOGIN_RSA_PARAM};
 use crate::plugins::{self, Catalog, PluginChannel, PluginsSnapshot, CHANNELS};
 use crate::store;
@@ -340,6 +341,7 @@ fn do_launch_live(
     reporter: &LaunchReporter,
     binary: &Path,
     config_uri: &str,
+    opengl_fallback_uri: Option<String>,
     params: &LaunchParams,
     data_dir: &Path,
     deps_dir: &Path,
@@ -349,10 +351,12 @@ fn do_launch_live(
     close_after: bool,
 ) {
     let mut attempt = 1;
+    let mut config_uri = config_uri.to_string();
+    let mut opengl_fallback_uri = opengl_fallback_uri;
     loop {
         let pid = match crate::game::process::launch_rs3(
             binary,
-            config_uri,
+            &config_uri,
             Some(params),
             data_dir,
             deps_dir,
@@ -376,13 +380,20 @@ fn do_launch_live(
                     pid,
                     code
                 );
-                reporter.status("The RuneScape launcher crashed while updating the client; trying again...");
                 attempt += 1;
+                if let Some(fallback) = opengl_fallback_uri.take() {
+                    log::warn!("Switching to the OpenGL client after the Vulkan start crashed");
+                    note_vulkan_launch_crash(data_dir);
+                    config_uri = fallback;
+                    reporter.status("The RuneScape launcher crashed starting the Vulkan client; trying OpenGL...");
+                    continue;
+                }
+                reporter.status("The RuneScape launcher crashed while updating the client; trying again...");
                 continue;
             }
         }
         #[cfg(not(windows))]
-        let _ = attempt;
+        let _ = (attempt, &mut config_uri, &mut opengl_fallback_uri);
 
         return finish_launch(reporter, pid, auto_inject, close_after);
     }
@@ -1369,9 +1380,12 @@ impl IpcState {
                 renderer_pref,
                 crate::engine::resolved_home().as_deref(),
                 auto_inject,
+                &paths.data_dir,
             );
             log::info!("Launching the {} client (binaryType selects the build).", renderer);
             let config_uri = with_host_binary_type(&base_config_uri, renderer);
+            let opengl_fallback_uri = (renderer == Renderer::Vulkan && renderer_pref == RendererPref::Auto)
+                .then(|| with_host_binary_type(&base_config_uri, Renderer::OpenGl));
 
             reporter.status("Launching game...");
             let params = LaunchParams {
@@ -1383,6 +1397,7 @@ impl IpcState {
                 &reporter,
                 &paths.rs3_binary,
                 &config_uri,
+                opengl_fallback_uri,
                 &params,
                 &paths.data_dir,
                 &paths.data_dir,
@@ -1420,6 +1435,7 @@ impl IpcState {
             config.renderer,
             crate::engine::resolved_home().as_deref(),
             auto_inject,
+            &self.paths.data_dir,
         );
         log::info!("Launching the {} client (binaryType selects the build).", renderer);
         let config_uri = with_host_binary_type(
