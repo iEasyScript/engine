@@ -1,5 +1,9 @@
 package com.projectx.script.api
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
 import com.projectx.ui.backend.dsl.ImGuiDsl
 import com.projectx.ui.backend.dsl.scopes.LayoutScope
 import com.projectx.ui.backend.dsl.scopes.progressBar
@@ -7,6 +11,9 @@ import com.projectx.ui.backend.dsl.scopes.readout
 import com.projectx.ui.backend.dsl.scopes.text
 import com.projectx.ui.backend.dsl.scopes.valueRow
 import com.projectx.ui.backend.flags.WindowFlags
+import com.projectx.ui.compose.components.Hint
+import com.projectx.ui.compose.components.ProgressBar
+import com.projectx.ui.compose.components.Readout
 import com.projectx.util.format
 import com.projectx.util.formatElapsedTime
 import com.projectx.util.getLevelForXp
@@ -17,8 +24,9 @@ import java.util.concurrent.CopyOnWriteArrayList
 
 /**
  * Experience and progress for a skilling script's overlay: XP gained and per hour, levels gained, time to the next
- * level, runtime, and any counts the script reports with [add]. Create one per run and call [window] from
- * `render()`, or [draw] inside a window of your own.
+ * level, runtime, and any counts the script reports with [add]. Create one per run. In a `ComposePanel`, read it on
+ * the game thread with `live { tracker.snapshot() }` and show that with [SkillTrackerReadout]; from `render()`, call
+ * [window], or [draw] inside a window of your own.
  *
  * Timing starts the first time it is drawn or read while logged in, so a tracker made before login still measures
  * from the right experience. With no [skills] given it shows every skill that has gained experience.
@@ -83,6 +91,22 @@ class SkillTracker(vararg skills: Skill) {
         return if (elapsed < 1000) 0 else (amount * MILLIS_PER_HOUR / elapsed).toInt()
     }
 
+    /** Everything the tracker shows, read now. Call it on the game thread, e.g. from `live`, never inside `Panel()`. */
+    fun snapshot(): SkillTrackerSnapshot {
+        if (!started()) return SkillTrackerSnapshot()
+        val shown = skills.map { skill ->
+            val xp = getXp(skill)
+            val level = getLevelForXp(xp)
+            val fraction = if (level >= MAX_LEVEL) -1f else {
+                val floor = getXpForLevel(level)
+                (xp - floor).toFloat() / (getXpForLevel(level + 1) - floor)
+            }
+            SkillProgress(skill, skill.label, level, levelsGained(skill), xpGained(skill), xpPerHour(skill), millisToLevel(skill), fraction)
+        }
+        val reported = countOrder.map { CountProgress(it, countOf(it), countPerHour(it)) }
+        return SkillTrackerSnapshot(true, runtimeMillis, shown, reported)
+    }
+
     /** Draws the tracker into [scope]. */
     fun draw(scope: LayoutScope) {
         if (!started()) return scope.text("Waiting for login")
@@ -120,5 +144,50 @@ class SkillTracker(vararg skills: Skill) {
     private companion object {
         const val MAX_LEVEL = 120
         const val MILLIS_PER_HOUR = 3_600_000L
+    }
+}
+
+/** One reading of a [SkillTracker], safe to show from a Compose panel. */
+data class SkillTrackerSnapshot(
+    val started: Boolean = false,
+    val runtimeMillis: Long = 0L,
+    val skills: List<SkillProgress> = emptyList(),
+    val counts: List<CountProgress> = emptyList(),
+)
+
+/** One skill's progress; [fractionToLevel] is how far through the current level, or -1 at level 120. */
+data class SkillProgress(
+    val skill: Skill,
+    val label: String,
+    val level: Int,
+    val levelsGained: Int,
+    val xpGained: Int,
+    val xpPerHour: Int,
+    val millisToLevel: Long,
+    val fractionToLevel: Float,
+)
+
+data class CountProgress(val name: String, val count: Int, val perHour: Int)
+
+/** The [SkillTracker] readout for a `ComposePanel`: runtime, levels, XP and its rate, counts, and level progress bars. */
+@Composable
+fun SkillTrackerReadout(snapshot: SkillTrackerSnapshot) {
+    if (!snapshot.started) return Hint("Waiting for login")
+    Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+        val rows = buildList {
+            add("Runtime" to formatElapsedTime(snapshot.runtimeMillis, 0))
+            for (s in snapshot.skills) {
+                add(s.label to if (s.levelsGained > 0) "Level ${s.level} (+${s.levelsGained})" else "Level ${s.level}")
+                add("XP gained" to "${format(s.xpGained)} (${format(s.xpPerHour)}/hr)")
+                if (s.millisToLevel >= 0) add("Level ${s.level + 1} in" to formatElapsedTime(s.millisToLevel, 0))
+            }
+            for (c in snapshot.counts) add(c.name to "${format(c.count)} (${format(c.perHour)}/hr)")
+        }
+        Readout(rows)
+        if (snapshot.skills.isEmpty()) Hint("Waiting for experience")
+        for (s in snapshot.skills) {
+            if (s.fractionToLevel < 0f) continue
+            ProgressBar(s.fractionToLevel, "${s.label} ${(s.fractionToLevel * 100).toInt()}% to ${s.level + 1}")
+        }
     }
 }
