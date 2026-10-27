@@ -163,6 +163,8 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     }
 
     private suspend fun awaitLeg(script: Script, click: Tile, route: List<Tile>, done: () -> Boolean) {
+        // Always yields once: a condition that is already true would otherwise loop step() inside one game tick.
+        script.delay(POLL_MS.toInt())
         script.delayUntil(LEG_TIMEOUT_MS, POLL_MS.toInt()) {
             val tile = localPlayer.tile
             track(tile)
@@ -179,16 +181,19 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     private fun hopDue(): Boolean {
         if (pendingKind != null || !surgeEnabled && !diveEnabled) return false
         val now = System.currentTimeMillis()
-        if (now < nextAbilityCheck || now < hopHoldUntil) return false
+        if (now < nextAbilityCheck || now < hopHoldUntil || hopHeld(localPlayer.tile, now)) return false
         return surgeEnabled && actionbarAbilities[Ability.SURGE.type] != null && usable(Ability.SURGE, surge = true) ||
             diveEnabled && diveAbility?.let { usable(it, surge = false) } == true
     }
 
+    /** Just landed from a teleport, or a hop from here just missed: [castAlongRoute] won't hop, so nothing may wait on one. */
+    private fun hopHeld(player: Tile, now: Long) =
+        now - LiveWalkMap.lastTeleportAt < LANDED_HOLD_MS || player == missedFrom && now - missedAt < MISSED_RETRY_MS
+
     private fun castAlongRoute(route: List<Tile>, nearest: Int, player: Tile): Boolean {
         if (!surgeEnabled && !diveEnabled || pendingKind != null) return false
         val now = System.currentTimeMillis()
-        if (now - LiveWalkMap.lastTeleportAt < LANDED_HOLD_MS) return false
-        if (player == missedFrom && now - missedAt < MISSED_RETRY_MS) return false
+        if (hopHeld(player, now)) return false
         if (now < nextAbilityCheck || now < hopHoldUntil) return false
         val boosted = burstActive()
         nextAbilityCheck = now + if (boosted) BOOSTED_CHECK_MS else ABILITY_CHECK_MS
