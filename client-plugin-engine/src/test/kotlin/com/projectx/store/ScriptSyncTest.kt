@@ -150,4 +150,26 @@ class ScriptSyncTest {
         assertTrue(installed.isEmpty())
         assertEquals(null, lastAuth)
     }
+
+    @Test
+    fun aCommunityScriptOwnedWithoutTheCommunityJarNeedsIt() {
+        assertTrue(ScriptSync.needsCommunityJar(setOf("AIOWoodcutting"), listOf(gates()), emptySet()))
+    }
+
+    @Test
+    fun theCommunityJarIsNotFetchedWhenOneIsAlreadyInstalled() {
+        assertFalse(ScriptSync.needsCommunityJar(setOf("AIOWoodcutting"), listOf(gates()), setOf("community-scripts-1.8.12.jar")))
+    }
+
+    @Test
+    fun ownedScriptsWithTheirOwnJarsNeverFetchTheCommunityJar() {
+        assertFalse(ScriptSync.needsCommunityJar(setOf("GatesOfElidinis"), listOf(gates()), emptySet()))
+    }
+
+    @Test
+    fun onlyCommunityScriptJarsCountAsTheCommunityJar() {
+        assertTrue(ScriptSync.isCommunityJar("community-scripts-1.9.0.jar"))
+        assertFalse(ScriptSync.isCommunityJar("community-scripts.jar.part"))
+        assertFalse(ScriptSync.isCommunityJar("GatesOfElidinis-3.7.2.jar"))
+    }
 }
