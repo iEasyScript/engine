@@ -30,7 +30,12 @@ fun StoreRefusalBanner(refusal: StartRefusal) {
     val type = LocalType.current
     val access = refusal.access
     val confirmed = refusal.reason == Reason.CONFIRMED || refusal.reason == Reason.INSTANCE_READY
-    val accent = if (confirmed) Palette.running else Palette.stop
+    val checking = refusal.reason == Reason.INSTANCE_CHECKING
+    val accent = when {
+        confirmed -> Palette.running
+        checking -> Palette.amber
+        else -> Palette.stop
+    }
     val shape = RoundedCornerShape(10.dp)
     Row(
         Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 12.dp)
@@ -40,7 +45,11 @@ fun StoreRefusalBanner(refusal: StartRefusal) {
     ) {
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(4.dp)) {
             BasicText(
-                if (confirmed) "${refusal.script} is ready" else "${refusal.script} can't start",
+                when {
+                    confirmed -> "${refusal.script} is ready"
+                    checking -> "Starting ${refusal.script}..."
+                    else -> "${refusal.script} can't start"
+                },
                 style = type.heading.copy(color = accent),
             )
             BasicText(explanation(refusal), style = type.body)
@@ -63,7 +72,8 @@ private fun explanation(refusal: StartRefusal): String {
     return when (refusal.reason) {
         Reason.CONFIRMED -> "You have it now. Press Start again."
         Reason.INSTANCE_READY -> "This client has an instance now. Press Start again."
-        Reason.NO_INSTANCE -> "All your instances are in use (${Instances.used} of ${Instances.total}). Close another client, or add an instance on the website."
+        Reason.INSTANCE_CHECKING -> "Getting an instance for this client. It starts by itself in a moment."
+        Reason.NO_INSTANCE -> "All your instances are in use (${Instances.used} of ${Instances.total}). Stop the scripts on another client, or add an instance on the website."
         Reason.INSTANCE_SIGNED_OUT -> "Scripts need a Project X account. Sign in with Discord in the launcher's Store tab, then press Start again."
         Reason.INSTANCE_UNREACHABLE -> "Couldn't reach xclient.dev to check your instances. Press Start again in a moment."
         Reason.INSTANCE_STOPPED -> "This client was stopped from the website. Restart the client to run scripts on it again."

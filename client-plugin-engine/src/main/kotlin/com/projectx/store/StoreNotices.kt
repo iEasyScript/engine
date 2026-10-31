@@ -10,7 +10,7 @@ import com.projectx.ui.compose.GameThread
 data class StartRefusal(val script: String, val access: StoreAccess?, val reason: Reason) {
     enum class Reason {
         CHECKING, NOT_OWNED, SIGNED_OUT, UNREACHABLE, CONFIRMED, SIGN_IN_EXPIRED,
-        NO_INSTANCE, INSTANCE_SIGNED_OUT, INSTANCE_UNREACHABLE, INSTANCE_STOPPED, INSTANCE_READY,
+        NO_INSTANCE, INSTANCE_SIGNED_OUT, INSTANCE_UNREACHABLE, INSTANCE_STOPPED, INSTANCE_READY, INSTANCE_CHECKING,
     }
 }
 
