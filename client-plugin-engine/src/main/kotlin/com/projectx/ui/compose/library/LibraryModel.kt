@@ -46,6 +46,7 @@ object LibraryModel {
     var selectedId by mutableStateOf<String?>(null)
     var filter by mutableStateOf(LibraryFilter.All)
     var detailTab by mutableStateOf(DetailTab.Overview)
+    var sendingLogsFor by mutableStateOf<String?>(null)
     val search = OverlayText(maxLength = 40)
 
     private val categories = mutableMapOf<String, ScriptCategory>()

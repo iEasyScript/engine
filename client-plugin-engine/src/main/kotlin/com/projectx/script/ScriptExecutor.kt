@@ -1,6 +1,7 @@
 package com.projectx.script
 
 import com.projectx.store.Entitlements
+import com.projectx.store.ScriptLogExcerpt
 import com.projectx.game.input.InputArbiter
 import com.projectx.game.nxt.OffsetTable
 import com.projectx.game.bootstrap.Bootstrap
@@ -117,12 +118,18 @@ object ScriptExecutor {
         if (!Entitlements.mayStart(script)) return
         _activeScripts[script.javaClass.name] = script
         scriptStartTimes[script.javaClass.name] = System.currentTimeMillis()
+        val description = script.javaClass.getAnnotation(ScriptDescription::class.java)
+        println(ScriptLogExcerpt.startMarker(description?.name ?: script.javaClass.simpleName, description?.version ?: "?", script.javaClass.simpleName))
     }
 
     fun deactivate(script: Script) {
-        _activeScripts.remove(script.javaClass.name)
+        val wasRunning = _activeScripts.remove(script.javaClass.name) != null
         scriptStartTimes.remove(script.javaClass.name)
         if (pausingScript == script) pausingScript = null
+        if (wasRunning) {
+            val name = script.javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: script.javaClass.simpleName
+            println(ScriptLogExcerpt.stopMarker(name, script.javaClass.simpleName))
+        }
     }
 
     fun isScriptRunning(scriptClass: Class<*>): Boolean { return _activeScripts.containsKey(scriptClass.name) }

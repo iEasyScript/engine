@@ -197,7 +197,11 @@ private fun ScriptDetail(entry: LibraryEntry) {
             Spacer(Modifier.height(16.dp))
         }
         Box(Modifier.weight(1f).fillMaxWidth()) {
-            when (tab) {
+            if (LibraryModel.sendingLogsFor == entry.id) {
+                Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
+                    SendLogs(meta) { LibraryModel.sendingLogsFor = null }
+                }
+            } else when (tab) {
                 DetailTab.Overview -> Column {
                     BasicText("ABOUT", style = type.eyebrow)
                     Spacer(Modifier.height(6.dp))
@@ -238,6 +242,7 @@ private fun DetailActions(entry: LibraryEntry) {
             ActionButton("Start script", { ScriptActions.start(meta) }, tone = ButtonTone.Primary, icon = Glyph.Play, height = 42.dp, modifier = Modifier.width(170.dp))
         }
         Spacer(Modifier.weight(1f))
+        TextLink("Send logs") { LibraryModel.sendingLogsFor = entry.id }
         if (!entry.running) {
             TextLink("Remove from library") {
                 ScriptActions.removeFromLibrary(meta)
