@@ -51,6 +51,7 @@ AREA_ORDER = ("Overlay UI", "Overlay DSL", "Script calls", "Web walker", "Interf
 INTERNAL_TYPES = {
     "com.projectx.script.LiveValues",
     "com.projectx.script.api.NecromancyImprovise",
+    "com.projectx.store.Instances",
     "com.projectx.store.ProblemReports",
     "com.projectx.store.ScriptLogExcerpt",
     "com.projectx.webwalker.WebLinkActions",

@@ -1,6 +1,7 @@
 package com.projectx.script
 
 import com.projectx.store.Entitlements
+import com.projectx.store.Instances
 import com.projectx.store.ScriptLogExcerpt
 import com.projectx.game.input.InputArbiter
 import com.projectx.game.nxt.OffsetTable
@@ -115,7 +116,7 @@ object ScriptExecutor {
 
     // Stays Unit: the signature is shipped script API, so a refusal is simply not registering it.
     fun activate(script: Script) {
-        if (!Entitlements.mayStart(script)) return
+        if (!Instances.mayStart(script) || !Entitlements.mayStart(script)) return
         _activeScripts[script.javaClass.name] = script
         scriptStartTimes[script.javaClass.name] = System.currentTimeMillis()
         val description = script.javaClass.getAnnotation(ScriptDescription::class.java)

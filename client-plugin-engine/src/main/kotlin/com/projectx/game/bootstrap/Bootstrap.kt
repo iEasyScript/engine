@@ -17,6 +17,7 @@ import com.projectx.game.nxt.OffsetCoverage
 import com.projectx.markers.TileMarkerStore
 import com.projectx.mcp.McpServer
 import com.projectx.store.Entitlements
+import com.projectx.store.Instances
 import com.projectx.quest.data.QuestLibrary
 import com.projectx.quest.solver.registerExampleSolvers
 import com.projectx.script.ScriptExecutor
@@ -68,6 +69,7 @@ object Bootstrap {
             QuestLibrary.warm()
 
             Entitlements.start()
+            Instances.start()
             ScriptExecutor.loadScripts()
             println("[ok] loadScripts() completed. Found: ${ScriptExecutor.scripts.size} scripts")
 
@@ -138,6 +140,7 @@ object Bootstrap {
         runCatching { OverlayHost.dispose() }
         runCatching { ScriptExecutor.stopAll() }
         runCatching { ScriptExecutor.stopInternalTasks() }
+        runCatching { Instances.release() }
         runCatching { PacketLogger.close() }
         // 6. LAST: free every per-engine-load native allocation (hook upcall stubs, funchook slots,
         //    UI/DoAction buffers). Done only after hooks are off AND every engine thread/script is

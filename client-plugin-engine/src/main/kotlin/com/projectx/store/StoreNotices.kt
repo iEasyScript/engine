@@ -8,7 +8,10 @@ import com.projectx.ui.compose.GameThread
 
 /** A store script that was asked to start and could not, and what the store has said about it since. */
 data class StartRefusal(val script: String, val access: StoreAccess?, val reason: Reason) {
-    enum class Reason { CHECKING, NOT_OWNED, SIGNED_OUT, UNREACHABLE, CONFIRMED, SIGN_IN_EXPIRED }
+    enum class Reason {
+        CHECKING, NOT_OWNED, SIGNED_OUT, UNREACHABLE, CONFIRMED, SIGN_IN_EXPIRED,
+        NO_INSTANCE, INSTANCE_SIGNED_OUT, INSTANCE_UNREACHABLE, INSTANCE_STOPPED, INSTANCE_READY,
+    }
 }
 
 /**
