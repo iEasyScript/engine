@@ -62,6 +62,8 @@ class CombatSupplies @JvmOverloads constructor(
 
     private var lastEat = Long.MIN_VALUE / 2
     private var lastDrink = Long.MIN_VALUE / 2
+    private var lastExcalibur = Long.MIN_VALUE / 2
+    private var lastShard = Long.MIN_VALUE / 2
     private var lastTeleport = Long.MIN_VALUE / 2
     private var brewSips = 0
 
@@ -103,7 +105,8 @@ class CombatSupplies @JvmOverloads constructor(
         val wantsFood = food.reached(current, max)
         val wantsJellyfish = jellyfish.reached(current, max)
         val wantsBrew = healingPotion.reached(current, max)
-        var used = excalibur.reached(current, max) && activateExcalibur()
+        var used = excalibur.reached(current, max) && settled(lastExcalibur) && activateExcalibur()
+        if (used) lastExcalibur = currentTick()
 
         if (!(wantsFood || wantsJellyfish || wantsBrew)) return used
         if (stock(Kind.FOOD) + stock(Kind.JELLYFISH) + stock(Kind.BREW) == 0) return teleportOut("health") || used
@@ -137,7 +140,8 @@ class CombatSupplies @JvmOverloads constructor(
     private fun managePrayer(): Boolean {
         val current = prayerPoints
         val max = prayerMax.toInt()
-        var used = elvenShard.reached(current, max) && activateElvenShard()
+        var used = elvenShard.reached(current, max) && settled(lastShard) && activateElvenShard()
+        if (used) lastShard = currentTick()
 
         val restores = stock(Kind.PRAYER)
         if (brewSipsPerRestore > 0 && brewSips >= brewSipsPerRestore && restores > 0) {
@@ -225,6 +229,9 @@ class CombatSupplies @JvmOverloads constructor(
 
     private fun ready(last: Long) = currentTick() - last > INTERVAL_TICKS
 
+    // Its cooldown var only flips a tick or two after the click, so without a wait every pass would click it again.
+    private fun settled(last: Long) = currentTick() - last > ACTIVATE_SETTLE_TICKS
+
     private fun first(kind: Kind): Item? = supplies(kind).firstOrNull()
 
     private fun stock(kind: Kind): Int = supplies(kind).size
@@ -237,6 +244,7 @@ class CombatSupplies @JvmOverloads constructor(
 
     companion object {
         private const val INTERVAL_TICKS = 1
+        private const val ACTIVATE_SETTLE_TICKS = 3
         private const val TELEPORT_RETRY_TICKS = 10
         private const val MAX_BUFF_FAILURES = 5
         private const val WARS_RETREAT_TELEPORT = "War's Retreat Teleport"

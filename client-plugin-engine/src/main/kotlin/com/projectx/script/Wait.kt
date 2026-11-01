@@ -387,6 +387,21 @@ sealed class Wait {
         fun runWarsRetreatTrip(trip: WarsRetreatTrip, onResult: Consumer<Boolean>? = null): Wait =
             call(onResult) { this.runWarsRetreatTrip(trip) }
 
+        /** Reclaim items from Death's Office; [onResult] gets whether they were reclaimed. Kotlin: `reclaimFromDeath`. */
+        @JvmStatic
+        @JvmOverloads
+        fun reclaimFromDeath(onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.reclaimFromDeath() }
+
+        /** Step one tile toward ([x], [y]) so the player faces it; [onResult] gets whether the step landed. Kotlin: `faceTile`. */
+        @JvmStatic
+        @JvmOverloads
+        fun faceTile(x: Int, y: Int, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.faceTile(x, y) }
+
+        /** Face ([x], [y]), then Surge that way; [onResult] gets whether the player surged. Kotlin: `surgeToward`. */
+        @JvmStatic
+        @JvmOverloads
+        fun surgeToward(x: Int, y: Int, onResult: Consumer<Boolean>? = null): Wait = call(onResult) { this.surgeToward(x, y) }
+
         /** Enter [pin] on the bank PIN screen; [onResult] gets whether the screen closed. Kotlin: `enterBankPin`. */
         @JvmStatic
         @JvmOverloads

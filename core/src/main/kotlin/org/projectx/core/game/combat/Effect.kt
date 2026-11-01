@@ -55,7 +55,11 @@ enum class Effect(val structId: Int) {
     VENGEFUL_GHOST(48337),
     VENGEFUL_GHOST_HAUNT(1000),
     VULNERABILITY(14784),
-    WEAPON_SPECIAL_ATTACK(28430);
+    WEAPON_SPECIAL_ATTACK(28430),
+    // New entries go last so the shipped entries keep their ordinals.
+    BLOAT(48338),
+    HAUNTED(48344),
+    DEATH_MARK(48345);
 
     val type: EffectType get() = EffectRegistry[structId] ?: EffectType(structId)
     val isDebuff: Boolean get() = type.isDebuff

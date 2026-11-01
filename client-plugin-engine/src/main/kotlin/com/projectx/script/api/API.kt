@@ -1059,10 +1059,7 @@ val actionbarAbilities
 
 val channelingAbility get() = varps.getVar(3533) > 0
 
-fun castAbility(ability: Ability): Boolean {
-    println("Casting: $ability")
-    return actionbarAbilities[ability.type]?.click(1) == true
-}
+fun castAbility(ability: Ability): Boolean = actionbarAbilities[ability.type]?.click(1) == true
 
 suspend fun Script.castAndWaitForCd(ability: Ability, timeout: Long = 6200): Boolean {
     return if (ability.offCdIgnoreGCD && castAbility(ability)) {
@@ -1161,7 +1158,7 @@ fun dive(tile: Tile): Boolean {
     return false
 }
 
-val canUseProtectionPrayers = !Effect.PROTECTION_PRAYER_BLOCKED.active
+val canUseProtectionPrayers get() = !Effect.PROTECTION_PRAYER_BLOCKED.active
 
 val adrenaline get() = varps.getVar(679).toDouble() / 10.0
 

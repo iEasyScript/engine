@@ -1,11 +1,14 @@
 package com.projectx.script.api
 
 import java.util.function.BooleanSupplier
+import java.util.function.Supplier
 
 /**
  * Something that calls for a protection prayer: a projectile in flight, an NPC animation, or any condition. The
  * flicker switches to [prayer] [delayTicks] ticks after the threat appears and keeps it up until [durationTicks]
  * ticks after it is gone. When several threats are live, the highest [priority] wins.
+ *
+ * A [dynamic] threat picks its prayer each tick from [prayers]; [prayer] is then the first of them.
  */
 class PrayerThreat private constructor(
     val name: String,
@@ -13,9 +16,22 @@ class PrayerThreat private constructor(
     val priority: Int,
     val delayTicks: Int,
     val durationTicks: Int,
-    private val detect: () -> Boolean,
+    private val detect: () -> Prayer?,
     private val bypass: BooleanSupplier?,
+    /** Every prayer this threat may call for. */
+    val prayers: List<Prayer>,
 ) {
+    // The companion's call through this shape compiles to a synthetic constructor that shipped in the API jar.
+    private constructor(
+        name: String,
+        prayer: Prayer,
+        priority: Int,
+        delayTicks: Int,
+        durationTicks: Int,
+        detect: () -> Prayer?,
+        bypass: BooleanSupplier?,
+    ) : this(name, prayer, priority, delayTicks, durationTicks, detect, bypass, listOf(prayer))
+
     /** Outranks threats with a lower [priority] when both are live. */
     fun priority(priority: Int) = copy(priority = priority)
 
@@ -28,37 +44,93 @@ class PrayerThreat private constructor(
     /** Ignores the threat whenever [bypass] holds. */
     fun unless(bypass: BooleanSupplier) = copy(bypass = bypass)
 
-    internal fun present(): Boolean = detect() && bypass?.asBoolean != true
+    /** The prayer this threat calls for right now, or null while it is not live. */
+    fun currentPrayer(): Prayer? = detect()?.takeUnless { bypass?.asBoolean == true }
+
+    internal fun present(): Boolean = currentPrayer() != null
 
     private fun copy(
         priority: Int = this.priority,
         delayTicks: Int = this.delayTicks,
         durationTicks: Int = this.durationTicks,
         bypass: BooleanSupplier? = this.bypass,
-    ) = PrayerThreat(name, prayer, priority, delayTicks, durationTicks, detect, bypass)
+    ) = PrayerThreat(name, prayer, priority, delayTicks, durationTicks, detect, bypass, prayers)
 
     companion object {
         private const val DEFAULT_RANGE = 60
+
+        private fun fixed(name: String, prayer: Prayer, live: () -> Boolean) =
+            PrayerThreat(name, prayer, 0, 0, 0, { if (live()) prayer else null }, null)
+
+        private fun projectileLive(ids: Collection<Int>, range: Int, lockedOnPlayer: Boolean): Boolean {
+            val player = if (lockedOnPlayer) localPlayer else null
+            return projectiles.any {
+                it.id in ids &&
+                    (player == null || it.lockedOnto(player)) &&
+                    playerDistanceTo(it.tileX.toDouble(), it.tileY.toDouble()) <= range
+            }
+        }
 
         /** A projectile with id [projectileId] within [range] tiles of the player. */
         @JvmStatic
         @JvmOverloads
         fun projectile(name: String, prayer: Prayer, projectileId: Int, range: Int = DEFAULT_RANGE) =
-            PrayerThreat(name, prayer, 0, 0, 0, {
-                projectiles.any { it.id == projectileId && playerDistanceTo(it.tileX.toDouble(), it.tileY.toDouble()) <= range }
-            }, null)
+            fixed(name, prayer) { projectileLive(listOf(projectileId), range, lockedOnPlayer = false) }
+
+        /**
+         * A projectile with id [projectileId] within [range] tiles of the player; with [lockedOnPlayer], only one
+         * locked onto the player, so a projectile flying at someone else is not a threat.
+         */
+        @JvmStatic
+        fun projectile(name: String, prayer: Prayer, projectileId: Int, range: Int = DEFAULT_RANGE, lockedOnPlayer: Boolean) =
+            fixed(name, prayer) { projectileLive(listOf(projectileId), range, lockedOnPlayer) }
+
+        /** A projectile with any of [projectileIds] within [range] tiles of the player, locked onto them if [lockedOnPlayer]. */
+        @JvmStatic
+        @JvmOverloads
+        fun projectile(
+            name: String,
+            prayer: Prayer,
+            projectileIds: Collection<Int>,
+            range: Int = DEFAULT_RANGE,
+            lockedOnPlayer: Boolean = false,
+        ): PrayerThreat {
+            val ids = projectileIds.toSet()
+            return fixed(name, prayer) { projectileLive(ids, range, lockedOnPlayer) }
+        }
 
         /** An NPC with id [npcId] within [range] tiles playing any of [animationIds]. */
         @JvmStatic
         fun animation(name: String, prayer: Prayer, npcId: Int, range: Int, vararg animationIds: Int) =
-            PrayerThreat(name, prayer, 0, 0, 0, {
+            fixed(name, prayer) {
                 allNpcsWithinRange(range) { it.id == npcId && it.animationId in animationIds }.isNotEmpty()
-            }, null)
+            }
+
+        /** An NPC with any of [npcIds] within [range] tiles playing any of [animationIds]. */
+        @JvmStatic
+        fun animation(name: String, prayer: Prayer, npcIds: Collection<Int>, range: Int, vararg animationIds: Int): PrayerThreat {
+            val ids = npcIds.toSet()
+            return fixed(name, prayer) {
+                allNpcsWithinRange(range) { it.id in ids && it.animationId in animationIds }.isNotEmpty()
+            }
+        }
 
         /** Whatever [condition] says. */
         @JvmStatic
         fun condition(name: String, prayer: Prayer, condition: BooleanSupplier) =
-            PrayerThreat(name, prayer, 0, 0, 0, { condition.asBoolean }, null)
+            fixed(name, prayer) { condition.asBoolean }
+
+        /**
+         * A threat whose prayer is chosen each tick: [choose] returns the prayer to use, or null while there is no
+         * threat. Only [prayers] are ever used, so the flicker can tell when one is already up; any other prayer
+         * [choose] returns counts as no threat.
+         */
+        @JvmStatic
+        fun dynamic(name: String, prayers: Collection<Prayer>, choose: Supplier<Prayer?>): PrayerThreat {
+            val candidates = prayers.distinct()
+            require(candidates.isNotEmpty()) { "PrayerThreat.dynamic(\"$name\") needs at least one prayer" }
+            return PrayerThreat(name, candidates.first(), 0, 0, 0, { choose.get()?.takeIf { it in candidates } }, null, candidates)
+        }
     }
 }
 
@@ -75,7 +147,9 @@ class PrayerFlicker @JvmOverloads constructor(
     val threats: List<PrayerThreat>,
     var debug: Boolean = false,
 ) {
-    private class PendingThreat(val threat: PrayerThreat, val addedTick: Long, var expiresTick: Long = NOT_EXPIRING)
+    private class PendingThreat(val threat: PrayerThreat, val addedTick: Long, var expiresTick: Long = NOT_EXPIRING) {
+        var prayer: Prayer = threat.prayer
+    }
 
     internal var currentTick: () -> Long = { ServerTick.count }
 
@@ -84,7 +158,7 @@ class PrayerFlicker @JvmOverloads constructor(
     private var lastPressedTick = Long.MIN_VALUE / 2
 
     /** Every prayer the flicker may switch to. */
-    val prayers: List<Prayer> = (listOfNotNull(defaultPrayer) + threats.map { it.prayer }).distinct()
+    val prayers: List<Prayer> = (listOfNotNull(defaultPrayer) + threats.flatMap { it.prayers }).distinct()
 
     /** The prayers this flicker needs that are not on any action bar. */
     val missingPrayers: List<Prayer> get() = prayers.filterNot { isOnActionBar(actionBarName(it)) }
@@ -97,7 +171,7 @@ class PrayerFlicker @JvmOverloads constructor(
         get() {
             val tick = currentTick()
             return pending.sortedByDescending { it.threat.priority }
-                .firstOrNull { tick - it.addedTick >= it.threat.delayTicks }?.threat?.prayer
+                .firstOrNull { tick - it.addedTick >= it.threat.delayTicks }?.prayer
                 ?: defaultPrayer
         }
 
@@ -120,14 +194,18 @@ class PrayerFlicker @JvmOverloads constructor(
 
     private fun track() {
         val tick = currentTick()
+        val live = threats.associateWith { it.currentPrayer() }
         for (threat in threats) {
-            if (pending.none { it.threat === threat } && threat.present()) {
-                pending += PendingThreat(threat, tick)
+            val prayer = live[threat] ?: continue
+            if (pending.none { it.threat === threat }) {
+                pending += PendingThreat(threat, tick).also { it.prayer = prayer }
                 log("threat: ${threat.name}")
             }
         }
         pending.removeAll { entry ->
-            if (entry.threat.present()) {
+            val prayer = live[entry.threat]
+            if (prayer != null) {
+                entry.prayer = prayer
                 entry.expiresTick = NOT_EXPIRING
                 false
             } else if (entry.expiresTick == NOT_EXPIRING) {
@@ -172,4 +250,16 @@ fun actionBarName(prayer: Prayer): String = when (prayer) {
     Prayer.PROTECT_NECROMANCY -> "Protect from Necromancy"
     Prayer.DEFLECT_RANGE -> "Deflect Ranged"
     else -> prayer.name.split('_').joinToString(" ") { word -> word.lowercase().replaceFirstChar { it.uppercase() } }
+}
+
+/**
+ * The protection prayer against [style]: the Protect prayer on the normal prayer book, the Deflect curse when
+ * [curses] (by default, whichever book the player is on).
+ */
+@JvmOverloads
+fun protectionPrayerFor(style: CombatStyle, curses: Boolean = onCursesPrayers): Prayer = when (style) {
+    CombatStyle.MELEE -> if (curses) Prayer.DEFLECT_MELEE else Prayer.PROTECT_MELEE
+    CombatStyle.RANGED -> if (curses) Prayer.DEFLECT_RANGE else Prayer.PROTECT_RANGED
+    CombatStyle.MAGIC -> if (curses) Prayer.DEFLECT_MAGIC else Prayer.PROTECT_MAGIC
+    CombatStyle.NECROMANCY -> if (curses) Prayer.DEFLECT_NECROMANCY else Prayer.PROTECT_NECROMANCY
 }
