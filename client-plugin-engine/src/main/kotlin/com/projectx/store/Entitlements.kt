@@ -65,6 +65,7 @@ object Entitlements {
     private val free = ConcurrentHashMap.newKeySet<String>()
     private val prices = ConcurrentHashMap<String, StorePrices>()
     private val storeUrls = ConcurrentHashMap<String, String>()
+    private val iconUrls = ConcurrentHashMap<String, String>()
     private val warned = ConcurrentHashMap.newKeySet<String>()
 
     @Volatile private var lastAnsweredNanos = Long.MIN_VALUE / 2
@@ -125,6 +126,9 @@ object Entitlements {
     fun isPaid(name: String): Boolean = paid.contains(name)
 
     /** Null for a script the store does not list. */
+    /** The store's icon for the script with internal name [name], or null when the store shows none. */
+    fun iconUrlOf(name: String): String? = iconUrls[name]
+
     fun accessOf(name: String): StoreAccess? {
         if (!isPaid(name)) return null
         return StoreAccess(
@@ -233,9 +237,11 @@ object Entitlements {
             val fresh = HashSet<String>()
             val freshFree = HashSet<String>()
             val freshPrices = HashMap<String, StorePrices>()
+            val freshIcons = HashMap<String, String>()
             JsonParser.parseString(catalogue).asJsonArray.forEach { entry ->
                 val obj = entry.asJsonObject
                 val name = obj.get("internalName")?.asString ?: return@forEach
+                obj.text("iconUrl")?.let { freshIcons[name] = it }
                 if (!requiresSubscription(obj)) return@forEach
                 fresh.add(name)
                 if (obj.flag("free")) freshFree.add(name)
@@ -253,6 +259,8 @@ object Entitlements {
             free.addAll(freshFree)
             prices.keys.retainAll(freshPrices.keys)
             prices.putAll(freshPrices)
+            iconUrls.keys.retainAll(freshIcons.keys)
+            iconUrls.putAll(freshIcons)
             rememberPaid()
         }
 

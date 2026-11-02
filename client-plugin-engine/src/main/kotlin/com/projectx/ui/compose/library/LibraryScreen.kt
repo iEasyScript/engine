@@ -32,6 +32,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.projectx.store.Entitlements
 import com.projectx.store.StoreAccess
 import com.projectx.ui.ScriptActions
 import com.projectx.ui.compose.OverlayClock
@@ -42,7 +43,7 @@ import com.projectx.ui.compose.components.ButtonTone
 import com.projectx.ui.compose.components.Glyph
 import com.projectx.ui.compose.components.GlyphIcon
 import com.projectx.ui.compose.components.IconButton
-import com.projectx.ui.compose.components.Monogram
+import com.projectx.ui.compose.components.ScriptBadge
 import com.projectx.ui.compose.components.Pill
 import com.projectx.ui.compose.components.SearchField
 import com.projectx.ui.compose.components.Segmented
@@ -148,7 +149,7 @@ private fun ScriptRow(entry: LibraryEntry, selected: Boolean) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Monogram(entry.meta.name, entry.category.tint(), 34.dp)
+        ScriptBadge(entry.meta.name, entry.category.tint(), 34.dp, Entitlements.iconUrlOf(entry.meta.scriptClass.simpleName))
         Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(2.dp)) {
             BasicText(entry.meta.name, style = type.bodyStrong, maxLines = 1, overflow = TextOverflow.Ellipsis)
             BasicText("${entry.meta.author} · v${entry.meta.version}", style = type.dataSmall, maxLines = 1)
@@ -166,7 +167,7 @@ private fun ScriptDetail(entry: LibraryEntry) {
     val meta = entry.meta
     Column(Modifier.fillMaxSize().padding(28.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-            Monogram(meta.name, entry.category.tint(), 56.dp)
+            ScriptBadge(meta.name, entry.category.tint(), 56.dp, Entitlements.iconUrlOf(meta.scriptClass.simpleName))
             Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
                 BasicText(meta.name, style = type.title, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 BasicText("by ${meta.author} · v${meta.version}", style = type.data)

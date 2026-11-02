@@ -35,7 +35,7 @@ import com.projectx.ui.compose.components.Dropdown
 import com.projectx.ui.compose.components.EmptyState
 import com.projectx.ui.compose.components.Glyph
 import com.projectx.ui.compose.components.Hint
-import com.projectx.ui.compose.components.Monogram
+import com.projectx.ui.compose.components.ScriptBadge
 import com.projectx.ui.compose.components.ScreenScroll
 import com.projectx.ui.compose.components.SearchField
 import com.projectx.ui.compose.library.LibraryModel
@@ -107,7 +107,7 @@ private fun StoreCard(entry: StoreEntry, modifier: Modifier) {
     val type = LocalType.current
     Card(modifier.height(150.dp)) {
         Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            Monogram(entry.meta.name, entry.category.tint(), 38.dp)
+            ScriptBadge(entry.meta.name, entry.category.tint(), 38.dp, Entitlements.iconUrlOf(entry.meta.scriptClass.simpleName))
             Column(Modifier.weight(1f)) {
                 BasicText(entry.meta.name, style = type.heading, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 BasicText("${entry.meta.author} · v${entry.meta.version} · ${entry.source.label}", style = type.dataSmall, maxLines = 1)
