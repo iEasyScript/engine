@@ -29,6 +29,7 @@ import com.projectx.pathfinder.*
 import com.projectx.script.Script
 import com.projectx.script.api.Relics.NONE
 import com.projectx.util.gaussian
+import com.projectx.webwalker.WalkGoal
 import com.projectx.webwalker.WebWalkResult
 import com.projectx.webwalker.WebWalker
 import kotlin.math.abs
@@ -632,6 +633,36 @@ suspend fun Script.canWebWalkTo(
     destination: Tile,
     arriveDistance: Int = WebWalker.DEFAULT_ARRIVE_DISTANCE,
 ): Boolean = findWebPath(destination, arriveDistance).isSuccess
+
+/**
+ * [webWalk] until the player stands on any tile of [area], taking whichever tile is cheapest to reach. Java scripts
+ * use `Wait.webWalkToArea`.
+ */
+suspend fun Script.webWalkToArea(area: Area, useLodestones: Boolean = true): WebWalkResult =
+    WebWalker.walk(this, WalkGoal.of(area), useLodestones)
+
+/** [webWalkToArea] for the rectangle from ([minX], [minY]) to ([maxX], [maxY]) on [plane], inclusive. */
+suspend fun Script.webWalkToArea(minX: Int, minY: Int, maxX: Int, maxY: Int, plane: Int, useLodestones: Boolean = true): WebWalkResult =
+    WebWalker.walk(this, WalkGoal.rectangle(minX, minY, maxX, maxY, plane), useLodestones)
+
+/** [webWalkToArea] for any of [tiles], which may lie on different planes. */
+suspend fun Script.webWalkToTiles(tiles: Collection<Tile>, useLodestones: Boolean = true): WebWalkResult =
+    WebWalker.walk(this, WalkGoal.tiles(tiles), useLodestones)
+
+/** Plans the route [webWalkToArea] would walk, without walking it. */
+suspend fun Script.findWebPathToArea(area: Area): WebWalkResult =
+    WebWalker.findPath(this, localPlayer.tile, WalkGoal.of(area))
+
+/** [findWebPathToArea] for the rectangle from ([minX], [minY]) to ([maxX], [maxY]) on [plane], inclusive. */
+suspend fun Script.findWebPathToArea(minX: Int, minY: Int, maxX: Int, maxY: Int, plane: Int): WebWalkResult =
+    WebWalker.findPath(this, localPlayer.tile, WalkGoal.rectangle(minX, minY, maxX, maxY, plane))
+
+/** Plans the route [webWalkToTiles] would walk, without walking it. */
+suspend fun Script.findWebPathToTiles(tiles: Collection<Tile>): WebWalkResult =
+    WebWalker.findPath(this, localPlayer.tile, WalkGoal.tiles(tiles))
+
+/** True when a route to any tile of [area] exists from where the player is standing. */
+suspend fun Script.canWebWalkToArea(area: Area): Boolean = findWebPathToArea(area).isSuccess
 
 /**
  * Tile geometry and player state

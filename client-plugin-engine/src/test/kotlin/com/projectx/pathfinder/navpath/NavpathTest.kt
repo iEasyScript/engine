@@ -1,7 +1,11 @@
 package com.projectx.pathfinder.navpath
 
+import com.google.gson.JsonObject
 import com.google.gson.JsonParser
+import com.projectx.script.api.Area
 import com.projectx.script.api.Lodestone
+import com.projectx.webwalker.WalkGoal
+import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
 import com.projectx.webwalker.WebLinkKind
 import com.projectx.webwalker.WebPath
@@ -13,7 +17,9 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
 import kotlin.test.assertFalse
 import kotlin.test.assertIs
+import kotlin.math.abs
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class NavpathTest {
@@ -191,9 +197,11 @@ class NavpathTest {
         var calls = 0
         var lastToken: String? = null
         var lastUrl: String? = null
+        var lastBody: String? = null
 
         override fun post(url: String, token: String, body: String): NavReply {
             calls++
+            lastBody = body
             lastToken = token
             lastUrl = url
             return (queue.removeFirstOrNull() ?: { NavReply(200, "") })()
@@ -271,5 +279,165 @@ class NavpathTest {
         val transport = FakeTransport({ NavReply(200, fixture("teleport-npc-item.json")) })
         val outcome = planner(transport).plan(request.copy(start = Tile.of(3000, 3000, 0)), acceptsTeleports = false)
         assertIs<HostedPlanner.Outcome.Fallback>(outcome)
+    }
+
+    // ---- routing to an area ----
+
+    private fun JsonObject.tile(key: String): Tile = getAsJsonObject(key).let { Tile.of(it.get("wx").asInt, it.get("wy").asInt, it.get("plane").asInt) }
+
+    private fun body(transport: FakeTransport): JsonObject = JsonParser.parseString(transport.lastBody).asJsonObject
+
+    private fun goalArea(body: JsonObject): WebArea = body.getAsJsonObject("goal_area").let {
+        WebArea(it.get("min_wx").asInt, it.get("max_wx").asInt, it.get("min_wy").asInt, it.get("max_wy").asInt, it.get("plane").asInt)
+    }
+
+    @Test
+    fun `an area request carries the route body, the goal area, the goal tiles and the tie-break goal`() {
+        val goals = NavGoalSet(WebArea(3201, 3209, 3196, 3204, 0), listOf(tile(3300, 3300, 1), tile(3301, 3300, 1)))
+        val body = JsonParser.parseString(NavAreaRequest(request.copy(goal = tile(3205, 3200)), goals).toJson()).asJsonObject
+        assertEquals(tile(3198, 3200), body.tile("start"))
+        assertEquals(tile(3205, 3200), body.tile("goal"))
+        assertEquals(WebArea(3201, 3209, 3196, 3204, 0), goalArea(body))
+        val tiles = body.getAsJsonArray("goal_tiles").map { it.asJsonObject }
+        assertEquals(listOf(3300, 3301), tiles.map { it.get("wx").asInt })
+        assertEquals(listOf(1, 1), tiles.map { it.get("plane").asInt })
+        assertTrue(body.getAsJsonObject("options").get("only_actions").asBoolean)
+        assertEquals(1, body.get("seed").asInt)
+        assertTrue(body.has("profile") && body.has("surge") && body.has("dive"))
+        assertFalse(body.toString().contains("avoidDangerAreas"))
+
+        val rectOnly = JsonParser.parseString(NavAreaRequest(request, NavGoalSet(WebArea(1, 2, 3, 4, 0), emptyList())).toJson()).asJsonObject
+        assertFalse(rectOnly.has("goal_tiles"))
+        val tilesOnly = JsonParser.parseString(NavAreaRequest(request, NavGoalSet(null, listOf(tile(1, 1)))).toJson()).asJsonObject
+        assertFalse(tilesOnly.has("goal_area"))
+    }
+
+    @Test
+    fun `an area answer gives the tile it reached`() {
+        val answer = NavResultsParser.parseArea(fixture("area-walk.json"))
+        assertEquals(tile(3201, 3200), answer.goalReached)
+        assertEquals(81, answer.goalTilesResolved)
+        assertEquals(32, answer.goalTilesSearched)
+        assertEquals(listOf("move", "move", "move"), answer.route.steps.map { it.type })
+
+        val none = NavResultsParser.parseArea(fixture("not-found.json"))
+        assertFalse(none.route.found)
+        assertNull(none.goalReached)
+
+        assertFailsWith<NavParseException> { NavResultsParser.parseArea(fixture("walk-door-stairs.json")) }
+        assertFailsWith<NavParseException> { NavResultsParser.parseArea("""{"found":true,"actions":[],"goal_reached":{"wx":1}}""") }
+    }
+
+    @Test
+    fun `an arrive distance plans to the square around the destination, tie-broken towards it`() {
+        val destination = tile(3205, 3200)
+        val goals = WalkGoal.Near(destination, 4).goalSet(request.start)
+        val transport = FakeTransport({ NavReply(200, fixture("area-walk.json")) })
+        val outcome = planner(transport).plan(request.copy(goal = destination), goals, true)
+        val path = assertIs<HostedPlanner.Outcome.Planned>(outcome).path
+        assertEquals("https://example.test/api/navpath/route_area", transport.lastUrl)
+        val body = body(transport)
+        assertEquals(WebArea(3201, 3209, 3196, 3204, 0), goalArea(body))
+        assertEquals(destination, body.tile("goal"))
+        assertFalse(body.has("goal_tiles"))
+        assertEquals(tile(3198, 3200), path.tile(0))
+        assertEquals(tile(3201, 3200), path.tile(path.lastIndex))
+    }
+
+    @Test
+    fun `no arrive distance stays on the single-tile route`() {
+        assertNull(WalkGoal.Near(tile(3213, 3202, 1), 0).goalSet(request.start))
+        val transport = FakeTransport({ NavReply(200, fixture("walk-door-stairs.json")) })
+        assertIs<HostedPlanner.Outcome.Planned>(planner(transport).plan(request, null, true))
+        assertEquals("https://example.test/api/navpath/route", transport.lastUrl)
+        assertFalse(body(transport).has("goal_area"))
+    }
+
+    @Test
+    fun `area planning falls back like single-tile planning`() {
+        val goals = WalkGoal.Near(tile(3205, 3200), 4).goalSet(request.start)
+        val alwaysBusy = FakeTransport({ NavReply(503, "busy") }, { NavReply(503, "busy") }, { NavReply(503, "busy") })
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(alwaysBusy).plan(request, goals, true))
+        assertEquals(1 + HostedPlanner.BUSY_RETRIES, alwaysBusy.calls)
+
+        val busyThenGood = FakeTransport({ NavReply(503, "busy") }, { NavReply(200, fixture("area-walk.json")) })
+        assertIs<HostedPlanner.Outcome.Planned>(planner(busyThenGood).plan(request, goals, true))
+
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(FakeTransport({ throw IOException("reset") })).plan(request, goals, true))
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(FakeTransport({ NavReply(400, "goal_area too large") })).plan(request, goals, true))
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(FakeTransport({ NavReply(200, fixture("not-found.json")) })).plan(request, goals, true))
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(FakeTransport()).plan(request, goals, true))
+
+        val elsewhere = NavGoalSet(WebArea(3300, 3310, 3300, 3310, 0), emptyList())
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(FakeTransport({ NavReply(200, fixture("area-walk.json")) })).plan(request, elsewhere, true))
+    }
+
+    @Test
+    fun `area failures count towards the breaker`() {
+        val goals = WalkGoal.Near(tile(3205, 3200), 4).goalSet(request.start)
+        val transport = FakeTransport({ throw IOException("reset") }, { NavReply(502, "") }, { throw HttpTimeoutException("slow") })
+        val p = planner(transport)
+        repeat(HostedPlanner.BREAKER_FAILURES) { assertIs<HostedPlanner.Outcome.Fallback>(p.plan(request, goals, true)) }
+        assertTrue(p.resting())
+        assertIs<HostedPlanner.Outcome.Fallback>(p.plan(request, goals, true))
+        assertEquals(HostedPlanner.BREAKER_FAILURES, transport.calls)
+    }
+
+    @Test
+    fun `the square is clipped to fit the planner area limit and stays centred`() {
+        val destination = tile(3200, 3200, 2)
+        val wide = assertNotNull(WalkGoal.Near(destination, 100).goalSet(destination)?.area)
+        assertEquals(WebArea(3169, 3231, 3169, 3231, 2), wide)
+        assertTrue(wide.maxX - wide.minX + 1 <= 64 && wide.maxY - wide.minY + 1 <= 64)
+        assertEquals(wide, WalkGoal.Near(destination, WalkGoal.MAX_RADIUS).goalSet(destination)?.area)
+        assertEquals(WebArea(3198, 3202, 3198, 3202, 2), WalkGoal.Near(destination, 2).goalSet(destination)?.area)
+    }
+
+    @Test
+    fun `arrival counts within the distance on the destination plane, and anywhere in a tile set`() {
+        val near = WalkGoal.Near(tile(3200, 3200), 2)
+        assertTrue(near.contains(tile(3202, 3198)))
+        assertFalse(near.contains(tile(3203, 3200)))
+        assertFalse(near.contains(tile(3200, 3200, 1)))
+        assertEquals(2, near.marginAt(tile(3200, 3200)))
+        assertEquals(0, near.marginAt(tile(3202, 3200)))
+
+        val set = WalkGoal.of(Area.Rectangular(3210, 3210, 3212, 3215, 1))
+        assertTrue(set.contains(tile(3212, 3215, 1)))
+        assertFalse(set.contains(tile(3212, 3215, 0)))
+        assertEquals(0, set.marginAt(tile(3211, 3212, 1)))
+        assertEquals(WebArea(3210, 3212, 3210, 3215, 1), set.goalSet(tile(0, 0)).area)
+
+        val tiles = WalkGoal.tiles(listOf(tile(3000, 3000), tile(3100, 3100, 1)))
+        assertTrue(tiles.contains(tile(3100, 3100, 1)))
+        assertFalse(tiles.contains(tile(3001, 3000)))
+        assertEquals(2, tiles.goalSet(tile(0, 0)).tiles.size)
+        assertTrue(WalkGoal.tiles(emptyList()).isEmpty)
+    }
+
+    @Test
+    fun `a set over the planner limit is thinned to the edge it can be walked into by`() {
+        val big = WalkGoal.rectangle(3000, 3000, 3099, 3099, 0)
+        val goals = big.goalSet(tile(2900, 3050))
+        assertNull(goals.area)
+        assertEquals(396, goals.tiles.size)
+        assertTrue(goals.tiles.all { it.x == 3000 || it.x == 3099 || it.y == 3000 || it.y == 3099 })
+        assertTrue(tile(3050, 3050) in big.goalSet(tile(3050, 3050)).tiles)
+
+        val huge = WalkGoal.rectangle(0, 0, 1199, 1199, 0).goalSet(tile(0, 0))
+        assertEquals(NavGoalSet.MAX_TILES, huge.tiles.size)
+        assertTrue(huge.tiles.all { it.x == 0 || it.y == 0 || it.x == 1199 || it.y == 1199 })
+    }
+
+    @Test
+    fun `the local fallback tries the nearest standable tiles, spread apart`() {
+        val goal = WalkGoal.rectangle(3010, 3000, 3020, 3010, 0)
+        val candidates = goal.candidates(tile(3000, 3005)) { it.x != 3010 }
+        assertEquals(tile(3011, 3005), candidates.first())
+        assertTrue(candidates.size in 2..4)
+        for (i in candidates.indices) for (j in i + 1 until candidates.size) {
+            assertTrue(maxOf(abs(candidates[i].x - candidates[j].x), abs(candidates[i].y - candidates[j].y)) >= 4)
+        }
+        assertTrue(goal.candidates(tile(3000, 3005)) { false }.isEmpty())
     }
 }

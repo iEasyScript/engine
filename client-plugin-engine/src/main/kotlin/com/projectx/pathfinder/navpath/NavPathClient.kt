@@ -2,6 +2,7 @@ package com.projectx.pathfinder.navpath
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.projectx.webwalker.WebArea
 import world.gregs.voidps.type.Tile
 import java.net.URI
 import java.net.http.HttpClient
@@ -27,10 +28,12 @@ internal data class NavRequest(
     val diveAvailableInMs: Long,
     val seed: Int,
 ) {
-    fun toJson(): String {
+    fun toJson(): String = toJsonObject().toString()
+
+    fun toJsonObject(): JsonObject {
         val body = JsonObject()
-        body.add("start", tile(start))
-        body.add("goal", tile(goal))
+        body.add("start", jsonTile(start))
+        body.add("goal", jsonTile(goal))
         body.add("profile", JsonObject().apply {
             add("requirements", JsonArray().apply {
                 for ((key, value) in requirements) add(JsonObject().apply {
@@ -54,18 +57,47 @@ internal data class NavRequest(
             addProperty("cooldown_ms", ABILITY_COOLDOWN_MS)
         })
         body.addProperty("seed", seed)
-        return body.toString()
-    }
-
-    private fun tile(tile: Tile) = JsonObject().apply {
-        addProperty("wx", tile.x)
-        addProperty("wy", tile.y)
-        addProperty("plane", tile.plane)
+        return body
     }
 
     companion object {
         const val ABILITY_COOLDOWN_MS = 20_400L
     }
+}
+
+/** The goal set of a `/route_area` request: an inclusive rectangle on one plane, explicit tiles, or both. */
+internal class NavGoalSet(val area: WebArea?, val tiles: List<Tile>) {
+    private val ids = tiles.mapTo(HashSet()) { it.id }
+
+    fun contains(tile: Tile): Boolean = area?.contains(tile.x, tile.y, tile.plane) == true || tile.id in ids
+
+    companion object {
+        const val MAX_TILES = 4096
+    }
+}
+
+/** A `/route_area` request: the `/route` body, with its goal as the tie-break, plus the goal set. */
+internal data class NavAreaRequest(val route: NavRequest, val goals: NavGoalSet) {
+    fun toJson(): String {
+        val body = route.toJsonObject()
+        goals.area?.let { area ->
+            body.add("goal_area", JsonObject().apply {
+                addProperty("min_wx", area.minX)
+                addProperty("min_wy", area.minY)
+                addProperty("max_wx", area.maxX)
+                addProperty("max_wy", area.maxY)
+                addProperty("plane", area.plane)
+            })
+        }
+        if (goals.tiles.isNotEmpty()) body.add("goal_tiles", JsonArray().apply { for (tile in goals.tiles) add(jsonTile(tile)) })
+        return body.toString()
+    }
+}
+
+private fun jsonTile(tile: Tile) = JsonObject().apply {
+    addProperty("wx", tile.x)
+    addProperty("wy", tile.y)
+    addProperty("plane", tile.plane)
 }
 
 /** HTTP for the hosted planner: a short connect timeout and a short whole-request one, so an outage costs seconds. */

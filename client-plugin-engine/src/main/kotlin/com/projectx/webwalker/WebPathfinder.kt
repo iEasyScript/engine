@@ -204,7 +204,7 @@ internal class WebPathfinder(
         return tile
     }
 
-    private fun walkable(x: Int, y: Int, plane: Int): Boolean {
+    fun walkable(x: Int, y: Int, plane: Int): Boolean {
         if (!squareExists(x, y, plane)) return false
         val flags = WorldCollision.getFlags(x, y, plane)
         return flags != -1 && flags and BLOCKS_TILE == 0

@@ -7,6 +7,7 @@ import com.projectx.game.interfaces.confirmInstanceDialogue
 import com.projectx.game.interfaces.startOrRejoinInstance
 import com.projectx.script.api.*
 import com.projectx.script.event.Event
+import com.projectx.webwalker.WalkGoal
 import com.projectx.webwalker.WebWalkResult
 import com.projectx.webwalker.WebWalker
 import org.projectx.core.game.combat.Ability
@@ -221,6 +222,44 @@ sealed class Wait {
             onResult: Consumer<WebWalkResult>? = null,
             useLodestones: Boolean = true,
         ): Wait = WebWalk(x, y, plane, arriveDistance, onResult, useLodestones)
+
+        /**
+         * Walk until the player stands on any tile of [area], taking whichever tile is cheapest to reach; [onResult]
+         * gets how it ended. Kotlin: `webWalkToArea`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun webWalkToArea(area: Area, onResult: Consumer<WebWalkResult>? = null, useLodestones: Boolean = true): Wait =
+            call(onResult) { this.webWalkToArea(area, useLodestones) }
+
+        /** [webWalkToArea] for the rectangle from ([minX], [minY]) to ([maxX], [maxY]) on [plane], inclusive. */
+        @JvmStatic
+        @JvmOverloads
+        fun webWalkToArea(
+            minX: Int,
+            minY: Int,
+            maxX: Int,
+            maxY: Int,
+            plane: Int,
+            onResult: Consumer<WebWalkResult>? = null,
+            useLodestones: Boolean = true,
+        ): Wait = call(onResult) { this.webWalkToArea(minX, minY, maxX, maxY, plane, useLodestones) }
+
+        /** [webWalkToArea] for any of the tiles ([xs] `[i]`, [ys] `[i]`) on [plane]. Kotlin: `webWalkToTiles`. */
+        @JvmStatic
+        @JvmOverloads
+        fun webWalkToTiles(xs: IntArray, ys: IntArray, plane: Int, onResult: Consumer<WebWalkResult>? = null, useLodestones: Boolean = true): Wait =
+            call(onResult) { WebWalker.walk(this, WalkGoal.tiles(xs, ys, plane), useLodestones) }
+
+        /** Plan the route [webWalkToArea] would walk without walking it; [onResult] gets it. Kotlin: `findWebPathToArea`. */
+        @JvmStatic
+        fun findWebPathToArea(area: Area, onResult: Consumer<WebWalkResult>): Wait =
+            call(onResult) { this.findWebPathToArea(area) }
+
+        /** [findWebPathToArea] for the rectangle from ([minX], [minY]) to ([maxX], [maxY]) on [plane], inclusive. */
+        @JvmStatic
+        fun findWebPathToArea(minX: Int, minY: Int, maxX: Int, maxY: Int, plane: Int, onResult: Consumer<WebWalkResult>): Wait =
+            call(onResult) { this.findWebPathToArea(minX, minY, maxX, maxY, plane) }
 
         /** Open the lodestone map if it is shut, otherwise teleport to [lodestone]. Kotlin: `useLodestone`. */
         @JvmStatic

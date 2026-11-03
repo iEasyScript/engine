@@ -157,3 +157,11 @@ internal data class NavRoute(
     val steps: List<NavStep>,
     val enteredByTeleport: Boolean,
 )
+
+/** A parsed `/route_area` answer: [goalReached] is the area tile the route ends on, absent when none was found. */
+internal data class NavAreaRoute(
+    val route: NavRoute,
+    val goalReached: Tile?,
+    val goalTilesResolved: Int?,
+    val goalTilesSearched: Int?,
+)

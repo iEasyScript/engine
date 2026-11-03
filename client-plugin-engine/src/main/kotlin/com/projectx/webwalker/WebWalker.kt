@@ -3,6 +3,7 @@ package com.projectx.webwalker
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.pathfinder.LiveWalkMap
 import com.projectx.pathfinder.navpath.HostedPlanner
+import com.projectx.pathfinder.navpath.NavGoalSet
 import com.projectx.pathfinder.navpath.NavProfile
 import com.projectx.pathfinder.navpath.NavRequest
 import com.projectx.pathfinder.navpath.Navpath
@@ -155,31 +156,29 @@ object WebWalker {
 
     /** Plans a route from [from] to [destination], suspending the script rather than blocking the game thread. */
     suspend fun findPath(script: Script, from: Tile, destination: Tile, arriveDistance: Int = 0): WebWalkResult =
-        findPath(script, from, destination, arriveDistance, teleports = false, excluded = emptySet())
+        findPath(script, from, WalkGoal.Near(destination, arriveDistance.coerceAtLeast(0)))
 
     private suspend fun findPath(
         script: Script,
         from: Tile,
-        destination: Tile,
-        arriveDistance: Int,
+        goal: WalkGoal,
         teleports: Boolean,
         excluded: Set<WebLink>,
         lockedDoors: Set<Long> = emptySet(),
         hostedAllowed: Boolean = true,
     ): WebWalkResult {
+        if (goal is WalkGoal.Tiles && goal.isEmpty) return WebWalkResult(WebWalkStatus.NO_PATH, "The area holds no tiles")
         // Requirements read varbits, levels, the money pouch and what is carried, which may only be touched here on
         // the game thread; the planner runs on its own thread and consults the snapshot instead.
         val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
-        val request = if (hostedAllowed && useHostedPlanner && !Navpath.planner.resting() && from.x < INSTANCE_MIN_X && destination.x < INSTANCE_MIN_X) {
-            runCatching { NavProfile.request(from, destination, teleports, useItemTeleports, useMovementAbilities) }.getOrNull()
+        val request = if (hostedAllowed && useHostedPlanner && !Navpath.planner.resting() && from.x < INSTANCE_MIN_X && goal.maxX < INSTANCE_MIN_X) {
+            runCatching { NavProfile.request(from, goal.centre, teleports, useItemTeleports, useMovementAbilities) }.getOrNull()
         } else {
             null
         }
+        val goals = request?.let { goal.goalSet(from) }
         val future = CompletableFuture.supplyAsync(
-            {
-                hosted(request, teleports)
-                    ?: plan(from.x, from.y, destination.x, destination.y, from.plane, destination.plane, arriveDistance, permissions, teleports, excluded, lockedDoors)
-            },
+            { hosted(request, goals, teleports) ?: planLocally(from, goal, permissions, teleports, excluded, lockedDoors) },
             planner,
         )
         script.delayUntil(SEARCH_TIMEOUT_MS, SEARCH_POLL_MS) { future.isDone || script.stopped }
@@ -190,18 +189,12 @@ object WebWalker {
         return future.join()
     }
 
-    /**
-     * Walks the player to within [arriveDistance] tiles of [destination], counting diagonals as one. With
-     * [useLodestones], a route may begin with a teleport when that gets there sooner: a lodestone, a spell, or - with
-     * [useItemTeleports] - a carried teleport item or the Passage of the Abyss.
-     */
-    suspend fun walk(
-        script: Script,
-        destination: Tile,
-        arriveDistance: Int = DEFAULT_ARRIVE_DISTANCE,
-        useLodestones: Boolean = true,
-    ): WebWalkResult {
-        val arrive = arriveDistance.coerceAtLeast(0)
+    internal suspend fun findPath(script: Script, from: Tile, goal: WalkGoal): WebWalkResult =
+        findPath(script, from, goal, teleports = false, excluded = emptySet())
+
+    /** Walks until the player stands in [goal]; the route aims at whichever of its tiles is cheapest to reach. */
+    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean): WebWalkResult {
+        if (goal is WalkGoal.Tiles && goal.isEmpty) return WebWalkResult(WebWalkStatus.NO_PATH, "The area holds no tiles")
         val setAside = HashSet<WebLink>()
         if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA || it.portable }
         val keptBack = setAside.size
@@ -233,14 +226,14 @@ object WebWalker {
                 lastMovedAt = now
                 stalls = MAX_STALLS
             }
-            if (arrived(destination, arrive)) {
-                return WebWalkResult(WebWalkStatus.ARRIVED, "Arrived at ${destination.x},${destination.y}", path, lodestone)
+            if (goal.contains(me)) {
+                return WebWalkResult(WebWalkStatus.ARRIVED, "Arrived at $goal", path, lodestone)
             }
 
             if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
                 // A link set aside or a locked door is something only the local planner can route around.
-                val planned = findPath(script, me, destination, arrive, useLodestones, setAside, lockedDoors, setAside.size == keptBack && lockedDoors.isEmpty())
+                val planned = findPath(script, me, goal, useLodestones, setAside, lockedDoors, setAside.size == keptBack && lockedDoors.isEmpty())
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
                 path = planned.path!!
                 stalls = 0
@@ -304,7 +297,7 @@ object WebWalker {
             val segmentEnd = if (barrier != -1) barrier - 1 else route.lastIndex
             val segment = (here..segmentEnd).map(route::tile)
             val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
-            when (walker.step(script, segment, lookahead) { arrived(destination, arrive) }) {
+            when (walker.step(script, segment, lookahead) { goal.contains(localPlayer.tile) }) {
                 LiveRouteWalker.Step.CONTINUE -> continue
                 LiveRouteWalker.Step.STUCK -> {
                     stalls = MAX_STALLS
@@ -330,7 +323,7 @@ object WebWalker {
             // wait would already be satisfied and the loop would click again every pass.
             val slack = when {
                 barrier != -1 && target == barrier - 1 -> 1
-                target == route.lastIndex -> arrive.coerceAtMost(ARRIVAL_SLACK)
+                target == route.lastIndex -> goal.marginAt(route.tile(target)).coerceAtMost(ARRIVAL_SLACK)
                 else -> ARRIVAL_SLACK
             }
             val before = me
@@ -342,6 +335,18 @@ object WebWalker {
         }
         return WebWalkResult(WebWalkStatus.STOPPED, "The script stopped while walking", path, lodestone)
     }
+
+    /**
+     * Walks the player to within [arriveDistance] tiles of [destination], counting diagonals as one. With
+     * [useLodestones], a route may begin with a teleport when that gets there sooner: a lodestone, a spell, or - with
+     * [useItemTeleports] - a carried teleport item or the Passage of the Abyss.
+     */
+    suspend fun walk(
+        script: Script,
+        destination: Tile,
+        arriveDistance: Int = DEFAULT_ARRIVE_DISTANCE,
+        useLodestones: Boolean = true,
+    ): WebWalkResult = walk(script, WalkGoal.Near(destination, arriveDistance.coerceAtLeast(0)), useLodestones)
 
     private fun lockedSince(since: Long): Boolean = RecentChat.containsSince(LOCKED_MESSAGE, since)
 
@@ -424,17 +429,36 @@ object WebWalker {
         }
     }
 
-    private fun arrived(destination: Tile, arrive: Int): Boolean {
-        val me = localPlayer.tile
-        return me.plane == destination.plane && chebyshev(me.x, me.y, destination.x, destination.y) <= arrive
-    }
-
-    /** The hosted planner's route, or null when the local planner should plan instead. */
-    private fun hosted(request: NavRequest?, teleports: Boolean): WebWalkResult? {
+    /** The hosted planner's route, on `/route_area` when there are [goals], or null when the local planner should plan instead. */
+    private fun hosted(request: NavRequest?, goals: NavGoalSet?, teleports: Boolean): WebWalkResult? {
         request ?: return null
-        return when (val outcome = runCatching { Navpath.planner.plan(request, teleports) }.getOrNull()) {
+        return when (val outcome = runCatching { Navpath.planner.plan(request, goals, teleports) }.getOrNull()) {
             is HostedPlanner.Outcome.Planned -> WebWalkResult(WebWalkStatus.PATH_FOUND, "Route found by the hosted planner", outcome.path)
             else -> null
+        }
+    }
+
+    /** A tile set is tried tile by tile, nearest standable first, until the local planner reaches one. */
+    private fun planLocally(
+        from: Tile,
+        goal: WalkGoal,
+        permissions: WebLinkPermissions,
+        teleports: Boolean,
+        excluded: Set<WebLink>,
+        lockedDoors: Set<Long>,
+    ): WebWalkResult = when (goal) {
+        is WalkGoal.Near -> {
+            val to = goal.destination
+            plan(from.x, from.y, to.x, to.y, from.plane, to.plane, goal.distance, permissions, teleports, excluded, lockedDoors)
+        }
+        is WalkGoal.Tiles -> {
+            val probe = WebPathfinder()
+            var result = WebWalkResult(WebWalkStatus.NO_PATH, "No tile of $goal can be stood on")
+            for (to in goal.candidates(from) { probe.walkable(it.x, it.y, it.plane) }) {
+                result = plan(from.x, from.y, to.x, to.y, from.plane, to.plane, 0, permissions, teleports, excluded, lockedDoors)
+                if (result.isSuccess || result.status == WebWalkStatus.NOT_IN_WORLD) break
+            }
+            result
         }
     }
 

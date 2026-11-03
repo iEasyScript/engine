@@ -2,6 +2,7 @@ package com.projectx.pathfinder.navpath
 
 import com.projectx.util.nonProfiledGaussian
 import com.projectx.webwalker.WebPath
+import world.gregs.voidps.type.Tile
 import java.io.IOException
 
 /**
@@ -35,14 +36,34 @@ internal class HostedPlanner(
     fun resting(): Boolean = clock() < openUntil
 
     @Synchronized
-    fun plan(request: NavRequest, acceptsTeleports: Boolean): Outcome {
+    fun plan(request: NavRequest, acceptsTeleports: Boolean): Outcome =
+        exchange(ROUTE_PATH, request.toJson(), request.start, acceptsTeleports, NavResultsParser::parse) { null }
+
+    /** Plans to whichever tile of the request's goal set is cheapest to reach, on `/route_area`. */
+    @Synchronized
+    fun plan(request: NavAreaRequest, acceptsTeleports: Boolean): Outcome =
+        exchange(AREA_PATH, request.toJson(), request.route.start, acceptsTeleports, { NavResultsParser.parseArea(it).route }) { path ->
+            if (request.goals.contains(path.tile(path.lastIndex))) null else "the route ends outside the goal area"
+        }
+
+    /** Plans on `/route_area` when there are [goals], otherwise on `/route` to the request's goal. */
+    fun plan(request: NavRequest, goals: NavGoalSet?, acceptsTeleports: Boolean): Outcome =
+        if (goals == null) plan(request, acceptsTeleports) else plan(NavAreaRequest(request, goals), acceptsTeleports)
+
+    private fun exchange(
+        path: String,
+        body: String,
+        start: Tile,
+        acceptsTeleports: Boolean,
+        read: (String) -> NavRoute,
+        refuse: (WebPath) -> String?,
+    ): Outcome {
         if (resting()) return Outcome.Fallback("the hosted planner is resting after failures")
         val bearer = token()?.takeIf { it.isNotBlank() } ?: return fallback("no store token", rest = BREAKER_MS)
-        val body = request.toJson()
         var attempt = 0
         while (true) {
             val reply = try {
-                transport.post(baseUrl().trimEnd('/') + ROUTE_PATH, bearer, body)
+                transport.post(baseUrl().trimEnd('/') + path, bearer, body)
             } catch (e: IOException) {
                 return failure("unreachable (${e.javaClass.simpleName})")
             } catch (e: InterruptedException) {
@@ -62,19 +83,17 @@ internal class HostedPlanner(
                 reply.status !in 200..299 -> return failure("HTTP ${reply.status}")
             }
             val route = try {
-                NavResultsParser.parse(reply.body)
+                read(reply.body)
             } catch (e: NavParseException) {
                 return failure("an answer that does not parse: ${e.message}")
             }
             succeeded()
-            return when (val mapped = NavRouteMapper.map(request.start, route)) {
+            return when (val mapped = NavRouteMapper.map(start, route)) {
                 is NavRouteMapper.Mapped.Refused -> fallback(mapped.reason)
-                is NavRouteMapper.Mapped.Route -> {
-                    if (!acceptsTeleports && (1 until mapped.path.size).any { mapped.path.linkAt(it)?.isGlobal == true }) {
+                is NavRouteMapper.Mapped.Route -> when {
+                    !acceptsTeleports && (1 until mapped.path.size).any { mapped.path.linkAt(it)?.isGlobal == true } ->
                         fallback("the route starts with a teleport this walk may not use")
-                    } else {
-                        Outcome.Planned(mapped.path)
-                    }
+                    else -> refuse(mapped.path)?.let(::fallback) ?: Outcome.Planned(mapped.path)
                 }
             }
         }
@@ -105,6 +124,7 @@ internal class HostedPlanner(
 
     companion object {
         const val ROUTE_PATH = "/route"
+        const val AREA_PATH = "/route_area"
         const val BUSY_RETRIES = 2
         const val BREAKER_FAILURES = 3
         const val BREAKER_MS = 60_000L

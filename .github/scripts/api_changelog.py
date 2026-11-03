@@ -54,6 +54,7 @@ INTERNAL_TYPES = {
     "com.projectx.store.Instances",
     "com.projectx.store.ProblemReports",
     "com.projectx.store.ScriptLogExcerpt",
+    "com.projectx.webwalker.WalkGoal",
     "com.projectx.webwalker.WebLinkActions",
     "com.projectx.webwalker.WebPathfinder",
 }

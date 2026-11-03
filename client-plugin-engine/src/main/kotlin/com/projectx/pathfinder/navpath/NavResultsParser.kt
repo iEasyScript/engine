@@ -16,13 +16,33 @@ internal class NavParseException(message: String, cause: Throwable? = null) : Ru
  */
 internal object NavResultsParser {
 
-    fun parse(text: String?): NavRoute {
+    fun parse(text: String?): NavRoute = route(root(text))
+
+    /** Reads a `/route_area` answer: the `/route` fields plus the area tile the route ends on. */
+    fun parseArea(text: String?): NavAreaRoute {
+        val root = root(text)
+        val route = route(root)
+        val envelope = root.takeIf { it.isJsonObject }?.asJsonObject ?: throw NavParseException("the area answer is not an object")
+        val reached = obj(envelope, "goal_reached")?.let { reached ->
+            val x = int(reached, "wx") ?: throw NavParseException("goal_reached has no wx")
+            val y = int(reached, "wy") ?: throw NavParseException("goal_reached has no wy")
+            val plane = int(reached, "plane") ?: throw NavParseException("goal_reached has no plane")
+            Tile.of(x, y, plane)
+        }
+        if (route.found && reached == null) throw NavParseException("the area answer names no goal tile")
+        return NavAreaRoute(route, reached, int(envelope, "goal_tiles_resolved"), int(envelope, "goal_tiles_searched"))
+    }
+
+    private fun root(text: String?): JsonElement {
         if (text.isNullOrBlank()) throw NavParseException("the route answer is blank")
-        val root = try {
+        return try {
             JsonParser.parseString(text)
         } catch (e: RuntimeException) {
             throw NavParseException("the route answer is not JSON: ${e.message}", e)
         }
+    }
+
+    private fun route(root: JsonElement): NavRoute {
         val (actions, envelope) = when {
             root.isJsonArray -> root.asJsonArray to null
             root.isJsonObject -> {
