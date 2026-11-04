@@ -93,7 +93,10 @@ class WebLinkPermissions private constructor(
         /** An active portable fairy ring carried or worn, or an inactive one in the backpack to activate first. */
         internal fun portableRingUsable(backpack: List<Item>, worn: List<Item>): Boolean {
             val ids = portableRingIds.get() ?: return false
-            if (backpack.any { it.id == ids.first } || worn.any { it.id == ids.first }) return true
+            if (backpack.any { it.id == ids.first } || worn.any { it.id == ids.first }) {
+                activeRingOutOfReach = false
+                return true
+            }
             return !activeRingOutOfReach && backpack.any { it.id == ids.second }
         }
 
@@ -144,7 +147,100 @@ class WebLinkPermissions private constructor(
                 "skillcape_dungeoneering_hooded", "skillcape_dungeoneering_trimmed_hooded", "skillcape_inverted_120_dungeoneering",
                 "skillcape_inverted_dungeoneering_hooded", "skillcape_inverted_dungeoneering_trimmed_hooded",
             ),
+            "hasSkullSceptreEquiped" to Carried(Where.WORN, "sos_skull_sceptre"),
+            "hasExplorersRing4" to Carried(Where.ANYWHERE, "atlum_ring_elite"),
+            "hasMysticalSandSeed" to Carried(Where.BACKPACK, "desert_farm_teleport_permanent"),
+            "hasRimmingtonTablet" to Carried(Where.BACKPACK, "poh_tablet_rimmingtonteleport"),
+            "hasMenaphosJournalEquiped" to Carried(Where.WORN, "menaphos_collections_journal"),
+            "hasMenaphosJournal" to Carried(Where.BACKPACK, "menaphos_collections_journal"),
+            "hasQuiverEquiped" to Carried(Where.WORN, "atelf_quiver_elite"),
+            "hasNatureAltarTeleport" to Carried(Where.BACKPACK, "rcguild_tablet_nature"),
+            "hasArchaeologyTeleport" to Carried(Where.BACKPACK, "arch_teletab"),
+            "hasArcJournal" to Carried(Where.BACKPACK, "elr1_waiko_tourist_brochure"),
+            "hasEnchantedLyre" to Carried(Where.BACKPACK, "magic_enchanted_strung_lyre_full_charge"),
         )
+
+        /** A teleport whose charges for one destination sit in their own varbit, usable while that is above zero. */
+        private class Charged(val varbit: String, val item: String)
+
+        private val CHARGED = mapOf(
+            "menaphosJournalImperial" to Charged("menaphos_imperial_teleport_charges", "menaphos_collections_journal"),
+            "menaphosJournalMerchant" to Charged("menaphos_merchant_teleport_charges", "menaphos_collections_journal"),
+            "menaphosJournalPort" to Charged("menaphos_port_teleport_charges", "menaphos_collections_journal"),
+            "menaphosJournalWorker" to Charged("menaphos_worker_teleport_charges", "menaphos_collections_journal"),
+            "menaphosJournalSlayerDungeon" to Charged("menaphos_slayer_teleport_charges", "menaphos_collections_journal"),
+            "menaphosJournalShiftingTombs" to Charged("menaphos_tombs_teleport_charges", "menaphos_collections_journal"),
+            "daveSpellbookCamelot" to Charged("dave_claimed_reward_book_camelot", "dave_reward_book"),
+            "daveSpellbookFalador" to Charged("dave_claimed_reward_book_falador", "dave_reward_book"),
+            "daveSpellbookArdougne" to Charged("dave_claimed_reward_book_ardougne", "dave_reward_book"),
+            "daveSpellbookLumbridge" to Charged("dave_claimed_reward_book_lumbridge", "dave_reward_book"),
+            "daveSpellbookVarrock" to Charged("dave_claimed_reward_book_varrock", "dave_reward_book"),
+            "hasGTAGGrandExchangeCharges" to Charged("trail17_teleport_charge_grand_exchange", "trail17_gloves_tier3"),
+            "hasGTAGBanditCampCharges" to Charged("trail17_teleport_charge_bandit_camp", "trail17_gloves_tier3"),
+            "hasGTAGClocktowerCharges" to Charged("trail17_teleport_charge_clocktower", "trail17_gloves_tier3"),
+            "hasGTAGGuTanothCharges" to Charged("trail17_teleport_charge_gutanoth", "trail17_gloves_tier3"),
+            "hasGTAGLighthouseCharges" to Charged("trail17_teleport_charge_lighthouse", "trail17_gloves_tier3"),
+            "hasGTAGFortForinthryCharges" to Charged("trail17_teleport_charge_fort_forinthry", "trail17_gloves_tier3"),
+            "hasGTAGMiscellaniaCharges" to Charged("trail17_teleport_charge_miscellania", "trail17_gloves_tier3"),
+            "hasGTAGPhoenixLairCharges" to Charged("trail17_teleport_charge_phoenix_lair", "trail17_gloves_tier3"),
+            "hasGTAGPollnivneachCharges" to Charged("trail17_teleport_charge_pollnivneach", "trail17_gloves_tier3"),
+            "hasGTAGTaiBwoWannaiCharges" to Charged("trail17_teleport_charge_tai_bwo_wannai", "trail17_gloves_tier3"),
+        )
+
+        // Keys upstream computes from more than one thing carried and a var or two.
+        private val COMPUTED: Map<String, (List<Item>, List<Item>) -> Boolean> = mapOf(
+            "hasLegatusPendant" to { _, _ -> varbitNamed("toolbelt_legatus_pendant") > 0 },
+            // Upstream's precedence, kept: the backpack copy alone counts.
+            "daveSpellbookWatchTower" to { backpack, worn ->
+                varbitNamed("dave_claimed_reward_book_watchtower") > 0 && carriesNamed(worn, "dave_reward_book") ||
+                    carriesNamed(backpack, "dave_reward_book")
+            },
+            "TrollHeimBool" to { backpack, _ ->
+                varbitNamed("zaros_spellbook") == 0 && amountNamed(backpack, "Fire rune") > 2 && amountNamed(backpack, "Law rune") > 2
+            },
+            "hasMiningCampAccess" to { backpack, worn ->
+                val keyRing = carriesNamed(backpack, "favour_key_ring") || carriesNamed(worn, "favour_key_ring") ||
+                    varbitNamed("toolbelt_keyring") > 0
+                val metalKeyOnRing = keyRing && varpNamed("favour_keyring") and METAL_KEY_ON_RING != 0
+                varpNamed("desertrescue") >= 30 && (carriesNamed(backpack, "metal_key") || carriesNamed(worn, "metal_key") || metalKeyOnRing)
+            },
+        )
+
+        private const val METAL_KEY_ON_RING = 1 shl 2
+
+        /** Ways through, not teleports: sent whether or not the route may teleport. */
+        internal val passageFlags = setOf("hasDustyKey", "hasRope", "hasWaterFallKey", "TrollHeimBool", "hasMiningCampAccess")
+
+        /** Teleports that open a menu, which a hit closes: left out of routes while in combat. */
+        internal val menuFlags = setOf(
+            "hasMaxCape", "hasSlayerCape", "hasDungCape", "hasWS1inInv", "hasAttunedSeed", "hasSkullSceptre", "hasDM", "hasDA4",
+            "hasGamesNeck", "hasCombatBracelet", "hasRingOfDuelling", "hasSkillsNecklace", "hasEnchantedLyre", "hasArchaeologyTeleport",
+            "hasArcJournal", "hasMenaphosJournal", "hasQuiver", "daveSpellbookWatchTower",
+        ) + CHARGED.keys.filterNot { it.startsWith("menaphosJournal") }
+
+        private val namedIds = ConcurrentHashMap<String, Int>()
+
+        private fun idNamed(type: String, name: String): Int? =
+            namedIds[name] ?: runCatching { Gameval.requireId(type, name) }.getOrNull()?.also { namedIds[name] = it }
+
+        private fun varbitNamed(name: String): Int = idNamed(Gameval.VARBIT, name)?.let(varps::getVarBit) ?: 0
+
+        private fun varpNamed(name: String): Int = idNamed(Gameval.VAR_PLAYER, name)?.let(varps::getVar) ?: 0
+
+        private fun carriesNamed(items: List<Item>, name: String): Boolean {
+            val id = idNamed(Gameval.OBJ, name) ?: return false
+            return items.any { it.id == id }
+        }
+
+        private fun amountNamed(items: List<Item>, name: String): Int =
+            items.filter { runCatching { it.name }.getOrNull() == name }.sumOf { it.amount }
+
+        private fun chargedValue(key: String, backpack: List<Item>, worn: List<Item>): Int? {
+            COMPUTED[key]?.let { return if (it(backpack, worn)) 1 else 0 }
+            val charged = CHARGED[key] ?: return null
+            val carried = carriesNamed(backpack, charged.item) || carriesNamed(worn, charged.item)
+            return if (carried && varbitNamed(charged.varbit) > 0) 1 else 0
+        }
 
         /** Flags counted by item name in the backpack: an amount, or a name that only starts the same. */
         private val BY_NAME = mapOf(
@@ -167,11 +263,11 @@ class WebLinkPermissions private constructor(
         internal fun skillLevel(key: String): Int? = runCatching { SKILLS[key]?.let(::getRealLevel) }.getOrNull()
 
         /** Every opaque item flag this engine can evaluate. */
-        internal val itemFlags: Set<String> get() = CARRIED.keys + BY_NAME.keys + BY_NAME_PREFIX.keys
+        internal val itemFlags: Set<String> get() = CARRIED.keys + BY_NAME.keys + BY_NAME_PREFIX.keys + CHARGED.keys + COMPUTED.keys
 
         /** The value of an opaque item flag for what is carried, or null when it is not one. */
         internal fun itemFlag(key: String, backpack: List<Item>, worn: List<Item>): Int? =
-            runCatching { carriedValue(key, backpack, worn) ?: namedValue(key, backpack) }.getOrNull()
+            runCatching { carriedValue(key, backpack, worn) ?: namedValue(key, backpack) ?: chargedValue(key, backpack, worn) }.getOrNull()
 
         private fun carriedValue(key: String, backpack: List<Item>, worn: List<Item>): Int? {
             val carried = CARRIED[key] ?: return null
@@ -207,7 +303,7 @@ class WebLinkPermissions private constructor(
                 key.startsWith("varp_") -> key.removePrefix("varp_").toIntOrNull()?.let(varps::getVar)
                 key == "coins" -> coinPouch.firstOrNull()?.amount ?: 0
                 key in SKILLS -> SKILLS[key]?.let(::getRealLevel)
-                else -> carriedValue(key, backpack, worn) ?: namedValue(key, backpack)
+                else -> carriedValue(key, backpack, worn) ?: namedValue(key, backpack) ?: chargedValue(key, backpack, worn)
             }
         }.getOrNull()
     }

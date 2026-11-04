@@ -84,6 +84,15 @@ object WebWalker {
     private const val DOOR_OPEN_TIMEOUT_MS = 8_000L
     private const val NO_MOVEMENT_MS = 15_000L
     private const val LOCKED_MESSAGE = "locked"
+    private const val CANT_REACH_MESSAGE = "You can't reach that"
+    private const val DOOR_IDLE_MS = 2_400L
+
+    // An object whose far side is this far away carries the player off (a trapdoor to Keldagrim), which can take as
+    // long as a teleport.
+    private const val TRAVEL_MIN_TILES = 64
+
+    // A fairy ring or item teleport lands, then plays its arrival animation; a walk click sent before it ends is dropped.
+    private const val ARRIVAL_ANIMATION_START_MS = 1_200L
 
     /**
      * Whether routes may spend teleport items and the Passage of the Abyss. On by default; turn it off in a script
@@ -193,7 +202,10 @@ object WebWalker {
         findPath(script, from, goal, teleports = false, excluded = emptySet())
 
     /** Walks until the player stands in [goal]; the route aims at whichever of its tiles is cheapest to reach. */
-    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean): WebWalkResult {
+    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean): WebWalkResult = walk(script, goal, useLodestones) { false }
+
+    /** As [walk], ending early with [WebWalkStatus.STOPPED] once [stop] holds, as a traversal's finished condition. */
+    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean, stop: () -> Boolean): WebWalkResult {
         if (goal is WalkGoal.Tiles && goal.isEmpty) return WebWalkResult(WebWalkStatus.NO_PATH, "The area holds no tiles")
         val setAside = HashSet<WebLink>()
         if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA || it.portable }
@@ -214,8 +226,10 @@ object WebWalker {
         var hopsResumeAt = 0L
         var lastTile = localPlayer.tile
         var lastMovedAt = System.currentTimeMillis()
+        var segmentStart = -1
 
         while (!script.stopped) {
+            if (stop()) return WebWalkResult(WebWalkStatus.STOPPED, "Stopped before arriving", path, lodestone)
             val me = localPlayer.tile
             LiveWalkMap.observe(me)
             val now = System.currentTimeMillis()
@@ -238,6 +252,7 @@ object WebWalker {
                 path = planned.path!!
                 stalls = 0
                 walker.reset()
+                segmentStart = -1
             }
             val route = path
 
@@ -255,11 +270,12 @@ object WebWalker {
             if (link != -1 && link == barrier && route.distance(link - 1, me.x, me.y) <= 1) {
                 val step = route.linkAt(link)
                 val locked = step?.kind == WebLinkKind.DOOR && lockedSince(linkStartedAt)
-                if (++linkAttempts > MAX_LINK_ATTEMPTS || locked) {
+                val unreachable = RecentChat.containsSince(CANT_REACH_MESSAGE, linkStartedAt)
+                if (++linkAttempts > MAX_LINK_ATTEMPTS || locked || unreachable) {
                     if (step == null || setAside.size - keptBack >= MAX_SET_ASIDE) {
                         return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
                     }
-                    println("[WebWalk] Could not take $step${if (locked) " (locked)" else ""}; planning around it")
+                    println("[WebWalk] Could not take $step${if (locked) " (locked)" else if (unreachable) " (can't reach it)" else ""}; planning around it")
                     setAside += step
                     linkAttempts = 0
                     linkStartedAt = Long.MAX_VALUE
@@ -296,8 +312,10 @@ object WebWalker {
 
             val segmentEnd = if (barrier != -1) barrier - 1 else route.lastIndex
             val segment = (here..segmentEnd).map(route::tile)
+            if (segmentStart >= 0) walker.rebase(here - segmentStart)
+            segmentStart = here
             val lookahead = random(PlayerProfiles.get().futurePathStepMin, PlayerProfiles.get().futurePathStepMax + 1)
-            when (walker.step(script, segment, lookahead) { goal.contains(localPlayer.tile) }) {
+            when (walker.step(script, segment, lookahead) { goal.contains(localPlayer.tile) || stop() }) {
                 LiveRouteWalker.Step.CONTINUE -> continue
                 LiveRouteWalker.Step.STUCK -> {
                     stalls = MAX_STALLS
@@ -533,7 +551,15 @@ object WebWalker {
             }
         }
 
+        val doorPassage = if (link.kind == WebLinkKind.DOOR && !link.isGlobal && link.choice == null && link.chain.isEmpty()) {
+            LiveWalkMap.passage(path.tile(index - 1), path.tile(index), DOOR_PASSAGE_STEPS)
+        } else {
+            null
+        }
+        val startedAt = System.currentTimeMillis()
         if (!WebLinkActions.start(script, link)) return false
+        // "Open" leaves the player where they stand; once the live map shows the way through, step through it.
+        if (doorPassage != null) return throughOpenedDoor(script, link, path.tile(index - 1), path.tile(index), startedAt)
 
         // Some ways through ask where to go and leave the player standing outside until that is answered.
         val choice = link.choice
@@ -559,11 +585,40 @@ object WebWalker {
             if (link.kind == WebLinkKind.LODESTONE) {
                 script.delayUntil(LANDING_START_MS) { localPlayer.isAnimating }
                 script.delayUntil(LANDING_MS) { !localPlayer.isAnimating }
+            } else if (link.isGlobal || link.kind == WebLinkKind.FAIRY_RING) {
+                script.delayUntil(ARRIVAL_ANIMATION_START_MS) { localPlayer.isAnimating }
+                script.delayUntil(LANDING_MS) { !localPlayer.isAnimating && !localPlayer.isMoving }
             } else {
                 script.delayUntil(STALL_GRACE_MS * if (link.isGlobal) 4 else 1) { !localPlayer.isMoving && !localPlayer.isAnimating }
             }
         }
         return arrived
+    }
+
+    private suspend fun throughOpenedDoor(script: Script, link: WebLink, approach: Tile, landing: Tile, clickedAt: Long): Boolean {
+        script.delayUntil(DOOR_OPEN_TIMEOUT_MS) {
+            LiveWalkMap.passage(approach, landing, DOOR_PASSAGE_STEPS) == true || arrivedVia(link, 0) || lockedSince(clickedAt) ||
+                idleSince(clickedAt)
+        }
+        if (!arrivedVia(link, 0) && LiveWalkMap.passage(approach, landing, DOOR_PASSAGE_STEPS) == true) {
+            walkTo(landing, false)
+            script.delayUntil(STALL_GRACE_MS + STEP_TIMEOUT_MS * 3) { arrivedVia(link, 0) }
+        }
+        return arrivedVia(link, 0)
+    }
+
+    private var idleSince = 0L
+    private var idleTile: Tile? = null
+
+    /** Nothing has happened for [DOOR_IDLE_MS] since [clickedAt]: no step, no animation; the click went nowhere. */
+    private fun idleSince(clickedAt: Long): Boolean {
+        val now = System.currentTimeMillis()
+        val tile = localPlayer.tile
+        if (idleSince < clickedAt || tile != idleTile || localPlayer.isMoving || localPlayer.isAnimating) {
+            idleSince = now
+            idleTile = tile
+        }
+        return now - idleSince >= DOOR_IDLE_MS
     }
 
     private fun arrivedVia(link: WebLink, slack: Int): Boolean {
@@ -580,9 +635,12 @@ object WebWalker {
 
     private fun arrivalTimeout(link: WebLink): Long = when {
         link.kind == WebLinkKind.NPC -> VOYAGE_TIMEOUT_MS
-        link.isGlobal || link.kind == WebLinkKind.FAIRY_RING -> TELEPORT_TIMEOUT_MS
+        link.isGlobal || link.kind == WebLinkKind.FAIRY_RING || carriesOff(link) -> TELEPORT_TIMEOUT_MS
         else -> LINK_TIMEOUT_MS
     }
+
+    private fun carriesOff(link: WebLink): Boolean =
+        link.kind == WebLinkKind.OBJECT && max(abs(link.from.centreX - link.to.centreX), abs(link.from.centreY - link.to.centreY)) >= TRAVEL_MIN_TILES
 
     private enum class DoorOutcome { PASSED, LOCKED, FAILED }
 
@@ -608,9 +666,15 @@ object WebWalker {
                 if (shut.interact(option)) {
                     script.delayUntil(DOOR_OPEN_TIMEOUT_MS) {
                         doorOpen(near, far) == true || closedDoor(near, far) == null || localPlayer.tile == far ||
-                            !picksLock && lockedSince(clickedAt)
+                            !picksLock && lockedSince(clickedAt) || idleSince(clickedAt)
                     }
                     if (!picksLock && lockedSince(clickedAt)) return DoorOutcome.LOCKED
+                    // Open on the live map: the walk carries on through it rather than stopping on its far tile.
+                    if (doorOpen(near, far) == true) return DoorOutcome.PASSED
+                    if (closedDoor(near, far) != null && localPlayer.tile != far) {
+                        println("[WebWalk] Nothing happened after '$option' on the door at $near")
+                        return DoorOutcome.FAILED
+                    }
                 }
             }
         }

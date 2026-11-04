@@ -1,14 +1,12 @@
 package com.projectx.traversal.nodes
 
 import com.projectx.game.nxt.entity.npc.NPC
-import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
-import com.projectx.script.api.findClosestNPC
-import com.projectx.script.api.findClosestReachableNPC
+import com.projectx.script.api.allNpcsWithinRange
 import com.projectx.script.api.localPlayer
 import com.projectx.traversal.TraversalNode
+import com.projectx.traversal.nodes.NodeWaits.awaitInteraction
 import com.projectx.util.Area
-import com.projectx.util.gaussian
 
 class NpcNode private constructor(private val npcIdentifier: NpcIdentifier) : TraversalNode() {
     private var action: String? = null
@@ -44,30 +42,31 @@ class NpcNode private constructor(private val npcIdentifier: NpcIdentifier) : Tr
         this.npcSearchRadius = npcSearchRadius
     }
 
-    private fun getTarget(script: Script): NPC? = when (npcIdentifier) {
+    private fun matches(npc: NPC): Boolean {
+        val wanted = when (npcIdentifier) {
+            is NpcIdentifier.NpcRef -> return npc == npcIdentifier.npc
+            is NpcIdentifier.NameRef -> npc.name().contains(npcIdentifier.name, ignoreCase = true)
+            is NpcIdentifier.IdRef -> npcIdentifier.id == -1 || npc.id == npcIdentifier.id || npc.typeId == npcIdentifier.id
+        }
+        return wanted && (action == null || npc.hasOption(action!!))
+    }
+
+    private fun getTarget(): NPC? = when (npcIdentifier) {
         is NpcIdentifier.NpcRef -> npcIdentifier.npc
-        is NpcIdentifier.NameRef -> findClosestNPC(maxRange = npcSearchRadius) { npc ->
-            npc.name().contains(npcIdentifier.name) && (action == null || npc.hasOption(action!!))
-        }
-        is NpcIdentifier.IdRef -> findClosestNPC(maxRange = npcSearchRadius) { npc ->
-            (npcIdentifier.id == -1 || npc.id == npcIdentifier.id) && (action == null || npc.hasOption(action!!))
-        }
+        else -> LocalTargets.npcNear(allNpcsWithinRange(npcSearchRadius).filter(::matches), npcSearchRadius)
     }
 
     override suspend fun process(script: Script): Boolean {
         if (System.currentTimeMillis() < nextClick) return true
-        val target = getTarget(script)
+        val target = getTarget()
         if (target == null) {
             script.delay(100, 100)
             return true
         }
         val success = if (action != null) target.interact(action!!) else target.interact(0)
         if (success) {
-            script.delayUntil(15000) { !localPlayer.isMoving }
-            nextClick = System.currentTimeMillis() + gaussian(
-                PlayerProfiles.get().walkPathClickTime,
-                PlayerProfiles.get().walkPathClickTime / 2
-            )
+            script.awaitInteraction { reached(script) || traversalStopRequested() }
+            nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
             return true
         }
         return false

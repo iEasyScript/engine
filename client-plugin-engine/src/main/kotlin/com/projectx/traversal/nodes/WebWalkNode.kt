@@ -3,6 +3,7 @@ package com.projectx.traversal.nodes
 import com.projectx.script.Script
 import com.projectx.script.api.localPlayer
 import com.projectx.traversal.TraversalNode
+import com.projectx.webwalker.WalkGoal
 import com.projectx.webwalker.WebWalkStatus
 import com.projectx.webwalker.WebWalker
 import world.gregs.voidps.type.Tile
@@ -16,7 +17,8 @@ class WebWalkNode(
 ) : TraversalNode() {
 
     override suspend fun process(script: Script): Boolean {
-        val result = WebWalker.walk(script, destination, arriveDistance, useLodestones)
+        val goal = WalkGoal.Near(destination, arriveDistance.coerceAtLeast(0))
+        val result = WebWalker.walk(script, goal, useLodestones) { traversalStopRequested() }
         if (result.status != WebWalkStatus.ARRIVED) println("[WebWalk] ${result}")
         return result.status == WebWalkStatus.ARRIVED
     }

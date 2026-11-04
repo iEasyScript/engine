@@ -56,4 +56,16 @@ class HopModelTest {
         assertEquals(Direction.NORTH_WEST, HopModel.fromBearing(320.0))
         assertEquals(90.0, HopModel.bearing(Direction.EAST))
     }
+
+    @Test
+    fun `a hop leaves the player facing the nearest of the 8 ways to its line, not the far-dive snap`() {
+        assertEquals(Direction.NORTH_EAST, HopModel.facing(10, 5))
+        assertEquals(Direction.EAST, HopModel.dir8(10, 5))
+        assertEquals(Direction.NORTH_EAST, HopModel.facing(8, 4))
+        assertEquals(Direction.NORTH_WEST, HopModel.facing(-10, 5))
+        assertEquals(Direction.SOUTH_EAST, HopModel.facing(4, -8))
+        assertEquals(Direction.NORTH_EAST, HopModel.facing(2, 1))
+        assertEquals(Direction.EAST, HopModel.facing(10, 0))
+        assertNull(HopModel.facing(0, 0))
+    }
 }

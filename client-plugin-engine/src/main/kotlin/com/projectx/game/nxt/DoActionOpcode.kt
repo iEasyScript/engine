@@ -134,6 +134,7 @@ enum class DoActionOpcode {
         // without it the avatar never walks and the server drops the action.
         fakeMiniMenuEntry.set(JAVA_INT, OMiniMenuEntry.HIGHLIGHT_TYPE, 2)
         println("FIRED SYNTHETIC ActionType.$name($param1, $param2, $param3)")
+        SyntheticFires.fired()
         CrashForensics.trace("DoAction.$name($param1,$param2,$param3)")
         withMenuOpen {
             callback.invoke(syntheticAction, fakeMiniMenuEntrySharedPtr)

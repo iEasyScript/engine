@@ -50,6 +50,12 @@ internal object NavRouteMapper {
             add(tile.x, tile.y, tile.plane, null)
         }
 
+        /** A planned hop as the walk it covers, from where it was planned to start when that is off the last tile. */
+        fun hop(from: Tile?, to: Tile) {
+            if (from != null && from.plane == last.plane) walk(from)
+            walk(to)
+        }
+
         fun link(approach: Tile?, landing: Tile, link: WebLink) {
             if (approach != null && !link.isGlobal) walk(approach)
             add(landing.x, landing.y, landing.plane, link)
@@ -81,8 +87,8 @@ internal object NavRouteMapper {
         when (step) {
             is NavStep.Move -> builder.walk(step.tile)
             is NavStep.TileExact -> builder.walk(step.tile)
-            is NavStep.Surge -> builder.walk(step.to)
-            is NavStep.Dive -> builder.walk(step.to)
+            is NavStep.Surge -> builder.hop(step.from, step.to)
+            is NavStep.Dive -> builder.hop(step.from, step.to)
             is NavStep.Unsupported -> return "a ${step.type} step (${step.reason})"
             is NavStep.FairyRing -> {
                 val link = fairyRing(step, builder.last) ?: return "a fairy ring with no known ring object"
@@ -110,7 +116,7 @@ internal object NavRouteMapper {
                 .using(WebTarget(step.id ?: -1, step.name))
             is NavStep.POAItem -> link(WebLinkKind.POA, approach, step.destination, landing, step.action, -1, null)
                 .using(WebTarget(step.id ?: -1, step.name)).picking(*listOfNotNull(step.action2, step.action3).toTypedArray())
-            is NavStep.IFSlot -> link(WebLinkKind.INTERFACE, approach, step.destination, landing, "Click", -1, null)
+            is NavStep.IFSlot -> if (step.clickId < 0) return null else link(WebLinkKind.INTERFACE, approach, step.destination, landing, "Click", -1, null)
                 .then(WebInterfaceStep(step.interfaceId, step.component, step.slot, step.clickId), *chain.toTypedArray())
             is NavStep.Lodestone -> link(WebLinkKind.LODESTONE, approach, null, landing, "Teleport", -1, null)
                 .toLodestone(WebLinks.lodestoneNamed(step.name) ?: return null)
@@ -160,7 +166,7 @@ internal object NavRouteMapper {
     /** The chain as the walker's own steps, or null when it holds something only a node could do. */
     private fun chain(steps: List<NavStep>): List<WebStep>? = steps.map { step ->
         when (step) {
-            is NavStep.IFSlot -> WebInterfaceStep(step.interfaceId, step.component, step.slot, step.clickId)
+            is NavStep.IFSlot -> if (step.clickId < 0) return null else WebInterfaceStep(step.interfaceId, step.component, step.slot, step.clickId)
             is NavStep.Loc -> WebObjectStep(step.id ?: return null, step.action, (step.searchRadius ?: DEFAULT_SEARCH_RADIUS).coerceIn(1, 64))
             else -> return null
         }

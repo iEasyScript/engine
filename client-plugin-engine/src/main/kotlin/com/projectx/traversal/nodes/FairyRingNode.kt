@@ -51,7 +51,9 @@ class FairyRingNode @JvmOverloads constructor(
             return true
         }
         script.delayUntil(TELEPORT_TIMEOUT_MS) { traversalStopRequested() || reached(script) || localPlayer.tile.getLongestDelta(from) > LANDED_DISTANCE }
-        script.delayUntil(SETTLE_MS) { !localPlayer.isAnimating }
+        // The arrival animation starts a moment after landing; a walk clicked before it ends is dropped.
+        script.delayUntil(ARRIVAL_START_MS) { traversalStopRequested() || localPlayer.isAnimating }
+        script.delayUntil(SETTLE_MS) { traversalStopRequested() || !localPlayer.isAnimating }
         return true
     }
 
@@ -70,7 +72,8 @@ class FairyRingNode @JvmOverloads constructor(
         private const val MAX_DIALS = 3
         private const val RETRY_MS = 1_200L
         private const val TELEPORT_TIMEOUT_MS = 15_000L
-        private const val SETTLE_MS = 3_000L
+        private const val SETTLE_MS = 5_000L
+        private const val ARRIVAL_START_MS = 1_200L
         private const val LANDED_DISTANCE = 20
         private const val SLACK = 4
     }

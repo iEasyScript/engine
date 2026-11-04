@@ -440,4 +440,64 @@ class NavpathTest {
         }
         assertTrue(goal.candidates(tile(3000, 3005)) { false }.isEmpty())
     }
+
+    // ---- drop parity: parser and mapper ----
+
+    private fun route(vararg actions: String) = """{"found":true,"cost":1.0,"length_tiles":1,"actions":[${actions.joinToString(",")}]}"""
+
+    @Test
+    fun `a planned hop that starts off the last tile walks there first, leaving no gap`() {
+        val json = route(
+            """{"type":"move","to":[3200,3200,0]}""",
+            """{"type":"surge","from":[3202,3200,0],"to":[3212,3200,0],"tiles_covered":10}""",
+        )
+        val result = NavRouteMapper.map(tile(3199, 3200), NavResultsParser.parse(json))
+        val path = assertIs<NavRouteMapper.Mapped.Route>(result).path
+        val tiles = (0 until path.size).map { path.tile(it) }
+        assertTrue(tile(3202, 3200) in tiles)
+        assertEquals(tile(3212, 3200), tiles.last())
+        assertTrue(tiles.zipWithNext().all { (a, b) -> a.getLongestDelta(b) <= 1 })
+    }
+
+    @Test
+    fun `an interface click with a negative click id is refused`() {
+        val json = route(
+            """{"type":"ifslot","from":{"min":[3200,3200,0],"max":[3200,3200,0]},"to":{"min":[3300,3300,0],"max":[3300,3300,0]},
+               "metadata":{"kind":"ifslot","steps":[{"kind":"ifslot","db_row":{"interface_id":1092,"component_id":21,"slot_id":-1,"click_id":-1}}]}}""",
+        )
+        assertIs<NavRouteMapper.Mapped.Refused>(NavRouteMapper.map(tile(3200, 3200), NavResultsParser.parse(json)))
+    }
+
+    @Test
+    fun `a child chain's interface click keeps its destination rectangle`() {
+        val json = route(
+            """{"type":"npc","from":{"min":[3200,3200,0],"max":[3200,3200,0]},"to":{"min":[2954,3146,0],"max":[2954,3146,0]},
+               "metadata":{"kind":"npc","steps":[{"kind":"npc","db_row":{"npc_id":376,"action":"Travel",
+               "child_chain":[{"type":"ifslot","meta":{"interface_id":1188,"component_id":8,"slot_id":-1,"click_id":0,"dest_rect":[2952,3144,2956,3148],"plane":0}}]}}]}}""",
+        )
+        val npc = assertIs<NavStep.Npc>(NavResultsParser.parse(json).steps.single())
+        val click = assertIs<NavStep.IFSlot>(npc.chain.first())
+        assertEquals(NavArea(2952, 3144, 2956, 3148, 0), click.destination)
+    }
+
+    @Test
+    fun `a door row kept as columns still gives its two sides`() {
+        val json = route(
+            """{"type":"door","from":{"min":[3200,3200,0],"max":[3200,3200,0]},"to":{"min":[3201,3200,0],"max":[3201,3200,0]},
+               "metadata":{"kind":"door","steps":[{"kind":"door","db_row":{"direction":"IN","real_id_closed":1530,
+               "tile_inside_x":3201,"tile_inside_y":3200,"tile_inside_plane":0,"tile_outside_x":3200,"tile_outside_y":3200,"tile_outside_plane":0}}]}}""",
+        )
+        val door = assertIs<NavStep.Door>(NavResultsParser.parse(json).steps.single())
+        assertEquals(tile(3201, 3200), door.tileInside)
+        assertEquals(tile(3200, 3200), door.tileOutside)
+    }
+
+    @Test
+    fun `an area given only by its max corner still gives a tile`() {
+        val json = route(
+            """{"type":"object","from":{"max":[3212,3200,0]},"to":{"min":[3212,3201,1],"max":[3212,3201,1]},"id":24350,"action":"Climb-up"}""",
+        )
+        val stairs = assertIs<NavStep.Loc>(NavResultsParser.parse(json).steps.single())
+        assertEquals(tile(3212, 3200), stairs.from)
+    }
 }

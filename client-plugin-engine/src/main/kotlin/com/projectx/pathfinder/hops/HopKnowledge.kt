@@ -1,5 +1,6 @@
 package com.projectx.pathfinder.hops
 
+import com.projectx.game.nxt.OffsetTable
 import com.projectx.pathfinder.StepRule
 import world.gregs.voidps.type.Direction
 import world.gregs.voidps.type.Tile
@@ -179,7 +180,7 @@ internal object Hops {
         }
     }
 
-    val recorder: HopRecorder by lazy { HopRecorder(knowledge, contributor) }
+    val recorder: HopRecorder by lazy { HopRecorder(knowledge, contributor) { OffsetTable.build } }
 
     private fun storeDir(): Path = Paths.get(System.getProperty("user.home"), ".projectx", "hops").also {
         runCatching { Files.createDirectories(it) }

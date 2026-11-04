@@ -27,18 +27,9 @@ internal object ClickPicker {
         if (route.isEmpty()) return null
         val field = map.field(player, minOf(WalkMap.DEFAULT_MAX_DEPTH, stepLimit * 2 + 20)) ?: return null
 
-        var nearest = -1
-        var best = Int.MAX_VALUE
-        for (i in fromIndex.coerceIn(0, route.size - 1) until route.size) {
-            val tile = route[i]
-            if (tile.plane != player.plane) continue
-            val d = player.getLongestDelta(tile)
-            if (d < best) {
-                best = d
-                nearest = i
-            }
-        }
+        val nearest = HopPlanner.nearestIndex(route, player, fromIndex, route.size)
         if (nearest < 0) return null
+        val best = player.getLongestDelta(route[nearest])
 
         val limit = minOf(stepLimit, MAX_CLICK)
         var onRoute = -1

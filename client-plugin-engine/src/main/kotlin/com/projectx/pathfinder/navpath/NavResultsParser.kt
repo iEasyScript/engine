@@ -182,6 +182,7 @@ internal object NavResultsParser {
             ?: throw NavParseException("door $index has no direction")
         fun tile(infoKey: String, rowKey: String) =
             tileOf(index, info?.get(infoKey), infoKey) ?: tileOf(index, meta?.get(rowKey), rowKey) ?: tileOf(index, db?.get(rowKey), rowKey)
+                ?: columnsTile(db, rowKey)
         return NavStep.Door(
             direction = direction.uppercase(),
             realIdOpen = int(info, "realIdOpen") ?: int(o, "realIdOpen") ?: int(meta, "real_id_open") ?: int(db, "real_id_open"),
@@ -278,11 +279,22 @@ internal object NavResultsParser {
                 val iface = int(meta, "interface_id") ?: return@forEachIndexed
                 val component = int(meta, "component_id") ?: return@forEachIndexed
                 val slot = int(meta, "slot_id") ?: return@forEachIndexed
-                out += NavStep.IFSlot(iface, component, slot, int(meta, "click_id") ?: 0, null, null, null, emptyList())
+                out += NavStep.IFSlot(iface, component, slot, int(meta, "click_id") ?: 0, destRect(meta), null, null, emptyList())
             } else {
                 val synthetic = JsonObject()
                 synthetic.addProperty("type", type)
-                if (meta != null) synthetic.add("metadata", meta)
+                if (meta != null) {
+                    val copy = meta.deepCopy()
+                    destRect(meta)?.let { area ->
+                        copy.add("destination_area", JsonObject().apply {
+                            addProperty("x1", area.minX)
+                            addProperty("y1", area.minY)
+                            addProperty("x2", area.maxX)
+                            addProperty("y2", area.maxY)
+                        })
+                    }
+                    synthetic.add("metadata", copy)
+                }
                 runCatching { step(i, synthetic) }.getOrNull()?.let(out::add)
             }
         }
@@ -321,6 +333,20 @@ internal object NavResultsParser {
         return NavArea(minX, minY, maxX, maxY, int(db, "${prefix}_plane"))
     }
 
+    /** A child step's `dest_rect` `[x1, y1, x2, y2]` on its `plane`. */
+    private fun destRect(meta: JsonObject?): NavArea? {
+        val rect = meta?.getAsJsonArrayOrNull("dest_rect")?.takeIf { it.size() >= 4 } ?: return null
+        val values = (0 until 4).map { i -> rect[i].takeIf { it.isJsonPrimitive && it.asJsonPrimitive.isNumber }?.asInt ?: return null }
+        return NavArea(values[0], values[1], values[2], values[3], int(meta, "plane"))
+    }
+
+    /** A tile a database row keeps as three columns, `<prefix>_x`, `<prefix>_y` and `<prefix>_plane`. */
+    private fun columnsTile(db: JsonObject?, prefix: String): Tile? {
+        val x = int(db, "${prefix}_x") ?: return null
+        val y = int(db, "${prefix}_y") ?: return null
+        return Tile.of(x, y, int(db, "${prefix}_plane") ?: 0)
+    }
+
     private fun xyArea(o: JsonObject?): NavArea? {
         o ?: return null
         val x1 = int(o, "x1") ?: return null
@@ -335,12 +361,12 @@ internal object NavResultsParser {
 
     private fun pointOf(index: Int, o: JsonObject, key: String): Tile? = runCatching { tileOf(index, o.get(key), key) }.getOrNull()
 
-    /** An `[x, y, plane]` array, or an area object's `min`. */
+    /** An `[x, y, plane]` array, or an area object's `min` (its `max` when it has no `min`). */
     private fun tileOf(index: Int, element: JsonElement?, field: String): Tile? {
         if (element == null || element.isJsonNull) return null
         val array = when {
             element.isJsonArray -> element.asJsonArray
-            element.isJsonObject -> element.asJsonObject.getAsJsonArrayOrNull("min") ?: return null
+            element.isJsonObject -> element.asJsonObject.let { it.getAsJsonArrayOrNull("min") ?: it.getAsJsonArrayOrNull("max") } ?: return null
             else -> throw NavParseException("action $index: '$field' is not a tile")
         }
         if (array.size() != 3) throw NavParseException("action $index: '$field' needs [x, y, plane]")

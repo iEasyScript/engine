@@ -1,5 +1,6 @@
 package com.projectx.pathfinder
 
+import com.projectx.game.nxt.SyntheticFires
 import world.gregs.voidps.type.Direction
 import world.gregs.voidps.type.Tile
 
@@ -9,9 +10,16 @@ import world.gregs.voidps.type.Tile
  * player faces on every tile of the walk - which is the way a Surge goes - is known before it is walked.
  *
  * The server starts a walk from its tile when the click reaches it: this tick's, or the next tick's along the walk
- * it was already on, so a walk from each is kept until the player's tile shows which.
+ * it was already on, so a walk from each is kept until the player's tile shows which. Any other synthetic action
+ * fired after the click (an object, an NPC, a walk sent by someone else) has replaced the walk, so it is dropped.
  */
-internal class ServerWalk(private val map: WalkMap, private val clock: () -> Long = System::currentTimeMillis) {
+internal class ServerWalk(
+    private val map: WalkMap,
+    private val clock: () -> Long,
+    private val fires: () -> Long,
+) {
+    constructor(map: WalkMap, clock: () -> Long = System::currentTimeMillis) : this(map, clock, SyntheticFires::count)
+
 
     class Walk(val tiles: List<Tile>, val entry: Direction?)
 
@@ -27,18 +35,29 @@ internal class ServerWalk(private val map: WalkMap, private val clock: () -> Lon
     private var clickedAt = 0L
     private var hopping = false
     private var clickedInFlight = false
+    private var firesAtClick = 0L
 
     val click: Tile?
-        @Synchronized get() = if (walks.isEmpty()) null else clicked
+        @Synchronized get() = if (current().isEmpty()) null else clicked
 
+    private fun current(): List<Walk> {
+        if (walks.isNotEmpty() && fires() != firesAtClick) {
+            walks = emptyList()
+            clicked = null
+        }
+        return walks
+    }
+
+    /** Call straight after the walk click on [click] has been fired. */
     @Synchronized
     fun clicked(player: Tile, click: Tile) {
-        val before = walks
+        val before = if (fires() - firesAtClick <= 1) walks else emptyList()
         walks = emptyList()
         clickedFrom = player
         clicked = click
         clickedAt = clock()
         clickedInFlight = hopping
+        firesAtClick = fires()
         val next = ArrayList<Walk>()
         add(next, player, click, entryOn(before, player))
         for (walk in before) {
@@ -69,7 +88,7 @@ internal class ServerWalk(private val map: WalkMap, private val clock: () -> Lon
     @Synchronized
     fun hopSettled(landing: Tile?, facing: Direction?) {
         val target = clicked
-        val again = hopping && clickedInFlight
+        val again = hopping && clickedInFlight && fires() == firesAtClick
         hopping = false
         clickedInFlight = false
         if (!again || landing == null || target == null) return
@@ -83,7 +102,7 @@ internal class ServerWalk(private val map: WalkMap, private val clock: () -> Lon
     /** Every tile a surge cast now may fire from, up to [reach] steps on, with the way it would go. */
     @Synchronized
     fun fires(player: Tile, facing: Direction?, reach: Int = TICK_STEPS): Plan {
-        if (walks.isEmpty()) return Plan(null, "no walk predicted", false)
+        if (current().isEmpty()) return Plan(null, "no walk predicted", false)
         if (player == clickedFrom) {
             return Plan(null, "the walk to $clicked has not started", clock() - clickedAt < START_WAIT_MS)
         }
@@ -108,7 +127,7 @@ internal class ServerWalk(private val map: WalkMap, private val clock: () -> Lon
     @Synchronized
     fun ahead(player: Tile): List<Tile>? {
         val out = ArrayList<Tile>()
-        for (walk in walks) {
+        for (walk in current()) {
             val i = walk.tiles.indexOf(player)
             if (i < 0) continue
             for (k in 0..TICK_STEPS) {

@@ -8,7 +8,7 @@ import com.projectx.script.api.LODESTONE_MAP_INTERFACE
 import com.projectx.script.api.continueDialogueContaining
 import com.projectx.script.api.equipment
 import com.projectx.script.api.findClosestNPC
-import com.projectx.script.api.findClosestObject
+import com.projectx.script.api.getAllObjectsWithinRange
 import com.projectx.script.api.interactComponent
 import com.projectx.script.api.interfaces
 import com.projectx.script.api.inventory
@@ -17,6 +17,8 @@ import com.projectx.script.api.isLodestoneUiOpen
 import com.projectx.script.api.localPlayer
 import com.projectx.script.api.openLodestoneMap
 import com.projectx.script.api.varps
+import world.gregs.voidps.type.Tile
+import kotlin.math.max
 
 /**
  * How the walker starts each kind of link: the first thing it does, before any answer or chained step. Each returns
@@ -29,7 +31,16 @@ internal object WebLinkActions {
 
     private const val FAIRY_RING_INTERFACE = 784
     private const val FAIRY_RING_TELEPORT = 23
-    private const val FAIRY_RING_TURNS = 4
+    private const val FAIRY_RING_ROUNDS = 4
+
+    /** Of the objects matching a link, only those this close to the nearest to its approach are told apart. */
+    private const val ANCHOR_SLACK = 2
+
+    /** A destination this close decides between twin objects at the approach: the stairs that lead there. */
+    private const val DEST_NEAR = 8
+
+    /** How far past the approach an object offering the action is looked for when none has the link's id. */
+    private const val FALLBACK_REACH = 4
 
     /** A dial's varbit counts clockwise turns, so its letters are listed in the order clockwise turns bring them up. */
     private class FairyDial(val varbit: Int, val letters: String, val anticlockwise: Int, val clockwise: Int) {
@@ -50,7 +61,7 @@ internal object WebLinkActions {
     private const val ACTIVATE_REFUSED = "already have an active version"
 
     suspend fun start(script: Script, link: WebLink): Boolean = when (link.kind) {
-        WebLinkKind.OBJECT, WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, link.searchRadius)
+        WebLinkKind.OBJECT, WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, link.searchRadius, link.from, link.to)
         WebLinkKind.NPC -> useNpc(link)
         WebLinkKind.USE_ON -> useItemOnObject(link)
         WebLinkKind.ITEM -> useCarriedItem(link)
@@ -79,16 +90,24 @@ internal object WebLinkActions {
             }
         }
         is WebObjectStep -> {
-            val used = script.useObject(step.objectId, step.action, step.searchRadius)
+            val used = script.useObject(step.objectId, step.action, step.searchRadius, null, link.to)
             if (used) script.delayUntil(OBJECT_STEP_SETTLE_MS) { localPlayer.isAnimating || localPlayer.isMoving }
             used
         }
     }
 
-    private fun Script.useObject(objectId: Int, action: String, searchRadius: Int): Boolean {
-        val target = findClosestObject(searchRadius) { obj ->
-            (obj.id == objectId || obj.visibleTypeId == objectId) && obj.hasOption(action)
-        } ?: findClosestObject(searchRadius) { it.hasOption(action) }
+    /**
+     * The object nearest the link's approach [from] (the player when none), told apart from its twins by [to]: the
+     * search is centred on where the link is taken, so a ladder beside the one the route uses is never climbed.
+     */
+    private fun Script.useObject(objectId: Int, action: String, searchRadius: Int, from: WebArea?, to: WebArea?): Boolean {
+        val me = localPlayer.tile
+        val anchor = from ?: WebArea(me.x, me.x, me.y, me.y, me.plane)
+        val centre = Tile.of(anchor.centreX, anchor.centreY, anchor.plane)
+        val span = max(anchor.maxX - anchor.minX, anchor.maxY - anchor.minY) / 2
+        val nearby = getAllObjectsWithinRange(centre, searchRadius + span).filter { it.tile.plane == anchor.plane && it.hasOption(action) }
+        val target = pickAnchored(nearby.filter { it.id == objectId || it.visibleTypeId == objectId }, { it.tile }, anchor, to, me)
+            ?: pickAnchored(nearby.filter { areaDistance(anchor, it.tile) <= FALLBACK_REACH }, { it.tile }, anchor, to, me)
         if (target == null) {
             println("[WebWalk] No '$action' object $objectId in range")
             return false
@@ -99,7 +118,8 @@ internal object WebLinkActions {
     private fun useNpc(link: WebLink): Boolean {
         val wanted = link.target ?: return false
         val npc = findClosestNPC(link.searchRadius) { npc ->
-            wanted.matches(npc.id, runCatching { npc.name() }.getOrNull()) && npc.hasOption(link.action)
+            val name = runCatching { npc.name() }.getOrNull()
+            (wanted.matches(npc.id, name) || npc.typeId != -1 && wanted.matches(npc.typeId, name)) && npc.hasOption(link.action)
         }
         if (npc == null) {
             println("[WebWalk] No NPC $wanted offering '${link.action}' in range")
@@ -113,7 +133,11 @@ internal object WebLinkActions {
             println("[WebWalk] ${link.target} is not in the backpack for $link")
             return false
         }
-        val target = findClosestObject(link.searchRadius) { it.id == link.objectId || it.visibleTypeId == link.objectId }
+        val me = localPlayer.tile
+        val anchor = link.from
+        val centre = Tile.of(anchor.centreX, anchor.centreY, anchor.plane)
+        val nearby = getAllObjectsWithinRange(centre, link.searchRadius).filter { it.id == link.objectId || it.visibleTypeId == link.objectId }
+        val target = pickAnchored(nearby, { it.tile }, anchor, link.to, me)
         if (target == null) {
             println("[WebWalk] No object ${link.objectId} in range to use ${link.target} on")
             return false
@@ -170,32 +194,43 @@ internal object WebLinkActions {
     /** Opens the ring, turns each dial until its top letter is the code's, and teleports. */
     private suspend fun Script.dialFairyRing(link: WebLink): Boolean {
         val code = link.fairyCode ?: return false
-        val opened = if (link.portable) openPortableRing() else useObject(link.objectId, link.action, link.searchRadius)
+        val opened = if (link.portable) openPortableRing() else useObject(link.objectId, link.action, link.searchRadius, link.from, null)
         if (!opened) return false
-        delayUntil(PROMPT_TIMEOUT_MS) { interfaces.isOpen(FAIRY_RING_INTERFACE) }
-        if (!interfaces.isOpen(FAIRY_RING_INTERFACE)) {
+        delayUntil(PROMPT_TIMEOUT_MS) { dialOpen() }
+        if (!dialOpen()) {
             println("[WebWalk] The fairy ring did not open for $link")
             return false
         }
-        for ((index, dial) in FAIRY_RING_DIALS.withIndex()) {
+        val wanted = FAIRY_RING_DIALS.mapIndexed { index, dial ->
             val letter = code.getOrNull(index)?.lowercaseChar() ?: return false
-            val wanted = dial.letters.indexOf(letter).takeIf { it >= 0 } ?: return false
-            var turns = 0
-            while (dial.position != wanted) {
-                if (++turns > FAIRY_RING_TURNS || !interfaces.isOpen(FAIRY_RING_INTERFACE)) {
-                    println("[WebWalk] The fairy ring's dial ${index + 1} never showed '$letter'")
-                    return false
-                }
-                val before = dial.position
-                val button = if (Math.floorMod(wanted - before, 4) == 3) dial.anticlockwise else dial.clockwise
-                if (!IFSlot(FAIRY_RING_INTERFACE, button, -1).click(1)) return false
-                delayUntil(PROMPT_TIMEOUT_MS) { dial.position != before || !interfaces.isOpen(FAIRY_RING_INTERFACE) }
-                delay(250, 120)
+            dial.letters.indexOf(letter).takeIf { it >= 0 } ?: return false
+        }
+        // Every dial still off its letter turns in the same round, one click each, the short way round.
+        var rounds = 0
+        while (FAIRY_RING_DIALS.indices.any { FAIRY_RING_DIALS[it].position != wanted[it] }) {
+            if (++rounds > FAIRY_RING_ROUNDS || !dialOpen()) {
+                println("[WebWalk] The fairy ring's dials never showed ${code.uppercase()}")
+                return false
             }
+            val before = FAIRY_RING_DIALS.map { it.position }
+            for ((index, dial) in FAIRY_RING_DIALS.withIndex()) {
+                if (before[index] == wanted[index]) continue
+                val button = if (Math.floorMod(wanted[index] - before[index], 4) == 3) dial.anticlockwise else dial.clockwise
+                if (!IFSlot(FAIRY_RING_INTERFACE, button, -1).click(1)) return false
+            }
+            delayUntil(PROMPT_TIMEOUT_MS) { FAIRY_RING_DIALS.indices.any { FAIRY_RING_DIALS[it].position != before[it] } || !dialOpen() }
+            delay(250, 120)
         }
         println("[WebWalk] Dialled ${code.uppercase()}")
         return IFSlot(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT, -1).click(1)
     }
+
+    /** The dial is up only while its teleport button shows: one closed mid-turn stays attached with everything hidden. */
+    private fun dialOpen(): Boolean =
+        interfaces.isOpen(FAIRY_RING_INTERFACE) && (
+            interfaces.getComponent(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT) != null ||
+                interfaces.getComponentRaw(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT)?.visible == true
+            )
 
     /**
      * Opens the ring's dial from the portable fairy ring: the backpack copy first, then the worn one. With only an
@@ -227,6 +262,32 @@ internal object WebLinkActions {
         }
         delay(400, 150)
         return ring.click(PORTABLE_RING_OPTION)
+    }
+
+    /** Chebyshev steps from [area] to [tile]; [Int.MAX_VALUE] on another plane. */
+    fun areaDistance(area: WebArea, tile: Tile): Int {
+        if (tile.plane != area.plane) return Int.MAX_VALUE
+        val dx = if (tile.x < area.minX) area.minX - tile.x else if (tile.x > area.maxX) tile.x - area.maxX else 0
+        val dy = if (tile.y < area.minY) area.minY - tile.y else if (tile.y > area.maxY) tile.y - area.maxY else 0
+        return max(dx, dy)
+    }
+
+    /**
+     * Of [candidates], those within [ANCHOR_SLACK] of the one nearest [anchor]; among them the nearest to [destination]
+     * when it lies within [DEST_NEAR] on the same plane, then the nearest to [player].
+     */
+    fun <T> pickAnchored(candidates: List<T>, tile: (T) -> Tile, anchor: WebArea, destination: WebArea?, player: Tile): T? {
+        if (candidates.isEmpty()) return null
+        val nearest = candidates.minOf { areaDistance(anchor, tile(it)) }
+        if (nearest == Int.MAX_VALUE) return null
+        val near = candidates.filter { areaDistance(anchor, tile(it)) <= nearest + ANCHOR_SLACK }
+        val toDestination = destination?.let { dest -> { c: T -> areaDistance(dest, tile(c)) } }
+        val usable = toDestination != null && near.any { toDestination(it) <= DEST_NEAR }
+        return near.minWith(
+            compareBy<T> { if (usable) toDestination!!(it) else 0 }
+                .thenBy { areaDistance(anchor, tile(it)) }
+                .thenBy { tile(it).getLongestDelta(player) },
+        )
     }
 
     private fun carried(items: List<Item>, target: WebTarget): Item? =

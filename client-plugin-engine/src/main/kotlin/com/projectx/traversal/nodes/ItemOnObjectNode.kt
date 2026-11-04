@@ -1,15 +1,12 @@
 package com.projectx.traversal.nodes
 
 import com.projectx.game.nxt.entity.location.SceneObject
-import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
-import com.projectx.script.api.allObjects
-import com.projectx.script.api.findClosestReachableObject
 import com.projectx.script.api.inventory
 import com.projectx.script.api.localPlayer
 import com.projectx.traversal.TraversalNode
+import com.projectx.traversal.nodes.NodeWaits.awaitInteraction
 import com.projectx.util.Area
-import com.projectx.util.gaussian
 
 class ItemOnObjectNode private constructor(
     private val itemIdentifier: ItemIdentifier,
@@ -115,34 +112,14 @@ class ItemOnObjectNode private constructor(
         is ItemIdentifier.IdRef -> inventory.find { it.id == itemIdentifier.id }
     }
 
-    private fun getTarget(script: Script): SceneObject? = when (objIdentifier) {
+    private fun getTarget(): SceneObject? = when (objIdentifier) {
         is ObjectIdentifier.ObjectRef -> objIdentifier.obj
-        is ObjectIdentifier.NameRef -> if (findClosestReachableObject(maxRange = objectSearchRadius) { obj ->
-                obj.name().contains(objIdentifier.name)
-            } != null) {
-            findClosestReachableObject(maxRange = objectSearchRadius) { obj ->
-                obj.name().contains(objIdentifier.name)
-            }
-        } else {
-            allObjects.filter { obj ->
-                obj.name().contains(objIdentifier.name)
-            }.minByOrNull { it.tile.getDistance(localPlayer.tile) }
-        }
-
-        is ObjectIdentifier.IdRef -> if (findClosestReachableObject(maxRange = objectSearchRadius) { obj ->
-                objIdentifier.id == -1 || obj.id == objIdentifier.id
-            } != null) {
-            findClosestReachableObject(maxRange = objectSearchRadius) { obj ->
-                objIdentifier.id == -1 || obj.id == objIdentifier.id
-            }
-        } else {
-            allObjects.filter { obj ->
-                objIdentifier.id == -1 || obj.id == objIdentifier.id
-            }.minByOrNull { it.tile.getDistance(localPlayer.tile) }
-        }
+        is ObjectIdentifier.NameRef -> LocalTargets.objectNear(objectSearchRadius) { it.name().contains(objIdentifier.name) }
+        is ObjectIdentifier.IdRef -> LocalTargets.objectNear(objectSearchRadius) { objIdentifier.id == -1 || it.id == objIdentifier.id }
     }
 
     override suspend fun process(script: Script): Boolean {
+        if (reached(script)) return false
         if (System.currentTimeMillis() < nextClick) return true
 
         val item = getItem(script)
@@ -151,7 +128,7 @@ class ItemOnObjectNode private constructor(
             return true
         }
 
-        val target = getTarget(script)
+        val target = getTarget()
         if (target == null) {
             script.delay(100, 100)
             return true
@@ -159,11 +136,8 @@ class ItemOnObjectNode private constructor(
 
         val success = item.useOn(target)
         if (success) {
-            script.delayUntil(15000) { !localPlayer.isMoving }
-            nextClick = System.currentTimeMillis() + gaussian(
-                PlayerProfiles.get().walkPathClickTime,
-                PlayerProfiles.get().walkPathClickTime / 2
-            )
+            script.awaitInteraction { reached(script) || traversalStopRequested() }
+            nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
             return true
         }
         return false

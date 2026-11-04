@@ -3,7 +3,6 @@ package com.projectx.traversal.nodes
 import world.gregs.voidps.type.Tile
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.pathfinder.LiveWalkMap
-import com.projectx.profiling.PlayerProfiles
 import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
 import com.projectx.script.api.findClosestObject
@@ -12,7 +11,7 @@ import com.projectx.script.api.walkTo
 import com.projectx.traversal.EarlyStart
 import com.projectx.traversal.TraversalNode
 import com.projectx.traversal.WalkEquivalent
-import com.projectx.util.gaussian
+import com.projectx.traversal.nodes.NodeWaits.awaitWalk
 
 enum class DoorDirection {
     IN,
@@ -42,6 +41,7 @@ class DoorNode(
 ) : TraversalNode(), WalkEquivalent, EarlyStart {
 
     private var nextClick: Long = 0
+    private var missingSince = 0L
     private val targetTile: Tile = when (direction) {
         DoorDirection.IN -> doorInfo.tileInside
         DoorDirection.OUT -> doorInfo.tileOutside
@@ -61,7 +61,22 @@ class DoorNode(
     private fun edgeOpen(): Boolean? =
         if (doorInfo.tileInside == doorInfo.tileOutside) null else LiveWalkMap.passage(doorInfo.tileOutside, doorInfo.tileInside, PASSAGE_STEPS)
 
-    private fun isDoorOpen(): Boolean = edgeOpen() ?: (find(doorInfo.realIdOpen) != null)
+    private fun isDoorOpen(): Boolean = edgeOpen() ?: openById()
+
+    /** With no open id, a closed door gone from its tile is open, but only where the scene shows that tile. */
+    private fun openById(): Boolean {
+        if (doorInfo.realIdOpen != -1) return find(doorInfo.realIdOpen) != null
+        val me = localPlayer.tile
+        return me.plane == doorInfo.locationClosed.plane && me.getLongestDelta(doorInfo.locationClosed) <= SCAN_RADIUS &&
+            find(doorInfo.realIdClosed) == null
+    }
+
+    private suspend fun walkToTarget(script: Script) {
+        if (walkTo(targetTile, false)) {
+            script.awaitWalk(NodeWaits.WALK_START_TIMEOUT_MS, NodeWaits.WALK_LEG_TIMEOUT_MS) { traversalStopRequested() || crossed() }
+        }
+        nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
+    }
 
     /** On the far side: the target tile, or beside it and nearer it than the near side, as a walk-through door leaves you. */
     private fun crossed(): Boolean {
@@ -78,37 +93,54 @@ class DoorNode(
 
         if (isDoorOpen()) {
             if (edgeOpen() == true && (next as? WalkEquivalent)?.routeTiles()?.isNotEmpty() == true) return false
-            walkTo(targetTile, false)
-            script.delayUntil(15000) { traversalStopRequested() || !localPlayer.isMoving || crossed() }
-            nextClick = System.currentTimeMillis() + gaussian(PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2)
-            return true
+            walkToTarget(script)
+            return false
         }
 
         val doorObj = findDoor()
         if (doorObj == null) {
-            script.delay(100, 100)
-            return true
+            val now = System.currentTimeMillis()
+            if (missingSince == 0L) missingSince = now
+            // Just after a teleport the scene is still loading: wait for it rather than walking at a door not yet drawn.
+            if (LiveWalkMap.arriving() && now - missingSince < ARRIVAL_WAIT_MS) {
+                script.delay(100, 100)
+                return true
+            }
+            println("[DoorNode] $this not found at ${doorInfo.locationClosed}; walking on to $targetTile")
+            walkToTarget(script)
+            return false
         }
+        missingSince = 0L
 
         val openAction = doorInfo.openAction ?: "Open"
         val picksLock = openAction.contains("pick", ignoreCase = true)
         val clickedAt = System.currentTimeMillis()
         if (!doorObj.interact(openAction)) return false
-        nextClick = System.currentTimeMillis() + gaussian(PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2)
+        var idleSince = clickedAt
+        var idleTile = localPlayer.tile
         script.delayUntil(OPEN_WAIT_MS) {
-            traversalStopRequested() || isDoorOpen() || crossed() || !picksLock && RecentChat.containsSince(LOCKED_MESSAGE, clickedAt)
+            val now = System.currentTimeMillis()
+            val tile = localPlayer.tile
+            if (tile != idleTile || localPlayer.isMoving || localPlayer.isAnimating) {
+                idleSince = now
+                idleTile = tile
+            }
+            traversalStopRequested() || isDoorOpen() || crossed() || !picksLock && RecentChat.containsSince(LOCKED_MESSAGE, clickedAt) ||
+                now - idleSince >= IDLE_RECLICK_MS
         }
+        nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
         if (!picksLock && RecentChat.containsSince(LOCKED_MESSAGE, clickedAt)) {
             failTraversal("locked door $this")
             return true
         }
         if (crossed() || traversalStopRequested()) return !crossed()
-        if (!isDoorOpen()) return true
+        if (!isDoorOpen()) {
+            println("[DoorNode] nothing happened after '$openAction' on $this")
+            return true
+        }
         if (edgeOpen() == true && (next as? WalkEquivalent)?.routeTiles()?.isNotEmpty() == true) return false
-        script.delay(200, 400)
-        walkTo(targetTile, false)
-        script.delayUntil(15000) { traversalStopRequested() || !localPlayer.isMoving || crossed() }
-        return true
+        walkToTarget(script)
+        return false
     }
 
     override fun reached(script: Script): Boolean = customReached?.invoke() ?: crossed()
@@ -131,5 +163,7 @@ class DoorNode(
         private const val PASSAGE_STEPS = 3
         private const val OPEN_WAIT_MS = 8_000L
         private const val LOCKED_MESSAGE = "locked"
+        private const val IDLE_RECLICK_MS = 2_400L
+        private const val ARRIVAL_WAIT_MS = 6_000L
     }
 }

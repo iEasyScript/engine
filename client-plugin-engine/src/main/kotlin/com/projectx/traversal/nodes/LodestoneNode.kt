@@ -20,6 +20,11 @@ class LodestoneNode(
         if (System.currentTimeMillis() < nextClick) return true
 
         if (reached(script)) return false
+        // Already landed and still playing the arrival: teleporting again would only start a second cast.
+        if (NodeWaits.within(localPlayer.tile, lodestone.tile, ARRIVED_TILES)) {
+            script.delayUntil(ARRIVAL_ANIMATION_MS) { traversalStopRequested() || !localPlayer.isAnimating }
+            return true
+        }
 
         script.useLodestone(lodestone)
         nextClick = System.currentTimeMillis() + gaussian(PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2)
@@ -30,10 +35,15 @@ class LodestoneNode(
 
     override fun reached(script: Script): Boolean {
         return customReached?.invoke() ?:
-            (localPlayer.tile.getDistance(lodestone.tile) <= 10 && !localPlayer.isAnimating)
+            (NodeWaits.within(localPlayer.tile, lodestone.tile, 10) && !localPlayer.isAnimating)
     }
 
     override fun copy(): TraversalNode = LodestoneNode(lodestone, customReached)
 
     override fun toString(): String = "[Lodestone: ${lodestone.name}]"
+
+    private companion object {
+        private const val ARRIVED_TILES = 3
+        private const val ARRIVAL_ANIMATION_MS = 5_000L
+    }
 } 

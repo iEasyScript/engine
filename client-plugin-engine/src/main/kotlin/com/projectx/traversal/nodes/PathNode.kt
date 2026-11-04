@@ -3,6 +3,7 @@ package com.projectx.traversal.nodes
 import world.gregs.voidps.type.Tile
 import com.projectx.game.bootstrap.Bootstrap
 import world.gregs.voidps.path.Route
+import com.projectx.pathfinder.LiveWalkMap
 import com.projectx.pathfinder.routeToTile
 import world.gregs.voidps.path.toTiles
 import com.projectx.profiling.PlayerProfiles
@@ -12,13 +13,14 @@ import com.projectx.script.api.walkTo
 import com.projectx.traversal.TraversalNode
 import com.projectx.traversal.WalkEquivalent
 import com.projectx.traversal.walk.LiveRouteWalker
+import com.projectx.traversal.nodes.NodeWaits.awaitWalk
 import com.projectx.traversal.walk.NodeWalker
-import com.projectx.util.gaussian
 import com.projectx.util.random
 
 class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = null) : TraversalNode(), WalkEquivalent {
     private var route: Route
     private var nextClick: Long = 0
+    private var lastClick: Tile? = null
     private val walker = NodeWalker("PathNode")
 
     init {
@@ -39,10 +41,20 @@ class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = n
             LiveRouteWalker.Step.STUCK -> if (requestTraversalRepath()) return true
             LiveRouteWalker.Step.FALLBACK -> {}
         }
+        // Untrusted (the grace after a teleport): each leg is waited out, and handed back once the live map can walk it.
+        val untilTrusted = !LiveWalkMap.trusted(localPlayer.tile)
+        val last = lastClick
+        if (last != null && !NodeWaits.within(localPlayer.tile, last, LEG_NEAR) && localPlayer.isMoving) return true
         if (System.currentTimeMillis() > nextClick) {
             val clickTile = getNextClickPoint() ?: return true
-            walkTo(clickTile, random(100) >= PlayerProfiles.get().minimapWalkPerc)
-            nextClick = System.currentTimeMillis() + gaussian(PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2)
+            nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
+            if (walkTo(clickTile, random(100) >= PlayerProfiles.get().minimapWalkPerc)) {
+                lastClick = clickTile
+                script.awaitWalk(NodeWaits.WALK_START_TIMEOUT_MS, NodeWaits.WALK_LEG_TIMEOUT_MS) {
+                    traversalStopRequested() || NodeWaits.within(localPlayer.tile, clickTile, LEG_NEAR) || reached(script) ||
+                        untilTrusted && LiveWalkMap.trusted(localPlayer.tile)
+                }
+            }
         }
         return true
     }
@@ -76,11 +88,15 @@ class PathNode(val start: Tile, val end: Tile, val reached: (() -> Boolean)? = n
         return finalTarget ?: target
     }
 
-    override fun reached(script: Script): Boolean = reached?.invoke() == true || Bootstrap.client.loggedInPlayer.self.tile.getDistance(end) <= 5
+    override fun reached(script: Script): Boolean = reached?.invoke() == true || NodeWaits.within(localPlayer.tile, end, 5)
 
     override fun routeTiles(): List<Tile> = if (route.success) route.toTiles(end.plane) else emptyList()
 
     override fun passableNow(): Boolean = true
 
     override fun copy(): TraversalNode = PathNode(start, end).also { it.route = this.route }
+
+    private companion object {
+        private const val LEG_NEAR = 3
+    }
 }

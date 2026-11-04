@@ -62,7 +62,7 @@ internal class AccelerationPlanner(private val map: WalkMap, private val hops: H
                     if (l == null || g < HopPlanner.DIVE_MIN_GAIN) continue
                     landing = l
                     gain = g
-                    nextBearing = HopModel.dir8(l.x - position.x, l.y - position.y)?.let(HopModel::bearing) ?: bearing
+                    nextBearing = HopModel.facing(l.x - position.x, l.y - position.y)?.let(HopModel::bearing) ?: bearing
                     break
                 }
             } else if (bearing >= 0) {

@@ -73,6 +73,15 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     private var chainAfterDive = false
     private var lastHopDirection: Direction? = null
     private var lastHopAt = 0L
+    private var settledAt = 0L
+    private var progressKey: List<Any>? = null
+    private var progressCached: Progress? = null
+    private var progressAt = 0L
+
+    /** The caller now passes its route starting [shift] tiles further on. */
+    fun rebase(shift: Int) {
+        if (shift != 0) progress = (progress - shift).coerceAtLeast(0)
+    }
 
     fun reset() {
         progress = 0
@@ -85,6 +94,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     /** Another action (a door, a link, a teleport) has replaced the walk queue. */
     fun forgetWalk() {
         lastClick = null
+        sharedClick = null
         walk.forget()
     }
 
@@ -130,9 +140,10 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
             lastClick = null
             nextClick = 0
         }
-        val hopped = castAlongRoute(route, pick.nearestIndex, player)
+        val hopped = castAlongRoute(route, pick.nearestIndex, player, click)
         if (hopped) {
             lastClick = null
+            sharedClick = null
             walk.forget()
             nextClick = 0
         }
@@ -143,6 +154,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
 
         val now = System.currentTimeMillis()
         val moving = !hopped && localPlayer.isMoving
+        if (lastClick == null && !hopped) adoptSharedClick(click, moving, now)
         val previous = lastClick
         if (previous != null && moving && (click == previous || player.getLongestDelta(previous) > LEG_NEAR)) {
             awaitLeg(script, previous, route, done)
@@ -158,25 +170,33 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         pendingRecord?.noteWalkClick()
         lastClick = click
         lastClickAt = now
+        sharedClick = click
+        sharedClickAt = now
         awaitLeg(script, click, route, done)
         return Step.CONTINUE
     }
 
     private suspend fun awaitLeg(script: Script, click: Tile, route: List<Tile>, done: () -> Boolean) {
+        val legStart = System.currentTimeMillis()
         // Always yields once: a condition that is already true would otherwise loop step() inside one game tick.
         script.delay(POLL_MS.toInt())
         script.delayUntil(LEG_TIMEOUT_MS, POLL_MS.toInt()) {
             val tile = localPlayer.tile
             track(tile)
             watchPending(tile)
-            script.stopped || done() || near(tile, click, LEG_NEAR) || hopDue() || pendingKind == null && justLanded() ||
+            script.stopped || done() || near(tile, click, LEG_NEAR) || hopDue() || pendingKind == null && settledAt > legStart ||
                 route.isNotEmpty() && !localPlayer.isMoving && System.currentTimeMillis() - lastClickAt > LEG_STALL_MS
         }
     }
 
-    private fun near(tile: Tile, target: Tile, distance: Int) = tile.plane == target.plane && tile.getLongestDelta(target) <= distance
+    /** A walker starting mid-leg takes over the last walker's click on the same tile rather than sending it again. */
+    private fun adoptSharedClick(click: Tile, moving: Boolean, now: Long) {
+        if (sharedClick != click || now - sharedClickAt >= if (moving) SHARED_CLICK_MOVING_MS else DUPLICATE_CLICK_MS) return
+        lastClick = click
+        lastClickAt = sharedClickAt
+    }
 
-    private fun justLanded() = System.currentTimeMillis() - lastHopAt < POLL_MS * 2
+    private fun near(tile: Tile, target: Tile, distance: Int) = tile.plane == target.plane && tile.getLongestDelta(target) <= distance
 
     private fun hopDue(): Boolean {
         if (pendingKind != null || !surgeEnabled && !diveEnabled) return false
@@ -190,16 +210,16 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     private fun hopHeld(player: Tile, now: Long) =
         now - LiveWalkMap.lastTeleportAt < LANDED_HOLD_MS || player == missedFrom && now - missedAt < MISSED_RETRY_MS
 
-    private fun castAlongRoute(route: List<Tile>, nearest: Int, player: Tile): Boolean {
+    private fun castAlongRoute(route: List<Tile>, nearest: Int, player: Tile, walkClick: Tile): Boolean {
         if (!surgeEnabled && !diveEnabled || pendingKind != null) return false
         val now = System.currentTimeMillis()
         if (hopHeld(player, now)) return false
         if (now < nextAbilityCheck || now < hopHoldUntil) return false
         val boosted = burstActive()
         nextAbilityCheck = now + if (boosted) BOOSTED_CHECK_MS else ABILITY_CHECK_MS
-        if (route.size - nearest < HopPlanner.DIVE_MIN_GAIN + 2) return false
+        if (route.size - nearest < HopPlanner.END_GATE_TILES) return false
 
-        val ahead = route[minOf(route.size - 1, nearest + HopPlanner.SURGE_PROGRESS_AHEAD)]
+        val progress = progressFor(route, nearest, player, now)
         val surgeReady = surgeEnabled && actionbarAbilities[Ability.SURGE.type] != null && usable(Ability.SURGE, surge = true)
         val diveType = diveAbility
         val diveReady = diveEnabled && diveType != null && usable(diveType, surge = false)
@@ -208,9 +228,9 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
             val chained = now < chainUntil && lastClick == null
             val plan = if (chained) null else walk.fires(player, null, surgeReach())
             val choice = when {
-                plan?.fires != null -> planner.surgeOnWalk(plan.fires, route, nearest, ahead)
+                plan?.fires != null -> planner.surgeOnWalk(plan.fires, route, nearest, progress)
                 plan?.hold == true -> HopChoice.held(plan.why ?: "the walk has not started")
-                else -> planner.surgeByLastStep(surgeDirection(player), chained, route, nearest, player, ahead)
+                else -> planner.surgeByLastStep(surgeDirection(player), chained, route, nearest, player, progress)
             }
             if (choice.cast) {
                 println("[$owner] surge from $player facing ${choice.direction}, predicted landing ${choice.landing} (gains ${choice.gain})")
@@ -224,18 +244,18 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         }
 
         if (diveReady) {
-            val arming = walk.ahead(player) ?: planner.armingTiles(player, lastClick)
-            val choice = planner.dive(route, nearest, player, arming, ahead)
+            val arming = walk.ahead(player) ?: planner.armingTiles(player, lastClick ?: walkClick)
+            val choice = planner.dive(route, nearest, player, arming, progress)
             val aim = choice.aim
             if (choice.cast && aim != null) {
-                val chain = if (surgeEnabled && Ability.SURGE.offCdIgnoreGCD) planner.chainedSurge(route, nearest, player, choice.landing) else null
+                val chain = if (surgeEnabled && surgeBackByLanding(boosted)) planner.chainedSurge(route, nearest, player, choice.landing, progress) else null
                 println("[$owner] dive from $player toward $aim, predicted landing ${choice.landing} (gains ${choice.gain})")
                 if (dive(aim)) {
                     pending(HopExplainer.DIVE, player, choice.landing, null, aim)
                     markSpent(surge = false)
                     if (chain != null) {
                         chainAfterDive = true
-                        chainUntil = now + CHAIN_WAIT_MS
+                        chainUntil = now + LANDING_TIMEOUT_MS + CHAIN_WAIT_MS
                     }
                     return true
                 }
@@ -244,6 +264,24 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         if (surgeReady) chainUntil = 0
         if (surgeReady || diveReady) hopHoldUntil = now + if (boosted) BOOSTED_CHECK_MS else HOP_HOLD_MS
         return false
+    }
+
+    /** Surge on the bar and back by the time a dive cast now lands: off cooldown, or nearly so during a burst. */
+    private fun surgeBackByLanding(boosted: Boolean): Boolean {
+        if (actionbarAbilities[Ability.SURGE.type] == null) return false
+        if (Ability.SURGE.offCdIgnoreGCD) return true
+        return boosted && Ability.SURGE.cooldownTicksIgnoreGCD * TICK_MS <= CHAIN_READY_MS
+    }
+
+    private fun progressFor(route: List<Tile>, nearest: Int, player: Tile, now: Long): Progress {
+        val key = listOf(route.size, route.first(), route.last(), nearest, player)
+        val cached = progressCached
+        if (cached != null && key == progressKey && now - progressAt < PROGRESS_TTL_MS) return cached
+        return planner.progress(route, nearest, player).also {
+            progressKey = key
+            progressCached = it
+            progressAt = now
+        }
     }
 
     private fun pending(kind: String, from: Tile, predicted: Tile?, direction: Direction?, aim: Tile?) {
@@ -282,13 +320,13 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
                 clearSpent(kind == HopExplainer.SURGE)
                 settle(null, HopExplainer.NO_CAST)
             }
-            now - pendingAt >= LANDING_TIMEOUT_MS -> settle(player, HopExplainer.LANDED)
+            now - pendingAt >= if (burstActive()) BOOSTED_LANDING_MS else LANDING_TIMEOUT_MS -> settle(player, HopExplainer.LANDED)
         }
     }
 
     private fun settle(landed: Tile?, outcome: String) {
         val from = pendingFrom
-        val direction = if (landed != null && from != null && landed != from) HopModel.dir8(landed.x - from.x, landed.y - from.y) else null
+        val direction = if (landed != null && from != null && landed != from) HopModel.facing(landed.x - from.x, landed.y - from.y) else null
         println("[$owner] ${pendingKind} from $from: predicted $pendingPredicted, $outcome ${landed ?: ""}")
         if (direction != null) {
             lastHopDirection = direction
@@ -297,8 +335,10 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         walk.hopSettled(landed, direction)
         pendingRecord?.finish(landed, outcome)
         pendingRecord = null
+        if (chainAfterDive) chainUntil = if (outcome == HopExplainer.LANDED) System.currentTimeMillis() + CHAIN_WAIT_MS else 0
         pendingKind = null
         chainAfterDive = false
+        settledAt = System.currentTimeMillis()
     }
 
     private fun track(tile: Tile) {
@@ -315,7 +355,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         if (previous != null && previous.plane == newest.plane) {
             val dx = newest.x - previous.x
             val dy = newest.y - previous.y
-            if (max(abs(dx), abs(dy)) > 2) return hopFacing(HopModel.dir8(dx, dy), newest)
+            if (max(abs(dx), abs(dy)) > 2) return hopFacing(HopModel.facing(dx, dy), newest)
             if (dx == 0 || dy == 0 || abs(dx) == abs(dy)) return HopModel.direction(dx.sign, dy.sign)
             return null
         }
@@ -328,16 +368,19 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     private fun heading(): Double {
         val (at, now) = track.lastOrNull() ?: return -1.0
         val then = track.reversed().firstOrNull { at - it.first >= HEADING_WINDOW_MS }?.second ?: return -1.0
-        if (then.plane != now.plane || now.getLongestDelta(then) < 2) return -1.0
+        if (then.plane != now.plane || now.getLongestDelta(then) !in 2 until HEADING_MAX_TILES) return -1.0
         return HopModel.bearing(then, now)
     }
 
     private fun maybeDrinkAcceleration(route: List<Tile>, nearest: Int, player: Tile): Boolean {
-        if (!accelerationPotion || !surgeEnabled && !diveEnabled) return false
+        if (!accelerationPotion || !surgeEnabled && !diveEnabled || pendingKind != null) return false
         val now = System.currentTimeMillis()
         if (now < nextBurstCheck) return false
         nextBurstCheck = now + BURST_CHECK_MS
+        if (route.size - nearest < BURST_MIN_ROUTE_TILES) return false
         if (burstActive() || Effect.POWERBURST_POTION_IS_ON_COOLDOWN.active) return false
+        // Drunk standing in a dialogue or an object's interaction, the burst runs out before the first hop.
+        if (!localPlayer.isMoving) return false
         val potion = runCatching { inventory.firstOrNull { it.id != -1 && it.name.startsWith(ACCELERATION_POTION) } }.getOrNull() ?: return false
         val diveType = diveAbility
         if (Ability.SURGE.offCdIgnoreGCD || diveType?.offCdIgnoreGCD == true) return false
@@ -348,6 +391,11 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         println("[$owner] drinking a Powerburst of acceleration: ${estimate.hops} hops save ${"%.1f".format(estimate.savingSeconds)} s")
         if (!potion.click("Drink")) return false
         drankAt = now
+        // The dose resets both cooldowns: a hop cast just before is no longer spent, and the reactions redraw boosted.
+        surgeUsableAt = 0
+        diveUsableAt = 0
+        clearSpent(surge = true)
+        clearSpent(surge = false)
         return true
     }
 
@@ -359,7 +407,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
             return false
         }
         val usableAt = if (surge) surgeUsableAt else diveUsableAt
-        if (usableAt == 0L) {
+        if (usableAt == 0L || burstActive() && usableAt - now > BOOSTED_DELAY_MAX_MS) {
             val at = now + readyDelay()
             if (surge) surgeUsableAt = at else diveUsableAt = at
             return false
@@ -388,10 +436,11 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     }
 
     private fun readyDelay(): Long {
-        val (mean, low, high) = if (burstActive()) Triple(BOOSTED_DELAY_MEAN_MS, BOOSTED_DELAY_MIN_MS, BOOSTED_DELAY_MAX_MS)
-        else Triple(READY_DELAY_MEAN_MS, READY_DELAY_MIN_MS, READY_DELAY_MAX_MS)
-        val sd = mean / 3
-        return nonProfiledGaussian(mean.toInt(), (sd * sd).toInt()).toLong().coerceIn(low, high)
+        val boosted = burstActive()
+        val mean = if (boosted) BOOSTED_DELAY_MEAN_MS else READY_DELAY_MEAN_MS
+        val sd = if (boosted) BOOSTED_DELAY_SD_MS else READY_DELAY_SD_MS
+        val drawn = nonProfiledGaussian(mean.toInt(), (sd * sd).toInt()).toLong()
+        return if (boosted) drawn.coerceIn(BOOSTED_DELAY_MIN_MS, BOOSTED_DELAY_MAX_MS) else drawn.coerceIn(READY_DELAY_MIN_MS, READY_DELAY_MAX_MS)
     }
 
     private fun clickGap(mean: Long): Long {
@@ -419,6 +468,13 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         private const val READY_DELAY_MEAN_MS = 700L
         private const val READY_DELAY_MIN_MS = 150L
         private const val READY_DELAY_MAX_MS = 2_500L
+        private const val READY_DELAY_SD_MS = 450L
+        private const val BOOSTED_DELAY_SD_MS = 60L
+        private const val BOOSTED_LANDING_MS = 1_500L
+        private const val CHAIN_READY_MS = 800L
+        private const val PROGRESS_TTL_MS = 600L
+        private const val BURST_MIN_ROUTE_TILES = 30
+        private const val HEADING_MAX_TILES = 9
         private const val BOOSTED_DELAY_MEAN_MS = 150L
         private const val BOOSTED_DELAY_MIN_MS = 60L
         private const val BOOSTED_DELAY_MAX_MS = 300L
@@ -429,11 +485,11 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         private const val SETTLE_MS = 900L
         private const val STABLE_MS = 300L
         private const val LANDING_TIMEOUT_MS = 3_000L
-        private const val CHAIN_WAIT_MS = 2_000L
+        private const val CHAIN_WAIT_MS = 1_200L
         private const val TRACK_MS = 2_000L
         private const val HEADING_WINDOW_MS = 450L
         private const val HOP_FACING_MS = 1_500L
-        private const val EARLY_CAST_MS = 450L
+        private const val EARLY_CAST_MS = 375L
         private const val TICK_MS = 600
         private const val ACCELERATION_POTION = "Powerburst of acceleration"
         private const val DIVE_REFUSED_MSG = "You can't dive through"
@@ -462,6 +518,14 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
 
         @Volatile
         private var drankAt = 0L
+
+        @Volatile
+        private var sharedClick: Tile? = null
+
+        @Volatile
+        private var sharedClickAt = 0L
+
+        private const val SHARED_CLICK_MOVING_MS = 3_000L
 
         private val doubleSurgeVarbit = FeatureIds("WebWalker") { Gameval.requireId(Gameval.VARBIT, "dino_agility_double_surge_unlocked") }
 

@@ -100,9 +100,19 @@ internal object HopModel {
     }
 
     /**
-     * The 8-way direction the game gives an offset: diagonal when twice the smaller component is strictly more than
-     * the larger, else the larger axis. Measured with standing far dives; Cluetrainer's click table disagrees at
-     * exactly that boundary, so it is not used.
+     * The way a hop that moved the player by ([dx], [dy]) leaves them facing: the nearest of the 8 ways to its bearing.
+     * Chained dive-then-surge hops always surged this way where it and [dir8] disagree.
+     */
+    fun facing(dx: Int, dy: Int): Direction? {
+        if (dx == 0 && dy == 0) return null
+        val degrees = Math.toDegrees(atan2(dx.toDouble(), dy.toDouble()))
+        return fromBearing(if (degrees < 0) degrees + 360.0 else degrees)
+    }
+
+    /**
+     * The 8-way direction the game gives a far dive's offset: diagonal when twice the smaller component is strictly
+     * more than the larger, else the larger axis. Measured with standing far dives; Cluetrainer's click table
+     * disagrees at exactly that boundary, so it is not used.
      */
     fun dir8(dx: Int, dy: Int): Direction? {
         if (dx == 0 && dy == 0) return null

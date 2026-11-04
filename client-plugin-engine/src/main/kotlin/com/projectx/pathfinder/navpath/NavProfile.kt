@@ -39,10 +39,18 @@ internal object NavProfile {
 
     private val BASE_VARBITS = setOf(
         55818, 10236, 9482, 10848, 10826, 48161, 48108, 9928, 30678, 13876, 13267, 33059, 9022, 13178, 52651, 4291,
-        11413, 11269, 13349, 11498, 11428, 22270, 47236, 47184, 47185, 14041, 9663, 9987, 16231,
+        11413, 11269, 13349, 11498, 11428, 22270, 47236, 47184, 47185, 14041, 9663, 9987, 16231, 9547, 23198, 25043, 33889,
+        44292,
     )
 
-    private val BASE_VARPS = setOf(2535, 2326, 2102, 2696, 2265, 2675, 2661, 2171, 2762)
+    private val BASE_VARPS = setOf(2535, 2326, 2102, 2696, 2265, 2675, 2661, 2171, 2762, 2671)
+
+    // The gnome glider map and the Land of Snow portal list are menus, which a hit closes.
+    private val MENU_VARBITS = setOf(36215)
+    private val MENU_VARPS = setOf(2740)
+
+    private const val SURGE_AGILITY = 5
+    private const val DIVE_AGILITY = 30
 
     private val ids = FeatureIds("NavProfile") {
         mapOf(
@@ -69,21 +77,34 @@ internal object NavProfile {
         val linkVars = WebLinks.all.asSequence().flatMap(WebLink::requirements).map { it.key }
             .filter { it.startsWith("varbit_") || it.startsWith("varp_") }.toSet()
         val varbits = (BASE_VARBITS + linkVars.mapNotNull { it.removePrefix("varbit_").takeIf { k -> k != it }?.toIntOrNull() }).toMutableSet()
-        val varpKeys = BASE_VARPS + linkVars.mapNotNull { it.removePrefix("varp_").takeIf { k -> k != it }?.toIntOrNull() }
+        val varpKeys = (BASE_VARPS + linkVars.mapNotNull { it.removePrefix("varp_").takeIf { k -> k != it }?.toIntOrNull() }).toMutableSet()
         if (!teleports || inCombat) varbits -= LODESTONE_VARBITS else varbits += LODESTONE_VARBITS
+        if (inCombat) {
+            varbits -= MENU_VARBITS
+            varpKeys -= MENU_VARPS
+        } else {
+            varbits += MENU_VARBITS
+            varpKeys += MENU_VARPS
+        }
         for (id in varbits) requirements["varbit_$id"] = if (id in FLAG_VARBITS) flag(varbit(id) > 0) else varbit(id)
         for (id in varpKeys) requirements["varp_$id"] = if (id in VARP_READ_AS_VARBIT) varbit(id) else varp(id)
 
+        requirements["xmasEvent"] = 1
+        for (key in WebLinkPermissions.passageFlags) WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
         if (teleports && useItems) {
-            for (key in WebLinkPermissions.itemFlags) WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
-            requirements["hasPortableFairyRing"] = flag(WebLinkPermissions.portableRingUsable(backpack, worn))
+            for (key in WebLinkPermissions.itemFlags) {
+                if (key in WebLinkPermissions.passageFlags || inCombat && key in WebLinkPermissions.menuFlags) continue
+                WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
+            }
+            if (!inCombat) requirements["hasPortableFairyRing"] = flag(WebLinkPermissions.portableRingUsable(backpack, worn))
         }
         if (teleports && known != null) {
             requirements["hasQuickTele"] = flag(varbit(known.getValue("charges")) > 0 && varbit(known.getValue("byDefault")) > 0)
         }
 
-        val surge = abilities && actionbarAbilities[Ability.SURGE.type] != null
-        val dive = abilities && diveAbility != null
+        val agility = WebLinkPermissions.skillLevel("agilityLevel") ?: Int.MAX_VALUE
+        val surge = abilities && actionbarAbilities[Ability.SURGE.type] != null && agility >= SURGE_AGILITY
+        val dive = abilities && diveAbility != null && agility >= DIVE_AGILITY
         val diveCooldownTicks = diveAbility?.let { runCatching { abilityCooldownTicks(it, true) }.getOrDefault(0.0) } ?: 0.0
         val doubleSurge = known?.get("doubleSurge")?.let { varbit(it) > 0 } == true
         return NavRequest(

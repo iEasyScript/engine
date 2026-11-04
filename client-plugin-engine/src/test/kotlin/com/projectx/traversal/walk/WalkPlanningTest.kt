@@ -144,4 +144,60 @@ class WalkPlanningTest {
         val short = straight(3200, 3215)
         assertNull(planner.evaluate(short, 0, tile(3200, 3200), 90.0, surge = true, dive = true, anyway = 0, why = StringBuilder()))
     }
+
+    @Test
+    fun `beside a straight stretch the nearest route tile is the one level with the player`() {
+        val route = straight(3190, 3260)
+        assertEquals(13, HopPlanner.nearestIndex(route, tile(3203, 3209), 0, route.size))
+        assertEquals(13, HopPlanner.nearestFrom(route, tile(3203, 3209), 0))
+        assertEquals(13, ClickPicker.choose(GridWorld().map(), route, tile(3203, 3209), 15, 0)!!.nearestIndex)
+    }
+
+    @Test
+    fun `a later stretch of a route doubling back does not win a tie`() {
+        val route = straight(3200, 3210) + (3210 downTo 3200).map { tile(it, 3202) }
+        assertEquals(5, HopPlanner.nearestIndex(route, tile(3205, 3201), 0, route.size))
+    }
+
+    @Test
+    fun `the dive that gains most wins over the furthest one that merely clears the bar`() {
+        val world = GridWorld().block(3209, 3200)
+        val route = straight(3200, 3208) + tile(3209, 3201) + straight(3210, 3230)
+        val choice = HopPlanner(world.map()).dive(route, 0, tile(3200, 3200), emptyList(), route[HopPlanner.SURGE_PROGRESS_AHEAD])
+        assertTrue(choice.cast, choice.toString())
+        assertEquals(tile(3209, 3201), choice.aim)
+        assertEquals(9, choice.gain)
+    }
+
+    @Test
+    fun `a short dive onto the end of the walk needs only the end gain`() {
+        val planner = HopPlanner(GridWorld().map())
+        val route = straight(3200, 3215)
+        assertEquals(HopPlanner.SURGE_END_MIN_GAIN, planner.diveNeed(route, 0, tile(3214, 3200)))
+        assertEquals(HopPlanner.DIVE_MIN_GAIN, planner.diveNeed(straight(3200, 3260), 0, tile(3214, 3200)))
+        assertEquals(HopPlanner.SURGE_END_MIN_GAIN + 1, HopPlanner.END_GATE_TILES)
+    }
+
+    @Test
+    fun `hop gains count toward the walk's end when the player's walk reaches it`() {
+        val planner = HopPlanner(GridWorld().map())
+        val near = planner.progress(straight(3200, 3260), 0, tile(3200, 3200))
+        assertTrue(near.end)
+        assertEquals(60, near.rootIndex)
+        val far = planner.progress(straight(3200, 3400), 0, tile(3200, 3200))
+        assertFalse(far.end)
+        assertTrue(far.rootIndex in 1..HopPlanner.ROOT_DEPTH)
+        assertEquals(10, planner.gain(far, tile(3200, 3200), tile(3210, 3200)))
+    }
+
+    @Test
+    fun `a dive across a wall counts the whole walk round it`() {
+        val world = GridWorld().blockRect(3205, 3190, 3205, 3209)
+        val route = (3200..3215).map { tile(3200, it) } + (3201..3210).map { tile(it, 3215) } + (3214 downTo 3200).map { tile(3210, it) }
+        val planner = HopPlanner(world.map())
+        val progress = planner.progress(route, 0, tile(3200, 3200))
+        assertTrue(progress.end)
+        assertTrue(planner.gain(progress, tile(3204, 3200), tile(3204, 3210)) > 0)
+        assertTrue(planner.gain(progress, tile(3204, 3200), tile(3206, 3200)) > planner.gain(progress, tile(3204, 3200), tile(3204, 3210)))
+    }
 }

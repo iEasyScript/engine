@@ -2,6 +2,7 @@ package com.projectx.traversal.nodes
 
 import world.gregs.voidps.type.Tile
 import com.projectx.game.bootstrap.Bootstrap
+import com.projectx.pathfinder.LiveWalkMap
 import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
 import com.projectx.script.api.localPlayer
@@ -10,7 +11,6 @@ import com.projectx.traversal.TraversalNode
 import com.projectx.traversal.WalkEquivalent
 import com.projectx.traversal.walk.LiveRouteWalker
 import com.projectx.traversal.walk.NodeWalker
-import com.projectx.util.gaussian
 import com.projectx.util.random
 import kotlin.math.abs
 import kotlin.math.ceil
@@ -109,11 +109,13 @@ class ChebychevNode(
                 println("No click tile found")
                 return true
             }
+            val untilTrusted = !LiveWalkMap.trusted(localPlayer.tile)
             walkTo(clickTile, random(100) >= PlayerProfiles.get().minimapWalkPerc)
-            nextClick = System.currentTimeMillis() + gaussian(
-                PlayerProfiles.get().walkPathClickTime, PlayerProfiles.get().walkPathClickTime / 2
-            )
-            script.delayUntil(8000) { traversalStopRequested() || clickTile.getDistance(localPlayer.tile) < 6 }
+            nextClick = System.currentTimeMillis() + NodeWaits.clickGap(KEYPOINT_CLICK_GAP_MS)
+            script.delayUntil(8000) {
+                traversalStopRequested() || NodeWaits.within(localPlayer.tile, clickTile, 5) || reached(script) ||
+                    untilTrusted && LiveWalkMap.trusted(localPlayer.tile)
+            }
         }
         return true
     }
@@ -136,7 +138,7 @@ class ChebychevNode(
     }
 
     override fun reached(script: Script): Boolean =
-        reached?.invoke() == true || Bootstrap.client.loggedInPlayer.self.tile.getDistance(end.last()) <= 5
+        reached?.invoke() == true || NodeWaits.within(localPlayer.tile, end.last(), 5)
 
     override fun routeTiles(): List<Tile> = NodeWalker.densify(route)
 
@@ -147,3 +149,5 @@ class ChebychevNode(
         it.route = this.route
     }
 }
+
+private const val KEYPOINT_CLICK_GAP_MS = 300L

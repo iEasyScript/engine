@@ -1,14 +1,13 @@
 package com.projectx.traversal.nodes
 
 import com.projectx.game.items.Item
-import com.projectx.profiling.PlayerProfiles
 import com.projectx.script.Script
 import com.projectx.script.api.equipment
 import com.projectx.script.api.inventory
 import com.projectx.script.api.localPlayer
 import com.projectx.traversal.TraversalNode
 import com.projectx.util.Area
-import com.projectx.util.gaussian
+import com.projectx.traversal.nodes.NodeWaits.awaitItemEffect
 
 class ItemNode private constructor(
     private val selector: ItemSelector,
@@ -57,19 +56,21 @@ class ItemNode private constructor(
     )
 
     private fun resolveItem(): Item? = when (selector) {
-        is ItemSelector.NameRef -> {
-            inventory.firstOrNull { it.id != -1 && it.name.equals(selector.name, ignoreCase = true) }
-                ?: equipment.firstOrNull { it.id != -1 && it.name.equals(selector.name, ignoreCase = true) }
-        }
+        is ItemSelector.NameRef -> named(selector.name) { it.equals(selector.name, ignoreCase = true) }
+            ?: named(selector.name) { it.contains(selector.name, ignoreCase = true) }
         is ItemSelector.IdRef -> {
             inventory.firstOrNull { it.id == selector.id }
                 ?: equipment.firstOrNull { it.id == selector.id }
         }
     }
 
+    /** A charged item's name carries its charges, "Ring of duelling (8)", so a name may also match within it. */
+    private fun named(name: String, match: (String) -> Boolean): Item? =
+        inventory.firstOrNull { it.id != -1 && match(it.name) } ?: equipment.firstOrNull { it.id != -1 && match(it.name) }
+
     override suspend fun process(script: Script): Boolean {
         if (System.currentTimeMillis() < nextClick) return true
-        var currentTile = localPlayer.tile
+        val currentTile = localPlayer.tile
         val item = resolveItem()
         if (item == null) {
             println("Item not found")
@@ -84,11 +85,8 @@ class ItemNode private constructor(
         }
 
         if (success) {
-            script.delayUntil(15000) { currentTile != localPlayer.tile }
-            nextClick = System.currentTimeMillis() + gaussian(
-                PlayerProfiles.get().walkPathClickTime,
-                PlayerProfiles.get().walkPathClickTime / 2
-            )
+            script.awaitItemEffect(currentTile) { reached(script) || traversalStopRequested() }
+            nextClick = System.currentTimeMillis() + NodeWaits.clickGap()
             return true
         }
         return false

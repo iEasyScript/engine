@@ -329,6 +329,12 @@ be opened from up to 5 steps), and notice within a couple of seconds when the wa
 they click as before. `DoorNode` reads open or shut off the collision edge and fails the traversal on a locked door.
 `fairyRing(code)` and `portableFairyRing(code)` dial a ring from the web walker's measured ring list.
 
+Every click waits for what it set off rather than a fixed time: a walk for its leg, an object or NPC for the
+interaction to start and then settle, an item for the player to leave the tile or its animation to end. Objects and
+NPCs are chosen nearest by walking on the live map, within the search radius. A door that cannot be found is waited for
+while the scene loads after a teleport, then walked past; a door click that sets nothing off is clicked again after a
+couple of idle seconds.
+
 Implications:
 - Node authors have two levers: `reached(script)` to mark completion, and `process(script)` to drive work. Returning `false` from `process` can be used to request an early hop to the next node even if `reached` is still `false`.
 - The traversal always starts at the list head (`TraversalNodeList.head`). `TraversalProcessor` uses a copy of the node list, so the builder can be reused safely per traversal instance.
@@ -365,7 +371,8 @@ Tune these to globally alter click pacing and path smoothness without changing n
 
 ### Gotchas and best practices
 
-- `ObjectNode` and `IFSlotNode` default to not being "reached" unless you supply a `destination: Area` or a custom `reached`. Without that, they rely on the traversal’s `finishedCondition` or an early hop.
+- `ObjectNode` without a `destination` or `reached` is done once its interaction has carried the player to another floor, or off the clicked tile onto the next walk node's tiles.
+- `IFSlotNode` moves on after a click that went through; only as the last node with a `destination` or `reached` does it stay until that holds. A click on a menu that has not opened waits for it briefly, then moves on.
 - `DoorNode` considers arrival reached on the target tile, or beside it and nearer it than the near side. Provide a `reached` override if you want a tolerance.
 - `TileExactNode` requires a `reached` predicate; it never completes by distance automatically.
 - `TraversalBuilder.build(...)` throws if no nodes were added.

@@ -10,7 +10,13 @@ import java.util.concurrent.atomic.AtomicInteger
  * [Pending.observe] while it arms, [Pending.finish] once it landed, was refused or never happened. Explaining and
  * writing run on a virtual thread, so the walk never waits for them. A client that does not learn gets null.
  */
-internal class HopRecorder(private val knowledge: HopKnowledge, private val contributor: String?) {
+internal class HopRecorder(
+    private val knowledge: HopKnowledge,
+    private val contributor: String?,
+    private val build: () -> String,
+) {
+    constructor(knowledge: HopKnowledge, contributor: String?) : this(knowledge, contributor, { "" })
+
     private val sequence = AtomicInteger()
 
     inner class Pending(val observation: HopObservation) {
@@ -45,6 +51,7 @@ internal class HopRecorder(private val knowledge: HopKnowledge, private val cont
         val o = HopObservation()
         o.id = "${contributor ?: "local"}-${System.currentTimeMillis()}-${sequence.incrementAndGet()}"
         o.time = System.currentTimeMillis()
+        o.build = build()
         o.ability = ability
         o.from = from
         o.starts += from

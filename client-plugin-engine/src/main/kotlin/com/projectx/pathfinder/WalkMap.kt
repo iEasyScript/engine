@@ -127,6 +127,41 @@ internal open class WalkMap(
 }
 
 /**
+ * Whether the map is still catching up after a teleport: until every sampled tile around the player has loaded, or
+ * the count still unloaded has held still for [STABLE_MS] (a dungeon edge never loads), and never past [MAX_MS].
+ */
+internal class ArrivalWatch(private val clock: () -> Long = System::currentTimeMillis) {
+    private var since = 0L
+    private var unloaded = -1
+    private var unloadedChangedAt = 0L
+
+    fun teleported() {
+        since = clock()
+        unloaded = -1
+    }
+
+    fun active(): Boolean = since != 0L
+
+    /** [unloadedNow]: how many sampled tiles around the player have not loaded yet. */
+    fun arriving(unloadedNow: Int): Boolean {
+        if (since == 0L) return false
+        val now = clock()
+        if (unloadedNow != unloaded) {
+            unloaded = unloadedNow
+            unloadedChangedAt = now
+        }
+        if (unloadedNow > 0 && now - since < MAX_MS && now - unloadedChangedAt < STABLE_MS) return true
+        since = 0L
+        return false
+    }
+
+    companion object {
+        const val MAX_MS = 5_000L
+        const val STABLE_MS = 1_800L
+    }
+}
+
+/**
  * The live map: [WorldCollision] with the scene's door changes applied. Untrusted inside an instance, on a tile
  * whose zone was never loaded, and while the map catches up after a teleport.
  */
@@ -138,7 +173,6 @@ internal object LiveWalkMap : WalkMap(Steps::live) {
     private const val TELEPORT_JUMP_TILES = 12
     private const val RUN_TILES_PER_TICK = 2.0
     private const val TICK_MS = 600.0
-    private const val ARRIVAL_MAX_MS = 5_000L
     private const val ARRIVAL_SAMPLE = 32
 
     @Volatile
@@ -147,11 +181,14 @@ internal object LiveWalkMap : WalkMap(Steps::live) {
     @Volatile
     private var lastObservedAt = 0L
 
-    @Volatile
-    private var arrivingSince = 0L
+    private val arrival = ArrivalWatch()
 
     @Volatile
     var lastTeleportAt = 0L
+        private set
+
+    @Volatile
+    var lastTeleportTile: Tile? = null
         private set
 
     fun observe(player: Tile) {
@@ -161,26 +198,28 @@ internal object LiveWalkMap : WalkMap(Steps::live) {
         lastObserved = player
         lastObservedAt = now
         if (previous == null) return
-        val allowed = TELEPORT_JUMP_TILES + RUN_TILES_PER_TICK * ceil((now - previousAt) / TICK_MS)
-        val jump = previous.getLongestDelta(player)
-        if (previous.plane != player.plane && jump > TELEPORT_JUMP_TILES || jump > allowed) {
-            arrivingSince = now
+        if (isTeleport(previous, player, now - previousAt)) {
+            synchronized(arrival) { arrival.teleported() }
             lastTeleportAt = now
+            lastTeleportTile = player
         }
     }
 
-    fun arriving(): Boolean {
-        val since = arrivingSince
-        if (since == 0L) return false
-        val player = lastObserved ?: return true
-        if (System.currentTimeMillis() - since < ARRIVAL_MAX_MS && !loadedAround(player)) return true
-        arrivingSince = 0L
-        return false
+    fun isTeleport(previous: Tile, player: Tile, elapsedMs: Long): Boolean {
+        val allowed = TELEPORT_JUMP_TILES + RUN_TILES_PER_TICK * ceil(elapsedMs / TICK_MS)
+        val jump = previous.getLongestDelta(player)
+        return previous.plane != player.plane && jump > TELEPORT_JUMP_TILES || jump > allowed
     }
 
-    private fun loadedAround(player: Tile): Boolean =
-        listOf(0 to 0, ARRIVAL_SAMPLE to 0, -ARRIVAL_SAMPLE to 0, 0 to ARRIVAL_SAMPLE, 0 to -ARRIVAL_SAMPLE).all { (dx, dy) ->
-            WorldCollision.getFlags(player.x + dx, player.y + dy, player.plane) != -1
+    fun arriving(): Boolean = synchronized(arrival) {
+        if (!arrival.active()) return false
+        val player = lastObserved ?: return true
+        arrival.arriving(unloadedAround(player))
+    }
+
+    private fun unloadedAround(player: Tile): Int =
+        listOf(0 to 0, ARRIVAL_SAMPLE to 0, -ARRIVAL_SAMPLE to 0, 0 to ARRIVAL_SAMPLE, 0 to -ARRIVAL_SAMPLE).count { (dx, dy) ->
+            WorldCollision.getFlags(player.x + dx, player.y + dy, player.plane) == -1
         }
 
     override fun hopRule(): StepRule = Hops.knowledge.rule(rule(), ::trusted)
