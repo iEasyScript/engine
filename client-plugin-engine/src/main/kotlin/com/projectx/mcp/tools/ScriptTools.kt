@@ -4,6 +4,8 @@ import com.projectx.script.ConfigurableScript
 import com.projectx.script.ScriptConfigStore
 import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
+import com.projectx.store.RunEnd
+import com.projectx.store.RunReports
 import io.modelcontextprotocol.kotlin.sdk.server.Server
 import io.modelcontextprotocol.kotlin.sdk.types.ToolSchema
 import kotlinx.serialization.json.addJsonObject
@@ -48,11 +50,13 @@ object ScriptTools {
 
     private fun stop(meta: ScriptMetadata): String {
         val instance = ScriptExecutor.getScriptInstance(meta.scriptClass) ?: return "not_running"
+        RunReports.markStop(meta.scriptClass, RunEnd.MANUAL)
         instance.stop()
         return "stopped"
     }
 
     private fun restart(meta: ScriptMetadata): String {
+        RunReports.markStop(meta.scriptClass, RunEnd.MANUAL)
         ScriptExecutor.getScriptInstance(meta.scriptClass)?.stop()
         val instance = meta.scriptClass.getDeclaredConstructor().newInstance()
         if (instance is ConfigurableScript) ScriptConfigStore.applyTo(instance)

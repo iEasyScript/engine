@@ -23,6 +23,7 @@ import com.projectx.game.nxt.OFunctions
 import com.projectx.mcp.MainLogicTickQueue
 import com.projectx.puzzle.invention.InventionDiscoveryFeature
 import com.projectx.script.ScriptExecutor
+import com.projectx.store.RunReports
 import com.projectx.ui.UIState
 import com.projectx.ui.backend.rendering.UiFrameProducer
 import java.lang.foreign.MemorySegment
@@ -45,6 +46,7 @@ object ClientMainLogic {
                 MainLogicTickQueue.drain()
                 MainStateWatch.tick()
                 ScriptExecutor.mainLogic()
+                RunReports.tick()
                 CS2Executor.mainLogicTick()
                 InputRecorder.tickFlush()
                 PacketRecorder.tickFlush()

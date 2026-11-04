@@ -4,6 +4,8 @@ import com.projectx.script.ConfigurableScript
 import com.projectx.script.ScriptConfigStore
 import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
+import com.projectx.store.RunEnd
+import com.projectx.store.RunReports
 import com.projectx.ui.compose.GameThread
 import com.projectx.ui.compose.OverlayNavigation
 import com.projectx.ui.compose.Page
@@ -28,9 +30,15 @@ object ScriptActions {
         }
     }
 
-    fun stop(meta: ScriptMetadata) = GameThread.post { ScriptExecutor.deactivate(meta.scriptClass) }
+    fun stop(meta: ScriptMetadata) = GameThread.post {
+        RunReports.markStop(meta.scriptClass, RunEnd.MANUAL)
+        ScriptExecutor.deactivate(meta.scriptClass)
+    }
 
-    fun stopAll() = GameThread.post { ScriptExecutor.stopAll() }
+    fun stopAll() = GameThread.post {
+        RunReports.markAll(RunEnd.MANUAL)
+        ScriptExecutor.stopAll()
+    }
 
     fun reload() = GameThread.post { ScriptExecutor.loadScripts() }
 

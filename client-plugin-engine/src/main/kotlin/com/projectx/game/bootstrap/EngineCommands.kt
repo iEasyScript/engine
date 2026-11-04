@@ -6,6 +6,8 @@ import com.projectx.script.ScriptExecutor
 import com.projectx.script.ScriptMetadata
 import com.projectx.script.Script
 import com.projectx.script.api.hopToWorld
+import com.projectx.store.RunEnd
+import com.projectx.store.RunReports
 
 /**
  * The control-socket commands only the engine can answer, for a launcher driving an unattended
@@ -63,6 +65,7 @@ object EngineCommands {
         if (name.isEmpty()) return "ERR STOP needs a script name"
         val meta = find(name) ?: return "ERR no script named $name"
         val instance = ScriptExecutor.getScriptInstance(meta.scriptClass) ?: return "OK not running ${meta.name}"
+        RunReports.markStop(meta.scriptClass, RunEnd.MANUAL)
         instance.stop()
         return "OK stopped ${meta.name}"
     }

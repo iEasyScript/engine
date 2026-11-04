@@ -2,6 +2,7 @@ package com.projectx.script
 
 import com.projectx.store.Entitlements
 import com.projectx.store.Instances
+import com.projectx.store.RunReports
 import com.projectx.store.ScriptLogExcerpt
 import com.projectx.game.input.InputArbiter
 import com.projectx.game.nxt.OffsetTable
@@ -119,6 +120,7 @@ object ScriptExecutor {
         if (!Instances.mayStart(script) || !Entitlements.mayStart(script)) return
         _activeScripts[script.javaClass.name] = script
         scriptStartTimes[script.javaClass.name] = System.currentTimeMillis()
+        RunReports.started(script)
         val description = script.javaClass.getAnnotation(ScriptDescription::class.java)
         println(ScriptLogExcerpt.startMarker(description?.name ?: script.javaClass.simpleName, description?.version ?: "?", script.javaClass.simpleName))
     }
@@ -130,6 +132,7 @@ object ScriptExecutor {
         if (wasRunning) {
             val name = script.javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: script.javaClass.simpleName
             println(ScriptLogExcerpt.stopMarker(name, script.javaClass.simpleName))
+            RunReports.ended(script)
         }
     }
 

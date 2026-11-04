@@ -14,6 +14,7 @@ import com.projectx.game.net.packetlog.PacketRecorder
 import com.projectx.game.net.packetlog.PacketUploadRunner
 import com.projectx.mcp.McpServer
 import com.projectx.profiling.JfrManager
+import com.projectx.ui.LiveDetailsPreference
 import com.projectx.ui.UIState
 import com.projectx.ui.compose.ComposeOverlay
 import com.projectx.ui.compose.Feed
@@ -185,6 +186,13 @@ fun SettingsScreen() {
                         "Uploading runs in its own process, so closing the game still finishes a capture.",
                 )
             }
+        }
+        Section("Website", note = "What xclient.dev's Control Panel shows of this client while it runs scripts. Only you can see it.") {
+            ToggleRow(
+                "Show live details on the website",
+                LiveDetailsPreference.enabled,
+                "Logged in or not, total level, HP and prayer, and the scripts running with their experience. Never your in-game name or location.",
+            ) { LiveDetailsPreference.save(it) }
         }
         Section("Discord notifications") {
             ToggleRow("Enabled", UIState.discordEnabled)

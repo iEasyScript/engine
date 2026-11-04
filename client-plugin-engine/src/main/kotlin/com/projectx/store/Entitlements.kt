@@ -225,6 +225,7 @@ object Entitlements {
                     if (name in free) "[store] your free access to $name has run out; renew it free on the store. ${storeUrls[name] ?: storeBase()}"
                     else "[store] access to $name has ended; stopping it."
                 )
+                RunReports.markStop(script.javaClass, RunEnd.ACCESS_ENDED)
                 runCatching { script.stop() }
             }
         }

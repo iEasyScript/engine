@@ -18,6 +18,7 @@ import com.projectx.markers.TileMarkerStore
 import com.projectx.mcp.McpServer
 import com.projectx.store.Entitlements
 import com.projectx.store.Instances
+import com.projectx.store.RunReports
 import com.projectx.quest.data.QuestLibrary
 import com.projectx.quest.solver.registerExampleSolvers
 import com.projectx.script.ScriptExecutor
@@ -70,6 +71,7 @@ object Bootstrap {
 
             Entitlements.start()
             Instances.start()
+            RunReports.start()
             ScriptExecutor.loadScripts()
             println("[ok] loadScripts() completed. Found: ${ScriptExecutor.scripts.size} scripts")
 
@@ -138,6 +140,7 @@ object Bootstrap {
         runCatching { StringAllocator.shutdown() }
         runCatching { TileMarkerStore.stopFlusher() }
         runCatching { OverlayHost.dispose() }
+        runCatching { RunReports.close() }
         runCatching { ScriptExecutor.stopAll() }
         runCatching { ScriptExecutor.stopInternalTasks() }
         runCatching { Instances.release() }

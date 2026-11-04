@@ -6,6 +6,7 @@ import com.projectx.script.Script
 import com.projectx.script.ScriptDescription
 import com.projectx.script.ScriptExecutor
 import com.projectx.store.StartRefusal.Reason
+import com.projectx.ui.LiveDetailsPreference
 import com.projectx.ui.compose.GameThread
 import java.net.InetAddress
 import java.net.URI
@@ -28,6 +29,7 @@ import java.util.concurrent.TimeUnit
 internal object Instances {
     private const val HEARTBEAT_SECONDS = 30L
     private const val STOPPED = "stopped"
+    private const val REMOTE_PROTOCOL = 1
     private val RELEASE_AFTER_IDLE: Duration = Duration.ofMinutes(2)
 
     enum class State { IDLE, HELD, SIGNED_OUT, SIGN_IN_EXPIRED, FULL, UNREACHABLE, STOPPED }
@@ -123,7 +125,10 @@ internal object Instances {
         when (val next = next(state, response?.statusCode(), error, local())) {
             State.STOPPED -> {
                 println("[instances] this client was stopped from the website; stopping its scripts.")
-                GameThread.post { ScriptExecutor.stopAll() }
+                GameThread.post {
+                    RunReports.markAll(RunEnd.MANUAL)
+                    ScriptExecutor.stopAll()
+                }
                 change(State.IDLE)
             }
             else -> change(next)
@@ -157,6 +162,7 @@ internal object Instances {
             addProperty("action", action)
             addProperty("sessionId", sessionId)
             addProperty("label", label())
+            if (action != "release") addLiveDetails(this)
         }
         val request = HttpRequest.newBuilder(URI.create("${Entitlements.storeBase()}/api/v1/instances"))
             .timeout(timeout)
@@ -165,6 +171,17 @@ internal object Instances {
             .POST(HttpRequest.BodyPublishers.ofString(body.toString()))
             .build()
         return http.send(request, HttpResponse.BodyHandlers.ofString())
+    }
+
+    // Without remote control the site sends no commands; a Stop pressed on the website still arrives as the 409 above.
+    private fun addLiveDetails(body: JsonObject) {
+        val monitor = LiveDetailsPreference.enabled.value
+        body.add("remote", JsonObject().apply {
+            addProperty("v", REMOTE_PROTOCOL)
+            addProperty("control", false)
+            addProperty("monitor", monitor)
+        })
+        if (monitor) runCatching { RunReports.liveState() }.getOrNull()?.let { body.add("state", it) }
     }
 
     private fun titleOf(script: Script) = script.javaClass.getAnnotation(ScriptDescription::class.java)?.name ?: script.javaClass.simpleName
