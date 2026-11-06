@@ -35,6 +35,7 @@ object Banks {
         BankSite("Al Kharid", Tile.of(3270, 3168, 0)),
         BankSite("Canifis", Tile.of(3511, 3480, 0)),
         BankSite("Menaphos", Tile.of(3235, 2761, 0)),
+        BankSite("Heavenhythe", Tile.of(3499, 1431, 0)),
     )
 
     /** The listed banks in order of straight-line distance from [from], nearest first. */
