@@ -4,6 +4,7 @@ import com.google.gson.JsonObject
 import com.google.gson.JsonParser
 import com.projectx.script.api.Area
 import com.projectx.script.api.Lodestone
+import com.projectx.script.api.TeleportSpell
 import com.projectx.webwalker.WalkGoal
 import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
@@ -499,5 +500,92 @@ class NavpathTest {
         )
         val stairs = assertIs<NavStep.Loc>(NavResultsParser.parse(json).steps.single())
         assertEquals(tile(3212, 3200), stairs.from)
+    }
+
+    // ---- spell teleports ----
+
+    @Test
+    fun `a spell step gives its ability id, its landing box and its destination tile`() {
+        val route = NavResultsParser.parse(fixture("spell-teleport.json"))
+        assertEquals(listOf("spell", "move", "move"), route.steps.map { it.type })
+        val spell = assertIs<NavStep.Spell>(route.steps[0])
+        assertEquals(57, spell.abilityId)
+        assertEquals(NavArea(2881, 3666, 2884, 3670, 0), spell.destination)
+        assertEquals(tile(3222, 3218), spell.from)
+        assertEquals(tile(2882, 3668), spell.to)
+        assertTrue(spell.chain.isEmpty())
+    }
+
+    @Test
+    fun `a spell chained to an interface click keeps the click and lands in its box`() {
+        val spell = assertIs<NavStep.Spell>(NavResultsParser.parse(fixture("spell-ifslot-chain.json")).steps[0])
+        assertEquals(205, spell.abilityId)
+        val click = assertIs<NavStep.IFSlot>(spell.chain.single())
+        assertEquals(720, click.interfaceId)
+        assertEquals(17, click.component)
+        assertEquals(NavArea(3292, 10125, 3296, 10129, 0), spell.destination)
+    }
+
+    @Test
+    fun `a spell id given on the action itself is read too`() {
+        val json = route("""{"type":"spell","spell_id":28,"from":{"min":[3000,3000,0],"max":[3000,3000,0]},"to":{"min":[3212,3424,0],"max":[3212,3424,0]}}""")
+        val spell = assertIs<NavStep.Spell>(NavResultsParser.parse(json).steps.single())
+        assertEquals(28, spell.abilityId)
+        assertEquals(NavArea(3212, 3424, 3212, 3424, 0), spell.destination)
+        assertFailsWith<NavParseException> { NavResultsParser.parse(route("""{"type":"spell","to":[3212,3424,0]}""")) }
+    }
+
+    @Test
+    fun `a spell becomes a global spell link landing in its box`() {
+        val path = mapped("spell-teleport.json", tile(3222, 3218))
+        val link = assertNotNull(path.linkAt(1))
+        assertEquals(WebLinkKind.SPELL, link.kind)
+        assertEquals(TeleportSpell.TROLLHEIM, link.spell)
+        assertTrue(link.isGlobal)
+        assertEquals(WebArea(2881, 2884, 3666, 3670, 0), link.to)
+        assertEquals(tile(2882, 3668), path.tile(1))
+        assertEquals(tile(2884, 3670), path.tile(path.lastIndex))
+    }
+
+    @Test
+    fun `a spell chained to an interface click carries the click`() {
+        val path = mapped("spell-ifslot-chain.json", tile(3222, 3218))
+        val link = assertNotNull(path.linkAt(1))
+        assertEquals(TeleportSpell.WARS_RETREAT, link.spell)
+        assertEquals(WebInterfaceStep(720, 17, -1, 0), link.chain.single())
+        assertTrue(link.to.contains(3292, 10125, 0))
+    }
+
+    @Test
+    fun `a spell this engine does not know refuses the route, and a walk without teleports refuses any spell`() {
+        assertIs<NavRouteMapper.Mapped.Refused>(NavRouteMapper.map(tile(3222, 3218), NavResultsParser.parse(fixture("spell-unknown.json"))))
+        val transport = FakeTransport({ NavReply(200, fixture("spell-teleport.json")) })
+        assertIs<HostedPlanner.Outcome.Fallback>(planner(transport).plan(request, false))
+    }
+
+    @Test
+    fun `every teleport spell is sent as spell_id, 1 only when castable and not set aside`() {
+        val keys = NavProfile.spellKeys(
+            mapOf(TeleportSpell.TROLLHEIM to true, TeleportSpell.VARROCK to true, TeleportSpell.LUMBRIDGE to false),
+            setOf(TeleportSpell.VARROCK),
+        ).toMap()
+        assertEquals(TeleportSpell.entries.size, keys.size)
+        assertEquals(1, keys["spell_57"])
+        assertEquals(0, keys["spell_28"])
+        assertEquals(0, keys["spell_31"])
+        assertEquals(0, keys["spell_205"])
+        assertEquals("spell_57", NavProfile.spellKey(TeleportSpell.TROLLHEIM))
+    }
+
+    @Test
+    fun `the spell table matches the planner's spell rows`() {
+        val plannerIds = setOf(
+            57, 205, 19, 207, 28, 260, 31, 34, 39, 45, 50, 170, 191, 253, 254, 255, 203, 111, 113, 116, 117, 121, 123, 127,
+            251, 252, 137, 140, 148, 83, 86, 89, 92, 95, 98, 101, 104, 143, 200, 201, 202,
+        )
+        assertEquals(plannerIds, TeleportSpell.entries.map { it.abilityId }.toSet())
+        assertEquals(TeleportSpell.entries.size, plannerIds.size)
+        assertEquals(TeleportSpell.CAMELOT, TeleportSpell.byAbilityId(39))
+        assertNull(TeleportSpell.byAbilityId(9999))
     }
 }

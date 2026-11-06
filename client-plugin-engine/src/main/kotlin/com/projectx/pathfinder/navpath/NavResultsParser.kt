@@ -87,6 +87,7 @@ internal object NavResultsParser {
             "item_click", "item" -> itemClick(index, o)
             "poa_item" -> poaItem(index, o)
             "use_on" -> useOn(index, o)
+            "spell" -> spell(index, o)
             "teleport", "global_teleport" -> NavStep.Unsupported(type, "no client action for a generic teleport")
             else -> NavStep.Unsupported(type, "unknown step type")
         }
@@ -248,6 +249,32 @@ internal object NavResultsParser {
             pointOf(index, o, "from"), pointOf(index, o, "to"),
             childChain(db) + stepsChain(meta, setOf("use_on")) + topChain(o),
         )
+    }
+
+    /** A `teleports_spell_nodes` row: the ability id under `spell_id` (or `spell`), and its landing box. */
+    private fun spell(index: Int, o: JsonObject): NavStep {
+        val meta = obj(o, "metadata")
+        val teleport = obj(meta, "teleport")
+        val db = row(meta, "spell") ?: row(teleport, "spell")
+        val abilityId = int(o, "spell") ?: int(o, "spell_id") ?: int(meta, "spell") ?: int(meta, "spell_id") ?: int(db, "spell") ?: int(db, "spell_id")
+            ?: throw NavParseException("spell $index has no spell id")
+        val chain = childChain(db) + stepsChain(meta, setOf("spell")) + stepsChain(teleport, setOf("spell")) + topChain(o)
+        // A spell that only opens a menu lands where the menu's last pick does.
+        val landing = rect(db, "dest") ?: xyArea(obj(meta, "destination_area") ?: obj(o, "destination_area"))
+            ?: chain.filterIsInstance<NavStep.IFSlot>().lastOrNull()?.destination ?: areaOf(o.get("to"))
+        return NavStep.Spell(
+            abilityId, str(o, "name") ?: str(meta, "name") ?: str(db, "name"), landing,
+            pointOf(index, o, "from"), pointOf(index, o, "to"), chain,
+        )
+    }
+
+    /** A `{min, max}` area object as a rectangle on the min corner's plane. */
+    private fun areaOf(element: JsonElement?): NavArea? {
+        val area = element?.takeIf { it.isJsonObject }?.asJsonObject ?: return null
+        val min = area.getAsJsonArrayOrNull("min")?.takeIf { it.size() == 3 } ?: return null
+        val max = area.getAsJsonArrayOrNull("max")?.takeIf { it.size() == 3 } ?: min
+        val numbers = (min + max).map { it.takeIf { v -> v.isJsonPrimitive && v.asJsonPrimitive.isNumber }?.asInt ?: return null }
+        return NavArea(numbers[0], numbers[1], numbers[3], numbers[4], numbers[2])
     }
 
     /** The action's own database row: the first `metadata.steps` row of [kind] (or with an action), else the first row. */

@@ -58,6 +58,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
     private var nextClick = 0L
     private var nextAbilityCheck = 0L
     private var hopHoldUntil = 0L
+    private var farIdleSince = 0L
     private var nextBurstCheck = 0L
     private var serverTriedFrom: Tile? = null
     private val track = ArrayDeque<Pair<Long, Tile>>()
@@ -88,6 +89,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         lastClick = null
         nextClick = 0
         serverTriedFrom = null
+        farIdleSince = 0L
         stuck.reset()
     }
 
@@ -106,6 +108,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         if (route.isEmpty() || !map.trusted(player)) return Step.FALLBACK
 
         val pick = ClickPicker.choose(map, route, player, stepLimit, progress) ?: return Step.FALLBACK
+        if (pick.tile != null) farIdleSince = 0L
         progress = ClickPicker.advance(progress, pick, route, player, stepLimit)
         val click = pick.tile
         if (click == null) {
@@ -117,6 +120,14 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
             }
             if (player.plane != ahead.plane || player.getLongestDelta(ahead) > FAR_OFF_ROUTE) {
                 stuck.reset()
+                val now = System.currentTimeMillis()
+                if (farIdleSince == 0L || localPlayer.isMoving || localPlayer.isAnimating) {
+                    farIdleSince = now
+                } else if (now - farIdleSince >= FAR_HOLD_IDLE_MS) {
+                    farIdleSince = 0L
+                    println("[$owner] $player is far off the route and nothing is moving it there; no teleport came")
+                    return Step.STUCK
+                }
                 script.delay(POLL_MS.toInt())
                 return Step.CONTINUE
             }
@@ -250,6 +261,8 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
             if (choice.cast && aim != null) {
                 val chain = if (surgeEnabled && surgeBackByLanding(boosted)) planner.chainedSurge(route, nearest, player, choice.landing, progress) else null
                 println("[$owner] dive from $player toward $aim, predicted landing ${choice.landing} (gains ${choice.gain})")
+                // Standing, the dive arms in place; a walk click first keeps the player running through it.
+                if (lastClick == null && !localPlayer.isMoving && walkTo(walkClick, false)) walk.clicked(player, walkClick)
                 if (dive(aim)) {
                     pending(HopExplainer.DIVE, player, choice.landing, null, aim)
                     markSpent(surge = false)
@@ -455,6 +468,7 @@ internal class LiveRouteWalker(private val owner: String, private val map: WalkM
         val walk = ServerWalk(LiveWalkMap)
 
         private const val FAR_OFF_ROUTE = 30
+        private const val FAR_HOLD_IDLE_MS = 8_000L
         private const val LEG_NEAR = 3
         private const val POLL_MS = 50L
         private const val LEG_TIMEOUT_MS = 8_000L

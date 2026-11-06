@@ -1,6 +1,7 @@
 package com.projectx.webwalker
 
 import com.projectx.script.api.Lodestone
+import com.projectx.script.api.TeleportSpell
 import world.gregs.voidps.type.Tile
 
 /** What a route has to do to cross a [WebLink], which is what tells the walker how to perform it. */
@@ -31,10 +32,13 @@ enum class WebLinkKind {
 
     /** At a fairy ring, dial another ring's code. */
     FAIRY_RING,
+
+    /** A teleport spell, a Spellbook Swap first when it is on another book. Usable from anywhere. */
+    SPELL,
     ;
 
     /** True for the kinds a route can take from wherever it starts, rather than from a place in the world. */
-    val isGlobal: Boolean get() = this == ITEM || this == INTERFACE || this == POA || this == LODESTONE
+    val isGlobal: Boolean get() = this == ITEM || this == INTERFACE || this == POA || this == LODESTONE || this == SPELL
 }
 
 /** A rectangle of tiles on one plane. Link endpoints are areas because a staircase lands you anywhere in a room. */
@@ -205,6 +209,12 @@ data class WebLink(
 
     fun toLodestone(lodestone: Lodestone): WebLink = also { it.lodestone = lodestone }
 
+    /** The spell a [WebLinkKind.SPELL] link casts. */
+    var spell: TeleportSpell? = null
+        private set
+
+    fun casting(spell: TeleportSpell): WebLink = also { it.spell = spell }
+
     /** The code a [WebLinkKind.FAIRY_RING] link dials, e.g. "ckr". */
     var fairyCode: String? = null
         private set
@@ -220,7 +230,7 @@ data class WebLink(
     val isGlobal: Boolean get() = kind.isGlobal || portable
 
     private val identity: List<Any?>
-        get() = listOf(kind, from, to, cost, action, objectId, searchRadius, requirements, choice, chain, target, menu, lodestone, fairyCode, portable)
+        get() = listOf(kind, from, to, cost, action, objectId, searchRadius, requirements, choice, chain, target, menu, lodestone, fairyCode, portable, spell)
 
     override fun equals(other: Any?): Boolean = this === other || other is WebLink && identity == other.identity
 
@@ -229,6 +239,7 @@ data class WebLink(
     override fun toString(): String {
         val what = when (kind) {
             WebLinkKind.LODESTONE -> "${lodestone?.name}"
+            WebLinkKind.SPELL -> "${spell?.name}"
             WebLinkKind.FAIRY_RING -> if (portable) "portable ring to ${fairyCode?.uppercase()}" else "$action $objectId to ${fairyCode?.uppercase()}"
             WebLinkKind.NPC, WebLinkKind.ITEM -> "$action $target"
             WebLinkKind.POA -> "$action $target, ${menu.joinToString(" > ")}"

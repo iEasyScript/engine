@@ -1,6 +1,9 @@
 package com.projectx.webwalker
 
 import com.projectx.game.items.Item
+import com.projectx.game.magic.SpellTeleports
+import com.projectx.quest.runtime.CacheQuests
+import com.projectx.script.api.TeleportSpell
 import com.projectx.script.api.coinPouch
 import com.projectx.script.api.equipment
 import com.projectx.script.api.getRealLevel
@@ -158,6 +161,8 @@ class WebLinkPermissions private constructor(
             "hasArchaeologyTeleport" to Carried(Where.BACKPACK, "arch_teletab"),
             "hasArcJournal" to Carried(Where.BACKPACK, "elr1_waiko_tourist_brochure"),
             "hasEnchantedLyre" to Carried(Where.BACKPACK, "magic_enchanted_strung_lyre_full_charge"),
+            // Only the bound necklace has the worn "Max garden portal" options; where they go is varbit_25054/25055.
+            "hasGraceOfTheElvesEquiped" to Carried(Where.WORN, "alch_onyx_skill_necklace_used"),
         )
 
         /** A teleport whose charges for one destination sit in their own varbit, usable while that is above zero. */
@@ -195,9 +200,8 @@ class WebLinkPermissions private constructor(
                 varbitNamed("dave_claimed_reward_book_watchtower") > 0 && carriesNamed(worn, "dave_reward_book") ||
                     carriesNamed(backpack, "dave_reward_book")
             },
-            "TrollHeimBool" to { backpack, _ ->
-                varbitNamed("zaros_spellbook") == 0 && amountNamed(backpack, "Fire rune") > 2 && amountNamed(backpack, "Law rune") > 2
-            },
+            // The planner's old Trollheim row clicks the Standard book itself: no swap, not the action bar.
+            "TrollHeimBool" to { _, _ -> SpellTeleports.check(TeleportSpell.TROLLHEIM).plan?.let { !it.needsSwap && !it.fromBar } == true },
             "hasMiningCampAccess" to { backpack, worn ->
                 val keyRing = carriesNamed(backpack, "favour_key_ring") || carriesNamed(worn, "favour_key_ring") ||
                     varbitNamed("toolbelt_keyring") > 0
@@ -207,6 +211,22 @@ class WebLinkPermissions private constructor(
         )
 
         private const val METAL_KEY_ON_RING = 1 shl 2
+
+        private const val QUEST = "quest"
+
+        // Quests the planner's rows need completed, by journal name, or by gameval name where the name is shared
+        // (Stolen Hearts is also an old holiday event).
+        private val QUESTS: Map<String, () -> Boolean> = mapOf(
+            "NatureSpiritQuest" to { CacheQuests.completed("Nature Spirit") },
+            "questHeartsOfSanguine" to { CacheQuests.completed("Hearts of Sanguine") },
+            "questAShadowOverAshdale" to { idNamed(QUEST, "ash1")?.let(CacheQuests::completed) == true },
+            "StolenHeartsQuestCompleted" to { idNamed(QUEST, "ozan1")?.let(CacheQuests::completed) == true },
+        )
+
+        internal val questFlags: Set<String> get() = QUESTS.keys
+
+        /** 1 when the quest behind [key] is completed, 0 when not, null when [key] is not a quest flag. */
+        internal fun questFlag(key: String): Int? = QUESTS[key]?.let { if (it()) 1 else 0 }
 
         /** Ways through, not teleports: sent whether or not the route may teleport. */
         internal val passageFlags = setOf("hasDustyKey", "hasRope", "hasWaterFallKey", "TrollHeimBool", "hasMiningCampAccess")
@@ -231,9 +251,6 @@ class WebLinkPermissions private constructor(
             val id = idNamed(Gameval.OBJ, name) ?: return false
             return items.any { it.id == id }
         }
-
-        private fun amountNamed(items: List<Item>, name: String): Int =
-            items.filter { runCatching { it.name }.getOrNull() == name }.sumOf { it.amount }
 
         private fun chargedValue(key: String, backpack: List<Item>, worn: List<Item>): Int? {
             COMPUTED[key]?.let { return if (it(backpack, worn)) 1 else 0 }
@@ -303,7 +320,7 @@ class WebLinkPermissions private constructor(
                 key.startsWith("varp_") -> key.removePrefix("varp_").toIntOrNull()?.let(varps::getVar)
                 key == "coins" -> coinPouch.firstOrNull()?.amount ?: 0
                 key in SKILLS -> SKILLS[key]?.let(::getRealLevel)
-                else -> carriedValue(key, backpack, worn) ?: namedValue(key, backpack) ?: chargedValue(key, backpack, worn)
+                else -> questFlag(key) ?: carriedValue(key, backpack, worn) ?: namedValue(key, backpack) ?: chargedValue(key, backpack, worn)
             }
         }.getOrNull()
     }

@@ -46,6 +46,7 @@ class WebLinksTest {
                 }
                 WebLinkKind.INTERFACE -> assertTrue(link.chain.firstOrNull() is WebInterfaceStep, "$link has no button to click")
                 WebLinkKind.LODESTONE -> assertTrue(link.lodestone != null, "$link names no lodestone")
+                WebLinkKind.SPELL -> assertTrue(link.spell != null, "$link names no spell")
             }
         }
     }

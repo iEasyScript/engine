@@ -10,7 +10,9 @@ import com.projectx.pathfinder.navpath.Navpath
 import com.projectx.profiling.PlayerProfiles
 import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
+import com.projectx.game.magic.SpellTeleports
 import com.projectx.script.api.Lodestone
+import com.projectx.script.api.TeleportSpell
 import com.projectx.script.api.continueDialogueContaining
 import com.projectx.script.api.dive
 import com.projectx.script.api.findClosestObject
@@ -70,6 +72,14 @@ object WebWalker {
     // A lodestone moves the player a few ticks before its landing animation plays, and ignores input until it ends.
     private const val LANDING_START_MS = 3_000L
     private const val LANDING_MS = 2_400L
+
+    // A started spell lands within a few ticks; failed casts are retried no faster than a person would.
+    private const val SPELL_LANDING_MS = 8_000L
+    private const val SPELL_RETRY_MS = 1_200
+    private const val SPELL_RETRY_VARIANCE = 250 * 250
+
+    // A teleport may land just outside the box it was measured with (the Ring of slaying by the Slayer Tower).
+    private const val LANDED_ELSEWHERE_TILES = 20
 
     /** How long a link's "where to?" is given to appear before the answer is attempted anyway. */
     private const val CHOICE_TIMEOUT_MS = 4_000L
@@ -175,13 +185,14 @@ object WebWalker {
         excluded: Set<WebLink>,
         lockedDoors: Set<Long> = emptySet(),
         hostedAllowed: Boolean = true,
+        withoutSpells: Set<TeleportSpell> = emptySet(),
     ): WebWalkResult {
         if (goal is WalkGoal.Tiles && goal.isEmpty) return WebWalkResult(WebWalkStatus.NO_PATH, "The area holds no tiles")
         // Requirements read varbits, levels, the money pouch and what is carried, which may only be touched here on
         // the game thread; the planner runs on its own thread and consults the snapshot instead.
         val permissions = runCatching { WebLinkPermissions.snapshot() }.getOrDefault(WebLinkPermissions.UNRESTRICTED)
         val request = if (hostedAllowed && useHostedPlanner && !Navpath.planner.resting() && from.x < INSTANCE_MIN_X && goal.maxX < INSTANCE_MIN_X) {
-            runCatching { NavProfile.request(from, goal.centre, teleports, useItemTeleports, useMovementAbilities) }.getOrNull()
+            runCatching { NavProfile.request(from, goal.centre, teleports, useItemTeleports, useMovementAbilities, withoutSpells) }.getOrNull()
         } else {
             null
         }
@@ -246,8 +257,11 @@ object WebWalker {
 
             if (path == null || path.distance(path.nearestIndex(me.x, me.y, me.plane), me.x, me.y) > OFF_PATH_DISTANCE || stalls >= MAX_STALLS) {
                 if (++plans > MAX_PLANS) return WebWalkResult(WebWalkStatus.STUCK, "No progress after $MAX_PLANS routes", path, lodestone)
-                // A link set aside or a locked door is something only the local planner can route around.
-                val planned = findPath(script, me, goal, useLodestones, setAside, lockedDoors, setAside.size == keptBack && lockedDoors.isEmpty())
+                // A link set aside or a locked door is something only the local planner can route around; a spell set
+                // aside is left out of the hosted planner's requirements instead.
+                val spellsAside = setAside.mapNotNullTo(HashSet()) { it.spell }
+                val hostedAllowed = setAside.size - spellsAside.size == keptBack && lockedDoors.isEmpty()
+                val planned = findPath(script, me, goal, useLodestones, setAside, lockedDoors, hostedAllowed, spellsAside)
                 if (planned.status != WebWalkStatus.PATH_FOUND) return planned.via(lodestone)
                 path = planned.path!!
                 stalls = 0
@@ -271,11 +285,18 @@ object WebWalker {
                 val step = route.linkAt(link)
                 val locked = step?.kind == WebLinkKind.DOOR && lockedSince(linkStartedAt)
                 val unreachable = RecentChat.containsSince(CANT_REACH_MESSAGE, linkStartedAt)
-                if (++linkAttempts > MAX_LINK_ATTEMPTS || locked || unreachable) {
+                val uncastable = step?.kind == WebLinkKind.SPELL && step.spell?.let { SpellTeleports.check(it).usable } != true
+                if (++linkAttempts > MAX_LINK_ATTEMPTS || locked || unreachable || uncastable) {
                     if (step == null || setAside.size - keptBack >= MAX_SET_ASIDE) {
                         return WebWalkResult(WebWalkStatus.STUCK, "Could not take $step", route, lodestone)
                     }
-                    println("[WebWalk] Could not take $step${if (locked) " (locked)" else if (unreachable) " (can't reach it)" else ""}; planning around it")
+                    val why = when {
+                        locked -> " (locked)"
+                        unreachable -> " (can't reach it)"
+                        uncastable -> " (can no longer be cast)"
+                        else -> ""
+                    }
+                    println("[WebWalk] Could not take $step$why; planning around it")
                     setAside += step
                     linkAttempts = 0
                     linkStartedAt = Long.MAX_VALUE
@@ -284,10 +305,19 @@ object WebWalker {
                 }
                 walker.forgetWalk()
                 linkStartedAt = System.currentTimeMillis()
-                if (passLink(script, route, link)) {
+                if (passLink(script, route, link, stop)) {
                     linkAttempts = 0
                     linkStartedAt = Long.MAX_VALUE
                     if (step?.kind == WebLinkKind.LODESTONE) lodestone = step.lodestone
+                } else if (step?.kind == WebLinkKind.SPELL) {
+                    script.delay(SPELL_RETRY_MS, SPELL_RETRY_VARIANCE)
+                } else if (step != null && step.steps.isNotEmpty() && NavProfile.inCombat() && setAside.size - keptBack < MAX_SET_ASIDE) {
+                    // A hit closes a teleport's menu, so clicking it open again while under attack only repeats that.
+                    println("[WebWalk] $step's menu did not hold in combat; planning around it")
+                    setAside += step
+                    linkAttempts = 0
+                    linkStartedAt = Long.MAX_VALUE
+                    path = null
                 }
                 continue
             }
@@ -530,7 +560,7 @@ object WebWalker {
      * Arrival is judged against the link's whole destination area rather than the one tile the route aimed at: a
      * staircase drops the player anywhere in the room at the top, and the route only picked a representative tile.
      */
-    private suspend fun passLink(script: Script, path: WebPath, index: Int): Boolean {
+    private suspend fun passLink(script: Script, path: WebPath, index: Int, stop: () -> Boolean): Boolean {
         val link = path.linkAt(index) ?: return false
         if (!link.isGlobal) {
             val approach = path.tile(index - 1)
@@ -557,6 +587,7 @@ object WebWalker {
             null
         }
         val startedAt = System.currentTimeMillis()
+        val takeoff = localPlayer.tile
         if (!WebLinkActions.start(script, link)) return false
         // "Open" leaves the player where they stand; once the live map shows the way through, step through it.
         if (doorPassage != null) return throughOpenedDoor(script, link, path.tile(index - 1), path.tile(index), startedAt)
@@ -575,12 +606,13 @@ object WebWalker {
         // ways through only sometimes ask, so arriving makes the rest of the chain unnecessary.
         val slack = arrivalSlack(link)
         for (step in link.chain) {
-            if (arrivedVia(link, slack)) break
-            if (!WebLinkActions.perform(script, link, step) { arrivedVia(link, slack) } && !arrivedVia(link, slack)) return false
+            if (arrivedVia(link, slack) || stop()) break
+            if (!WebLinkActions.perform(script, link, step) { arrivedVia(link, slack) || stop() } && !arrivedVia(link, slack)) return false
         }
 
-        script.delayUntil(arrivalTimeout(link)) { arrivedVia(link, slack) }
-        val arrived = arrivedVia(link, slack)
+        val landed = { arrivedVia(link, slack) || link.isGlobal && landedElsewhere(takeoff) }
+        script.delayUntil(arrivalTimeout(link)) { landed() || stop() }
+        val arrived = landed()
         if (arrived) {
             if (link.kind == WebLinkKind.LODESTONE) {
                 script.delayUntil(LANDING_START_MS) { localPlayer.isAnimating }
@@ -627,6 +659,13 @@ object WebWalker {
         return tile.plane == to.plane && tile.x in to.minX - slack..to.maxX + slack && tile.y in to.minY - slack..to.maxY + slack
     }
 
+    /** A teleport that set the player down well away from [takeoff], and settled, landed even outside its box. */
+    private fun landedElsewhere(takeoff: Tile): Boolean {
+        val tile = localPlayer.tile
+        val moved = tile.plane != takeoff.plane || chebyshev(tile.x, tile.y, takeoff.x, takeoff.y) > LANDED_ELSEWHERE_TILES
+        return moved && !localPlayer.isMoving && !localPlayer.isAnimating
+    }
+
     private fun arrivalSlack(link: WebLink): Int = when (link.kind) {
         WebLinkKind.OBJECT, WebLinkKind.DOOR -> 0
         WebLinkKind.LODESTONE -> LODESTONE_SLACK
@@ -634,6 +673,7 @@ object WebWalker {
     }
 
     private fun arrivalTimeout(link: WebLink): Long = when {
+        link.kind == WebLinkKind.SPELL -> SPELL_LANDING_MS
         link.kind == WebLinkKind.NPC -> VOYAGE_TIMEOUT_MS
         link.isGlobal || link.kind == WebLinkKind.FAIRY_RING || carriesOff(link) -> TELEPORT_TIMEOUT_MS
         else -> LINK_TIMEOUT_MS
@@ -666,9 +706,13 @@ object WebWalker {
                 if (shut.interact(option)) {
                     script.delayUntil(DOOR_OPEN_TIMEOUT_MS) {
                         doorOpen(near, far) == true || closedDoor(near, far) == null || localPlayer.tile == far ||
-                            !picksLock && lockedSince(clickedAt) || idleSince(clickedAt)
+                            !picksLock && lockedSince(clickedAt) || RecentChat.containsSince(CANT_REACH_MESSAGE, clickedAt) || idleSince(clickedAt)
                     }
                     if (!picksLock && lockedSince(clickedAt)) return DoorOutcome.LOCKED
+                    if (RecentChat.containsSince(CANT_REACH_MESSAGE, clickedAt)) {
+                        println("[WebWalk] The door at $near can't be reached")
+                        return DoorOutcome.LOCKED
+                    }
                     // Open on the live map: the walk carries on through it rather than stopping on its far tile.
                     if (doorOpen(near, far) == true) return DoorOutcome.PASSED
                     if (closedDoor(near, far) != null && localPlayer.tile != far) {

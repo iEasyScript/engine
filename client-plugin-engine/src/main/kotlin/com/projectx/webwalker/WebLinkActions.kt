@@ -1,6 +1,8 @@
 package com.projectx.webwalker
 
 import com.projectx.game.interfaces.IFSlot
+import com.projectx.game.magic.CastResult
+import com.projectx.game.magic.SpellTeleports
 import com.projectx.game.items.Item
 import com.projectx.quest.runtime.RecentChat
 import com.projectx.script.Script
@@ -69,6 +71,7 @@ internal object WebLinkActions {
         WebLinkKind.POA -> useCarriedItem(link) && script.pickMenu(link)
         WebLinkKind.LODESTONE -> script.teleportToLodestone(link)
         WebLinkKind.FAIRY_RING -> script.dialFairyRing(link)
+        WebLinkKind.SPELL -> link.spell?.let { SpellTeleports.cast(script, it) { script.stopped } == CastResult.STARTED } == true
     }
 
     /** Does one chained step: clicks an interface once it is up, or uses the next object. */

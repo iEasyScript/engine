@@ -1,5 +1,7 @@
 package com.projectx.pathfinder.navpath
 
+import com.projectx.game.magic.SpellTeleports
+import com.projectx.script.api.TeleportSpell
 import com.projectx.script.api.abilityCooldownTicks
 import com.projectx.script.api.actionbarAbilities
 import com.projectx.script.api.coinPouch
@@ -40,7 +42,7 @@ internal object NavProfile {
     private val BASE_VARBITS = setOf(
         55818, 10236, 9482, 10848, 10826, 48161, 48108, 9928, 30678, 13876, 13267, 33059, 9022, 13178, 52651, 4291,
         11413, 11269, 13349, 11498, 11428, 22270, 47236, 47184, 47185, 14041, 9663, 9987, 16231, 9547, 23198, 25043, 33889,
-        44292,
+        44292, 25054, 25055, 64, 66, 68, 45329, 10479, 25045,
     )
 
     private val BASE_VARPS = setOf(2535, 2326, 2102, 2696, 2265, 2675, 2661, 2171, 2762, 2671)
@@ -48,6 +50,11 @@ internal object NavProfile {
     // The gnome glider map and the Land of Snow portal list are menus, which a hit closes.
     private val MENU_VARBITS = setOf(36215)
     private val MENU_VARPS = setOf(2740)
+
+    // Every spirit tree row needs Tree Gnome Village done; its own key rather than varp_2661 because the tree map is
+    // a menu, which a hit closes.
+    private const val SPIRIT_TREE_ACCESS = "spiritTreeAccess"
+    private const val TREE_GNOME_VILLAGE_VARP = 2661
 
     private const val SURGE_AGILITY = 5
     private const val DIVE_AGILITY = 30
@@ -63,7 +70,11 @@ internal object NavProfile {
 
     private val sessionSalt = ThreadLocalRandom.current().nextInt() and 0x7fffffff
 
-    fun request(start: Tile, goal: Tile, teleports: Boolean, useItems: Boolean, abilities: Boolean): NavRequest {
+    fun request(start: Tile, goal: Tile, teleports: Boolean, useItems: Boolean, abilities: Boolean): NavRequest =
+        request(start, goal, teleports, useItems, abilities, emptySet())
+
+    /** As [request], with [withoutSpells] sent as uncastable: spells the walk has set aside. */
+    fun request(start: Tile, goal: Tile, teleports: Boolean, useItems: Boolean, abilities: Boolean, withoutSpells: Set<TeleportSpell>): NavRequest {
         val backpack = runCatching { inventory.toList() }.getOrDefault(emptyList())
         val worn = runCatching { equipment.toList() }.getOrDefault(emptyList())
         val known = ids.get()
@@ -90,6 +101,10 @@ internal object NavProfile {
         for (id in varpKeys) requirements["varp_$id"] = if (id in VARP_READ_AS_VARBIT) varbit(id) else varp(id)
 
         requirements["xmasEvent"] = 1
+        for (key in WebLinkPermissions.questFlags) WebLinkPermissions.questFlag(key)?.let { requirements[key] = it }
+        if (!inCombat) requirements[SPIRIT_TREE_ACCESS] = varp(TREE_GNOME_VILLAGE_VARP)
+        val castable = if (teleports) SpellTeleports.checkAll().mapValues { it.value.usable } else emptyMap()
+        requirements += spellKeys(castable, withoutSpells)
         for (key in WebLinkPermissions.passageFlags) WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
         if (teleports && useItems) {
             for (key in WebLinkPermissions.itemFlags) {
@@ -118,6 +133,16 @@ internal object NavProfile {
             seed = seed(),
         )
     }
+
+    /** The key of a planner `spell` row: `spell_<ability id>`, Trollheim being `spell_57`. */
+    fun spellKey(spell: TeleportSpell): String = "spell_${spell.abilityId}"
+
+    /** One key per teleport spell: 1 when it can be cast now and has not been set aside, else 0. */
+    fun spellKeys(castable: Map<TeleportSpell, Boolean>, setAside: Set<TeleportSpell>): List<Pair<String, Int>> =
+        TeleportSpell.entries.map { spellKey(it) to flag(castable[it] == true && it !in setAside) }
+
+    /** The game's in-combat flag, which outlasts a fight by a few seconds. */
+    fun inCombat(): Boolean = ids.get()?.get("inCombat")?.let { varbit(it) > 0 } == true
 
     /** Stable for the player all session, and different between players and sessions. */
     private fun seed(): Int {

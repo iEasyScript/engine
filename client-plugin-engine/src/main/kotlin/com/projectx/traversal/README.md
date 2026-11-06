@@ -106,6 +106,10 @@ Builder lives in `TraversalBuilder.kt`.
 - `useLodestone(lodestone: Lodestone, reached: (() -> Boolean)? = null)`
   - Teleport via lodestone and wait for arrival. Defaults to reached when near the lodestone tile and not animating.
 
+- `castSpell(spell: TeleportSpell, destination: Area? = null, reached: (() -> Boolean)? = null)`
+  - Casts a teleport spell, a Spellbook Swap from the action bar first when it is on another book, and waits to land in
+    `destination`. A spell that can no longer be cast, or that fails three times, re-routes the traversal.
+
 - `build(next: State<T>, finishedCondition: T.() -> Boolean): Traversal<T>`
   - Automatically called by `Traversal.traversal(...)`.
 

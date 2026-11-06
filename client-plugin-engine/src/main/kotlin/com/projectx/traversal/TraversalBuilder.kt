@@ -5,6 +5,7 @@ import com.projectx.game.interfaces.IFSlot
 import com.projectx.script.State
 import com.projectx.script.StateMachineScript
 import com.projectx.script.api.Lodestone
+import com.projectx.script.api.TeleportSpell
 import com.projectx.traversal.nodes.*
 import com.projectx.game.nxt.entity.location.SceneObject
 import com.projectx.util.Area
@@ -71,6 +72,9 @@ class TraversalBuilder<T : StateMachineScript<T>> {
     fun doorOut(doorInfo: DoorInfo, reached: (() -> Boolean)? = null) = nodes.add(DoorNode(doorInfo, DoorDirection.OUT, reached))
 
     fun useLodestone(lodestone: Lodestone, reached: (() -> Boolean)? = null) = nodes.add(LodestoneNode(lodestone, reached))
+
+    /** Casts [spell], swapping book first when it is on another; reached on landing in [destination], or by [reached] without one. */
+    fun castSpell(spell: TeleportSpell, destination: Area? = null, reached: (() -> Boolean)? = null) = nodes.add(SpellNode(spell, destination, reached))
 
     fun useItemOnObj(itemName: String, obj: SceneObject, searchRadius: Int = 20, reached: (() -> Boolean)? = null) = nodes.add(ItemOnObjectNode(itemName, obj, objectSearchRadius = searchRadius, customReached = reached))
     fun useItemOnObj(itemId: Int, obj: SceneObject, searchRadius: Int = 20, reached: (() -> Boolean)? = null) = nodes.add(ItemOnObjectNode(itemId, obj, objectSearchRadius = searchRadius, customReached = reached))

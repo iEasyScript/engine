@@ -298,6 +298,15 @@ sealed class Wait {
         fun checkWorldPop(onResult: Consumer<Boolean>? = null, cooldownMinutes: Long = 10): Wait =
             call(onResult) { this.checkWorldPop(cooldownMinutes) }
 
+        /**
+         * Cast a teleport spell, swapping spellbook first when it is on another book, and wait for the landing;
+         * [onResult] gets whether the player landed. Kotlin: `castTeleportSpell`.
+         */
+        @JvmStatic
+        @JvmOverloads
+        fun castTeleportSpell(spell: TeleportSpell, onResult: Consumer<Boolean>? = null): Wait =
+            call(onResult) { this.castTeleportSpell(spell) }
+
         // ---- Input, items and prayers ----
 
         /** Press and release [key], a native key code. Kotlin: `clickKey`. */

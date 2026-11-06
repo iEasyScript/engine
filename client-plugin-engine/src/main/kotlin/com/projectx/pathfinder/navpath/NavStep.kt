@@ -144,6 +144,18 @@ internal sealed interface NavStep {
         override val type get() = "use_on"
     }
 
+    /** A teleport spell, by its ability id; [destination] is the box it lands in. */
+    data class Spell(
+        val abilityId: Int,
+        val name: String?,
+        val destination: NavArea?,
+        override val from: Tile?,
+        override val to: Tile?,
+        override val chain: List<NavStep>,
+    ) : Chained {
+        override val type get() = "spell"
+    }
+
     /** An action this engine has no way to perform: a generic teleport, or a kind the planner added later. */
     data class Unsupported(override val type: String, val reason: String) : NavStep
 }

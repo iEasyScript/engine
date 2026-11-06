@@ -1,5 +1,6 @@
 package com.projectx.pathfinder.navpath
 
+import com.projectx.script.api.TeleportSpell
 import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
 import com.projectx.webwalker.WebLink
@@ -120,6 +121,8 @@ internal object NavRouteMapper {
                 .then(WebInterfaceStep(step.interfaceId, step.component, step.slot, step.clickId), *chain.toTypedArray())
             is NavStep.Lodestone -> link(WebLinkKind.LODESTONE, approach, null, landing, "Teleport", -1, null)
                 .toLodestone(WebLinks.lodestoneNamed(step.name) ?: return null)
+            is NavStep.Spell -> link(WebLinkKind.SPELL, approach, step.destination, landing, "Cast", -1, null)
+                .casting(TeleportSpell.byAbilityId(step.abilityId) ?: return null)
         }
         return if (chain.isEmpty() || step is NavStep.IFSlot) link else link.then(*chain.toTypedArray())
     }
