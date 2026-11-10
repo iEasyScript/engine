@@ -1,5 +1,6 @@
 package com.projectx.script
 
+import com.projectx.store.EncryptedScripts
 import io.github.classgraph.ClassGraph
 import io.github.classgraph.ClassInfo
 import java.io.File
@@ -39,19 +40,23 @@ class JarDirectoryScanner(
     private val directoryPath: String
 ) : AbstractClassScanner.PathClassScanner(directoryPath) {
 
-    override fun scan(): List<Class<*>> = runCatching {
-        val jarFiles = findJarFiles()
-        val absoluteJarPaths = getAbsolutePaths(jarFiles)
-        scanJarFiles(absoluteJarPaths)
-    }.fold(
-        onFailure = { emptyList() },
-        onSuccess = { it }
-    )
+    override fun scan(): List<Class<*>> {
+        val plain = runCatching { scanJarFiles(getAbsolutePaths(findJarFiles())) }.getOrDefault(emptyList())
+        val encrypted = runCatching {
+            EncryptedScripts.loaded(File(directoryPath)).flatMap { scriptClassesIn(it.classNames, it.loader) }
+        }.getOrDefault(emptyList())
+        return plain + encrypted
+    }
 
-    private fun findJarFiles(): Array<String>? =
-        File(directoryPath).list { _, fileName ->
-            fileName.lowercase().endsWith(FileExtensions.JAR)
-        }
+    // A plaintext jar beside the encrypted build of the same release is a leftover, not a second copy to load.
+    private fun findJarFiles(): Array<String>? {
+        val names = File(directoryPath).list() ?: return null
+        val encrypted = names.filter { it.endsWith(EncryptedScripts.EXTENSION) }.toSet()
+        return names.filter { name ->
+            name.lowercase().endsWith(FileExtensions.JAR) &&
+                name.dropLast(FileExtensions.JAR.length) + EncryptedScripts.EXTENSION !in encrypted
+        }.toTypedArray()
+    }
 
     // Enumerate class NAMES from the jars (bytecode only, no loading), then load each through a
     // classloader parented to the engine's loader so a script's engine/core superclasses & deps
@@ -68,7 +73,11 @@ class JarDirectoryScanner(
             .overrideClasspath(jarPaths)
             .scan()
             .use { it.allClasses.names }
-        return classNames.mapNotNull { name ->
+        return scriptClassesIn(classNames, loader)
+    }
+
+    private fun scriptClassesIn(classNames: List<String>, loader: ClassLoader): List<Class<*>> =
+        classNames.mapNotNull { name ->
             runCatching { Class.forName(name, false, loader) }.getOrNull()
                 ?.takeIf {
                     Script::class.java.isAssignableFrom(it) &&
@@ -76,7 +85,6 @@ class JarDirectoryScanner(
                         !Modifier.isAbstract(it.modifiers)
                 }
         }
-    }
 }
 
 /**

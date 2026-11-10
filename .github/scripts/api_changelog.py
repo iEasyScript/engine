@@ -49,6 +49,8 @@ AREA_ORDER = ("Overlay UI", "Overlay DSL", "Script calls", "Web walker", "Interf
 # Kotlin `internal` types compile to public classes, so javap cannot tell them from API; they are named
 # here instead. Only needed for internal types that live in one of the packages above.
 INTERNAL_TYPES = {
+    "com.projectx.script.InMemoryJar",
+    "com.projectx.script.InMemoryJarClassLoader",
     "com.projectx.script.LiveValues",
     "com.projectx.script.api.NecromancyImprovise",
     "com.projectx.store.GameSnapshot",

@@ -122,6 +122,14 @@ object Entitlements {
         worker.scheduleWithFixedDelay({ runCatching { enforce() } }, ENFORCE_SECONDS, ENFORCE_SECONDS, TimeUnit.SECONDS)
     }
 
+    // An unloaded engine's refresh kept running after a hot reload, re-downloading builds the new engine had replaced.
+    @Synchronized
+    fun stop() {
+        if (!started) return
+        started = false
+        worker.shutdownNow()
+    }
+
     /** True for every script the store lists, free or paid: the ones that need a subscription to run. */
     fun isPaid(name: String): Boolean = paid.contains(name)
 
@@ -251,7 +259,7 @@ object Entitlements {
                 val version = obj.text("version")
                 val url = obj.text("downloadUrl")
                 if (version != null && url != null) {
-                    jars += StoreJar(name, version, url, obj.text("sha256"), obj.text("fileName"))
+                    jars += StoreJar(name, version, url, obj.text("sha256"), obj.text("fileName"), free = obj.flag("free"))
                 }
             }
             paid.retainAll(fresh)

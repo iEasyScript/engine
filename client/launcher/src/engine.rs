@@ -245,6 +245,94 @@ pub fn installed_engine_jar(dir: &Path) -> Option<PathBuf> {
         .max_by(|a, b| jar_version(a).cmp(&jar_version(b)))
 }
 
+/// The resource an engine jar carries once it can load `.pxe` scripts.
+const ENCRYPTED_SCRIPTS_MARKER: &[u8] = b"projectx/capabilities/script-format-pxe1";
+
+type EncryptedScriptsProbe = (PathBuf, u64, Option<std::time::SystemTime>, bool);
+
+static ENCRYPTED_SCRIPTS_PROBE: std::sync::Mutex<Option<EncryptedScriptsProbe>> =
+    std::sync::Mutex::new(None);
+
+/// Whether the engine an injection would use can load encrypted paid scripts.
+///
+/// An engine older than them would find nothing it can load, so its paid scripts
+/// would vanish. With no engine installed yet the answer is yes: the one
+/// [`ensure`] installs is the current release.
+pub fn engine_reads_encrypted_scripts() -> bool {
+    let Some(jar) = resolved_home().and_then(|home| installed_engine_jar(&home)) else {
+        return true;
+    };
+    let meta = std::fs::metadata(&jar).ok();
+    let len = meta.as_ref().map(|m| m.len()).unwrap_or(0);
+    let modified = meta.and_then(|m| m.modified().ok());
+
+    let mut probe = ENCRYPTED_SCRIPTS_PROBE.lock().unwrap_or_else(|e| e.into_inner());
+    if let Some((path, l, m, answer)) = probe.as_ref() {
+        if *path == jar && *l == len && *m == modified {
+            return *answer;
+        }
+    }
+    let answer = jar_lists_entry(&jar, ENCRYPTED_SCRIPTS_MARKER);
+    *probe = Some((jar, len, modified, answer));
+    answer
+}
+
+/// Whether `name` is an entry in the jar. Only the central directory is read when
+/// it can be found; the engine jar is far too large to read whole for one name.
+fn jar_lists_entry(jar: &Path, name: &[u8]) -> bool {
+    let haystack = central_directory(jar).or_else(|| std::fs::read(jar).ok());
+    haystack.is_some_and(|bytes| bytes.windows(name.len()).any(|w| w == name))
+}
+
+fn central_directory(jar: &Path) -> Option<Vec<u8>> {
+    use std::io::{Read, Seek, SeekFrom};
+
+    const EOCD: [u8; 4] = [0x50, 0x4b, 0x05, 0x06];
+    const ZIP64_LOCATOR: [u8; 4] = [0x50, 0x4b, 0x06, 0x07];
+    const ZIP64_EOCD: [u8; 4] = [0x50, 0x4b, 0x06, 0x06];
+    const EOCD_LEN: usize = 22;
+    const MAX_COMMENT: u64 = 0xFFFF;
+    const ZIP64_LOCATOR_LEN: usize = 20;
+
+    let u32_at = |b: &[u8], i: usize| b.get(i..i + 4).map(|s| u32::from_le_bytes(s.try_into().unwrap()) as u64);
+    let u64_at = |b: &[u8], i: usize| b.get(i..i + 8).map(|s| u64::from_le_bytes(s.try_into().unwrap()));
+
+    let mut file = std::fs::File::open(jar).ok()?;
+    let len = file.metadata().ok()?.len();
+    let tail_len = len.min(EOCD_LEN as u64 + MAX_COMMENT + ZIP64_LOCATOR_LEN as u64);
+    file.seek(SeekFrom::Start(len - tail_len)).ok()?;
+    let mut tail = vec![0u8; tail_len as usize];
+    file.read_exact(&mut tail).ok()?;
+
+    let eocd = (0..=tail.len().checked_sub(EOCD_LEN)?)
+        .rev()
+        .find(|&i| tail[i..i + 4] == EOCD)?;
+    let (mut size, mut offset) = (u32_at(&tail, eocd + 12)?, u32_at(&tail, eocd + 16)?);
+
+    if size == 0xFFFF_FFFF || offset == 0xFFFF_FFFF {
+        let locator = eocd.checked_sub(ZIP64_LOCATOR_LEN)?;
+        if tail[locator..locator + 4] != ZIP64_LOCATOR {
+            return None;
+        }
+        file.seek(SeekFrom::Start(u64_at(&tail, locator + 8)?)).ok()?;
+        let mut record = [0u8; 56];
+        file.read_exact(&mut record).ok()?;
+        if record[..4] != ZIP64_EOCD {
+            return None;
+        }
+        size = u64_at(&record, 40)?;
+        offset = u64_at(&record, 48)?;
+    }
+
+    if offset.checked_add(size)? > len {
+        return None;
+    }
+    file.seek(SeekFrom::Start(offset)).ok()?;
+    let mut directory = vec![0u8; usize::try_from(size).ok()?];
+    file.read_exact(&mut directory).ok()?;
+    Some(directory)
+}
+
 /// The version in `projectx-engine-<version>.jar`, as numbers so 1.0.34 beats
 /// 1.0.9. A name that carries none sorts lowest, which keeps a published jar
 /// ahead of anything hand-dropped beside it.
@@ -556,6 +644,89 @@ fn discard_displaced(home: &Path) {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// A zip of empty stored entries, each holding `content`, optionally with a zip64 end record.
+    fn stored_zip(names: &[&str], content: &[u8], zip64: bool) -> Vec<u8> {
+        let mut out = Vec::new();
+        let mut central = Vec::new();
+        for name in names {
+            let offset = out.len() as u32;
+            out.extend_from_slice(&[0x50, 0x4b, 0x03, 0x04, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            out.extend_from_slice(&(content.len() as u32).to_le_bytes());
+            out.extend_from_slice(&(content.len() as u32).to_le_bytes());
+            out.extend_from_slice(&(name.len() as u16).to_le_bytes());
+            out.extend_from_slice(&0u16.to_le_bytes());
+            out.extend_from_slice(name.as_bytes());
+            out.extend_from_slice(content);
+
+            central.extend_from_slice(&[0x50, 0x4b, 0x01, 0x02, 20, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            central.extend_from_slice(&(content.len() as u32).to_le_bytes());
+            central.extend_from_slice(&(content.len() as u32).to_le_bytes());
+            central.extend_from_slice(&(name.len() as u16).to_le_bytes());
+            central.extend_from_slice(&[0; 12]);
+            central.extend_from_slice(&offset.to_le_bytes());
+            central.extend_from_slice(name.as_bytes());
+        }
+        let cd_offset = out.len() as u64;
+        let cd_size = central.len() as u64;
+        out.extend_from_slice(&central);
+        let count = names.len() as u16;
+        if zip64 {
+            let record_offset = out.len() as u64;
+            out.extend_from_slice(&[0x50, 0x4b, 0x06, 0x06]);
+            out.extend_from_slice(&44u64.to_le_bytes());
+            out.extend_from_slice(&[45, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+            out.extend_from_slice(&(count as u64).to_le_bytes());
+            out.extend_from_slice(&(count as u64).to_le_bytes());
+            out.extend_from_slice(&cd_size.to_le_bytes());
+            out.extend_from_slice(&cd_offset.to_le_bytes());
+            out.extend_from_slice(&[0x50, 0x4b, 0x06, 0x07, 0, 0, 0, 0]);
+            out.extend_from_slice(&record_offset.to_le_bytes());
+            out.extend_from_slice(&1u32.to_le_bytes());
+        }
+        out.extend_from_slice(&[0x50, 0x4b, 0x05, 0x06, 0, 0, 0, 0]);
+        out.extend_from_slice(&count.to_le_bytes());
+        out.extend_from_slice(&count.to_le_bytes());
+        let (size, offset) = if zip64 { (u32::MAX, u32::MAX) } else { (cd_size as u32, cd_offset as u32) };
+        out.extend_from_slice(&size.to_le_bytes());
+        out.extend_from_slice(&offset.to_le_bytes());
+        out.extend_from_slice(&0u16.to_le_bytes());
+        out
+    }
+
+    fn written(label: &str, bytes: &[u8]) -> PathBuf {
+        let dir = std::env::temp_dir().join(format!("projectx-engine-marker-{}", label));
+        let _ = std::fs::remove_dir_all(&dir);
+        std::fs::create_dir_all(&dir).unwrap();
+        let jar = dir.join("projectx-engine-1.0.0.jar");
+        std::fs::write(&jar, bytes).unwrap();
+        jar
+    }
+
+    #[test]
+    fn an_engine_jar_that_lists_the_marker_reads_encrypted_scripts() {
+        let names = ["com/projectx/A.class", "projectx/capabilities/script-format-pxe1"];
+        let jar = written("present", &stored_zip(&names, b"x", false));
+        assert!(jar_lists_entry(&jar, ENCRYPTED_SCRIPTS_MARKER));
+        assert!(central_directory(&jar).is_some());
+
+        let jar = written("zip64", &stored_zip(&names, b"x", true));
+        assert!(central_directory(&jar).is_some());
+        assert!(jar_lists_entry(&jar, ENCRYPTED_SCRIPTS_MARKER));
+    }
+
+    #[test]
+    fn an_older_engine_jar_does_not_read_encrypted_scripts() {
+        let jar = written("absent", &stored_zip(&["com/projectx/A.class"], b"x", false));
+        assert!(!jar_lists_entry(&jar, ENCRYPTED_SCRIPTS_MARKER));
+    }
+
+    /// The central directory is what is searched, so a name that only appears in some entry's bytes is no proof.
+    #[test]
+    fn the_marker_inside_an_entry_is_not_an_entry() {
+        let jar = written("content", &stored_zip(&["com/projectx/A.class"], ENCRYPTED_SCRIPTS_MARKER, false));
+        assert!(!jar_lists_entry(&jar, ENCRYPTED_SCRIPTS_MARKER));
+    }
 
     #[test]
     fn picks_the_engine_jar_and_never_the_supervisor() {

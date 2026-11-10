@@ -4,7 +4,7 @@
 use anyhow::{bail, Context, Result};
 use serde::{Deserialize, Serialize};
 use std::fs;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 use std::time::Duration;
 
 const DEFAULT_STORE: &str = "https://xclient.dev";
@@ -243,8 +243,36 @@ pub async fn catalogue(client: &reqwest::Client) -> Result<Vec<StorePlugin>> {
     Ok(response.json().await.context("Could not read the catalogue")?)
 }
 
-pub async fn download(client: &reqwest::Client, plugin: &StorePlugin) -> Result<Vec<u8>> {
-    let url = plugin.download_url.clone().unwrap_or_else(|| {
+const ENCRYPTED_FORMAT: &str = "pxe1";
+const ENCRYPTED_MAGIC: &[u8] = b"PXE1";
+const ENCRYPTED_EXTENSION: &str = ".pxe";
+const RECORD_SUFFIX: &str = ".json";
+const FORMAT_HEADER: &str = "x-projectx-jar-format";
+// Magic, a 12-byte nonce and a 16-byte tag.
+const ENCRYPTED_MIN_LEN: usize = 4 + 12 + 16;
+
+/// A paid script as the store sent it: a PXE1 blob only the engine can open, or a plain jar.
+pub struct Downloaded {
+    pub bytes: Vec<u8>,
+    pub encrypted: bool,
+}
+
+fn is_encrypted_blob(bytes: &[u8]) -> bool {
+    bytes.len() >= ENCRYPTED_MIN_LEN && bytes.starts_with(ENCRYPTED_MAGIC)
+}
+
+fn with_format(url: &str) -> String {
+    let separator = if url.contains('?') { '&' } else { '?' };
+    format!("{}{}format={}", url, separator, ENCRYPTED_FORMAT)
+}
+
+/// `encrypted` asks for the PXE1 build; the store sends free scripts plain whatever is asked.
+pub async fn download(
+    client: &reqwest::Client,
+    plugin: &StorePlugin,
+    encrypted: bool,
+) -> Result<Downloaded> {
+    let base = plugin.download_url.clone().unwrap_or_else(|| {
         format!(
             "{}/api/v1/hub/jars/{}/{}?game={}",
             store_base(),
@@ -253,6 +281,7 @@ pub async fn download(client: &reqwest::Client, plugin: &StorePlugin) -> Result<
             GAME
         )
     });
+    let url = if encrypted { with_format(&base) } else { base };
     let mut request = client.get(&url).timeout(crate::HTTP_DOWNLOAD_TIMEOUT);
     if let Some(stored) = read_token() {
         request = request.bearer_auth(stored.token);
@@ -275,7 +304,23 @@ pub async fn download(client: &reqwest::Client, plugin: &StorePlugin) -> Result<
             response.status()
         );
     }
-    Ok(response.bytes().await?.to_vec())
+    let declared = response
+        .headers()
+        .get(FORMAT_HEADER)
+        .and_then(|v| v.to_str().ok())
+        .is_some_and(|v| v.eq_ignore_ascii_case(ENCRYPTED_FORMAT));
+    let bytes = response.bytes().await?.to_vec();
+    let is_blob = is_encrypted_blob(&bytes);
+    if declared && !is_blob {
+        bail!("{} did not arrive as an encrypted build", plugin.internal_name);
+    }
+    if is_blob && !encrypted {
+        bail!(
+            "The store sent {} encrypted, which the installed engine cannot load",
+            plugin.internal_name
+        );
+    }
+    Ok(Downloaded { bytes, encrypted: is_blob })
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -321,25 +366,67 @@ pub async fn entitlements(client: &reqwest::Client) -> Result<Vec<Entitlement>> 
 }
 
 pub async fn install(client: &reqwest::Client, plugin: &StorePlugin) -> Result<PathBuf> {
-    let bytes = download(client, plugin).await?;
+    install_with(client, plugin, crate::engine::engine_reads_encrypted_scripts()).await
+}
 
-    if let Some(expected) = plugin.sha256.as_deref().filter(|s| !s.is_empty()) {
-        let actual = crate::plugins::hex_digest(&bytes);
-        if !actual.eq_ignore_ascii_case(expected) {
-            bail!(
-                "Checksum mismatch for {} (expected {}, got {})",
-                plugin.internal_name,
-                expected,
-                actual
-            );
-        }
-    }
-
+/// `encrypted` is whether the engine can load a `.pxe`; without it a paid script installs as a plain jar.
+async fn install_with(
+    client: &reqwest::Client,
+    plugin: &StorePlugin,
+    encrypted: bool,
+) -> Result<PathBuf> {
+    let fetched = download(client, plugin, encrypted).await?;
     let dir = crate::plugins::scripts_dir()?;
-    let file = jar_name(plugin);
-    let target = dir.join(&file);
+
+    let (file, kept) = if fetched.encrypted {
+        let file = pxe_name(plugin);
+        let record_file = record_name(&file);
+        let record = EncryptedBuild {
+            game: "RS3",
+            internal_name: &plugin.internal_name,
+            version: &plugin.version,
+            sha256: plugin.sha256.as_deref().filter(|s| !s.is_empty()),
+        };
+        // The record goes first, so a `.pxe` is never on disk without the names its key and AAD need.
+        write_atomically(&dir, &record_file, &serde_json::to_vec(&record)?)?;
+        write_atomically(&dir, &file, &fetched.bytes)?;
+        (file.clone(), vec![file, record_file])
+    } else {
+        if let Some(expected) = plugin.sha256.as_deref().filter(|s| !s.is_empty()) {
+            let actual = crate::plugins::hex_digest(&fetched.bytes);
+            if !actual.eq_ignore_ascii_case(expected) {
+                bail!(
+                    "Checksum mismatch for {} (expected {}, got {})",
+                    plugin.internal_name,
+                    expected,
+                    actual
+                );
+            }
+        }
+        let file = jar_name(plugin);
+        write_atomically(&dir, &file, &fetched.bytes)?;
+        (file.clone(), vec![file])
+    };
+
+    remove_stale(&dir, plugin, &kept);
+    Ok(dir.join(file))
+}
+
+/// Which script and release a `.pxe` holds, so the engine need not reverse the file name.
+#[derive(Serialize)]
+struct EncryptedBuild<'a> {
+    game: &'a str,
+    #[serde(rename = "internalName")]
+    internal_name: &'a str,
+    version: &'a str,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    sha256: Option<&'a str>,
+}
+
+fn write_atomically(dir: &Path, file: &str, bytes: &[u8]) -> Result<()> {
+    let target = dir.join(file);
     let temp = dir.join(format!(".{}.part", file));
-    fs::write(&temp, &bytes).with_context(|| format!("Failed to write {}", temp.display()))?;
+    fs::write(&temp, bytes).with_context(|| format!("Failed to write {}", temp.display()))?;
     if let Err(e) = fs::rename(&temp, &target) {
         let _ = fs::remove_file(&temp);
         if e.kind() == std::io::ErrorKind::PermissionDenied {
@@ -350,15 +437,17 @@ pub async fn install(client: &reqwest::Client, plugin: &StorePlugin) -> Result<P
         }
         bail!("Failed to install {}: {}", target.display(), e);
     }
+    Ok(())
+}
 
-    // Two jars for one script put every class on the scan path twice.
-    for stale in stale_jars(&dir, plugin, &file) {
+// Two builds of one script put every class on the scan path twice.
+fn remove_stale(dir: &Path, plugin: &StorePlugin, keep: &[String]) {
+    for stale in stale_builds(dir, plugin, keep) {
         match fs::remove_file(dir.join(&stale)) {
             Ok(()) => log::info!("Removed superseded {}", stale),
             Err(e) => log::warn!("Could not remove superseded {}: {}", stale, e),
         }
     }
-    Ok(target)
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
@@ -370,43 +459,72 @@ pub enum InstallState {
 }
 
 pub fn install_state(plugin: &StorePlugin) -> InstallState {
+    install_state_for(plugin, crate::engine::engine_reads_encrypted_scripts())
+}
+
+fn install_state_for(plugin: &StorePlugin, encrypted: bool) -> InstallState {
     let Ok(dir) = crate::plugins::scripts_dir() else {
         return InstallState::Missing;
     };
-    if dir.join(jar_name(plugin)).exists() {
+    if current_build(&dir, plugin, encrypted).is_some() {
         InstallState::Current
-    } else if stale_jars(&dir, plugin, "").is_empty() {
+    } else if stale_builds(&dir, plugin, &[]).is_empty() {
         InstallState::Missing
     } else {
         InstallState::Outdated
     }
 }
 
-pub fn is_installed(plugin: &StorePlugin) -> bool {
-    install_state(plugin) == InstallState::Current
+/// The files that make up the current release on disk, in the form the engine can load. A paid script's plain
+/// jar does not count for an engine that reads `.pxe`, so it is replaced; a `.pxe` does not count for one that
+/// cannot, so that engine gets a jar it can run.
+fn current_build(dir: &Path, plugin: &StorePlugin, encrypted: bool) -> Option<Vec<String>> {
+    let pxe = pxe_name(plugin);
+    let record = record_name(&pxe);
+    if encrypted && dir.join(&pxe).is_file() && dir.join(&record).is_file() {
+        return Some(vec![pxe, record]);
+    }
+    let jar = jar_name(plugin);
+    let plain_is_enough = !encrypted || plugin.free;
+    (plain_is_enough && dir.join(&jar).is_file()).then(|| vec![jar])
 }
 
 // Versioned so an update is a new file, never a rewrite of a jar the engine may have scanned.
 fn jar_name(plugin: &StorePlugin) -> String {
+    format!("{}.jar", build_stem(plugin))
+}
+
+fn pxe_name(plugin: &StorePlugin) -> String {
+    format!("{}{}", build_stem(plugin), ENCRYPTED_EXTENSION)
+}
+
+fn record_name(pxe: &str) -> String {
+    format!("{}{}", pxe, RECORD_SUFFIX)
+}
+
+// Must match the engine's ScriptSync naming, so whichever of the two gets there first, the other sees it done.
+fn build_stem(plugin: &StorePlugin) -> String {
     let safe = |s: &str| -> String {
         s.chars()
             .map(|c| if c.is_ascii_alphanumeric() || matches!(c, '.' | '_' | '+' | '-') { c } else { '-' })
             .collect()
     };
-    format!("{}-{}.jar", safe(&plugin.internal_name), safe(&plugin.version).trim_start_matches('.'))
+    format!("{}-{}", safe(&plugin.internal_name), safe(&plugin.version).trim_start_matches('.'))
 }
 
 // A version starts with a digit, so `Agility-` does not claim `Agility-Course-1.0.jar`.
-fn stale_jars(dir: &std::path::Path, plugin: &StorePlugin, keep: &str) -> Vec<String> {
+fn stale_builds(dir: &Path, plugin: &StorePlugin, keep: &[String]) -> Vec<String> {
     let prefix = format!("{}-", plugin.internal_name);
     let store_name = plugin.file_name.clone().unwrap_or_default();
+    let record_extension = record_name(ENCRYPTED_EXTENSION);
     let Ok(entries) = fs::read_dir(dir) else {
         return Vec::new();
     };
     entries
         .filter_map(|e| e.ok())
         .filter_map(|e| e.file_name().into_string().ok())
-        .filter(|f| f != keep && f.ends_with(".jar"))
+        .filter(|f| !keep.contains(f))
+        .filter(|f| f.ends_with(".jar") || f.ends_with(ENCRYPTED_EXTENSION) || f.ends_with(&record_extension))
         .filter(|f| {
             let versioned = f
                 .strip_prefix(&prefix)
@@ -419,6 +537,13 @@ fn stale_jars(dir: &std::path::Path, plugin: &StorePlugin, keep: &str) -> Vec<St
 
 // Everything the account owns, at its current build; scripts whose access has lapsed are left alone.
 pub async fn sync_owned(client: &reqwest::Client) -> Result<Vec<(String, Result<String>)>> {
+    sync_owned_with(client, crate::engine::engine_reads_encrypted_scripts()).await
+}
+
+async fn sync_owned_with(
+    client: &reqwest::Client,
+    encrypted: bool,
+) -> Result<Vec<(String, Result<String>)>> {
     if read_token().is_none() {
         return Ok(Vec::new());
     }
@@ -428,16 +553,23 @@ pub async fn sync_owned(client: &reqwest::Client) -> Result<Vec<(String, Result<
         .into_iter()
         .map(|e| e.internal_name)
         .collect();
+    let dir = crate::plugins::scripts_dir()?;
 
     let mut moved = Vec::new();
     for plugin in catalogue.iter().filter(|p| p.paid && owned.contains(&p.internal_name)) {
-        let verb = match install_state(plugin) {
-            InstallState::Current => continue,
+        let verb = match install_state_for(plugin, encrypted) {
+            InstallState::Current => {
+                // A plaintext jar an older launcher left beside the encrypted build would load twice.
+                if let Some(kept) = current_build(&dir, plugin, encrypted) {
+                    remove_stale(&dir, plugin, &kept);
+                }
+                continue;
+            }
             InstallState::Missing => "Installed",
             InstallState::Outdated => "Updated",
         };
         let label = plugin.name.clone().unwrap_or_else(|| plugin.internal_name.clone());
-        let outcome = install(client, plugin)
+        let outcome = install_with(client, plugin, encrypted)
             .await
             .map(|_| format!("{} {} {}", verb, label, plugin.version));
         moved.push((plugin.internal_name.clone(), outcome));
@@ -458,6 +590,7 @@ mod tests {
     struct Reply {
         status: &'static str,
         game_header: Option<&'static str>,
+        format: Option<&'static str>,
         body: Vec<u8>,
     }
 
@@ -465,6 +598,7 @@ mod tests {
     /// exercises the real HTTP client, the real headers and the real JSON.
     struct FakeStore {
         port: u16,
+        requests: std::sync::Arc<std::sync::Mutex<Vec<String>>>,
     }
 
     impl FakeStore {
@@ -476,23 +610,31 @@ mod tests {
             let listener = TcpListener::bind("127.0.0.1:0").expect("bind");
             let port = listener.local_addr().unwrap().port();
             let replies = build(port);
+            let requests = std::sync::Arc::new(std::sync::Mutex::new(Vec::new()));
+            let seen = std::sync::Arc::clone(&requests);
 
             std::thread::spawn(move || {
                 for (reply, stream) in replies.into_iter().zip(listener.incoming()) {
                     let Ok(stream) = stream else { break };
-                    Self::respond(stream, reply);
+                    Self::respond(stream, reply, &seen);
                 }
             });
 
-            FakeStore { port }
+            FakeStore { port, requests }
         }
 
-        fn respond(mut stream: TcpStream, reply: Reply) {
+        /// The request lines served so far, e.g. `GET /jar?format=pxe1 HTTP/1.1`.
+        fn requests(&self) -> Vec<String> {
+            self.requests.lock().unwrap().clone()
+        }
+
+        fn respond(mut stream: TcpStream, reply: Reply, seen: &std::sync::Mutex<Vec<String>>) {
             let mut reader = BufReader::new(stream.try_clone().unwrap());
             let mut line = String::new();
             if reader.read_line(&mut line).is_err() {
                 return;
             }
+            seen.lock().unwrap().push(line.trim().to_string());
             // Drain the request so the client is not left writing into a closed pipe.
             let mut header = String::new();
             let mut length = 0usize;
@@ -511,11 +653,16 @@ mod tests {
                 .game_header
                 .map(|g| format!("X-ProjectX-Game: {}\r\n", g))
                 .unwrap_or_default();
+            let format = reply
+                .format
+                .map(|f| format!("X-ProjectX-Jar-Format: {}\r\n", f))
+                .unwrap_or_default();
             let head = format!(
-                "HTTP/1.1 {}\r\nContent-Type: application/json\r\nContent-Length: {}\r\n{}Connection: close\r\n\r\n",
+                "HTTP/1.1 {}\r\nContent-Type: application/json\r\nContent-Length: {}\r\n{}{}Connection: close\r\n\r\n",
                 reply.status,
                 reply.body.len(),
                 game,
+                format,
             );
             let _ = stream.write_all(head.as_bytes());
             let _ = stream.write_all(&reply.body);
@@ -527,6 +674,7 @@ mod tests {
         Reply {
             status,
             game_header: None,
+            format: None,
             body: body.as_bytes().to_vec(),
         }
     }
@@ -535,8 +683,26 @@ mod tests {
         Reply {
             status: "200 OK",
             game_header: None,
+            format: None,
             body,
         }
+    }
+
+    /// What the store sends for a paid script asked for as pxe1: the blob, labelled.
+    fn encrypted(body: Vec<u8>) -> Reply {
+        Reply {
+            status: "200 OK",
+            game_header: None,
+            format: Some("pxe1"),
+            body,
+        }
+    }
+
+    fn blob() -> Vec<u8> {
+        let mut blob = b"PXE1".to_vec();
+        blob.extend_from_slice(&[7u8; 12]);
+        blob.extend_from_slice(b"ciphertext and its sixteen byte tag");
+        blob
     }
 
     /// Point the home directory and the store at scratch values for one test.
@@ -677,6 +843,7 @@ mod tests {
         let server = FakeStore::start(vec![Reply {
             status: "200 OK",
             game_header: Some("osrs"),
+            format: None,
             body: b"[]".to_vec(),
         }]);
         let (_g, _h) = scratch("wrong-game", server.port);
@@ -692,6 +859,7 @@ mod tests {
         let server = FakeStore::start(vec![Reply {
             status: "200 OK",
             game_header: Some("rs3"),
+            format: None,
             body: plugins.as_bytes().to_vec(),
         }]);
         let (_g, _h) = scratch("right-game", server.port);
@@ -703,23 +871,97 @@ mod tests {
         assert_eq!(list[0].file_name.as_deref(), Some("gates-of-elidinis.jar"));
     }
 
+    fn files_in(dir: &Path) -> Vec<String> {
+        let mut names: Vec<String> = fs::read_dir(dir)
+            .unwrap()
+            .filter_map(|e| e.ok())
+            .filter_map(|e| e.file_name().into_string().ok())
+            .filter(|f| !f.starts_with('.'))
+            .collect();
+        names.sort();
+        names
+    }
+
     #[tokio::test]
-    async fn installing_writes_the_jar_and_clears_out_the_older_build() {
+    async fn a_paid_script_installs_encrypted_with_its_record_and_older_builds_go() {
+        let server = FakeStore::start(vec![encrypted(blob())]);
+        let (_g, home) = scratch("install", server.port);
+        let dir = crate::plugins::scripts_dir().unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old plaintext").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.1.pxe"), b"old encrypted").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.1.pxe.json"), b"{}").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.jar"), b"plaintext of this very release").unwrap();
+
+        let plugin = gates(server.port, Some("plaintextsha".into()));
+        let written = install_with(&client(), &plugin, true).await.unwrap();
+
+        assert!(written.ends_with("GatesOfElidinis-3.6.2.pxe"));
+        assert_eq!(fs::read(&written).unwrap(), blob());
+        let record: serde_json::Value =
+            serde_json::from_slice(&fs::read(dir.join("GatesOfElidinis-3.6.2.pxe.json")).unwrap()).unwrap();
+        assert_eq!(
+            record,
+            serde_json::json!({"game":"RS3","internalName":"GatesOfElidinis","version":"3.6.2","sha256":"plaintextsha"})
+        );
+        // Two builds of one script put every class on the engine scan path twice.
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.pxe", "GatesOfElidinis-3.6.2.pxe.json"]);
+        assert_eq!(install_state_for(&plugin, true), InstallState::Current);
+        assert_eq!(server.requests(), vec!["GET /jar?format=pxe1 HTTP/1.1"]);
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[test]
+    fn the_format_is_added_to_a_download_url_with_or_without_a_query() {
+        assert_eq!(with_format("https://x/jars/A/1?game=rs3"), "https://x/jars/A/1?game=rs3&format=pxe1");
+        assert_eq!(with_format("https://x/jars/A/1"), "https://x/jars/A/1?format=pxe1");
+    }
+
+    /// An engine from before encrypted scripts would find nothing it can load.
+    #[tokio::test]
+    async fn for_an_engine_that_cannot_read_them_a_paid_script_stays_a_plain_jar() {
         let jar = b"PK\x03\x04 pretend jar".to_vec();
         let server = FakeStore::start(vec![bytes(jar.clone())]);
-        let (_g, home) = scratch("install", server.port);
+        let (_g, home) = scratch("old-engine", server.port);
+        let dir = crate::plugins::scripts_dir().unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe"), b"encrypted").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe.json"), b"{}").unwrap();
 
+        let plugin = gates(server.port, Some(crate::plugins::hex_digest(&jar)));
+        assert_eq!(install_state_for(&plugin, false), InstallState::Outdated);
+        let written = install_with(&client(), &plugin, false).await.unwrap();
+
+        assert_eq!(fs::read(&written).unwrap(), jar);
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.jar"]);
+        assert_eq!(server.requests(), vec!["GET /jar HTTP/1.1"]);
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[tokio::test]
+    async fn a_download_labelled_encrypted_that_is_not_is_not_installed() {
+        let server = FakeStore::start(vec![encrypted(b"PK\x03\x04 a plain jar".to_vec())]);
+        let (_g, home) = scratch("mislabelled", server.port);
+
+        let plugin = gates(server.port, None);
+        let err = install_with(&client(), &plugin, true).await.unwrap_err();
+
+        assert!(err.to_string().contains("did not arrive as an encrypted build"), "{}", err);
+        assert!(files_in(&crate::plugins::scripts_dir().unwrap()).is_empty());
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[tokio::test]
+    async fn a_store_that_sends_a_paid_script_plain_still_gets_it_installed() {
+        let jar = b"PK\x03\x04 pretend jar".to_vec();
+        let server = FakeStore::start(vec![bytes(jar.clone())]);
+        let (_g, home) = scratch("plain-answer", server.port);
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"stale").unwrap();
 
         let plugin = gates(server.port, Some(crate::plugins::hex_digest(&jar)));
-        let written = install(&client(), &plugin).await.unwrap();
+        let written = install_with(&client(), &plugin, true).await.unwrap();
 
-        assert_eq!(fs::read(&written).unwrap(), jar);
         assert!(written.ends_with("GatesOfElidinis-3.6.2.jar"));
-        // Two jars for one script put every class on the engine scan path twice.
-        assert!(!dir.join("GatesOfElidinis-3.6.1.jar").exists());
-        assert!(is_installed(&plugin));
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.jar"]);
         let _ = fs::remove_dir_all(home);
     }
 
@@ -729,10 +971,10 @@ mod tests {
         let (_g, home) = scratch("checksum", server.port);
 
         let plugin = gates(server.port, Some(crate::plugins::hex_digest(b"the real jar")));
-        let err = install(&client(), &plugin).await.unwrap_err();
+        let err = install_with(&client(), &plugin, false).await.unwrap_err();
 
         assert!(err.to_string().contains("Checksum mismatch"), "{}", err);
-        assert!(!is_installed(&plugin));
+        assert_eq!(install_state_for(&plugin, false), InstallState::Missing);
         let _ = fs::remove_dir_all(home);
     }
 
@@ -743,7 +985,7 @@ mod tests {
         let server = FakeStore::start(vec![json("403 Forbidden", r#"{"error":"not_entitled"}"#)]);
         let (_g, _h) = scratch("forbidden", server.port);
 
-        let err = download(&client(), &gates(server.port, None)).await.unwrap_err();
+        let err = download(&client(), &gates(server.port, None), true).await.err().unwrap();
         assert!(err.to_string().contains("do not have access"), "{}", err);
     }
 
@@ -775,6 +1017,8 @@ mod tests {
 
         plugin.file_name = None;
         assert_eq!(jar_name(&plugin), "GatesOfElidinis-3.6.2.jar");
+        assert_eq!(pxe_name(&plugin), "GatesOfElidinis-3.6.2.pxe");
+        assert_eq!(record_name(&pxe_name(&plugin)), "GatesOfElidinis-3.6.2.pxe.json");
     }
 
     #[test]
@@ -782,8 +1026,9 @@ mod tests {
         let mut plugin = gates(0, None);
         plugin.internal_name = "../../evil".into();
         plugin.version = "../1.0".into();
-        let name = jar_name(&plugin);
-        assert!(!name.contains('/') && !name.contains('\\'), "{}", name);
+        for name in [jar_name(&plugin), pxe_name(&plugin)] {
+            assert!(!name.contains('/') && !name.contains('\\'), "{}", name);
+        }
     }
 
     #[test]
@@ -791,13 +1036,15 @@ mod tests {
         let (_g, home) = scratch("prefix", 0);
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("Agility-Course-1.0.0.jar"), b"another script").unwrap();
+        fs::write(dir.join("Agility-Course-1.0.0.pxe"), b"another script").unwrap();
+        fs::write(dir.join("Agility-Course-1.0.0.pxe.json"), b"{}").unwrap();
 
         let mut agility = gates(0, None);
         agility.internal_name = "Agility".into();
         agility.version = "2.0.0".into();
 
-        assert_eq!(install_state(&agility), InstallState::Missing);
-        assert!(stale_jars(&dir, &agility, "").is_empty());
+        assert_eq!(install_state_for(&agility, true), InstallState::Missing);
+        assert!(stale_builds(&dir, &agility, &[]).is_empty());
         let _ = fs::remove_dir_all(home);
     }
 
@@ -807,30 +1054,47 @@ mod tests {
         let dir = crate::plugins::scripts_dir().unwrap();
         let plugin = gates(0, None);
 
-        assert_eq!(install_state(&plugin), InstallState::Missing);
+        assert_eq!(install_state_for(&plugin, true), InstallState::Missing);
 
-        fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old").unwrap();
-        assert_eq!(install_state(&plugin), InstallState::Outdated);
+        fs::write(dir.join("GatesOfElidinis-3.6.1.pxe"), b"old").unwrap();
+        assert_eq!(install_state_for(&plugin, true), InstallState::Outdated);
 
-        fs::write(dir.join("GatesOfElidinis-3.6.2.jar"), b"new").unwrap();
-        assert_eq!(install_state(&plugin), InstallState::Current);
+        // A plain jar of a paid script is replaced for an engine that reads encrypted builds.
+        fs::write(dir.join("GatesOfElidinis-3.6.2.jar"), b"new, plain").unwrap();
+        assert_eq!(install_state_for(&plugin, true), InstallState::Outdated);
+        assert_eq!(install_state_for(&plugin, false), InstallState::Current);
+
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe"), b"new").unwrap();
+        assert_eq!(install_state_for(&plugin, true), InstallState::Outdated, "no record yet");
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe.json"), b"{}").unwrap();
+        assert_eq!(install_state_for(&plugin, true), InstallState::Current);
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[test]
+    fn a_free_scripts_plain_jar_is_current_either_way() {
+        let (_g, home) = scratch("free-plain", 0);
+        let dir = crate::plugins::scripts_dir().unwrap();
+        let mut plugin = gates(0, None);
+        plugin.free = true;
+
+        fs::write(dir.join("GatesOfElidinis-3.6.2.jar"), b"free").unwrap();
+        assert_eq!(install_state_for(&plugin, true), InstallState::Current);
         let _ = fs::remove_dir_all(home);
     }
 
     #[tokio::test]
     async fn installing_clears_out_a_build_saved_under_the_old_unversioned_name() {
-        let jar = b"PK\x03\x04 pretend jar".to_vec();
-        let server = FakeStore::start(vec![bytes(jar.clone())]);
+        let server = FakeStore::start(vec![encrypted(blob())]);
         let (_g, home) = scratch("legacy-name", server.port);
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("gates-of-elidinis.jar"), b"from an older launcher").unwrap();
 
-        let mut plugin = gates(server.port, Some(crate::plugins::hex_digest(&jar)));
+        let mut plugin = gates(server.port, None);
         plugin.file_name = Some("gates-of-elidinis.jar".into());
-        install(&client(), &plugin).await.unwrap();
+        install_with(&client(), &plugin, true).await.unwrap();
 
-        assert!(!dir.join("gates-of-elidinis.jar").exists());
-        assert!(dir.join("GatesOfElidinis-3.6.2.jar").exists());
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.pxe", "GatesOfElidinis-3.6.2.pxe.json"]);
         let _ = fs::remove_dir_all(home);
     }
 
@@ -851,60 +1115,90 @@ mod tests {
         let _ = fs::remove_dir_all(home);
     }
 
+    fn owned_gates_store(port: u16, sha: &str, download: Reply) -> Vec<Reply> {
+        let catalogue = format!(
+            r#"[{{"internalName":"GatesOfElidinis","name":"Gates of Elidinis","version":"3.6.2",
+                "paid":true,"sha256":"{sha}","downloadUrl":"http://127.0.0.1:{port}/jar?game=rs3"}}]"#
+        );
+        vec![
+            Reply { status: "200 OK", game_header: Some("rs3"), format: None, body: catalogue.into_bytes() },
+            json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
+            download,
+        ]
+    }
+
     #[tokio::test]
     async fn an_owned_script_that_is_out_of_date_is_brought_up_to_date() {
-        let jar = b"PK\x03\x04 version 3.6.2".to_vec();
-        let sha = crate::plugins::hex_digest(&jar);
-        let server = FakeStore::start_with(|port| {
-            let catalogue = format!(
-                r#"[{{"internalName":"GatesOfElidinis","name":"Gates of Elidinis","version":"3.6.2",
-                    "paid":true,"sha256":"{sha}","downloadUrl":"http://127.0.0.1:{port}/jar"}}]"#
-            );
-            vec![
-                Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.into_bytes() },
-                json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
-                bytes(jar.clone()),
-            ]
-        });
+        let server = FakeStore::start_with(|port| owned_gates_store(port, "sha", encrypted(blob())));
         let (_g, home) = scratch("auto-update", server.port);
         write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old build").unwrap();
 
-        let moved = sync_owned(&client()).await.unwrap();
+        let moved = sync_owned_with(&client(), true).await.unwrap();
 
         assert_eq!(moved.len(), 1);
         assert_eq!(moved[0].1.as_ref().unwrap(), "Updated Gates of Elidinis 3.6.2");
-        assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.jar")).unwrap(), jar);
-        assert!(!dir.join("GatesOfElidinis-3.6.1.jar").exists());
+        assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.pxe")).unwrap(), blob());
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.pxe", "GatesOfElidinis-3.6.2.pxe.json"]);
+        assert_eq!(server.requests()[2], "GET /jar?game=rs3&format=pxe1 HTTP/1.1");
         let _ = fs::remove_dir_all(home);
     }
 
     /// Buying a script is enough: it arrives without the player pressing Install.
     #[tokio::test]
     async fn a_bought_script_that_was_never_installed_is_installed() {
-        let jar = b"PK\x03\x04 version 3.6.2".to_vec();
-        let sha = crate::plugins::hex_digest(&jar);
-        let server = FakeStore::start_with(|port| {
-            let catalogue = format!(
-                r#"[{{"internalName":"GatesOfElidinis","name":"Gates of Elidinis","version":"3.6.2",
-                    "paid":true,"sha256":"{sha}","downloadUrl":"http://127.0.0.1:{port}/jar"}}]"#
-            );
-            vec![
-                Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.into_bytes() },
-                json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
-                bytes(jar.clone()),
-            ]
-        });
+        let server = FakeStore::start_with(|port| owned_gates_store(port, "sha", encrypted(blob())));
         let (_g, home) = scratch("bought", server.port);
         write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
 
-        let moved = sync_owned(&client()).await.unwrap();
+        let moved = sync_owned_with(&client(), true).await.unwrap();
 
         assert_eq!(moved.len(), 1);
         assert_eq!(moved[0].1.as_ref().unwrap(), "Installed Gates of Elidinis 3.6.2");
         let dir = crate::plugins::scripts_dir().unwrap();
-        assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.jar")).unwrap(), jar);
+        assert_eq!(fs::read(dir.join("GatesOfElidinis-3.6.2.pxe")).unwrap(), blob());
+        let _ = fs::remove_dir_all(home);
+    }
+
+    #[tokio::test]
+    async fn an_engine_that_cannot_read_encrypted_scripts_is_synced_plain_jars() {
+        let jar = b"PK\x03\x04 version 3.6.2".to_vec();
+        let sha = crate::plugins::hex_digest(&jar);
+        let server = FakeStore::start_with(|port| owned_gates_store(port, &sha, bytes(jar.clone())));
+        let (_g, home) = scratch("old-engine-sync", server.port);
+        write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
+        let dir = crate::plugins::scripts_dir().unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe"), b"encrypted").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe.json"), b"{}").unwrap();
+
+        let moved = sync_owned_with(&client(), false).await.unwrap();
+
+        assert_eq!(moved[0].1.as_ref().unwrap(), "Updated Gates of Elidinis 3.6.2");
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.jar"]);
+        assert_eq!(server.requests()[2], "GET /jar?game=rs3 HTTP/1.1");
+        let _ = fs::remove_dir_all(home);
+    }
+
+    /// An older launcher writes the plain jar back beside the encrypted build; it would load twice.
+    #[tokio::test]
+    async fn a_plaintext_jar_beside_the_current_encrypted_build_is_removed_without_a_download() {
+        let catalogue = r#"[{"internalName":"GatesOfElidinis","version":"3.6.2","paid":true}]"#;
+        let server = FakeStore::start(vec![
+            Reply { status: "200 OK", game_header: Some("rs3"), format: None, body: catalogue.as_bytes().to_vec() },
+            json("200 OK", r#"{"entitlements":[{"internalName":"GatesOfElidinis","trial":false}]}"#),
+        ]);
+        let (_g, home) = scratch("leftover-plain", server.port);
+        write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
+        let dir = crate::plugins::scripts_dir().unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe"), blob()).unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.pxe.json"), b"{}").unwrap();
+        fs::write(dir.join("GatesOfElidinis-3.6.2.jar"), b"plaintext").unwrap();
+
+        assert!(sync_owned_with(&client(), true).await.unwrap().is_empty());
+
+        assert_eq!(files_in(&dir), vec!["GatesOfElidinis-3.6.2.pxe", "GatesOfElidinis-3.6.2.pxe.json"]);
+        assert_eq!(server.requests().len(), 2);
         let _ = fs::remove_dir_all(home);
     }
 
@@ -913,13 +1207,13 @@ mod tests {
     async fn a_claimed_free_community_script_is_listed_but_never_downloaded() {
         let catalogue = r#"[{"internalName":"HarvestHollow","version":"bundled","paid":false,"free":true,"requiresSubscription":true,"prices":{"week":0,"fortnight":0,"month":0},"storeUrl":"https://xclient.dev/rs3/store/harvest-hollow"}]"#;
         let server = FakeStore::start(vec![
-            Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.as_bytes().to_vec() },
+            Reply { status: "200 OK", game_header: Some("rs3"), format: None, body: catalogue.as_bytes().to_vec() },
             json("200 OK", r#"{"entitlements":[{"internalName":"HarvestHollow","expiresAt":"2099-01-01T00:00:00Z","trial":false}]}"#),
         ]);
         let (_g, home) = scratch("claimed-free", server.port);
         write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
 
-        assert!(sync_owned(&client()).await.unwrap().is_empty());
+        assert!(sync_owned_with(&client(), true).await.unwrap().is_empty());
         let _ = fs::remove_dir_all(home);
     }
 
@@ -934,6 +1228,7 @@ mod tests {
         let server = FakeStore::start(vec![Reply {
             status: "200 OK",
             game_header: Some("rs3"),
+            format: None,
             body: listing.as_bytes().to_vec(),
         }]);
         let (_g, home) = scratch("on-store", server.port);
@@ -951,14 +1246,14 @@ mod tests {
     async fn a_script_that_is_not_owned_is_not_installed() {
         let catalogue = r#"[{"internalName":"GatesOfElidinis","version":"3.6.2","paid":true}]"#;
         let server = FakeStore::start(vec![
-            Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.as_bytes().to_vec() },
+            Reply { status: "200 OK", game_header: Some("rs3"), format: None, body: catalogue.as_bytes().to_vec() },
             json("200 OK", r#"{"entitlements":[]}"#),
         ]);
         let (_g, home) = scratch("not-owned", server.port);
         write_token(&StoredToken { token: "tok".into(), name: None, store: None }).unwrap();
 
-        assert!(sync_owned(&client()).await.unwrap().is_empty());
-        assert_eq!(install_state(&gates(server.port, None)), InstallState::Missing);
+        assert!(sync_owned_with(&client(), true).await.unwrap().is_empty());
+        assert_eq!(install_state_for(&gates(server.port, None), true), InstallState::Missing);
         let _ = fs::remove_dir_all(home);
     }
 
@@ -968,7 +1263,7 @@ mod tests {
     async fn a_script_no_longer_owned_is_not_updated() {
         let catalogue = r#"[{"internalName":"GatesOfElidinis","version":"3.6.2","paid":true}]"#;
         let server = FakeStore::start(vec![
-            Reply { status: "200 OK", game_header: Some("rs3"), body: catalogue.as_bytes().to_vec() },
+            Reply { status: "200 OK", game_header: Some("rs3"), format: None, body: catalogue.as_bytes().to_vec() },
             json("200 OK", r#"{"entitlements":[]}"#),
         ]);
         let (_g, home) = scratch("lapsed", server.port);
@@ -976,7 +1271,7 @@ mod tests {
         let dir = crate::plugins::scripts_dir().unwrap();
         fs::write(dir.join("GatesOfElidinis-3.6.1.jar"), b"old build").unwrap();
 
-        assert!(sync_owned(&client()).await.unwrap().is_empty());
+        assert!(sync_owned_with(&client(), true).await.unwrap().is_empty());
         assert!(dir.join("GatesOfElidinis-3.6.1.jar").exists());
         let _ = fs::remove_dir_all(home);
     }
@@ -985,7 +1280,7 @@ mod tests {
     async fn signed_out_there_is_nothing_to_update() {
         let server = FakeStore::start(vec![]);
         let (_g, home) = scratch("signed-out", server.port);
-        assert!(sync_owned(&client()).await.unwrap().is_empty());
+        assert!(sync_owned_with(&client(), true).await.unwrap().is_empty());
         let _ = fs::remove_dir_all(home);
     }
 }

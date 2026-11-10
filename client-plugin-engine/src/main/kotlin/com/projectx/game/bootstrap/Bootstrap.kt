@@ -141,6 +141,7 @@ object Bootstrap {
         runCatching { TileMarkerStore.stopFlusher() }
         runCatching { OverlayHost.dispose() }
         runCatching { RunReports.close() }
+        runCatching { Entitlements.stop() }
         runCatching { ScriptExecutor.stopAll() }
         runCatching { ScriptExecutor.stopInternalTasks() }
         runCatching { Instances.release() }
