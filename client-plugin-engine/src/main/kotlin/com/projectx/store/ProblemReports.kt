@@ -19,8 +19,9 @@ import java.util.zip.GZIPOutputStream
 
 /**
  * Sends one script's log from the last day, and its settings, to the Project X team through the site's problem
- * reports, which DM the admins and the script's author on Discord. Bank PINs, passwords and tokens are masked before
- * anything leaves the machine. Blocking: call it off the game and render threads.
+ * reports, which DM the admins and the script's author on Discord. A report marked [own] is about the sender's own
+ * local script, so the site files it on their developer page instead. Bank PINs, passwords and tokens are masked
+ * before anything leaves the machine. Blocking: call it off the game and render threads.
  */
 internal object ProblemReports {
     const val HOURS = 24L
@@ -42,7 +43,7 @@ internal object ProblemReports {
         data class Failed(val message: String) : Outcome
     }
 
-    fun send(meta: ScriptMetadata, note: String): Outcome {
+    fun send(meta: ScriptMetadata, note: String, own: Boolean = false): Outcome {
         val token = Entitlements.token()
             ?: return Outcome.Failed("Sign in with Discord in the launcher's Store tab first, so we know who sent it.")
         val bundle = runCatching { bundle(meta) }.getOrNull()
@@ -52,6 +53,7 @@ internal object ProblemReports {
             addProperty("scriptName", meta.name)
             addProperty("scriptVersion", meta.version)
             addProperty("clientVersion", "RS3 engine ${BuildInfo.VERSION}")
+            addProperty("local", own)
             settings(meta)?.let { addProperty("settings", it) }
             if (bundle != null) {
                 addProperty("log", bundle.text.takeLast(INLINE_MAX))

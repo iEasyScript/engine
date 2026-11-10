@@ -15,6 +15,7 @@ import androidx.compose.ui.unit.dp
 import com.projectx.script.ScriptMetadata
 import com.projectx.store.ProblemReports
 import com.projectx.store.ProblemReports.Outcome
+import com.projectx.ui.ScriptLibrary
 import com.projectx.ui.compose.OverlayText
 import com.projectx.ui.compose.components.ActionButton
 import com.projectx.ui.compose.components.ButtonTone
@@ -26,7 +27,7 @@ import kotlin.concurrent.thread
 
 private const val NOTE_MAX = 2000
 
-/** Sends this script's log from the last day and its settings to the Project X team. */
+/** Sends this script's log from the last day and its settings to the Project X team, or to the player's own developer page for a script only they have. */
 @Composable
 fun SendLogs(meta: ScriptMetadata, onClose: () -> Unit) {
     val type = LocalType.current
@@ -34,13 +35,20 @@ fun SendLogs(meta: ScriptMetadata, onClose: () -> Unit) {
     val note = remember(meta) { OverlayText({ draft.value }, { draft.value = it }, NOTE_MAX, multiline = true) }
     var sending by remember(meta) { mutableStateOf(false) }
     var outcome by remember(meta) { mutableStateOf<Outcome?>(null) }
+    val own = remember(meta) { ScriptLibrary.isOwnScript(meta) }
 
     Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
         BasicText("SEND LOGS", style = type.eyebrow)
         BasicText(
-            "Sends ${meta.name}'s log from the last ${ProblemReports.HOURS} hours and its settings to the Project X team, " +
-                "so we can see what went wrong and fix it. Bank PINs, passwords and tokens are hidden before anything " +
-                "leaves your computer.",
+            if (own) {
+                "${meta.name} is your own local script, so its log from the last ${ProblemReports.HOURS} hours and its " +
+                    "settings go to your Developers page on xclient.dev, where only you can read them. Bank PINs, " +
+                    "passwords and tokens are hidden before anything leaves your computer."
+            } else {
+                "Sends ${meta.name}'s log from the last ${ProblemReports.HOURS} hours and its settings to the Project X team, " +
+                    "so we can see what went wrong and fix it. Bank PINs, passwords and tokens are hidden before anything " +
+                    "leaves your computer."
+            },
             style = type.body,
             modifier = Modifier.fillMaxWidth(0.94f),
         )
@@ -59,7 +67,7 @@ fun SendLogs(meta: ScriptMetadata, onClose: () -> Unit) {
                         outcome = null
                         val text = note.text
                         thread(isDaemon = true, name = "projectx-send-logs") {
-                            outcome = ProblemReports.send(meta, text)
+                            outcome = ProblemReports.send(meta, text, own)
                             sending = false
                         }
                     }
@@ -70,7 +78,11 @@ fun SendLogs(meta: ScriptMetadata, onClose: () -> Unit) {
             ActionButton(if (sent) "Done" else "Cancel", onClose, height = 36.dp)
         }
         when (val result = outcome) {
-            is Outcome.Sent -> Hint("Sent, thank you. We'll look into it and message you on Discord.", color = Palette.running)
+            is Outcome.Sent -> Hint(
+                if (own) "Sent. It's on your Developers page under Problem reports, and Discord has the link."
+                else "Sent, thank you. We'll look into it and message you on Discord.",
+                color = Palette.running,
+            )
             is Outcome.Failed -> Hint(result.message, color = Palette.stop)
             null -> {}
         }

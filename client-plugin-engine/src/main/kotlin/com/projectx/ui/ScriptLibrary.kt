@@ -79,6 +79,9 @@ object ScriptLibrary {
 
     private fun simpleName(className: String) = className.substringAfterLast('.')
 
+    /** A script from the player's own folder that the store does not list: code only they have. */
+    fun isOwnScript(meta: ScriptMetadata): Boolean = sourceOf(meta) == ScriptSource.LOCAL && !isStoreScript(meta)
+
     fun sourceOf(meta: ScriptMetadata): ScriptSource = sources.getOrPut(meta.scriptClass.name) {
         val jar = runCatching { File(meta.scriptClass.protectionDomain.codeSource.location.toURI()).name }.getOrDefault("")
         when {
