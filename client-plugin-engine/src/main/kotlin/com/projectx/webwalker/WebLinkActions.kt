@@ -44,6 +44,10 @@ internal object WebLinkActions {
     /** How far past the approach an object offering the action is looked for when none has the link's id. */
     private const val FALLBACK_REACH = 4
 
+    // A door is the one on the crossing. Once it stands open it no longer offers "Open", and a wider search would
+    // click a closed twin elsewhere in town instead.
+    private const val DOOR_REACH = 1
+
     /** A dial's varbit counts clockwise turns, so its letters are listed in the order clockwise turns bring them up. */
     private class FairyDial(val varbit: Int, val letters: String, val anticlockwise: Int, val clockwise: Int) {
         val position get() = varps.getVarBit(varbit) and 3
@@ -63,7 +67,8 @@ internal object WebLinkActions {
     private const val ACTIVATE_REFUSED = "already have an active version"
 
     suspend fun start(script: Script, link: WebLink): Boolean = when (link.kind) {
-        WebLinkKind.OBJECT, WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, link.searchRadius, link.from, link.to)
+        WebLinkKind.OBJECT -> script.useObject(link.objectId, link.action, link.searchRadius, link.from, link.to)
+        WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, DOOR_REACH, link.from, link.to, DOOR_REACH)
         WebLinkKind.NPC -> useNpc(link)
         WebLinkKind.USE_ON -> useItemOnObject(link)
         WebLinkKind.ITEM -> useCarriedItem(link)
@@ -103,14 +108,21 @@ internal object WebLinkActions {
      * The object nearest the link's approach [from] (the player when none), told apart from its twins by [to]: the
      * search is centred on where the link is taken, so a ladder beside the one the route uses is never climbed.
      */
-    private fun Script.useObject(objectId: Int, action: String, searchRadius: Int, from: WebArea?, to: WebArea?): Boolean {
+    private fun Script.useObject(
+        objectId: Int,
+        action: String,
+        searchRadius: Int,
+        from: WebArea?,
+        to: WebArea?,
+        fallbackReach: Int = FALLBACK_REACH,
+    ): Boolean {
         val me = localPlayer.tile
         val anchor = from ?: WebArea(me.x, me.x, me.y, me.y, me.plane)
         val centre = Tile.of(anchor.centreX, anchor.centreY, anchor.plane)
         val span = max(anchor.maxX - anchor.minX, anchor.maxY - anchor.minY) / 2
         val nearby = getAllObjectsWithinRange(centre, searchRadius + span).filter { it.tile.plane == anchor.plane && it.hasOption(action) }
         val target = pickAnchored(nearby.filter { it.id == objectId || it.visibleTypeId == objectId }, { it.tile }, anchor, to, me)
-            ?: pickAnchored(nearby.filter { areaDistance(anchor, it.tile) <= FALLBACK_REACH }, { it.tile }, anchor, to, me)
+            ?: pickAnchored(nearby.filter { areaDistance(anchor, it.tile) <= fallbackReach }, { it.tile }, anchor, to, me)
         if (target == null) {
             println("[WebWalk] No '$action' object $objectId in range")
             return false
