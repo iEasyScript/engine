@@ -125,6 +125,14 @@ tasks.register<JavaExec>("decodeCheck") {
     if (rawArgs.isNotBlank()) args(rawArgs.split(Regex("\\s+")).filter { it.isNotBlank() })
 }
 
+tasks.register<JavaExec>("navDoors") {
+    mainClass.set("org.projectx.tools.navdoors.MainKt")
+    classpath = sourceSets["main"].runtimeClasspath
+    workingDir = rootProject.projectDir
+    val rawArgs = providers.gradleProperty("args").getOrElse("")
+    if (rawArgs.isNotBlank()) args(rawArgs.split(Regex("\\s+")).filter { it.isNotBlank() })
+}
+
 tasks.register<JavaExec>("cs2") {
     mainClass.set("org.projectx.tools.cs2.MainKt")
     classpath = sourceSets["main"].runtimeClasspath
