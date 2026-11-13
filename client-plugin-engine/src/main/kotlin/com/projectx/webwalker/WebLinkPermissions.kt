@@ -116,6 +116,32 @@ class WebLinkPermissions private constructor(
 
         private class Carried(val where: Where, vararg val names: String)
 
+        /** House teleport tablets by the planner's name for them; Rimmington's flag came first, the rest follow it. */
+        private val HOUSE_TABLETS = mapOf(
+            "Rimmington" to "poh_tablet_rimmingtonteleport",
+            "Taverley" to "poh_tablet_taverleyteleport",
+            "Pollnivneach" to "poh_tablet_pollnivneachteleport",
+            "Rellekka" to "poh_tablet_rellekkateleport",
+            "Brimhaven" to "poh_tablet_brimhaventeleport",
+            "Yanille" to "poh_tablet_yanilleteleport",
+            "Prifddinas" to "poh_tablet_elfcityteleport",
+            "Otot" to "poh_tablet_mazcabteleport",
+            "Menaphos" to "poh_tablet_menaphosteleport",
+            "Anachronia" to "poh_tablet_dinoislandteleport",
+        )
+
+        // A tablet's "Modify" asks how many to turn into another; with only one held that question never comes, and the
+        // route's answer to it would wait for nothing.
+        private const val TABLETS_TO_MODIFY = 2
+
+        // The Nature's sentinel helm teleports while the whole outfit is worn, 20 times a day; the varbit counts the
+        // ones used today.
+        private const val SENTINEL_TELEPORTS_A_DAY = 20
+        private val SENTINEL_OUTFIT = listOf(
+            "trh113_elite_woodcutting_v4_head", "trh113_elite_woodcutting_v4_body", "trh113_elite_woodcutting_v4_legs",
+            "trh113_elite_woodcutting_v4_hands", "trh113_elite_woodcutting_v4_feet",
+        )
+
         // Opaque navpath flags the link set carries, as the upstream requirement profile evaluates them.
         private val CARRIED = mapOf(
             "hasDustyKey" to Carried(Where.BACKPACK, "dusty_key"),
@@ -153,7 +179,6 @@ class WebLinkPermissions private constructor(
             "hasSkullSceptreEquiped" to Carried(Where.WORN, "sos_skull_sceptre"),
             "hasExplorersRing4" to Carried(Where.ANYWHERE, "atlum_ring_elite"),
             "hasMysticalSandSeed" to Carried(Where.BACKPACK, "desert_farm_teleport_permanent"),
-            "hasRimmingtonTablet" to Carried(Where.BACKPACK, "poh_tablet_rimmingtonteleport"),
             "hasMenaphosJournalEquiped" to Carried(Where.WORN, "menaphos_collections_journal"),
             "hasMenaphosJournal" to Carried(Where.BACKPACK, "menaphos_collections_journal"),
             "hasQuiverEquiped" to Carried(Where.WORN, "atelf_quiver_elite"),
@@ -163,7 +188,16 @@ class WebLinkPermissions private constructor(
             "hasEnchantedLyre" to Carried(Where.BACKPACK, "magic_enchanted_strung_lyre_full_charge"),
             // Only the bound necklace has the worn "Max garden portal" options; where they go is varbit_25054/25055.
             "hasGraceOfTheElvesEquiped" to Carried(Where.WORN, "alch_onyx_skill_necklace_used"),
-        )
+            "hasDA4Equiped" to Carried(Where.WORN, "atdes_amulet_elite"),
+            "hasLeelasFavour" to Carried(Where.ANYWHERE, "quest_desert_leela_reward_bracelet"),
+            "hasLeelasFavourEquiped" to Carried(Where.WORN, "quest_desert_leela_reward_bracelet"),
+            "hasJujuTeleportSpiritbag" to Carried(Where.BACKPACK, "ecosystem_teleport_bag"),
+            "hasBigBookOPiracy" to Carried(Where.ANYWHERE, "piratefinale_teleport"),
+            "hasQuestCape" to Carried(Where.ANYWHERE, "skillcape_qp", "skillcape_qp_hooded", "skillcape_mqc", "skillcape_inverted_qp_hooded"),
+            // The Kharid-et barrier: the planner's row names the signet ring, and the observation and shadow rings are made
+            // from it, so any of the three counts.
+            "hasPontifexRing" to Carried(Where.ANYWHERE, "arch_pontifex_signet_ring", "quest_azzanadra_ring", "quest_senntisten_ring"),
+        ) + HOUSE_TABLETS.mapKeys { "has${it.key}Tablet" }.mapValues { Carried(Where.BACKPACK, it.value) }
 
         /** A teleport whose charges for one destination sit in their own varbit, usable while that is above zero. */
         private class Charged(val varbit: String, val item: String)
@@ -202,6 +236,18 @@ class WebLinkPermissions private constructor(
             },
             // The planner's old Trollheim row clicks the Standard book itself: no swap, not the action bar.
             "TrollHeimBool" to { _, _ -> SpellTeleports.check(TeleportSpell.TROLLHEIM).plan?.let { !it.needsSwap && !it.fromBar } == true },
+            // Without the hard Wilderness achievements the obelisk sends you to a random obelisk, not the chosen one.
+            "hasPortableObelisk" to { backpack, _ -> carriesNamed(backpack, "wildy_events_rewards_portable_obelisk") && varbitNamed("atwild_reward_hard") > 0 },
+            "hasNaturesSentinelTeleport" to { _, worn ->
+                varbitNamed("trh113_elite_woodcutting_daily_teleports") < SENTINEL_TELEPORTS_A_DAY && SENTINEL_OUTFIT.all { carriesNamed(worn, it) }
+            },
+            "hasSpiritTreeReRooter" to { backpack, worn -> spiritTreeRerooterUsable(backpack, worn) },
+            "hasDramenStaff" to { _, _ -> DramenStaff.carried() },
+            "hasScepterOfTheGods" to { backpack, _ ->
+                val sceptre = idNamed(Gameval.OBJ, "hlr4m_sceptre")
+                backpack.any { it.id == sceptre && (it.varDomain?.getVarBit(SCEPTRE_CHARGES_VARBIT) ?: 0) > 0 }
+            },
+            "hasMasterFarmerHabitat" to { _, _ -> MasterFarmerHat.habitatUsable() },
             "hasMiningCampAccess" to { backpack, worn ->
                 val keyRing = carriesNamed(backpack, "favour_key_ring") || carriesNamed(worn, "favour_key_ring") ||
                     varbitNamed("toolbelt_keyring") > 0
@@ -212,6 +258,32 @@ class WebLinkPermissions private constructor(
 
         private const val METAL_KEY_ON_RING = 1 shl 2
 
+        // The sceptre's charges, in its own item var.
+        private const val SCEPTRE_CHARGES_VARBIT = 30214
+
+        private val TABLET_MODIFY: Map<String, (List<Item>, List<Item>) -> Boolean> = HOUSE_TABLETS.entries.associate { (place, tablet) ->
+            "has${place}TabletModify" to { backpack: List<Item>, _: List<Item> -> amountNamed(backpack, tablet) >= TABLETS_TO_MODIFY }
+        }
+
+        /** An active re-rooter carried or worn, or an inactive one in the backpack to activate first. */
+        internal fun spiritTreeRerooterUsable(backpack: List<Item>, worn: List<Item>): Boolean {
+            val (active, inactive) = rerooterIds.get() ?: return false
+            if (backpack.any { it.id == active } || worn.any { it.id == active }) {
+                activeRerooterOutOfReach = false
+                return true
+            }
+            return !activeRerooterOutOfReach && backpack.any { it.id == inactive }
+        }
+
+        /** An Activate was refused with no active re-rooter carried: the active one is banked or elsewhere. */
+        @Volatile
+        internal var activeRerooterOutOfReach = false
+
+        /** The active and the inactive Spirit tree re-rooter. */
+        internal val rerooterIds = FeatureIds("WebLinkPermissions") {
+            Gameval.requireId(Gameval.OBJ, "invent_spirit_tree") to Gameval.requireId(Gameval.OBJ, "invent_spirit_tree_inactive")
+        }
+
         private const val QUEST = "quest"
 
         // Quests the planner's rows need completed, by journal name, or by gameval name where the name is shared
@@ -221,12 +293,25 @@ class WebLinkPermissions private constructor(
             "questHeartsOfSanguine" to { CacheQuests.completed("Hearts of Sanguine") },
             "questAShadowOverAshdale" to { idNamed(QUEST, "ash1")?.let(CacheQuests::completed) == true },
             "StolenHeartsQuestCompleted" to { idNamed(QUEST, "ozan1")?.let(CacheQuests::completed) == true },
+            // The row is labelled completed and asks for at least 1; read as the quest being done, the safe side.
+            "questDODCoinRealm" to { CacheQuests.completed("Dimension of Disaster: Coin of the Realm") },
         )
 
-        internal val questFlags: Set<String> get() = QUESTS.keys
+        // Quests the planner's rows gate on by how far along they are, as the raw value of the quest's progress var.
+        private val QUEST_PROGRESS = mapOf(
+            "questUndergroundPass" to "Underground Pass",
+            "TreeGnomeVillageProgress" to "Tree Gnome Village",
+            "MonksFriendQuestProgress" to "Monk's Friend",
+        )
 
-        /** 1 when the quest behind [key] is completed, 0 when not, null when [key] is not a quest flag. */
-        internal fun questFlag(key: String): Int? = QUESTS[key]?.let { if (it()) 1 else 0 }
+        internal val questFlags: Set<String> get() = QUESTS.keys + QUEST_PROGRESS.keys
+
+        /**
+         * 1 when the quest behind [key] is completed and 0 when not, or its progress for a progress key; null when [key]
+         * is not a quest flag.
+         */
+        internal fun questFlag(key: String): Int? =
+            QUESTS[key]?.let { if (it()) 1 else 0 } ?: QUEST_PROGRESS[key]?.let(CacheQuests::progress)
 
         /** Ways through, not teleports: sent whether or not the route may teleport. */
         internal val passageFlags = setOf("hasDustyKey", "hasRope", "hasWaterFallKey", "TrollHeimBool", "hasMiningCampAccess")
@@ -235,8 +320,9 @@ class WebLinkPermissions private constructor(
         internal val menuFlags = setOf(
             "hasMaxCape", "hasSlayerCape", "hasDungCape", "hasWS1inInv", "hasAttunedSeed", "hasSkullSceptre", "hasDM", "hasDA4",
             "hasGamesNeck", "hasCombatBracelet", "hasRingOfDuelling", "hasSkillsNecklace", "hasEnchantedLyre", "hasArchaeologyTeleport",
-            "hasArcJournal", "hasMenaphosJournal", "hasQuiver", "daveSpellbookWatchTower",
-        ) + CHARGED.keys.filterNot { it.startsWith("menaphosJournal") }
+            "hasArcJournal", "hasMenaphosJournal", "hasQuiver", "daveSpellbookWatchTower", "hasQuestCape", "hasLeelasFavour",
+            "hasBigBookOPiracy", "hasSpiritTreeReRooter", "hasMasterFarmerHabitat", "hasScepterOfTheGods",
+        ) + CHARGED.keys.filterNot { it.startsWith("menaphosJournal") } + TABLET_MODIFY.keys
 
         private val namedIds = ConcurrentHashMap<String, Int>()
 
@@ -252,8 +338,13 @@ class WebLinkPermissions private constructor(
             return items.any { it.id == id }
         }
 
+        private fun amountNamed(items: List<Item>, name: String): Int {
+            val id = idNamed(Gameval.OBJ, name) ?: return 0
+            return items.filter { it.id == id }.sumOf { it.amount }
+        }
+
         private fun chargedValue(key: String, backpack: List<Item>, worn: List<Item>): Int? {
-            COMPUTED[key]?.let { return if (it(backpack, worn)) 1 else 0 }
+            (COMPUTED[key] ?: TABLET_MODIFY[key])?.let { return if (it(backpack, worn)) 1 else 0 }
             val charged = CHARGED[key] ?: return null
             val carried = carriesNamed(backpack, charged.item) || carriesNamed(worn, charged.item)
             return if (carried && varbitNamed(charged.varbit) > 0) 1 else 0
@@ -280,7 +371,7 @@ class WebLinkPermissions private constructor(
         internal fun skillLevel(key: String): Int? = runCatching { SKILLS[key]?.let(::getRealLevel) }.getOrNull()
 
         /** Every opaque item flag this engine can evaluate. */
-        internal val itemFlags: Set<String> get() = CARRIED.keys + BY_NAME.keys + BY_NAME_PREFIX.keys + CHARGED.keys + COMPUTED.keys
+        internal val itemFlags: Set<String> get() = CARRIED.keys + BY_NAME.keys + BY_NAME_PREFIX.keys + CHARGED.keys + COMPUTED.keys + TABLET_MODIFY.keys
 
         /** The value of an opaque item flag for what is carried, or null when it is not one. */
         internal fun itemFlag(key: String, backpack: List<Item>, worn: List<Item>): Int? =

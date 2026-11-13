@@ -16,6 +16,18 @@ internal object CacheQuests {
 
     fun sameName(a: String, b: String): Boolean = key(a) == key(b)
 
+    /**
+     * The raw value of the quest's own progress var, as the route planner's rows compare it: started at its
+     * started value, done at its completed value. 0 for a quest with no progress var or none of that name.
+     */
+    fun progress(name: String): Int {
+        val quest = Cache.quests.firstOrNull { q -> q.name?.let { sameName(it, name) } == true && hasProgress(q) } ?: return 0
+        quest.varpProgress?.firstOrNull()?.let { return varps.getVar(it.varId) }
+        return quest.varbitProgress?.firstOrNull()?.let { varps.getVarBit(it.varId) } ?: 0
+    }
+
+    private fun hasProgress(quest: QuestType): Boolean = !quest.varpProgress.isNullOrEmpty() || !quest.varbitProgress.isNullOrEmpty()
+
     private fun completed(quest: QuestType): Boolean {
         val progress = quest.varpProgress.orEmpty().map { varps.getVar(it.varId) >= it.completedValue } +
             quest.varbitProgress.orEmpty().map { varps.getVarBit(it.varId) >= it.completedValue }

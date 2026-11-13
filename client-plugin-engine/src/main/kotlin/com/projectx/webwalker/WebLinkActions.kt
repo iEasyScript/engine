@@ -71,9 +71,9 @@ internal object WebLinkActions {
         WebLinkKind.DOOR -> script.useObject(link.objectId, link.action, DOOR_REACH, link.from, link.to, DOOR_REACH)
         WebLinkKind.NPC -> useNpc(link)
         WebLinkKind.USE_ON -> useItemOnObject(link)
-        WebLinkKind.ITEM -> useCarriedItem(link)
+        WebLinkKind.ITEM -> script.useCarriedItem(link)
         WebLinkKind.INTERFACE -> true
-        WebLinkKind.POA -> useCarriedItem(link) && script.pickMenu(link)
+        WebLinkKind.POA -> script.useCarriedItem(link) && script.pickMenu(link)
         WebLinkKind.LODESTONE -> script.teleportToLodestone(link)
         WebLinkKind.FAIRY_RING -> script.dialFairyRing(link)
         WebLinkKind.SPELL -> link.spell?.let { SpellTeleports.cast(script, it) { script.stopped } == CastResult.STARTED } == true
@@ -144,7 +144,7 @@ internal object WebLinkActions {
     }
 
     private fun useItemOnObject(link: WebLink): Boolean {
-        val item = carried(inventory.toList(), link.target ?: return false) ?: run {
+        val item = carried(inventory.toList(), link.target ?: return false, null) ?: run {
             println("[WebWalk] ${link.target} is not in the backpack for $link")
             return false
         }
@@ -160,11 +160,19 @@ internal object WebLinkActions {
         return item.useOn(target)
     }
 
-    /** The backpack copy first: a worn item's options do nothing unless the worn equipment tab happens to be open. */
-    private fun useCarriedItem(link: WebLink): Boolean {
+    /**
+     * The backpack copy first: a worn item's options do nothing unless the worn equipment tab happens to be open. The
+     * Spirit tree re-rooter is activated first when only an inactive one is carried.
+     */
+    private suspend fun Script.useCarriedItem(link: WebLink): Boolean {
         val wanted = link.target ?: return false
-        carried(inventory.toList(), wanted)?.let { return it.click(link.action) }
-        val worn = carried(equipment.toList(), wanted)
+        WebLinkPermissions.rerooterIds.get()?.let { (active, inactive) ->
+            if (wanted.id == active && carried(inventory.toList(), wanted, link.action) == null && carried(equipment.toList(), wanted, link.action) == null) {
+                return useActivated(active, inactive, link.action, "Spirit tree re-rooter", WebLinkPermissions::activeRerooterOutOfReach::set)
+            }
+        }
+        carried(inventory.toList(), wanted, link.action)?.let { return it.click(link.action) }
+        val worn = carried(equipment.toList(), wanted, link.action)
         if (worn == null) {
             println("[WebWalk] $wanted is not carried for $link")
             return false
@@ -247,36 +255,42 @@ internal object WebLinkActions {
                 interfaces.getComponentRaw(FAIRY_RING_INTERFACE, FAIRY_RING_TELEPORT)?.visible == true
             )
 
-    /**
-     * Opens the ring's dial from the portable fairy ring: the backpack copy first, then the worn one. With only an
-     * inactive ring, it is activated first; the game refuses that while an active one exists anywhere, the bank
-     * included, and after that refusal routes leave the portable ring out.
-     */
+    /** Opens the ring's dial from the portable fairy ring. */
     private suspend fun Script.openPortableRing(): Boolean {
         val (active, inactive) = WebLinkPermissions.portableRingIds.get() ?: return false
-        inventory.firstOrNull { it.id == active }?.let { return it.click(PORTABLE_RING_OPTION) }
+        if (WebLinkPermissions.activeRingOutOfReach && inventory.none { it.id == active } && equipment.none { it.id == active }) return false
+        return useActivated(active, inactive, PORTABLE_RING_OPTION, "portable fairy ring", WebLinkPermissions::activeRingOutOfReach::set)
+    }
+
+    /**
+     * Uses a device that must be activated before it works, such as the portable fairy ring or the Spirit tree
+     * re-rooter: the active one in the backpack first, then the worn one, else an inactive one is activated and then
+     * used. The game refuses an activation while an active one exists anywhere, the bank included; after that
+     * refusal [outOfReach] is set, so routes leave the device out until an active one is carried again.
+     */
+    private suspend fun Script.useActivated(active: Int, inactive: Int, option: String, what: String, outOfReach: (Boolean) -> Unit): Boolean {
+        inventory.firstOrNull { it.id == active }?.let { return it.click(option) }
         equipment.firstOrNull { it.id == active }?.let { worn ->
             if (!interfaces.isOpen(WORN_EQUIPMENT_INTERFACE)) {
-                println("[WebWalk] The portable fairy ring is worn and the equipment tab is closed")
+                println("[WebWalk] The $what is worn and the equipment tab is closed")
                 return false
             }
-            return worn.click(PORTABLE_RING_OPTION)
+            return worn.click(option)
         }
-        if (WebLinkPermissions.activeRingOutOfReach) return false
         val spare = inventory.firstOrNull { it.id == inactive } ?: return false
         val clickedAt = System.currentTimeMillis()
         if (!spare.click(ACTIVATE_OPTION)) return false
         delayUntil(PROMPT_TIMEOUT_MS) { inventory.any { it.id == active } || RecentChat.containsSince(ACTIVATE_REFUSED, clickedAt) }
-        val ring = inventory.firstOrNull { it.id == active }
-        if (ring == null) {
+        val device = inventory.firstOrNull { it.id == active }
+        if (device == null) {
             if (RecentChat.containsSince(ACTIVATE_REFUSED, clickedAt)) {
-                println("[WebWalk] The active portable fairy ring is out of reach; routes leave it out")
-                WebLinkPermissions.activeRingOutOfReach = true
+                println("[WebWalk] The active $what is out of reach; routes leave it out")
+                outOfReach(true)
             }
             return false
         }
         delay(400, 150)
-        return ring.click(PORTABLE_RING_OPTION)
+        return device.click(option)
     }
 
     /** Chebyshev steps from [area] to [tile]; [Int.MAX_VALUE] on another plane. */
@@ -305,6 +319,18 @@ internal object WebLinkActions {
         )
     }
 
-    private fun carried(items: List<Item>, target: WebTarget): Item? =
-        items.firstOrNull { item -> target.matches(item.id, runCatching { item.name }.getOrNull()) }
+    /**
+     * The carried item [target] names; with [option], one that offers it first, so that when several items share a
+     * name, as a Slayer helmet and the Slayer cape do, the one the route means is clicked.
+     */
+    private fun carried(items: List<Item>, target: WebTarget, option: String?): Item? {
+        val matching = items.filter { item -> target.matches(item.id, runCatching { item.name }.getOrNull()) }
+        if (option == null) return matching.firstOrNull()
+        return matching.firstOrNull { offers(it, option) } ?: matching.firstOrNull()
+    }
+
+    private fun offers(item: Item, option: String): Boolean = runCatching {
+        val def = item.getDef()
+        def.getInvOpIdForName(option) >= 0 || def.getEquipOpIdForName(option) >= 0
+    }.getOrDefault(false)
 }

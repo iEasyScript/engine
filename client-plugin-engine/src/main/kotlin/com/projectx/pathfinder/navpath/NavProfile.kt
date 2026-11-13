@@ -1,5 +1,7 @@
 package com.projectx.pathfinder.navpath
 
+import com.projectx.game.bootstrap.GameThread
+import com.projectx.game.cs2.CS2Executor
 import com.projectx.game.magic.SpellTeleports
 import com.projectx.script.api.TeleportSpell
 import com.projectx.script.api.abilityCooldownTicks
@@ -12,6 +14,8 @@ import com.projectx.script.api.localPlayer
 import com.projectx.script.api.varps
 import com.projectx.store.Entitlements
 import com.projectx.util.FeatureIds
+import com.projectx.webwalker.AbyssPassage
+import com.projectx.webwalker.DramenStaff
 import com.projectx.webwalker.WebLink
 import com.projectx.webwalker.WebLinkPermissions
 import com.projectx.webwalker.WebLinks
@@ -42,10 +46,10 @@ internal object NavProfile {
     private val BASE_VARBITS = setOf(
         55818, 10236, 9482, 10848, 10826, 48161, 48108, 9928, 30678, 13876, 13267, 33059, 9022, 13178, 52651, 4291,
         11413, 11269, 13349, 11498, 11428, 22270, 47236, 47184, 47185, 14041, 9663, 9987, 16231, 9547, 23198, 25043, 33889,
-        44292, 25054, 25055, 64, 66, 68, 45329, 10479, 25045,
+        44292, 25054, 25055, 64, 66, 68, 45329, 10479, 25045, 15749, 15750, 52158,
     )
 
-    private val BASE_VARPS = setOf(2535, 2326, 2102, 2696, 2265, 2675, 2661, 2171, 2762, 2671)
+    private val BASE_VARPS = setOf(2535, 2326, 2102, 2696, 2265, 2675, 2661, 2171, 2762, 2671, 2262, 2551, 2618, 1297)
 
     // The gnome glider map and the Land of Snow portal list are menus, which a hit closes.
     private val MENU_VARBITS = setOf(36215)
@@ -55,6 +59,13 @@ internal object NavProfile {
     // a menu, which a hit closes.
     private const val SPIRIT_TREE_ACCESS = "spiritTreeAccess"
     private const val TREE_GNOME_VILLAGE_VARP = 2661
+
+    // The planner's staff copies of the fairy ring rows.
+    private const val FAIRY_RING_STAFF_ACCESS = "fairyRingStaffAccess"
+
+    // The game works the Temple Trekking level out in a client script that takes no arguments.
+    private const val TEMPLE_TREKKING_LEVEL = "TempleTrekkingLevel"
+    private const val TEMPLE_TREKKING_SCRIPT = 6034
 
     private const val SURGE_AGILITY = 5
     private const val DIVE_AGILITY = 30
@@ -103,6 +114,8 @@ internal object NavProfile {
         requirements["xmasEvent"] = 1
         for (key in WebLinkPermissions.questFlags) WebLinkPermissions.questFlag(key)?.let { requirements[key] = it }
         if (!inCombat) requirements[SPIRIT_TREE_ACCESS] = varp(TREE_GNOME_VILLAGE_VARP)
+        requirements[FAIRY_RING_STAFF_ACCESS] = flag(DramenStaff.ringStaffAccess(teleports && useItems))
+        templeTrekkingLevel()?.let { requirements[TEMPLE_TREKKING_LEVEL] = it }
         val castable = if (teleports) SpellTeleports.checkAll().mapValues { it.value.usable } else emptyMap()
         requirements += spellKeys(castable, withoutSpells)
         for (key in WebLinkPermissions.passageFlags) WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
@@ -112,6 +125,7 @@ internal object NavProfile {
                 WebLinkPermissions.itemFlag(key, backpack, worn)?.let { requirements[key] = it }
             }
             if (!inCombat) requirements["hasPortableFairyRing"] = flag(WebLinkPermissions.portableRingUsable(backpack, worn))
+            if (!inCombat) requirements += AbyssPassage.keys(backpack, worn)
         }
         if (teleports && known != null) {
             requirements["hasQuickTele"] = flag(varbit(known.getValue("charges")) > 0 && varbit(known.getValue("byDefault")) > 0)
@@ -140,6 +154,12 @@ internal object NavProfile {
     /** One key per teleport spell: 1 when it can be cast now and has not been set aside, else 0. */
     fun spellKeys(castable: Map<TeleportSpell, Boolean>, setAside: Set<TeleportSpell>): List<Pair<String, Int>> =
         TeleportSpell.entries.map { spellKey(it) to flag(castable[it] == true && it !in setAside) }
+
+    /** The Temple Trekking level, from the game's own script; null off the game thread, where it may not run. */
+    private fun templeTrekkingLevel(): Int? {
+        if (!GameThread.isCurrent()) return null
+        return runCatching { CS2Executor.executeScriptForResultSync(TEMPLE_TREKKING_SCRIPT, emptyList())?.int }.getOrNull()
+    }
 
     /** The game's in-combat flag, which outlasts a fight by a few seconds. */
     fun inCombat(): Boolean = ids.get()?.get("inCombat")?.let { varbit(it) > 0 } == true

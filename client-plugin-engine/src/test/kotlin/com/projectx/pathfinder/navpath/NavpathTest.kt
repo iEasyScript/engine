@@ -71,6 +71,26 @@ class NavpathTest {
     }
 
     @Test
+    fun `a later step of the parent's own kind stays in the chain`() {
+        val route = NavResultsParser.parse(fixture("ifslot-ifslot-chain.json"))
+        val first = assertIs<NavStep.IFSlot>(route.steps[1])
+        assertEquals(1145, first.interfaceId)
+        val next = assertIs<NavStep.IFSlot>(first.chain.single())
+        assertEquals(1188, next.interfaceId)
+        assertEquals(8, next.component)
+    }
+
+    @Test
+    fun `requirement ids come from the metadata and every row, as ids or as text`() {
+        val action = JsonParser.parseString(
+            """{"type":"object","metadata":{"requirements":[74],"db_row":{"requirements":"74;379"},
+              "steps":[{"kind":"object","db_row":{"requirements":"12, 13"}},{"kind":"ifslot","db_row":{"requirements":null}}]}}""",
+        ).asJsonObject
+        assertEquals(listOf(74, 379, 12, 13), NavResultsParser.requirementIds(action))
+        assertEquals(emptyList(), NavResultsParser.requirementIds(JsonParser.parseString("""{"type":"move"}""").asJsonObject))
+    }
+
+    @Test
     fun `fairy rings keep the ring object or the portable flag`() {
         val route = NavResultsParser.parse(fixture("fairy-rings.json"))
         val portable = assertIs<NavStep.FairyRing>(route.steps[0])

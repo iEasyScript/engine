@@ -55,11 +55,13 @@ internal object NavResultsParser {
             else -> throw NavParseException("the route answer is neither an object nor an array")
         }
         val steps = ArrayList<NavStep>(actions.size())
+        val requirements = ArrayList<List<Int>>(actions.size())
         var enteredByTeleport = false
         actions.forEachIndexed { index, element ->
             val action = element.takeIf { it.isJsonObject }?.asJsonObject ?: throw NavParseException("action $index is not an object")
             if (index == 0 && str(obj(action, "metadata"), "reason") == "start_coordinate_not_found") enteredByTeleport = true
             steps += step(index, action)
+            requirements += requirementIds(action)
         }
         return NavRoute(
             found = envelope?.get("found")?.takeIf { it.isJsonPrimitive }?.asBoolean ?: true,
@@ -68,6 +70,7 @@ internal object NavResultsParser {
             durationMs = int(envelope, "duration_ms"),
             steps = steps,
             enteredByTeleport = enteredByTeleport,
+            requirements = requirements,
         )
     }
 
@@ -329,13 +332,39 @@ internal object NavResultsParser {
     }
 
     /** The `metadata.steps` after the action's own kind, each read as a step from its database row. */
+    /**
+     * The planner's requirement ids behind an action: its metadata's (the whole macro chain's) plus those its row and
+     * each chained row list, which the planner sends as ids or as text such as "74;379".
+     */
+    fun requirementIds(action: JsonObject): List<Int> {
+        val meta = obj(action, "metadata") ?: return emptyList()
+        val ids = LinkedHashSet<Int>()
+        addIds(ids, meta.get("requirements"))
+        obj(meta, "db_row")?.let { addIds(ids, it.get("requirements")) }
+        meta.getAsJsonArrayOrNull("steps")?.forEach { step ->
+            step.takeIf { it.isJsonObject }?.asJsonObject?.let { obj(it, "db_row") }?.let { addIds(ids, it.get("requirements")) }
+        }
+        return ids.toList()
+    }
+
+    private fun addIds(into: MutableSet<Int>, value: JsonElement?) {
+        when {
+            value == null || value.isJsonNull -> Unit
+            value.isJsonArray -> value.asJsonArray.forEach { addIds(into, it) }
+            value.isJsonPrimitive && value.asJsonPrimitive.isNumber -> into += value.asInt
+            value.isJsonPrimitive -> value.asString.split(Regex("[;,\\s]+")).mapNotNullTo(into) { it.toIntOrNull() }
+        }
+    }
+
     private fun stepsChain(meta: JsonObject?, exclude: Set<String>): List<NavStep> {
         val steps = meta?.getAsJsonArrayOrNull("steps") ?: return emptyList()
         val out = ArrayList<NavStep>()
         steps.forEachIndexed { i, element ->
             val step = element.takeIf { it.isJsonObject }?.asJsonObject ?: return@forEachIndexed
             val kind = (str(step, "kind") ?: str(step, "type"))?.lowercase() ?: return@forEachIndexed
-            if (kind in exclude) return@forEachIndexed
+            // The first step is the parent itself; a later one of the same kind is a real step of the chain, as when a
+            // house tablet's Modify ends by breaking the new tablet.
+            if (i == 0 && kind in exclude) return@forEachIndexed
             val synthetic = JsonObject()
             synthetic.addProperty("type", kind)
             val childMeta = JsonObject()

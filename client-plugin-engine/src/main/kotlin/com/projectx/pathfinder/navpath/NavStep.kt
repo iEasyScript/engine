@@ -168,6 +168,8 @@ internal data class NavRoute(
     val durationMs: Int?,
     val steps: List<NavStep>,
     val enteredByTeleport: Boolean,
+    /** The planner's requirement ids behind each step, by index: what its rows and its macro chain list. */
+    val requirements: List<List<Int>> = emptyList(),
 )
 
 /** A parsed `/route_area` answer: [goalReached] is the area tile the route ends on, absent when none was found. */

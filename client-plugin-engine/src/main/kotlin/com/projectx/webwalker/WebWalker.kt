@@ -215,8 +215,14 @@ object WebWalker {
     /** Walks until the player stands in [goal]; the route aims at whichever of its tiles is cheapest to reach. */
     internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean): WebWalkResult = walk(script, goal, useLodestones) { false }
 
-    /** As [walk], ending early with [WebWalkStatus.STOPPED] once [stop] holds, as a traversal's finished condition. */
-    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean, stop: () -> Boolean): WebWalkResult {
+    /**
+     * As [walk], ending early with [WebWalkStatus.STOPPED] once [stop] holds, as a traversal's finished condition. Puts
+     * back what a Dramen staff replaced on the way, once the walk is over.
+     */
+    internal suspend fun walk(script: Script, goal: WalkGoal, useLodestones: Boolean, stop: () -> Boolean): WebWalkResult =
+        walkRoute(script, goal, useLodestones, stop).also { if (DramenStaff.restorePending) DramenStaff.restore(script) }
+
+    private suspend fun walkRoute(script: Script, goal: WalkGoal, useLodestones: Boolean, stop: () -> Boolean): WebWalkResult {
         if (goal is WalkGoal.Tiles && goal.isEmpty) return WebWalkResult(WebWalkStatus.NO_PATH, "The area holds no tiles")
         val setAside = HashSet<WebLink>()
         if (!useItemTeleports) setAside += WebLinks.globals.filter { it.kind == WebLinkKind.ITEM || it.kind == WebLinkKind.POA || it.portable }
@@ -586,6 +592,11 @@ object WebWalker {
         } else {
             null
         }
+        if (DramenStaff.requiredFor(link) && !DramenStaff.worn() && !DramenStaff.wield(script)) {
+            println("[WebWalk] $link needs a Dramen or Lunar staff wielded, and none could be")
+            return false
+        }
+        val spiritbags = JujuSpiritbag.before(link)
         val startedAt = System.currentTimeMillis()
         val takeoff = localPlayer.tile
         if (!WebLinkActions.start(script, link)) return false
@@ -623,6 +634,7 @@ object WebWalker {
             } else {
                 script.delayUntil(STALL_GRACE_MS * if (link.isGlobal) 4 else 1) { !localPlayer.isMoving && !localPlayer.isAnimating }
             }
+            JujuSpiritbag.afterTeleport(script, spiritbags)
         }
         return arrived
     }

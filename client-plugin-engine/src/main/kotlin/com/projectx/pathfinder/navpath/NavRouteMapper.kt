@@ -1,6 +1,7 @@
 package com.projectx.pathfinder.navpath
 
 import com.projectx.script.api.TeleportSpell
+import com.projectx.webwalker.DramenStaff
 import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
 import com.projectx.webwalker.WebLink
@@ -76,15 +77,15 @@ internal object NavRouteMapper {
         if (!route.found) return Mapped.Refused("the planner found no route")
         if (route.enteredByTeleport) return Mapped.Refused("the start is off the planner's graph")
         val builder = Builder(start)
-        for (step in route.steps) {
-            val refused = add(builder, step)
+        route.steps.forEachIndexed { index, step ->
+            val refused = add(builder, step, route.requirements.getOrNull(index).orEmpty())
             if (refused != null) return Mapped.Refused(refused)
         }
         return Mapped.Route(builder.build())
     }
 
     /** Adds [step]; the reason it cannot be walked, or null. */
-    private fun add(builder: Builder, step: NavStep): String? {
+    private fun add(builder: Builder, step: NavStep, requirements: List<Int>): String? {
         when (step) {
             is NavStep.Move -> builder.walk(step.tile)
             is NavStep.TileExact -> builder.walk(step.tile)
@@ -98,6 +99,7 @@ internal object NavRouteMapper {
             is NavStep.Chained -> {
                 val landing = step.to ?: return "a ${step.type} step with no landing"
                 val link = chained(step, step.from ?: builder.last, landing) ?: return "a ${step.type} step this walker cannot perform"
+                if (DramenStaff.REQUIREMENT_ID in requirements) DramenStaff.requireFor(link)
                 builder.link(step.from, landing, link)
             }
         }
