@@ -8,6 +8,7 @@ import com.projectx.script.api.TeleportSpell
 import com.projectx.webwalker.WalkGoal
 import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
+import com.projectx.webwalker.WebItemStep
 import com.projectx.webwalker.WebLinkKind
 import com.projectx.webwalker.WebPath
 import world.gregs.voidps.type.Tile
@@ -144,6 +145,16 @@ class NavpathTest {
         assertEquals(1, stairsLink.to.plane)
         assertTrue(stairsLink.to.contains(3212, 3201, 1))
         assertEquals(tile(3213, 3202, 1), path.tile(path.lastIndex))
+    }
+
+    @Test
+    fun `a house tablet's Modify chain ends by breaking the new tablet`() {
+        val path = mapped("tablet-modify.json", tile(3222, 3218))
+        val modify = assertNotNull(path.linkAt(path.lastIndex))
+        assertEquals(WebLinkKind.ITEM, modify.kind)
+        assertEquals("Modify", modify.action)
+        assertEquals(18810, modify.target?.id)
+        assertEquals(listOf(WebInterfaceStep(720, 1, -1, 0), WebInterfaceStep(1188, 18, -1, 0), WebItemStep(18809, "Break")), modify.chain)
     }
 
     @Test

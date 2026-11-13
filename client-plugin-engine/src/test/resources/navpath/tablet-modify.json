@@ -1,0 +1,12 @@
+{"found": true, "cost": 5750.0, "actions": [
+  {"type": "item", "from": {"min": [3222, 3218, 0], "max": [3222, 3218, 0]}, "to": {"min": [2951, 3222, 0], "max": [2957, 3228, 0]}, "cost_ms": 5750.0,
+   "node": {"type": "item", "id": 272},
+   "metadata": {"kind": "item", "first_id": 272, "requirements": [360], "steps": [
+     {"kind": "item", "id": 272, "cost_ms": 550.0, "db_row": {"match_type": "id", "item_id": 18810, "action": "Modify",
+       "dest_min_x": 2951, "dest_max_x": 2957, "dest_min_y": 3222, "dest_max_y": 3228, "dest_plane": 0, "next_node_type": "ifslot", "next_node_id": 133, "requirements": "360"}},
+     {"kind": "ifslot", "id": 133, "cost_ms": 550.0, "db_row": {"interface_id": 720, "component_id": 1, "slot_id": -1, "click_id": 0, "next_node_type": "ifslot", "next_node_id": 132}},
+     {"kind": "ifslot", "id": 132, "cost_ms": 550.0, "db_row": {"interface_id": 1188, "component_id": 18, "slot_id": -1, "click_id": 0, "next_node_type": "item", "next_node_id": 253}},
+     {"kind": "item", "id": 253, "cost_ms": 4100.0, "db_row": {"match_type": "id", "item_id": 18809, "action": "Break",
+       "dest_min_x": 2951, "dest_max_x": 2957, "dest_min_y": 3222, "dest_max_y": 3228, "dest_plane": 0}}
+   ]}}
+]}

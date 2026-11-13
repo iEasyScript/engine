@@ -111,6 +111,14 @@ data class WebInterfaceStep(
         "if($interfaceId,$componentId" + (if (slot >= 0) ",$slot" else "") + (if (option != 1) " op$option" else "") + ")"
 }
 
+/**
+ * Using a backpack item partway through a link, as a house tablet's Modify chain ends by breaking the new tablet. Only
+ * the planner's routes build these.
+ */
+internal data class WebItemStep(val itemId: Int, val action: String) : WebStep {
+    override fun toString(): String = "$action item $itemId"
+}
+
 /** Using another scene object partway through a link, as a trapdoor climbed down once it has been picked open. */
 data class WebObjectStep(val objectId: Int, val action: String, val searchRadius: Int) : WebStep {
     override fun toString(): String = "$action $objectId"

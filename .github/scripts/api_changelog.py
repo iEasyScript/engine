@@ -70,6 +70,7 @@ INTERNAL_TYPES = {
     "com.projectx.webwalker.DramenStaff",
     "com.projectx.webwalker.JujuSpiritbag",
     "com.projectx.webwalker.MasterFarmerHat",
+    "com.projectx.webwalker.WebItemStep",
     "com.projectx.webwalker.WalkGoal",
     "com.projectx.webwalker.WebLinkActions",
     "com.projectx.webwalker.WebPathfinder",

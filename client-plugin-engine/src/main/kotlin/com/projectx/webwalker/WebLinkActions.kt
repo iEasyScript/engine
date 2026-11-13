@@ -102,6 +102,16 @@ internal object WebLinkActions {
             if (used) script.delayUntil(OBJECT_STEP_SETTLE_MS) { localPlayer.isAnimating || localPlayer.isMoving }
             used
         }
+        is WebItemStep -> {
+            // The item may only just have appeared, as the tablet a Modify makes.
+            script.delayUntil(PROMPT_TIMEOUT_MS) { inventory.any { it.id == step.itemId } || arrived() }
+            val item = inventory.firstOrNull { it.id == step.itemId }
+            when {
+                arrived() -> true
+                item == null -> false.also { println("[WebWalk] $link expected item ${step.itemId} in the backpack for $step") }
+                else -> item.click(step.action).also { if (it) script.delayUntil(OBJECT_STEP_SETTLE_MS) { localPlayer.isAnimating || arrived() } }
+            }
+        }
     }
 
     /**

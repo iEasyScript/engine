@@ -4,6 +4,7 @@ import com.projectx.script.api.TeleportSpell
 import com.projectx.webwalker.DramenStaff
 import com.projectx.webwalker.WebArea
 import com.projectx.webwalker.WebInterfaceStep
+import com.projectx.webwalker.WebItemStep
 import com.projectx.webwalker.WebLink
 import com.projectx.webwalker.WebLinkKind
 import com.projectx.webwalker.WebLinks
@@ -173,6 +174,7 @@ internal object NavRouteMapper {
         when (step) {
             is NavStep.IFSlot -> if (step.clickId < 0) return null else WebInterfaceStep(step.interfaceId, step.component, step.slot, step.clickId)
             is NavStep.Loc -> WebObjectStep(step.id ?: return null, step.action, (step.searchRadius ?: DEFAULT_SEARCH_RADIUS).coerceIn(1, 64))
+            is NavStep.ItemClick -> WebItemStep(step.id ?: return null, step.option ?: return null)
             else -> return null
         }
     }
