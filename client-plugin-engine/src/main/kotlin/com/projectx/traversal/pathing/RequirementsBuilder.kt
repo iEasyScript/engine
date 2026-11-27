@@ -350,7 +350,9 @@ object RequirementsBuilder {
         varbit("dino_base_camp_tutorial")
         varbit("wildy_events_rewards_enchantment_luck")
         varbit("ics_little_var")
-        add(Req("hasPontifexRing") { flag(it.anywhere("arch_pontifex_signet_ring", "quest_azzanadra_ring", "quest_senntisten_ring")) })
+        add(Req("hasPontifexRing") {
+            flag(it.anywhere("arch_pontifex_signet_ring", "quest_azzanadra_ring", "quest_senntisten_ring") || varbitNamed("toolbelt_pontifex_ring") > 0)
+        })
         val taken = mapTo(HashSet()) { it.key.lowercase() } + gatedKeys()
         for (key in upstreamVarKeys) if (key.lowercase() !in taken && !POA_KEY.matches(key)) add(Req(key) { rawVar(key) })
     }
